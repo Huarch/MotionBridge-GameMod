@@ -1,0 +1,27 @@
+{
+  "format": 1,
+  "description": "Per-skeleton semantic bone catalog. Entries are not global character rules and must be confirmed by runtime C++ capture.",
+  "catalogs": [
+    {
+      "id": "humanoid-penetrator",
+      "asset_hints": ["MeshMaleB_Skeleton", "Mesh_MaleA_Skeleton"],
+      "reference_axes": [
+        {
+          "id": "primary_contact_axis",
+          "origin_bone": "Penis01",
+          "tip_bone": "Penis02",
+          "basis": { "axis": "base_to_tip", "right": "bone_local_x", "forward": "bone_local_z" },
+          "status": "runtime_verification_required"
+        }
+      ]
+    },
+    {
+      "id": "alet-humanoid",
+      "asset_hints": ["Mesh_Alet_Skeleton", "Mesh_Alet_Skeleton_Copy"],
+      "effectors": [
+        { "id": "right_hand", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": { "axis": "bone_local_y", "right": "bone_local_x", "forward": "bone_local_z" }, "status": "runtime_verification_required" },
+        { "id": "left_hand", "position_bone": "L_Hand", "orientation_bone": "L_Hand", "basis": { "axis": "bone_local_y", "right": "bone_local_x", "forward": "bone_local_z" }, "status": "runtime_verification_required" }
+      ]
+    }
+  ]
+}

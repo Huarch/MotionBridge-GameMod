@@ -1,31 +1,15 @@
-# Alet 动画的多轴可用性验证
+# Alet 动画离线证据与运行时边界
 
-样本为 `AletMaleAB_VaginalMouth02_Alet_04nor`，按既有流程从 Pak4 提取、由 UModel 导出 PSA 后分析。
+`AletMaleAB_VaginalMouth02_Alet_04nor` 的 PSA 导出证明骨盆主位移和偏航存在，但不能单独决定现实接触关系或 SR6 各轴。
 
-## 已验证事实
+旧方案曾以动画进度为时钟、以 Alet 骨盆曲线生成 L0/L1/L2/R0。这些数据保留在 `motion-profiles.json`，仅用于回归比较，不再是实时输出来源。
 
-- 它是标准 `AnimSequence`：181 帧、约 6.0 秒、30 FPS。
-- Alet 骨架有 619 根骨骼；动画中 `Master` 根骨保持固定，实际主体运动集中在 `M_Hips`（骨盆）及其子骨骼。
-- `M_Hips` 在循环内的局部平移范围为：约 `5.60 / 0.62 / 0.72` Unreal 单位；最显著的是一个主方向。
-- 骨盆存在约 `9.47°` 的稳定偏航变化；该样本没有可可靠直接映射的 roll / pitch 变化。
-- 配对的 MaleA 正常循环也已验证为 181 帧；其骨盆位移更小（约 `0.74 / 0 / 0.49`），不适合充当主行程来源。
+正式运行时的证据链为：
 
-## 结论
+1. UE4SS C++ 在游戏线程读取已验证的骨骼变换；
+2. profile v2 选择 Reference 起点/终点与 Target；
+3. `FDTCodeCore` 计算轴向深度、局部偏移和相对朝向；
+4. profile 再应用每轴方向与范围；
+5. 桥接器仅显示 UDP v1 模拟结果。
 
-游戏动画可以作为**协调多轴动作**的输入：用播放进度提供稳定时钟，再从 Alet 骨盆的主位移和偏航提取轨迹。
-
-但游戏不会提供六个相互独立的设备控制量。对 SR6，应区分两类轴：
-
-| 轴 | 来源 | 当前判断 |
-|---|---|---|
-| L0 | Alet 骨盆主位移 + 动画进度 | 可直接提取、优先使用 |
-| L1 / L2 | 骨盆次要平移 | 可作为低幅度辅助，需每个姿势校准 |
-| R0 | 骨盆偏航 | 可直接提取、需限制幅度 |
-| R1 / R2 | 当前样本无稳定来源 | 默认保持中位；仅在人工曲线或更多动作样本证明有效后启用 |
-
-因此第一版应支持 OSR2 的 L0，以及 SR6 的 L0/L1/L2/R0；R1/R2 先锁定在安全中位。后续再抽样不同姿势，确认哪些姿势含有足够的俯仰/滚转信号。
-
-## 导出物
-
-- `analysis-assets/exports/Characters/Alet/Anim/HAnim/MaleAB/VaginalMouth02/AletMaleAB_VaginalMouth02_Alet_04nor.psa`
-- `analysis-assets/exports/Characters/MaleB/Anim/AletMaleAB/VaginalMouth02/AletMaleAB_VaginalMouth02_Male_A_04nor.psa`
+因此“某个 PSA 存在骨盆移动”不能自动启用某个姿势。每个姿势仍要验证参与者、接触轴、骨架朝向、循环接缝和待机/过渡行为。

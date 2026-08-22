@@ -459,8 +459,7 @@ RegisterKeyBind(Key.F6, { ModifierKey.CONTROL, ModifierKey.ALT }, function()
     enable_sex_count_trace()
 end)
 
-RegisterKeyBind(Key.F11, function()
-    toggle_playback_stream()
-end)
-
-print(string.format("%s loaded. Ctrl+Alt+F6 traces SexCount; F7 snapshots HScene state; F8 scans; F9 controllers; F10 animation snapshot; F11 toggles log-only playback stream.\n", MOD))
+-- F11 is reserved for the FDTCode C++ mod. The legacy log-only playback
+-- stream remains in this file for forensic comparison but is no longer bound
+-- to a gameplay hotkey or consumed by the bridge.
+print(string.format("%s loaded. Ctrl+Alt+F6 traces SexCount; F7 snapshots HScene state; F8 scans; F9 controllers; F10 animation snapshot. F11 is reserved for FDTCode.\n", MOD))

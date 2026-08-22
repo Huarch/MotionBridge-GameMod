@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "sequence": 1,
+  "monotonicUs": 1000000,
+  "scene": "HScene",
+  "montage": "/Game/Characters/MaleB/Anim/AletMale/Hand02/AletMale_Hand02_Male_A_04_nor",
+  "section": "Loop",
+  "state": "active",
+  "profileId": "hand02-runtime",
+  "binding": { "reference": "participant[1].Penis01->Penis02", "target": "participant[0].R_Hand" },
+  "contact": { "valid": true, "distance": 1.2, "radius": 2.0 },
+  "rawGeometry": { "referenceLength": 18.6, "axialDistance": 3.7, "radialDistance": 1.2, "twistDegrees": 0, "pitchDegrees": 0, "rollDegrees": 0 },
+  "axes": { "L0": 0.8, "L1": 0.5, "L2": 0.5, "R0": 0.5, "R1": 0.5, "R2": 0.5 },
+  "reason": "contact-active"
+}

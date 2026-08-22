@@ -5,6 +5,8 @@ analysis-assets/
 # Build output and IDE state
 build/
 out/
+.deps/
+.toolchain/
 .vs/
 CMakeFiles/
 CMakeCache.txt

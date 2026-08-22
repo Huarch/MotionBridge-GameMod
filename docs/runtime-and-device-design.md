@@ -1,62 +1,47 @@
-# 运行时与设备设计记录
+# Runtime and device design
 
-## 事实与选择
+## Boundaries
 
-游戏资源位于加密的 UE5 Pak 中，但设备同步依赖实时状态：当前角色、当前动画、循环阶段、暂停与场景切换。静态解包无法可靠提供这些状态。
+The game-side C++ Mod owns only discovery, bone sampling, geometric motion
+calculation, a copied UI snapshot, and localhost UDP telemetry. It must perform
+all Unreal access on the game thread. The ImGui render callback and bridge never
+receive a UObject pointer.
 
-因此分层如下：
+The bridge owns diagnostics and future device safety. Its current implementation
+is simulation-only: it imports neither serial libraries nor a TCode sender, and
+reports `deviceOutput: "disabled"` at every endpoint.
 
-1. UE4SS Lua 探针发现真实 Unreal 对象与动画蓝图。
-2. UE4SS 运行时 Mod 读取已确定的动画资产路径和播放进度。
-3. 本机桥接器接收归一化动作状态，并按每段动作的配置生成设备目标。
-4. 设备层只接受已经限位、平滑和速率限制后的 TCode 指令。
+## Runtime read sequence
 
-解包仅在第 2 步确认了动画资产路径之后使用，用于分析某段 PSA 动画或制作人工曲线。无需重打包游戏文件。
+1. Load the C++ DLL and verify hotkeys/UI without object access.
+2. Generate Fallen Doll CXX/UHT headers in the running UE4SS session.
+3. Confirm `GetSocketTransform` parameter properties and use reflection-backed
+   parameter storage; do not hand-write the function's parameter layout.
+4. Sample one transform at 5 Hz, then the Hand02 three-bone set, then increase
+   to the configured cadence.
+5. Only compare an optional transform-array fast path after it agrees with the
+   reflected result for 300 frames. It is never the default path.
 
-## 运行时探针边界
+Any missing object, invalid transform, scene transition, idle Montage, or failed
+function call produces an invalid sample and enters the release state. It never
+reuses a stale UObject pointer.
 
-`fd_tcode_probe` 使用 UE4SS 的 `FindAllOf` 在用户按下热键时枚举：
+## Geometry and safety states
 
-- `AnimInstance`
-- `SkeletalMeshComponent`
-- `Character`
-- `Pawn`
+`FDTCodeCore` calculates canonical axes from a Reference origin/tip and Target
+pose. L0 is depth from origin to tip; L1/L2 are local planar offsets; R0/R1/R2
+are relative orientation. Device direction and limits are profile/device-layer
+settings rather than hidden geometry rules.
 
-它不会遍历每帧对象、不会写游戏属性，也不会发起网络/串口通信。输出仅用于确定下一版 Mod 要读取的 Blueprint 类和成员字段。
+The state machine requires three contact samples, holds a target through a 1.25x
+release radius, requires a 20% improvement sustained for 250 ms before switching,
+and returns to neutral after a 100 ms hold plus 400 ms release. Montage position
+is not used as a synthetic motion phase.
 
-## 设备桥接边界
+## Future device gate
 
-桥接器应监听 `127.0.0.1`，不开放局域网端口；它必须包含：
-
-- 默认禁用设备输出，显式选择串口后才连接；
-- OSR2 模式只允许 `L0`；
-- SR6 模式按每轴独立的最小/最大范围映射；
-- 固定发送频率与每轴速度/加速度上限；
-- 连续状态丢失或游戏暂停时回到设备安全的中性位置；
-- 立即停机热键与串口断开处理。
-
-## TCode 轴约定
-
-AyvaJS 的 SR6 默认定义如下：
-
-| 轴 | 含义 |
-|---|---|
-| `L0` | 主行程（stroke） |
-| `L1` | 前后（surge） |
-| `L2` | 左右（sway） |
-| `R0` | 扭转（twist） |
-| `R1` | roll |
-| `R2` | pitch |
-
-实时命令格式是：`<轴><0000..9999>`，多轴命令以空格相连并以换行结束，例如 `L05000 R05000\n`。
-
-## 下一项运行时验证
-
-进入单一、可重复的动作场景后，执行探针并保存日志。以输出中具体的 `AnimInstance` / `SkeletalMeshComponent` 全路径为依据，确定：
-
-1. 实际的动画 Blueprint 类；
-2. 角色网格组件的拥有者；
-3. 是否使用 Montage、Sequence Player 或自定义状态机；
-4. 能读取的动画名与播放时间字段。
-
-取得这些证据前，不猜测属性名，也不把设备接入游戏。
+Actual OSR2/SR6 output is out of scope until simulation captures have passed
+single-person, multi-person, non-human, speed-change, loop, ESC, bridge timeout,
+and game-exit verification. A future device layer must add explicit arming,
+per-axis calibration and limits, velocity/acceleration limits, an emergency stop,
+and a dead-man timeout. It must not be enabled by changing the current bridge.

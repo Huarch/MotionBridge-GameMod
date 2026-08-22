@@ -1,42 +1,31 @@
 # 姿势参考系规则
 
-本目录的目标是为每条游戏动作定义**谁产生运动、相对谁测量、沿哪个局部轴归一化**。角色名（MaleA、MaleB、Alet 或非人类）不是规则的一部分；它们只在某条动作的参与者绑定中出现。
+本目录为每条动作定义谁构成接触轴、谁是相对运动目标、以及如何把骨骼本地轴映射到统一的 SR6 参考系。角色显示名不是全局规则；它们只出现在某条 profile 的骨架匹配提示中。
 
-## 首个成对候选：`AletMale_Hand02`
+## 当前正式范围
 
-成对导出显示 `Alet.R_Hand` 是主动手：它沿目标接触轴的行程为 `18.63` 游戏单位，左手为 `4.41`。轴以配对目标的 `Penis01 → Penis02` 定义，不使用任一角色的髋骨。采样曲线位于 `data/paired-motion-profiles.json`；在游戏内确认方向、循环衔接前，全部轴均保持禁用。
+`AletMale_Hand01`、`AletMale_Hand02` 与 `AletMale_Hand03` 已迁移至 `data/runtime-profiles-v2.json`。三者均以配对目标的 `Penis01 -> Penis02` 作为 Reference，以主动方 `R_Hand` 作为 Target。它们不再读取动画进度或离线曲线；L0/L1/L2/R0/R1/R2 由当前帧相对几何计算。
 
-## 总则
+此前导出的 `paired-motion-profiles.json` 仍保留为 L0 周期和方向的回归证据。L0 保留此前确认的反向；其余五轴必须经游戏内模拟画面对照后再校准。
 
-1. 运行时只用精确 Montage 匹配到的动作 profile；不得按角色名称或“最近骨骼”猜测。
-2. 每个 profile 都必须具有 `driver`、`anchor`、`axis` 三项，分别表示运动来源、局部参考和主行程方向。
-3. 世界坐标、相机坐标和 Alet 骨盆都不能作为默认参考。
-4. 没有经过配对骨骼验证的 profile 只能显示 `unmapped`，所有虚拟轴保持 `5000`。
-5. 过渡、待机、未知 Montage 不是循环动作；视觉预览与后续设备层均应平滑回中位。
+## 统一规则
 
-## 分类规则
+1. 解析顺序为：会话内 UI 覆盖、精确 Montage/Section profile、已登记骨架候选的自动接触、`unmapped`。
+2. 每条 profile 都有 `roles`、`reference`、`target` 与每轴设置；`reference` 必须有起点与终点骨骼。
+3. 世界坐标、相机坐标和某一个固定角色的髋骨不能作为默认参考系。
+4. 自动选择只在同一 profile 允许的候选内进行，使用三帧获取、1.25 倍释放半径和 20%/250 ms 切换迟滞。
+5. 待机、未知/无接触、过渡和对象失效会平滑回中；不会因为 Montage position 循环而重置 L0。
 
-| 类别 | 动作名线索 | driver | anchor / 轴 | 初始状态 |
-|---|---|---|---|---|
-| hand_guided | `Hand` | Alet 左/右手掌 | 目标的局部主接触轴 | 待导出成对手部曲线 |
-| foot_guided | `Foot` | Alet 左/右脚 | 目标的局部主接触轴 | 待导出成对脚部曲线 |
-| mouth_guided | `Mouth` | Alet 头部/口部代理骨 | 目标的局部主接触轴 | 待导出头部曲线 |
-| penetration | `Vaginal`、`Vagina`、`Anal`、`Anus`、`Arse` | 明确标注的主动参与者根骨/末端 | 明确接触锚点与局部轴 | 待逐姿势标注 |
-| breast_contact | `Breast` | 明确标注 | 明确接触锚点与局部轴 | 待逐姿势标注 |
-| prop_guided | `Dildo` | 道具根骨或控制手 | 被作用者局部主轴 | 需人工标注 |
-| generic_pair | `Sex` | 明确标注 | 明确接触锚点与局部轴 | 需人工标注 |
+## 分类工作队列
 
-## 多人和非人类
+| 类别 | Reference / Target 策略 | 当前状态 |
+|---|---|---|
+| hand_guided | 接触主轴 -> 活动手 | Hand01/02/03 已有运行时 profile |
+| foot_guided | 接触主轴 -> 活动脚 | 需骨架目录与配对验证 |
+| mouth_guided | 接触主轴 -> 头部/口部代理 | 需骨架目录与配对验证 |
+| penetration | 进入物/附肢轴 -> 接触部位 | 每姿势人工标注 |
+| breast_contact | 显式接触轴 -> 接触部位 | 每姿势人工标注 |
+| prop_guided | 道具轴或控制手 -> 被作用部位 | 每姿势人工标注 |
+| generic_pair | 明确的主接触对 | 每姿势人工标注 |
 
-- 每条 profile 只选择一个**主接触对**驱动单一 TCode 轨道；其他参与者只能作为辅助参考。
-- 非人类使用其可验证的根骨、末端骨或道具/附肢根骨；不能从“物种名称”推断局部轴。
-- 运行时需要记录 profile 实际绑定的 `driver → anchor`，例如 `Alet.R_Hand → MaleA.Root`。如果候选不唯一，进入 `unmapped` 而非自动切换。
-
-## 验证标准
-
-一条 profile 只有同时满足以下条件才可启用模拟：
-
-1. 对应参与者 PSA 已导出；
-2. driver 和 anchor 骨骼存在且逐帧可计算；
-3. 局部主轴、正方向和行程范围已人工对照游戏画面；
-4. 循环接缝与过渡段不会使输出跳变。
+多人动作只选一个主接触对驱动一条 SR6 轨道。非人类只能使用 `skeleton-catalog-v1.json` 中已验证的附肢/目标，不从物种名称猜测。触发型短动作在首版仅记录 Montage/Section，不会另行覆盖轴。

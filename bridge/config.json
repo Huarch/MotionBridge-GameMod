@@ -1,7 +1,8 @@
 {
   "listenPort": 17890,
-  "stateTimeoutMs": 1000,
-  "ue4ssLog": "D:\\SteamLibrary\\steamapps\\common\\Operation Lovecraft Fallen Doll Playtest\\Paralogue\\Binaries\\Win64\\ue4ss\\UE4SS.log",
+  "udpPort": 17891,
+  "stateTimeoutMs": 250,
+  "deviceOutput": "disabled",
   "simulation": {
     "L0": { "min": 3000, "max": 7000 },
     "L1": { "min": 4500, "max": 5500 },
