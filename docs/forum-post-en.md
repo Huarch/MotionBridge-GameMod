@@ -7,10 +7,10 @@ the in-game animation speed changes.
 
 Current version: `0.15.0-l0-preview`
 
-Download: [FallenDollTCode-0.15.0-l0-preview.zip](https://files.catbox.moe/d0co6p.zip)
+Download: [FallenDollTCode-0.15.0-l0-preview.zip](https://pixeldrain.com/u/1SFHBq1E)
 
 SHA-256:
-`9FBC601173F5213ECECD9A5D3B65E5E96BA2E15FB5FBAA6DF279519CA33AF175`
+`AF0B3FF9477FD3DCE0571ECA550FF10096CE5ED25AADD954D6597CD1F9FAB7D3`
 
 ## Features
 
@@ -24,11 +24,11 @@ SHA-256:
 
 ## Quick start
 
-1. Install a compatible RE-UE4SS build.
-2. Copy and enable both included mods in the game's `UE4SS/Mods` directory.
-3. Use an F8Studio build containing `Fallen Doll Source` and import the v15 project.
-4. Start the F8Studio graph and the game, enter HAnime, then verify motion in a Viewer.
-5. After checking direction and range, enable either USB or Wi-Fi output—not both.
+1. Close the game and copy the contents of the package's `Game` directory to
+   `Paralogue/Binaries/Win64`. The tested UE4SS runtime is included.
+2. Use an F8Studio build containing `Fallen Doll Source` and import the v15 project.
+3. Start the F8Studio graph and the game, enter HAnime, then verify motion in a Viewer.
+4. After checking direction and range, enable either USB or Wi-Fi output—not both.
 
 F8Studio integration PR:
 [feel8-fun/f8studio#3](https://github.com/feel8-fun/f8studio/pull/3)
@@ -45,4 +45,5 @@ annotation. L1/L2/R0/R1/R2 and VR Viewer support are planned for later versions.
 Keep physical output disabled during first setup. Verify direction, range,
 stream-loss centering, and emergency-stop behavior before connecting a device.
 
-This project does not include game assets, UE4SS, F8Studio binaries, or device drivers.
+This project does not include game assets, F8Studio binaries, or device drivers.
+The bundled UE4SS runtime retains its upstream license.

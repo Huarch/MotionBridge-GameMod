@@ -111,8 +111,8 @@ its own key callback.
   registered by Lua yet.
 - `F8`: export the current runtime-filtered pose list once to
   `runtime/fd-visible-poses.tsv`. It does not start a recorder.
-- The functional contact-bone stream is armed automatically. F9 is not registered.
-  Exact HAnime opens the output gate; idle/exit closes it while low-frequency
+- The functional contact-bone stream is armed automatically. Exact HAnime opens
+  the output gate; idle/exit closes it while low-frequency
   re-entry detection remains active.
 - `F10`: fully reload `fd_tcode_probe` through the separate reload broker.
 

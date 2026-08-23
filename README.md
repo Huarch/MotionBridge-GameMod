@@ -1,12 +1,12 @@
-# Fallen Doll → F8Studio skeleton stream
+# Operation Lovecraft: Fallen Doll → F8Studio skeleton stream
 
-这是 Fallen Doll 的 Lua 实时骨骼采集与 F8Studio 接入工程。当前完成了 L0
+这是 Operation Lovecraft: Fallen Doll 的 Lua 实时骨骼采集与 F8Studio 接入工程。当前完成了 L0
 模拟、可视化，以及经 F8Studio 显式启用的 SR6 USB/Wi-Fi TCode 输出。
 
 ## 当前链路
 
 ```text
-Fallen Doll / UE4SS Lua
+Operation Lovecraft: Fallen Doll / UE4SS Lua
   → 精确 HAnime Montage 白名单
   → 当前 HAnime 功能接触骨集合（目标 20 Hz）
   → ~/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson
@@ -38,7 +38,7 @@ Fallen Doll / UE4SS Lua
 
 - `F6`：开始/停止 HScene 状态监视。
 - `F8`：一次性导出当前可见姿势列表。
-- 功能接触骨流随 Mod 自动待命，不再需要 F9。只有精确识别到 HAnime 时才读取并
+- 功能接触骨流随 Mod 自动待命。只有精确识别到 HAnime 时才读取并
   发送功能骨；退出动作或进入待机后停止骨骼输出，再次进入时自动恢复。
 - `F10`：通过独立 broker 热重载 Lua Mod。
 
