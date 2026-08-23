@@ -68,6 +68,10 @@ UDP In :39540 → Skeleton Decoder → 3D Viz
 TCode Viz 节点自己的 `Open Viewer` 独立窗口，不是骨骼 3D Viewer。当前没有
 Serial Out；游戏未发送有效的双角色骨骼时，预览保持安全中位 `L05000`。
 
+为了让 CLI 可以直接打开骨骼或 OSR Viewer，本地 F8Studio 源码补丁保存在
+`f8studio/f8studio-detached-viewer-cli.patch`；从 `.deps/f8studio` 执行
+`git apply ../../f8studio/f8studio-detached-viewer-cli.patch` 即可恢复。
+
 ## 安全边界
 
 - 不修改或重新打包 Pak。

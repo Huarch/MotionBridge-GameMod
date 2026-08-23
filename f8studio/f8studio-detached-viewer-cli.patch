@@ -1,0 +1,209 @@
+diff --git a/packages/f8pystudio/f8pystudio/automation/cli.py b/packages/f8pystudio/f8pystudio/automation/cli.py
+--- a/packages/f8pystudio/f8pystudio/automation/cli.py
++++ b/packages/f8pystudio/f8pystudio/automation/cli.py
+@@ -25,6 +25,19 @@ def main(argv: list[str] | None = None) -> int:
+     notifications.add_argument("--limit", type=int, default=100)
+     notifications.add_argument("--minimum-severity", default="")
+ 
++    viewer = sub.add_parser("viewer", help="Detached viewer operations.")
++    viewer_sub = viewer.add_subparsers(dest="viewer_command", required=True)
++    viewer_open = viewer_sub.add_parser("open", help="Open a detached viewer window.")
++    viewer_open.add_argument(
++        "--node-id",
++        default="",
++        help="Viewer node ID. May be omitted when the graph contains exactly one detached viewer node.",
++    )
++    viewer_close = viewer_sub.add_parser("close", help="Close a detached viewer window.")
++    viewer_close.add_argument("--node-id", default="", help="Viewer node ID; optional when exactly one exists.")
++    viewer_status = viewer_sub.add_parser("status", help="Read detached viewer state.")
++    viewer_status.add_argument("--node-id", default="", help="Viewer node ID; optional when exactly one exists.")
++
+     project = sub.add_parser("project", help="Project operations.")
+     project_sub = project.add_subparsers(dest="project_command", required=True)
+     project_sub.add_parser("list", help="List saved projects.")
+@@ -62,6 +75,8 @@ def main(argv: list[str] | None = None) -> int:
+     graph_sub.add_parser("diagnostics", help="Print graph diagnostics.")
+     graph_sub.add_parser("catalog", help="Print node catalog.")
+     graph_sub.add_parser("compile", help="Compile current graph.")
++    focus = graph_sub.add_parser("focus", help="Select and center one graph node in Studio.")
++    focus.add_argument("--node-id", required=True)
+     patch = graph_sub.add_parser("patch", help="Preview or apply a graph patch JSON file.")
+     patch.add_argument("--file", required=True)
+     patch.add_argument("--dry-run", action="store_true")
+@@ -139,6 +154,8 @@ def main(argv: list[str] | None = None) -> int:
+             )
+         )
+         return 0
++    if args.command == "viewer":
++        return _handle_viewer(client, args)
+     if args.command == "project":
+         return _handle_project(client, args)
+     if args.command == "graph":
+@@ -193,6 +210,19 @@ def _handle_project(client: AutomationClient, args: argparse.Namespace) -> int:
+     raise ValueError(f"unsupported project command: {args.project_command}")
+ 
+ 
++def _handle_viewer(client: AutomationClient, args: argparse.Namespace) -> int:
++    if args.viewer_command == "open":
++        _print_json(client.call("viewer.open", {"nodeId": str(args.node_id or "")}))
++        return 0
++    if args.viewer_command == "close":
++        _print_json(client.call("viewer.close", {"nodeId": str(args.node_id or "")}))
++        return 0
++    if args.viewer_command == "status":
++        _print_json(client.call("viewer.status", {"nodeId": str(args.node_id or "")}))
++        return 0
++    raise ValueError(f"unsupported viewer command: {args.viewer_command}")
++
++
+ def _handle_graph(client: AutomationClient, args: argparse.Namespace) -> int:
+     if args.graph_command == "snapshot":
+         _print_json(client.call("graph.snapshot"))
+@@ -234,6 +264,9 @@ def _handle_graph(client: AutomationClient, args: argparse.Namespace) -> int:
+     if args.graph_command == "compile":
+         _print_json(client.call("graph.compile"))
+         return 0
++    if args.graph_command == "focus":
++        _print_json(client.call("graph.focusNode", {"nodeId": str(args.node_id or "")}))
++        return 0
+     if args.graph_command == "patch":
+         patch_payload = _read_json_file(args.file)
+         method = "graph.previewPatch" if bool(args.dry_run) else "graph.applyPatch"
+diff --git a/packages/f8pystudio/f8pystudio/automation/gui_host.py b/packages/f8pystudio/f8pystudio/automation/gui_host.py
+--- a/packages/f8pystudio/f8pystudio/automation/gui_host.py
++++ b/packages/f8pystudio/f8pystudio/automation/gui_host.py
+@@ -180,8 +180,16 @@ class StudioAutomationHost(QtCore.QObject):
+     def _dispatch(self, method: str, params: dict[str, Any]) -> dict[str, Any]:
+         if method == "studio.status":
+             return self._status()
++        if method == "viewer.open":
++            return self._viewer_open(params)
++        if method == "viewer.close":
++            return self._viewer_close(params)
++        if method == "viewer.status":
++            return self._viewer_status(params)
+         if method == "graph.snapshot":
+             return {"snapshot": self._graph_adapter.snapshot().to_dict()}
++        if method == "graph.focusNode":
++            return self._graph_focus_node(params)
+         if method == "graph.session":
+             return {"session": self._graph_adapter.session_payload()}
+         if method == "project.list":
+@@ -366,6 +374,65 @@ class StudioAutomationHost(QtCore.QObject):
+             "studioServiceId": str(self._bridge.studio_service_id),
+         }
+ 
++    def _viewer_open(self, params: dict[str, Any]) -> dict[str, Any]:
++        """Open one Studio-owned detached viewer on the Qt thread."""
++        viewer = self._resolve_viewer(params)
++        was_open = viewer.viewer_is_open()
++        is_open = viewer.open_viewer()
++        return self._viewer_result(viewer, already_open=was_open, viewer_open=is_open)
++
++    def _viewer_close(self, params: dict[str, Any]) -> dict[str, Any]:
++        viewer = self._resolve_viewer(params)
++        was_open = viewer.viewer_is_open()
++        is_open = not viewer.close_viewer()
++        return self._viewer_result(viewer, already_open=was_open, viewer_open=is_open)
++
++    def _viewer_status(self, params: dict[str, Any]) -> dict[str, Any]:
++        viewer = self._resolve_viewer(params)
++        return self._viewer_result(viewer, already_open=viewer.viewer_is_open(), viewer_open=viewer.viewer_is_open())
++
++    def _resolve_viewer(self, params: dict[str, Any]) -> Any:
++        from f8pystudio.render_nodes.viz_three_d import VizThreeDRenderNode
++        from f8pystudio_ext_viz_tcode.render_nodes.viz_tcode import VizTCodeRenderNode
++
++        viewer_types = (VizThreeDRenderNode, VizTCodeRenderNode)
++
++        requested_node_id = str(params.get("nodeId") or "").strip()
++        if requested_node_id:
++            node = self._graph.get_node_by_id(requested_node_id)
++            if node is None:
++                raise ValueError(f"unknown nodeId: {requested_node_id}")
++            if not isinstance(node, viewer_types):
++                raise ValueError(f"node is not a supported detached viewer: {requested_node_id}")
++            return node
++
++        candidates = [node for node in list(self._graph.all_nodes() or []) if isinstance(node, viewer_types)]
++        if not candidates:
++            raise ValueError("the current graph contains no supported detached viewer")
++        if len(candidates) != 1:
++            node_ids = sorted(str(node.id) for node in candidates)
++            raise ValueError(f"multiple detached viewers found; specify --node-id from: {', '.join(node_ids)}")
++        return candidates[0]
++
++    @staticmethod
++    def _viewer_result(viewer: Any, *, already_open: bool, viewer_open: bool) -> dict[str, Any]:
++        return {
++            "nodeId": str(viewer.id),
++            "name": str(viewer.name() or ""),
++            "viewerOpen": bool(viewer_open),
++            "alreadyOpen": bool(already_open),
++        }
++
++    def _graph_focus_node(self, params: dict[str, Any]) -> dict[str, Any]:
++        node_id = _required_text(params, "nodeId")
++        if self._graph.get_node_by_id(node_id) is None:
++            raise ValueError(f"unknown nodeId: {node_id}")
++        self._main_window._focus_node_by_id(node_id)
++        self._main_window.show()
++        self._main_window.raise_()
++        self._main_window.activateWindow()
++        return {"nodeId": node_id, "focused": True}
++
+     def _modding_service(self) -> ModdingAutomationService:
+         service = self._modding
+         if service is None:
+diff --git a/packages/f8pystudio/f8pystudio/render_nodes/viz_three_d.py b/packages/f8pystudio/f8pystudio/render_nodes/viz_three_d.py
+--- a/packages/f8pystudio/f8pystudio/render_nodes/viz_three_d.py
++++ b/packages/f8pystudio/f8pystudio/render_nodes/viz_three_d.py
+@@ -569,6 +569,22 @@ class VizThreeDRenderNode(F8StudioOperatorBaseNode):
+         window.setWindowTitle(self._viewer_window_title())
+         window.open_viewer()
+ 
++    def open_viewer(self) -> bool:
++        """Open the detached viewer and report whether it entered the open state."""
++        self._open_viewer()
++        return bool(self._presenter.viewer_open)
++
++    def viewer_is_open(self) -> bool:
++        return bool(self._presenter.viewer_open)
++
++    def close_viewer(self) -> bool:
++        """Close the detached viewer and report whether it entered the closed state."""
++        window = self._viewer_window
++        if window is None:
++            return True
++        window.close()
++        return not bool(self._presenter.viewer_open)
++
+     def _viewer_window_title(self) -> str:
+         try:
+             node_name = str(self.name() or "").strip()
+diff --git a/packages/f8pystudio_ext_viz_tcode/f8pystudio_ext_viz_tcode/render_nodes/viz_tcode.py b/packages/f8pystudio_ext_viz_tcode/f8pystudio_ext_viz_tcode/render_nodes/viz_tcode.py
+--- a/packages/f8pystudio_ext_viz_tcode/f8pystudio_ext_viz_tcode/render_nodes/viz_tcode.py
++++ b/packages/f8pystudio_ext_viz_tcode/f8pystudio_ext_viz_tcode/render_nodes/viz_tcode.py
+@@ -391,6 +391,22 @@ class VizTCodeRenderNode(F8StudioOperatorBaseNode):
+             window.bind_host_parent(host_parent)
+         window.open_viewer()
+ 
++    def open_viewer(self) -> bool:
++        """Open the detached viewer and report whether it entered the open state."""
++        self._open_viewer()
++        return bool(self._presenter.viewer_open)
++
++    def viewer_is_open(self) -> bool:
++        return bool(self._presenter.viewer_open)
++
++    def close_viewer(self) -> bool:
++        """Close the detached viewer and report whether it entered the closed state."""
++        window = self._viewer_window
++        if window is None:
++            return True
++        window.close()
++        return not bool(self._presenter.viewer_open)
++
+     def _on_window_open_state_changed(self, is_open: bool) -> None:
+         if is_open:
+             self._presenter.on_viewer_opened()
