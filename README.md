@@ -12,6 +12,7 @@ Fallen Doll / UE4SS Lua
   → runtime/fd-skeleton.ndjson
   → localhost UDP relay :39540
   → F8Studio Skeleton Decoder / 3D Viz
+  → 相对骨骼 L0 → TCode → SR6 OSR Viewer
 ```
 
 - HAnime 身份识别和 Fallen Doll 特有规则只存在于游戏侧 Lua。
@@ -44,15 +45,28 @@ Lua 不创建游戏内 UI。F8Studio 的 Viewer 是独立桌面窗口。
 
 ## F8Studio 接收
 
-当前基础图在 `f8studio/fallen-doll-skeleton-preview.patch.json`，包含：
+F8Studio 内已保存的正式工程为：
+
+- 名称：`Fallen Doll Skeleton Preview`
+- Project ID：`fc812463-e55a-42c2-9c5f-4f0bd9aeb422`
+- 当前版本：10（第 9 版保留为回退点）
+- 完整导出：`f8studio/fallen-doll-skeleton-preview-v10.json`
+
+基础图在 `f8studio/fallen-doll-skeleton-preview.patch.json`，包含：
 
 ```text
 UDP In :39540 → Skeleton Decoder → 3D Viz
 ```
 
-OSR/TCode Viewer 不是 UDP 骨骼监听器。只有在同一 HAnime 的参考角色和目标
-角色都能稳定发送后，才把通用相对骨骼算子、TCode 编码器和 TCode Viewer
-接入图中；Serial Out 仍保持禁用。
+第 10 版另外包含：
+
+```text
+安全 L0 → TCode Encoder → SR6 OSR Viewer
+```
+
+增量补丁位于 `f8studio/fallen-doll-osr-preview.patch.json`。OSR Viewer 是
+TCode Viz 节点自己的 `Open Viewer` 独立窗口，不是骨骼 3D Viewer。当前没有
+Serial Out；游戏未发送有效的双角色骨骼时，预览保持安全中位 `L05000`。
 
 ## 安全边界
 

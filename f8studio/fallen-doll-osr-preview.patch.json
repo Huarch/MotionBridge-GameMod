@@ -1,0 +1,69 @@
+{
+  "label": "Add simulation-only SR6 TCode viewer",
+  "ops": [
+    {
+      "op": "createNode",
+      "nodeType": "f8.pyengine.f8.tcode",
+      "nodeId": "fd_tcode",
+      "name": "FD TCode Preview Encoder",
+      "pos": [2570, 720]
+    },
+    {
+      "op": "createNode",
+      "nodeType": "f8.pystudio.f8.viz.tcode",
+      "nodeId": "fd_tcode_viz",
+      "name": "FD SR6 OSR Viewer",
+      "pos": [2860, 720]
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_tcode",
+      "field": "svcId",
+      "value": "fd_pyengine"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_tcode",
+      "field": "intervalMs",
+      "value": 20
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_tcode_viz",
+      "field": "model",
+      "value": "SR6"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_tcode_viz",
+      "field": "throttleMs",
+      "value": 20
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_tcode_viz",
+      "field": "upstreamSamplingMode",
+      "value": "auto"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_tcode_viz",
+      "field": "upstreamSampleIntervalMs",
+      "value": 20
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_l0_limit",
+      "fromPort": "value[D]",
+      "toNodeId": "fd_tcode",
+      "toPort": "[D]L0"
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_tcode",
+      "fromPort": "tcode[D]",
+      "toNodeId": "fd_tcode_viz",
+      "toPort": "[D]tcode"
+    }
+  ]
+}
