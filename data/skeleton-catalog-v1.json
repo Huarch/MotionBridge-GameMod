@@ -1,27 +1,139 @@
 {
   "format": 1,
-  "description": "Per-skeleton semantic bone catalog. Entries are not global character rules and must be confirmed by runtime C++ capture.",
+  "description": "Static semantic skeleton catalog derived from Pak4 SkeletalMesh/Skeleton assets and PSKX REFSKELT hierarchies.",
+  "sources": {
+    "pak": "Pak4.pak",
+    "exporter": "umodel_materials_ue5.exe -game=love",
+    "fullHierarchies": [
+      "data/exported-skeletons/Mesh_Alet.json",
+      "data/exported-skeletons/MeshMaleB.json",
+      "data/exported-skeletons/Mesh_Erika.json",
+      "data/exported-skeletons/Mesh_Galatea.json",
+      "data/exported-skeletons/Mesh_Juzi.json",
+      "data/exported-skeletons/Mesh_yanshi.json",
+      "data/exported-skeletons/MeshAnya.json"
+    ]
+  },
   "catalogs": [
     {
-      "id": "humanoid-penetrator",
-      "asset_hints": ["MeshMaleB_Skeleton", "Mesh_MaleA_Skeleton"],
-      "reference_axes": [
+      "id": "male-b-humanoid",
+      "assetPath": "/Paralogue/Content/Characters/MaleB/MeshMaleB",
+      "assetNames": ["MeshMaleB"],
+      "skeletonName": "MeshMaleB_Skeleton",
+      "referenceBoneCount": 353,
+      "referenceAxes": [
         {
           "id": "primary_contact_axis",
-          "origin_bone": "Penis01",
-          "tip_bone": "Penis02",
+          "originBone": "Penis01",
+          "tipBone": "Penis02",
+          "extendedTipBone": "Penis09",
+          "parentChain": ["M_Hips", "M_Gen", "Penis01", "Penis02"],
           "basis": { "axis": "base_to_tip", "right": "bone_local_x", "forward": "bone_local_z" },
-          "status": "runtime_verification_required"
+          "status": "verified_from_export"
         }
-      ]
+      ],
+      "effectors": {
+        "rightHand": "R_Hand",
+        "leftHand": "L_Hand",
+        "rightFoot": "R_Foot",
+        "leftFoot": "L_Foot",
+        "mouthOrigin": "M_Jaw",
+        "tongueOrigin": "M_TongueRoot"
+      }
     },
     {
       "id": "alet-humanoid",
-      "asset_hints": ["Mesh_Alet_Skeleton", "Mesh_Alet_Skeleton_Copy"],
-      "effectors": [
-        { "id": "right_hand", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": { "axis": "bone_local_y", "right": "bone_local_x", "forward": "bone_local_z" }, "status": "runtime_verification_required" },
-        { "id": "left_hand", "position_bone": "L_Hand", "orientation_bone": "L_Hand", "basis": { "axis": "bone_local_y", "right": "bone_local_x", "forward": "bone_local_z" }, "status": "runtime_verification_required" }
-      ]
+      "assetPath": "/Paralogue/Content/Characters/Alet/Body/Meshes/Mesh_Alet",
+      "assetNames": ["Mesh_Alet"],
+      "skeletonName": "Mesh_Alet_Skeleton",
+      "referenceBoneCount": 396,
+      "effectors": {
+        "rightHand": "R_Hand",
+        "leftHand": "L_Hand",
+        "rightFoot": "R_Foot",
+        "leftFoot": "L_Foot",
+        "mouthOrigin": "M_Jaw",
+        "tongueOrigin": "M_TongueRoot",
+        "vaginalOrigin": "M_Gen",
+        "analOrigin": "M_AnusInside"
+      },
+      "verifiedHierarchy": {
+        "R_Hand": "R_Forearm",
+        "L_Hand": "L_Forearm",
+        "M_Gen": "M_Hips",
+        "M_AnusInside": "M_Gen"
+      },
+      "status": "verified_from_export"
+    },
+    {
+      "id": "erika-humanoid",
+      "assetPath": "/Paralogue/Content/Characters/Eirka/Body/Meshes/Mesh_Erika",
+      "assetNames": ["Mesh_Erika"],
+      "skeletonName": "Mesh_Erika_Skeleton",
+      "referenceBoneCount": 461,
+      "effectors": {
+        "rightHand": "R_Hand", "leftHand": "L_Hand",
+        "rightFoot": "R_Foot", "leftFoot": "L_Foot",
+        "mouthOrigin": "M_Jaw", "tongueOrigin": "M_TongueRoot",
+        "vaginalOrigin": "M_Gen", "analOrigin": "M_AnusInside"
+      },
+      "status": "verified_from_export"
+    },
+    {
+      "id": "galatea-humanoid",
+      "assetPath": "/Paralogue/Content/Characters/Galatea/Body/Mesh_Galatea",
+      "assetNames": ["Mesh_Galatea"],
+      "skeletonName": "Mesh_Galatea_Skeleton",
+      "referenceBoneCount": 511,
+      "effectors": {
+        "rightHand": "R_Hand", "leftHand": "L_Hand",
+        "rightFoot": "R_Foot", "leftFoot": "L_Foot",
+        "mouthOrigin": "M_Jaw_master", "tongueOrigin": "M_TongueRoot",
+        "vaginalOrigin": "M_Gen", "analOrigin": "M_Anus_Inside1"
+      },
+      "status": "verified_from_export"
+    },
+    {
+      "id": "juzi-humanoid",
+      "assetPath": "/Paralogue/Content/Characters/Juzhi/Body/Meshes/Mesh_Juzi",
+      "assetNames": ["Mesh_Juzi"],
+      "skeletonName": "Mesh_Juzi_Skeleton",
+      "referenceBoneCount": 573,
+      "effectors": {
+        "rightHand": "R_Hand", "leftHand": "L_Hand",
+        "rightFoot": "R_Foot", "leftFoot": "L_Foot",
+        "mouthOrigin": "Jaw_master", "tongueOrigin": "M_TongueRoot",
+        "vaginalOrigin": "M_Gen", "analOrigin": "M_Anus_Inside"
+      },
+      "status": "verified_from_export"
+    },
+    {
+      "id": "yanshi-humanoid",
+      "assetPath": "/Paralogue/Content/Characters/yanshi/Body/Meshes/Mesh_yanshi",
+      "assetNames": ["Mesh_yanshi"],
+      "skeletonName": "Mesh_yanshi_Skeleton",
+      "referenceBoneCount": 869,
+      "effectors": {
+        "rightHand": "R_Hand", "leftHand": "L_Hand",
+        "rightFoot": "R_Foot", "leftFoot": "L_Foot",
+        "mouthOrigin": "M_Jaw_master", "tongueOrigin": "M_TongueRoot",
+        "vaginalOrigin": "M_Gen", "analOrigin": "M_Anus_Inside1"
+      },
+      "status": "verified_from_export"
+    },
+    {
+      "id": "anya-humanoid",
+      "assetPath": "/Paralogue/Content/Characters/Anya/Body/MeshAnya",
+      "assetNames": ["MeshAnya"],
+      "skeletonName": "MeshAnya_Skeleton",
+      "referenceBoneCount": 852,
+      "effectors": {
+        "rightHand": "R_Hand", "leftHand": "L_Hand",
+        "rightFoot": "R_Foot", "leftFoot": "L_Foot",
+        "mouthOrigin": "M_Jaw", "tongueOrigin": "M_TongueRoot",
+        "vaginalOrigin": "M_Gen", "analOrigin": "M_AnusInside"
+      },
+      "status": "verified_from_export"
     }
   ]
 }

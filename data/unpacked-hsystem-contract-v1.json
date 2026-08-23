@@ -1,0 +1,188 @@
+{
+  "format": 1,
+  "purpose": "Cached static contract for Fallen Doll H-system research before runtime experiments",
+  "generatedAt": "2026-08-23",
+  "source": {
+    "pak4": {
+      "path": "D:/SteamLibrary/steamapps/common/Operation Lovecraft Fallen Doll Playtest/Paralogue/Content/Paks/Pak4.pak",
+      "size": 26199424629,
+      "lastWriteLocal": "2026-04-20T19:38:18+08:00"
+    },
+    "tool": "UE Viewer umodel_materials_ue5.exe -game=love -list/-save",
+    "readOnly": true
+  },
+  "researchRules": [
+    "Consult this contract and unpacked indexes before any game experiment.",
+    "Runtime discovery is limited to dynamic visibility, unlock state, and active instances that static assets cannot determine.",
+    "Do not perform broad per-frame object enumeration.",
+    "If a bounded runtime discovery finds a new class, property, or function relationship, update this contract before the next experiment."
+  ],
+  "assets": {
+    "hManager": {
+      "asset": "/Game/Core/BP/H/HManager",
+      "class": "HManager_C",
+      "savedPath": "UmodelSaved/Paralogue/Content/Core/BP/H/HManager.uasset",
+      "sha256": "cbbf369a5bc6cd49b42a30154d9dc39d8bda5cfdfb11407363546cca708eb741",
+      "relevantFunctions": [
+        "Get SPAnim Index",
+        "GetDatabyCardID",
+        "GetHAnimDataByAnimID",
+        "GetHAnimDataByCardID",
+        "GetHCardByAnimID",
+        "GetHCardByID",
+        "GetMyHsystemCharacters",
+        "GetNecessaryData",
+        "GetSPAnimCount",
+        "GetSPAnimCountByCardID",
+        "PlaySPAnim",
+        "StartPlay",
+        "UpdateCurrentAnimState"
+      ],
+      "relevantPropertiesAndReferences": [
+        "AnimID",
+        "CardID",
+        "CharacterHData",
+        "CurrAnimState",
+        "FemaleNum",
+        "Females",
+        "HDatas",
+        "LocalHDataMap",
+        "LocalHDatas",
+        "MyHsystem",
+        "TempHDataMap"
+      ],
+      "knownRuntimeRelation": "Room_SinglePCMain.PersistentLevel.HManager_C owns an HStateManager_C component",
+      "runtimeEvidence2026-08-23": {
+        "GetSPAnimCountLuaCall": "local out = {}; hmanager:GetSPAnimCount(out); count = out.Num",
+        "roomResult": 1,
+        "countMeaning": "Current SP/session count only; not the full character HAnime catalog size",
+        "LocalHDatas": "Blueprint graph/local symbol; exact live HManager_C property reflection returned no instance property and direct UObject lookup returned UE4SS's invalid TrivialObject sentinel",
+        "GetDatabyCardIDParameters": [
+          "CardId:IntProperty",
+          "Data:StructProperty (out)",
+          "IsDataValid:BoolProperty (out)"
+        ],
+        "GetDatabyCardIDBlueprintLocals": [
+          "CallFunc_Conv_IntToString_ReturnValue",
+          "CallFunc_Conv_StringToName_ReturnValue",
+          "CallFunc_GetDataTableRowFromName_OutRow",
+          "CallFunc_GetDataTableRowFromName_ReturnValue"
+        ],
+        "additionalStaticFunctionEvidence": [
+          "GetHAnimDataByAnimID",
+          "GetHAnimDataByCardID",
+          "GetHCardByAnimID",
+          "GetHCardByID"
+        ],
+        "recognitionCorrection": "A TableHAnim Montage may only cover a short entry segment while the visible HAnime continues through another animation path. Active Montage membership alone is not a complete lifetime gate; current H-system AnimID/state must be validated and used for continuity."
+      }
+    },
+    "hSceneManager": {
+      "asset": "/Game/BP/HSceneManager",
+      "class": "HSceneManager_C",
+      "savedPath": "UmodelSaved/Paralogue/Content/BP/HSceneManager.uasset",
+      "sha256": "a0381426cb185e2903ad18323ceb766ceeded8d48cbf94034a9d8aae8dbb8970",
+      "components": [
+        "AnimManager:HAnimManager_C",
+        "StateManager:HStateManager_C",
+        "CharacterGroupManager:CharacterGroupManager_C",
+        "DataManager:DataManager_C",
+        "UIManager:HSceneUIManager_C"
+      ],
+      "relevantFunctions": [
+        "EventActivateAnimID",
+        "EventSelectPose",
+        "EventSelectPoseState",
+        "LoadCharacters"
+      ],
+      "negativeEvidence": [
+        "The unpacked Blueprint function list contains no GetPoseList function."
+      ]
+    },
+    "hAnimManager": {
+      "asset": "/Game/BP/HAnimManager",
+      "class": "HAnimManager_C",
+      "savedPath": "UmodelSaved/Paralogue/Content/BP/HAnimManager.uasset",
+      "sha256": "5cd25683111ec62597583df305247c2ee8811b1aebda85cc23781f0157419951",
+      "relevantFunctions": [
+        "GetAnimData",
+        "GetCurrentAnimData",
+        "GetCurrentAnimState",
+        "GetIdleAnimData",
+        "PlayAnim",
+        "SetupTargets"
+      ]
+    },
+    "dataHAnim": {
+      "asset": "/Game/Data/DataHAnim",
+      "class": "UserDefinedStruct DataHAnim",
+      "savedPath": "UmodelSaved/Paralogue/Content/Data/DataHAnim.uasset",
+      "sha256": "e0c8859f6c71a711e1c711e2cec68cf52620831e8b754c3a5b27155f5439553a",
+      "keyFields": [
+        "ID",
+        "Name",
+        "Position",
+        "Group",
+        "Type",
+        "AnimType",
+        "AnimState",
+        "RoomID",
+        "FemaleAnimNOR",
+        "FemaleAnimSQ",
+        "FemaleAnimMIN",
+        "FemaleAnimMAX",
+        "TargetAAnimNOR",
+        "TargetAAnimSQ",
+        "TargetAAnimMIN",
+        "TargetAAnimMAX",
+        "TargetBAnimNOR",
+        "TargetBAnimSQ",
+        "TargetBAnimMIN",
+        "TargetBAnimMAX",
+        "TargetCAnimNOR",
+        "TargetCAnimSQ",
+        "TargetCAnimMIN",
+        "TargetCAnimMAX",
+        "SpeedRate",
+        "ItemClass",
+        "ItemClass2",
+        "AttachSocktes",
+        "HitParts"
+      ]
+    },
+    "tableHAnim": {
+      "asset": "/Game/Data/TableHAnim",
+      "class": "DataTable",
+      "savedPath": "UmodelSaved/TableHAnim.uasset",
+      "sha256": "99590d392297023a532a0b93c6c30710506f4e841d85b94c1c99cef7bbc10235",
+      "warning": "The full cooked table contains content that can be filtered out, and direct character asset paths can omit shared or redirected poses. It is not a visible-pose count."
+    }
+  },
+  "runtimeValidationTarget": {
+    "owner": "active HManager_C",
+    "firstRead": "GetSPAnimCount({out table}) for session/SP count only",
+    "catalogCandidates": [
+      "GetDatabyCardID(CardId, Data out, IsDataValid out)",
+      "GetSPAnimCountByCardID"
+    ],
+    "doNotUse": [
+      "HSceneManager:GetPoseList",
+      "LocalHDatas as a reflected HManager_C instance property",
+      "GetSPAnimCount as the full character HAnime catalog size",
+      "Pak animation package counts as UI counts",
+      "TableHAnim direct-import directory counts as UI counts"
+    ],
+    "runtimeHAnimeRecognition": {
+      "positiveEvidence": "Current H-system AnimID/state, cross-checked on entry against exact active Montage membership in the unpacked TableHAnim import index",
+      "allowlist": "data/hanime-identity-v1.json",
+      "hanimeFamilies": 477,
+      "uniqueMontageAssets": 3081,
+      "allowlistConstruction": "TableHAnim defines authoritative HAnime families; the full Pak package list adds exact companion-character and item Montages from those families",
+      "confirmFrames": 3,
+      "emptyMontageHoldFrames": 2,
+      "explicitUnknownMontage": "Not sufficient by itself to release an already confirmed HAnime; release follows validated current H-system state",
+      "idleAndTransitionOutput": "no F8Studio skeleton packets",
+      "f8StudioRules": "none; generic receiver only"
+    }
+  }
+}

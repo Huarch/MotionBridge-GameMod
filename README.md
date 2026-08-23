@@ -1,48 +1,62 @@
-# Fallen Doll TCode — runtime simulator
+# Fallen Doll → F8Studio skeleton stream
 
-This project is a simulation-only TCode Mod for Operation Lovecraft: Fallen Doll.
-It never writes a Pak and currently has no serial, Bluetooth, or real-device output.
+这是 Fallen Doll 的 Lua 实时骨骼采集与 F8Studio 接入工程。当前只做模拟和
+可视化，不发送 TCode 到串口、蓝牙或真实设备。
 
-## Current architecture
+## 当前链路
 
 ```text
-UE4SS C++ game thread -> realtime bone geometry -> normalized SR6 axes
-                         -> UDP v1 (127.0.0.1:17891) -> localhost simulation bridge
+Fallen Doll / UE4SS Lua
+  → 精确 HAnime Montage 白名单
+  → 当前 HAnime 参与者骨骼（20 Hz）
+  → runtime/fd-skeleton.ndjson
+  → localhost UDP relay :39540
+  → F8Studio Skeleton Decoder / 3D Viz
 ```
 
-- `cpp/FDTCodeCore`: independent, tested VaM-style reference/target geometry,
-  candidate hysteresis, release smoothing, and UDP v1 serialization.
-- `cpp/FDTCode`: UE4SS DLL shell with F11 simulation and F12 debug-page toggles.
-  It deliberately performs no skeletal read until Fallen Doll's generated CXX/UHT
-  headers verify the `GetSocketTransform` parameter layout.
-- `bridge/server.mjs`: receives UDP v1 and exposes `http://127.0.0.1:17890/state`.
-  `deviceOutput` is permanently `disabled`.
-- `data/runtime-profiles-v2.json`: geometric Hand01/02/03 profiles. The former
-  offline curve files remain regression evidence only.
+- HAnime 身份识别和 Fallen Doll 特有规则只存在于游戏侧 Lua。
+- 解包数据是运行实验前的权威材料；参见
+  [docs/unpacked-data-first.md](docs/unpacked-data-first.md)。
+- F8Studio 只负责通用骨骼解码、可视化和后续六轴转换。
+- C++ DLL、游戏内 Canvas UI、旧 localhost bridge 和 WinForms 浮层均已移除。
+- 真实设备输出始终保持禁用。
 
-## Validate without the game
+## 工程目录
 
-```powershell
-.\.toolchain\cmake-3.31.6-windows-x86_64\bin\cmake.exe --build build --config Release --target FDTCodeCoreTests
-.\.toolchain\cmake-3.31.6-windows-x86_64\bin\ctest.exe --test-dir build -C Release --output-on-failure
-node .\tools\validate_runtime_profiles.mjs
-node .\bridge\test-server.mjs
+- `fd_tcode_probe/`：游戏侧 Lua Mod。
+- `fd_tcode_reloader/`：安全热重载 broker。
+- `data/`：由解包数据生成的 HAnime、姿势和骨架索引。
+- `tools/`：索引生成、骨架提取和 F8 UDP relay/replay 工具。
+- `f8studio/`：本工程维护的 F8Studio 图补丁。
+- `docs/`：静态数据约束与仍在使用的设计资料。
+- `runtime/`：本机验证输出、日志和截图，不作为源码提交。
+
+第三方 F8Studio 源码位于忽略版本管理的 `.deps/f8studio/`。
+
+## 快捷键
+
+- `F6`：开始/停止 HScene 状态监视。
+- `F8`：一次性导出当前可见姿势列表。
+- `F9`：开始/停止 20 Hz 骨骼流。
+- `F10`：通过独立 broker 热重载 Lua Mod。若 F9 正在运行，先停止 F9。
+
+Lua 不创建游戏内 UI。F8Studio 的 Viewer 是独立桌面窗口。
+
+## F8Studio 接收
+
+当前基础图在 `f8studio/fallen-doll-skeleton-preview.patch.json`，包含：
+
+```text
+UDP In :39540 → Skeleton Decoder → 3D Viz
 ```
 
-## UE4SS DLL prerequisite
+OSR/TCode Viewer 不是 UDP 骨骼监听器。只有在同一 HAnime 的参考角色和目标
+角色都能稳定发送后，才把通用相对骨骼算子、TCode 编码器和 TCode Viewer
+接入图中；Serial Out 仍保持禁用。
 
-The installed game uses UE4SS `3.0.1 Beta`, SHA
-`d7e7826d415b0332b43439a64e6c87f64019be03`. The matching source is present
-under `.deps/RE-UE4SS`, but the upstream C++ SDK requires its private `UEPseudo`
-submodule. After GitHub access is granted, initialize that submodule, configure
-with the bundled CMake, build `FDTCode` in `Game__Shipping__Win64`, and the
-post-build step deploys `main.dll` to the game's `Mods/FDTCode/dlls` directory.
+## 安全边界
 
-Until that access exists, the standalone core and bridge are intentionally the
-only buildable targets.
-
-## Asset workflow
-
-Runtime state comes from UE4SS. Use [解包导出流程.md](D:/zhifu/Desktop/data/mmd/docs/解包导出流程.md)
-only to inspect skeletons, verify bone names/bases, and export targeted paired
-animations; do not rebuild or modify Pak files.
+- 不修改或重新打包 Pak。
+- 待机、表情和过渡 Montage 不发送骨骼包。
+- F8Studio 断开不影响游戏，且不启用设备输出。
+- 验证结束后关闭游戏和 F8Studio。

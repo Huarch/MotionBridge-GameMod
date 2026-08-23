@@ -1,24 +1,18 @@
 # Generated exports and third-party analysis material
 $out/
 analysis-assets/
+UmodelSaved/
 
-# Build output and IDE state
-build/
-out/
+# Local dependencies and tool runtimes
 .deps/
 .toolchain/
+
+# Editor and language caches
 .vs/
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-compile_commands.json
-overlay/bin/
-overlay/obj/
-**/bin/
-**/obj/
 **/__pycache__/
 
 # Local runtime output
 logs/
+runtime/
 *.log
 *.dmp

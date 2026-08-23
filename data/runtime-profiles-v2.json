@@ -9,7 +9,7 @@
       "match": { "montage_asset_key": "AletMale_Hand01", "sections": [] },
       "roles": {
         "driver": { "skeleton_catalog": "alet-humanoid" },
-        "paired_target": { "skeleton_catalog": "humanoid-penetrator" }
+        "paired_target": { "skeleton_catalog": "male-b-humanoid" }
       },
       "reference": {
         "role": "paired_target",
@@ -20,18 +20,18 @@
         "basis": "reference_bone_basis"
       },
       "target": { "role": "driver", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": "catalog_bone_basis" },
-      "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": true, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false } },
+      "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": false, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false }, "input_range": { "L0": [0.08, 0.27] } },
       "selection": { "acquire_frames": 3, "release_frames": 5, "switch_improvement": 0.20, "switch_hold_seconds": 0.25 },
-      "notes": "Migrated from paired offline evidence. L0 direction preserves the previously user-validated inversion; all other axes require visual calibration."
+      "notes": "Runtime capture confirmed that local_x already increases from Penis01 toward Penis02; L0 therefore has no extra inversion. All other axes require visual calibration."
     },
     {
       "id": "hand02-runtime",
       "status": "enabled_for_simulation_validation",
       "match": { "montage_asset_key": "AletMale_Hand02", "sections": [] },
-      "roles": { "driver": { "skeleton_catalog": "alet-humanoid" }, "paired_target": { "skeleton_catalog": "humanoid-penetrator" } },
+      "roles": { "driver": { "skeleton_catalog": "alet-humanoid" }, "paired_target": { "skeleton_catalog": "male-b-humanoid" } },
       "reference": { "role": "paired_target", "origin_bone": "Penis01", "tip_bone": "Penis02", "radius_scale": 0.22, "lateral_range_scale": 0.50, "basis": "reference_bone_basis" },
       "target": { "role": "driver", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": "catalog_bone_basis" },
-      "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": true, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false } },
+      "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": false, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false }, "input_range": { "L0": [0.08, 0.27] } },
       "selection": { "acquire_frames": 3, "release_frames": 5, "switch_improvement": 0.20, "switch_hold_seconds": 0.25 },
       "notes": "Migrated from paired offline evidence. This is the first runtime bone-capture validation target."
     },
@@ -39,10 +39,10 @@
       "id": "hand03-runtime",
       "status": "enabled_for_simulation_validation",
       "match": { "montage_asset_key": "AletMale_Hand03", "sections": [] },
-      "roles": { "driver": { "skeleton_catalog": "alet-humanoid" }, "paired_target": { "skeleton_catalog": "humanoid-penetrator" } },
+      "roles": { "driver": { "skeleton_catalog": "alet-humanoid" }, "paired_target": { "skeleton_catalog": "male-b-humanoid" } },
       "reference": { "role": "paired_target", "origin_bone": "Penis01", "tip_bone": "Penis02", "radius_scale": 0.22, "lateral_range_scale": 0.50, "basis": "reference_bone_basis" },
       "target": { "role": "driver", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": "catalog_bone_basis" },
-      "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": true, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false } },
+      "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": false, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false }, "input_range": { "L0": [0.08, 0.27] } },
       "selection": { "acquire_frames": 3, "release_frames": 5, "switch_improvement": 0.20, "switch_hold_seconds": 0.25 },
       "notes": "Migrated from paired offline evidence."
     }

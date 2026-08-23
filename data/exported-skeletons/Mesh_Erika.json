@@ -1,0 +1,3697 @@
+{
+  "source": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\Characters\\Eirka\\Body\\Meshes\\Mesh_Erika.pskx",
+  "assetPath": "/Paralogue/Content/Characters/Eirka/Body/Meshes/Mesh_Erika",
+  "assetName": "Mesh_Erika",
+  "skeletonName": "Mesh_Erika_Skeleton",
+  "boneCount": 461,
+  "bones": [
+    {
+      "index": 0,
+      "name": "Master",
+      "parentIndex": 0,
+      "childCount": 1,
+      "flags": 0,
+      "parent": null
+    },
+    {
+      "index": 1,
+      "name": "M_Hips",
+      "parentIndex": 0,
+      "childCount": 8,
+      "flags": 0,
+      "parent": "Master"
+    },
+    {
+      "index": 2,
+      "name": "M_Spine1",
+      "parentIndex": 1,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 3,
+      "name": "M_Spine2",
+      "parentIndex": 2,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "M_Spine1"
+    },
+    {
+      "index": 4,
+      "name": "M_Spine3",
+      "parentIndex": 3,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "M_Spine2"
+    },
+    {
+      "index": 5,
+      "name": "M_Spine4",
+      "parentIndex": 4,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "M_Spine3"
+    },
+    {
+      "index": 6,
+      "name": "L_Clavicle",
+      "parentIndex": 5,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "M_Spine4"
+    },
+    {
+      "index": 7,
+      "name": "L_UpperArm",
+      "parentIndex": 6,
+      "childCount": 4,
+      "flags": 0,
+      "parent": "L_Clavicle"
+    },
+    {
+      "index": 8,
+      "name": "L_UpperArm_twistX2",
+      "parentIndex": 7,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm"
+    },
+    {
+      "index": 9,
+      "name": "L_UpperArm_twistX3",
+      "parentIndex": 7,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_UpperArm"
+    },
+    {
+      "index": 10,
+      "name": "L_UpperArm_bicep_ST",
+      "parentIndex": 9,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm_twistX3"
+    },
+    {
+      "index": 11,
+      "name": "L_UpperArm_tricep_ST",
+      "parentIndex": 9,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm_twistX3"
+    },
+    {
+      "index": 12,
+      "name": "L_UpperArm_twistX4",
+      "parentIndex": 7,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_UpperArm"
+    },
+    {
+      "index": 13,
+      "name": "L_UpperArm_inner_ST",
+      "parentIndex": 12,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm_twistX4"
+    },
+    {
+      "index": 14,
+      "name": "L_Forearm",
+      "parentIndex": 7,
+      "childCount": 8,
+      "flags": 0,
+      "parent": "L_UpperArm"
+    },
+    {
+      "index": 15,
+      "name": "L_Forearm_twistX1",
+      "parentIndex": 14,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 16,
+      "name": "L_Forearm_twistX2",
+      "parentIndex": 14,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 17,
+      "name": "L_Forearm_twistX3",
+      "parentIndex": 14,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 18,
+      "name": "L_Forearm_twistX4",
+      "parentIndex": 14,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 19,
+      "name": "L_Wrist_SR",
+      "parentIndex": 14,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 20,
+      "name": "L_Wrist1_ST",
+      "parentIndex": 19,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Wrist_SR"
+    },
+    {
+      "index": 21,
+      "name": "L_Wrist2_ST",
+      "parentIndex": 19,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Wrist_SR"
+    },
+    {
+      "index": 22,
+      "name": "L_Hand",
+      "parentIndex": 14,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 23,
+      "name": "L_Thumb_F01",
+      "parentIndex": 22,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hand"
+    },
+    {
+      "index": 24,
+      "name": "L_Thumb_F02",
+      "parentIndex": 23,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Thumb_F01"
+    },
+    {
+      "index": 25,
+      "name": "L_Thumb_F03",
+      "parentIndex": 24,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Thumb_F02"
+    },
+    {
+      "index": 26,
+      "name": "L_Thumb_F04",
+      "parentIndex": 25,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thumb_F03"
+    },
+    {
+      "index": 27,
+      "name": "L_Thumb_F03_SR",
+      "parentIndex": 25,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Thumb_F03"
+    },
+    {
+      "index": 28,
+      "name": "L_Thumb_F03_ST",
+      "parentIndex": 27,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thumb_F03_SR"
+    },
+    {
+      "index": 29,
+      "name": "L_Thumb_F02_SR",
+      "parentIndex": 24,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Thumb_F02"
+    },
+    {
+      "index": 30,
+      "name": "L_Thumb_F02_ST",
+      "parentIndex": 29,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thumb_F02_SR"
+    },
+    {
+      "index": 31,
+      "name": "L_Pinky_F01",
+      "parentIndex": 22,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hand"
+    },
+    {
+      "index": 32,
+      "name": "L_Pinky_F02",
+      "parentIndex": 31,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Pinky_F01"
+    },
+    {
+      "index": 33,
+      "name": "L_Pinky_F03",
+      "parentIndex": 32,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Pinky_F02"
+    },
+    {
+      "index": 34,
+      "name": "L_Pinky_F04",
+      "parentIndex": 33,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Pinky_F03"
+    },
+    {
+      "index": 35,
+      "name": "L_Pinky_F05",
+      "parentIndex": 34,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Pinky_F04"
+    },
+    {
+      "index": 36,
+      "name": "L_Pinky_F04_SR",
+      "parentIndex": 34,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Pinky_F04"
+    },
+    {
+      "index": 37,
+      "name": "L_Pinky_F04_ST",
+      "parentIndex": 36,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Pinky_F04_SR"
+    },
+    {
+      "index": 38,
+      "name": "L_Pinky_F03_SR",
+      "parentIndex": 33,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Pinky_F03"
+    },
+    {
+      "index": 39,
+      "name": "L_Pinky_F03_ST",
+      "parentIndex": 38,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Pinky_F03_SR"
+    },
+    {
+      "index": 40,
+      "name": "L_Pinky_F02_SR",
+      "parentIndex": 32,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Pinky_F02"
+    },
+    {
+      "index": 41,
+      "name": "L_Pinky_F02_ST",
+      "parentIndex": 40,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Pinky_F02_SR"
+    },
+    {
+      "index": 42,
+      "name": "L_Ring_F01",
+      "parentIndex": 22,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hand"
+    },
+    {
+      "index": 43,
+      "name": "L_Ring_F02",
+      "parentIndex": 42,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Ring_F01"
+    },
+    {
+      "index": 44,
+      "name": "L_Ring_F03",
+      "parentIndex": 43,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Ring_F02"
+    },
+    {
+      "index": 45,
+      "name": "L_Ring_F04",
+      "parentIndex": 44,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Ring_F03"
+    },
+    {
+      "index": 46,
+      "name": "L_Ring_F05",
+      "parentIndex": 45,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Ring_F04"
+    },
+    {
+      "index": 47,
+      "name": "L_Ring_F04_SR",
+      "parentIndex": 45,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Ring_F04"
+    },
+    {
+      "index": 48,
+      "name": "L_Ring_F04_ST",
+      "parentIndex": 47,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Ring_F04_SR"
+    },
+    {
+      "index": 49,
+      "name": "L_Ring_F03_SR",
+      "parentIndex": 44,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Ring_F03"
+    },
+    {
+      "index": 50,
+      "name": "L_Ring_F03_ST",
+      "parentIndex": 49,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Ring_F03_SR"
+    },
+    {
+      "index": 51,
+      "name": "L_Middle_F01",
+      "parentIndex": 22,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hand"
+    },
+    {
+      "index": 52,
+      "name": "L_Middle_F02",
+      "parentIndex": 51,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Middle_F01"
+    },
+    {
+      "index": 53,
+      "name": "L_Middle_F03",
+      "parentIndex": 52,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Middle_F02"
+    },
+    {
+      "index": 54,
+      "name": "L_Middle_F04",
+      "parentIndex": 53,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Middle_F03"
+    },
+    {
+      "index": 55,
+      "name": "L_Middle_F05",
+      "parentIndex": 54,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Middle_F04"
+    },
+    {
+      "index": 56,
+      "name": "L_Middle_F04_SR",
+      "parentIndex": 54,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Middle_F04"
+    },
+    {
+      "index": 57,
+      "name": "L_Middle_F04_ST",
+      "parentIndex": 56,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Middle_F04_SR"
+    },
+    {
+      "index": 58,
+      "name": "L_Middle_F03_SR",
+      "parentIndex": 53,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Middle_F03"
+    },
+    {
+      "index": 59,
+      "name": "L_Middle_F03_ST",
+      "parentIndex": 58,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Middle_F03_SR"
+    },
+    {
+      "index": 60,
+      "name": "L_Middle_F02_SR",
+      "parentIndex": 52,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Middle_F02"
+    },
+    {
+      "index": 61,
+      "name": "L_Middle_F02_ST",
+      "parentIndex": 60,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Middle_F02_SR"
+    },
+    {
+      "index": 62,
+      "name": "L_Index_F01",
+      "parentIndex": 22,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hand"
+    },
+    {
+      "index": 63,
+      "name": "L_Index_F02",
+      "parentIndex": 62,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Index_F01"
+    },
+    {
+      "index": 64,
+      "name": "L_Index_F03",
+      "parentIndex": 63,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Index_F02"
+    },
+    {
+      "index": 65,
+      "name": "L_Index_F04",
+      "parentIndex": 64,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Index_F03"
+    },
+    {
+      "index": 66,
+      "name": "L_Index_F05",
+      "parentIndex": 65,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Index_F04"
+    },
+    {
+      "index": 67,
+      "name": "L_Index_F04_SR",
+      "parentIndex": 65,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Index_F04"
+    },
+    {
+      "index": 68,
+      "name": "L_Index_F04_ST",
+      "parentIndex": 67,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Index_F04_SR"
+    },
+    {
+      "index": 69,
+      "name": "L_Index_F03_SR",
+      "parentIndex": 64,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Index_F03"
+    },
+    {
+      "index": 70,
+      "name": "L_Index_F03_ST",
+      "parentIndex": 69,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Index_F03_SR"
+    },
+    {
+      "index": 71,
+      "name": "L_Index_F02_SR",
+      "parentIndex": 63,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Index_F02"
+    },
+    {
+      "index": 72,
+      "name": "L_Index_F02_ST",
+      "parentIndex": 71,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Index_F02_SR"
+    },
+    {
+      "index": 73,
+      "name": "L_Elbow1_ST",
+      "parentIndex": 14,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 74,
+      "name": "L_Elbow3_ST",
+      "parentIndex": 14,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Forearm"
+    },
+    {
+      "index": 75,
+      "name": "L_UpperArm_twistX1",
+      "parentIndex": 6,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Clavicle"
+    },
+    {
+      "index": 76,
+      "name": "L_UpperArm_SR",
+      "parentIndex": 6,
+      "childCount": 4,
+      "flags": 0,
+      "parent": "L_Clavicle"
+    },
+    {
+      "index": 77,
+      "name": "L_Side_Arm_ST",
+      "parentIndex": 76,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm_SR"
+    },
+    {
+      "index": 78,
+      "name": "L_Inside_Arm_ST",
+      "parentIndex": 76,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm_SR"
+    },
+    {
+      "index": 79,
+      "name": "L_Front_Arm_ST",
+      "parentIndex": 76,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm_SR"
+    },
+    {
+      "index": 80,
+      "name": "L_Back_Arm_ST",
+      "parentIndex": 76,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_UpperArm_SR"
+    },
+    {
+      "index": 81,
+      "name": "L_Trap_SR",
+      "parentIndex": 6,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Clavicle"
+    },
+    {
+      "index": 82,
+      "name": "L_Trap_ST",
+      "parentIndex": 81,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Trap_SR"
+    },
+    {
+      "index": 83,
+      "name": "L_Scap1_SR",
+      "parentIndex": 6,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Clavicle"
+    },
+    {
+      "index": 84,
+      "name": "L_Scap2_SR",
+      "parentIndex": 83,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Scap1_SR"
+    },
+    {
+      "index": 85,
+      "name": "L_Scap3_ST",
+      "parentIndex": 84,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Scap2_SR"
+    },
+    {
+      "index": 86,
+      "name": "R_Clavicle",
+      "parentIndex": 5,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "M_Spine4"
+    },
+    {
+      "index": 87,
+      "name": "R_UpperArm",
+      "parentIndex": 86,
+      "childCount": 4,
+      "flags": 0,
+      "parent": "R_Clavicle"
+    },
+    {
+      "index": 88,
+      "name": "R_Forearm",
+      "parentIndex": 87,
+      "childCount": 8,
+      "flags": 0,
+      "parent": "R_UpperArm"
+    },
+    {
+      "index": 89,
+      "name": "R_Forearm_twistX1",
+      "parentIndex": 88,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 90,
+      "name": "R_Forearm_twistX2",
+      "parentIndex": 88,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 91,
+      "name": "R_Forearm_twistX3",
+      "parentIndex": 88,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 92,
+      "name": "R_Forearm_twistX4",
+      "parentIndex": 88,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 93,
+      "name": "R_Wrist_SR",
+      "parentIndex": 88,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 94,
+      "name": "R_Wrist1_ST",
+      "parentIndex": 93,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Wrist_SR"
+    },
+    {
+      "index": 95,
+      "name": "R_Wrist2_ST",
+      "parentIndex": 93,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Wrist_SR"
+    },
+    {
+      "index": 96,
+      "name": "R_Hand",
+      "parentIndex": 88,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 97,
+      "name": "R_Thumb_F01",
+      "parentIndex": 96,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hand"
+    },
+    {
+      "index": 98,
+      "name": "R_Thumb_F02",
+      "parentIndex": 97,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Thumb_F01"
+    },
+    {
+      "index": 99,
+      "name": "R_Thumb_F03",
+      "parentIndex": 98,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Thumb_F02"
+    },
+    {
+      "index": 100,
+      "name": "R_Thumb_F04",
+      "parentIndex": 99,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thumb_F03"
+    },
+    {
+      "index": 101,
+      "name": "R_Thumb_F03_SR",
+      "parentIndex": 99,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Thumb_F03"
+    },
+    {
+      "index": 102,
+      "name": "R_Thumb_F03_ST",
+      "parentIndex": 101,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thumb_F03_SR"
+    },
+    {
+      "index": 103,
+      "name": "R_Thumb_F02_SR",
+      "parentIndex": 98,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Thumb_F02"
+    },
+    {
+      "index": 104,
+      "name": "R_Thumb_F02_ST",
+      "parentIndex": 103,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thumb_F02_SR"
+    },
+    {
+      "index": 105,
+      "name": "R_Pinky_F01",
+      "parentIndex": 96,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hand"
+    },
+    {
+      "index": 106,
+      "name": "R_Pinky_F02",
+      "parentIndex": 105,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Pinky_F01"
+    },
+    {
+      "index": 107,
+      "name": "R_Pinky_F03",
+      "parentIndex": 106,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Pinky_F02"
+    },
+    {
+      "index": 108,
+      "name": "R_Pinky_F04",
+      "parentIndex": 107,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Pinky_F03"
+    },
+    {
+      "index": 109,
+      "name": "R_Pinky_F05",
+      "parentIndex": 108,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Pinky_F04"
+    },
+    {
+      "index": 110,
+      "name": "R_Pinky_F04_SR",
+      "parentIndex": 108,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Pinky_F04"
+    },
+    {
+      "index": 111,
+      "name": "R_Pinky_F04_ST",
+      "parentIndex": 110,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Pinky_F04_SR"
+    },
+    {
+      "index": 112,
+      "name": "R_Pinky_F03_SR",
+      "parentIndex": 107,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Pinky_F03"
+    },
+    {
+      "index": 113,
+      "name": "R_Pinky_F03_ST",
+      "parentIndex": 112,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Pinky_F03_SR"
+    },
+    {
+      "index": 114,
+      "name": "R_Pinky_F02_SR",
+      "parentIndex": 106,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Pinky_F02"
+    },
+    {
+      "index": 115,
+      "name": "R_Pinky_F02_ST",
+      "parentIndex": 114,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Pinky_F02_SR"
+    },
+    {
+      "index": 116,
+      "name": "R_Ring_F01",
+      "parentIndex": 96,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hand"
+    },
+    {
+      "index": 117,
+      "name": "R_Ring_F02",
+      "parentIndex": 116,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Ring_F01"
+    },
+    {
+      "index": 118,
+      "name": "R_Ring_F03",
+      "parentIndex": 117,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Ring_F02"
+    },
+    {
+      "index": 119,
+      "name": "R_Ring_F04",
+      "parentIndex": 118,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Ring_F03"
+    },
+    {
+      "index": 120,
+      "name": "R_Ring_F05",
+      "parentIndex": 119,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Ring_F04"
+    },
+    {
+      "index": 121,
+      "name": "R_Ring_F04_SR",
+      "parentIndex": 119,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Ring_F04"
+    },
+    {
+      "index": 122,
+      "name": "R_Ring_F04_ST",
+      "parentIndex": 121,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Ring_F04_SR"
+    },
+    {
+      "index": 123,
+      "name": "R_Ring_F03_SR",
+      "parentIndex": 118,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Ring_F03"
+    },
+    {
+      "index": 124,
+      "name": "R_Ring_F03_ST",
+      "parentIndex": 123,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Ring_F03_SR"
+    },
+    {
+      "index": 125,
+      "name": "R_Middle_F01",
+      "parentIndex": 96,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hand"
+    },
+    {
+      "index": 126,
+      "name": "R_Middle_F02",
+      "parentIndex": 125,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Middle_F01"
+    },
+    {
+      "index": 127,
+      "name": "R_Middle_F03",
+      "parentIndex": 126,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Middle_F02"
+    },
+    {
+      "index": 128,
+      "name": "R_Middle_F04",
+      "parentIndex": 127,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Middle_F03"
+    },
+    {
+      "index": 129,
+      "name": "R_Middle_F05",
+      "parentIndex": 128,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Middle_F04"
+    },
+    {
+      "index": 130,
+      "name": "R_Middle_F04_SR",
+      "parentIndex": 128,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Middle_F04"
+    },
+    {
+      "index": 131,
+      "name": "R_Middle_F04_ST",
+      "parentIndex": 130,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Middle_F04_SR"
+    },
+    {
+      "index": 132,
+      "name": "R_Middle_F03_SR",
+      "parentIndex": 127,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Middle_F03"
+    },
+    {
+      "index": 133,
+      "name": "R_Middle_F03_ST",
+      "parentIndex": 132,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Middle_F03_SR"
+    },
+    {
+      "index": 134,
+      "name": "R_Middle_F02_SR",
+      "parentIndex": 126,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Middle_F02"
+    },
+    {
+      "index": 135,
+      "name": "R_Middle_F02_ST",
+      "parentIndex": 134,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Middle_F02_SR"
+    },
+    {
+      "index": 136,
+      "name": "R_Index_F01",
+      "parentIndex": 96,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hand"
+    },
+    {
+      "index": 137,
+      "name": "R_Index_F02",
+      "parentIndex": 136,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Index_F01"
+    },
+    {
+      "index": 138,
+      "name": "R_Index_F03",
+      "parentIndex": 137,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Index_F02"
+    },
+    {
+      "index": 139,
+      "name": "R_Index_F04",
+      "parentIndex": 138,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Index_F03"
+    },
+    {
+      "index": 140,
+      "name": "R_Index_F05",
+      "parentIndex": 139,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Index_F04"
+    },
+    {
+      "index": 141,
+      "name": "R_Index_F04_SR",
+      "parentIndex": 139,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Index_F04"
+    },
+    {
+      "index": 142,
+      "name": "R_Index_F04_ST",
+      "parentIndex": 141,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Index_F04_SR"
+    },
+    {
+      "index": 143,
+      "name": "R_Index_F03_SR",
+      "parentIndex": 138,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Index_F03"
+    },
+    {
+      "index": 144,
+      "name": "R_Index_F03_ST",
+      "parentIndex": 143,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Index_F03_SR"
+    },
+    {
+      "index": 145,
+      "name": "R_Index_F02_SR",
+      "parentIndex": 137,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Index_F02"
+    },
+    {
+      "index": 146,
+      "name": "R_Index_F02_ST",
+      "parentIndex": 145,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Index_F02_SR"
+    },
+    {
+      "index": 147,
+      "name": "R_Elbow1_ST",
+      "parentIndex": 88,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 148,
+      "name": "R_Elbow3_ST",
+      "parentIndex": 88,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Forearm"
+    },
+    {
+      "index": 149,
+      "name": "R_UpperArm_twistX2",
+      "parentIndex": 87,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm"
+    },
+    {
+      "index": 150,
+      "name": "R_UpperArm_twistX3",
+      "parentIndex": 87,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_UpperArm"
+    },
+    {
+      "index": 151,
+      "name": "R_UpperArm_bicep_ST",
+      "parentIndex": 150,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm_twistX3"
+    },
+    {
+      "index": 152,
+      "name": "R_UpperArm_tricep_ST",
+      "parentIndex": 150,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm_twistX3"
+    },
+    {
+      "index": 153,
+      "name": "R_UpperArm_twistX4",
+      "parentIndex": 87,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_UpperArm"
+    },
+    {
+      "index": 154,
+      "name": "R_UpperArm_inner_ST",
+      "parentIndex": 153,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm_twistX4"
+    },
+    {
+      "index": 155,
+      "name": "R_UpperArm_twistX1",
+      "parentIndex": 86,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Clavicle"
+    },
+    {
+      "index": 156,
+      "name": "R_UpperArm_SR",
+      "parentIndex": 86,
+      "childCount": 4,
+      "flags": 0,
+      "parent": "R_Clavicle"
+    },
+    {
+      "index": 157,
+      "name": "R_Side_Arm_ST",
+      "parentIndex": 156,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm_SR"
+    },
+    {
+      "index": 158,
+      "name": "R_Inside_Arm_ST",
+      "parentIndex": 156,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm_SR"
+    },
+    {
+      "index": 159,
+      "name": "R_Front_Arm_ST",
+      "parentIndex": 156,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm_SR"
+    },
+    {
+      "index": 160,
+      "name": "R_Back_Arm_ST",
+      "parentIndex": 156,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_UpperArm_SR"
+    },
+    {
+      "index": 161,
+      "name": "R_Scap1_SR",
+      "parentIndex": 86,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Clavicle"
+    },
+    {
+      "index": 162,
+      "name": "R_Scap2_SR",
+      "parentIndex": 161,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Scap1_SR"
+    },
+    {
+      "index": 163,
+      "name": "R_Scap3_ST",
+      "parentIndex": 162,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Scap2_SR"
+    },
+    {
+      "index": 164,
+      "name": "R_Trap_SR",
+      "parentIndex": 86,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Clavicle"
+    },
+    {
+      "index": 165,
+      "name": "R_Trap_ST",
+      "parentIndex": 164,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Trap_SR"
+    },
+    {
+      "index": 166,
+      "name": "R_Breast",
+      "parentIndex": 5,
+      "childCount": 3,
+      "flags": 0,
+      "parent": "M_Spine4"
+    },
+    {
+      "index": 167,
+      "name": "R_Breast2_sub01",
+      "parentIndex": 166,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Breast"
+    },
+    {
+      "index": 168,
+      "name": "R_Breast2_sub02",
+      "parentIndex": 167,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Breast2_sub01"
+    },
+    {
+      "index": 169,
+      "name": "R_Breast3_sub01",
+      "parentIndex": 166,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Breast"
+    },
+    {
+      "index": 170,
+      "name": "R_Breast3_sub02",
+      "parentIndex": 169,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Breast3_sub01"
+    },
+    {
+      "index": 171,
+      "name": "R_Breast3_sub03",
+      "parentIndex": 170,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Breast3_sub02"
+    },
+    {
+      "index": 172,
+      "name": "R_Breast_Nipple",
+      "parentIndex": 171,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Breast3_sub03"
+    },
+    {
+      "index": 173,
+      "name": "R_Breast1_sub01",
+      "parentIndex": 166,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Breast"
+    },
+    {
+      "index": 174,
+      "name": "R_Breast1_sub02",
+      "parentIndex": 173,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Breast1_sub01"
+    },
+    {
+      "index": 175,
+      "name": "L_Breast",
+      "parentIndex": 5,
+      "childCount": 3,
+      "flags": 0,
+      "parent": "M_Spine4"
+    },
+    {
+      "index": 176,
+      "name": "L_Breast1_sub01",
+      "parentIndex": 175,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Breast"
+    },
+    {
+      "index": 177,
+      "name": "L_Breast1_sub02",
+      "parentIndex": 176,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Breast1_sub01"
+    },
+    {
+      "index": 178,
+      "name": "L_Breast2_sub01",
+      "parentIndex": 175,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Breast"
+    },
+    {
+      "index": 179,
+      "name": "L_Breast2_sub02",
+      "parentIndex": 178,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Breast2_sub01"
+    },
+    {
+      "index": 180,
+      "name": "L_Breast3_sub01",
+      "parentIndex": 175,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Breast"
+    },
+    {
+      "index": 181,
+      "name": "L_Breast3_sub02",
+      "parentIndex": 180,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Breast3_sub01"
+    },
+    {
+      "index": 182,
+      "name": "L_Breast3_sub03",
+      "parentIndex": 181,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Breast3_sub02"
+    },
+    {
+      "index": 183,
+      "name": "L_Breast_Nipple",
+      "parentIndex": 182,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Breast3_sub03"
+    },
+    {
+      "index": 184,
+      "name": "M_Neck",
+      "parentIndex": 5,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Spine4"
+    },
+    {
+      "index": 185,
+      "name": "M_Neck1",
+      "parentIndex": 184,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "M_Neck"
+    },
+    {
+      "index": 186,
+      "name": "M_Head",
+      "parentIndex": 185,
+      "childCount": 38,
+      "flags": 0,
+      "parent": "M_Neck1"
+    },
+    {
+      "index": 187,
+      "name": "M_HeadHairRoot",
+      "parentIndex": 186,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 188,
+      "name": "Erika_Hair",
+      "parentIndex": 187,
+      "childCount": 6,
+      "flags": 0,
+      "parent": "M_HeadHairRoot"
+    },
+    {
+      "index": 189,
+      "name": "R_Hair01_front01",
+      "parentIndex": 188,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "Erika_Hair"
+    },
+    {
+      "index": 190,
+      "name": "R_Hair01_front02",
+      "parentIndex": 189,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hair01_front01"
+    },
+    {
+      "index": 191,
+      "name": "R_Hair01_front03",
+      "parentIndex": 190,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hair01_front02"
+    },
+    {
+      "index": 192,
+      "name": "R_Hair01_front04",
+      "parentIndex": 191,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Hair01_front03"
+    },
+    {
+      "index": 193,
+      "name": "M_Hair01_front01",
+      "parentIndex": 188,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "Erika_Hair"
+    },
+    {
+      "index": 194,
+      "name": "M_Hair01_front02",
+      "parentIndex": 193,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_front01"
+    },
+    {
+      "index": 195,
+      "name": "M_Hair01_front03",
+      "parentIndex": 194,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_front02"
+    },
+    {
+      "index": 196,
+      "name": "M_Hair01_front04",
+      "parentIndex": 195,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Hair01_front03"
+    },
+    {
+      "index": 197,
+      "name": "L_Hair01_front01",
+      "parentIndex": 188,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "Erika_Hair"
+    },
+    {
+      "index": 198,
+      "name": "L_Hair01_front02",
+      "parentIndex": 197,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hair01_front01"
+    },
+    {
+      "index": 199,
+      "name": "L_Hair01_front03",
+      "parentIndex": 198,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hair01_front02"
+    },
+    {
+      "index": 200,
+      "name": "L_Hair01_front04",
+      "parentIndex": 199,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Hair01_front03"
+    },
+    {
+      "index": 201,
+      "name": "R_Hair01_right01",
+      "parentIndex": 188,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "Erika_Hair"
+    },
+    {
+      "index": 202,
+      "name": "R_Hair01_right02",
+      "parentIndex": 201,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hair01_right01"
+    },
+    {
+      "index": 203,
+      "name": "R_Hair01_right03",
+      "parentIndex": 202,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hair01_right02"
+    },
+    {
+      "index": 204,
+      "name": "R_Hair01_right04",
+      "parentIndex": 203,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hair01_right03"
+    },
+    {
+      "index": 205,
+      "name": "R_Hair01_right05",
+      "parentIndex": 204,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Hair01_right04"
+    },
+    {
+      "index": 206,
+      "name": "R_Hair01_right06",
+      "parentIndex": 205,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Hair01_right05"
+    },
+    {
+      "index": 207,
+      "name": "L_Hair01_left01",
+      "parentIndex": 188,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "Erika_Hair"
+    },
+    {
+      "index": 208,
+      "name": "L_Hair01_left02",
+      "parentIndex": 207,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hair01_left01"
+    },
+    {
+      "index": 209,
+      "name": "L_Hair01_left03",
+      "parentIndex": 208,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hair01_left02"
+    },
+    {
+      "index": 210,
+      "name": "L_Hair01_left04",
+      "parentIndex": 209,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hair01_left03"
+    },
+    {
+      "index": 211,
+      "name": "L_Hair01_left05",
+      "parentIndex": 210,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hair01_left04"
+    },
+    {
+      "index": 212,
+      "name": "L_Hair01_left06",
+      "parentIndex": 211,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Hair01_left05"
+    },
+    {
+      "index": 213,
+      "name": "L_Hair01_left07",
+      "parentIndex": 212,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Hair01_left06"
+    },
+    {
+      "index": 214,
+      "name": "M_Hair01_back01",
+      "parentIndex": 188,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "Erika_Hair"
+    },
+    {
+      "index": 215,
+      "name": "M_Hair01_back02",
+      "parentIndex": 214,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back01"
+    },
+    {
+      "index": 216,
+      "name": "M_Hair01_back03",
+      "parentIndex": 215,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back02"
+    },
+    {
+      "index": 217,
+      "name": "M_Hair01_back04",
+      "parentIndex": 216,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back03"
+    },
+    {
+      "index": 218,
+      "name": "M_Hair01_back05",
+      "parentIndex": 217,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back04"
+    },
+    {
+      "index": 219,
+      "name": "M_Hair01_back06",
+      "parentIndex": 218,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back05"
+    },
+    {
+      "index": 220,
+      "name": "M_Hair01_back07",
+      "parentIndex": 219,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back06"
+    },
+    {
+      "index": 221,
+      "name": "M_Hair01_back08",
+      "parentIndex": 220,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back07"
+    },
+    {
+      "index": 222,
+      "name": "M_Hair01_back09",
+      "parentIndex": 221,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Hair01_back08"
+    },
+    {
+      "index": 223,
+      "name": "M_Hair01_back10",
+      "parentIndex": 222,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Hair01_back09"
+    },
+    {
+      "index": 224,
+      "name": "M_Jaw",
+      "parentIndex": 186,
+      "childCount": 9,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 225,
+      "name": "M_Chin",
+      "parentIndex": 224,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 226,
+      "name": "M_Throat1_ST",
+      "parentIndex": 224,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 227,
+      "name": "M_LowerLip_Base",
+      "parentIndex": 224,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 228,
+      "name": "M_LowerLip_01",
+      "parentIndex": 227,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_LowerLip_Base"
+    },
+    {
+      "index": 229,
+      "name": "M_LowerLip_02",
+      "parentIndex": 227,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_LowerLip_Base"
+    },
+    {
+      "index": 230,
+      "name": "L_LowerLip_base",
+      "parentIndex": 224,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 231,
+      "name": "L_LowerLip_01",
+      "parentIndex": 230,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_LowerLip_base"
+    },
+    {
+      "index": 232,
+      "name": "L_LowerLip_02",
+      "parentIndex": 230,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_LowerLip_base"
+    },
+    {
+      "index": 233,
+      "name": "R_LowerLip_base",
+      "parentIndex": 224,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 234,
+      "name": "R_LowerLip_01",
+      "parentIndex": 233,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_LowerLip_base"
+    },
+    {
+      "index": 235,
+      "name": "R_LowerLip_02",
+      "parentIndex": 233,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_LowerLip_base"
+    },
+    {
+      "index": 236,
+      "name": "L_Nasolabial04",
+      "parentIndex": 224,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 237,
+      "name": "R_Nasolabial04",
+      "parentIndex": 224,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 238,
+      "name": "M_TongueRoot",
+      "parentIndex": 224,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 239,
+      "name": "R_TongueSide_01",
+      "parentIndex": 238,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_TongueRoot"
+    },
+    {
+      "index": 240,
+      "name": "R_TongueSide_02",
+      "parentIndex": 239,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_TongueSide_01"
+    },
+    {
+      "index": 241,
+      "name": "R_TongueSide_03",
+      "parentIndex": 240,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_TongueSide_02"
+    },
+    {
+      "index": 242,
+      "name": "R_TongueSide_04",
+      "parentIndex": 241,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_TongueSide_03"
+    },
+    {
+      "index": 243,
+      "name": "R_TongueSide_05",
+      "parentIndex": 242,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_TongueSide_04"
+    },
+    {
+      "index": 244,
+      "name": "R_TongueSide_06",
+      "parentIndex": 243,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_TongueSide_05"
+    },
+    {
+      "index": 245,
+      "name": "R_TongueSide_07",
+      "parentIndex": 244,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_TongueSide_06"
+    },
+    {
+      "index": 246,
+      "name": "L_TongueSide_01",
+      "parentIndex": 238,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_TongueRoot"
+    },
+    {
+      "index": 247,
+      "name": "L_TongueSide_02",
+      "parentIndex": 246,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_TongueSide_01"
+    },
+    {
+      "index": 248,
+      "name": "L_TongueSide_03",
+      "parentIndex": 247,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_TongueSide_02"
+    },
+    {
+      "index": 249,
+      "name": "L_TongueSide_04",
+      "parentIndex": 248,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_TongueSide_03"
+    },
+    {
+      "index": 250,
+      "name": "L_TongueSide_05",
+      "parentIndex": 249,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_TongueSide_04"
+    },
+    {
+      "index": 251,
+      "name": "L_TongueSide_06",
+      "parentIndex": 250,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_TongueSide_05"
+    },
+    {
+      "index": 252,
+      "name": "L_TongueSide_07",
+      "parentIndex": 251,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_TongueSide_06"
+    },
+    {
+      "index": 253,
+      "name": "M_Throat2_ST",
+      "parentIndex": 224,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Jaw"
+    },
+    {
+      "index": 254,
+      "name": "M_Eyes",
+      "parentIndex": 186,
+      "childCount": 6,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 255,
+      "name": "L_EyelidTop01",
+      "parentIndex": 254,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Eyes"
+    },
+    {
+      "index": 256,
+      "name": "L_EyelidTop02",
+      "parentIndex": 255,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_EyelidTop01"
+    },
+    {
+      "index": 257,
+      "name": "L_EyelidTop03",
+      "parentIndex": 256,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_EyelidTop02"
+    },
+    {
+      "index": 258,
+      "name": "L_EyelidBottom01",
+      "parentIndex": 254,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Eyes"
+    },
+    {
+      "index": 259,
+      "name": "L_EyelidBottom02",
+      "parentIndex": 258,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_EyelidBottom01"
+    },
+    {
+      "index": 260,
+      "name": "L_EyelidBottom03",
+      "parentIndex": 259,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_EyelidBottom02"
+    },
+    {
+      "index": 261,
+      "name": "L_EyelidBottom04",
+      "parentIndex": 259,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_EyelidBottom02"
+    },
+    {
+      "index": 262,
+      "name": "R_EyelidTop01",
+      "parentIndex": 254,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Eyes"
+    },
+    {
+      "index": 263,
+      "name": "R_EyelidTop02",
+      "parentIndex": 262,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_EyelidTop01"
+    },
+    {
+      "index": 264,
+      "name": "R_EyelidTop03",
+      "parentIndex": 263,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_EyelidTop02"
+    },
+    {
+      "index": 265,
+      "name": "R_EyelidBottom01",
+      "parentIndex": 254,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Eyes"
+    },
+    {
+      "index": 266,
+      "name": "R_EyelidBottom02",
+      "parentIndex": 265,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_EyelidBottom01"
+    },
+    {
+      "index": 267,
+      "name": "R_EyelidBottom03",
+      "parentIndex": 266,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_EyelidBottom02"
+    },
+    {
+      "index": 268,
+      "name": "R_EyelidBottom04",
+      "parentIndex": 266,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_EyelidBottom02"
+    },
+    {
+      "index": 269,
+      "name": "R_Eye1",
+      "parentIndex": 254,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Eyes"
+    },
+    {
+      "index": 270,
+      "name": "L_Eye1",
+      "parentIndex": 254,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Eyes"
+    },
+    {
+      "index": 271,
+      "name": "L_Eyebrow01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 272,
+      "name": "L_Eyebrow02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 273,
+      "name": "L_Eyebrow03",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 274,
+      "name": "L_Eyebrow04",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 275,
+      "name": "M_eyebrow",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 276,
+      "name": "R_Eyebrow01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 277,
+      "name": "R_Eyebrow02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 278,
+      "name": "R_Eyebrow03",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 279,
+      "name": "R_Eyebrow04",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 280,
+      "name": "M_NoseTip",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 281,
+      "name": "L_NoseSide",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 282,
+      "name": "R_NoseSide",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 283,
+      "name": "M_NoseMiddle",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 284,
+      "name": "R_Nasolabial01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 285,
+      "name": "R_Nasolabial02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 286,
+      "name": "R_Nasolabial03",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 287,
+      "name": "L_Nasolabial01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 288,
+      "name": "L_Nasolabial02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 289,
+      "name": "L_Nasolabial03",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 290,
+      "name": "L_UpperLip01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 291,
+      "name": "L_UpperLip02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 292,
+      "name": "M_UpperLip01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 293,
+      "name": "M_UpperLip02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 294,
+      "name": "R_UpperLip01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 295,
+      "name": "R_UpperLip02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 296,
+      "name": "L_Cheek01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 297,
+      "name": "L_Cheek02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 298,
+      "name": "L_Cheek03",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 299,
+      "name": "R_Cheek01",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 300,
+      "name": "R_Cheek02",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 301,
+      "name": "R_Cheek03",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 302,
+      "name": "R_LipCorner",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 303,
+      "name": "L_LipCorner",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 304,
+      "name": "L_Ear",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 305,
+      "name": "R_Ear",
+      "parentIndex": 186,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Head"
+    },
+    {
+      "index": 306,
+      "name": "M_Throat3_ST",
+      "parentIndex": 185,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Neck1"
+    },
+    {
+      "index": 307,
+      "name": "M_AbdomenUpper1_ST",
+      "parentIndex": 4,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Spine3"
+    },
+    {
+      "index": 308,
+      "name": "M_AbdomenUpper2_ST",
+      "parentIndex": 307,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_AbdomenUpper1_ST"
+    },
+    {
+      "index": 309,
+      "name": "M_AbdomenMiddle1_ST",
+      "parentIndex": 3,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "M_Spine2"
+    },
+    {
+      "index": 310,
+      "name": "M_AbdomenMiddle2_ST",
+      "parentIndex": 309,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_AbdomenMiddle1_ST"
+    },
+    {
+      "index": 311,
+      "name": "L_Thigh",
+      "parentIndex": 1,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 312,
+      "name": "L_Shin",
+      "parentIndex": 311,
+      "childCount": 3,
+      "flags": 0,
+      "parent": "L_Thigh"
+    },
+    {
+      "index": 313,
+      "name": "L_Foot",
+      "parentIndex": 312,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Shin"
+    },
+    {
+      "index": 314,
+      "name": "L_Toe",
+      "parentIndex": 313,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "L_Foot"
+    },
+    {
+      "index": 315,
+      "name": "L_ToeA_01",
+      "parentIndex": 314,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Toe"
+    },
+    {
+      "index": 316,
+      "name": "L_ToeA_01_ST",
+      "parentIndex": 315,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeA_01"
+    },
+    {
+      "index": 317,
+      "name": "L_ToeA_02",
+      "parentIndex": 315,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_ToeA_01"
+    },
+    {
+      "index": 318,
+      "name": "L_ToeA_03",
+      "parentIndex": 317,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeA_02"
+    },
+    {
+      "index": 319,
+      "name": "L_ToeA_02_ST",
+      "parentIndex": 317,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeA_02"
+    },
+    {
+      "index": 320,
+      "name": "L_ToeB_01",
+      "parentIndex": 314,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Toe"
+    },
+    {
+      "index": 321,
+      "name": "L_ToeB_01_ST",
+      "parentIndex": 320,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeB_01"
+    },
+    {
+      "index": 322,
+      "name": "L_ToeB_02",
+      "parentIndex": 320,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_ToeB_01"
+    },
+    {
+      "index": 323,
+      "name": "L_ToeB_02_ST",
+      "parentIndex": 322,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeB_02"
+    },
+    {
+      "index": 324,
+      "name": "L_ToeC_01",
+      "parentIndex": 314,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Toe"
+    },
+    {
+      "index": 325,
+      "name": "L_ToeC_01_ST",
+      "parentIndex": 324,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeC_01"
+    },
+    {
+      "index": 326,
+      "name": "L_ToeC_02",
+      "parentIndex": 324,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_ToeC_01"
+    },
+    {
+      "index": 327,
+      "name": "L_ToeC_02_ST",
+      "parentIndex": 326,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeC_02"
+    },
+    {
+      "index": 328,
+      "name": "L_ToeD_01",
+      "parentIndex": 314,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Toe"
+    },
+    {
+      "index": 329,
+      "name": "L_ToeD_01_ST",
+      "parentIndex": 328,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeD_01"
+    },
+    {
+      "index": 330,
+      "name": "L_ToeD_02",
+      "parentIndex": 328,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_ToeD_01"
+    },
+    {
+      "index": 331,
+      "name": "L_ToeD_02_ST",
+      "parentIndex": 330,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeD_02"
+    },
+    {
+      "index": 332,
+      "name": "L_ToeE_01",
+      "parentIndex": 314,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Toe"
+    },
+    {
+      "index": 333,
+      "name": "L_ToeE_01_ST",
+      "parentIndex": 332,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeE_01"
+    },
+    {
+      "index": 334,
+      "name": "L_ToeE_02",
+      "parentIndex": 332,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_ToeE_01"
+    },
+    {
+      "index": 335,
+      "name": "L_ToeE_02_ST",
+      "parentIndex": 334,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ToeE_02"
+    },
+    {
+      "index": 336,
+      "name": "L_Foot_SR",
+      "parentIndex": 313,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Foot"
+    },
+    {
+      "index": 337,
+      "name": "L_Foot_helper_SR",
+      "parentIndex": 336,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Foot_SR"
+    },
+    {
+      "index": 338,
+      "name": "L_Foot_helper_ST",
+      "parentIndex": 337,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Foot_helper_SR"
+    },
+    {
+      "index": 339,
+      "name": "L_Heel1_helper_SR",
+      "parentIndex": 336,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Foot_SR"
+    },
+    {
+      "index": 340,
+      "name": "L_Heel2_helper_ST",
+      "parentIndex": 339,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Heel1_helper_SR"
+    },
+    {
+      "index": 341,
+      "name": "L_Shin_push_ST",
+      "parentIndex": 312,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Shin"
+    },
+    {
+      "index": 342,
+      "name": "L_Shin_SR",
+      "parentIndex": 312,
+      "childCount": 3,
+      "flags": 0,
+      "parent": "L_Shin"
+    },
+    {
+      "index": 343,
+      "name": "L_Knee_ST",
+      "parentIndex": 342,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Shin_SR"
+    },
+    {
+      "index": 344,
+      "name": "L_Shin_twist_SR",
+      "parentIndex": 342,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Shin_SR"
+    },
+    {
+      "index": 345,
+      "name": "L_Shin_offset0_SR_CalfUpper",
+      "parentIndex": 342,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Shin_SR"
+    },
+    {
+      "index": 346,
+      "name": "L_Thigh_twistX2",
+      "parentIndex": 311,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Thigh"
+    },
+    {
+      "index": 347,
+      "name": "L_ThighFat1",
+      "parentIndex": 346,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Thigh_twistX2"
+    },
+    {
+      "index": 348,
+      "name": "L_ThighFat2",
+      "parentIndex": 347,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_ThighFat1"
+    },
+    {
+      "index": 349,
+      "name": "L_Thigh_twistX3",
+      "parentIndex": 311,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "L_Thigh"
+    },
+    {
+      "index": 350,
+      "name": "L_Thigh_offset1_SR",
+      "parentIndex": 349,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh_twistX3"
+    },
+    {
+      "index": 351,
+      "name": "L_Thigh_offset2_SR",
+      "parentIndex": 349,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh_twistX3"
+    },
+    {
+      "index": 352,
+      "name": "L_Thigh_Inner_ST",
+      "parentIndex": 311,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh"
+    },
+    {
+      "index": 353,
+      "name": "L_Knee_SR",
+      "parentIndex": 311,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh"
+    },
+    {
+      "index": 354,
+      "name": "L_Thigh_SR",
+      "parentIndex": 1,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 355,
+      "name": "L_Side_Thigh_ST",
+      "parentIndex": 354,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh_SR"
+    },
+    {
+      "index": 356,
+      "name": "L_Inside_Thigh_ST",
+      "parentIndex": 354,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh_SR"
+    },
+    {
+      "index": 357,
+      "name": "L_Buttock1_SR",
+      "parentIndex": 354,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Thigh_SR"
+    },
+    {
+      "index": 358,
+      "name": "L_Buttock2_SR",
+      "parentIndex": 357,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Buttock1_SR"
+    },
+    {
+      "index": 359,
+      "name": "L_Back_Thigh_ST",
+      "parentIndex": 358,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "L_Buttock2_SR"
+    },
+    {
+      "index": 360,
+      "name": "L_Back_Thigh_SR",
+      "parentIndex": 359,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Back_Thigh_ST"
+    },
+    {
+      "index": 361,
+      "name": "L_Front_Thigh_ST",
+      "parentIndex": 354,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh_SR"
+    },
+    {
+      "index": 362,
+      "name": "L_Butt_Open",
+      "parentIndex": 354,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "L_Thigh_SR"
+    },
+    {
+      "index": 363,
+      "name": "L_Thigh_twistX1",
+      "parentIndex": 1,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 364,
+      "name": "R_Thigh",
+      "parentIndex": 1,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 365,
+      "name": "R_Shin",
+      "parentIndex": 364,
+      "childCount": 3,
+      "flags": 0,
+      "parent": "R_Thigh"
+    },
+    {
+      "index": 366,
+      "name": "R_Foot",
+      "parentIndex": 365,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Shin"
+    },
+    {
+      "index": 367,
+      "name": "R_Foot_SR",
+      "parentIndex": 366,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Foot"
+    },
+    {
+      "index": 368,
+      "name": "R_Heel1_helper_SR",
+      "parentIndex": 367,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Foot_SR"
+    },
+    {
+      "index": 369,
+      "name": "R_Heel2_helper_ST",
+      "parentIndex": 368,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Heel1_helper_SR"
+    },
+    {
+      "index": 370,
+      "name": "R_Foot_helper_SR",
+      "parentIndex": 367,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Foot_SR"
+    },
+    {
+      "index": 371,
+      "name": "R_Foot_helper_ST",
+      "parentIndex": 370,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Foot_helper_SR"
+    },
+    {
+      "index": 372,
+      "name": "R_Toe",
+      "parentIndex": 366,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "R_Foot"
+    },
+    {
+      "index": 373,
+      "name": "R_ToeE_01",
+      "parentIndex": 372,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Toe"
+    },
+    {
+      "index": 374,
+      "name": "R_ToeE_01_ST",
+      "parentIndex": 373,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeE_01"
+    },
+    {
+      "index": 375,
+      "name": "R_ToeE_02",
+      "parentIndex": 373,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_ToeE_01"
+    },
+    {
+      "index": 376,
+      "name": "R_ToeE_02_ST",
+      "parentIndex": 375,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeE_02"
+    },
+    {
+      "index": 377,
+      "name": "R_ToeD_01",
+      "parentIndex": 372,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Toe"
+    },
+    {
+      "index": 378,
+      "name": "R_ToeD_01_ST",
+      "parentIndex": 377,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeD_01"
+    },
+    {
+      "index": 379,
+      "name": "R_ToeD_02",
+      "parentIndex": 377,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_ToeD_01"
+    },
+    {
+      "index": 380,
+      "name": "R_ToeD_02_ST",
+      "parentIndex": 379,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeD_02"
+    },
+    {
+      "index": 381,
+      "name": "R_ToeC_01",
+      "parentIndex": 372,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Toe"
+    },
+    {
+      "index": 382,
+      "name": "R_ToeC_01_ST",
+      "parentIndex": 381,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeC_01"
+    },
+    {
+      "index": 383,
+      "name": "R_ToeC_02",
+      "parentIndex": 381,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_ToeC_01"
+    },
+    {
+      "index": 384,
+      "name": "R_ToeC_02_ST",
+      "parentIndex": 383,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeC_02"
+    },
+    {
+      "index": 385,
+      "name": "R_ToeB_01",
+      "parentIndex": 372,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Toe"
+    },
+    {
+      "index": 386,
+      "name": "R_ToeB_01_ST",
+      "parentIndex": 385,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeB_01"
+    },
+    {
+      "index": 387,
+      "name": "R_ToeB_02",
+      "parentIndex": 385,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_ToeB_01"
+    },
+    {
+      "index": 388,
+      "name": "R_ToeB_02_ST",
+      "parentIndex": 387,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeB_02"
+    },
+    {
+      "index": 389,
+      "name": "R_ToeA_01",
+      "parentIndex": 372,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Toe"
+    },
+    {
+      "index": 390,
+      "name": "R_ToeA_01_ST",
+      "parentIndex": 389,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeA_01"
+    },
+    {
+      "index": 391,
+      "name": "R_ToeA_02",
+      "parentIndex": 389,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_ToeA_01"
+    },
+    {
+      "index": 392,
+      "name": "R_ToeA_03",
+      "parentIndex": 391,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeA_02"
+    },
+    {
+      "index": 393,
+      "name": "R_ToeA_02_ST",
+      "parentIndex": 391,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ToeA_02"
+    },
+    {
+      "index": 394,
+      "name": "R_Shin_push_ST",
+      "parentIndex": 365,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Shin"
+    },
+    {
+      "index": 395,
+      "name": "R_Shin_SR",
+      "parentIndex": 365,
+      "childCount": 3,
+      "flags": 0,
+      "parent": "R_Shin"
+    },
+    {
+      "index": 396,
+      "name": "R_Knee_ST",
+      "parentIndex": 395,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Shin_SR"
+    },
+    {
+      "index": 397,
+      "name": "R_Shin_twist_SR",
+      "parentIndex": 395,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Shin_SR"
+    },
+    {
+      "index": 398,
+      "name": "R_Shin_offset0_SR_CalfUpper",
+      "parentIndex": 395,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Shin_SR"
+    },
+    {
+      "index": 399,
+      "name": "R_Thigh_twistX2",
+      "parentIndex": 364,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Thigh"
+    },
+    {
+      "index": 400,
+      "name": "R_ThighFat1",
+      "parentIndex": 399,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Thigh_twistX2"
+    },
+    {
+      "index": 401,
+      "name": "R_ThighFat2",
+      "parentIndex": 400,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_ThighFat1"
+    },
+    {
+      "index": 402,
+      "name": "R_Thigh_twistX3",
+      "parentIndex": 364,
+      "childCount": 2,
+      "flags": 0,
+      "parent": "R_Thigh"
+    },
+    {
+      "index": 403,
+      "name": "R_Thigh_offset1_SR",
+      "parentIndex": 402,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh_twistX3"
+    },
+    {
+      "index": 404,
+      "name": "R_Thigh_offset2_SR",
+      "parentIndex": 402,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh_twistX3"
+    },
+    {
+      "index": 405,
+      "name": "R_Thigh_Inner_ST",
+      "parentIndex": 364,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh"
+    },
+    {
+      "index": 406,
+      "name": "R_Knee_SR",
+      "parentIndex": 364,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh"
+    },
+    {
+      "index": 407,
+      "name": "R_Thigh_SR",
+      "parentIndex": 1,
+      "childCount": 5,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 408,
+      "name": "R_Side_Thigh_ST",
+      "parentIndex": 407,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh_SR"
+    },
+    {
+      "index": 409,
+      "name": "R_Inside_Thigh_ST",
+      "parentIndex": 407,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh_SR"
+    },
+    {
+      "index": 410,
+      "name": "R_Buttock1_SR",
+      "parentIndex": 407,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Thigh_SR"
+    },
+    {
+      "index": 411,
+      "name": "R_Buttock2_SR",
+      "parentIndex": 410,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Buttock1_SR"
+    },
+    {
+      "index": 412,
+      "name": "R_Back_Thigh_ST",
+      "parentIndex": 411,
+      "childCount": 1,
+      "flags": 0,
+      "parent": "R_Buttock2_SR"
+    },
+    {
+      "index": 413,
+      "name": "R_Back_Thigh_SR",
+      "parentIndex": 412,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Back_Thigh_ST"
+    },
+    {
+      "index": 414,
+      "name": "R_Front_Thigh_ST",
+      "parentIndex": 407,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh_SR"
+    },
+    {
+      "index": 415,
+      "name": "R_Butt_Open",
+      "parentIndex": 407,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "R_Thigh_SR"
+    },
+    {
+      "index": 416,
+      "name": "R_Thigh_twistX1",
+      "parentIndex": 1,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 417,
+      "name": "M_Gen",
+      "parentIndex": 1,
+      "childCount": 43,
+      "flags": 0,
+      "parent": "M_Hips"
+    },
+    {
+      "index": 418,
+      "name": "R_Urethra3",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 419,
+      "name": "R_Urethra2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 420,
+      "name": "R_Urethra1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 421,
+      "name": "M_Urethra2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 422,
+      "name": "L_Urethra3",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 423,
+      "name": "L_Urethra2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 424,
+      "name": "L_Urethra1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 425,
+      "name": "M_Urethra1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 426,
+      "name": "R_Labia_Minora5",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 427,
+      "name": "R_Labia_Minora4",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 428,
+      "name": "R_Labia_Minora3",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 429,
+      "name": "R_Labia_Minora2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 430,
+      "name": "R_Labia_Minora1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 431,
+      "name": "M_Labia_Minora",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 432,
+      "name": "L_Labia_Minora5",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 433,
+      "name": "L_Labia_Minora4",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 434,
+      "name": "L_Labia_Minora3",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 435,
+      "name": "L_Labia_Minora2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 436,
+      "name": "L_Labia_Minora1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 437,
+      "name": "R_Labia_Majora6",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 438,
+      "name": "R_Labia_Majora5",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 439,
+      "name": "R_Labia_Majora4",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 440,
+      "name": "R_Labia_Majora3",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 441,
+      "name": "R_Labia_Majora2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 442,
+      "name": "R_Labia_Majora1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 443,
+      "name": "M_Labia_Majora",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 444,
+      "name": "L_Labia_Majora6",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 445,
+      "name": "L_Labia_Majora5",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 446,
+      "name": "L_Labia_Majora4",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 447,
+      "name": "L_Labia_Majora3",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 448,
+      "name": "L_Labia_Majora2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 449,
+      "name": "L_Labia_Majora1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 450,
+      "name": "M_Urethra_Inside1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 451,
+      "name": "M_Urethra_Inside2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 452,
+      "name": "M_Clit",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 453,
+      "name": "M_UrethraBladder",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 454,
+      "name": "M_Anus1",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 455,
+      "name": "L_Anus2",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 456,
+      "name": "L_Anus3",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 457,
+      "name": "M_Anus4",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 458,
+      "name": "R_Anus5",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 459,
+      "name": "R_Anus6",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    },
+    {
+      "index": 460,
+      "name": "M_AnusInside",
+      "parentIndex": 417,
+      "childCount": 0,
+      "flags": 0,
+      "parent": "M_Gen"
+    }
+  ]
+}
