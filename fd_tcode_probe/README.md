@@ -11,13 +11,14 @@ its own key callback.
   `docs/unpacked-data-first.md` and cache confirmed H-system relationships in
   `data/unpacked-hsystem-contract-v1.json` before designing runtime probes.
 - Keep `HSceneManager` and animation-manager inspection behind the explicit
-  F6/F8 diagnostic path; F9 does not depend on an HScene snapshot.
+  F6/F8 diagnostic path; the automatic stream does not depend on an HScene snapshot.
 - Keep compact monitoring to primitive state fields and verified UObject links;
   array/struct containers are deferred until a manual diagnostic requires them.
 - Log only when the compact HScene state changes.
 - Keep expensive schema and inventory dumps behind manual diagnostics.
-- Do not access Unreal objects automatically during startup.
-- Reject inactive components that return zero quaternions. F9 binds exact
+- Start only the compact HAnime detector automatically; keep the expensive
+  HScene/schema diagnostics manual.
+- Reject inactive components that return zero quaternions. The automatic stream binds exact
   TableHAnim Montage owners plus the unpacked family participant roles rather
   than guessing participants from arbitrary skeletal meshes.
 - Recognize seven unpacked skeleton catalogs independently: Alet, MaleB,
@@ -25,7 +26,7 @@ its own key callback.
   catalogs merely because two characters are humanoid.
 - Match active Montage assets exactly against the generated TableHAnim family
   allowlist. The older 102-pose catalog remains a manual annotation worklist;
-  it is not the F9 identity gate and does not imply that limb side or contact
+  it is not the realtime identity gate and does not imply that limb side or contact
   priority has been verified.
 - Keep two read-only static indexes with deliberately limited meanings. The
   `TableHAnim` reference index finds primary pose directories imported by the
@@ -39,7 +40,7 @@ its own key callback.
   property. Full runtime entries therefore use the Card ID accessors, beginning
   with `GetDatabyCardID`.
 - Legacy profile and pose-resolver probes remain available for manual
-  diagnostics, but F9 never enables an unknown animation from a path/category
+  diagnostics, but the automatic stream never enables an unknown animation from a path/category
   guess. Combined-contact, unknown-partner, and unannotated limb poses remain
   non-driving.
 - After the exact HAnime gate opens, stream the currently active registered
@@ -75,7 +76,7 @@ its own key callback.
   Special actions do not change the selected bone in this milestone. Montage
   discovery is polled separately at 250 ms, so speed changes are represented
   by current transforms rather than a fixed-rate animation phase.
-- Perform global skeletal-component discovery only when F9 starts, a cached
+- Perform global skeletal-component discovery only when the Mod stream starts, a cached
   component becomes invalid, or a dormant stream observes a confirmed
   `Exp_In`/`Exp_Sexing` HAnime re-entry. `Exp_Idle` never performs discovery or
   consumes the one-shot re-entry recovery. The realtime gate does not call
@@ -93,7 +94,7 @@ its own key callback.
 - Never use category words, geometry proximity, Montage position, or the old
   Hand fallback to classify an unknown animation as HAnime. Idle and transition
   animation therefore produce no skeleton packets for F8Studio. HManager/Card
-  access remains diagnostic data; F9 identity comes only from exact active
+  access remains diagnostic data; realtime identity comes only from exact active
   Montage assets in the generated allowlist.
 - Include `hanimeActive`, `hanimeId`, `hanimeAsset`, `hanimeCategory`,
   `hanimePhase`, `hanimeState`, and `recognitionSource` in the ordinary skeleton
@@ -106,7 +107,9 @@ its own key callback.
   registered by Lua yet.
 - `F8`: export the current runtime-filtered pose list once to
   `runtime/fd-visible-poses.tsv`. It does not start a recorder.
-- `F9`: start/stop the functional realtime contact-bone stream (50 ms target).
+- The functional contact-bone stream is armed automatically. F9 is not registered.
+  Exact HAnime opens the output gate; idle/exit closes it while low-frequency
+  re-entry detection remains active.
 - `F10`: fully reload `fd_tcode_probe` through the separate reload broker.
 
 UE4SS global hot reload and automatic file watching remain disabled. The broker
@@ -142,8 +145,8 @@ F8Studio and consumes copied skeleton packets through localhost UDP.
   not an in-game pose count.
 - `fd_tcode/diagnostics.lua`: manual detailed diagnostics.
 - `fd_tcode/safe.lua`: protected Unreal reads and value formatting.
-- `fd_tcode/config.lua`: hotkeys, polling interval, and known property names.
+- `fd_tcode/config.lua`: diagnostic hotkeys, polling interval, and known property names.
 - `fd_tcode/profile_data.lua`: legacy/manual geometry rules; not consumed by
-  the F9 functional contact stream.
+  the automatic functional contact stream.
 - `fd_tcode/profile_store.lua`: validated refresh/fallback for those manual
   diagnostics.

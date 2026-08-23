@@ -1,6 +1,6 @@
 return {
     name = "FD-TCode",
-    version = "0.14.3-reentry-recovery",
+    version = "0.15.0-auto-hanime",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
@@ -16,7 +16,7 @@ return {
     -- HAnime/Montage discovery reads only cached primary components and does
     -- not need to run on every motion frame.
     hanime_poll_interval_ms = 250,
-    -- Zero means the F9 stream runs until it is explicitly stopped.
+    -- Zero keeps the automatic HAnime-gated stream armed for the Mod lifetime.
     skeleton_sample_limit = 0,
     skeleton_discovery_retry_ms = 500,
     -- HAnime identity is confirmed only from exact active Montage assets that
@@ -25,10 +25,10 @@ return {
     hanime_empty_hold_frames = 2,
     -- After a valid HAnime disappears, remain dormant throughout Exp_Idle.
     -- Exp_In/Exp_Sexing confirms that a new action has started and permits one
-    -- non-periodic component rediscovery; F9 itself stays enabled.
+    -- non-periodic component rediscovery; the lightweight stream stays armed.
     hanime_reentry_confirm_frames = 2,
     -- Legacy manual Hand/profile probes reject pairs farther than one metre.
-    -- The F9 functional contact stream does not perform proximity-based target
+    -- The automatic functional contact stream does not perform proximity-based target
     -- guessing.
     hand_pair_max_distance_cm = 100,
     skeleton_spool_path = "D:/zhifu/Desktop/code/tcode plugin FD/runtime/fd-skeleton.ndjson",
@@ -40,7 +40,6 @@ return {
     keys = {
         toggle_runtime = Key.F6,
         export_pose_catalog = Key.F8,
-        skeleton_stream = Key.F9,
     },
 
     manager_classes = {

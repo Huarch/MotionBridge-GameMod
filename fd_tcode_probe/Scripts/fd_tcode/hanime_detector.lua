@@ -278,7 +278,7 @@ local function select_identity(matches)
 end
 
 local function observe(allow_recovery)
-    -- Exact active Montage identity is sufficient for the F9 gate. HScene
+    -- Exact active Montage identity is sufficient for the realtime gate. HScene
     -- snapshots remain available through explicit diagnostics, but are not
     -- used here because one snapshot performs multiple global searches.
     local current_scene_state = {}
@@ -323,7 +323,7 @@ local function observe(allow_recovery)
         -- leave the old visible component alive with only an expression
         -- Montage while the new HAnime component is created elsewhere. The
         -- old cache therefore still looks valid and would otherwise remain
-        -- stuck until F9 is toggled.
+        -- stuck until the stream cache is rebuilt.
         HAnimeDetector.reentry_recovery_armed = true
         HAnimeDetector.reentry_signal_frames = 0
     elseif allow_recovery ~= false
@@ -496,7 +496,7 @@ function HAnimeDetector.clear_cache()
     HAnimeDetector.candidate_frames = 0
     HAnimeDetector.active = nil
     HAnimeDetector.empty_frames = 0
-    -- F9 may be enabled while the room is already idle. Arm the first
+    -- The automatic stream may start while the room is already idle. Arm the first
     -- Exp_In/Exp_Sexing transition as well as transitions after an HAnime that
     -- was observed during this run.
     HAnimeDetector.reentry_recovery_armed = true
