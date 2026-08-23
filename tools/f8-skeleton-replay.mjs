@@ -15,6 +15,7 @@ const sourcePath = path.resolve(argValue("--file", path.join(workspaceDir, "runt
 const host = argValue("--host", "127.0.0.1");
 const port = Number.parseInt(argValue("--port", "39540"), 10);
 const frameMs = Number.parseInt(argValue("--frame-ms", "200"), 10);
+const preserveTimestamps = process.argv.includes("--preserve-timestamps");
 const rows = fs.readFileSync(sourcePath, "utf8").split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
 
 if (rows.length === 0 || rows.length % 2 !== 0) {
@@ -31,14 +32,26 @@ for (const line of rows) {
 const socket = dgram.createSocket("udp4");
 let frame = 0;
 const timer = setInterval(() => {
-  socket.send(Buffer.from(rows[frame * 2], "utf8"), port, host);
-  socket.send(Buffer.from(rows[frame * 2 + 1], "utf8"), port, host);
+  const timestampMs = Date.now();
+  for (const line of rows.slice(frame * 2, frame * 2 + 2)) {
+    const payload = JSON.parse(line);
+    if (!preserveTimestamps) {
+      payload.timestampMs = timestampMs;
+      if (Object.hasOwn(payload, "receivedAtMs")) {
+        payload.receivedAtMs = timestampMs;
+      }
+    }
+    socket.send(Buffer.from(JSON.stringify(payload), "utf8"), port, host);
+  }
   frame += 1;
   if (frame >= rows.length / 2) {
     clearInterval(timer);
     setTimeout(() => {
       socket.close();
-      process.stdout.write(`[f8-replay] frames=${frame} packets=${rows.length} target=${host}:${port}\n`);
+      process.stdout.write(
+        `[f8-replay] frames=${frame} packets=${rows.length} target=${host}:${port} `
+        + `timestamps=${preserveTimestamps ? "preserved" : "refreshed"}\n`,
+      );
     }, 100);
   }
 }, Math.max(10, frameMs));

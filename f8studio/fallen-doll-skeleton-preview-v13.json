@@ -1,0 +1,6012 @@
+{
+  "layout": {
+    "connections": [
+      {
+        "in": [
+          "fd_3d_viz",
+          "[D]skeletons"
+        ],
+        "out": [
+          "fd_decoder",
+          "skeletons[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_alet_selector",
+          "[D]skeletons"
+        ],
+        "out": [
+          "fd_decoder",
+          "skeletons[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_target_hand",
+          "[D]skeleton"
+        ],
+        "out": [
+          "fd_alet_selector",
+          "skeleton[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_decoder",
+          "[E]packet"
+        ],
+        "out": [
+          "fd_udp",
+          "packet[E]"
+        ]
+      },
+      {
+        "in": [
+          "fd_decoder",
+          "[D]packet"
+        ],
+        "out": [
+          "fd_udp",
+          "packet[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_safety",
+          "[D]heartbeat"
+        ],
+        "out": [
+          "fd_decoder",
+          "skeletons[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_male_selector",
+          "[D]skeletons"
+        ],
+        "out": [
+          "fd_decoder",
+          "skeletons[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_limit",
+          "[D]value"
+        ],
+        "out": [
+          "fd_l0_smooth",
+          "value[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_normalized_viz",
+          "[D]x"
+        ],
+        "out": [
+          "fd_l0_limit",
+          "value[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_tcode",
+          "[D]L0"
+        ],
+        "out": [
+          "fd_l0_limit",
+          "value[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_device_range",
+          "[D]value"
+        ],
+        "out": [
+          "fd_l0_limit",
+          "value[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_normalize",
+          "[D]value"
+        ],
+        "out": [
+          "fd_relative_axes",
+          "L0[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_safety",
+          "[D]value"
+        ],
+        "out": [
+          "fd_l0_normalize",
+          "value[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_safety",
+          "[E]exec"
+        ],
+        "out": [
+          "fd_l0_safety_tick",
+          "exec[E]"
+        ]
+      },
+      {
+        "in": [
+          "fd_wifi_out",
+          "[E]exec"
+        ],
+        "out": [
+          "fd_l0_safety",
+          "exec[E]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_smooth",
+          "[D]value"
+        ],
+        "out": [
+          "fd_l0_safety",
+          "safeValue[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_viz",
+          "[D]x"
+        ],
+        "out": [
+          "fd_relative_axes",
+          "L0[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_reference_bone",
+          "[D]skeleton"
+        ],
+        "out": [
+          "fd_male_selector",
+          "skeleton[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_relative_axes",
+          "[D]referenceBone"
+        ],
+        "out": [
+          "fd_reference_bone",
+          "bone[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_relative_axes",
+          "[D]targetBone"
+        ],
+        "out": [
+          "fd_target_hand",
+          "bone[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_tcode_viz",
+          "[D]tcode"
+        ],
+        "out": [
+          "fd_tcode",
+          "tcode[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_wifi_out",
+          "[D]value"
+        ],
+        "out": [
+          "fd_device_tcode",
+          "tcode[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_device_tcode",
+          "[D]L0"
+        ],
+        "out": [
+          "fd_device_range",
+          "value[D]"
+        ]
+      }
+    ],
+    "f8_layers": [
+      {
+        "color": "#64748B",
+        "defaultVisible": true,
+        "description": "Default base layer for unassigned nodes.",
+        "id": "base",
+        "isBase": true,
+        "label": "Base"
+      }
+    ],
+    "graph": {
+      "accept_connection_types": "{}",
+      "acyclic": true,
+      "layout_direction": 0,
+      "pipe_collision": false,
+      "pipe_slicing": true,
+      "pipe_style": 1,
+      "reject_connection_types": "{}"
+    },
+    "nodes": {
+      "fd_3d_viz": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "autoZoomOnNewPeople": true,
+          "markerScale": 2.0,
+          "maxBonesPerPerson": 256,
+          "maxPeople": 64,
+          "showBoneAxes": true,
+          "showBoneNames": true,
+          "showBonePoints": true,
+          "showPersonBoxes": true,
+          "showPersonNames": true,
+          "showSkeletonLines": false,
+          "throttleMs": 33,
+          "uiFpsCap": 60,
+          "upstreamSampleIntervalMs": 100,
+          "upstreamSamplingMode": "auto",
+          "worldUp": "+z"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Skeleton dict/list or single bone dict (auto-wrapped to 1-bone skeleton).",
+              "name": "skeletons",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "dataOutPorts": [],
+          "description": "3D viewer for multi-person skeleton streams (Studio UI-only).",
+          "editPolicy": {
+            "dataInPorts": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            }
+          },
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "3D Viz",
+          "operatorClass": "f8.viz.three_d",
+          "paletteCategory": "f8.pystudio.viz",
+          "rendererClass": "viz_three_d",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pystudio",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Runtime push interval to UI command channel.",
+              "label": "Push Throttle (ms)",
+              "name": "throttleMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 33,
+                "maximum": 60000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Viewer/camera up axis. Incoming skeleton data is already treated as F8 canonical coordinates.",
+              "label": "World Up",
+              "name": "worldUp",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "+y",
+                "enum": [
+                  "+x",
+                  "-x",
+                  "+y",
+                  "-y",
+                  "+z",
+                  "-z"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Display per-person 3D bounding boxes.",
+              "label": "Show Person Boxes",
+              "name": "showPersonBoxes",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Display per-person labels.",
+              "label": "Show Person Names",
+              "name": "showPersonNames",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Display bone node points.",
+              "label": "Show Bone Points",
+              "name": "showBonePoints",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Display protocol-based links for known skeleton protocols.",
+              "label": "Show Skeleton Lines",
+              "name": "showSkeletonLines",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Display RGB axes per bone node.",
+              "label": "Show Bone Axes",
+              "name": "showBoneAxes",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Display labels per bone node.",
+              "label": "Show Bone Names",
+              "name": "showBoneNames",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum people rendered from each frame.",
+              "label": "Max People",
+              "name": "maxPeople",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 64,
+                "maximum": 4096.0,
+                "minimum": 1.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum bones rendered for each person.",
+              "label": "Max Bones Per Person",
+              "name": "maxBonesPerPerson",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 256,
+                "maximum": 8192.0,
+                "minimum": 1.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Auto fit view when the person set changes.",
+              "label": "Auto Zoom On New People",
+              "name": "autoZoomOnNewPeople",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Front-end render FPS cap.",
+              "label": "UI FPS Cap",
+              "name": "uiFpsCap",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 60,
+                "maximum": 120.0,
+                "minimum": 1.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Global scale for bone point size and bone axis size.",
+              "label": "Marker Scale",
+              "name": "markerScale",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 1.0,
+                "maximum": 100000.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "passive: no upstream auto-sampler request; auto: request upstream periodic sampling when the source runtime supports it.",
+              "label": "Upstream Sampling",
+              "name": "upstreamSamplingMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "auto",
+                "enum": [
+                  "passive",
+                  "auto"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Requested upstream auto sampling interval in milliseconds.",
+              "label": "Upstream Sample Interval (ms)",
+              "name": "upstreamSampleIntervalMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 100,
+                "maximum": 5000.0,
+                "minimum": 8.0,
+                "type": "integer"
+              }
+            }
+          ],
+          "tags": [
+            "viz",
+            "3d",
+            "skeleton",
+            "ui"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "studio"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {
+          "stateInlineExpanded": {
+            "worldUp": true
+          }
+        },
+        "height": 161.0,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD 3D Skeleton Preview",
+        "pos": [
+          638.126633920486,
+          40.8688178438182
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pystudio.f8.viz.three_d",
+        "visible": true,
+        "width": 161.984375
+      },
+      "fd_alet_selector": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "allowLegacyFallback": false,
+          "enabledKeys": [
+            "fallen-doll:female:0",
+            "fallen-doll:female:1",
+            "fallen-doll:female:2",
+            "fallen-doll:female:3",
+            "fallen-doll:female:4",
+            "fallen-doll:female:5",
+            "fallen-doll:female:6",
+            "fallen-doll:female:7"
+          ],
+          "fallbackModelName": "",
+          "operatorId": "fd_alet_selector",
+          "profileId": "fallen-doll",
+          "role": "female",
+          "roleIndex": 0,
+          "selectedKey": "",
+          "selectionMode": "exporter_priority",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Decoded skeleton list.",
+              "name": "skeletons",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Selected skeleton.",
+              "name": "skeleton",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Stable profile/role/index key.",
+              "name": "stableKey",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Selection status on the data channel.",
+              "name": "status",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "profileId": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "roleIndex": {
+                    "type": "integer"
+                  },
+                  "stableKey": {
+                    "type": "string"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Select a character by stable exporter profile, role, and role index.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Skeleton Selector",
+          "operatorClass": "f8.skeleton_selector",
+          "paletteCategory": "f8.pyengine.motion",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Exact live participant. Empty uses the profile/role/index fields below.",
+              "label": "Participant",
+              "name": "selectedKey",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "select[availableKeys]",
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Use a fixed role index or the first enabled exporter-ranked participant.",
+              "label": "Participant Selection",
+              "name": "selectionMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "role_index",
+                "enum": [
+                  "role_index",
+                  "exporter_priority"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Enabled live participant candidates. Clearing all candidates produces no output.",
+              "label": "Enabled Participants",
+              "name": "enabledKeys",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "multiselect[availableKeys]",
+              "valueSchema": {
+                "default": [
+                  "fallen-doll:male:0",
+                  "fallen-doll:male:1",
+                  "fallen-doll:male:2",
+                  "fallen-doll:male:3",
+                  "fallen-doll:male:4",
+                  "fallen-doll:male:5",
+                  "fallen-doll:male:6",
+                  "fallen-doll:male:7",
+                  "fallen-doll:female:0",
+                  "fallen-doll:female:1",
+                  "fallen-doll:female:2",
+                  "fallen-doll:female:3",
+                  "fallen-doll:female:4",
+                  "fallen-doll:female:5",
+                  "fallen-doll:female:6",
+                  "fallen-doll:female:7",
+                  "fallen-doll:other:0",
+                  "fallen-doll:other:1",
+                  "fallen-doll:other:2",
+                  "fallen-doll:other:3",
+                  "fallen-doll:other:4",
+                  "fallen-doll:other:5",
+                  "fallen-doll:other:6",
+                  "fallen-doll:other:7"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Exporter game profile ID. Empty accepts any profile.",
+              "label": "Profile ID",
+              "name": "profileId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Stable character role.",
+              "label": "Role",
+              "name": "role",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "",
+                "enum": [
+                  "",
+                  "male",
+                  "female",
+                  "other"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Zero-based index within the selected role.",
+              "label": "Role Index",
+              "name": "roleIndex",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 0,
+                "maximum": 1024.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Exact modelName used only for LMEX v1 streams.",
+              "label": "Legacy Model",
+              "name": "fallbackModelName",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Allow exact modelName fallback for LMEX v1 packets.",
+              "label": "Legacy Fallback",
+              "name": "allowLegacyFallback",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Low-frequency list of currently available stable keys.",
+              "label": "Available Characters",
+              "name": "availableKeys",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "skeleton",
+            "character",
+            "stable",
+            "select",
+            "unity"
+          ],
+          "version": "0.1.0"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {
+          "stateInlineExpanded": {
+            "selectedKey": false
+          }
+        },
+        "height": 268.45000000000005,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "Target Participant",
+        "pos": [
+          677.9524431457221,
+          549.5442917038679
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.skeleton_selector",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_decoder": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "cleanupAfterMs": 2000,
+          "operatorId": "fd_decoder",
+          "selectedKey": "",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Packet payload from udp_in.packet.",
+              "name": "packet",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "List of latest payloads (ordered by key).",
+              "name": "skeletons",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "items": {
+                  "properties": {
+                    "boneCount": {
+                      "type": "integer"
+                    },
+                    "bones": {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "pos": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "type": "array"
+                          },
+                          "rot": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "modelName": {
+                      "type": "string"
+                    },
+                    "schema": {
+                      "type": "string"
+                    },
+                    "timestampMs": {
+                      "type": "integer"
+                    },
+                    "trailer": {
+                      "properties": {
+                        "anim": {
+                          "properties": {
+                            "clipName": {
+                              "type": "string"
+                            },
+                            "layerIndex": {
+                              "type": "integer"
+                            },
+                            "normalizedTime": {
+                              "type": "number"
+                            },
+                            "poseKey": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "assembledChunkCount": {
+                          "type": "integer"
+                        },
+                        "characterId": {
+                          "type": "integer"
+                        },
+                        "chunkCount": {
+                          "type": "integer"
+                        },
+                        "chunkIndex": {
+                          "type": "integer"
+                        },
+                        "extVersion": {
+                          "type": "integer"
+                        },
+                        "frameId": {
+                          "type": "integer"
+                        },
+                        "magic": {
+                          "type": "string"
+                        },
+                        "totalBoneCount": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Latest payload matching `selectedKey` (or None).",
+              "name": "selectedSkeleton",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "boneCount": {
+                    "type": "integer"
+                  },
+                  "bones": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "pos": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "type": "array"
+                        },
+                        "rot": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "modelName": {
+                    "type": "string"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "timestampMs": {
+                    "type": "integer"
+                  },
+                  "trailer": {
+                    "properties": {
+                      "anim": {
+                        "properties": {
+                          "clipName": {
+                            "type": "string"
+                          },
+                          "layerIndex": {
+                            "type": "integer"
+                          },
+                          "normalizedTime": {
+                            "type": "number"
+                          },
+                          "poseKey": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "assembledChunkCount": {
+                        "type": "integer"
+                      },
+                      "characterId": {
+                        "type": "integer"
+                      },
+                      "chunkCount": {
+                        "type": "integer"
+                      },
+                      "chunkIndex": {
+                        "type": "integer"
+                      },
+                      "extVersion": {
+                        "type": "integer"
+                      },
+                      "frameId": {
+                        "type": "integer"
+                      },
+                      "magic": {
+                        "type": "string"
+                      },
+                      "totalBoneCount": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Decodes udp_in packet payloads into skeleton streams with chunk reassembly.",
+          "execInPorts": [
+            "packet"
+          ],
+          "execOutPorts": [
+            "packet"
+          ],
+          "hiddenInPalette": false,
+          "label": "Skeleton Decoder",
+          "operatorClass": "f8.skeleton_decoder",
+          "paletteCategory": "f8.pyengine.motion",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Remove models that haven't updated for this many ms (<=0 disables cleanup).",
+              "label": "Cleanup After (ms)",
+              "name": "cleanupAfterMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 10000,
+                "maximum": 60000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "If set and matches an available key, outputs `selectedSkeleton`; otherwise None.",
+              "label": "Selected Key",
+              "name": "selectedKey",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "select[availableKeys]",
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Read-only list of current keys (updated only on changes).",
+              "label": "Available Keys",
+              "name": "availableKeys",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "decode",
+            "skeleton",
+            "mocap",
+            "udp"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 164.5,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD Skeleton Decoder",
+        "pos": [
+          400.0,
+          90.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.skeleton_decoder",
+        "visible": true,
+        "width": 176.015625
+      },
+      "fd_device_range": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "curve": "LINEAR",
+          "inMax": 1.0,
+          "inMin": 0.0,
+          "operatorId": "fd_device_range",
+          "outMax": 0.6,
+          "outMin": 0.4,
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Input value.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Mapped output.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "description": "Clip input to [inMin,inMax] then remap to [outMin,outMax] with a curve.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Range Map",
+          "operatorClass": "f8.range_map",
+          "paletteCategory": "f8.pyengine.signal",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Input range minimum.",
+              "label": "Input Min",
+              "name": "inMin",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Input range maximum.",
+              "label": "Input Max",
+              "name": "inMax",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Output range minimum.",
+              "label": "Output Min",
+              "name": "outMin",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Output range maximum.",
+              "label": "Output Max",
+              "name": "outMax",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Mapping curve.",
+              "label": "Curve",
+              "name": "curve",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "LINEAR",
+                "enum": [
+                  "LINEAR",
+                  "SMOOTHSTEP",
+                  "SMOOTHERSTEP",
+                  "EASE_IN",
+                  "EASE_OUT",
+                  "EASE_IN_OUT"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "map",
+            "range",
+            "normalize",
+            "curve",
+            "transform"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 138.25,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD Device L0 Safe Range (40-60%)",
+        "pos": [
+          2570.0,
+          920.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.range_map",
+        "visible": true,
+        "width": 242.46875
+      },
+      "fd_device_tcode": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "intervalMs": 20,
+          "operatorId": "fd_device_tcode",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Axis L0 (0..1).",
+              "name": "L0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis L1 (0..1).",
+              "name": "L1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis L2 (0..1).",
+              "name": "L2",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis R0 (0..1).",
+              "name": "R0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis R1 (0..1).",
+              "name": "R1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis R2 (0..1).",
+              "name": "R2",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis V0 (0..1).",
+              "name": "V0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis V1 (0..1).",
+              "name": "V1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis A0 (0..1).",
+              "name": "A0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis A1 (0..1).",
+              "name": "A1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Optional interval override in milliseconds (rounded, min 1).",
+              "name": "intervalMs",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 20,
+                "maximum": 50000.0,
+                "minimum": 1.0,
+                "type": "number"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "TCode v0.3 command string",
+              "name": "tcode",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Generates TCode v0.3 command strings from normalized axis values.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "TCode",
+          "operatorClass": "f8.tcode",
+          "paletteCategory": "f8.pyengine.signal",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Default interval appended as `I###` when `intervalMs` input is not provided.",
+              "label": "Interval (ms)",
+              "name": "intervalMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 20,
+                "maximum": 50000.0,
+                "minimum": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "transform",
+            "tcode",
+            "osr",
+            "command",
+            "string"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 83.65,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD Device TCode Encoder",
+        "pos": [
+          2860.0,
+          920.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.tcode",
+        "visible": true,
+        "width": 192.46875
+      },
+      "fd_l0_limit": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "inMax": 1.0,
+          "inMin": 0.0,
+          "maxAccel": 8.0,
+          "maxRateDown": 1.5,
+          "maxRateUp": 1.5,
+          "operatorId": "fd_l0_limit",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Input value.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Rate-limited output.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "description": "Limits the rate of change (and optionally acceleration) of an input signal.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Rate Limiter",
+          "operatorClass": "f8.rate_limiter",
+          "paletteCategory": "f8.pyengine.signal",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Input/output clamp minimum (typical 0).",
+              "label": "Input Min",
+              "name": "inMin",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Input/output clamp maximum (typical 1).",
+              "label": "Input Max",
+              "name": "inMax",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum rising rate (units/sec).",
+              "label": "Max Rate Up",
+              "name": "maxRateUp",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 2.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum falling rate (units/sec).",
+              "label": "Max Rate Down",
+              "name": "maxRateDown",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 2.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum acceleration (units/sec^2). 0 disables acceleration limiting.",
+              "label": "Max Accel",
+              "name": "maxAccel",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "signal",
+            "limit",
+            "rate",
+            "slew",
+            "smoothing",
+            "transform"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 110.95,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD L0 Anti-jump",
+        "pos": [
+          2290.0,
+          520.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.rate_limiter",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_l0_normalize": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "curve": "LINEAR",
+          "inMax": 0.27,
+          "inMin": 0.08,
+          "operatorId": "fd_l0_normalize",
+          "outMax": 1.0,
+          "outMin": 0.0,
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Input value.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Mapped output.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "description": "Clip input to [inMin,inMax] then remap to [outMin,outMax] with a curve.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Range Map",
+          "operatorClass": "f8.range_map",
+          "paletteCategory": "f8.pyengine.signal",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Input range minimum.",
+              "label": "Input Min",
+              "name": "inMin",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Input range maximum.",
+              "label": "Input Max",
+              "name": "inMax",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Output range minimum.",
+              "label": "Output Min",
+              "name": "outMin",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Output range maximum.",
+              "label": "Output Max",
+              "name": "outMax",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Mapping curve.",
+              "label": "Curve",
+              "name": "curve",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "LINEAR",
+                "enum": [
+                  "LINEAR",
+                  "SMOOTHSTEP",
+                  "SMOOTHERSTEP",
+                  "EASE_IN",
+                  "EASE_OUT",
+                  "EASE_IN_OUT"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "map",
+            "range",
+            "normalize",
+            "curve",
+            "transform"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 138.25,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD L0 Normalize",
+        "pos": [
+          1510.0,
+          520.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.range_map",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_l0_normalized_viz": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "bufferLimit": 200,
+          "clearNonce": 0,
+          "maxVal": 1.0,
+          "minVal": 0.0,
+          "showLegend": false,
+          "throttleMs": 100,
+          "uiUpdate": true,
+          "upstreamSampleIntervalMs": 50,
+          "upstreamSamplingMode": "auto",
+          "windowMs": 10000
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Numeric input value (y-axis).",
+              "name": "x",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Numeric input value (y-axis).",
+              "name": "y",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Numeric input value (y-axis).",
+              "name": "z",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "dataOutPorts": [],
+          "description": "Plot numeric values over time (UI-only).",
+          "editPolicy": {
+            "dataInPorts": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            }
+          },
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Wave Viz",
+          "operatorClass": "f8.viz.wave",
+          "paletteCategory": "f8.pystudio.viz",
+          "rendererClass": "viz_wave",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pystudio",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Pause/resume embedded chart updates in the editor.",
+              "label": "UI Update",
+              "name": "uiUpdate",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum number of points kept in memory.",
+              "label": "Buffer Limit",
+              "name": "bufferLimit",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 200,
+                "maximum": 5000.0,
+                "minimum": 10.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Increment to clear accumulated series buffer.",
+              "label": "Clear Nonce",
+              "name": "clearNonce",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0,
+                "maximum": 2147483647.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Only keep data within this time window.",
+              "label": "Time Window (ms)",
+              "name": "windowMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 10000,
+                "maximum": 600000.0,
+                "minimum": 100.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "UI refresh interval in milliseconds.",
+              "label": "Refresh (ms)",
+              "name": "throttleMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 100,
+                "maximum": 60000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Toggle plot legend visibility.",
+              "label": "Legend",
+              "name": "showLegend",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Fixed y-axis minimum (leave empty for auto).",
+              "label": "Min",
+              "name": "minVal",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Fixed y-axis maximum (leave empty for auto).",
+              "label": "Max",
+              "name": "maxVal",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "passive: no upstream auto-sampler request; auto: request upstream periodic sampling when the source runtime supports it.",
+              "label": "Upstream Sampling",
+              "name": "upstreamSamplingMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "auto",
+                "enum": [
+                  "passive",
+                  "auto"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Requested upstream auto sampling interval in milliseconds.",
+              "label": "Upstream Sample Interval (ms)",
+              "name": "upstreamSampleIntervalMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 100,
+                "maximum": 5000.0,
+                "minimum": 8.0,
+                "type": "integer"
+              }
+            }
+          ],
+          "tags": [
+            "plot",
+            "timeseries",
+            "ui"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "studio"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 193.0,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD L0 Normalized Preview",
+        "pos": [
+          2570.0,
+          520.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pystudio.f8.viz.wave",
+        "visible": true,
+        "width": 212.0
+      },
+      "fd_l0_safety": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "code": "import math\nimport time\n\nTIMEOUT_MS = 250.0\nCENTER = 0.5\n\ndef _timestamps(value):\n    if isinstance(value, list):\n        out = []\n        for item in value:\n            out.extend(_timestamps(item))\n        return out\n    if not isinstance(value, dict):\n        return []\n    raw = value.get('receivedAtMs', value.get('timestampMs'))\n    if isinstance(raw, bool) or raw is None:\n        return []\n    try:\n        number = float(raw)\n    except (TypeError, ValueError, OverflowError):\n        return []\n    return [number] if math.isfinite(number) else []\n\ndef _number(value):\n    if isinstance(value, bool) or value is None:\n        return None\n    try:\n        number = float(value)\n    except (TypeError, ValueError, OverflowError):\n        return None\n    return number if math.isfinite(number) else None\n\ndef onStart(ctx):\n    ctx.locals['lastValid'] = CENTER\n    ctx.locals['state'] = 'idle'\n\ndef onMsg(ctx, inputs):\n    now_ms = time.time() * 1000.0\n    timestamps = _timestamps(inputs.get('heartbeat'))\n    age_ms = max(0.0, now_ms - min(timestamps)) if timestamps else None\n    incoming = _number(inputs.get('value'))\n    fresh = age_ms is not None and age_ms <= TIMEOUT_MS and incoming is not None\n    if fresh:\n        output = max(0.0, min(1.0, incoming))\n        ctx.locals['lastValid'] = output\n        state = 'active'\n    elif age_ms is not None and age_ms <= TIMEOUT_MS:\n        output = float(ctx.locals.get('lastValid', CENTER))\n        state = 'holding'\n    else:\n        output = CENTER\n        state = 'releasing'\n    ctx.locals['state'] = state\n    return {'outputs': {'safeValue': output, 'status': {'state': state, 'fresh': fresh, 'ageMs': age_ms, 'timeoutMs': TIMEOUT_MS, 'center': CENTER}}}\n",
+          "inputMode": "raw_dict",
+          "operatorId": "fd_l0_safety",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Normalized Hand L0 target.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Decoded Fallen Doll skeleton list carrying receivedAtMs.",
+              "name": "heartbeat",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Held active value or safe center target.",
+              "name": "safeValue",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Freshness state for simulation diagnostics.",
+              "name": "status",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "description": "Execute Python code with onStart/onState/onMsg/onExec/onStop hooks.",
+          "editPolicy": {
+            "commands": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            },
+            "dataInPorts": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            },
+            "dataOutPorts": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            },
+            "execInPorts": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            },
+            "execOutPorts": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            },
+            "stateFields": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            }
+          },
+          "execInPorts": [
+            "exec"
+          ],
+          "execOutPorts": [
+            "exec"
+          ],
+          "hiddenInPalette": false,
+          "label": "Python Script",
+          "operatorClass": "f8.python_script",
+          "paletteCategory": "f8.pyengine.expr",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Python source code optionally defining hooks: onStart/onState/onMsg/onExec/onStop.",
+              "editorAssist": {
+                "language": "python",
+                "python": {
+                  "dynamic_bindings": {
+                    "inputs": {
+                      "access_mode": "object_and_mapping",
+                      "enabled": true,
+                      "module_name": "f8_dynamic_inputs",
+                      "schema_mode": "basic_recursive",
+                      "source": "data_in_ports",
+                      "type_name": "F8Inputs"
+                    },
+                    "states": {
+                      "access_mode": "object_and_mapping",
+                      "enabled": true,
+                      "module_name": "f8_dynamic_states",
+                      "schema_mode": "basic_recursive",
+                      "source": "state_fields",
+                      "type_name": "F8States"
+                    }
+                  },
+                  "overlay_prefix": "from __future__ import annotations\nfrom f8_script_api import (\n    PyEngineOnExecHook as _F8OnExecHook,\n    PyEngineOnMsgHook as _F8OnMsgHook,\n    PyEngineOnStartHook as _F8OnStartHook,\n    PyEngineOnStateHook as _F8OnStateHook,\n    PyEngineOnStopHook as _F8OnStopHook,\n)\nonStart: _F8OnStartHook\nonState: _F8OnStateHook\nonMsg: _F8OnMsgHook\nonExec: _F8OnExecHook\nonStop: _F8OnStopHook\n",
+                  "support_files": {
+                    "f8_script_api.pyi": "from __future__ import annotations\n\nfrom typing import Any, Mapping, Protocol, TypeAlias, Literal\n\nfrom f8_dynamic_inputs import F8Inputs as F8Inputs\nfrom f8_dynamic_states import F8States as F8States\nInputMode: TypeAlias = Literal['input_view', 'raw_dict', 'msgspec_struct']\nF8InputsMapping: TypeAlias = Mapping[str, Any]\n\nclass F8PyEngineContext:\n    \"\"\"Runtime context passed to f8.python_script hooks.\"\"\"\n    node_id: str\n    \"\"\"Current runtime node id.\"\"\"\n    locals: dict[str, Any]\n    \"\"\"Script-local mutable memory persisted between hook calls.\"\"\"\n    states: F8States\n    \"\"\"Readonly cached state snapshot view (rw/ro/wo fields).\"\"\"\n    exec_in: str | None\n    \"\"\"Current exec trigger input name for onExec, else None.\"\"\"\n    input_mode: InputMode\n    \"\"\"Current input binding mode selected by node state `inputMode`.\"\"\"\n    def log(self, message: object) -> None:\n        \"\"\"Write an info log line from script context.\"\"\"\n        ...\n    def emit(self, port: str, value: Any) -> None:\n        \"\"\"Emit one value to a data output port (fire-and-forget).\"\"\"\n        ...\n    async def emit_async(self, port: str, value: Any) -> None:\n        \"\"\"Emit one value to a data output port and await completion.\"\"\"\n        ...\n    def set_state(self, field: str, value: Any) -> None:\n        \"\"\"Set a state value asynchronously (fire-and-forget).\"\"\"\n        ...\n    async def set_state_async(self, field: str, value: Any) -> None:\n        \"\"\"Set a state value and await the write completion.\"\"\"\n        ...\n    async def read_state(self, field: str) -> Any:\n        \"\"\"Read a fresh state value via runtime/state service path.\"\"\"\n        ...\n    def subscribe_video_latest(self, key: str, *, stream_key: str = '', decode: str = 'auto') -> None:\n        \"\"\"Subscribe to a latest-frame video stream by key.\"\"\"\n        ...\n    def get_video_latest(self, key: str) -> dict[str, Any] | None:\n        \"\"\"Get latest cached video packet for a subscription key.\"\"\"\n        ...\n    def unsubscribe_video_latest(self, key: str) -> None:\n        \"\"\"Cancel one latest-frame video subscription by key.\"\"\"\n        ...\n    def list_video_latest_subscriptions(self) -> list[dict[str, Any]]:\n        \"\"\"List active latest-frame video subscription metadata.\"\"\"\n        ...\n\nclass PyEngineOnStartHook(Protocol):\n    \"\"\"Type signature for `onStart(ctx)`.\"\"\"\n    def __call__(self, ctx: F8PyEngineContext) -> Any: ...\n\nclass PyEngineOnStateHook(Protocol):\n    \"\"\"Type signature for `onState(ctx, field, value, ts_ms=None)`.\"\"\"\n    def __call__(self, ctx: F8PyEngineContext, field: str, value: Any, ts_ms: int | None = None) -> Any: ...\n\nclass PyEngineOnMsgHook(Protocol):\n    \"\"\"Type signature for `onMsg(ctx, inputs)`.\"\"\"\n    def __call__(self, ctx: F8PyEngineContext, inputs: F8Inputs | F8InputsMapping) -> Any: ...\n\nclass PyEngineOnExecHook(Protocol):\n    \"\"\"Type signature for `onExec(ctx, exec_in, inputs)`.\"\"\"\n    def __call__(self, ctx: F8PyEngineContext, exec_in: str, inputs: F8Inputs | F8InputsMapping) -> Any: ...\n\nclass PyEngineOnStopHook(Protocol):\n    \"\"\"Type signature for `onStop(ctx)`.\"\"\"\n    def __call__(self, ctx: F8PyEngineContext) -> Any: ...\n"
+                  }
+                },
+                "version": 1
+              },
+              "label": "Code",
+              "name": "code",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "code[python]",
+              "valueSchema": {
+                "default": "# Hooks template (uncomment what you need):\n# - onStart(ctx)\n# - onState(ctx, field, value, ts_ms=None)\n# - onMsg(ctx, inputs)\n# - onExec(ctx, exec_in, inputs)\n# - onStop(ctx)\n#\n# Notes:\n# - If you define no hooks, the node is a no-op.\n# - ctx.locals is preserved between calls (script-local memory)\n# - ctx.exec_in is set only for exec-triggered calls\n# - ctx.states.<field> reads cached rw/ro/wo state snapshot\n#   - example: ctx.states.foo / ctx.states.pose.x\n# - await ctx.read_state(field)  # fresh runtime read\n# - ctx.states.get(field)  # cached snapshot\n# - ctx.set_state(field, value)\n#   - await ctx.set_state_async(field, value)\n# - onStart return values are ignored; use ctx.emit()/ctx.set_state().\n# - inputs binding mode is configured by state `inputMode`:\n#   - input_view (default): supports dot and mapping access\n#   - raw_dict: plain dict only (faster for mapping-style high-frequency scripts)\n#   - msgspec_struct: typed struct from dataIn schema (faster for dot-style high-frequency scripts)\n# - State TypeGuard helpers are available from f8_dynamic_states\n#   - example: from f8_dynamic_states import is_state_inputMode\n#   - then: if is_state_inputMode(value, field): ...\n# - Video latest-frame helpers:\n#   - ctx.subscribe_video_latest(key, stream_key='f8/svc/.../data/video', decode='auto')\n#   - pkt = ctx.get_video_latest(key)\n#   - ctx.unsubscribe_video_latest(key)\n#   - ctx.list_video_latest_subscriptions()\n#\n# Return value protocol:\n# - onMsg: {'outputs': {...}} or any value (emits to 'out' if present)\n# - onExec: {'exec': ['exec', ...], 'outputs': {...}}\n\nfrom typing import TYPE_CHECKING, Any\nif TYPE_CHECKING:\n    from f8_script_api import F8Inputs, F8PyEngineContext, F8States\n\ndef onStart(ctx: 'F8PyEngineContext') -> None:\n    ctx.log('python_script started')\n\n# def onState(\n#     ctx: 'F8PyEngineContext',\n#     field: str,\n#     value: Any,\n#     ts_ms: int | None = None,\n# ) -> None:\n#     ctx.log(f'state {field}={value} ts_ms={ts_ms}')\n#\n# def onMsg(ctx: 'F8PyEngineContext', inputs: 'F8Inputs') -> dict[str, Any]:\n#     msg = inputs.msg\n#     return {'outputs': {'out': msg}}\n#\n# def onExec(ctx: 'F8PyEngineContext', exec_in: str, inputs: 'F8Inputs') -> dict[str, Any]:\n#     if exec_in == 'exec2':\n#         return {'exec': ['exec2'], 'outputs': {'out': inputs.msg}}\n#     return {'exec': ['exec'], 'outputs': {'out': inputs.msg}}\n#\n# def onStop(ctx: 'F8PyEngineContext') -> None:\n#     ctx.log('python_script stopped')\n",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Input binding mode: input_view | raw_dict | msgspec_struct. For high-frequency scripts, prefer raw_dict for mapping access or msgspec_struct for dot access.",
+              "label": "Input Mode",
+              "name": "inputMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "input_view",
+                "enum": [
+                  "input_view",
+                  "raw_dict",
+                  "msgspec_struct"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "script",
+            "python",
+            "programmable"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 104.65,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD L0 Stream Safety",
+        "pos": [
+          1770.0,
+          520.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.python_script",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_l0_safety_tick": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "hiResTimer": false,
+          "operatorId": "fd_l0_safety_tick",
+          "svcId": "fd_pyengine",
+          "tickMs": 20
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Per-tick processing time in milliseconds (excluding sleep).",
+              "name": "processingMs",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Actual interval between tick starts in milliseconds.",
+              "name": "intervalMs",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "How late this tick started relative to its scheduled deadline (ms).",
+              "name": "latenessMs",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            }
+          ],
+          "description": "Source operator that generates periodic exec ticks.",
+          "execInPorts": [],
+          "execOutPorts": [
+            "exec"
+          ],
+          "hiddenInPalette": false,
+          "label": "Tick",
+          "operatorClass": "f8.tick",
+          "paletteCategory": "f8.pyengine.execution",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Interval in milliseconds for emitting exec ticks.",
+              "label": "Tick (ms)",
+              "name": "tickMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 100,
+                "maximum": 50000.0,
+                "minimum": 1.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Request 1ms system timer resolution to reduce jitter on Windows.",
+              "label": "High-res Timer (Windows)",
+              "name": "hiResTimer",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "execution",
+            "timer",
+            "start",
+            "clock",
+            "entrypoint"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 83.65,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD L0 Safety Clock",
+        "pos": [
+          1770.0,
+          730.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.tick",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_l0_smooth": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "dema_alpha": 0.4,
+          "ema_alpha": 0.35,
+          "filter_type": "EMA",
+          "one_euro_beta": 0.0,
+          "one_euro_default_freq": 90.0,
+          "one_euro_derivative_cutoff": 1.0,
+          "one_euro_min_cutoff": 1.5,
+          "operatorId": "fd_l0_smooth",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Value to filter.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Filtered output.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "description": "Smooths scalar or vector inputs with EMA/DEMA/One Euro filtering.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Smooth Filter",
+          "operatorClass": "f8.smooth_filter",
+          "paletteCategory": "f8.pyengine.signal",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Filter type.",
+              "label": "Filter",
+              "name": "filter_type",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "EMA",
+                "enum": [
+                  "NONE",
+                  "EMA",
+                  "DEMA",
+                  "ONEEURO"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "EMA smoothing factor (0..1).",
+              "label": "EMA Alpha",
+              "name": "ema_alpha",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "slider",
+              "valueSchema": {
+                "default": 0.4,
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "DEMA smoothing factor (0..1).",
+              "label": "DEMA Alpha",
+              "name": "dema_alpha",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "slider",
+              "valueSchema": {
+                "default": 0.4,
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Minimum cutoff frequency.",
+              "label": "One Euro Min Cutoff",
+              "name": "one_euro_min_cutoff",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "slider",
+              "valueSchema": {
+                "default": 1.5,
+                "maximum": 10.0,
+                "minimum": 0.01,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Speed coefficient for dynamic cutoff.",
+              "label": "One Euro Beta",
+              "name": "one_euro_beta",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "slider",
+              "valueSchema": {
+                "default": 0.0,
+                "maximum": 5.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Cutoff frequency for the derivative filter.",
+              "label": "One Euro Derivative Cutoff",
+              "name": "one_euro_derivative_cutoff",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "slider",
+              "valueSchema": {
+                "default": 1.0,
+                "maximum": 10.0,
+                "minimum": 0.01,
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Default sampling frequency (Hz).",
+              "label": "One Euro Default Freq",
+              "name": "one_euro_default_freq",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "slider",
+              "valueSchema": {
+                "default": 90.0,
+                "maximum": 240.0,
+                "minimum": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "filter",
+            "smoothing",
+            "one_euro",
+            "signal"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 110.95,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD L0 Smooth",
+        "pos": [
+          2030.0,
+          520.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.smooth_filter",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_l0_viz": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "bufferLimit": 200,
+          "clearNonce": 0,
+          "maxVal": 0.3,
+          "minVal": 0.05,
+          "showLegend": false,
+          "throttleMs": 100,
+          "uiUpdate": true,
+          "upstreamSampleIntervalMs": 50,
+          "upstreamSamplingMode": "auto",
+          "windowMs": 10000
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Numeric input value (y-axis).",
+              "name": "x",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Numeric input value (y-axis).",
+              "name": "y",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Numeric input value (y-axis).",
+              "name": "z",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            }
+          ],
+          "dataOutPorts": [],
+          "description": "Plot numeric values over time (UI-only).",
+          "editPolicy": {
+            "dataInPorts": {
+              "canAdd": true,
+              "canDelete": true,
+              "canEditExisting": true
+            }
+          },
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Wave Viz",
+          "operatorClass": "f8.viz.wave",
+          "paletteCategory": "f8.pystudio.viz",
+          "rendererClass": "viz_wave",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pystudio",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Pause/resume embedded chart updates in the editor.",
+              "label": "UI Update",
+              "name": "uiUpdate",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum number of points kept in memory.",
+              "label": "Buffer Limit",
+              "name": "bufferLimit",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 200,
+                "maximum": 5000.0,
+                "minimum": 10.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Increment to clear accumulated series buffer.",
+              "label": "Clear Nonce",
+              "name": "clearNonce",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0,
+                "maximum": 2147483647.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Only keep data within this time window.",
+              "label": "Time Window (ms)",
+              "name": "windowMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 10000,
+                "maximum": 600000.0,
+                "minimum": 100.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "UI refresh interval in milliseconds.",
+              "label": "Refresh (ms)",
+              "name": "throttleMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 100,
+                "maximum": 60000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Toggle plot legend visibility.",
+              "label": "Legend",
+              "name": "showLegend",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Fixed y-axis minimum (leave empty for auto).",
+              "label": "Min",
+              "name": "minVal",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Fixed y-axis maximum (leave empty for auto).",
+              "label": "Max",
+              "name": "maxVal",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "passive: no upstream auto-sampler request; auto: request upstream periodic sampling when the source runtime supports it.",
+              "label": "Upstream Sampling",
+              "name": "upstreamSamplingMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "auto",
+                "enum": [
+                  "passive",
+                  "auto"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Requested upstream auto sampling interval in milliseconds.",
+              "label": "Upstream Sample Interval (ms)",
+              "name": "upstreamSampleIntervalMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 100,
+                "maximum": 5000.0,
+                "minimum": 8.0,
+                "type": "integer"
+              }
+            }
+          ],
+          "tags": [
+            "plot",
+            "timeseries",
+            "ui"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "studio"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 193.0,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD L0 Preview (meters)",
+        "pos": [
+          1502.6722507738584,
+          284.04318015599614
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pystudio.f8.viz.wave",
+        "visible": true,
+        "width": 212.0
+      },
+      "fd_male_selector": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "allowLegacyFallback": false,
+          "enabledKeys": [
+            "fallen-doll:male:0",
+            "fallen-doll:male:1",
+            "fallen-doll:male:2",
+            "fallen-doll:male:3",
+            "fallen-doll:male:4",
+            "fallen-doll:male:5",
+            "fallen-doll:male:6",
+            "fallen-doll:male:7"
+          ],
+          "fallbackModelName": "",
+          "operatorId": "fd_male_selector",
+          "profileId": "fallen-doll",
+          "role": "male",
+          "roleIndex": 0,
+          "selectedKey": "",
+          "selectionMode": "exporter_priority",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Decoded skeleton list.",
+              "name": "skeletons",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Selected skeleton.",
+              "name": "skeleton",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Stable profile/role/index key.",
+              "name": "stableKey",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Selection status on the data channel.",
+              "name": "status",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "profileId": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "roleIndex": {
+                    "type": "integer"
+                  },
+                  "stableKey": {
+                    "type": "string"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Select a character by stable exporter profile, role, and role index.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Skeleton Selector",
+          "operatorClass": "f8.skeleton_selector",
+          "paletteCategory": "f8.pyengine.motion",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Exact live participant. Empty uses the profile/role/index fields below.",
+              "label": "Participant",
+              "name": "selectedKey",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "select[availableKeys]",
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Use a fixed role index or the first enabled exporter-ranked participant.",
+              "label": "Participant Selection",
+              "name": "selectionMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "role_index",
+                "enum": [
+                  "role_index",
+                  "exporter_priority"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Enabled live participant candidates. Clearing all candidates produces no output.",
+              "label": "Enabled Participants",
+              "name": "enabledKeys",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "multiselect[availableKeys]",
+              "valueSchema": {
+                "default": [
+                  "fallen-doll:male:0",
+                  "fallen-doll:male:1",
+                  "fallen-doll:male:2",
+                  "fallen-doll:male:3",
+                  "fallen-doll:male:4",
+                  "fallen-doll:male:5",
+                  "fallen-doll:male:6",
+                  "fallen-doll:male:7",
+                  "fallen-doll:female:0",
+                  "fallen-doll:female:1",
+                  "fallen-doll:female:2",
+                  "fallen-doll:female:3",
+                  "fallen-doll:female:4",
+                  "fallen-doll:female:5",
+                  "fallen-doll:female:6",
+                  "fallen-doll:female:7",
+                  "fallen-doll:other:0",
+                  "fallen-doll:other:1",
+                  "fallen-doll:other:2",
+                  "fallen-doll:other:3",
+                  "fallen-doll:other:4",
+                  "fallen-doll:other:5",
+                  "fallen-doll:other:6",
+                  "fallen-doll:other:7"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Exporter game profile ID. Empty accepts any profile.",
+              "label": "Profile ID",
+              "name": "profileId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Stable character role.",
+              "label": "Role",
+              "name": "role",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "",
+                "enum": [
+                  "",
+                  "male",
+                  "female",
+                  "other"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Zero-based index within the selected role.",
+              "label": "Role Index",
+              "name": "roleIndex",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 0,
+                "maximum": 1024.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Exact modelName used only for LMEX v1 streams.",
+              "label": "Legacy Model",
+              "name": "fallbackModelName",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Allow exact modelName fallback for LMEX v1 packets.",
+              "label": "Legacy Fallback",
+              "name": "allowLegacyFallback",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Low-frequency list of currently available stable keys.",
+              "label": "Available Characters",
+              "name": "availableKeys",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "skeleton",
+            "character",
+            "stable",
+            "select",
+            "unity"
+          ],
+          "version": "0.1.0"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 268.45000000000005,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "Reference Participant",
+        "pos": [
+          680.0,
+          250.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.skeleton_selector",
+        "visible": true,
+        "width": 166.484375
+      },
+      "fd_pyengine": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          5,
+          129,
+          138,
+          50
+        ],
+        "custom": {
+          "active": true,
+          "dataDelivery": "buffered",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Unified runtime monitor snapshots (health/resource/perf/error).",
+              "name": "monitor",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "properties": {
+                  "active": {
+                    "default": true,
+                    "type": "boolean"
+                  },
+                  "alive": {
+                    "default": true,
+                    "type": "boolean"
+                  },
+                  "cpu": {
+                    "properties": {
+                      "processPercent": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      },
+                      "systemPercent": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "error": {
+                    "properties": {
+                      "countWindow": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "currentCode": {
+                        "default": "",
+                        "type": "string"
+                      },
+                      "currentMessage": {
+                        "default": "",
+                        "type": "string"
+                      },
+                      "currentNodeId": {
+                        "default": "",
+                        "type": "string"
+                      },
+                      "currentSeverity": {
+                        "default": "",
+                        "enum": [
+                          "",
+                          "info",
+                          "warning",
+                          "error",
+                          "critical"
+                        ],
+                        "type": "string"
+                      },
+                      "currentTsMs": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "lastCode": {
+                        "default": "",
+                        "type": "string"
+                      },
+                      "lastFingerprint": {
+                        "default": "",
+                        "type": "string"
+                      },
+                      "lastMessage": {
+                        "default": "",
+                        "type": "string"
+                      },
+                      "lastNodeId": {
+                        "default": "",
+                        "type": "string"
+                      },
+                      "lastRepeatCount": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "lastSeverity": {
+                        "default": "error",
+                        "enum": [
+                          "critical",
+                          "error",
+                          "info",
+                          "warning"
+                        ],
+                        "type": "string"
+                      },
+                      "lastTsMs": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "frame": {
+                    "properties": {
+                      "bufferPullDeliveries": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "callbackDeliveries": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "dropped": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "localOnlyEmits": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "observed": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "processed": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "routedCrossEmits": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "suppressedCrossPublishes": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "gpu": {
+                    "properties": {
+                      "available": {
+                        "default": false,
+                        "type": "boolean"
+                      },
+                      "deviceIndex": {
+                        "default": -1,
+                        "type": "integer"
+                      },
+                      "memoryTotalBytes": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "memoryUsedBytes": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "utilPercent": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      },
+                      "vendor": {
+                        "default": "",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "memory": {
+                    "properties": {
+                      "rssBytes": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      },
+                      "vmsBytes": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nodeId": {
+                    "default": "",
+                    "type": "string"
+                  },
+                  "queue": {
+                    "properties": {
+                      "depth": {
+                        "default": 0,
+                        "minimum": 0.0,
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "ready": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "schemaVersion": {
+                    "default": "f8monitor/1",
+                    "enum": [
+                      "f8monitor/1"
+                    ],
+                    "type": "string"
+                  },
+                  "serviceClass": {
+                    "default": "",
+                    "type": "string"
+                  },
+                  "serviceId": {
+                    "default": "",
+                    "type": "string"
+                  },
+                  "timing": {
+                    "properties": {
+                      "latencyMsAvg": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      },
+                      "latencyMsP95": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      },
+                      "processMsAvg": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      },
+                      "processMsP95": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      },
+                      "waitMsAvg": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      },
+                      "waitMsP95": {
+                        "default": 0.0,
+                        "minimum": 0.0,
+                        "type": "number"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "tsMs": {
+                    "default": 0,
+                    "minimum": 0.0,
+                    "type": "integer"
+                  },
+                  "uptimeMs": {
+                    "default": 0,
+                    "minimum": 0.0,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Python-based execution engine for Feel8 operators.",
+          "hiddenInPalette": false,
+          "label": "PyEngine",
+          "paletteCategory": "svc",
+          "rendererClass": "default_container",
+          "schemaVersion": "f8service/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "service",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "How data inputs are delivered to nodes: buffered inputs only, or callback plus buffered inputs.",
+              "label": "Data Delivery",
+              "name": "dataDelivery",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "buffered",
+                "enum": [
+                  "buffered",
+                  "callback"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Service lifecycle state (activate/deactivate).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Active",
+              "name": "active",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "engine",
+            "python",
+            "py"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 1215.95,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD Skeleton Runtime",
+        "pos": [
+          0.0,
+          0.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "svc.f8.pyengine",
+        "visible": true,
+        "width": 3455.640625
+      },
+      "fd_reference_bone": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "allowUnrankedFallback": false,
+          "enabledBones": [
+            "Penis01",
+            "Penis02",
+            "Penis09",
+            "R_Hand",
+            "L_Hand",
+            "R_Foot",
+            "L_Foot",
+            "M_Jaw",
+            "M_Jaw_master",
+            "Jaw_master",
+            "M_TongueRoot",
+            "M_Gen",
+            "M_AnusInside",
+            "M_Anus_Inside",
+            "M_Anus_Inside1"
+          ],
+          "operatorId": "fd_reference_bone",
+          "selectionMode": "exporter_priority",
+          "svcId": "fd_pyengine",
+          "target": ""
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Single skeleton payload (e.g. skeleton_decoder.selectedSkeleton or vmc_decoder.selectedSkeleton).",
+              "name": "skeleton",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "bones": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "pos": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "type": "array"
+                        },
+                        "rot": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Selected bone payload `{name,pos,rot}` or None.",
+              "name": "bone",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "pos": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  },
+                  "rot": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Currently selected bone name.",
+              "name": "selectedName",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Functional-bone selection status.",
+              "name": "status",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  },
+                  "selectedName": {
+                    "type": "string"
+                  },
+                  "selectionMode": {
+                    "type": "string"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Selects one bone from a skeleton by `target` and outputs `{name,pos,rot}`.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Bone Selector",
+          "operatorClass": "f8.bone_selector",
+          "paletteCategory": "f8.pyengine.motion",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Use one exact bone or the exporter's ranked enabled candidates.",
+              "label": "Selection Mode",
+              "name": "selectionMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "exact",
+                "enum": [
+                  "exact",
+                  "exporter_priority"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Bone name to select.",
+              "label": "Target Bone",
+              "name": "target",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "select[availableBones]",
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Enabled functional-bone candidates. Exporter priority chooses the first enabled ranked bone.",
+              "label": "Enabled Detection Bones",
+              "name": "enabledBones",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "multiselect[availableBones]",
+              "valueSchema": {
+                "default": [
+                  "Penis01",
+                  "Penis02",
+                  "Penis09",
+                  "R_Hand",
+                  "L_Hand",
+                  "R_Foot",
+                  "L_Foot",
+                  "M_Jaw",
+                  "M_Jaw_master",
+                  "Jaw_master",
+                  "M_TongueRoot",
+                  "M_Gen",
+                  "M_AnusInside",
+                  "M_Anus_Inside",
+                  "M_Anus_Inside1"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Allow unannotated bones after all exporter-ranked candidates.",
+              "label": "Allow Unranked Fallback",
+              "name": "allowUnrankedFallback",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "toggle",
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Read-only list of available bone names from current skeleton input.",
+              "label": "Available Bones",
+              "name": "availableBones",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "skeleton",
+            "bone",
+            "select",
+            "mocap"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 186.55,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "Reference Detection Bones",
+        "pos": [
+          960.0,
+          250.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.bone_selector",
+        "visible": true,
+        "width": 199.390625
+      },
+      "fd_relative_axes": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "invertPrimary": false,
+          "operatorId": "fd_relative_axes",
+          "primaryAxis": "local_x",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Reference bone with pos and rot.",
+              "name": "referenceBone",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "pos": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  },
+                  "rot": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Target bone with pos and rot.",
+              "name": "targetBone",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "pos": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  },
+                  "rot": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Raw relative L0 signal.",
+              "name": "L0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Raw relative L1 signal.",
+              "name": "L1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Raw relative L2 signal.",
+              "name": "L2",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Raw relative R0 signal.",
+              "name": "R0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Raw relative R1 signal.",
+              "name": "R1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Raw relative R2 signal.",
+              "name": "R2",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Per-sample pose calculation status.",
+              "name": "status",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "L0": {
+                    "type": "number"
+                  },
+                  "L1": {
+                    "type": "number"
+                  },
+                  "L2": {
+                    "type": "number"
+                  },
+                  "R0": {
+                    "type": "number"
+                  },
+                  "R1": {
+                    "type": "number"
+                  },
+                  "R2": {
+                    "type": "number"
+                  },
+                  "primaryAxis": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Convert a target bone pose into reference-local L0/L1/L2 and R0/R1/R2 signals.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Relative Pose Axes",
+          "operatorClass": "f8.relative_pose_axes",
+          "paletteCategory": "f8.pyengine.motion",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Reference-local axis used for L0.",
+              "label": "Primary Axis",
+              "name": "primaryAxis",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "local_y",
+                "enum": [
+                  "local_x",
+                  "local_y",
+                  "local_z",
+                  "distance"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Invert the raw L0 direction before normalization.",
+              "label": "Invert L0",
+              "name": "invertPrimary",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "skeleton",
+            "relative",
+            "pose",
+            "axis",
+            "osr",
+            "tcode"
+          ],
+          "version": "0.1.0"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 255.85000000000002,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD Hand Relative Axes",
+        "pos": [
+          1240.0,
+          340.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.relative_pose_axes",
+        "visible": true,
+        "width": 173.640625
+      },
+      "fd_target_hand": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "allowUnrankedFallback": false,
+          "enabledBones": [
+            "Penis01",
+            "Penis02",
+            "Penis09",
+            "R_Hand",
+            "L_Hand",
+            "R_Foot",
+            "L_Foot",
+            "M_Jaw",
+            "M_Jaw_master",
+            "Jaw_master",
+            "M_TongueRoot",
+            "M_Gen",
+            "M_AnusInside",
+            "M_Anus_Inside",
+            "M_Anus_Inside1"
+          ],
+          "operatorId": "fd_target_hand",
+          "selectionMode": "exporter_priority",
+          "svcId": "fd_pyengine",
+          "target": ""
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Single skeleton payload (e.g. skeleton_decoder.selectedSkeleton or vmc_decoder.selectedSkeleton).",
+              "name": "skeleton",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "bones": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "pos": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "type": "array"
+                        },
+                        "rot": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Selected bone payload `{name,pos,rot}` or None.",
+              "name": "bone",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "pos": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  },
+                  "rot": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Currently selected bone name.",
+              "name": "selectedName",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Functional-bone selection status.",
+              "name": "status",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  },
+                  "selectedName": {
+                    "type": "string"
+                  },
+                  "selectionMode": {
+                    "type": "string"
+                  },
+                  "valid": {
+                    "type": "boolean"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Selects one bone from a skeleton by `target` and outputs `{name,pos,rot}`.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "Bone Selector",
+          "operatorClass": "f8.bone_selector",
+          "paletteCategory": "f8.pyengine.motion",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Use one exact bone or the exporter's ranked enabled candidates.",
+              "label": "Selection Mode",
+              "name": "selectionMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "exact",
+                "enum": [
+                  "exact",
+                  "exporter_priority"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Bone name to select.",
+              "label": "Target Bone",
+              "name": "target",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "select[availableBones]",
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Enabled functional-bone candidates. Exporter priority chooses the first enabled ranked bone.",
+              "label": "Enabled Detection Bones",
+              "name": "enabledBones",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "uiControl": "multiselect[availableBones]",
+              "valueSchema": {
+                "default": [
+                  "Penis01",
+                  "Penis02",
+                  "Penis09",
+                  "R_Hand",
+                  "L_Hand",
+                  "R_Foot",
+                  "L_Foot",
+                  "M_Jaw",
+                  "M_Jaw_master",
+                  "Jaw_master",
+                  "M_TongueRoot",
+                  "M_Gen",
+                  "M_AnusInside",
+                  "M_Anus_Inside",
+                  "M_Anus_Inside1"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Allow unannotated bones after all exporter-ranked candidates.",
+              "label": "Allow Unranked Fallback",
+              "name": "allowUnrankedFallback",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "uiControl": "toggle",
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Read-only list of available bone names from current skeleton input.",
+              "label": "Available Bones",
+              "name": "availableBones",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "skeleton",
+            "bone",
+            "select",
+            "mocap"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {
+          "stateInlineExpanded": {
+            "enabledBones": false,
+            "selectionMode": false,
+            "target": false
+          }
+        },
+        "height": 186.55,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "Target Detection Bones",
+        "pos": [
+          960.0,
+          440.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.bone_selector",
+        "visible": true,
+        "width": 178.234375
+      },
+      "fd_tcode": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "intervalMs": 20,
+          "operatorId": "fd_tcode",
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Axis L0 (0..1).",
+              "name": "L0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis L1 (0..1).",
+              "name": "L1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis L2 (0..1).",
+              "name": "L2",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis R0 (0..1).",
+              "name": "R0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis R1 (0..1).",
+              "name": "R1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis R2 (0..1).",
+              "name": "R2",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis V0 (0..1).",
+              "name": "V0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis V1 (0..1).",
+              "name": "V1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis A0 (0..1).",
+              "name": "A0",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Axis A1 (0..1).",
+              "name": "A1",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Optional interval override in milliseconds (rounded, min 1).",
+              "name": "intervalMs",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 20,
+                "maximum": 50000.0,
+                "minimum": 1.0,
+                "type": "number"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "TCode v0.3 command string",
+              "name": "tcode",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Generates TCode v0.3 command strings from normalized axis values.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "TCode",
+          "operatorClass": "f8.tcode",
+          "paletteCategory": "f8.pyengine.signal",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Default interval appended as `I###` when `intervalMs` input is not provided.",
+              "label": "Interval (ms)",
+              "name": "intervalMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 20,
+                "maximum": 50000.0,
+                "minimum": 1.0,
+                "type": "number"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "transform",
+            "tcode",
+            "osr",
+            "command",
+            "string"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 83.65,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD TCode Preview Encoder",
+        "pos": [
+          2570.0,
+          720.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.tcode",
+        "visible": true,
+        "width": 198.515625
+      },
+      "fd_tcode_viz": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "maxLineLength": 4096,
+          "model": "SR6",
+          "throttleMs": 20,
+          "upstreamSampleIntervalMs": 20,
+          "upstreamSamplingMode": "auto"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "TCode command string input.",
+              "name": "tcode",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "dataOutPorts": [],
+          "description": "Detached OSR emulator viewer for TCode string streams.",
+          "execInPorts": [],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "TCode Viz",
+          "operatorClass": "f8.viz.tcode",
+          "paletteCategory": "f8.pystudio.viz",
+          "rendererClass": "viz_tcode",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pystudio",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "OSR model type in viewer.",
+              "label": "Model",
+              "name": "model",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "SR6",
+                "enum": [
+                  "OSR2",
+                  "SR6",
+                  "SSR1"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "UI command throttling interval in milliseconds (0 = no throttle).",
+              "label": "Push Throttle (ms)",
+              "name": "throttleMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 0,
+                "maximum": 60000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Maximum allowed length of each incoming line.",
+              "label": "Max Line Length",
+              "name": "maxLineLength",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 4096,
+                "maximum": 65536.0,
+                "minimum": 32.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "passive: no upstream auto-sampler request; auto: request upstream periodic sampling when the source runtime supports it.",
+              "label": "Upstream Sampling",
+              "name": "upstreamSamplingMode",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "auto",
+                "enum": [
+                  "passive",
+                  "auto"
+                ],
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Requested upstream auto sampling interval in milliseconds.",
+              "label": "Upstream Sample Interval (ms)",
+              "name": "upstreamSampleIntervalMs",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 100,
+                "maximum": 5000.0,
+                "minimum": 8.0,
+                "type": "integer"
+              }
+            }
+          ],
+          "tags": [
+            "viz",
+            "tcode",
+            "osr",
+            "ui"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "studio"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 107.0,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD SR6 OSR Viewer",
+        "pos": [
+          2860.0,
+          720.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pystudio.f8.viz.tcode",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_udp": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "allowNonLoopbackBind": false,
+          "bindAddress": "127.0.0.1",
+          "maxQueue": 512,
+          "operatorId": "fd_udp",
+          "port": 39540,
+          "reuseAddress": false,
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Latest packet decoded as UTF-8 text with replacement for invalid bytes.",
+              "name": "text",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Latest packet as bytearray, preserving non-ASCII bytes.",
+              "name": "raw",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Latest packet parsed as JSON when valid; otherwise None.",
+              "name": "json",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Latest packet metadata plus raw/text/json views.",
+              "name": "packet",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "properties": {
+                  "byteLength": {
+                    "type": "integer"
+                  },
+                  "json": {
+                    "type": "any"
+                  },
+                  "jsonValid": {
+                    "type": "boolean"
+                  },
+                  "raw": {
+                    "type": "any"
+                  },
+                  "remoteAddress": {
+                    "type": "string"
+                  },
+                  "remotePort": {
+                    "type": "integer"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "timestampMs": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "description": "Receives UDP packets and exposes explicit raw/text/json views plus packet metadata.",
+          "execInPorts": [],
+          "execOutPorts": [
+            "packet"
+          ],
+          "hiddenInPalette": false,
+          "label": "UDP In",
+          "operatorClass": "f8.udp_in",
+          "paletteCategory": "f8.pyengine.input",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Local address to bind (loopback by default).",
+              "label": "Bind Address",
+              "name": "bindAddress",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": "127.0.0.1",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "When true, allow bindAddress values other than loopback.",
+              "label": "Allow Non-loopback Bind",
+              "name": "allowNonLoopbackBind",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "UDP listen port.",
+              "label": "Port",
+              "name": "port",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 39541,
+                "maximum": 65535.0,
+                "minimum": 1.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Max queued packets before dropping (1..4096).",
+              "label": "Max Queue",
+              "name": "maxQueue",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": 512,
+                "maximum": 4096.0,
+                "minimum": 1.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Best-effort: allow multiple listeners on the same bind tuple if the OS supports it.",
+              "label": "Reuse Address",
+              "name": "reuseAddress",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly flag telling whether the UDP socket is active.",
+              "label": "Listening",
+              "name": "listening",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "io",
+            "udp",
+            "network",
+            "input",
+            "json",
+            "bytes",
+            "bytearray"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 212.8,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "Fallen Doll UDP",
+        "pos": [
+          80.0,
+          90.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.udp_in",
+        "visible": true,
+        "width": 160.0
+      },
+      "fd_wifi_out": {
+        "border_color": [
+          74,
+          84,
+          85,
+          255
+        ],
+        "color": [
+          13,
+          18,
+          23,
+          255
+        ],
+        "custom": {
+          "appendNewline": false,
+          "enabled": false,
+          "forceText": true,
+          "host": "tcode.local",
+          "operatorId": "fd_wifi_out",
+          "port": 8000,
+          "svcId": "fd_pyengine"
+        },
+        "disabled": false,
+        "f8_spec": {
+          "commands": [],
+          "dataInPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Value to send.",
+              "name": "value",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            }
+          ],
+          "dataOutPorts": [
+            {
+              "delivery": "fifo",
+              "description": "Whether the UDP socket is open.",
+              "name": "isOpen",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Bytes sent by last exec.",
+              "name": "sentBytes",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 0,
+                "minimum": 0.0,
+                "type": "integer"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Last error (if any).",
+              "name": "error",
+              "payloadKind": "json",
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "",
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Sends incoming values to a UDP host/port.",
+          "execInPorts": [
+            "exec"
+          ],
+          "execOutPorts": [],
+          "hiddenInPalette": false,
+          "label": "UDP Out",
+          "operatorClass": "f8.udp_out",
+          "paletteCategory": "f8.pyengine.output",
+          "rendererClass": "default_op",
+          "schemaVersion": "f8operator/1",
+          "serviceClass": "f8.pyengine",
+          "specKind": "operator",
+          "stateFields": [
+            {
+              "access": "rw",
+              "description": "Enable/disable UDP output.",
+              "label": "Enabled",
+              "name": "enabled",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Target UDP host name or IP.",
+              "label": "Host",
+              "name": "host",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": "127.0.0.1",
+                "type": "string"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Target UDP port.",
+              "label": "Port",
+              "name": "port",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": true,
+              "valueSchema": {
+                "default": 9000,
+                "maximum": 65535.0,
+                "minimum": 1.0,
+                "type": "integer"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "Append a trailing newline to stringified values before sending.",
+              "label": "Append Newline",
+              "name": "appendNewline",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": false,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "rw",
+              "description": "When true, convert incoming values to text before sending. When false, only bytes and str are accepted.",
+              "label": "Force Text",
+              "name": "forceText",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "default": true,
+                "type": "boolean"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current service instance id (svcId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Service Id",
+              "name": "svcId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "ro",
+              "description": "Readonly: current operator/node id (operatorId).",
+              "editPolicy": {
+                "canEditAccess": false,
+                "canEditRequired": false,
+                "canEditValueSchema": false,
+                "canRename": false
+              },
+              "label": "Operator Id",
+              "name": "operatorId",
+              "redactOnPublish": false,
+              "required": true,
+              "showOnNode": false,
+              "valueSchema": {
+                "type": "string"
+              }
+            }
+          ],
+          "tags": [
+            "io",
+            "udp",
+            "network",
+            "socket",
+            "tcode"
+          ],
+          "version": "0.0.1"
+        },
+        "f8_sys": {
+          "svcId": "fd_pyengine"
+        },
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": 215.95000000000002,
+        "icon": null,
+        "layout_direction": 0,
+        "name": "FD TCode Wi-Fi Out (Disarmed)",
+        "pos": [
+          3150.0,
+          920.0
+        ],
+        "selected": false,
+        "subgraph_session": {},
+        "text_color": [
+          255,
+          255,
+          255,
+          180
+        ],
+        "type_": "f8.pyengine.f8.udp_out",
+        "visible": true,
+        "width": 225.640625
+      }
+    }
+  },
+  "schemaVersion": "f8studio-session/1"
+}
