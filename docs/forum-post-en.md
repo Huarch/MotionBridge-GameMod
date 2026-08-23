@@ -7,7 +7,7 @@ the in-game animation speed changes.
 
 Current version: `0.15.0-l0-preview`
 
-Download: **[Add attachment or download link here]**
+Download: [FallenDollTCode-0.15.0-l0-preview.zip](https://files.catbox.moe/d0co6p.zip)
 
 SHA-256:
 `9FBC601173F5213ECECD9A5D3B65E5E96BA2E15FB5FBAA6DF279519CA33AF175`
@@ -46,4 +46,3 @@ Keep physical output disabled during first setup. Verify direction, range,
 stream-loss centering, and emergency-stop behavior before connecting a device.
 
 This project does not include game assets, UE4SS, F8Studio binaries, or device drivers.
-
