@@ -1,23 +1,33 @@
 import dgram from "node:dgram";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
-const workspaceDir = path.resolve(scriptDir, "..");
+
+function defaultRuntimeDir() {
+  const exactDir = String(process.env.FD_TCODE_RUNTIME_DIR ?? "").trim();
+  if (exactDir) return path.resolve(exactDir);
+  const gamesDir = String(process.env.F8STUDIO_GAMES_DIR ?? "").trim();
+  if (gamesDir) return path.resolve(gamesDir, "fallen-doll", "runtime");
+  return path.join(os.homedir(), ".f8", "studio", "games", "fallen-doll", "runtime");
+}
 
 function argValue(name, fallback) {
   const index = process.argv.indexOf(name);
   return index >= 0 && index + 1 < process.argv.length ? process.argv[index + 1] : fallback;
 }
 
-const sourcePath = path.resolve(argValue("--file", path.join(workspaceDir, "runtime", "fd-skeleton.ndjson")));
+const sourcePath = path.resolve(argValue("--file", path.join(defaultRuntimeDir(), "fd-skeleton.ndjson")));
 const host = argValue("--host", "127.0.0.1");
 const port = Number.parseInt(argValue("--port", "39540"), 10);
 const pollMs = Number.parseInt(argValue("--poll-ms", "20"), 10);
 const maxReadBytes = Number.parseInt(argValue("--max-read-bytes", "1048576"), 10);
 const replayExisting = process.argv.includes("--replay-existing");
 const socket = dgram.createSocket("udp4");
+
+fs.mkdirSync(path.dirname(sourcePath), { recursive: true });
 
 let offset = 0;
 let pending = "";

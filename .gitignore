@@ -1,5 +1,6 @@
 # Generated exports and third-party analysis material
 $out/
+dist/
 analysis-assets/
 UmodelSaved/
 

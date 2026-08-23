@@ -1,3 +1,29 @@
+local function normalize_path(value)
+    local path = tostring(value or "")
+    path = string.gsub(path, "\\", "/")
+    path = string.gsub(path, "/+$", "")
+    return path
+end
+
+local function resolve_runtime_dir()
+    local exact_dir = normalize_path(os.getenv("FD_TCODE_RUNTIME_DIR"))
+    if exact_dir ~= "" then
+        return exact_dir
+    end
+
+    local games_dir = normalize_path(os.getenv("F8STUDIO_GAMES_DIR"))
+    if games_dir == "" then
+        local user_profile = normalize_path(os.getenv("USERPROFILE"))
+        if user_profile == "" then
+            user_profile = "."
+        end
+        games_dir = user_profile .. "/.f8/studio/games"
+    end
+    return games_dir .. "/fallen-doll/runtime"
+end
+
+local runtime_dir = resolve_runtime_dir()
+
 return {
     name = "FD-TCode",
     version = "0.15.0-auto-hanime",
@@ -31,8 +57,8 @@ return {
     -- The automatic functional contact stream does not perform proximity-based target
     -- guessing.
     hand_pair_max_distance_cm = 100,
-    skeleton_spool_path = "D:/zhifu/Desktop/code/tcode plugin FD/runtime/fd-skeleton.ndjson",
-    pose_catalog_path = "D:/zhifu/Desktop/code/tcode plugin FD/runtime/fd-visible-poses.tsv",
+    skeleton_spool_path = runtime_dir .. "/fd-skeleton.ndjson",
+    pose_catalog_path = runtime_dir .. "/fd-visible-poses.tsv",
 
     -- F7 is reserved for a future external F8Studio preview launcher and is
     -- intentionally not registered by Lua. F8 performs a one-shot, read-only

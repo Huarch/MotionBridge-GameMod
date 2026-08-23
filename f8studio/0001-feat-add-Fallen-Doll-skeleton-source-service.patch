@@ -1,0 +1,1477 @@
+From bc9cfd909ae0a89479ca8645d60b4539211fef03 Mon Sep 17 00:00:00 2001
+From: huarch <huarch97@outlook.com>
+Date: Mon, 24 Aug 2026 01:35:19 +0800
+Subject: [PATCH] feat: add Fallen Doll skeleton source service
+
+---
+ packages/f8pyfallendoll/README.md             |  17 +
+ .../f8pyfallendoll/f8pyfallendoll/__init__.py |   3 +
+ .../f8pyfallendoll/f8pyfallendoll/__main__.py |   3 +
+ .../f8pyfallendoll/constants.py               |  26 ++
+ .../f8pyfallendoll/f8pyfallendoll/main.py     |  21 ++
+ .../f8pyfallendoll/node_registry.py           | 222 +++++++++++
+ .../f8pyfallendoll/source_node.py             | 356 ++++++++++++++++++
+ .../f8pyfallendoll/f8pyfallendoll/stream.py   | 341 +++++++++++++++++
+ packages/f8pyfallendoll/pyproject.toml        |  20 +
+ .../f8pyfallendoll/tests/test_source_node.py  | 120 ++++++
+ packages/f8pyfallendoll/tests/test_stream.py  | 152 ++++++++
+ pixi.lock                                     |  11 +
+ pixi.toml                                     |   4 +-
+ services/f8/games/fallen_doll/service.yml     |   9 +
+ 14 files changed, 1304 insertions(+), 1 deletion(-)
+ create mode 100644 packages/f8pyfallendoll/README.md
+ create mode 100644 packages/f8pyfallendoll/f8pyfallendoll/__init__.py
+ create mode 100644 packages/f8pyfallendoll/f8pyfallendoll/__main__.py
+ create mode 100644 packages/f8pyfallendoll/f8pyfallendoll/constants.py
+ create mode 100644 packages/f8pyfallendoll/f8pyfallendoll/main.py
+ create mode 100644 packages/f8pyfallendoll/f8pyfallendoll/node_registry.py
+ create mode 100644 packages/f8pyfallendoll/f8pyfallendoll/source_node.py
+ create mode 100644 packages/f8pyfallendoll/f8pyfallendoll/stream.py
+ create mode 100644 packages/f8pyfallendoll/pyproject.toml
+ create mode 100644 packages/f8pyfallendoll/tests/test_source_node.py
+ create mode 100644 packages/f8pyfallendoll/tests/test_stream.py
+ create mode 100644 services/f8/games/fallen_doll/service.yml
+
+diff --git a/packages/f8pyfallendoll/README.md b/packages/f8pyfallendoll/README.md
+new file mode 100644
+index 0000000..6534f42
+--- /dev/null
++++ b/packages/f8pyfallendoll/README.md
+@@ -0,0 +1,17 @@
++# Fallen Doll Source
++
++`f8pyfallendoll` is a game-specific source service for Feel8 Studio. It tails
++the latest skeleton frames exported by the Fallen Doll UE4SS Lua mod, discards
++backlog, selects the configured interaction participants and functional bones,
++and exposes standard skeleton/bone payloads to the rest of the graph.
++
++The default spool location is:
++
++```text
++~/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson
++```
++
++`F8STUDIO_GAMES_DIR` overrides the shared games directory. The more specific
++`FD_TCODE_RUNTIME_DIR` overrides only Fallen Doll's runtime directory.
++
++This service does not contain device output and never arms a physical device.
+diff --git a/packages/f8pyfallendoll/f8pyfallendoll/__init__.py b/packages/f8pyfallendoll/f8pyfallendoll/__init__.py
+new file mode 100644
+index 0000000..bdb7f30
+--- /dev/null
++++ b/packages/f8pyfallendoll/f8pyfallendoll/__init__.py
+@@ -0,0 +1,3 @@
++from .constants import SERVICE_CLASS
++
++__all__ = ["SERVICE_CLASS"]
+diff --git a/packages/f8pyfallendoll/f8pyfallendoll/__main__.py b/packages/f8pyfallendoll/f8pyfallendoll/__main__.py
+new file mode 100644
+index 0000000..774cc25
+--- /dev/null
++++ b/packages/f8pyfallendoll/f8pyfallendoll/__main__.py
+@@ -0,0 +1,3 @@
++from .main import main
++
++raise SystemExit(main())
+diff --git a/packages/f8pyfallendoll/f8pyfallendoll/constants.py b/packages/f8pyfallendoll/f8pyfallendoll/constants.py
+new file mode 100644
+index 0000000..f56d73c
+--- /dev/null
++++ b/packages/f8pyfallendoll/f8pyfallendoll/constants.py
+@@ -0,0 +1,26 @@
++SERVICE_CLASS = "f8.fallen_doll"
++SERVICE_VERSION = "0.1.0"
++
++DEFAULT_POLL_INTERVAL_MS = 20
++DEFAULT_STALE_AFTER_MS = 250
++DEFAULT_MAX_READ_BYTES = 1024 * 1024
++
++DEFAULT_REFERENCE_PARTICIPANTS = [f"fallen-doll:male:{index}" for index in range(8)]
++DEFAULT_TARGET_PARTICIPANTS = [f"fallen-doll:female:{index}" for index in range(8)]
++DEFAULT_FUNCTIONAL_BONES = [
++    "Penis01",
++    "Penis02",
++    "Penis09",
++    "R_Hand",
++    "L_Hand",
++    "R_Foot",
++    "L_Foot",
++    "M_Jaw",
++    "M_Jaw_master",
++    "Jaw_master",
++    "M_TongueRoot",
++    "M_Gen",
++    "M_AnusInside",
++    "M_Anus_Inside",
++    "M_Anus_Inside1",
++]
+diff --git a/packages/f8pyfallendoll/f8pyfallendoll/main.py b/packages/f8pyfallendoll/f8pyfallendoll/main.py
+new file mode 100644
+index 0000000..a63770c
+--- /dev/null
++++ b/packages/f8pyfallendoll/f8pyfallendoll/main.py
+@@ -0,0 +1,21 @@
++from __future__ import annotations
++
++from f8pysdk.app import ServiceApp
++from f8pysdk.registry import Registry
++
++from .constants import SERVICE_CLASS
++from .node_registry import register_specs
++
++
++def build_app() -> ServiceApp:
++    registry = Registry()
++    register_specs(registry)
++    return ServiceApp(service_class=SERVICE_CLASS, registry=registry)
++
++
++def main(argv: list[str] | None = None) -> int:
++    return build_app().cli(argv, program_name=SERVICE_CLASS)
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/packages/f8pyfallendoll/f8pyfallendoll/node_registry.py b/packages/f8pyfallendoll/f8pyfallendoll/node_registry.py
+new file mode 100644
+index 0000000..a40b6f0
+--- /dev/null
++++ b/packages/f8pyfallendoll/f8pyfallendoll/node_registry.py
+@@ -0,0 +1,222 @@
++from __future__ import annotations
++
++from f8pysdk.registry import Registry, RuntimeNodeRegistry, create_runtime_node_registry, shared_runtime_node_registry
++from f8pysdk.specs import (
++    F8DataPortSpec,
++    F8ServiceSchemaVersion,
++    F8ServiceSpec,
++    F8StateAccess,
++    F8StateSpec,
++    any_schema,
++    array_schema,
++    boolean_schema,
++    integer_schema,
++    string_schema,
++)
++
++from .constants import (
++    DEFAULT_FUNCTIONAL_BONES,
++    DEFAULT_POLL_INTERVAL_MS,
++    DEFAULT_REFERENCE_PARTICIPANTS,
++    DEFAULT_STALE_AFTER_MS,
++    DEFAULT_TARGET_PARTICIPANTS,
++    SERVICE_CLASS,
++    SERVICE_VERSION,
++)
++from .source_node import FallenDollSourceNode
++
++
++def _state_fields() -> list[F8StateSpec]:
++    return [
++        F8StateSpec(
++            name="runtimeDir",
++            label="Runtime Directory",
++            description="Optional Fallen Doll runtime directory. Empty uses the Studio games directory.",
++            valueSchema=string_schema(default=""),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=False,
++            redactOnPublish=True,
++        ),
++        F8StateSpec(
++            name="pollIntervalMs",
++            label="Poll Interval (ms)",
++            description="Interval for checking the game skeleton spool.",
++            valueSchema=integer_schema(default=DEFAULT_POLL_INTERVAL_MS, minimum=10, maximum=1000),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="staleAfterMs",
++            label="Stale After (ms)",
++            description="Emit one empty safety frame after no HAnime skeleton update for this duration.",
++            valueSchema=integer_schema(default=DEFAULT_STALE_AFTER_MS, minimum=50, maximum=10000),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="referenceRole",
++            label="Reference Role",
++            description="Participant role used as the interaction reference.",
++            valueSchema=string_schema(default="male"),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=True,
++        ),
++        F8StateSpec(
++            name="targetRole",
++            label="Target Role",
++            description="Participant role used as the moving target.",
++            valueSchema=string_schema(default="female"),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=True,
++        ),
++        F8StateSpec(
++            name="enabledReferenceParticipants",
++            label="Reference Participants",
++            description="Allowed stable participant keys, in addition to runtime priority metadata.",
++            valueSchema=array_schema(items=string_schema(), default=DEFAULT_REFERENCE_PARTICIPANTS),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="enabledTargetParticipants",
++            label="Target Participants",
++            description="Allowed stable participant keys, in addition to runtime priority metadata.",
++            valueSchema=array_schema(items=string_schema(), default=DEFAULT_TARGET_PARTICIPANTS),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="enabledReferenceBones",
++            label="Reference Bones",
++            description="Allowed functional reference bones. Runtime preferred-bone order wins.",
++            valueSchema=array_schema(items=string_schema(), default=DEFAULT_FUNCTIONAL_BONES),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="enabledTargetBones",
++            label="Target Bones",
++            description="Allowed functional target bones. Runtime preferred-bone order wins.",
++            valueSchema=array_schema(items=string_schema(), default=DEFAULT_FUNCTIONAL_BONES),
++            access=F8StateAccess.rw,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="resolvedPath",
++            label="Resolved Path",
++            description="Resolved skeleton spool path.",
++            valueSchema=string_schema(default=""),
++            access=F8StateAccess.ro,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="connected",
++            label="Game Stream",
++            description="True while fresh HAnime skeleton frames are arriving.",
++            valueSchema=boolean_schema(default=False),
++            access=F8StateAccess.ro,
++            required=True,
++            showOnNode=True,
++        ),
++        F8StateSpec(
++            name="availableParticipants",
++            label="Available Participants",
++            description="Stable participant keys seen in the latest frame.",
++            valueSchema=array_schema(items=string_schema()),
++            access=F8StateAccess.ro,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="availableReferenceBones",
++            label="Available Reference Bones",
++            description="Bones on the selected reference participant.",
++            valueSchema=array_schema(items=string_schema()),
++            access=F8StateAccess.ro,
++            required=True,
++            showOnNode=False,
++        ),
++        F8StateSpec(
++            name="availableTargetBones",
++            label="Available Target Bones",
++            description="Bones on the selected target participant.",
++            valueSchema=array_schema(items=string_schema()),
++            access=F8StateAccess.ro,
++            required=True,
++            showOnNode=False,
++        ),
++    ]
++
++
++def register_specs(registry: Registry) -> Registry:
++    registry.register_service(
++        F8ServiceSpec(
++            schemaVersion=F8ServiceSchemaVersion.f8service_1,
++            serviceClass=SERVICE_CLASS,
++            paletteCategory="svc",
++            version=SERVICE_VERSION,
++            label="Fallen Doll Source",
++            description="Reads HAnime skeleton frames exported by the Fallen Doll UE4SS mod.",
++            tags=["game", "unreal", "skeleton", "fallen-doll"],
++            rendererClass="default_svc",
++            stateFields=_state_fields(),
++            dataInPorts=[],
++            dataOutPorts=[
++                F8DataPortSpec(
++                    name="skeletons",
++                    description="Latest standard skeleton payloads.",
++                    valueSchema=array_schema(items=any_schema()),
++                ),
++                F8DataPortSpec(
++                    name="referenceSkeleton",
++                    description="Selected reference participant skeleton.",
++                    valueSchema=any_schema(),
++                ),
++                F8DataPortSpec(
++                    name="targetSkeleton",
++                    description="Selected target participant skeleton.",
++                    valueSchema=any_schema(),
++                ),
++                F8DataPortSpec(
++                    name="referenceBone",
++                    description="Selected reference functional bone.",
++                    valueSchema=any_schema(),
++                ),
++                F8DataPortSpec(
++                    name="targetBone",
++                    description="Selected target functional bone.",
++                    valueSchema=any_schema(),
++                ),
++                F8DataPortSpec(
++                    name="status",
++                    description="Selection and HAnime identity status.",
++                    valueSchema=any_schema(),
++                ),
++            ],
++        ),
++        FallenDollSourceNode,
++        overwrite=True,
++    )
++    return registry
++
++
++def create_fallen_doll_registry() -> RuntimeNodeRegistry:
++    runtime_registry = create_runtime_node_registry()
++    register_specs(Registry.wrap(runtime_registry))
++    return runtime_registry
++
++
++def shared_fallen_doll_registry() -> RuntimeNodeRegistry:
++    runtime_registry = shared_runtime_node_registry()
++    register_specs(Registry.wrap(runtime_registry))
++    return runtime_registry
+diff --git a/packages/f8pyfallendoll/f8pyfallendoll/source_node.py b/packages/f8pyfallendoll/f8pyfallendoll/source_node.py
+new file mode 100644
+index 0000000..87e884d
+--- /dev/null
++++ b/packages/f8pyfallendoll/f8pyfallendoll/source_node.py
+@@ -0,0 +1,356 @@
++from __future__ import annotations
++
++import asyncio
++import logging
++import time
++from dataclasses import dataclass
++from pathlib import Path
++from typing import Any
++
++from f8pysdk.capabilities import ClosableNode, NodeBus
++from f8pysdk.f8_naming import ensure_token
++from f8pysdk.nodes import ServiceNode
++from f8pysdk.specs import F8RuntimeNode
++
++from .constants import (
++    DEFAULT_FUNCTIONAL_BONES,
++    DEFAULT_POLL_INTERVAL_MS,
++    DEFAULT_REFERENCE_PARTICIPANTS,
++    DEFAULT_STALE_AFTER_MS,
++    DEFAULT_TARGET_PARTICIPANTS,
++)
++from .stream import (
++    available_bones,
++    available_participants,
++    parse_latest_frame,
++    read_appended,
++    resolve_spool_path,
++    select_frame,
++)
++
++logger = logging.getLogger(__name__)
++
++
++@dataclass(frozen=True)
++class SourceConfig:
++    runtime_dir: str
++    poll_interval_ms: int
++    stale_after_ms: int
++    reference_role: str
++    target_role: str
++    enabled_reference_participants: list[str]
++    enabled_target_participants: list[str]
++    enabled_reference_bones: list[str]
++    enabled_target_bones: list[str]
++
++
++def _now_ms() -> int:
++    return int(time.time() * 1000)
++
++
++def _coerce_int(value: Any, *, default: int, minimum: int, maximum: int) -> int:
++    if value is None or isinstance(value, bool):
++        return int(default)
++    try:
++        parsed = int(value)
++    except (TypeError, ValueError, OverflowError):
++        return int(default)
++    return max(int(minimum), min(int(maximum), parsed))
++
++
++def _string_list(value: Any, *, default: list[str]) -> list[str]:
++    if not isinstance(value, (list, tuple, set)):
++        return list(default)
++    result: list[str] = []
++    seen: set[str] = set()
++    for item in value:
++        text = str(item or "").strip()
++        if text and text not in seen:
++            seen.add(text)
++            result.append(text)
++    return result
++
++
++class FallenDollSourceNode(ServiceNode, ClosableNode):
++    def __init__(
++        self,
++        *,
++        node_id: str,
++        node: F8RuntimeNode,
++        initial_state: dict[str, Any] | None = None,
++    ) -> None:
++        super().__init__(
++            node_id=ensure_token(node_id, label="node_id"),
++            data_in_ports=[port.name for port in (node.dataInPorts or [])],
++            data_out_ports=[port.name for port in (node.dataOutPorts or [])],
++            state_fields=[field.name for field in (node.stateFields or [])],
++        )
++        self._initial_state = dict(initial_state or {})
++        self._config = self._config_from_values(self._initial_state)
++        self._active = True
++        self._task: asyncio.Task[None] | None = None
++        self._wakeup = asyncio.Event()
++        self._offset = 0
++        self._fragment = ""
++        self._spool_path: Path | None = None
++        self._directory_ready = False
++        self._last_valid_ms: int | None = None
++        self._stale_emitted = False
++        self._published_state: dict[str, Any] = {}
++        self._error_signature = ""
++
++    def attach(self, bus: Any) -> None:
++        super().attach(bus)
++        bus_like = bus if isinstance(bus, NodeBus) else None
++        self._active = True if bus_like is None else bool(bus_like.active)
++        self._ensure_task()
++
++    async def close(self) -> None:
++        task = self._task
++        self._task = None
++        if task is None:
++            return
++        task.cancel()
++        await asyncio.gather(task, return_exceptions=True)
++
++    async def on_lifecycle(self, active: bool, meta: dict[str, Any]) -> None:
++        del meta
++        self._active = bool(active)
++        if self._active:
++            self._ensure_task()
++            self._wakeup.set()
++            return
++        await self._emit_inactive_once(reason="inactive")
++
++    async def validate_state(self, field: str, value: Any, *, ts_ms: int, meta: dict[str, Any]) -> Any:
++        del ts_ms, meta
++        name = str(field or "").strip()
++        if name == "runtimeDir":
++            return str(value or "").strip()
++        if name == "pollIntervalMs":
++            return _coerce_int(value, default=DEFAULT_POLL_INTERVAL_MS, minimum=10, maximum=1000)
++        if name == "staleAfterMs":
++            return _coerce_int(value, default=DEFAULT_STALE_AFTER_MS, minimum=50, maximum=10000)
++        if name in {"referenceRole", "targetRole"}:
++            role = str(value or "").strip().lower()
++            if not role:
++                raise ValueError(f"{name} must not be empty")
++            return role
++        if name == "enabledReferenceParticipants":
++            return _string_list(value, default=DEFAULT_REFERENCE_PARTICIPANTS)
++        if name == "enabledTargetParticipants":
++            return _string_list(value, default=DEFAULT_TARGET_PARTICIPANTS)
++        if name in {"enabledReferenceBones", "enabledTargetBones"}:
++            return _string_list(value, default=DEFAULT_FUNCTIONAL_BONES)
++        return value
++
++    async def on_state(self, field: str, value: Any, *, ts_ms: int | None = None) -> None:
++        del ts_ms
++        name = str(field or "").strip()
++        configurable = {
++            "runtimeDir",
++            "pollIntervalMs",
++            "staleAfterMs",
++            "referenceRole",
++            "targetRole",
++            "enabledReferenceParticipants",
++            "enabledTargetParticipants",
++            "enabledReferenceBones",
++            "enabledTargetBones",
++        }
++        if name not in configurable:
++            return
++        values = {
++            "runtimeDir": self._config.runtime_dir,
++            "pollIntervalMs": self._config.poll_interval_ms,
++            "staleAfterMs": self._config.stale_after_ms,
++            "referenceRole": self._config.reference_role,
++            "targetRole": self._config.target_role,
++            "enabledReferenceParticipants": self._config.enabled_reference_participants,
++            "enabledTargetParticipants": self._config.enabled_target_participants,
++            "enabledReferenceBones": self._config.enabled_reference_bones,
++            "enabledTargetBones": self._config.enabled_target_bones,
++        }
++        values[name] = value
++        previous_path = self._config.runtime_dir
++        self._config = self._config_from_values(values)
++        if previous_path != self._config.runtime_dir:
++            self._reset_tail()
++        self._wakeup.set()
++
++    def _ensure_task(self) -> None:
++        if self._task is not None and not self._task.done():
++            return
++        loop = asyncio.get_running_loop()
++        self._task = loop.create_task(self._run_loop(), name=f"fallendoll-source:{self.node_id}")
++
++    async def _run_loop(self) -> None:
++        while True:
++            try:
++                if self._active:
++                    await self._poll_once(_now_ms())
++                timeout = max(0.01, self._config.poll_interval_ms / 1000.0)
++                try:
++                    await asyncio.wait_for(self._wakeup.wait(), timeout=timeout)
++                    self._wakeup.clear()
++                except asyncio.TimeoutError:
++                    continue
++            except asyncio.CancelledError:
++                raise
++            except (OSError, RuntimeError, TypeError, ValueError) as exc:
++                await self._report_io_error(exc)
++                await asyncio.sleep(max(0.05, self._config.poll_interval_ms / 1000.0))
++
++    async def _poll_once(self, now_ms: int) -> None:
++        path = resolve_spool_path(self._config.runtime_dir)
++        if path != self._spool_path:
++            self._reset_tail()
++            self._spool_path = path
++        await self._publish_state_if_changed("resolvedPath", str(path))
++        if not self._directory_ready:
++            await asyncio.to_thread(path.parent.mkdir, parents=True, exist_ok=True)
++            self._directory_ready = True
++
++        try:
++            tail = await asyncio.to_thread(read_appended, path, self._offset)
++        except FileNotFoundError:
++            await self._publish_state_if_changed("connected", False)
++            await self._emit_stale_once(now_ms, reason="waiting_for_game")
++            return
++
++        self._offset = tail.offset
++        if tail.truncated or tail.skipped_bytes > 0:
++            self._fragment = ""
++        text = self._fragment + tail.text
++        complete_lines, self._fragment = self._split_complete_lines(text)
++        if not complete_lines:
++            await self._check_stale(now_ms)
++            return
++
++        parsed = parse_latest_frame(complete_lines, arrival_timestamp_ms=now_ms)
++        if not parsed.skeletons:
++            await self._check_stale(now_ms)
++            return
++
++        selected = select_frame(
++            parsed.skeletons,
++            reference_role=self._config.reference_role,
++            target_role=self._config.target_role,
++            enabled_reference_participants=self._config.enabled_reference_participants,
++            enabled_target_participants=self._config.enabled_target_participants,
++            enabled_reference_bones=self._config.enabled_reference_bones,
++            enabled_target_bones=self._config.enabled_target_bones,
++        )
++        self._last_valid_ms = int(now_ms)
++        self._stale_emitted = False
++        await self._publish_state_if_changed("connected", True)
++        await self._publish_state_if_changed("availableParticipants", available_participants(parsed.skeletons))
++        await self._publish_state_if_changed("availableReferenceBones", available_bones(selected.reference_skeleton))
++        await self._publish_state_if_changed("availableTargetBones", available_bones(selected.target_skeleton))
++
++        await self.emit("skeletons", selected.skeletons, ts_ms=now_ms)
++        await self.emit("referenceSkeleton", selected.reference_skeleton, ts_ms=now_ms)
++        await self.emit("targetSkeleton", selected.target_skeleton, ts_ms=now_ms)
++        await self.emit("referenceBone", selected.reference_bone, ts_ms=now_ms)
++        await self.emit("targetBone", selected.target_bone, ts_ms=now_ms)
++        await self.emit("status", selected.status, ts_ms=now_ms)
++        self.record_monitor_processed(port="skeletons", ts_ms=now_ms)
++        await self._clear_io_error()
++
++    async def _check_stale(self, now_ms: int) -> None:
++        if self._last_valid_ms is None:
++            await self._emit_stale_once(now_ms, reason="waiting_for_hanime")
++            return
++        if now_ms - self._last_valid_ms >= self._config.stale_after_ms:
++            await self._publish_state_if_changed("connected", False)
++            await self._emit_stale_once(now_ms, reason="stale")
++
++    async def _emit_stale_once(self, now_ms: int, *, reason: str) -> None:
++        if self._stale_emitted:
++            return
++        self._stale_emitted = True
++        status = {
++            "valid": False,
++            "reason": reason,
++            "referenceKey": "",
++            "targetKey": "",
++            "referenceBone": "",
++            "targetBone": "",
++            "hanimeId": "",
++            "hanimeAsset": "",
++            "hanimeCategory": "",
++        }
++        await self.emit("skeletons", [], ts_ms=now_ms)
++        await self.emit("referenceSkeleton", None, ts_ms=now_ms)
++        await self.emit("targetSkeleton", None, ts_ms=now_ms)
++        await self.emit("referenceBone", None, ts_ms=now_ms)
++        await self.emit("targetBone", None, ts_ms=now_ms)
++        await self.emit("status", status, ts_ms=now_ms)
++
++    async def _emit_inactive_once(self, *, reason: str) -> None:
++        self._stale_emitted = False
++        await self._emit_stale_once(_now_ms(), reason=reason)
++        await self._publish_state_if_changed("connected", False)
++
++    async def _publish_state_if_changed(self, field: str, value: Any) -> None:
++        if self._published_state.get(field) == value:
++            return
++        self._published_state[field] = value
++        await self.set_state(field, value)
++
++    async def _report_io_error(self, exc: BaseException) -> None:
++        signature = f"{type(exc).__name__}:{exc}"
++        if signature == self._error_signature:
++            return
++        self._error_signature = signature
++        logger.error("Fallen Doll source read failed: %s", signature, exc_info=(type(exc), exc, exc.__traceback__))
++        await self.report_error(
++            "fallen_doll_source_read_failed",
++            signature,
++            fingerprint="fallen-doll-source-io",
++        )
++
++    async def _clear_io_error(self) -> None:
++        if not self._error_signature:
++            return
++        self._error_signature = ""
++        await self.clear_error(fingerprint="fallen-doll-source-io")
++
++    def _reset_tail(self) -> None:
++        self._offset = 0
++        self._fragment = ""
++        self._spool_path = None
++        self._directory_ready = False
++        self._last_valid_ms = None
++        self._stale_emitted = False
++
++    @staticmethod
++    def _split_complete_lines(text: str) -> tuple[list[str], str]:
++        if not text:
++            return [], ""
++        parts = text.split("\n")
++        if text.endswith("\n"):
++            return [part.rstrip("\r") for part in parts[:-1]], ""
++        return [part.rstrip("\r") for part in parts[:-1]], parts[-1]
++
++    @staticmethod
++    def _config_from_values(values: dict[str, Any]) -> SourceConfig:
++        return SourceConfig(
++            runtime_dir=str(values.get("runtimeDir") or "").strip(),
++            poll_interval_ms=_coerce_int(values.get("pollIntervalMs"), default=20, minimum=10, maximum=1000),
++            stale_after_ms=_coerce_int(values.get("staleAfterMs"), default=250, minimum=50, maximum=10000),
++            reference_role=str(values.get("referenceRole") or "male").strip().lower() or "male",
++            target_role=str(values.get("targetRole") or "female").strip().lower() or "female",
++            enabled_reference_participants=_string_list(
++                values.get("enabledReferenceParticipants"), default=DEFAULT_REFERENCE_PARTICIPANTS
++            ),
++            enabled_target_participants=_string_list(
++                values.get("enabledTargetParticipants"), default=DEFAULT_TARGET_PARTICIPANTS
++            ),
++            enabled_reference_bones=_string_list(
++                values.get("enabledReferenceBones"), default=DEFAULT_FUNCTIONAL_BONES
++            ),
++            enabled_target_bones=_string_list(
++                values.get("enabledTargetBones"), default=DEFAULT_FUNCTIONAL_BONES
++            ),
++        )
+diff --git a/packages/f8pyfallendoll/f8pyfallendoll/stream.py b/packages/f8pyfallendoll/f8pyfallendoll/stream.py
+new file mode 100644
+index 0000000..f468c26
+--- /dev/null
++++ b/packages/f8pyfallendoll/f8pyfallendoll/stream.py
+@@ -0,0 +1,341 @@
++from __future__ import annotations
++
++import json
++import math
++import os
++from dataclasses import dataclass
++from pathlib import Path
++from typing import Any, Mapping
++
++from .constants import DEFAULT_MAX_READ_BYTES
++
++_GAME_ID = "fallen-doll"
++_SPOOL_NAME = "fd-skeleton.ndjson"
++
++
++@dataclass(frozen=True)
++class TailRead:
++    offset: int
++    text: str
++    truncated: bool
++    skipped_bytes: int
++
++
++@dataclass(frozen=True)
++class ParsedFrame:
++    skeletons: list[dict[str, Any]]
++    source_timestamp_ms: int | None
++    rejected_lines: int
++    dropped_payloads: int
++
++
++@dataclass(frozen=True)
++class SelectedFrame:
++    skeletons: list[dict[str, Any]]
++    reference_skeleton: dict[str, Any] | None
++    target_skeleton: dict[str, Any] | None
++    reference_bone: dict[str, Any] | None
++    target_bone: dict[str, Any] | None
++    status: dict[str, Any]
++
++
++def resolve_runtime_dir(environment: Mapping[str, str] | None = None, *, home: Path | None = None) -> Path:
++    env = os.environ if environment is None else environment
++    exact_dir = str(env.get("FD_TCODE_RUNTIME_DIR") or "").strip()
++    if exact_dir:
++        return Path(exact_dir).expanduser().resolve()
++
++    games_dir = str(env.get("F8STUDIO_GAMES_DIR") or "").strip()
++    if games_dir:
++        return (Path(games_dir).expanduser() / _GAME_ID / "runtime").resolve()
++
++    home_dir = Path.home() if home is None else home
++    return (home_dir / ".f8" / "studio" / "games" / _GAME_ID / "runtime").resolve()
++
++
++def resolve_spool_path(runtime_dir: str, environment: Mapping[str, str] | None = None) -> Path:
++    configured = str(runtime_dir or "").strip()
++    root = Path(configured).expanduser().resolve() if configured else resolve_runtime_dir(environment)
++    return root / _SPOOL_NAME
++
++
++def read_appended(path: Path, offset: int, *, max_read_bytes: int = DEFAULT_MAX_READ_BYTES) -> TailRead:
++    size = path.stat().st_size
++    truncated = size < offset
++    start = 0 if truncated else max(0, int(offset))
++    available = max(0, size - start)
++    skipped = 0
++    bounded_max = max(1, int(max_read_bytes))
++    if available > bounded_max:
++        skipped = available - bounded_max
++        start += skipped
++        available = bounded_max
++    if available <= 0:
++        return TailRead(offset=size, text="", truncated=truncated, skipped_bytes=skipped)
++    with path.open("rb") as handle:
++        handle.seek(start)
++        raw = handle.read(available)
++    return TailRead(
++        offset=start + len(raw),
++        text=raw.decode("utf-8", errors="replace"),
++        truncated=truncated,
++        skipped_bytes=skipped,
++    )
++
++
++def parse_latest_frame(lines: list[str], *, arrival_timestamp_ms: int) -> ParsedFrame:
++    valid_payloads: list[dict[str, Any]] = []
++    rejected = 0
++    for raw_line in lines:
++        line = raw_line.strip()
++        if not line:
++            continue
++        try:
++            decoded = json.loads(line)
++        except json.JSONDecodeError:
++            rejected += 1
++            continue
++        payload = _validated_payload(decoded)
++        if payload is None:
++            rejected += 1
++            continue
++        valid_payloads.append(payload)
++
++    timestamps = [timestamp for payload in valid_payloads if (timestamp := _integer(payload.get("timestampMs"))) is not None]
++    newest_timestamp = max(timestamps) if timestamps else None
++    latest_by_key: dict[str, dict[str, Any]] = {}
++    dropped = 0
++    for payload in valid_payloads:
++        source_timestamp = _integer(payload.get("timestampMs"))
++        if newest_timestamp is not None and source_timestamp != newest_timestamp:
++            dropped += 1
++            continue
++        key = stable_key(payload)
++        if not key:
++            rejected += 1
++            continue
++        normalized = dict(payload)
++        normalized["sourceTimestampMs"] = source_timestamp
++        normalized["timestampMs"] = int(arrival_timestamp_ms)
++        normalized["receivedAtMs"] = int(arrival_timestamp_ms)
++        trailer = _trailer(normalized)
++        normalized["trailer"] = {**trailer, "timeSource": "fallendoll-source-arrival-wall-clock-latest-frame"}
++        latest_by_key[key] = normalized
++
++    return ParsedFrame(
++        skeletons=[latest_by_key[key] for key in sorted(latest_by_key)],
++        source_timestamp_ms=newest_timestamp,
++        rejected_lines=rejected,
++        dropped_payloads=dropped,
++    )
++
++
++def select_frame(
++    skeletons: list[dict[str, Any]],
++    *,
++    reference_role: str,
++    target_role: str,
++    enabled_reference_participants: list[str],
++    enabled_target_participants: list[str],
++    enabled_reference_bones: list[str],
++    enabled_target_bones: list[str],
++) -> SelectedFrame:
++    reference = _select_participant(skeletons, role=reference_role, enabled_keys=enabled_reference_participants)
++    target = _select_participant(skeletons, role=target_role, enabled_keys=enabled_target_participants)
++    reference_bone = _select_bone(reference, enabled_reference_bones)
++    target_bone = _select_bone(target, enabled_target_bones)
++    valid = reference_bone is not None and target_bone is not None
++    reason = "ok"
++    if reference is None:
++        reason = "no_reference_participant"
++    elif target is None:
++        reason = "no_target_participant"
++    elif reference_bone is None:
++        reason = "no_reference_bone"
++    elif target_bone is None:
++        reason = "no_target_bone"
++    identity = _trailer(reference if reference is not None else target)
++    status = {
++        "valid": valid,
++        "reason": reason,
++        "referenceKey": stable_key(reference),
++        "targetKey": stable_key(target),
++        "referenceBone": "" if reference_bone is None else str(reference_bone["name"]),
++        "targetBone": "" if target_bone is None else str(target_bone["name"]),
++        "hanimeId": str(identity.get("hanimeId") or ""),
++        "hanimeAsset": str(identity.get("hanimeAsset") or ""),
++        "hanimeCategory": str(identity.get("hanimeCategory") or ""),
++    }
++    return SelectedFrame(
++        skeletons=list(skeletons),
++        reference_skeleton=reference,
++        target_skeleton=target,
++        reference_bone=reference_bone,
++        target_bone=target_bone,
++        status=status,
++    )
++
++
++def available_participants(skeletons: list[dict[str, Any]]) -> list[str]:
++    return sorted(key for skeleton in skeletons if (key := stable_key(skeleton)))
++
++
++def available_bones(skeleton: dict[str, Any] | None) -> list[str]:
++    if skeleton is None:
++        return []
++    bones = skeleton.get("bones")
++    if not isinstance(bones, list):
++        return []
++    names: list[str] = []
++    seen: set[str] = set()
++    for bone in bones:
++        parsed = _validated_bone(bone)
++        if parsed is None:
++            continue
++        name = str(parsed["name"])
++        if name in seen:
++            continue
++        seen.add(name)
++        names.append(name)
++    return names
++
++
++def stable_key(skeleton: dict[str, Any] | None) -> str:
++    if skeleton is None:
++        return ""
++    explicit = str(skeleton.get("stableKey") or "").strip()
++    if explicit:
++        return explicit
++    trailer = _trailer(skeleton)
++    profile_id = str(trailer.get("profileId") or "").strip()
++    role = str(trailer.get("role") or "").strip().lower()
++    role_index = _integer(trailer.get("roleIndex"))
++    if profile_id and role and role_index is not None and role_index >= 0:
++        return f"{profile_id}:{role}:{role_index}"
++    return str(skeleton.get("modelName") or "").strip()
++
++
++def _validated_payload(value: Any) -> dict[str, Any] | None:
++    if not isinstance(value, dict):
++        return None
++    if str(value.get("type") or "") != "skeleton_binary":
++        return None
++    bones = value.get("bones")
++    if not isinstance(bones, list):
++        return None
++    trailer = _trailer(value)
++    if str(trailer.get("profileId") or "").strip() != "fallen-doll":
++        return None
++    if trailer.get("hanimeActive") is not True:
++        return None
++    if not stable_key(value):
++        return None
++    return {str(key): field_value for key, field_value in value.items()}
++
++
++def _select_participant(
++    skeletons: list[dict[str, Any]],
++    *,
++    role: str,
++    enabled_keys: list[str],
++) -> dict[str, Any] | None:
++    normalized_role = str(role or "").strip().lower()
++    enabled = set(enabled_keys)
++    ranked: list[tuple[int, int, str, dict[str, Any]]] = []
++    for skeleton in skeletons:
++        trailer = _trailer(skeleton)
++        if str(trailer.get("role") or "").strip().lower() != normalized_role:
++            continue
++        key = stable_key(skeleton)
++        if key not in enabled:
++            continue
++        ranked.append(
++            (
++                _integer_or_default(trailer.get("participantPriority"), 1024),
++                _integer_or_default(trailer.get("roleIndex"), 1024),
++                key,
++                skeleton,
++            )
++        )
++    if not ranked:
++        return None
++    ranked.sort(key=lambda item: (item[0], item[1], item[2]))
++    return ranked[0][3]
++
++
++def _select_bone(skeleton: dict[str, Any] | None, enabled_bones: list[str]) -> dict[str, Any] | None:
++    if skeleton is None:
++        return None
++    bones = skeleton.get("bones")
++    if not isinstance(bones, list):
++        return None
++    by_name: dict[str, dict[str, Any]] = {}
++    for raw_bone in bones:
++        bone = _validated_bone(raw_bone)
++        if bone is not None:
++            by_name[str(bone["name"])] = bone
++    enabled = set(enabled_bones)
++    preferred = _string_list(_trailer(skeleton).get("preferredBones"))
++    for name in preferred:
++        if name in enabled and name in by_name:
++            return by_name[name]
++    return None
++
++
++def _validated_bone(value: Any) -> dict[str, Any] | None:
++    if not isinstance(value, dict):
++        return None
++    name = str(value.get("name") or "").strip()
++    pos = value.get("pos")
++    rot = value.get("rot")
++    if not name or not isinstance(pos, list) or len(pos) != 3 or not isinstance(rot, list) or len(rot) != 4:
++        return None
++    numbers = [_finite_float(item) for item in [*pos, *rot]]
++    if any(item is None for item in numbers):
++        return None
++    finite = [float(item) for item in numbers if item is not None]
++    return {"name": name, "pos": finite[:3], "rot": finite[3:]}
++
++
++def _finite_float(value: Any) -> float | None:
++    if value is None or isinstance(value, bool):
++        return None
++    try:
++        number = float(value)
++    except (TypeError, ValueError, OverflowError):
++        return None
++    return number if math.isfinite(number) else None
++
++
++def _trailer(skeleton: dict[str, Any] | None) -> dict[str, Any]:
++    if skeleton is None:
++        return {}
++    value = skeleton.get("trailer")
++    return value if isinstance(value, dict) else {}
++
++
++def _integer(value: Any) -> int | None:
++    if value is None or isinstance(value, bool):
++        return None
++    try:
++        return int(value)
++    except (TypeError, ValueError, OverflowError):
++        return None
++
++
++def _integer_or_default(value: Any, default: int) -> int:
++    result = _integer(value)
++    return default if result is None else result
++
++
++def _string_list(value: Any) -> list[str]:
++    if not isinstance(value, (list, tuple, set)):
++        return []
++    result: list[str] = []
++    seen: set[str] = set()
++    for item in value:
++        text = str(item or "").strip()
++        if text and text not in seen:
++            seen.add(text)
++            result.append(text)
++    return result
+diff --git a/packages/f8pyfallendoll/pyproject.toml b/packages/f8pyfallendoll/pyproject.toml
+new file mode 100644
+index 0000000..9dc9c8f
+--- /dev/null
++++ b/packages/f8pyfallendoll/pyproject.toml
+@@ -0,0 +1,20 @@
++[project]
++name = "f8pyfallendoll"
++version = "0.1.0"
++description = "Fallen Doll skeleton source service for Feel8 Studio."
++readme = "README.md"
++requires-python = ">=3.10"
++dependencies = ["f8pysdk"]
++
++[project.scripts]
++f8pyfallendoll = "f8pyfallendoll.main:main"
++
++[build-system]
++requires = ["hatchling"]
++build-backend = "hatchling.build"
++
++[tool.hatch.build.targets.wheel]
++packages = ["f8pyfallendoll"]
++
++[tool.uv]
++package = true
+diff --git a/packages/f8pyfallendoll/tests/test_source_node.py b/packages/f8pyfallendoll/tests/test_source_node.py
+new file mode 100644
+index 0000000..50bd62f
+--- /dev/null
++++ b/packages/f8pyfallendoll/tests/test_source_node.py
+@@ -0,0 +1,120 @@
++from __future__ import annotations
++
++import asyncio
++import json
++from pathlib import Path
++from typing import Any
++
++from f8pysdk.specs import F8RuntimeNode
++
++from f8pyfallendoll.constants import SERVICE_CLASS
++from f8pyfallendoll.main import build_app
++from f8pyfallendoll.node_registry import FallenDollSourceNode, register_specs
++from f8pysdk.registry import Registry
++
++
++class _RecordingSourceNode(FallenDollSourceNode):
++    def __init__(self, *, node_id: str, node: F8RuntimeNode, initial_state: dict[str, Any]) -> None:
++        super().__init__(node_id=node_id, node=node, initial_state=initial_state)
++        self.emitted: list[tuple[str, Any, int | None]] = []
++        self.states: dict[str, Any] = {}
++
++    async def emit(
++        self,
++        port: str,
++        value: Any,
++        *,
++        ts_ms: int | None = None,
++        ctx_id: str | int | None = None,
++    ) -> None:
++        del ctx_id
++        self.emitted.append((port, value, ts_ms))
++
++    async def set_state(
++        self,
++        field: str,
++        value: Any,
++        *,
++        ts_ms: int | None = None,
++        force_publish: bool = False,
++    ) -> None:
++        del ts_ms, force_publish
++        self.states[field] = value
++
++
++def _packet(*, role: str, preferred_bone: str, timestamp_ms: int = 1000) -> dict[str, Any]:
++    return {
++        "type": "skeleton_binary",
++        "schema": "fallen-doll-ue-world-v1",
++        "modelName": role,
++        "stableKey": f"fallen-doll:{role}:0",
++        "timestampMs": timestamp_ms,
++        "bones": [{"name": preferred_bone, "pos": [0.0, 0.0, 0.0], "rot": [1.0, 0.0, 0.0, 0.0]}],
++        "trailer": {
++            "profileId": "fallen-doll",
++            "hanimeActive": True,
++            "hanimeId": "Hand02",
++            "hanimeAsset": "/Game/HAnime/Hand02",
++            "hanimeCategory": "hand",
++            "role": role,
++            "roleIndex": 0,
++            "participantPriority": 0,
++            "preferredBones": [preferred_bone],
++        },
++    }
++
++
++def _runtime_node() -> F8RuntimeNode:
++    registry = Registry()
++    register_specs(registry)
++    spec = registry.describe(SERVICE_CLASS).service
++    return F8RuntimeNode(
++        nodeId="fallen-doll",
++        serviceId="fallen-doll",
++        serviceClass=SERVICE_CLASS,
++        dataInPorts=list(spec.dataInPorts or []),
++        dataOutPorts=list(spec.dataOutPorts or []),
++        stateFields=list(spec.stateFields or []),
++    )
++
++
++def test_describe_exposes_standard_source_ports() -> None:
++    service = build_app().describe_json()["service"]
++    assert service["serviceClass"] == SERVICE_CLASS
++    assert [port["name"] for port in service["dataOutPorts"][:6]] == [
++        "skeletons",
++        "referenceSkeleton",
++        "targetSkeleton",
++        "referenceBone",
++        "targetBone",
++        "status",
++    ]
++
++
++def test_poll_emits_selected_frame_then_one_stale_frame(tmp_path: Path) -> None:
++    spool = tmp_path / "fd-skeleton.ndjson"
++    packets = [_packet(role="male", preferred_bone="Penis02"), _packet(role="female", preferred_bone="R_Hand")]
++    spool.write_text("".join(json.dumps(packet) + "\n" for packet in packets), encoding="utf-8")
++    node = _RecordingSourceNode(
++        node_id="fallen-doll",
++        node=_runtime_node(),
++        initial_state={"runtimeDir": str(tmp_path), "staleAfterMs": 250},
++    )
++
++    async def run_case() -> None:
++        await node._poll_once(2000)
++        outputs = {port: value for port, value, _timestamp in node.emitted}
++        assert node.states["connected"] is True
++        assert outputs["referenceBone"]["name"] == "Penis02"
++        assert outputs["targetBone"]["name"] == "R_Hand"
++        assert outputs["status"]["valid"] is True
++
++        emitted_before_stale = len(node.emitted)
++        await node._poll_once(2300)
++        assert len(node.emitted) == emitted_before_stale + 6
++        assert node.emitted[-1][1]["reason"] == "stale"
++
++        await node._poll_once(2600)
++        assert len(node.emitted) == emitted_before_stale + 6
++
++    asyncio.run(run_case())
+diff --git a/packages/f8pyfallendoll/tests/test_stream.py b/packages/f8pyfallendoll/tests/test_stream.py
+new file mode 100644
+index 0000000..bbc5f6d
+--- /dev/null
++++ b/packages/f8pyfallendoll/tests/test_stream.py
+@@ -0,0 +1,152 @@
++from __future__ import annotations
++
++import json
++from pathlib import Path
++from typing import Any
++
++from f8pyfallendoll.stream import (
++    parse_latest_frame,
++    read_appended,
++    resolve_runtime_dir,
++    select_frame,
++)
++
++
++def _bone(name: str, x: float = 0.0) -> dict[str, Any]:
++    return {"name": name, "pos": [x, 0.0, 0.0], "rot": [1.0, 0.0, 0.0, 0.0]}
++
++
++def _payload(
++    *,
++    timestamp_ms: int,
++    role: str,
++    role_index: int,
++    priority: int,
++    preferred_bones: list[str],
++    bones: list[dict[str, Any]],
++) -> dict[str, Any]:
++    stable_key = f"fallen-doll:{role}:{role_index}"
++    return {
++        "type": "skeleton_binary",
++        "schema": "fallen-doll-ue-world-v1",
++        "modelName": stable_key,
++        "stableKey": stable_key,
++        "timestampMs": timestamp_ms,
++        "bones": bones,
++        "trailer": {
++            "profileId": "fallen-doll",
++            "hanimeActive": True,
++            "hanimeId": "Hand02",
++            "hanimeAsset": "/Game/HAnime/Hand02",
++            "hanimeCategory": "hand",
++            "role": role,
++            "roleIndex": role_index,
++            "participantPriority": priority,
++            "preferredBones": preferred_bones,
++        },
++    }
++
++
++def test_resolve_runtime_dir_uses_specific_override_first(tmp_path: Path) -> None:
++    exact = tmp_path / "exact"
++    games = tmp_path / "games"
++    resolved = resolve_runtime_dir(
++        {"FD_TCODE_RUNTIME_DIR": str(exact), "F8STUDIO_GAMES_DIR": str(games)},
++        home=tmp_path / "home",
++    )
++    assert resolved == exact.resolve()
++
++
++def test_parse_latest_frame_filters_profile_gate_and_old_frames() -> None:
++    old = _payload(
++        timestamp_ms=100,
++        role="male",
++        role_index=0,
++        priority=0,
++        preferred_bones=["Penis02"],
++        bones=[_bone("Penis02")],
++    )
++    male = {**old, "timestampMs": 120}
++    female = _payload(
++        timestamp_ms=120,
++        role="female",
++        role_index=0,
++        priority=0,
++        preferred_bones=["R_Hand"],
++        bones=[_bone("R_Hand")],
++    )
++    inactive = _payload(
++        timestamp_ms=120,
++        role="female",
++        role_index=1,
++        priority=1,
++        preferred_bones=["L_Hand"],
++        bones=[_bone("L_Hand")],
++    )
++    inactive["trailer"]["hanimeActive"] = False
++
++    parsed = parse_latest_frame(
++        [json.dumps(old), json.dumps(male), json.dumps(female), json.dumps(inactive), "not-json"],
++        arrival_timestamp_ms=999,
++    )
++
++    assert [item["stableKey"] for item in parsed.skeletons] == ["fallen-doll:female:0", "fallen-doll:male:0"]
++    assert all(item["timestampMs"] == 999 for item in parsed.skeletons)
++    assert all(item["sourceTimestampMs"] == 120 for item in parsed.skeletons)
++    assert parsed.dropped_payloads == 1
++    assert parsed.rejected_lines == 2
++
++
++def test_select_frame_uses_participant_priority_and_preferred_bone_order() -> None:
++    male_low_priority = _payload(
++        timestamp_ms=120,
++        role="male",
++        role_index=0,
++        priority=5,
++        preferred_bones=["Penis01"],
++        bones=[_bone("Penis01")],
++    )
++    male_primary = _payload(
++        timestamp_ms=120,
++        role="male",
++        role_index=1,
++        priority=0,
++        preferred_bones=["Penis02", "Penis01"],
++        bones=[_bone("Penis01"), _bone("Penis02")],
++    )
++    female = _payload(
++        timestamp_ms=120,
++        role="female",
++        role_index=0,
++        priority=0,
++        preferred_bones=["R_Hand", "L_Hand"],
++        bones=[_bone("L_Hand"), _bone("R_Hand")],
++    )
++
++    selected = select_frame(
++        [male_low_priority, male_primary, female],
++        reference_role="male",
++        target_role="female",
++        enabled_reference_participants=["fallen-doll:male:0", "fallen-doll:male:1"],
++        enabled_target_participants=["fallen-doll:female:0"],
++        enabled_reference_bones=["Penis01", "Penis02"],
++        enabled_target_bones=["L_Hand", "R_Hand"],
++    )
++
++    assert selected.status["valid"] is True
++    assert selected.status["referenceKey"] == "fallen-doll:male:1"
++    assert selected.reference_bone is not None and selected.reference_bone["name"] == "Penis02"
++    assert selected.target_bone is not None and selected.target_bone["name"] == "R_Hand"
++
++
++def test_read_appended_detects_truncation(tmp_path: Path) -> None:
++    spool = tmp_path / "fd-skeleton.ndjson"
++    spool.write_bytes(b"first\nsecond\n")
++    initial = read_appended(spool, 0)
++    assert initial.text == "first\nsecond\n"
++    assert initial.truncated is False
++
++    spool.write_bytes(b"new\n")
++    truncated = read_appended(spool, initial.offset)
++    assert truncated.text == "new\n"
++    assert truncated.truncated is True
+diff --git a/pixi.lock b/pixi.lock
+index c37af1c..fc73c92 100644
+--- a/pixi.lock
++++ b/pixi.lock
+@@ -585,6 +585,7 @@ environments:
+       - pypi: ./packages/f8proclauncher
+       - pypi: ./packages/f8pyaudiofeat
+       - pypi: ./packages/f8pyengine
++      - pypi: ./packages/f8pyfallendoll
+       - pypi: ./packages/f8pyscript
+       - pypi: ./packages/f8pysdk
+       - pypi: ./packages/f8pystudio
+@@ -769,6 +770,7 @@ environments:
+       - pypi: ./packages/f8proclauncher
+       - pypi: ./packages/f8pyaudiofeat
+       - pypi: ./packages/f8pyengine
++      - pypi: ./packages/f8pyfallendoll
+       - pypi: ./packages/f8pyscript
+       - pypi: ./packages/f8pysdk
+       - pypi: ./packages/f8pystudio
+@@ -1349,6 +1351,7 @@ environments:
+       - pypi: ./packages/f8proclauncher
+       - pypi: ./packages/f8pyaudiofeat
+       - pypi: ./packages/f8pyengine
++      - pypi: ./packages/f8pyfallendoll
+       - pypi: ./packages/f8pyscript
+       - pypi: ./packages/f8pysdk
+       - pypi: ./packages/f8pystudio
+@@ -1524,6 +1527,7 @@ environments:
+       - pypi: ./packages/f8proclauncher
+       - pypi: ./packages/f8pyaudiofeat
+       - pypi: ./packages/f8pyengine
++      - pypi: ./packages/f8pyfallendoll
+       - pypi: ./packages/f8pyscript
+       - pypi: ./packages/f8pysdk
+       - pypi: ./packages/f8pystudio
+@@ -2761,6 +2765,13 @@ packages:
+   - scipy>=1.14.0
+   - pyserial>=3.5
+   requires_python: '>=3.10'
++- pypi: ./packages/f8pyfallendoll
++  name: f8pyfallendoll
++  version: 0.1.0
++  sha256: 81cd6a57eebdeaeb4be85692d0d0f079b8c91f976c2836824ac64e9e69615977
++  requires_dist:
++  - f8pysdk
++  requires_python: '>=3.10'
+ - pypi: ./packages/f8pymppose
+   name: f8pymppose
+   version: 0.1.0
+diff --git a/pixi.toml b/pixi.toml
+index 4e2e01d..d7fe3d3 100644
+--- a/pixi.toml
++++ b/pixi.toml
+@@ -69,7 +69,7 @@ pytest_sdk = "python -m pytest -q packages/f8pysdk/tests"
+ pytest_studio = "python -m pytest -q packages/f8pystudio/tests"
+ # Keep the initial repo-level static guards narrow and green. We can widen the
+ # checked surface incrementally as more packages are annotated and cleaned up.
+-lint = "ruff check packages/f8proclauncher/f8proclauncher packages/f8pystudio/f8pystudio/global_hotkeys packages/f8pymppose/f8pymppose packages/f8pyscript/f8pyscript packages/f8pyaudiofeat/f8pyaudiofeat packages/f8pydl/f8pydl packages/f8pystudio_ext_viz_tcode/f8pystudio_ext_viz_tcode packages/f8pystudio_ext_template_match/f8pystudio_ext_template_match packages/f8pysdk/f8pysdk packages/f8pyengine/f8pyengine"
++lint = "ruff check packages/f8proclauncher/f8proclauncher packages/f8pyfallendoll/f8pyfallendoll packages/f8pystudio/f8pystudio/global_hotkeys packages/f8pymppose/f8pymppose packages/f8pyscript/f8pyscript packages/f8pyaudiofeat/f8pyaudiofeat packages/f8pydl/f8pydl packages/f8pystudio_ext_viz_tcode/f8pystudio_ext_viz_tcode packages/f8pystudio_ext_template_match/f8pystudio_ext_template_match packages/f8pysdk/f8pysdk packages/f8pyengine/f8pyengine"
+ typecheck = "basedpyright -p pyrightconfig.json"
+ quality_exceptions = "python packages/f8pystudio/tools/quality/except_metrics.py packages --exclude-glob '**/tests/**' --max-broad 844 --max-silent 40"
+ lint_imports = "lint-imports"
+@@ -90,12 +90,14 @@ scikit-learn = ">=1.8.0,<2"
+ f8pyengine = { path = "packages/f8pyengine", editable = true }
+ f8pyscript = { path = "packages/f8pyscript", editable = true }
+ f8proclauncher = { path = "packages/f8proclauncher", editable = true }
++f8pyfallendoll = { path = "packages/f8pyfallendoll", editable = true }
+ 
+ [feature.engine.tasks]
+ f8pyengine = "python -m f8pyengine.main"
+ f8pyscript = "python -m f8pyscript.main_script"
+ f8pyexpr = "python -m f8pyscript.main_expr"
+ f8proclauncher = "python -m f8proclauncher.main"
++f8pyfallendoll = "python -m f8pyfallendoll.main"
+ 
+ [feature.studio.pypi-dependencies]
+ f8pystudio = { path = "packages/f8pystudio", editable = true }
+diff --git a/services/f8/games/fallen_doll/service.yml b/services/f8/games/fallen_doll/service.yml
+new file mode 100644
+index 0000000..67c083b
+--- /dev/null
++++ b/services/f8/games/fallen_doll/service.yml
+@@ -0,0 +1,9 @@
++schemaVersion: f8serviceEntry/1
++serviceClass: f8.fallen_doll
++label: Fallen Doll Source
++version: 0.1.0
++launch:
++  command: pixi
++  args: ["run", "-e", "studio-runtime", "f8pyfallendoll"]
++  env: {}
++  workdir: "../../../../"
+-- 
+2.55.0.windows.3
+

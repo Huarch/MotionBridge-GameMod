@@ -81,7 +81,11 @@ its own key callback.
   `Exp_In`/`Exp_Sexing` HAnime re-entry. `Exp_Idle` never performs discovery or
   consumes the one-shot re-entry recovery. The realtime gate does not call
   `HScene.snapshot`; its multi-class searches remain explicit F6/F8 diagnostics.
-- Write F8Studio-compatible skeleton JSON lines to `runtime/fd-skeleton.ndjson`.
+- Write F8Studio-compatible skeleton JSON lines to
+  `%USERPROFILE%/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson`.
+  `F8STUDIO_GAMES_DIR` may relocate the shared games directory and
+  `FD_TCODE_RUNTIME_DIR` may override only Fallen Doll's runtime directory.
+  The game Mod and F8Studio must inherit the same override when one is used.
   Positions are converted from Unreal centimetres to metres; rotations are
   reordered from Unreal XYZW to F8 WXYZ. Coordinate handedness is intentionally
   unchanged until the first 3D Viz comparison.
@@ -118,7 +122,8 @@ callback owned by `fd_tcode_probe`. Invalid rule files are rejected and the
 last valid in-memory rules remain active until the next successful reload.
 
 The Lua mod does not build an Unreal/Canvas UI. Visualization is owned by
-F8Studio and consumes copied skeleton packets through localhost UDP.
+F8Studio. Its managed `Fallen Doll Source` incrementally reads the spool file;
+the legacy localhost UDP relay is not required by the current v15 project.
 
 ## Layout
 

@@ -9,16 +9,16 @@
 Fallen Doll / UE4SS Lua
   → 精确 HAnime Montage 白名单
   → 当前 HAnime 功能接触骨集合（目标 20 Hz）
-  → runtime/fd-skeleton.ndjson
-  → localhost UDP relay :39540
-  → F8Studio Skeleton Decoder / 3D Viz
+  → ~/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson
+  → F8Studio 管理的 Fallen Doll Source
+  → 标准 Skeleton / Reference Bone / Target Bone / 3D Viz
   → 相对骨骼 L0 → TCode → SR6 OSR Viewer
 ```
 
 - HAnime 身份识别和 Fallen Doll 特有规则只存在于游戏侧 Lua。
 - 解包数据是运行实验前的权威材料；参见
   [docs/unpacked-data-first.md](docs/unpacked-data-first.md)。
-- F8Studio 只负责通用骨骼解码、可视化和后续六轴转换。
+- F8Studio Source 负责增量读取、参与者/功能骨选择和断流状态；游戏匹配仍只在 Lua。
 - C++ DLL、游戏内 Canvas UI、旧 localhost bridge 和 WinForms 浮层均已移除。
 - 共享工程中的真实设备出口默认关闭，只能在 F8Studio 中手动选择并启用一个。
 
@@ -27,7 +27,7 @@ Fallen Doll / UE4SS Lua
 - `fd_tcode_probe/`：游戏侧 Lua Mod。
 - `fd_tcode_reloader/`：安全热重载 broker。
 - `data/`：由解包数据生成的 HAnime、姿势和骨架索引。
-- `tools/`：索引生成、骨架提取和 F8 UDP relay/replay 工具。
+- `tools/`：索引生成、骨架提取、v15 工程生成，以及旧链路的 relay/replay 调试工具。
 - `f8studio/`：本工程维护的 F8Studio 图补丁。
 - `docs/`：静态数据约束与仍在使用的设计资料。
 - `runtime/`：本机验证输出、日志和截图，不作为源码提交。
@@ -55,7 +55,7 @@ Lua 不创建游戏内 UI。F8Studio 的 Viewer 是独立桌面窗口。
 不同类别的无关骨不会同时采样。F8Studio
 按动画标注的优先级从用户仍启用的候选骨中选择；例如 Hand02 默认右手优先，
 取消勾选右手后自动回退左手。
-HAnime 身份低频刷新，接触骨骼独立实时采样；Relay 只转发最新帧并丢弃积压，
+HAnime 身份低频刷新，接触骨骼独立实时采样；Fallen Doll Source 只读取最新帧并丢弃积压，
 从而避免游戏线程长卡顿和调速后的旧帧回放。
 
 自动实时路径只在 Mod 加载、缓存对象明确失效，或已识别 HAnime 退出后再次
@@ -75,8 +75,29 @@ F8Studio 内已保存的正式工程为：
 
 - 名称：`Fallen Doll Skeleton Preview`
 - Project ID：`fc812463-e55a-42c2-9c5f-4f0bd9aeb422`
-- 当前版本：14（第 11 版保留为无设备出口的回退点）
-- 完整导出：`f8studio/fallen-doll-skeleton-preview-v14.json`
+- 当前版本：15（第 14 版保留为旧 UDP Relay 链路的回退点）
+- 完整导出：`f8studio/fallen-doll-skeleton-preview-v15.json`
+
+第 15 版使用 F8Studio 独立接入服务，删除 UDP In、Skeleton Decoder、两个
+Skeleton Selector 和两个 Bone Selector：
+
+```text
+Fallen Doll Source.skeletons      → 3D Viz / Stream Safety heartbeat
+Fallen Doll Source.referenceBone  → Relative Axes.referenceBone
+Fallen Doll Source.targetBone     → Relative Axes.targetBone
+```
+
+Source 随 Studio 图自动启动和停止，默认读取
+`%USERPROFILE%/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson`；可用
+`F8STUDIO_GAMES_DIR` 改所有游戏的上级目录，或用 `FD_TCODE_RUNTIME_DIR` 只改
+Fallen Doll。游戏退出、离开 HAnime 或超过 250 ms 没有新帧时，Source 只发送
+一次空安全状态。它不包含任何实体设备输出。
+
+Fallen Doll Source 已提交上游 PR：
+[feel8-fun/f8studio#3](https://github.com/feel8-fun/f8studio/pull/3)。PR 合并前，v15
+需要使用该 PR 分支构建的 F8Studio；源码仓库也可应用
+`f8studio/0001-feat-add-Fallen-Doll-skeleton-source-service.patch`。官方版本尚未包含
+此节点时可继续使用 v14。
 
 基础图在 `f8studio/fallen-doll-skeleton-preview.patch.json`，包含：
 
@@ -100,10 +121,11 @@ UDP In :39540 → Skeleton Decoder → 3D Viz
 FD L0 Stream Safety → 平滑/限速 → Device Range 0–100%
                                       → Device TCode → Transport Fanout
                                                            ├→ UDP Out (tcode.local:8000)
-                                                           └→ Serial Out (COM3/115200)
+                                                           └→ Serial Out (用户配置端口/115200)
 ```
 
-节点 `fd_wifi_out` 和 `fd_usb_out` 在共享工程中均为 `Enabled=false`。两个出口只由
+节点 `fd_wifi_out` 和 `fd_usb_out` 在共享工程中均为 `Enabled=false`，USB 端口为空。
+两个出口只由
 安全节点的执行出口触发，不允许绕过 250 ms 断流回中逻辑；实际使用时必须只启用
 一个。实体 L0 使用完整 0–100% 行程，仍保留平滑、防跳、速率限制和断流回中。
 TCode 编码器已经包含换行，因此 UDP 节点不重复追加换行。Wi-Fi、USB 和从旧工程
@@ -116,8 +138,8 @@ TCode 编码器已经包含换行，因此 UDP 节点不重复追加换行。Wi-
 USB、完整行程补丁。每个输出补丁创建的设备节点都默认关闭。
 
 已在 SR6 / TCode ESP32 0.5b / TCode v0.3 上完成实体连接测试：Wi-Fi
-`tcode.local:8000` 可直接接收 UDP TCode；USB `COM3 / 115200` 也已连接并写出真实
-L0 命令。完整 0–100% 行程已生效，测试结束后两个出口均恢复
+`tcode.local:8000` 可直接接收 UDP TCode；USB 以用户选择的串口和 115200 波特率
+连接并写出真实 L0 命令。完整 0–100% 行程已生效，测试结束后两个出口均恢复
 `Enabled=false`。
 `tools/f8-skeleton-replay.mjs` 默认把录制包时间戳刷新为当前时间，确保回放能通过
 250 ms 新鲜度保护；需要专门复现过期包时可加 `--preserve-timestamps`。
@@ -131,25 +153,27 @@ OSR 预览增量补丁位于 `f8studio/fallen-doll-osr-preview.patch.json`。OSR
 `f8studio/f8studio-detached-viewer-cli.patch`；从 `.deps/f8studio` 执行
 `git apply ../../f8studio/f8studio-detached-viewer-cli.patch` 即可恢复。
 
-环境清理后不要求重新安装全局 Pixi。`f8studio/f8studio-direct-engine-runtime.patch`
+旧 v14 环境清理后不要求重新安装全局 Pixi。`f8studio/f8studio-direct-engine-runtime.patch`
 将 PyEngine 服务改为直接使用仓库现有的 `.pixi/envs/default/python.exe`；从
 `.deps/f8studio` 执行 `git apply ../../f8studio/f8studio-direct-engine-runtime.patch`
 即可恢复该运行方式。它只影响游戏骨骼图所需的 PyEngine，不恢复视频、音频、
 AI 或 C++/Rust 开发环境。
 
-多人/多功能骨选择使用通用 F8Studio 设置扩展：
+v15 的多人/多功能骨选择位于 `Fallen Doll Source`：
 
-- `Skeleton Selector / Enabled Participants`：复选 Male 1、Male 2、Female 1 等
+- `Reference Participants / Target Participants`：复选 Male 1、Male 2、Female 1 等
   当前参与者；默认按解包 TableHAnim 的 A/B/C 槽位优先级选择，取消当前人物后
-  回退下一位，全部取消则无输出。两个选择器共同定义交互对，不限制为男+女。
-- `Bone Selector / Enabled Detection Bones`：复选当前人物的功能骨。
-- `Selection Mode = Exporter Priority`：按游戏侧标注顺序选择第一个仍启用的骨；
+  回退下一位，全部取消则无输出。
+- `Reference Role / Target Role`：定义交互两侧的角色类型，默认 `male + female`，
+  多人场景不再写死 MaleA/MaleB。
+- `Reference Bones / Target Bones`：复选当前人物的功能骨。Source 按游戏侧标注
+  顺序选择第一个仍启用的骨；
   取消主骨后自动回退次骨。
-- 未标注动作保持无输出；需要临时验证时可切换 `Exact` 并直接选择具体骨名。
+- 未标注动作保持无输出，不根据骨名或距离猜测。
 
-源码扩展保存在 `f8studio/f8studio-functional-contact-selection.patch`，图设置补丁
-保存在 `f8studio/fallen-doll-contact-selection.patch.json`。二者均为通用骨骼
-选择能力，不在 F8Studio 内保存 Fallen Doll 的动画匹配规则。
+旧 v14 的通用选择器源码扩展仍保存在
+`f8studio/f8studio-functional-contact-selection.patch`，图设置补丁保存在
+`f8studio/fallen-doll-contact-selection.patch.json`，只用于回退链路。
 
 ## 安全边界
 
