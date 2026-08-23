@@ -63,9 +63,11 @@ its own key callback.
   preserving the exact playable-character catalog as `characterRole` and
   `catalogId` trailer metadata.
 - Keep full-body debug skeletons out of the realtime path. Each participant
-  contributes only its compact functional set: left/right hands and feet,
-  mouth/tongue, vaginal/anal contact points, and available penetration-axis
-  points. The packet trailer ranks verified candidates; F8Studio may disable
+  contributes only the compact candidates required by the current interaction
+  category: left/right hands, left/right feet, mouth/tongue, one vaginal/anal
+  contact point, or the penetration-axis origin/tip. Unrelated categories are
+  not sampled in the same frame. The packet trailer ranks verified candidates;
+  F8Studio may disable
   any candidate and falls back to the next enabled ranked bone. Alet/Male
   Hand02 is currently annotated right-hand primary and left-hand secondary.
   Other hand/foot poses remain recognized but have no automatic ranked output
@@ -73,6 +75,9 @@ its own key callback.
   Special actions do not change the selected bone in this milestone. Montage
   discovery is polled separately at 250 ms, so speed changes are represented
   by current transforms rather than a fixed-rate animation phase.
+- Perform global skeletal-component discovery only when F9 starts or a cached
+  component becomes invalid. The realtime gate does not call `HScene.snapshot`;
+  its multi-class global searches remain explicit F6/F8 diagnostics only.
 - Write F8Studio-compatible skeleton JSON lines to `runtime/fd-skeleton.ndjson`.
   Positions are converted from Unreal centimetres to metres; rotations are
   reordered from Unreal XYZW to F8 WXYZ. Coordinate handedness is intentionally

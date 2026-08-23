@@ -1,6 +1,6 @@
 return {
     name = "FD-TCode",
-    version = "0.14.0-functional-contact-selection",
+    version = "0.14.1-low-impact-sampling",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
@@ -13,16 +13,14 @@ return {
     -- participant. F8Studio enables/disables candidates and chooses priority.
     -- Full-body debug skeletons are deliberately excluded from this loop.
     skeleton_sample_interval_ms = 50,
-    -- HAnime/Montage discovery is much more expensive than sampling the two
-    -- selected contact bones and does not need to run on every motion frame.
+    -- HAnime/Montage discovery reads only cached primary components and does
+    -- not need to run on every motion frame.
     hanime_poll_interval_ms = 250,
     -- Zero means the F9 stream runs until it is explicitly stopped.
     skeleton_sample_limit = 0,
     skeleton_discovery_retry_ms = 500,
     -- HAnime identity is confirmed only from exact active Montage assets that
     -- occur in the unpacked TableHAnim import allowlist.
-    hanime_discovery_retry_ms = 500,
-    hanime_scene_refresh_ms = 250,
     hanime_confirm_frames = 3,
     hanime_empty_hold_frames = 2,
     -- Legacy manual Hand/profile probes reject pairs farther than one metre.

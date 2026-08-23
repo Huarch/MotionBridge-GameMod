@@ -49,12 +49,17 @@ Lua 不创建游戏内 UI。F8Studio 的 Viewer 是独立桌面窗口。
 `fallen-doll:male:N` / `fallen-doll:female:N`，角色目录仍通过 trailer 中的
 `characterRole` 和 `catalogId` 保留。
 
-实时设备预览不再逐帧导出整套调试骨架。每个参与者只发送紧凑的功能骨集合，
-包括左右手、左右脚、口、Vaginal、Anal 及可用的进入物起止点。F8Studio
+实时设备预览不再逐帧导出整套调试骨架。每个参与者只发送当前交互类别所需的
+紧凑功能骨候选，例如左右手、左右脚、口、Vaginal、Anal 或进入物起止点。
+不同类别的无关骨不会同时采样。F8Studio
 按动画标注的优先级从用户仍启用的候选骨中选择；例如 Hand02 默认右手优先，
 取消勾选右手后自动回退左手。
 HAnime 身份低频刷新，接触骨骼独立实时采样；Relay 只转发最新帧并丢弃积压，
 从而避免游戏线程长卡顿和调速后的旧帧回放。
+
+F9 的实时路径只在首次启用或缓存对象失效后执行一次骨架发现；不再周期性
+全局枚举骨架，也不再读取会触发多次全局搜索的 HScene 诊断快照。F6/F8 仍保留
+这些低频诊断能力。
 
 当前正式基础映射为 Vaginal/Pussy、Anal 和 Mouth；Alet/Male Hand02 的
 `R_Hand` 主、`L_Hand` 次已作为第一条优先级标注。其余 Hand/Foot 尚未标注

@@ -6,6 +6,7 @@ local GenericHAnimeProbe = {}
 
 local binding_generation = 0
 local binding_signature = nil
+local bone_fnames = {}
 
 local function component_is_live(component)
     if not Safe.is_object(component) then
@@ -18,9 +19,14 @@ local function component_is_live(component)
 end
 
 local function read_bone(component, bone_name)
-    local fname_ok, socket_name = pcall(FName, bone_name)
-    if not fname_ok then
-        return nil, "FName failed: " .. tostring(socket_name)
+    local socket_name = bone_fnames[bone_name]
+    if socket_name == nil then
+        local fname_ok, value = pcall(FName, bone_name)
+        if not fname_ok then
+            return nil, "FName failed: " .. tostring(value)
+        end
+        socket_name = value
+        bone_fnames[bone_name] = socket_name
     end
     local call_ok, transform = pcall(function()
         return component:GetSocketTransform(socket_name, 0)
@@ -48,18 +54,20 @@ local target_functions_by_category = {
     vaginal = { "vaginal_origin" },
 }
 
+local candidate_functions_by_category = {
+    hand = { "right_hand", "left_hand" },
+    foot = { "right_foot", "left_foot" },
+    mouth = { "mouth_origin", "tongue_origin" },
+    anal = { "anal_origin" },
+    vaginal = { "vaginal_origin" },
+}
+
 -- Runtime-confirmed HAnime annotations rank all useful candidates. F8Studio
 -- may disable the preferred bone and will then fall back to the next enabled
 -- candidate without reloading this Mod. Hand02 was verified as right-primary;
 -- the left hand remains an explicit secondary candidate.
 local target_functions_by_hanime_id = {
     AletMale_Hand02 = { "right_hand", "left_hand" },
-}
-
-local functional_order = {
-    "primary_origin", "primary_tip", "extended_tip",
-    "right_hand", "left_hand", "right_foot", "left_foot",
-    "mouth_origin", "tongue_origin", "vaginal_origin", "anal_origin",
 }
 
 local function preferred_function_names(entry, identity)
@@ -71,19 +79,22 @@ local function preferred_function_names(entry, identity)
         or {}
 end
 
+local function candidate_function_names(entry, identity)
+    if entry.motion_role == "male" then
+        -- Two points define the reference direction. Unrelated functional
+        -- bones are not sampled for this participant on every motion frame.
+        return { "primary_origin", "primary_tip" }
+    end
+    return target_functions_by_hanime_id[tostring(identity.hanime_id or "")]
+        or candidate_functions_by_category[tostring(identity.category or "")]
+        or {}
+end
+
 local function motion_bone_names(entry, identity)
     local functional = entry.functional or {}
-    local preferred = preferred_function_names(entry, identity)
     local result = {}
     local seen = {}
-    for _, function_name in ipairs(preferred) do
-        local bone_name = functional[function_name]
-        if bone_name ~= nil and not seen[bone_name] then
-            seen[bone_name] = true
-            table.insert(result, bone_name)
-        end
-    end
-    for _, function_name in ipairs(functional_order) do
+    for _, function_name in ipairs(candidate_function_names(entry, identity)) do
         local bone_name = functional[function_name]
         if bone_name ~= nil and not seen[bone_name] then
             seen[bone_name] = true
@@ -109,7 +120,11 @@ end
 
 local function read_component(binding, identity)
     local component = binding.component
-    local _, entry, match = SkeletonCatalog.match_component(component)
+    local entry = binding.catalog_entry
+    if entry == nil then
+        local _, matched_entry = SkeletonCatalog.match_component(component)
+        entry = matched_entry
+    end
     if entry == nil then
         return nil, "component is not in the unpacked skeleton catalog"
     end
@@ -136,7 +151,7 @@ local function read_component(binding, identity)
 
     return {
         component = component,
-        component_name = Safe.object_name(component) or "<unknown>",
+        component_name = binding.component_name or Safe.object_name(component) or "<unknown>",
         catalog = entry.id,
         catalog_role = entry.role,
         role = entry.motion_role or entry.role,
@@ -146,7 +161,6 @@ local function read_component(binding, identity)
         participant_slot = binding.participant_slot,
         participant_priority = binding.participant_priority or 0,
         bones = bones,
-        match_method = match and match.method or "unknown",
     }, nil
 end
 
@@ -158,6 +172,7 @@ local function unique_live_bindings(identity)
         for _, component in ipairs(identity.matched_components or {}) do
             table.insert(source, {
                 component = component,
+                component_name = Safe.object_name(component),
                 participant_tag = "runtime_fallback",
                 participant_slot = "generic",
                 participant_priority = 0,

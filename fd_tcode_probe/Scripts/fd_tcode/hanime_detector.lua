@@ -1,18 +1,15 @@
 local Config = require("fd_tcode.config")
-local HScene = require("fd_tcode.hscene")
 local IdentityData = require("fd_tcode.hanime_identity_data")
 local Safe = require("fd_tcode.safe")
 local SkeletonCatalog = require("fd_tcode.skeleton_catalog")
 
 local HAnimeDetector = {
     components = {},
-    samples_until_discovery = 0,
+    component_metadata = {},
     candidate_id = nil,
     candidate_frames = 0,
     active = nil,
     empty_frames = 0,
-    scene_samples_until_refresh = 0,
-    scene_state = nil,
 }
 
 local function normalized(value)
@@ -158,11 +155,17 @@ local function discover_components()
         return false, tostring(values or "FindAllOf returned nil")
     end
     local result = {}
+    local metadata = {}
     for _, component in pairs(values) do
         if component_is_live(component) then
-            local _, entry = SkeletonCatalog.match_component(component)
+            local role, entry = SkeletonCatalog.match_component(component)
             if entry ~= nil and SkeletonCatalog.is_primary_component(component, entry) then
                 table.insert(result, component)
+                metadata[component] = {
+                    role = role,
+                    entry = entry,
+                    name = Safe.object_name(component),
+                }
             end
         end
     end
@@ -170,24 +173,21 @@ local function discover_components()
         return (Safe.object_name(a) or "") < (Safe.object_name(b) or "")
     end)
     HAnimeDetector.components = result
-    HAnimeDetector.samples_until_discovery = math.max(
-        1,
-        math.floor(Config.hanime_discovery_retry_ms / Config.hanime_poll_interval_ms)
-    )
+    HAnimeDetector.component_metadata = metadata
     return true, nil
 end
 
 local function ensure_components()
-    HAnimeDetector.samples_until_discovery = HAnimeDetector.samples_until_discovery - 1
-    local has_live = false
-    for _, component in ipairs(HAnimeDetector.components) do
-        if component_is_live(component) then
-            has_live = true
-            break
-        end
-    end
-    if HAnimeDetector.samples_until_discovery <= 0 or not has_live then
+    if #HAnimeDetector.components == 0 then
         return discover_components()
+    end
+    for _, component in ipairs(HAnimeDetector.components) do
+        if not component_is_live(component) then
+            -- Scene changes invalidate the cache and trigger one discovery.
+            -- A healthy cache must never cause periodic global enumeration:
+            -- FindAllOf stalls the game thread and disturbs secondary physics.
+            return discover_components()
+        end
     end
     return true, nil
 end
@@ -209,31 +209,6 @@ local function active_montage(component)
         return nil
     end
     return Safe.object_name(montage)
-end
-
-local function scene_state()
-    HAnimeDetector.scene_samples_until_refresh = HAnimeDetector.scene_samples_until_refresh - 1
-    if HAnimeDetector.scene_state ~= nil and HAnimeDetector.scene_samples_until_refresh > 0 then
-        return HAnimeDetector.scene_state
-    end
-
-    local snapshot = HScene.snapshot()
-    local values = snapshot.animation_values or {}
-    HAnimeDetector.scene_state = {
-        valid = snapshot.valid == true,
-        manager = snapshot.manager_name,
-        anim_manager = snapshot.anim_manager_name,
-        anim_id = values.AnimID,
-        current_state = values.CurrentState or values.AnimState,
-        current_animation = values.CurrentAnimation,
-        current_montage = values.CurrentMontage,
-        current_section = values.CurrentSection,
-    }
-    HAnimeDetector.scene_samples_until_refresh = math.max(
-        1,
-        math.floor(Config.hanime_scene_refresh_ms / Config.hanime_poll_interval_ms)
-    )
-    return HAnimeDetector.scene_state
 end
 
 local function select_identity(matches)
@@ -284,7 +259,10 @@ local function select_identity(matches)
 end
 
 local function observe()
-    local current_scene_state = scene_state()
+    -- Exact active Montage identity is sufficient for the F9 gate. HScene
+    -- snapshots remain available through explicit diagnostics, but are not
+    -- used here because one snapshot performs multiple global searches.
+    local current_scene_state = {}
     local ready, discovery_error = ensure_components()
     if not ready then
         return nil, {
@@ -333,11 +311,12 @@ local function observe()
         local used_priorities = {}
         for _, match in ipairs(selected.matched_participants or {}) do
             local component = match.component
-            local name = Safe.object_name(component)
+            local metadata = HAnimeDetector.component_metadata[component]
+            local name = metadata and metadata.name or Safe.object_name(component)
             if name ~= nil and not seen[name] then
                 seen[name] = true
                 table.insert(participant_components, component)
-                local role = SkeletonCatalog.match_component(component)
+                local role = metadata and metadata.role or nil
                 if role ~= nil then
                     role_counts[role] = (role_counts[role] or 0) + 1
                     local slot = participant_slot(match.identity.participant_tag)
@@ -348,6 +327,9 @@ local function observe()
                     local role_priority = selected.expected_catalog_priorities[role] or 0
                     table.insert(participant_bindings, {
                         component = component,
+                        component_name = name,
+                        catalog_role = role,
+                        catalog_entry = metadata.entry,
                         participant_tag = match.identity.participant_tag,
                         participant_slot = slot,
                         participant_priority = role_priority * 16 + local_priority,
@@ -356,8 +338,9 @@ local function observe()
             end
         end
         for _, component in ipairs(HAnimeDetector.components) do
-            local name = Safe.object_name(component)
-            local role = SkeletonCatalog.match_component(component)
+            local metadata = HAnimeDetector.component_metadata[component]
+            local name = metadata and metadata.name or Safe.object_name(component)
+            local role = metadata and metadata.role or nil
             local expected_count = role ~= nil
                 and (selected.expected_catalog_roles[role] or 0)
                 or 0
@@ -379,6 +362,9 @@ local function observe()
                 local role_priority = selected.expected_catalog_priorities[role] or 0
                 table.insert(participant_bindings, {
                     component = component,
+                    component_name = name,
+                    catalog_role = role,
+                    catalog_entry = metadata.entry,
                     participant_tag = role .. "_" .. tostring(local_priority + 1),
                     participant_slot = slots[local_priority + 1] or "generic",
                     participant_priority = role_priority * 16 + local_priority,
@@ -457,13 +443,11 @@ end
 
 function HAnimeDetector.clear_cache()
     HAnimeDetector.components = {}
-    HAnimeDetector.samples_until_discovery = 0
+    HAnimeDetector.component_metadata = {}
     HAnimeDetector.candidate_id = nil
     HAnimeDetector.candidate_frames = 0
     HAnimeDetector.active = nil
     HAnimeDetector.empty_frames = 0
-    HAnimeDetector.scene_samples_until_refresh = 0
-    HAnimeDetector.scene_state = nil
 end
 
 return HAnimeDetector
