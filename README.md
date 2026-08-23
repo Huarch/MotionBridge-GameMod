@@ -57,9 +57,11 @@ Lua 不创建游戏内 UI。F8Studio 的 Viewer 是独立桌面窗口。
 HAnime 身份低频刷新，接触骨骼独立实时采样；Relay 只转发最新帧并丢弃积压，
 从而避免游戏线程长卡顿和调速后的旧帧回放。
 
-F9 的实时路径只在首次启用或缓存对象失效后执行一次骨架发现；不再周期性
-全局枚举骨架，也不再读取会触发多次全局搜索的 HScene 诊断快照。F6/F8 仍保留
-这些低频诊断能力。
+F9 的实时路径只在首次启用、缓存对象明确失效，或已识别 HAnime 退出后再次
+连续看到 `Exp_In / Exp_Sexing` 动作表情时执行一次骨架发现；`Exp_Idle` 待机
+期间保持休眠且不消耗恢复机会。不再周期性全局枚举骨架，也不读取会触发多次
+全局搜索的 HScene 诊断快照。这样退出动作再重新进入时无需重新开关 F9。
+F6/F8 仍保留低频诊断能力。
 
 当前正式基础映射为 Vaginal/Pussy、Anal 和 Mouth；Alet/Male Hand02 的
 `R_Hand` 主、`L_Hand` 次已作为第一条优先级标注。其余 Hand/Foot 尚未标注
@@ -97,6 +99,12 @@ Serial Out；游戏未发送有效的双角色骨骼时，预览保持安全中�
 为了让 CLI 可以直接打开骨骼或 OSR Viewer，本地 F8Studio 源码补丁保存在
 `f8studio/f8studio-detached-viewer-cli.patch`；从 `.deps/f8studio` 执行
 `git apply ../../f8studio/f8studio-detached-viewer-cli.patch` 即可恢复。
+
+环境清理后不要求重新安装全局 Pixi。`f8studio/f8studio-direct-engine-runtime.patch`
+将 PyEngine 服务改为直接使用仓库现有的 `.pixi/envs/default/python.exe`；从
+`.deps/f8studio` 执行 `git apply ../../f8studio/f8studio-direct-engine-runtime.patch`
+即可恢复该运行方式。它只影响游戏骨骼图所需的 PyEngine，不恢复视频、音频、
+AI 或 C++/Rust 开发环境。
 
 多人/多功能骨选择使用通用 F8Studio 设置扩展：
 

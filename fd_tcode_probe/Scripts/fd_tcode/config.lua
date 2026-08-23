@@ -1,6 +1,6 @@
 return {
     name = "FD-TCode",
-    version = "0.14.1-low-impact-sampling",
+    version = "0.14.3-reentry-recovery",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
@@ -23,6 +23,10 @@ return {
     -- occur in the unpacked TableHAnim import allowlist.
     hanime_confirm_frames = 3,
     hanime_empty_hold_frames = 2,
+    -- After a valid HAnime disappears, remain dormant throughout Exp_Idle.
+    -- Exp_In/Exp_Sexing confirms that a new action has started and permits one
+    -- non-periodic component rediscovery; F9 itself stays enabled.
+    hanime_reentry_confirm_frames = 2,
     -- Legacy manual Hand/profile probes reject pairs farther than one metre.
     -- The F9 functional contact stream does not perform proximity-based target
     -- guessing.

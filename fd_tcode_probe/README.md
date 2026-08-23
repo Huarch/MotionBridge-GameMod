@@ -10,16 +10,16 @@ its own key callback.
 - Follow the mandatory static-first workflow in
   `docs/unpacked-data-first.md` and cache confirmed H-system relationships in
   `data/unpacked-hsystem-contract-v1.json` before designing runtime probes.
-- Select a live `HSceneManager` instead of globally guessing skeletal meshes.
-- Read known HScene and animation-manager properties safely.
+- Keep `HSceneManager` and animation-manager inspection behind the explicit
+  F6/F8 diagnostic path; F9 does not depend on an HScene snapshot.
 - Keep compact monitoring to primitive state fields and verified UObject links;
   array/struct containers are deferred until a manual diagnostic requires them.
 - Log only when the compact HScene state changes.
 - Keep expensive schema and inventory dumps behind manual diagnostics.
 - Do not access Unreal objects automatically during startup.
-- Reject inactive components that return zero quaternions, bind components to
-  the current HScene participant objects, and automatically rediscover a pair
-  when an old component remains alive after an animation change.
+- Reject inactive components that return zero quaternions. F9 binds exact
+  TableHAnim Montage owners plus the unpacked family participant roles rather
+  than guessing participants from arbitrary skeletal meshes.
 - Recognize seven unpacked skeleton catalogs independently: Alet, MaleB,
   Erika, Galatea, Juzi, yanshi, and Anya. Bone names are never shared across
   catalogs merely because two characters are humanoid.
@@ -75,9 +75,11 @@ its own key callback.
   Special actions do not change the selected bone in this milestone. Montage
   discovery is polled separately at 250 ms, so speed changes are represented
   by current transforms rather than a fixed-rate animation phase.
-- Perform global skeletal-component discovery only when F9 starts or a cached
-  component becomes invalid. The realtime gate does not call `HScene.snapshot`;
-  its multi-class global searches remain explicit F6/F8 diagnostics only.
+- Perform global skeletal-component discovery only when F9 starts, a cached
+  component becomes invalid, or a dormant stream observes a confirmed
+  `Exp_In`/`Exp_Sexing` HAnime re-entry. `Exp_Idle` never performs discovery or
+  consumes the one-shot re-entry recovery. The realtime gate does not call
+  `HScene.snapshot`; its multi-class searches remain explicit F6/F8 diagnostics.
 - Write F8Studio-compatible skeleton JSON lines to `runtime/fd-skeleton.ndjson`.
   Positions are converted from Unreal centimetres to metres; rotations are
   reordered from Unreal XYZW to F8 WXYZ. Coordinate handedness is intentionally
@@ -90,9 +92,9 @@ its own key callback.
   expression Montages remain outside the allowlist.
 - Never use category words, geometry proximity, Montage position, or the old
   Hand fallback to classify an unknown animation as HAnime. Idle and transition
-  animation therefore produce no skeleton packets for F8Studio. The active
-  single-player `HManager_C` is the authoritative owner for `AnimID` and state;
-  detached room components are not used in its place.
+  animation therefore produce no skeleton packets for F8Studio. HManager/Card
+  access remains diagnostic data; F9 identity comes only from exact active
+  Montage assets in the generated allowlist.
 - Include `hanimeActive`, `hanimeId`, `hanimeAsset`, `hanimeCategory`,
   `hanimePhase`, `hanimeState`, and `recognitionSource` in the ordinary skeleton
   trailer. F8Studio remains a generic receiver and owns no Fallen Doll rules.
@@ -127,8 +129,8 @@ F8Studio and consumes copied skeleton packets through localhost UDP.
   all registered playable skeletons.
 - `fd_tcode/pose_resolver.lua`: HScene/Montage matching against the hot pose
   catalog.
-- `fd_tcode/hanime_detector.lua`: exact active-Montage HAnime gate and short
-  acquisition/release state.
+- `fd_tcode/hanime_detector.lua`: exact active-Montage HAnime gate,
+  acquisition/release state, and idle-to-HAnime component-cache recovery.
 - `fd_tcode/generic_hanime_probe.lua`: profile-free active-participant skeleton
   sampler used only while the exact HAnime gate is open.
 - `fd_tcode/hanime_identity_data.lua`: generated `TableHAnim` Montage allowlist.

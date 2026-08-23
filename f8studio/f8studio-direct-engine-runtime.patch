@@ -1,0 +1,14 @@
+diff --git a/services/f8/engine/service.yml b/services/f8/engine/service.yml
+index 610a414..9c44a06 100644
+--- a/services/f8/engine/service.yml
++++ b/services/f8/engine/service.yml
+@@ -3,7 +3,7 @@ serviceClass: f8.pyengine
+ label: PyEngine
+ version: 0.0.1
+ launch:
+-  command: pixi
+-  args: ["run", "-e", "default", "f8pyengine"]
++  command: ".pixi/envs/default/python.exe"
++  args: ["-m", "f8pyengine.main"]
+   env: {}
+   workdir: "../../../"

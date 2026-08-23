@@ -1,5 +1,6 @@
 local Config = require("fd_tcode.config")
 local IdentityData = require("fd_tcode.hanime_identity_data")
+local Log = require("fd_tcode.log")
 local Safe = require("fd_tcode.safe")
 local SkeletonCatalog = require("fd_tcode.skeleton_catalog")
 
@@ -10,6 +11,8 @@ local HAnimeDetector = {
     candidate_frames = 0,
     active = nil,
     empty_frames = 0,
+    reentry_recovery_armed = false,
+    reentry_signal_frames = 0,
 }
 
 local function normalized(value)
@@ -127,6 +130,22 @@ local function montage_asset_name(full_name)
     return string.match(object_path, "%.([^%.:]+)$")
         or string.match(object_path, "([^/]+)$")
         or object_path
+end
+
+local function unknown_assets_indicate_hanime_reentry(assets)
+    for _, asset in ipairs(assets or {}) do
+        local text = string.lower(tostring(asset or ""))
+        -- TableHAnim does not contain facial-expression Montages, but the
+        -- unpacked/runtime naming convention distinguishes room idle from an
+        -- HAnime entry/loop. Idle expressions must never consume recovery:
+        -- the new participant component may not exist until Exp_In begins.
+        if string.find(text, "exp_in_", 1, true)
+            or string.find(text, "exp_sexing_", 1, true)
+        then
+            return true
+        end
+    end
+    return false
 end
 
 local function component_is_live(component)
@@ -258,7 +277,7 @@ local function select_identity(matches)
     return selected
 end
 
-local function observe()
+local function observe(allow_recovery)
     -- Exact active Montage identity is sufficient for the F9 gate. HScene
     -- snapshots remain available through explicit diagnostics, but are not
     -- used here because one snapshot performs multiple global searches.
@@ -299,6 +318,35 @@ local function observe()
     end
 
     local selected = select_identity(matches)
+    if selected ~= nil then
+        -- A healthy exact match arms one future recovery. Some action changes
+        -- leave the old visible component alive with only an expression
+        -- Montage while the new HAnime component is created elsewhere. The
+        -- old cache therefore still looks valid and would otherwise remain
+        -- stuck until F9 is toggled.
+        HAnimeDetector.reentry_recovery_armed = true
+        HAnimeDetector.reentry_signal_frames = 0
+    elseif allow_recovery ~= false
+        and HAnimeDetector.reentry_recovery_armed
+        and unknown_montage_count > 0
+        and unknown_assets_indicate_hanime_reentry(unknown_assets)
+    then
+        HAnimeDetector.reentry_signal_frames = HAnimeDetector.reentry_signal_frames + 1
+        if HAnimeDetector.reentry_signal_frames >= Config.hanime_reentry_confirm_frames then
+            HAnimeDetector.reentry_recovery_armed = false
+            HAnimeDetector.reentry_signal_frames = 0
+            local recovered, recovery_error = discover_components()
+            if recovered then
+                Log.info("HAnime component cache rediscovered on HAnime re-entry expression")
+                return observe(false)
+            end
+            Log.warn("HAnime component cache rediscovery failed: " .. tostring(recovery_error))
+        end
+    else
+        -- Keep recovery armed across the complete idle period. Exp_Idle and
+        -- no-Montage gaps are not evidence that a new HAnime component exists.
+        HAnimeDetector.reentry_signal_frames = 0
+    end
     if selected ~= nil then
         -- The exact active Montage opens the HAnime gate. The authoritative
         -- unpacked family then supplies the known participant skeleton roles,
@@ -448,6 +496,11 @@ function HAnimeDetector.clear_cache()
     HAnimeDetector.candidate_frames = 0
     HAnimeDetector.active = nil
     HAnimeDetector.empty_frames = 0
+    -- F9 may be enabled while the room is already idle. Arm the first
+    -- Exp_In/Exp_Sexing transition as well as transitions after an HAnime that
+    -- was observed during this run.
+    HAnimeDetector.reentry_recovery_armed = true
+    HAnimeDetector.reentry_signal_frames = 0
 end
 
 return HAnimeDetector
