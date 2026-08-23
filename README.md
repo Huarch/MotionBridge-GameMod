@@ -1,7 +1,7 @@
 # Fallen Doll → F8Studio skeleton stream
 
-这是 Fallen Doll 的 Lua 实时骨骼采集与 F8Studio 接入工程。当前只做模拟和
-可视化，不发送 TCode 到串口、蓝牙或真实设备。
+这是 Fallen Doll 的 Lua 实时骨骼采集与 F8Studio 接入工程。当前完成了 L0
+模拟、可视化，以及经 F8Studio 显式启用的 SR6 USB/Wi-Fi TCode 输出。
 
 ## 当前链路
 
@@ -20,7 +20,7 @@ Fallen Doll / UE4SS Lua
   [docs/unpacked-data-first.md](docs/unpacked-data-first.md)。
 - F8Studio 只负责通用骨骼解码、可视化和后续六轴转换。
 - C++ DLL、游戏内 Canvas UI、旧 localhost bridge 和 WinForms 浮层均已移除。
-- 真实设备输出始终保持禁用。
+- 共享工程中的真实设备出口默认关闭，只能在 F8Studio 中手动选择并启用一个。
 
 ## 工程目录
 
@@ -75,8 +75,8 @@ F8Studio 内已保存的正式工程为：
 
 - 名称：`Fallen Doll Skeleton Preview`
 - Project ID：`fc812463-e55a-42c2-9c5f-4f0bd9aeb422`
-- 当前版本：13（第 11 版保留为无设备出口的回退点）
-- 完整导出：`f8studio/fallen-doll-skeleton-preview-v13.json`
+- 当前版本：14（第 11 版保留为无设备出口的回退点）
+- 完整导出：`f8studio/fallen-doll-skeleton-preview-v14.json`
 
 基础图在 `f8studio/fallen-doll-skeleton-preview.patch.json`，包含：
 
@@ -93,32 +93,39 @@ UDP In :39540 → Skeleton Decoder → 3D Viz
 第 11 版重建了两个人物选择器和两个功能骨选择器，加入解包参与者优先级、
 参与者复选、功能骨复选，以及禁用主候选后自动回退次候选。
 
-第 13 版在安全链末端加入独立的 TCode ESP32 Wi-Fi 设备支路：
+第 14 版在安全链末端加入 USB/Wi-Fi 二选一设备支路，并取消早期实体输出的
+40%–60% 行程限制：
 
 ```text
-FD L0 Stream Safety → 平滑/限速 → Device Range 40–60%
-                                      → Device TCode
-                                      → UDP Out (tcode.local:8000)
+FD L0 Stream Safety → 平滑/限速 → Device Range 0–100%
+                                      → Device TCode → Transport Fanout
+                                                           ├→ UDP Out (tcode.local:8000)
+                                                           └→ Serial Out (COM3/115200)
 ```
 
-节点 `fd_wifi_out` 默认且已验证为 `Enabled=false`。它只由安全节点的执行出口
-触发，不允许绕过 250 ms 断流回中逻辑。实体设备使用独立的 40–60% 行程映射，
-不会改变 Viewer 的全范围模拟；TCode 编码器已经包含换行，因此 UDP 节点不重复
-追加换行。完整可恢复补丁位于
-`f8studio/fallen-doll-wifi-output.patch.json`；已应用早期 Wi-Fi 节点的工程可使用
-`f8studio/fallen-doll-wifi-safe-range-migration.patch.json` 迁移。设备 IP、端口等
-属于本机设置，共享工程始终保持物理输出关闭。
+节点 `fd_wifi_out` 和 `fd_usb_out` 在共享工程中均为 `Enabled=false`。两个出口只由
+安全节点的执行出口触发，不允许绕过 250 ms 断流回中逻辑；实际使用时必须只启用
+一个。实体 L0 使用完整 0–100% 行程，仍保留平滑、防跳、速率限制和断流回中。
+TCode 编码器已经包含换行，因此 UDP 节点不重复追加换行。Wi-Fi、USB 和从旧工程
+升级完整行程的补丁分别位于 `f8studio/fallen-doll-wifi-output.patch.json`、
+`f8studio/fallen-doll-usb-output.patch.json` 和
+`f8studio/fallen-doll-full-range-migration.patch.json`。设备地址和串口属于本机设置，
+共享工程始终保持物理输出关闭。
 
-已在 SR6 / TCode ESP32 0.5b / TCode v0.3 上完成实体 Wi-Fi 短测：
-`tcode.local:8000` 可直接接收 F8Studio 的 UDP TCode，40%–60% 限幅往返正常，
-测试结束后恢复 `Enabled=false`。因此 USB 串口仅保留为网络不可用时的回退方案。
+从 v11 构建时依次应用 Wi-Fi、USB 补丁；从已含 Wi-Fi 的 v13 升级时依次应用
+USB、完整行程补丁。每个输出补丁创建的设备节点都默认关闭。
+
+已在 SR6 / TCode ESP32 0.5b / TCode v0.3 上完成实体连接测试：Wi-Fi
+`tcode.local:8000` 可直接接收 UDP TCode；USB `COM3 / 115200` 也已连接并写出真实
+L0 命令。完整 0–100% 行程已生效，测试结束后两个出口均恢复
+`Enabled=false`。
 `tools/f8-skeleton-replay.mjs` 默认把录制包时间戳刷新为当前时间，确保回放能通过
 250 ms 新鲜度保护；需要专门复现过期包时可加 `--preserve-timestamps`。
 
-增量补丁位于 `f8studio/fallen-doll-osr-preview.patch.json`。OSR Viewer 是
-TCode Viz 节点自己的 `Open Viewer` 独立窗口，不是骨骼 3D Viewer。当前没有
-Serial Out；Wi-Fi UDP 出口也默认关闭。游戏未发送有效的双角色骨骼时，预览
-保持安全中位 `L05000`。
+OSR 预览增量补丁位于 `f8studio/fallen-doll-osr-preview.patch.json`。OSR Viewer
+是 TCode Viz 节点自己的 `Open Viewer` 独立窗口，不是骨骼 3D Viewer。设备输出
+节点与 Viewer 相互独立且默认关闭。游戏未发送有效的双角色骨骼时，预览和设备
+安全链保持中位 `L05000`。
 
 为了让 CLI 可以直接打开骨骼或 OSR Viewer，本地 F8Studio 源码补丁保存在
 `f8studio/f8studio-detached-viewer-cli.patch`；从 `.deps/f8studio` 执行

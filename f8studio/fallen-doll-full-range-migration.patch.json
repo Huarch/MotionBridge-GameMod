@@ -1,0 +1,40 @@
+{
+  "label": "Use full-range device output",
+  "ops": [
+    {
+      "op": "setNodeName",
+      "nodeId": "fd_device_range",
+      "name": "FD Device L0 Full Range (0-100%)"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_range",
+      "field": "inMin",
+      "value": 0.0
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_range",
+      "field": "inMax",
+      "value": 1.0
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_range",
+      "field": "outMin",
+      "value": 0.0
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_range",
+      "field": "outMax",
+      "value": 1.0
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_range",
+      "field": "curve",
+      "value": "LINEAR"
+    }
+  ]
+}

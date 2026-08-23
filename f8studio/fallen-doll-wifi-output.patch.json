@@ -5,7 +5,7 @@
       "op": "createNode",
       "nodeType": "f8.pyengine.f8.range_map",
       "nodeId": "fd_device_range",
-      "name": "FD Device L0 Safe Range (40-60%)",
+      "name": "FD Device L0 Full Range (0-100%)",
       "pos": [2570, 920]
     },
     {
@@ -44,13 +44,13 @@
       "op": "setNodeState",
       "nodeId": "fd_device_range",
       "field": "outMin",
-      "value": 0.4
+      "value": 0.0
     },
     {
       "op": "setNodeState",
       "nodeId": "fd_device_range",
       "field": "outMax",
-      "value": 0.6
+      "value": 1.0
     },
     {
       "op": "setNodeState",

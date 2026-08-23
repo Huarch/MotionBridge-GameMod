@@ -1,0 +1,84 @@
+{
+  "label": "Add native disarmed SR6 USB serial output",
+  "ops": [
+    {
+      "op": "createNode",
+      "nodeType": "f8.pyengine.f8.exec_sequence",
+      "nodeId": "fd_device_fanout",
+      "name": "FD Device Transport Fanout",
+      "pos": [3000, 1080]
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_fanout",
+      "field": "svcId",
+      "value": "fd_pyengine"
+    },
+    {
+      "op": "createNode",
+      "nodeType": "f8.pyengine.f8.serial_out",
+      "nodeId": "fd_usb_out",
+      "name": "FD TCode USB Out (COM3, Disarmed)",
+      "pos": [3150, 1190]
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_usb_out",
+      "field": "svcId",
+      "value": "fd_pyengine"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_usb_out",
+      "field": "enabled",
+      "value": false
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_usb_out",
+      "field": "port",
+      "value": "COM3"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_usb_out",
+      "field": "baudrate",
+      "value": 115200
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_device_tcode",
+      "fromPort": "tcode[D]",
+      "toNodeId": "fd_usb_out",
+      "toPort": "[D]value"
+    },
+    {
+      "op": "disconnectPorts",
+      "fromNodeId": "fd_l0_safety",
+      "fromPort": "exec[E]",
+      "toNodeId": "fd_wifi_out",
+      "toPort": "[E]exec"
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_l0_safety",
+      "fromPort": "exec[E]",
+      "toNodeId": "fd_device_fanout",
+      "toPort": "[E]exec"
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_device_fanout",
+      "fromPort": "0[E]",
+      "toNodeId": "fd_wifi_out",
+      "toPort": "[E]exec"
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_device_fanout",
+      "fromPort": "1[E]",
+      "toNodeId": "fd_usb_out",
+      "toPort": "[E]exec"
+    }
+  ]
+}
