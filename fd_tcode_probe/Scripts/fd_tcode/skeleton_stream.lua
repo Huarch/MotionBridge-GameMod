@@ -13,6 +13,8 @@ local SkeletonStream = {
     spool = nil,
     last_hanime_state_key = nil,
     was_hanime_active = false,
+    cached_hanime = nil,
+    samples_until_hanime_poll = 0,
 }
 
 local function json_escape(value)
@@ -22,6 +24,14 @@ local function json_escape(value)
     text = string.gsub(text, "\r", "\\r")
     text = string.gsub(text, "\n", "\\n")
     return text
+end
+
+local function string_array_json(values)
+    local entries = {}
+    for _, value in ipairs(values or {}) do
+        table.insert(entries, '"' .. json_escape(value) .. '"')
+    end
+    return "[" .. table.concat(entries, ",") .. "]"
 end
 
 local function bone_json(name, bone)
@@ -43,7 +53,7 @@ end
 local function trailer_json(participant, sample)
     local identity = sample.hanime_identity or {}
     return string.format(
-        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"component":"%s","exporterVersion":"fd-tcode-lua-0.11"}',
+        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","preferredBones":%s,"streamMode":"functional-contact-bones","exporterVersion":"fd-tcode-lua-0.14"}',
         json_escape(sample.matched_pose or ""),
         json_escape(sample.matched_pose_status or "unmapped"),
         json_escape(identity.hanime_id or ""),
@@ -55,7 +65,13 @@ local function trailer_json(participant, sample)
         tonumber(sample.binding_generation or 0),
         json_escape(participant.role),
         tonumber(participant.role_index or 0),
-        json_escape(participant.component_name)
+        json_escape(participant.catalog_role),
+        json_escape(participant.catalog),
+        json_escape(participant.participant_tag),
+        json_escape(participant.participant_slot),
+        tonumber(participant.participant_priority or 0),
+        json_escape(participant.component_name),
+        string_array_json(participant.preferred_bone_names)
     )
 end
 
@@ -77,9 +93,17 @@ local function write_packet(line)
     end
     local ok = pcall(function()
         SkeletonStream.spool:write(line, "\n")
-        SkeletonStream.spool:flush()
     end)
     return ok
+end
+
+local function flush_packets()
+    if SkeletonStream.spool == nil then
+        return false
+    end
+    return pcall(function()
+        SkeletonStream.spool:flush()
+    end)
 end
 
 local function close_spool()
@@ -116,7 +140,15 @@ local function sample_once()
         return
     end
     SkeletonStream.attempt_count = SkeletonStream.attempt_count + 1
-    local hanime = HAnimeDetector.sample()
+    SkeletonStream.samples_until_hanime_poll = SkeletonStream.samples_until_hanime_poll - 1
+    if SkeletonStream.cached_hanime == nil or SkeletonStream.samples_until_hanime_poll <= 0 then
+        SkeletonStream.cached_hanime = HAnimeDetector.sample()
+        SkeletonStream.samples_until_hanime_poll = math.max(
+            1,
+            math.floor(Config.hanime_poll_interval_ms / Config.skeleton_sample_interval_ms)
+        )
+    end
+    local hanime = SkeletonStream.cached_hanime
     local identity = hanime.identity or {}
     local scene_state = hanime.scene_state or {}
     local state_key = table.concat({
@@ -177,6 +209,10 @@ local function sample_once()
         end
         SkeletonStream.sequence = SkeletonStream.sequence + 1
     end
+    if not flush_packets() then
+        stop_internal("spool-flush-failed")
+        return
+    end
 
     if SkeletonStream.sample_count == 1 or SkeletonStream.sample_count % 20 == 0 then
         Log.info(string.format(
@@ -216,6 +252,8 @@ function SkeletonStream.start()
     SkeletonStream.timestamp_base_ms = os.time() * 1000
     SkeletonStream.last_hanime_state_key = nil
     SkeletonStream.was_hanime_active = false
+    SkeletonStream.cached_hanime = nil
+    SkeletonStream.samples_until_hanime_poll = 0
     GenericHAnimeProbe.clear_cache()
     HAnimeDetector.clear_cache()
     SkeletonStream.loop_handle = LoopInGameThreadWithDelay(Config.skeleton_sample_interval_ms, sample_once)

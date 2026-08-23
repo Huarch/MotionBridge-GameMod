@@ -17,7 +17,10 @@ function App.start()
     register_keys()
     Log.info(string.format("version=%s loaded", Config.version))
     Log.info("SIMULATION ONLY / DEVICE DISABLED")
-    Log.info("F6 monitor on/off | F7 external F8Studio | F8 export current pose list | F9 start/stop 20 Hz skeleton stream | F10 full Lua reload via broker")
+    Log.info(string.format(
+        "F6 monitor on/off | F7 external F8Studio | F8 export current pose list | F9 start/stop %.1f Hz skeleton stream | F10 full Lua reload via broker",
+        1000 / Config.skeleton_sample_interval_ms
+    ))
     Log.info("automatic Unreal object reads are disabled; F9 owns the continuous skeleton stream")
 end
 

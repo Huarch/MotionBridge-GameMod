@@ -15,6 +15,7 @@ const sourcePath = path.resolve(argValue("--file", path.join(workspaceDir, "runt
 const host = argValue("--host", "127.0.0.1");
 const port = Number.parseInt(argValue("--port", "39540"), 10);
 const pollMs = Number.parseInt(argValue("--poll-ms", "20"), 10);
+const maxReadBytes = Number.parseInt(argValue("--max-read-bytes", "1048576"), 10);
 const replayExisting = process.argv.includes("--replay-existing");
 const socket = dgram.createSocket("udp4");
 
@@ -22,11 +23,12 @@ let offset = 0;
 let pending = "";
 let sent = 0;
 let rejected = 0;
+let dropped = 0;
+let skippedBytes = 0;
 let busy = false;
 let lastReport = Date.now();
 let initialized = false;
-let lastSourceTimestampMs = null;
-let lastRelayTimestampMs = null;
+const lastSentTimestampByKey = new Map();
 
 async function poll() {
   if (busy) return;
@@ -43,10 +45,18 @@ async function poll() {
     if (stat.size < offset) {
       offset = 0;
       pending = "";
+      lastSentTimestampByKey.clear();
     }
     if (stat.size === offset) return;
 
-    const length = stat.size - offset;
+    let length = stat.size - offset;
+    if (length > maxReadBytes) {
+      const bytesToSkip = length - maxReadBytes;
+      offset += bytesToSkip;
+      skippedBytes += bytesToSkip;
+      pending = "";
+      length = maxReadBytes;
+    }
     const handle = await fs.promises.open(sourcePath, "r");
     try {
       const buffer = Buffer.alloc(length);
@@ -59,6 +69,7 @@ async function poll() {
 
     const lines = pending.split(/\r?\n/);
     pending = lines.pop() ?? "";
+    const payloads = [];
     for (const rawLine of lines) {
       const line = rawLine.trim();
       if (!line) continue;
@@ -68,22 +79,45 @@ async function poll() {
           rejected += 1;
           continue;
         }
-        const sourceTimestampMs = Number.isFinite(payload.timestampMs) ? payload.timestampMs : null;
-        if (sourceTimestampMs !== lastSourceTimestampMs) {
-          lastSourceTimestampMs = sourceTimestampMs;
-          lastRelayTimestampMs = Date.now();
-        }
-        payload.sourceTimestampMs = sourceTimestampMs;
-        payload.timestampMs = lastRelayTimestampMs ?? Date.now();
-        payload.trailer = {
-          ...(payload.trailer ?? {}),
-          timeSource: "relay-arrival-wall-clock",
-        };
-        socket.send(Buffer.from(JSON.stringify(payload), "utf8"), port, host);
-        sent += 1;
+        payloads.push(payload);
       } catch {
         rejected += 1;
       }
+    }
+    const finiteTimestamps = payloads
+      .map((payload) => payload.timestampMs)
+      .filter((value) => Number.isFinite(value));
+    const newestSourceTimestampMs = finiteTimestamps.length > 0
+      ? Math.max(...finiteTimestamps)
+      : null;
+    const latestByKey = new Map();
+    for (const payload of payloads) {
+      if (newestSourceTimestampMs !== null && payload.timestampMs !== newestSourceTimestampMs) {
+        dropped += 1;
+        continue;
+      }
+      const key = String(payload.stableKey || payload.modelName || "").trim();
+      if (!key) {
+        rejected += 1;
+        continue;
+      }
+      latestByKey.set(key, payload);
+    }
+    const relayTimestampMs = Date.now();
+    for (const [key, payload] of latestByKey) {
+      const sourceTimestampMs = Number.isFinite(payload.timestampMs) ? payload.timestampMs : null;
+      if (sourceTimestampMs !== null && lastSentTimestampByKey.get(key) === sourceTimestampMs) {
+        continue;
+      }
+      payload.sourceTimestampMs = sourceTimestampMs;
+      payload.timestampMs = relayTimestampMs;
+      payload.trailer = {
+        ...(payload.trailer ?? {}),
+        timeSource: "relay-arrival-wall-clock-latest-frame",
+      };
+      socket.send(Buffer.from(JSON.stringify(payload), "utf8"), port, host);
+      lastSentTimestampByKey.set(key, sourceTimestampMs);
+      sent += 1;
     }
   } catch (error) {
     if (error?.code !== "ENOENT") {
@@ -92,7 +126,7 @@ async function poll() {
   } finally {
     busy = false;
     if (Date.now() - lastReport >= 5000) {
-      process.stdout.write(`[f8-relay] sent=${sent} rejected=${rejected} target=${host}:${port}\n`);
+      process.stdout.write(`[f8-relay] sent=${sent} dropped=${dropped} rejected=${rejected} skippedBytes=${skippedBytes} target=${host}:${port}\n`);
       lastReport = Date.now();
     }
   }

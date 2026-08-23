@@ -39,14 +39,91 @@ local function read_bone(component, bone_name)
     return values, nil
 end
 
-local function read_component(component)
+-- Category defaults only rank contact candidates with no left/right ambiguity.
+-- Hand and foot poses are intentionally absent: their active side and
+-- primary/secondary limb must be annotated per HAnime instead of guessed.
+local target_functions_by_category = {
+    mouth = { "mouth_origin", "tongue_origin" },
+    anal = { "anal_origin" },
+    vaginal = { "vaginal_origin" },
+}
+
+-- Runtime-confirmed HAnime annotations rank all useful candidates. F8Studio
+-- may disable the preferred bone and will then fall back to the next enabled
+-- candidate without reloading this Mod. Hand02 was verified as right-primary;
+-- the left hand remains an explicit secondary candidate.
+local target_functions_by_hanime_id = {
+    AletMale_Hand02 = { "right_hand", "left_hand" },
+}
+
+local functional_order = {
+    "primary_origin", "primary_tip", "extended_tip",
+    "right_hand", "left_hand", "right_foot", "left_foot",
+    "mouth_origin", "tongue_origin", "vaginal_origin", "anal_origin",
+}
+
+local function preferred_function_names(entry, identity)
+    if entry.motion_role == "male" then
+        return { "primary_origin" }
+    end
+    return target_functions_by_hanime_id[tostring(identity.hanime_id or "")]
+        or target_functions_by_category[tostring(identity.category or "")]
+        or {}
+end
+
+local function motion_bone_names(entry, identity)
+    local functional = entry.functional or {}
+    local preferred = preferred_function_names(entry, identity)
+    local result = {}
+    local seen = {}
+    for _, function_name in ipairs(preferred) do
+        local bone_name = functional[function_name]
+        if bone_name ~= nil and not seen[bone_name] then
+            seen[bone_name] = true
+            table.insert(result, bone_name)
+        end
+    end
+    for _, function_name in ipairs(functional_order) do
+        local bone_name = functional[function_name]
+        if bone_name ~= nil and not seen[bone_name] then
+            seen[bone_name] = true
+            table.insert(result, bone_name)
+        end
+    end
+    return result
+end
+
+local function preferred_bone_names(entry, identity)
+    local functional = entry.functional or {}
+    local result = {}
+    local seen = {}
+    for _, function_name in ipairs(preferred_function_names(entry, identity)) do
+        local bone_name = functional[function_name]
+        if bone_name ~= nil and not seen[bone_name] then
+            seen[bone_name] = true
+            table.insert(result, bone_name)
+        end
+    end
+    return result
+end
+
+local function read_component(binding, identity)
+    local component = binding.component
     local _, entry, match = SkeletonCatalog.match_component(component)
     if entry == nil then
         return nil, "component is not in the unpacked skeleton catalog"
     end
 
+    local bone_names = motion_bone_names(entry, identity)
+    if #bone_names == 0 then
+        return nil, string.format(
+            "catalog %s has no minimal motion bone for category %s",
+            tostring(entry.id),
+            tostring(identity.category or "other")
+        )
+    end
     local bones = {}
-    for _, bone_name in ipairs(entry.stream_bones or {}) do
+    for _, bone_name in ipairs(bone_names) do
         local bone, read_error = read_bone(component, bone_name)
         if bone == nil then
             return nil, bone_name .. "=" .. tostring(read_error)
@@ -61,26 +138,39 @@ local function read_component(component)
         component = component,
         component_name = Safe.object_name(component) or "<unknown>",
         catalog = entry.id,
-        role = entry.role,
-        bone_names = entry.stream_bones,
+        catalog_role = entry.role,
+        role = entry.motion_role or entry.role,
+        bone_names = bone_names,
+        preferred_bone_names = preferred_bone_names(entry, identity),
+        participant_tag = binding.participant_tag,
+        participant_slot = binding.participant_slot,
+        participant_priority = binding.participant_priority or 0,
         bones = bones,
         match_method = match and match.method or "unknown",
     }, nil
 end
 
-local function unique_live_components(identity)
+local function unique_live_bindings(identity)
     local result = {}
     local seen = {}
-    local source = identity and identity.montage_components or {}
+    local source = identity and identity.participant_bindings or {}
     if #source == 0 and identity ~= nil then
-        source = identity.matched_components or {}
+        for _, component in ipairs(identity.matched_components or {}) do
+            table.insert(source, {
+                component = component,
+                participant_tag = "runtime_fallback",
+                participant_slot = "generic",
+                participant_priority = 0,
+            })
+        end
     end
-    for _, component in ipairs(source) do
+    for _, binding in ipairs(source) do
+        local component = binding.component
         if component_is_live(component) then
             local name = Safe.object_name(component)
             if name ~= nil and not seen[name] then
                 seen[name] = true
-                table.insert(result, component)
+                table.insert(result, binding)
             end
         end
     end
@@ -89,18 +179,24 @@ end
 
 local function assign_stable_indices(participants)
     table.sort(participants, function(a, b)
-        if a.catalog == b.catalog then
-            return a.component_name < b.component_name
+        if a.role == b.role then
+            if a.participant_priority ~= b.participant_priority then
+                return a.participant_priority < b.participant_priority
+            end
+            if a.catalog == b.catalog then
+                return a.component_name < b.component_name
+            end
+            return a.catalog < b.catalog
         end
-        return a.catalog < b.catalog
+        return a.role < b.role
     end)
     local counts = {}
     for _, participant in ipairs(participants) do
-        local index = counts[participant.catalog] or 0
-        counts[participant.catalog] = index + 1
+        local index = counts[participant.role] or 0
+        counts[participant.role] = index + 1
         participant.role_index = index
         participant.model_name = string.format("fd:%s:%d", participant.catalog, index)
-        participant.stable_key = string.format("fallen-doll:%s:%d", participant.catalog, index)
+        participant.stable_key = string.format("fallen-doll:%s:%d", participant.role, index)
     end
 end
 
@@ -134,20 +230,26 @@ function GenericHAnimeProbe.sample(hanime)
         return nil, "HAnime gate is not active"
     end
     local identity = hanime.identity or {}
-    local components = unique_live_components(identity)
-    if #components == 0 then
+    local bindings = unique_live_bindings(identity)
+    if #bindings == 0 then
         return nil, "exact HAnime has no live registered participant components"
     end
 
     local participants = {}
     local errors = {}
-    for _, component in ipairs(components) do
-        local participant, read_error = read_component(component)
+    for _, binding in ipairs(bindings) do
+        local participant, read_error = read_component(binding, identity)
         if participant ~= nil then
             table.insert(participants, participant)
         elseif #errors < 4 then
             table.insert(errors, tostring(read_error))
         end
+    end
+    if #errors > 0 then
+        -- Never emit a reference-only or target-only frame. F8Studio retains
+        -- the last value for a missing model, so a partial frame could combine
+        -- fresh data with a stale contact point and create false motion.
+        return nil, "participant mapping incomplete: " .. table.concat(errors, "; ")
     end
     if #participants == 0 then
         return nil, "registered participant bone reads failed: " .. table.concat(errors, "; ")

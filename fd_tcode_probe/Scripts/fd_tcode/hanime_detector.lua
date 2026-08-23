@@ -19,6 +19,111 @@ local function normalized(value)
     return string.lower(tostring(value or "")):gsub("[^%w]", "")
 end
 
+local function participant_slot(participant_tag)
+    local raw_tag = string.lower(tostring(participant_tag or ""))
+    return string.match(raw_tag, "[_%-]([abc])[_%-]?%d*$")
+        or string.match(raw_tag, "[_%-]([abc])$")
+        or "generic"
+end
+
+local function participant_base(participant_tag)
+    local raw_tag = string.lower(tostring(participant_tag or ""))
+    raw_tag = string.gsub(raw_tag, "[_%-][abc][_%-%d]*$", "")
+    raw_tag = string.gsub(raw_tag, "[_%-]%d+$", "")
+    return normalized(raw_tag)
+end
+
+local function build_family_catalog_roles()
+    local families = {}
+    for _, identity in pairs(IdentityData.by_montage or {}) do
+        local hanime_id = tostring(identity.hanime_id or "")
+        local role = SkeletonCatalog.role_for_participant_tag(identity.participant_tag)
+        if hanime_id ~= "" and role ~= nil then
+            local family = families[hanime_id]
+            if family == nil then
+                family = {}
+                families[hanime_id] = family
+            end
+            local role_slots = family[role]
+            if role_slots == nil then
+                role_slots = { generic = false, named = {}, first_position = nil }
+                family[role] = role_slots
+            end
+            local position = string.find(
+                normalized(hanime_id),
+                participant_base(identity.participant_tag),
+                1,
+                true
+            )
+            if position ~= nil
+                and (role_slots.first_position == nil or position < role_slots.first_position)
+            then
+                role_slots.first_position = position
+            end
+
+            -- TableHAnim contains aliases such as Male and Male_A_01 for one
+            -- participant. Count explicit A/B/C slots when present; otherwise
+            -- all aliases for a catalog role represent one generic slot.
+            local slot = participant_slot(identity.participant_tag)
+            if slot ~= "generic" then
+                role_slots.named[slot] = true
+            else
+                role_slots.generic = true
+            end
+        end
+    end
+
+    local result = {}
+    local slot_result = {}
+    local priority_result = {}
+    for hanime_id, family in pairs(families) do
+        local roles = {}
+        local role_slots_result = {}
+        result[hanime_id] = roles
+        slot_result[hanime_id] = role_slots_result
+        local ordered_roles = {}
+        priority_result[hanime_id] = {}
+        for role, slots in pairs(family) do
+            local ordered_slots = {}
+            for _, slot in ipairs({ "a", "b", "c" }) do
+                if slots.named[slot] then
+                    table.insert(ordered_slots, slot)
+                end
+            end
+            if #ordered_slots == 0 and slots.generic then
+                table.insert(ordered_slots, "generic")
+            end
+            role_slots_result[role] = ordered_slots
+            roles[role] = #ordered_slots
+            table.insert(ordered_roles, {
+                role = role,
+                position = slots.first_position or 1000000,
+            })
+        end
+        table.sort(ordered_roles, function(a, b)
+            if a.position == b.position then
+                return a.role < b.role
+            end
+            return a.position < b.position
+        end)
+        for index, item in ipairs(ordered_roles) do
+            priority_result[hanime_id][item.role] = index - 1
+        end
+    end
+    return result, slot_result, priority_result
+end
+
+local family_catalog_roles, family_catalog_slots, family_catalog_priorities = build_family_catalog_roles()
+
+local function slot_priority(slots, wanted_slot)
+    for index, slot in ipairs(slots or {}) do
+        if slot == wanted_slot then
+            return index - 1
+        end
+    end
+    return nil
+end
+
 local function montage_asset_name(full_name)
     local text = tostring(full_name or "")
     local object_path = string.match(text, "([^%s]+)$") or text
@@ -56,15 +161,18 @@ local function discover_components()
     for _, component in pairs(values) do
         if component_is_live(component) then
             local _, entry = SkeletonCatalog.match_component(component)
-            if entry ~= nil then
+            if entry ~= nil and SkeletonCatalog.is_primary_component(component, entry) then
                 table.insert(result, component)
             end
         end
     end
+    table.sort(result, function(a, b)
+        return (Safe.object_name(a) or "") < (Safe.object_name(b) or "")
+    end)
     HAnimeDetector.components = result
     HAnimeDetector.samples_until_discovery = math.max(
         1,
-        math.floor(Config.hanime_discovery_retry_ms / Config.skeleton_sample_interval_ms)
+        math.floor(Config.hanime_discovery_retry_ms / Config.hanime_poll_interval_ms)
     )
     return true, nil
 end
@@ -123,7 +231,7 @@ local function scene_state()
     }
     HAnimeDetector.scene_samples_until_refresh = math.max(
         1,
-        math.floor(Config.hanime_scene_refresh_ms / Config.skeleton_sample_interval_ms)
+        math.floor(Config.hanime_scene_refresh_ms / Config.hanime_poll_interval_ms)
     )
     return HAnimeDetector.scene_state
 end
@@ -134,11 +242,12 @@ local function select_identity(matches)
         local id = tostring(match.identity.hanime_id)
         local group = groups[id]
         if group == nil then
-            group = { count = 0, representative = match, components = {} }
+            group = { count = 0, representative = match, components = {}, matches = {} }
             groups[id] = group
         end
         group.count = group.count + 1
         table.insert(group.components, match.component)
+        table.insert(group.matches, match)
         if group.representative.identity.phase ~= "normal" and match.identity.phase == "normal" then
             group.representative = match
         end
@@ -164,9 +273,13 @@ local function select_identity(matches)
     selected.active_participant_montages = best.count
     selected.montage_full_name = best.representative.full_name
     selected.recognition_source = "table_hanim_exact_active_montage"
+    selected.expected_catalog_roles = family_catalog_roles[best_id] or {}
+    selected.expected_catalog_slots = family_catalog_slots[best_id] or {}
+    selected.expected_catalog_priorities = family_catalog_priorities[best_id] or {}
     -- Runtime-only UObject references. They never enter the wire payload; the
     -- generic skeleton probe uses them to avoid another global enumeration.
     selected.matched_components = best.components
+    selected.matched_participants = best.matches
     return selected
 end
 
@@ -209,10 +322,71 @@ local function observe()
 
     local selected = select_identity(matches)
     if selected ~= nil then
-        -- Only exact identity owners are carried forward. Other room actors
-        -- can have unrelated active Montages and are not participants merely
-        -- because a HAnime is visible.
-        selected.montage_components = selected.matched_components
+        -- The exact active Montage opens the HAnime gate. The authoritative
+        -- unpacked family then supplies the known participant skeleton roles,
+        -- including partners whose animation is running through an AnimBP
+        -- state machine rather than an active Montage.
+        local participant_components = {}
+        local participant_bindings = {}
+        local seen = {}
+        local role_counts = {}
+        local used_priorities = {}
+        for _, match in ipairs(selected.matched_participants or {}) do
+            local component = match.component
+            local name = Safe.object_name(component)
+            if name ~= nil and not seen[name] then
+                seen[name] = true
+                table.insert(participant_components, component)
+                local role = SkeletonCatalog.match_component(component)
+                if role ~= nil then
+                    role_counts[role] = (role_counts[role] or 0) + 1
+                    local slot = participant_slot(match.identity.participant_tag)
+                    local local_priority = slot_priority(selected.expected_catalog_slots[role], slot)
+                        or (role_counts[role] - 1)
+                    used_priorities[role] = used_priorities[role] or {}
+                    used_priorities[role][local_priority] = true
+                    local role_priority = selected.expected_catalog_priorities[role] or 0
+                    table.insert(participant_bindings, {
+                        component = component,
+                        participant_tag = match.identity.participant_tag,
+                        participant_slot = slot,
+                        participant_priority = role_priority * 16 + local_priority,
+                    })
+                end
+            end
+        end
+        for _, component in ipairs(HAnimeDetector.components) do
+            local name = Safe.object_name(component)
+            local role = SkeletonCatalog.match_component(component)
+            local expected_count = role ~= nil
+                and (selected.expected_catalog_roles[role] or 0)
+                or 0
+            if name ~= nil
+                and not seen[name]
+                and role ~= nil
+                and (role_counts[role] or 0) < expected_count
+            then
+                seen[name] = true
+                table.insert(participant_components, component)
+                role_counts[role] = (role_counts[role] or 0) + 1
+                local local_priority = 0
+                used_priorities[role] = used_priorities[role] or {}
+                while used_priorities[role][local_priority] do
+                    local_priority = local_priority + 1
+                end
+                used_priorities[role][local_priority] = true
+                local slots = selected.expected_catalog_slots[role] or {}
+                local role_priority = selected.expected_catalog_priorities[role] or 0
+                table.insert(participant_bindings, {
+                    component = component,
+                    participant_tag = role .. "_" .. tostring(local_priority + 1),
+                    participant_slot = slots[local_priority + 1] or "generic",
+                    participant_priority = role_priority * 16 + local_priority,
+                })
+            end
+        end
+        selected.participant_components = participant_components
+        selected.participant_bindings = participant_bindings
     end
 
     return selected, {

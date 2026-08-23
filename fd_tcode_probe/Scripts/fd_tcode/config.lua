@@ -1,6 +1,6 @@
 return {
     name = "FD-TCode",
-    version = "0.11.1-full-family-hanime-stream",
+    version = "0.14.0-functional-contact-selection",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
@@ -9,9 +9,13 @@ return {
         "Penis02",
     },
     bone_probe_max_matches = 24,
-    -- 20 Hz is the first continuous validation rate. It is high enough for
-    -- the F8 motion graph while keeping the Unreal call rate conservative.
+    -- The realtime path reads only the compact functional contact set per
+    -- participant. F8Studio enables/disables candidates and chooses priority.
+    -- Full-body debug skeletons are deliberately excluded from this loop.
     skeleton_sample_interval_ms = 50,
+    -- HAnime/Montage discovery is much more expensive than sampling the two
+    -- selected contact bones and does not need to run on every motion frame.
+    hanime_poll_interval_ms = 250,
     -- Zero means the F9 stream runs until it is explicitly stopped.
     skeleton_sample_limit = 0,
     skeleton_discovery_retry_ms = 500,
@@ -21,8 +25,9 @@ return {
     hanime_scene_refresh_ms = 250,
     hanime_confirm_frames = 3,
     hanime_empty_hold_frames = 2,
-    -- The F9 stream currently models Hand profiles. A candidate pair farther
-    -- apart than one metre is necessarily from different actor instances.
+    -- Legacy manual Hand/profile probes reject pairs farther than one metre.
+    -- The F9 functional contact stream does not perform proximity-based target
+    -- guessing.
     hand_pair_max_distance_cm = 100,
     skeleton_spool_path = "D:/zhifu/Desktop/code/tcode plugin FD/runtime/fd-skeleton.ndjson",
     pose_catalog_path = "D:/zhifu/Desktop/code/tcode plugin FD/runtime/fd-visible-poses.tsv",

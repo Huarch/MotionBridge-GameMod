@@ -23,11 +23,10 @@ its own key callback.
 - Recognize seven unpacked skeleton catalogs independently: Alet, MaleB,
   Erika, Galatea, Juzi, yanshi, and Anya. Bone names are never shared across
   catalogs merely because two characters are humanoid.
-- Match the current HScene animation ID or active Montage against the generated
-  102-pose catalog. Thirty-two Alet/Male hand, foot, mouth, anal, and vaginal
-  profiles have enough verified catalog geometry to enter simulation
-  validation; all other matches remain explicitly catalog-only or unmapped
-  until their partner skeleton/contact axis is exported.
+- Match active Montage assets exactly against the generated TableHAnim family
+  allowlist. The older 102-pose catalog remains a manual annotation worklist;
+  it is not the F9 identity gate and does not imply that limb side or contact
+  priority has been verified.
 - Keep two read-only static indexes with deliberately limited meanings. The
   `TableHAnim` reference index finds primary pose directories imported by the
   cooked table, including disabled, unreleased, legacy, test, or otherwise
@@ -39,17 +38,41 @@ its own key callback.
   `LocalHDatas` name is a Blueprint-local graph symbol, not a reflected live
   property. Full runtime entries therefore use the Card ID accessors, beginning
   with `GetDatabyCardID`.
-- Infer an additional profile family from a full active Montage path when an
-  exact Alet catalog entry does not exist. The primary role follows the Montage
-  owner (`alet/anya/erika/galatea/juzi/yanshi`) and resolves that skeleton's own
-  functional bone names; combined-contact and unknown-partner poses remain
-  non-driving until their participant binding is explicit.
+- Legacy profile and pose-resolver probes remain available for manual
+  diagnostics, but F9 never enables an unknown animation from a path/category
+  guess. Combined-contact, unknown-partner, and unannotated limb poses remain
+  non-driving.
 - After the exact HAnime gate opens, stream the currently active registered
-  participant skeletons directly at 20 Hz. Pose geometry profiles are not an
+  primary participants as a compact functional contact-bone stream at the configured
+  50 ms target interval. Pose geometry profiles are not an
   output prerequisite and F8Studio owns no Fallen Doll matching rules.
-- Emit a compact 22-bone common humanoid motion set plus each catalog's known
-  contact bones. Same-catalog participants receive deterministic role indices
-  and separate stable keys, including multiplayer scenes.
+- Keep the unpacked common skeleton and functional-bone catalog available for
+  diagnostics, but emit only the compact functional contact set on the realtime
+  path.
+  Participants receive deterministic indices within the generic `male/female`
+  motion role and separate stable keys, including multiplayer scenes.
+- Derive participant candidates and their A/B/C priority from the unpacked
+  TableHAnim participant tags. Runtime Montage ownership binds those static
+  slots to live components; F8Studio may disable any participant and fall back
+  to the next enabled ranked slot, or disable all output.
+- Treat modular meshes as one character: only the catalog's confirmed primary
+  component is eligible. The exact HAnime family supplies per-role participant
+  counts, preventing shared body/clothing SkinnedAssets from multiplying one
+  actor into dozens of streams.
+- Emit generic `male/female` motion identities for F8Studio selectors while
+  preserving the exact playable-character catalog as `characterRole` and
+  `catalogId` trailer metadata.
+- Keep full-body debug skeletons out of the realtime path. Each participant
+  contributes only its compact functional set: left/right hands and feet,
+  mouth/tongue, vaginal/anal contact points, and available penetration-axis
+  points. The packet trailer ranks verified candidates; F8Studio may disable
+  any candidate and falls back to the next enabled ranked bone. Alet/Male
+  Hand02 is currently annotated right-hand primary and left-hand secondary.
+  Other hand/foot poses remain recognized but have no automatic ranked output
+  until left/right, combined-limb, and primary/secondary annotations exist.
+  Special actions do not change the selected bone in this milestone. Montage
+  discovery is polled separately at 250 ms, so speed changes are represented
+  by current transforms rather than a fixed-rate animation phase.
 - Write F8Studio-compatible skeleton JSON lines to `runtime/fd-skeleton.ndjson`.
   Positions are converted from Unreal centimetres to metres; rotations are
   reordered from Unreal XYZW to F8 WXYZ. Coordinate handedness is intentionally
@@ -76,7 +99,7 @@ its own key callback.
   registered by Lua yet.
 - `F8`: export the current runtime-filtered pose list once to
   `runtime/fd-visible-poses.tsv`. It does not start a recorder.
-- `F9`: start/stop the continuous 20 Hz skeleton stream.
+- `F9`: start/stop the functional realtime contact-bone stream (50 ms target).
 - `F10`: fully reload `fd_tcode_probe` through the separate reload broker.
 
 UE4SS global hot reload and automatic file watching remain disabled. The broker
@@ -113,5 +136,7 @@ F8Studio and consumes copied skeleton packets through localhost UDP.
 - `fd_tcode/diagnostics.lua`: manual detailed diagnostics.
 - `fd_tcode/safe.lua`: protected Unreal reads and value formatting.
 - `fd_tcode/config.lua`: hotkeys, polling interval, and known property names.
-- `fd_tcode/profile_data.lua`: editable, pure-data runtime rules.
-- `fd_tcode/profile_store.lua`: validated F10 rule refresh and fallback state.
+- `fd_tcode/profile_data.lua`: legacy/manual geometry rules; not consumed by
+  the F9 functional contact stream.
+- `fd_tcode/profile_store.lua`: validated refresh/fallback for those manual
+  diagnostics.
