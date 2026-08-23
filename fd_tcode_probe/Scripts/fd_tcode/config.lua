@@ -26,7 +26,7 @@ local runtime_dir = resolve_runtime_dir()
 
 return {
     name = "FD-TCode",
-    version = "0.15.0-auto-hanime",
+    version = "0.16.5-event-driven-switch",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {

@@ -1,0 +1,17 @@
+{
+  "label": "Use linear Fallen Doll L0 mapping",
+  "ops": [
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_l0_normalize",
+      "field": "curve",
+      "value": "LINEAR"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_range",
+      "field": "curve",
+      "value": "LINEAR"
+    }
+  ]
+}

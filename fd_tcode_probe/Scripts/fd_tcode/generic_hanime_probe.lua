@@ -60,7 +60,19 @@ local candidate_functions_by_category = {
     mouth = { "mouth_origin", "tongue_origin" },
     anal = { "anal_origin" },
     vaginal = { "vaginal_origin" },
+    -- Some authoritative TableHAnim families use non-contact names such as
+    -- Sleep01.  Keep these exact-whitelisted poses usable without guessing a
+    -- single interaction: expose only the small functional-bone set and let
+    -- the F8Studio enabled-bone selection choose among it.
+    other = {
+        "vaginal_origin", "anal_origin",
+        "mouth_origin", "tongue_origin",
+        "right_hand", "left_hand",
+        "right_foot", "left_foot",
+    },
 }
+
+target_functions_by_category.other = candidate_functions_by_category.other
 
 -- Runtime-confirmed HAnime annotations rank all useful candidates. F8Studio
 -- may disable the preferred bone and will then fall back to the next enabled
@@ -68,6 +80,7 @@ local candidate_functions_by_category = {
 -- the left hand remains an explicit secondary candidate.
 local target_functions_by_hanime_id = {
     AletMale_Hand02 = { "right_hand", "left_hand" },
+    JuziDreamer_Sleep01 = { "vaginal_origin" },
 }
 
 local function preferred_function_names(entry, identity)

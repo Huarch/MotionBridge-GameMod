@@ -1,5 +1,5 @@
 param(
-    [string]$Version = "0.15.0-l0-preview",
+    [string]$Version = "0.16.5-event-driven-switch",
     [string]$UE4SSArchive = ""
 )
 
@@ -28,10 +28,13 @@ if (-not $archivePath.StartsWith($outputRoot, [System.StringComparison]::Ordinal
 $required = @(
     "fd_tcode_probe",
     "fd_tcode_reloader",
-    "f8studio/fallen-doll-skeleton-preview-v15.json",
+    "f8studio/fallen-doll-skeleton-preview-v16.json",
     "f8studio/0001-feat-add-Fallen-Doll-skeleton-source-service.patch",
-    "docs/玩家发布说明.md",
+    "tools/Install-FallenDollTCode.ps1",
+    "docs/user-guide-zh.md",
     "docs/user-guide-en.md",
+    "docs/startup-and-troubleshooting-zh.md",
+    "docs/startup-and-troubleshooting-en.md",
     "THIRD_PARTY_NOTICES.md"
 )
 foreach ($relativePath in $required) {
@@ -67,6 +70,8 @@ New-Item -ItemType Directory -Path $studioDir | Out-Null
 Expand-Archive -LiteralPath $ue4ssArchivePath -DestinationPath $gameDir
 $ue4ssDir = Join-Path $gameDir "ue4ss"
 $modsDir = Join-Path $ue4ssDir "Mods"
+$ue4ssSettingsPath = Join-Path $ue4ssDir "UE4SS-settings.ini"
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 $ue4ssRequired = @(
     (Join-Path $gameDir "dwmapi.dll"),
     (Join-Path $ue4ssDir "UE4SS.dll"),
@@ -79,6 +84,14 @@ foreach ($path in $ue4ssRequired) {
         throw "Official UE4SS package is missing: $path"
     }
 }
+
+# Keep UE4SS file logging available, but do not open either debug console for
+# players on every game launch.
+$ue4ssSettings = Get-Content -Raw -LiteralPath $ue4ssSettingsPath
+$ue4ssSettings = $ue4ssSettings -replace '(?m)^ConsoleEnabled\s*=.*$', 'ConsoleEnabled = 0'
+$ue4ssSettings = $ue4ssSettings -replace '(?m)^GuiConsoleEnabled\s*=.*$', 'GuiConsoleEnabled = 0'
+$ue4ssSettings = $ue4ssSettings -replace '(?m)^GuiConsoleVisible\s*=.*$', 'GuiConsoleVisible = 0'
+[System.IO.File]::WriteAllText($ue4ssSettingsPath, $ue4ssSettings, $utf8NoBom)
 
 Copy-Item -LiteralPath (Join-Path $workspace "fd_tcode_probe") -Destination (Join-Path $modsDir "fd_tcode_probe") -Recurse
 Copy-Item -LiteralPath (Join-Path $workspace "fd_tcode_reloader") -Destination (Join-Path $modsDir "fd_tcode_reloader") -Recurse
@@ -97,7 +110,6 @@ fd_tcode_probe : 1
 ; Built-in keybinds, do not move up!
 Keybinds : 1
 '@
-$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 [System.IO.File]::WriteAllText((Join-Path $modsDir "mods.txt"), $modsText, $utf8NoBom)
 
 $modsJson = @'
@@ -116,11 +128,14 @@ $modsJson = @'
 '@
 [System.IO.File]::WriteAllText((Join-Path $modsDir "mods.json"), $modsJson, $utf8NoBom)
 
-Copy-Item -LiteralPath (Join-Path $workspace "f8studio/fallen-doll-skeleton-preview-v15.json") -Destination (Join-Path $studioDir "fallen-doll-skeleton-preview-v15.json")
+Copy-Item -LiteralPath (Join-Path $workspace "f8studio/fallen-doll-skeleton-preview-v16.json") -Destination (Join-Path $studioDir "fallen-doll-skeleton-preview-v16.json")
 Copy-Item -LiteralPath (Join-Path $workspace "f8studio/0001-feat-add-Fallen-Doll-skeleton-source-service.patch") -Destination (Join-Path $studioDir "f8studio-fallen-doll-source.patch")
-Copy-Item -LiteralPath (Join-Path $workspace "docs/玩家发布说明.md") -Destination (Join-Path $packageDir "README-中文.md")
+Copy-Item -LiteralPath (Join-Path $workspace "docs/user-guide-zh.md") -Destination (Join-Path $packageDir "README-ZH.md")
 Copy-Item -LiteralPath (Join-Path $workspace "docs/user-guide-en.md") -Destination (Join-Path $packageDir "README-English.md")
+Copy-Item -LiteralPath (Join-Path $workspace "docs/startup-and-troubleshooting-zh.md") -Destination (Join-Path $packageDir "Startup-and-Troubleshooting-ZH.md")
+Copy-Item -LiteralPath (Join-Path $workspace "docs/startup-and-troubleshooting-en.md") -Destination (Join-Path $packageDir "Startup-and-Troubleshooting-English.md")
 Copy-Item -LiteralPath (Join-Path $workspace "THIRD_PARTY_NOTICES.md") -Destination (Join-Path $packageDir "THIRD_PARTY_NOTICES.md")
+Copy-Item -LiteralPath (Join-Path $workspace "tools/Install-FallenDollTCode.ps1") -Destination (Join-Path $packageDir "Install-Mod.ps1")
 
 Compress-Archive -LiteralPath $packageDir -DestinationPath $archivePath -CompressionLevel Optimal
 Write-Output $archivePath

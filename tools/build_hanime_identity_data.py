@@ -46,10 +46,12 @@ def participant_tag(asset: str, identity: str) -> str:
     return re.sub(r"_Montage.*$", "", suffix, flags=re.IGNORECASE)
 
 
-def list_packages(umodel: Path, paks: Path, aes: str) -> tuple[list[str], bytes]:
+def list_packages(
+    umodel: Path, paks: Path, aes: str, game: str
+) -> tuple[list[str], bytes]:
     command = [
         str(umodel),
-        "-game=love",
+        f"-game={game}",
         f"-aes={aes}",
         f"-path={paks}",
         "-list",
@@ -68,6 +70,19 @@ def list_packages(umodel: Path, paks: Path, aes: str) -> tuple[list[str], bytes]
         if line.startswith("/") and line.endswith(".uasset")
     ]
     return paths, result.stdout.encode("utf-8", errors="replace")
+
+
+def list_packages_from_index(index: Path) -> tuple[list[str], bytes]:
+    payload = index.read_bytes()
+    text = payload.decode("utf-8", errors="replace")
+    paths = [
+        line.strip()
+        for line in text.splitlines()
+        if line.startswith("/")
+        and line.endswith(".uasset")
+        and "montage" in Path(line).stem.casefold()
+    ]
+    return paths, payload
 
 
 def category(identity: str) -> str:
@@ -118,6 +133,21 @@ def main() -> None:
     parser.add_argument("--umodel", type=Path)
     parser.add_argument("--paks", type=Path)
     parser.add_argument("--aes")
+    parser.add_argument(
+        "--package-index",
+        type=Path,
+        help="Existing UE Viewer package-list text; avoids rescanning the Paks.",
+    )
+    parser.add_argument(
+        "--existing-identity",
+        type=Path,
+        help="Preserve previously indexed companion Montages while rebuilding family metadata.",
+    )
+    parser.add_argument(
+        "--game",
+        default="love",
+        help="UE Viewer game tag (Demo uses ue4.25+; Playtest uses love)",
+    )
     parser.add_argument("--json-output", type=Path, required=True)
     parser.add_argument("--lua-output", type=Path, required=True)
     args = parser.parse_args()
@@ -129,11 +159,33 @@ def main() -> None:
 
     for character in source["characters"]:
         for pose in character["poses"]:
+            reference = f"{character['character']}/{pose['poseId']}"
             for asset in pose["assets"]:
+                # A few cooked TableHAnim rows import a base AnimSequence for
+                # the correct family but accidentally import Montages from an
+                # adjacent pose.  Every imported asset still supplies
+                # authoritative family evidence; only Montage assets become
+                # runtime identities below.  The Pak index then fills in the
+                # companion Montages for each evidenced family.
+                identity = hanime_id(asset)
+                family_key = normalized(identity)
+                family = family_metadata.setdefault(
+                    family_key,
+                    {
+                        "hanime_id": identity,
+                        "category": category(identity),
+                        "catalog_refs": [],
+                        "participant_tags": [],
+                    },
+                )
+                if reference not in family["catalog_refs"]:
+                    family["catalog_refs"].append(reference)
+                tag = participant_tag(asset, identity)
+                if tag and tag not in family["participant_tags"]:
+                    family["participant_tags"].append(tag)
                 if "montage" not in asset.casefold():
                     continue
                 key = normalized(asset)
-                identity = hanime_id(asset)
                 entry = by_montage.setdefault(
                     key,
                     {
@@ -147,25 +199,46 @@ def main() -> None:
                         "asset_paths": [],
                     },
                 )
-                reference = f"{character['character']}/{pose['poseId']}"
                 if reference not in entry["catalog_refs"]:
                     entry["catalog_refs"].append(reference)
-                family = family_metadata.setdefault(
-                    identity,
-                    {
-                        "category": entry["category"],
-                        "catalog_refs": [],
-                    },
-                )
-                if reference not in family["catalog_refs"]:
-                    family["catalog_refs"].append(reference)
 
     package_list_bytes = b""
-    if args.umodel is not None or args.paks is not None or args.aes is not None:
+    if args.package_index is not None:
+        if args.umodel is not None or args.paks is not None or args.aes is not None:
+            parser.error("--package-index cannot be combined with --umodel/--paks/--aes")
+        package_paths, package_list_bytes = list_packages_from_index(args.package_index)
+    elif args.umodel is not None or args.paks is not None or args.aes is not None:
         if args.umodel is None or args.paks is None or not args.aes:
             parser.error("--umodel, --paks and --aes must be provided together")
-        package_paths, package_list_bytes = list_packages(args.umodel, args.paks, args.aes)
-        families = sorted(family_metadata, key=len, reverse=True)
+        package_paths, package_list_bytes = list_packages(
+            args.umodel, args.paks, args.aes, args.game
+        )
+    else:
+        package_paths = []
+
+    existing_document: dict[str, object] = {}
+    if args.existing_identity is not None:
+        existing_document = json.loads(args.existing_identity.read_text(encoding="utf-8"))
+        for key, old_entry in existing_document.get("by_montage", {}).items():
+            entry = by_montage.get(key)
+            if entry is None:
+                by_montage[key] = old_entry
+                continue
+            if str(entry["hanime_id"]) != str(old_entry.get("hanime_id")):
+                parser.error(
+                    f"existing identity conflict for {key}: "
+                    f"{entry['hanime_id']} != {old_entry.get('hanime_id')}"
+                )
+            for path in old_entry.get("asset_paths", []):
+                if path not in entry["asset_paths"]:
+                    entry["asset_paths"].append(path)
+
+    if package_paths:
+        families = sorted(
+            (metadata["hanime_id"] for metadata in family_metadata.values()),
+            key=len,
+            reverse=True,
+        )
         for path in package_paths:
             asset = Path(path).stem
             if "montage" not in asset.casefold():
@@ -180,7 +253,10 @@ def main() -> None:
             )
             if identity is None:
                 continue
-            metadata = family_metadata[identity]
+            metadata = family_metadata[normalized(identity)]
+            tag = participant_tag(asset, identity)
+            if tag and tag not in metadata["participant_tags"]:
+                metadata["participant_tags"].append(tag)
             key = normalized(asset)
             entry = by_montage.setdefault(
                 key,
@@ -200,13 +276,18 @@ def main() -> None:
 
     document = {
         "schema_version": 2,
-        "revision": "table-hanim-families-all-participant-montages-v2",
+        "revision": "table-hanim-families-all-participant-montages-v3",
         "source_index_sha256": hashlib.sha256(source_bytes).hexdigest(),
         "package_list_sha256": hashlib.sha256(package_list_bytes).hexdigest()
-        if package_list_bytes else None,
+        if package_list_bytes
+        else existing_document.get("package_list_sha256"),
         "recognition_policy": "exact-active-montage-in-authoritative-table-hanime-family",
         "hanime_family_count": len(family_metadata),
         "montage_count": len(by_montage),
+        "by_family": {
+            metadata["hanime_id"]: metadata
+            for metadata in family_metadata.values()
+        },
         "by_montage": by_montage,
     }
     args.json_output.parent.mkdir(parents=True, exist_ok=True)

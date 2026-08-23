@@ -15,6 +15,8 @@ local SkeletonStream = {
     was_hanime_active = false,
     cached_hanime = nil,
     samples_until_hanime_poll = 0,
+    samples_until_spool_retry = 0,
+    spool_retry_count = 0,
 }
 
 local function json_escape(value)
@@ -53,7 +55,7 @@ end
 local function trailer_json(participant, sample)
     local identity = sample.hanime_identity or {}
     return string.format(
-        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","preferredBones":%s,"streamMode":"functional-contact-bones","exporterVersion":"fd-tcode-lua-0.15.0"}',
+        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","preferredBones":%s,"streamMode":"functional-contact-bones","exporterVersion":"fd-tcode-lua-0.16.5"}',
         json_escape(sample.matched_pose or ""),
         json_escape(sample.matched_pose_status or "unmapped"),
         json_escape(identity.hanime_id or ""),
@@ -95,6 +97,42 @@ local function write_packet(line)
         SkeletonStream.spool:write(line, "\n")
     end)
     return ok
+end
+
+local function ensure_parent_directory(file_path)
+    local parent = tostring(file_path or ""):match("^(.*)/[^/]+$")
+    if parent == nil or parent == "" then
+        return true
+    end
+    if parent:find('[\r\n"]') ~= nil then
+        return false, "runtime directory contains unsupported characters"
+    end
+    if os == nil or type(os.execute) ~= "function" then
+        return false, "os.execute is unavailable"
+    end
+    os.execute('mkdir "' .. parent .. '" >nul 2>&1')
+    return true
+end
+
+local function open_spool()
+    local directory_ok, directory_error = ensure_parent_directory(Config.skeleton_spool_path)
+    if not directory_ok then
+        return false, directory_error
+    end
+    local spool, spool_error = io.open(Config.skeleton_spool_path, "w")
+    if spool == nil then
+        return false, spool_error
+    end
+    SkeletonStream.spool = spool
+    SkeletonStream.spool_retry_count = 0
+    SkeletonStream.samples_until_spool_retry = 0
+    Log.info(string.format(
+        "skeleton sampling enabled interval=%dms limit=%s output=%s",
+        Config.skeleton_sample_interval_ms,
+        Config.skeleton_sample_limit > 0 and tostring(Config.skeleton_sample_limit) or "continuous",
+        Config.skeleton_spool_path
+    ))
+    return true
 end
 
 local function flush_packets()
@@ -140,6 +178,24 @@ local function sample_once()
         return
     end
     SkeletonStream.attempt_count = SkeletonStream.attempt_count + 1
+    if SkeletonStream.spool == nil then
+        if SkeletonStream.samples_until_spool_retry > 0 then
+            SkeletonStream.samples_until_spool_retry = SkeletonStream.samples_until_spool_retry - 1
+            return
+        end
+        local opened, spool_error = open_spool()
+        if not opened then
+            SkeletonStream.spool_retry_count = SkeletonStream.spool_retry_count + 1
+            SkeletonStream.samples_until_spool_retry = math.max(
+                1,
+                math.floor(1000 / Config.skeleton_sample_interval_ms)
+            )
+            if SkeletonStream.spool_retry_count == 1 or SkeletonStream.spool_retry_count % 10 == 0 then
+                Log.warn("skeleton spool unavailable; retrying: " .. tostring(spool_error))
+            end
+        end
+        return
+    end
     SkeletonStream.samples_until_hanime_poll = SkeletonStream.samples_until_hanime_poll - 1
     if SkeletonStream.cached_hanime == nil or SkeletonStream.samples_until_hanime_poll <= 0 then
         SkeletonStream.cached_hanime = HAnimeDetector.sample()
@@ -204,13 +260,17 @@ local function sample_once()
             table.insert(entries, bone_json(bone_name, participant.bones[bone_name]))
         end
         if not write_packet(packet_json(participant, timestamp_ms, entries, sample)) then
-            stop_internal("spool-write-failed")
+            Log.warn("skeleton spool write failed; reopening automatically")
+            close_spool()
+            SkeletonStream.samples_until_spool_retry = 0
             return
         end
         SkeletonStream.sequence = SkeletonStream.sequence + 1
     end
     if not flush_packets() then
-        stop_internal("spool-flush-failed")
+        Log.warn("skeleton spool flush failed; reopening automatically")
+        close_spool()
+        SkeletonStream.samples_until_spool_retry = 0
         return
     end
 
@@ -238,13 +298,6 @@ function SkeletonStream.start()
         Log.error("LoopInGameThreadWithDelay is unavailable in this UE4SS build")
         return
     end
-    local spool, spool_error = io.open(Config.skeleton_spool_path, "w")
-    if spool == nil then
-        Log.error("cannot open skeleton spool: " .. tostring(spool_error))
-        return
-    end
-
-    SkeletonStream.spool = spool
     SkeletonStream.running = true
     SkeletonStream.sequence = 0
     SkeletonStream.sample_count = 0
@@ -254,15 +307,20 @@ function SkeletonStream.start()
     SkeletonStream.was_hanime_active = false
     SkeletonStream.cached_hanime = nil
     SkeletonStream.samples_until_hanime_poll = 0
+    SkeletonStream.samples_until_spool_retry = 0
+    SkeletonStream.spool_retry_count = 0
     GenericHAnimeProbe.clear_cache()
     HAnimeDetector.clear_cache()
+    local opened, spool_error = open_spool()
+    if not opened then
+        Log.warn("skeleton spool unavailable at startup; retrying automatically: " .. tostring(spool_error))
+        SkeletonStream.spool_retry_count = 1
+        SkeletonStream.samples_until_spool_retry = math.max(
+            1,
+            math.floor(1000 / Config.skeleton_sample_interval_ms)
+        )
+    end
     SkeletonStream.loop_handle = LoopInGameThreadWithDelay(Config.skeleton_sample_interval_ms, sample_once)
-    Log.info(string.format(
-        "skeleton sampling enabled interval=%dms limit=%s output=%s",
-        Config.skeleton_sample_interval_ms,
-        Config.skeleton_sample_limit > 0 and tostring(Config.skeleton_sample_limit) or "continuous",
-        Config.skeleton_spool_path
-    ))
     ExecuteInGameThread(sample_once)
 end
 
@@ -276,6 +334,12 @@ function SkeletonStream.toggle()
     else
         SkeletonStream.start()
     end
+end
+
+function SkeletonStream.notify_hanime_event()
+    -- Event hooks run on the game thread and only request an immediate
+    -- identity sample. UObject reads remain centralized in sample_once.
+    SkeletonStream.samples_until_hanime_poll = 0
 end
 
 return SkeletonStream

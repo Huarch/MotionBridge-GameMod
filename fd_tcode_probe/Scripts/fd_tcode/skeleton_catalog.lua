@@ -45,10 +45,13 @@ Catalog.entries = {
         asset_names = { "Mesh_Alet" },
         skeleton_name = "Mesh_Alet_Skeleton",
         reference_bone_count = 396,
+        compatible_reference_bone_counts = { 396, 443 },
         component_markers = {
             { "CharacterAlet_C_", ".Mesh_Main" },
+            -- Demo (UE 4.25) uses the blueprint variable name directly.
+            { "CharacterAlet_C_", ".Mesh_Alet" },
         },
-        primary_component_names = { "Mesh_Main" },
+        primary_component_names = { "Mesh_Main", "Mesh_Alet" },
         stream_bones = motion_bones("M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot"),
         functional = {
             right_hand = "R_Hand",
@@ -103,7 +106,7 @@ Catalog.entries = {
             { "CharacterErika", ".Mesh" },
             { "CharacterEirka", ".Mesh" },
         },
-        primary_component_names = { "Mesh", "Mesh_Main" },
+        primary_component_names = { "Mesh", "Mesh_Main", "Mesh_Erika" },
         stream_bones = motion_bones("M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot"),
         functional = {
             right_hand = "R_Hand",
@@ -208,7 +211,7 @@ Catalog.entries = {
         component_markers = {
             { "CharacterAnya", ".Mesh" },
         },
-        primary_component_names = { "Mesh", "Mesh_Main" },
+        primary_component_names = { "Mesh", "Mesh_Main", "Mesh_Anya" },
         stream_bones = motion_bones("M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot"),
         functional = {
             right_hand = "R_Hand",

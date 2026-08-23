@@ -3,16 +3,6 @@
     "connections": [
       {
         "in": [
-          "fd_device_range",
-          "[D]value"
-        ],
-        "out": [
-          "fd_l0_limit",
-          "value[D]"
-        ]
-      },
-      {
-        "in": [
           "fd_device_tcode",
           "[D]L0"
         ],
@@ -39,36 +29,6 @@
         "out": [
           "fd_device_tcode",
           "tcode[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_limit",
-          "[D]value"
-        ],
-        "out": [
-          "fd_l0_smooth",
-          "value[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_normalized_viz",
-          "[D]x"
-        ],
-        "out": [
-          "fd_l0_limit",
-          "value[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_tcode",
-          "[D]L0"
-        ],
-        "out": [
-          "fd_l0_limit",
-          "value[D]"
         ]
       },
       {
@@ -109,16 +69,6 @@
         "out": [
           "fd_l0_safety",
           "exec[E]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_smooth",
-          "[D]value"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "safeValue[D]"
         ]
       },
       {
@@ -199,6 +149,36 @@
         "out": [
           "fd_source",
           "targetBone[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_device_range",
+          "[D]value"
+        ],
+        "out": [
+          "fd_l0_safety",
+          "safeValue[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_normalized_viz",
+          "[D]x"
+        ],
+        "out": [
+          "fd_l0_safety",
+          "safeValue[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_tcode",
+          "[D]L0"
+        ],
+        "out": [
+          "fd_l0_safety",
+          "safeValue[D]"
         ]
       }
     ],
@@ -1153,209 +1133,6 @@
         "visible": true,
         "width": 192.46875
       },
-      "fd_l0_limit": {
-        "border_color": [
-          74,
-          84,
-          85,
-          255
-        ],
-        "color": [
-          13,
-          18,
-          23,
-          255
-        ],
-        "custom": {
-          "inMax": 1.0,
-          "inMin": 0.0,
-          "maxAccel": 8.0,
-          "maxRateDown": 1.5,
-          "maxRateUp": 1.5,
-          "operatorId": "fd_l0_limit",
-          "svcId": "fd_pyengine"
-        },
-        "disabled": false,
-        "f8_spec": {
-          "commands": [],
-          "dataInPorts": [
-            {
-              "delivery": "fifo",
-              "description": "Input value.",
-              "name": "value",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            }
-          ],
-          "dataOutPorts": [
-            {
-              "delivery": "fifo",
-              "description": "Rate-limited output.",
-              "name": "value",
-              "payloadKind": "json",
-              "required": true,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            }
-          ],
-          "description": "Limits the rate of change (and optionally acceleration) of an input signal.",
-          "execInPorts": [],
-          "execOutPorts": [],
-          "hiddenInPalette": false,
-          "label": "Rate Limiter",
-          "operatorClass": "f8.rate_limiter",
-          "paletteCategory": "f8.pyengine.signal",
-          "rendererClass": "default_op",
-          "schemaVersion": "f8operator/1",
-          "serviceClass": "f8.pyengine",
-          "specKind": "operator",
-          "stateFields": [
-            {
-              "access": "rw",
-              "description": "Input/output clamp minimum (typical 0).",
-              "label": "Input Min",
-              "name": "inMin",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "valueSchema": {
-                "default": 0.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Input/output clamp maximum (typical 1).",
-              "label": "Input Max",
-              "name": "inMax",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "valueSchema": {
-                "default": 1.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Maximum rising rate (units/sec).",
-              "label": "Max Rate Up",
-              "name": "maxRateUp",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": true,
-              "valueSchema": {
-                "default": 2.0,
-                "minimum": 0.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Maximum falling rate (units/sec).",
-              "label": "Max Rate Down",
-              "name": "maxRateDown",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": true,
-              "valueSchema": {
-                "default": 2.0,
-                "minimum": 0.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Maximum acceleration (units/sec^2). 0 disables acceleration limiting.",
-              "label": "Max Accel",
-              "name": "maxAccel",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "valueSchema": {
-                "default": 0.0,
-                "minimum": 0.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "ro",
-              "description": "Readonly: current service instance id (svcId).",
-              "editPolicy": {
-                "canEditAccess": false,
-                "canEditRequired": false,
-                "canEditValueSchema": false,
-                "canRename": false
-              },
-              "label": "Service Id",
-              "name": "svcId",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "valueSchema": {
-                "type": "string"
-              }
-            },
-            {
-              "access": "ro",
-              "description": "Readonly: current operator/node id (operatorId).",
-              "editPolicy": {
-                "canEditAccess": false,
-                "canEditRequired": false,
-                "canEditValueSchema": false,
-                "canRename": false
-              },
-              "label": "Operator Id",
-              "name": "operatorId",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "valueSchema": {
-                "type": "string"
-              }
-            }
-          ],
-          "tags": [
-            "signal",
-            "limit",
-            "rate",
-            "slew",
-            "smoothing",
-            "transform"
-          ],
-          "version": "0.0.1"
-        },
-        "f8_sys": {
-          "svcId": "fd_pyengine"
-        },
-        "f8_ui_overrides": {},
-        "f8_ui_state": {},
-        "height": 110.95,
-        "icon": null,
-        "layout_direction": 0,
-        "name": "FD L0 Anti-jump",
-        "pos": [
-          2290.0,
-          520.0
-        ],
-        "selected": false,
-        "subgraph_session": {},
-        "text_color": [
-          255,
-          255,
-          255,
-          180
-        ],
-        "type_": "f8.pyengine.f8.rate_limiter",
-        "visible": true,
-        "width": 160.0
-      },
       "fd_l0_normalize": {
         "border_color": [
           74,
@@ -1835,7 +1612,7 @@
           255
         ],
         "custom": {
-          "code": "import math\nimport time\n\nTIMEOUT_MS = 250.0\nCENTER = 0.5\n\ndef _timestamps(value):\n    if isinstance(value, list):\n        out = []\n        for item in value:\n            out.extend(_timestamps(item))\n        return out\n    if not isinstance(value, dict):\n        return []\n    raw = value.get('receivedAtMs', value.get('timestampMs'))\n    if isinstance(raw, bool) or raw is None:\n        return []\n    try:\n        number = float(raw)\n    except (TypeError, ValueError, OverflowError):\n        return []\n    return [number] if math.isfinite(number) else []\n\ndef _number(value):\n    if isinstance(value, bool) or value is None:\n        return None\n    try:\n        number = float(value)\n    except (TypeError, ValueError, OverflowError):\n        return None\n    return number if math.isfinite(number) else None\n\ndef onStart(ctx):\n    ctx.locals['lastValid'] = CENTER\n    ctx.locals['state'] = 'idle'\n\ndef onMsg(ctx, inputs):\n    now_ms = time.time() * 1000.0\n    timestamps = _timestamps(inputs.get('heartbeat'))\n    age_ms = max(0.0, now_ms - min(timestamps)) if timestamps else None\n    incoming = _number(inputs.get('value'))\n    fresh = age_ms is not None and age_ms <= TIMEOUT_MS and incoming is not None\n    if fresh:\n        output = max(0.0, min(1.0, incoming))\n        ctx.locals['lastValid'] = output\n        state = 'active'\n    elif age_ms is not None and age_ms <= TIMEOUT_MS:\n        output = float(ctx.locals.get('lastValid', CENTER))\n        state = 'holding'\n    else:\n        output = CENTER\n        state = 'releasing'\n    ctx.locals['state'] = state\n    return {'outputs': {'safeValue': output, 'status': {'state': state, 'fresh': fresh, 'ageMs': age_ms, 'timeoutMs': TIMEOUT_MS, 'center': CENTER}}}\n",
+          "code": "import math\nimport time\n\nHOLD_MS = 250.0\nRETURN_MS = 600.0\nCENTER = 0.5\n\ndef _timestamps(value):\n    if isinstance(value, list):\n        out = []\n        for item in value:\n            out.extend(_timestamps(item))\n        return out\n    if not isinstance(value, dict):\n        return []\n    raw = value.get('receivedAtMs', value.get('timestampMs'))\n    if isinstance(raw, bool) or raw is None:\n        return []\n    try:\n        number = float(raw)\n    except (TypeError, ValueError, OverflowError):\n        return []\n    return [number] if math.isfinite(number) else []\n\ndef _number(value):\n    if isinstance(value, bool) or value is None:\n        return None\n    try:\n        number = float(value)\n    except (TypeError, ValueError, OverflowError):\n        return None\n    return number if math.isfinite(number) else None\n\ndef onStart(ctx):\n    ctx.locals['lastValid'] = CENTER\n    ctx.locals['state'] = 'idle'\n\ndef onMsg(ctx, inputs):\n    now_ms = time.time() * 1000.0\n    timestamps = _timestamps(inputs.get('heartbeat'))\n    age_ms = max(0.0, now_ms - min(timestamps)) if timestamps else None\n    incoming = _number(inputs.get('value'))\n    fresh = age_ms is not None and age_ms <= HOLD_MS and incoming is not None\n    if fresh:\n        output = max(0.0, min(1.0, incoming))\n        ctx.locals['lastValid'] = output\n        state = 'active'\n    elif age_ms is not None and age_ms <= HOLD_MS:\n        output = float(ctx.locals.get('lastValid', CENTER))\n        state = 'holding'\n    else:\n        start = float(ctx.locals.get('lastValid', CENTER))\n        release_age_ms = RETURN_MS if age_ms is None else max(0.0, age_ms - HOLD_MS)\n        progress = max(0.0, min(1.0, release_age_ms / RETURN_MS))\n        eased = progress * progress * (3.0 - 2.0 * progress)\n        output = start + (CENTER - start) * eased\n        state = 'centered' if progress >= 1.0 else 'returning'\n    ctx.locals['state'] = state\n    return {'outputs': {'safeValue': output, 'status': {'state': state, 'fresh': fresh, 'ageMs': age_ms, 'holdMs': HOLD_MS, 'returnMs': RETURN_MS, 'center': CENTER}}}\n",
           "inputMode": "raw_dict",
           "operatorId": "fd_l0_safety",
           "svcId": "fd_pyengine"
@@ -2242,256 +2019,6 @@
           180
         ],
         "type_": "f8.pyengine.f8.tick",
-        "visible": true,
-        "width": 160.0
-      },
-      "fd_l0_smooth": {
-        "border_color": [
-          74,
-          84,
-          85,
-          255
-        ],
-        "color": [
-          13,
-          18,
-          23,
-          255
-        ],
-        "custom": {
-          "dema_alpha": 0.4,
-          "ema_alpha": 0.35,
-          "filter_type": "EMA",
-          "one_euro_beta": 0.0,
-          "one_euro_default_freq": 90.0,
-          "one_euro_derivative_cutoff": 1.0,
-          "one_euro_min_cutoff": 1.5,
-          "operatorId": "fd_l0_smooth",
-          "svcId": "fd_pyengine"
-        },
-        "disabled": false,
-        "f8_spec": {
-          "commands": [],
-          "dataInPorts": [
-            {
-              "delivery": "fifo",
-              "description": "Value to filter.",
-              "name": "value",
-              "payloadKind": "json",
-              "required": true,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "any"
-              }
-            }
-          ],
-          "dataOutPorts": [
-            {
-              "delivery": "fifo",
-              "description": "Filtered output.",
-              "name": "value",
-              "payloadKind": "json",
-              "required": true,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "any"
-              }
-            }
-          ],
-          "description": "Smooths scalar or vector inputs with EMA/DEMA/One Euro filtering.",
-          "execInPorts": [],
-          "execOutPorts": [],
-          "hiddenInPalette": false,
-          "label": "Smooth Filter",
-          "operatorClass": "f8.smooth_filter",
-          "paletteCategory": "f8.pyengine.signal",
-          "rendererClass": "default_op",
-          "schemaVersion": "f8operator/1",
-          "serviceClass": "f8.pyengine",
-          "specKind": "operator",
-          "stateFields": [
-            {
-              "access": "rw",
-              "description": "Filter type.",
-              "label": "Filter",
-              "name": "filter_type",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": true,
-              "valueSchema": {
-                "default": "EMA",
-                "enum": [
-                  "NONE",
-                  "EMA",
-                  "DEMA",
-                  "ONEEURO"
-                ],
-                "type": "string"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "EMA smoothing factor (0..1).",
-              "label": "EMA Alpha",
-              "name": "ema_alpha",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": true,
-              "uiControl": "slider",
-              "valueSchema": {
-                "default": 0.4,
-                "maximum": 1.0,
-                "minimum": 0.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "DEMA smoothing factor (0..1).",
-              "label": "DEMA Alpha",
-              "name": "dema_alpha",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "uiControl": "slider",
-              "valueSchema": {
-                "default": 0.4,
-                "maximum": 1.0,
-                "minimum": 0.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Minimum cutoff frequency.",
-              "label": "One Euro Min Cutoff",
-              "name": "one_euro_min_cutoff",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "uiControl": "slider",
-              "valueSchema": {
-                "default": 1.5,
-                "maximum": 10.0,
-                "minimum": 0.01,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Speed coefficient for dynamic cutoff.",
-              "label": "One Euro Beta",
-              "name": "one_euro_beta",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "uiControl": "slider",
-              "valueSchema": {
-                "default": 0.0,
-                "maximum": 5.0,
-                "minimum": 0.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Cutoff frequency for the derivative filter.",
-              "label": "One Euro Derivative Cutoff",
-              "name": "one_euro_derivative_cutoff",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "uiControl": "slider",
-              "valueSchema": {
-                "default": 1.0,
-                "maximum": 10.0,
-                "minimum": 0.01,
-                "type": "number"
-              }
-            },
-            {
-              "access": "rw",
-              "description": "Default sampling frequency (Hz).",
-              "label": "One Euro Default Freq",
-              "name": "one_euro_default_freq",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "uiControl": "slider",
-              "valueSchema": {
-                "default": 90.0,
-                "maximum": 240.0,
-                "minimum": 1.0,
-                "type": "number"
-              }
-            },
-            {
-              "access": "ro",
-              "description": "Readonly: current service instance id (svcId).",
-              "editPolicy": {
-                "canEditAccess": false,
-                "canEditRequired": false,
-                "canEditValueSchema": false,
-                "canRename": false
-              },
-              "label": "Service Id",
-              "name": "svcId",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "valueSchema": {
-                "type": "string"
-              }
-            },
-            {
-              "access": "ro",
-              "description": "Readonly: current operator/node id (operatorId).",
-              "editPolicy": {
-                "canEditAccess": false,
-                "canEditRequired": false,
-                "canEditValueSchema": false,
-                "canRename": false
-              },
-              "label": "Operator Id",
-              "name": "operatorId",
-              "redactOnPublish": false,
-              "required": true,
-              "showOnNode": false,
-              "valueSchema": {
-                "type": "string"
-              }
-            }
-          ],
-          "tags": [
-            "filter",
-            "smoothing",
-            "one_euro",
-            "signal"
-          ],
-          "version": "0.0.1"
-        },
-        "f8_sys": {
-          "svcId": "fd_pyengine"
-        },
-        "f8_ui_overrides": {},
-        "f8_ui_state": {},
-        "height": 110.95,
-        "icon": null,
-        "layout_direction": 0,
-        "name": "FD L0 Smooth",
-        "pos": [
-          2030.0,
-          520.0
-        ],
-        "selected": false,
-        "subgraph_session": {},
-        "text_color": [
-          255,
-          255,
-          255,
-          180
-        ],
-        "type_": "f8.pyengine.f8.smooth_filter",
         "visible": true,
         "width": 160.0
       },
@@ -4413,7 +3940,7 @@
         },
         "disabled": false,
         "f8_spec": {
-          "serviceClass": "f8.fallen_doll",
+          "serviceClass": "f8.fallendoll",
           "label": "Fallen Doll Source",
           "specKind": "service",
           "schemaVersion": "f8service/1",
@@ -5102,7 +4629,7 @@
           255,
           180
         ],
-        "type_": "svc.f8.fallen_doll",
+        "type_": "svc.f8.fallendoll",
         "visible": true,
         "width": 300.0
       }

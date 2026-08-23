@@ -1,0 +1,46 @@
+{
+  "label": "Preserve Fallen Doll L0 waveform",
+  "ops": [
+    {
+      "op": "deleteNode",
+      "nodeId": "fd_l0_smooth"
+    },
+    {
+      "op": "deleteNode",
+      "nodeId": "fd_l0_limit"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_l0_normalize",
+      "field": "curve",
+      "value": "LINEAR"
+    },
+    {
+      "op": "setNodeState",
+      "nodeId": "fd_device_range",
+      "field": "curve",
+      "value": "LINEAR"
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_l0_safety",
+      "fromPort": "safeValue[D]",
+      "toNodeId": "fd_device_range",
+      "toPort": "[D]value"
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_l0_safety",
+      "fromPort": "safeValue[D]",
+      "toNodeId": "fd_l0_normalized_viz",
+      "toPort": "[D]x"
+    },
+    {
+      "op": "connectPorts",
+      "fromNodeId": "fd_l0_safety",
+      "fromPort": "safeValue[D]",
+      "toNodeId": "fd_tcode",
+      "toPort": "[D]L0"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 local Config = require("fd_tcode.config")
-local IdentityData = require("fd_tcode.hanime_identity_data")
+local IdentityData = require("fd_tcode.hanime_identity_catalog")
 local Log = require("fd_tcode.log")
 local Safe = require("fd_tcode.safe")
 local SkeletonCatalog = require("fd_tcode.skeleton_catalog")
@@ -13,6 +13,7 @@ local HAnimeDetector = {
     empty_frames = 0,
     reentry_recovery_armed = false,
     reentry_signal_frames = 0,
+    pending_components = {},
 }
 
 local function normalized(value)
@@ -35,9 +36,9 @@ end
 
 local function build_family_catalog_roles()
     local families = {}
-    for _, identity in pairs(IdentityData.by_montage or {}) do
-        local hanime_id = tostring(identity.hanime_id or "")
-        local role = SkeletonCatalog.role_for_participant_tag(identity.participant_tag)
+    local function add_participant(hanime_id, participant_tag)
+        hanime_id = tostring(hanime_id or "")
+        local role = SkeletonCatalog.role_for_participant_tag(participant_tag)
         if hanime_id ~= "" and role ~= nil then
             local family = families[hanime_id]
             if family == nil then
@@ -51,7 +52,7 @@ local function build_family_catalog_roles()
             end
             local position = string.find(
                 normalized(hanime_id),
-                participant_base(identity.participant_tag),
+                participant_base(participant_tag),
                 1,
                 true
             )
@@ -64,12 +65,21 @@ local function build_family_catalog_roles()
             -- TableHAnim contains aliases such as Male and Male_A_01 for one
             -- participant. Count explicit A/B/C slots when present; otherwise
             -- all aliases for a catalog role represent one generic slot.
-            local slot = participant_slot(identity.participant_tag)
+            local slot = participant_slot(participant_tag)
             if slot ~= "generic" then
                 role_slots.named[slot] = true
             else
                 role_slots.generic = true
             end
+        end
+    end
+
+    for _, identity in pairs(IdentityData.by_montage or {}) do
+        add_participant(identity.hanime_id, identity.participant_tag)
+    end
+    for hanime_id, metadata in pairs(IdentityData.by_family or {}) do
+        for _, participant_tag in ipairs(metadata.participant_tags or {}) do
+            add_participant(hanime_id, participant_tag)
         end
     end
 
@@ -148,6 +158,57 @@ local function unknown_assets_indicate_hanime_reentry(assets)
     return false
 end
 
+local function unknown_assets_indicate_active_hanime(assets)
+    for _, asset in ipairs(assets or {}) do
+        local text = string.lower(tostring(asset or ""))
+        -- In the Demo VR build, switching camera perspective can hide the
+        -- exact body Montage from GetCurrentActiveMontage while the facial
+        -- expression remains in its Sexing loop.  This is different from
+        -- Exp_In/Exp_Out/Exp_Idle and is safe evidence that the previously
+        -- confirmed HAnime is still running.
+        if string.find(text, "exp_sexing_", 1, true) then
+            return true
+        end
+    end
+    return false
+end
+
+local function identity_components_are_registered(identity)
+    local bindings = identity and identity.participant_bindings or {}
+    if #bindings == 0 then
+        return false
+    end
+    for _, binding in ipairs(bindings) do
+        local component = binding.component
+        if not Safe.is_object(component) then
+            return false
+        end
+        local registered_ok, registered = pcall(function()
+            return component:IsRegistered()
+        end)
+        if registered_ok and registered == false then
+            return false
+        end
+    end
+    return true
+end
+
+local function identity_has_hidden_component(identity)
+    local bindings = identity and identity.participant_bindings or {}
+    for _, binding in ipairs(bindings) do
+        local component = binding.component
+        if Safe.is_object(component) then
+            local visible_ok, visible = pcall(function()
+                return component:IsVisible()
+            end)
+            if visible_ok and visible == false then
+                return true
+            end
+        end
+    end
+    return false
+end
+
 local function component_is_live(component)
     if not Safe.is_object(component) then
         return false
@@ -158,12 +219,12 @@ local function component_is_live(component)
     if registered_ok and registered == false then
         return false
     end
-    local visible_ok, visible = pcall(function()
-        return component:IsVisible()
-    end)
-    if visible_ok and visible == false then
-        return false
-    end
+    -- Rendering visibility is not object lifetime.  Fallen Doll deliberately
+    -- hides body meshes in VR first-person and in the "genitals only" display
+    -- modes while their AnimInstance and socket transforms remain usable.
+    -- Rejecting hidden components stopped the HAnime stream and also forced a
+    -- costly rediscovery every poll.  Registration is the stable lifetime
+    -- signal used by the realtime bone reader as well.
     return true
 end
 
@@ -196,7 +257,54 @@ local function discover_components()
     return true, nil
 end
 
+local function merge_pending_components()
+    if #HAnimeDetector.pending_components == 0 then
+        return
+    end
+    local pending = HAnimeDetector.pending_components
+    HAnimeDetector.pending_components = {}
+    local seen = {}
+    for _, component in ipairs(HAnimeDetector.components) do
+        local name = Safe.object_name(component)
+        if name ~= nil then
+            seen[name] = true
+        end
+    end
+    for _, component in ipairs(pending) do
+        if Safe.is_object(component) then
+            local registered_ok, registered = pcall(function()
+                return component:IsRegistered()
+            end)
+            if registered_ok and registered == false then
+                -- Object construction may precede component registration.
+                -- Retain this event payload until it becomes usable.
+                table.insert(HAnimeDetector.pending_components, component)
+            else
+                local role, entry = SkeletonCatalog.match_component(component)
+                local name = Safe.object_name(component)
+                if entry ~= nil
+                    and name ~= nil
+                    and not seen[name]
+                    and SkeletonCatalog.is_primary_component(component, entry)
+                then
+                    seen[name] = true
+                    table.insert(HAnimeDetector.components, component)
+                    HAnimeDetector.component_metadata[component] = {
+                        role = role,
+                        entry = entry,
+                        name = name,
+                    }
+                end
+            end
+        end
+    end
+    table.sort(HAnimeDetector.components, function(a, b)
+        return (Safe.object_name(a) or "") < (Safe.object_name(b) or "")
+    end)
+end
+
 local function ensure_components()
+    merge_pending_components()
     if #HAnimeDetector.components == 0 then
         return discover_components()
     end
@@ -463,10 +571,19 @@ function HAnimeDetector.sample()
             HAnimeDetector.candidate_id = observed.hanime_id
             HAnimeDetector.candidate_frames = 1
         end
-        HAnimeDetector.active = nil
         if HAnimeDetector.candidate_frames >= Config.hanime_confirm_frames then
             HAnimeDetector.active = observed
             return status("active", true, observation, nil)
+        end
+        if HAnimeDetector.active ~= nil
+            and identity_components_are_registered(HAnimeDetector.active)
+        then
+            -- A different exact HAnime must remain stable for several polls
+            -- before it replaces the current binding. Keep streaming the old
+            -- live skeletons during that short confirmation window so an
+            -- ordinary pose switch cannot look like a transport dropout and
+            -- trigger the device safety return-to-center path.
+            return status("holding", true, observation, "candidate_switch_hold")
         end
         return status("acquiring", false, observation, "candidate_not_stable")
     end
@@ -474,6 +591,18 @@ function HAnimeDetector.sample()
     HAnimeDetector.candidate_id = nil
     HAnimeDetector.candidate_frames = 0
     if observation.montage_count > 0 then
+        if HAnimeDetector.active ~= nil
+            and unknown_assets_indicate_active_hanime(observation.unknown_assets)
+            and identity_components_are_registered(HAnimeDetector.active)
+        then
+            -- Preserve the exact identity and UObject bindings across the VR
+            -- first-person camera swap.  Bone transforms remain live on the
+            -- registered components even though their exact Montage is no
+            -- longer exposed.  A subsequent Idle/In/Out expression, scene
+            -- change, or invalid component still releases the gate normally.
+            HAnimeDetector.empty_frames = 0
+            return status("holding", true, observation, "sexing_expression_hold")
+        end
         -- An explicit active Montage that is absent from TableHAnim is idle,
         -- transition, UI, or otherwise non-HAnime. Release immediately.
         HAnimeDetector.active = nil
@@ -482,6 +611,19 @@ function HAnimeDetector.sample()
     end
 
     HAnimeDetector.empty_frames = HAnimeDetector.empty_frames + 1
+    if HAnimeDetector.active ~= nil
+        and identity_components_are_registered(HAnimeDetector.active)
+        and identity_has_hidden_component(HAnimeDetector.active)
+    then
+        -- Playtest VR display filters can hide the full participant meshes (or
+        -- leave only genital meshes visible).  In that mode every body and
+        -- expression Montage disappears from GetCurrentActiveMontage even
+        -- though the registered skeletons keep animating.  Preserve the last
+        -- exact TableHAnim identity until the meshes are shown again, an
+        -- explicit non-HAnime Montage appears, or the components are removed.
+        HAnimeDetector.empty_frames = 0
+        return status("holding", true, observation, "hidden_participant_montage_suppressed")
+    end
     if HAnimeDetector.active ~= nil and HAnimeDetector.empty_frames <= Config.hanime_empty_hold_frames then
         return status("holding", true, observation, "short_montage_gap")
     end
@@ -501,6 +643,13 @@ function HAnimeDetector.clear_cache()
     -- was observed during this run.
     HAnimeDetector.reentry_recovery_armed = true
     HAnimeDetector.reentry_signal_frames = 0
+    HAnimeDetector.pending_components = {}
+end
+
+function HAnimeDetector.queue_component(component)
+    -- NotifyOnNewObject/Montage_Play callbacks provide the concrete component.
+    -- Inspection is deferred to the regular game-thread sampling path.
+    table.insert(HAnimeDetector.pending_components, component)
 end
 
 return HAnimeDetector

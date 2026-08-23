@@ -79,7 +79,7 @@ index 0000000..f56d73c
 --- /dev/null
 +++ b/packages/f8pyfallendoll/f8pyfallendoll/constants.py
 @@ -0,0 +1,26 @@
-+SERVICE_CLASS = "f8.fallen_doll"
++SERVICE_CLASS = "f8.fallendoll"
 +SERVICE_VERSION = "0.1.0"
 +
 +DEFAULT_POLL_INTERVAL_MS = 20
@@ -1464,7 +1464,7 @@ index 0000000..67c083b
 +++ b/services/f8/games/fallen_doll/service.yml
 @@ -0,0 +1,9 @@
 +schemaVersion: f8serviceEntry/1
-+serviceClass: f8.fallen_doll
++serviceClass: f8.fallendoll
 +label: Fallen Doll Source
 +version: 0.1.0
 +launch:
@@ -1474,4 +1474,3 @@ index 0000000..67c083b
 +  workdir: "../../../../"
 -- 
 2.55.0.windows.3
-
