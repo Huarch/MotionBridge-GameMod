@@ -7,6 +7,9 @@ It reads the currently playing HAnime skeleton in real time through UE4SS Lua an
 sends a compact functional-bone stream to F8Studio. F8Studio calculates L0, provides
 3D Skeleton and SR6/OSR viewers, and can output TCode over USB or Wi-Fi.
 
+Game pages: [Steam store](https://store.steampowered.com/app/1685960/) ·
+[Steam Demo](https://store.steampowered.com/app/1811180/)
+
 Unlike an animation-progress curve or a pre-made Funscript, the signal follows the
 current in-game skeleton pose, including animation-speed changes.
 
@@ -54,6 +57,9 @@ The package does not include game assets, F8Studio binaries, or device drivers.
 这是 **Operation Lovecraft: Fallen Doll** 的非官方社区 TCode 接入项目。游戏侧通过
 UE4SS Lua 实时读取当前 HAnime 的功能骨骼，F8Studio 负责计算 L0、显示 3D 骨骼与
 SR6/OSR Viewer，并可通过 USB 或 Wi-Fi 输出 TCode。
+
+游戏页面：[Steam 商店](https://store.steampowered.com/app/1685960/) ·
+[Steam Demo](https://store.steampowered.com/app/1811180/)
 
 它不是按照动画进度播放预制曲线或 Funscript，而是跟随游戏当前帧的骨骼姿态；调整
 动画速度后，信号也会随画面同步。

@@ -6,6 +6,10 @@ USB 或 Wi-Fi 输出。它不是离线 Funscript，也不修改或重新打包�
 
 当前版本：`0.16.5-event-driven-switch`
 
+游戏商店：
+[Operation Lovecraft: Fallen Doll（Steam）](https://store.steampowered.com/app/1685960/)
+ · [Demo（Steam）](https://store.steampowered.com/app/1811180/)
+
 ## 支持范围
 
 - Closed Beta / Playtest（桌面与 VR）

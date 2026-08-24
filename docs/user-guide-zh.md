@@ -2,6 +2,9 @@
 
 版本：`0.16.5-event-driven-switch`
 
+游戏页面：[Operation Lovecraft: Fallen Doll（Steam）](https://store.steampowered.com/app/1685960/) ·
+[Steam Demo](https://store.steampowered.com/app/1811180/)
+
 这个非官方 Mod 使用 UE4SS Lua 读取实时 HAnime 骨骼，并通过 F8Studio 生成 L0、
 显示 3D/OSR Viewer，或向 OSR2/SR6 输出 TCode。待机、普通转场和未识别动作不会
 作为有效输出；断流会先保持 250 ms，再用 600 ms 平滑回到 `L05000`。

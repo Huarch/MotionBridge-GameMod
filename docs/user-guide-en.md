@@ -2,6 +2,9 @@
 
 Version: `0.16.5-event-driven-switch`
 
+Game pages: [Operation Lovecraft: Fallen Doll on Steam](https://store.steampowered.com/app/1685960/) ·
+[Steam Demo](https://store.steampowered.com/app/1811180/)
+
 This unofficial mod reads live HAnime skeleton transforms through UE4SS Lua and
 uses F8Studio for L0, 3D/OSR viewers, and OSR2/SR6 TCode output. Idle, ordinary
 transitions, and unidentified animations are not treated as active output. On a
