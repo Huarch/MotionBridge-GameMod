@@ -41,10 +41,10 @@ annotation. The other five SR6 axes are future work, so this should be considere
 4. Enter HAnime and verify motion in a Viewer first.
 5. After checking direction and range, enable either USB or Wi-Fi output—never both.
 
-- Download: [v0.16.5 package](https://github.com/Huarch/FallenDollTCode/releases/download/v0.16.5/FallenDollTCode-0.16.5-event-driven-switch.zip)
+- Download: [v0.16.6 package](https://github.com/Huarch/FallenDollTCode/releases/download/v0.16.6/FallenDollTCode-0.16.6.zip)
 - Source and documentation: [Huarch/FallenDollTCode](https://github.com/Huarch/FallenDollTCode)
 - F8Studio integration PR: [feel8-fun/f8studio#3](https://github.com/feel8-fun/f8studio/pull/3)
-SHA-256: `D0BA2D6B6F588F673653C14780909256FD0A2CBAA46CCFAC8A8331D7459AB855`
+SHA-256: `9F478F387F250ECDB090E28D9AFEF68349E76C2028E42FC2658168D5D8EE5492`
 
 Both physical-output nodes are disabled by default. Please verify the Viewer, direction,
 range, stream-loss centering, and your emergency-stop method before connecting a device.
@@ -87,10 +87,10 @@ SR6/OSR Viewer，并可通过 USB 或 Wi-Fi 输出 TCode。
 4. 进入 HAnime，先打开 Viewer 检查动作。
 5. 确认方向和范围正确后，只启用 USB 或 Wi-Fi 中的一种输出。
 
-- 下载：[v0.16.5 发布包](https://github.com/Huarch/FallenDollTCode/releases/download/v0.16.5/FallenDollTCode-0.16.5-event-driven-switch.zip)
+- 下载：[v0.16.6 发布包](https://github.com/Huarch/FallenDollTCode/releases/download/v0.16.6/FallenDollTCode-0.16.6.zip)
 - 源码与文档：[Huarch/FallenDollTCode](https://github.com/Huarch/FallenDollTCode)
 - F8Studio 接入 PR：[feel8-fun/f8studio#3](https://github.com/feel8-fun/f8studio/pull/3)
-SHA-256：`D0BA2D6B6F588F673653C14780909256FD0A2CBAA46CCFAC8A8331D7459AB855`
+SHA-256：`9F478F387F250ECDB090E28D9AFEF68349E76C2028E42FC2658168D5D8EE5492`
 
 实体输出节点默认关闭。连接设备前请先验证 Viewer、方向、范围、断流回中和紧急停止
 方式。发布包不包含游戏资源、F8Studio 本体或设备驱动。

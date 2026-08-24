@@ -4,7 +4,7 @@
 功能骨骼，F8Studio 负责参与者/功能骨选择、L0 计算、Viewer、安全回中以及
 USB 或 Wi-Fi 输出。它不是离线 Funscript，也不修改或重新打包游戏 Pak。
 
-当前版本：`0.16.5-event-driven-switch`
+当前版本：`0.16.6`
 
 游戏商店：
 [Operation Lovecraft: Fallen Doll（Steam）](https://store.steampowered.com/app/1685960/)

@@ -1,6 +1,6 @@
 # Operation Lovecraft: Fallen Doll TCode Mod
 
-Version: `0.16.5-event-driven-switch`
+Version: `0.16.6`
 
 Game pages: [Operation Lovecraft: Fallen Doll on Steam](https://store.steampowered.com/app/1685960/) ·
 [Steam Demo](https://store.steampowered.com/app/1811180/)

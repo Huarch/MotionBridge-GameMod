@@ -1,5 +1,5 @@
 param(
-    [string]$Version = "0.16.5-event-driven-switch",
+    [string]$Version = "0.16.6",
     [string]$UE4SSArchive = ""
 )
 
