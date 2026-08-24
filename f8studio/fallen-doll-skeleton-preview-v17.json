@@ -104,6 +104,16 @@
       {
         "in": [
           "fd_l0_safety",
+          "[D]contactFrame"
+        ],
+        "out": [
+          "fd_contact_axes",
+          "frame[D]"
+        ]
+      },
+      {
+        "in": [
+          "fd_l0_safety",
           "[D]heartbeat"
         ],
         "out": [
@@ -113,252 +123,42 @@
       },
       {
         "in": [
-          "fd_l0_safety",
-          "[D]geometryStatus"
-        ],
-        "out": [
-          "fd_contact_axes",
-          "status[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_safety",
-          "[D]L0"
-        ],
-        "out": [
-          "fd_contact_axes",
-          "L0[D]"
-        ]
-      },
-      {
-        "in": [
           "fd_tcode",
-          "[D]L0"
+          "[D]frame"
         ],
         "out": [
           "fd_l0_safety",
-          "L0[D]"
+          "axesFrame[D]"
         ]
       },
       {
         "in": [
           "fd_device_tcode",
-          "[D]L0"
+          "[D]frame"
         ],
         "out": [
           "fd_l0_safety",
-          "L0[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_safety",
-          "[D]L1"
-        ],
-        "out": [
-          "fd_contact_axes",
-          "L1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_tcode",
-          "[D]L1"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "L1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_device_tcode",
-          "[D]L1"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "L1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_safety",
-          "[D]L2"
-        ],
-        "out": [
-          "fd_contact_axes",
-          "L2[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_tcode",
-          "[D]L2"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "L2[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_device_tcode",
-          "[D]L2"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "L2[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_safety",
-          "[D]R0"
-        ],
-        "out": [
-          "fd_contact_axes",
-          "R0[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_tcode",
-          "[D]R0"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R0[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_device_tcode",
-          "[D]R0"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R0[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_safety",
-          "[D]R1"
-        ],
-        "out": [
-          "fd_contact_axes",
-          "R1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_tcode",
-          "[D]R1"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_device_tcode",
-          "[D]R1"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_safety",
-          "[D]R2"
-        ],
-        "out": [
-          "fd_contact_axes",
-          "R2[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_tcode",
-          "[D]R2"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R2[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_device_tcode",
-          "[D]R2"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R2[D]"
+          "axesFrame[D]"
         ]
       },
       {
         "in": [
           "fd_l0_normalized_viz",
-          "[D]x"
+          "[D]frame"
         ],
         "out": [
           "fd_l0_safety",
-          "L0[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_normalized_viz",
-          "[D]y"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "L1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_l0_normalized_viz",
-          "[D]z"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "L2[D]"
+          "axesFrame[D]"
         ]
       },
       {
         "in": [
           "fd_rotation_viz",
-          "[D]x"
+          "[D]frame"
         ],
         "out": [
           "fd_l0_safety",
-          "R0[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_rotation_viz",
-          "[D]y"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R1[D]"
-        ]
-      },
-      {
-        "in": [
-          "fd_rotation_viz",
-          "[D]z"
-        ],
-        "out": [
-          "fd_l0_safety",
-          "R2[D]"
+          "axesFrame[D]"
         ]
       }
     ],
@@ -846,11 +646,22 @@
           "dataInPorts": [
             {
               "delivery": "fifo",
+              "description": "Atomic SR6 axis frame.",
+              "name": "frame",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
               "description": "Axis L0 (0..1).",
               "name": "L0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -863,7 +674,7 @@
               "name": "L1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -876,7 +687,7 @@
               "name": "L2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -889,7 +700,7 @@
               "name": "R0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -902,7 +713,7 @@
               "name": "R1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -915,7 +726,7 @@
               "name": "R2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -1131,33 +942,44 @@
           "dataInPorts": [
             {
               "delivery": "fifo",
-              "description": "Numeric input value (y-axis).",
-              "name": "x",
+              "description": "One safety-gated coherent SR6 frame.",
+              "name": "frame",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Series selected from the atomic L-axis frame.",
+              "name": "L0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "type": "number"
               }
             },
             {
               "delivery": "fifo",
-              "description": "Numeric input value (y-axis).",
-              "name": "y",
+              "description": "Series selected from the atomic L-axis frame.",
+              "name": "L1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "type": "number"
               }
             },
             {
               "delivery": "fifo",
-              "description": "Numeric input value (y-axis).",
-              "name": "z",
+              "description": "Series selected from the atomic L-axis frame.",
+              "name": "L2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "type": "number"
               }
@@ -1372,7 +1194,7 @@
           255
         ],
         "custom": {
-          "code": "import math\nimport time\n\nAXES = ('L0', 'L1', 'L2', 'R0', 'R1', 'R2')\nHOLD_MS = 250.0\nRETURN_MS = 600.0\nCENTER = 0.5\n\ndef _timestamps(value):\n    if isinstance(value, list):\n        out = []\n        for item in value:\n            out.extend(_timestamps(item))\n        return out\n    if not isinstance(value, dict):\n        return []\n    raw = value.get('receivedAtMs', value.get('timestampMs'))\n    if isinstance(raw, bool) or raw is None:\n        return []\n    try:\n        number = float(raw)\n    except (TypeError, ValueError, OverflowError):\n        return []\n    return [number] if math.isfinite(number) else []\n\ndef _number(value):\n    if isinstance(value, bool) or value is None:\n        return None\n    try:\n        number = float(value)\n    except (TypeError, ValueError, OverflowError):\n        return None\n    return number if math.isfinite(number) else None\n\ndef _geometry_valid(value):\n    return isinstance(value, dict) and value.get('valid') is True\n\ndef _center_axes():\n    return {axis: CENTER for axis in AXES}\n\ndef onStart(ctx):\n    ctx.locals['lastValid'] = _center_axes()\n    ctx.locals['lastValidAtMs'] = None\n    ctx.locals['lastHeartbeatAtMs'] = None\n    ctx.locals['state'] = 'idle'\n\ndef onMsg(ctx, inputs):\n    now_ms = time.time() * 1000.0\n    timestamps = _timestamps(inputs.get('heartbeat'))\n    if timestamps:\n        ctx.locals['lastHeartbeatAtMs'] = max(timestamps)\n    heartbeat_at = ctx.locals.get('lastHeartbeatAtMs')\n    heartbeat_age_ms = None if heartbeat_at is None else max(0.0, now_ms - float(heartbeat_at))\n    incoming = {axis: _number(inputs.get(axis)) for axis in AXES}\n    sample_fresh = (\n        heartbeat_age_ms is not None\n        and heartbeat_age_ms <= HOLD_MS\n        and _geometry_valid(inputs.get('geometryStatus'))\n        and all(incoming[axis] is not None for axis in AXES)\n    )\n    if sample_fresh:\n        output = {axis: max(0.0, min(1.0, float(incoming[axis]))) for axis in AXES}\n        ctx.locals['lastValid'] = dict(output)\n        ctx.locals['lastValidAtMs'] = now_ms\n        valid_age_ms = 0.0\n        state = 'active'\n    else:\n        valid_at = ctx.locals.get('lastValidAtMs')\n        valid_age_ms = None if valid_at is None else max(0.0, now_ms - float(valid_at))\n        last_valid = dict(ctx.locals.get('lastValid', _center_axes()))\n        if valid_age_ms is not None and valid_age_ms <= HOLD_MS:\n            output = last_valid\n            state = 'holding'\n        else:\n            release_age_ms = RETURN_MS if valid_age_ms is None else max(0.0, valid_age_ms - HOLD_MS)\n            progress = max(0.0, min(1.0, release_age_ms / RETURN_MS))\n            eased = progress * progress * (3.0 - 2.0 * progress)\n            output = {\n                axis: float(last_valid.get(axis, CENTER))\n                + (CENTER - float(last_valid.get(axis, CENTER))) * eased\n                for axis in AXES\n            }\n            state = 'centered' if progress >= 1.0 else 'returning'\n    ctx.locals['state'] = state\n    status = {\n        'state': state,\n        'fresh': sample_fresh,\n        'heartbeatAgeMs': heartbeat_age_ms,\n        'validAgeMs': valid_age_ms,\n        'holdMs': HOLD_MS,\n        'returnMs': RETURN_MS,\n        'center': CENTER,\n    }\n    return {'outputs': {**output, 'status': status}}\n",
+          "code": "import math\nimport time\n\nAXES = ('L0', 'L1', 'L2', 'R0', 'R1', 'R2')\nHOLD_MS = 250.0\nRETURN_MS = 600.0\nCENTER = 0.5\n\ndef _timestamps(value):\n    if isinstance(value, list):\n        out = []\n        for item in value:\n            out.extend(_timestamps(item))\n        return out\n    if not isinstance(value, dict):\n        return []\n    raw = value.get('receivedAtMs', value.get('timestampMs'))\n    if isinstance(raw, bool) or raw is None:\n        return []\n    try:\n        number = float(raw)\n    except (TypeError, ValueError, OverflowError):\n        return []\n    return [number] if math.isfinite(number) else []\n\ndef _number(value):\n    if isinstance(value, bool) or value is None:\n        return None\n    try:\n        number = float(value)\n    except (TypeError, ValueError, OverflowError):\n        return None\n    return number if math.isfinite(number) else None\n\ndef _contact_frame(value):\n    if not isinstance(value, dict):\n        return None, None\n    axes = value.get('axes')\n    status = value.get('status')\n    return (axes if isinstance(axes, dict) else None, status if isinstance(status, dict) else None)\n\ndef _center_axes():\n    return {axis: CENTER for axis in AXES}\n\ndef onStart(ctx):\n    ctx.locals['lastValid'] = _center_axes()\n    ctx.locals['lastValidAtMs'] = None\n    ctx.locals['lastHeartbeatAtMs'] = None\n    ctx.locals['state'] = 'idle'\n\ndef onExec(ctx, exec_in, inputs):\n    # Data inputs are buffered by F8.  Evaluate and publish one coherent\n    # six-axis snapshot only when the 20 ms safety clock fires.  Defining\n    # onMsg here would run once for every individual axis/status/heartbeat\n    # arrival and multiply a single skeleton frame into many output frames.\n    now_ms = time.time() * 1000.0\n    timestamps = _timestamps(inputs.get('heartbeat'))\n    if timestamps:\n        ctx.locals['lastHeartbeatAtMs'] = max(timestamps)\n    heartbeat_at = ctx.locals.get('lastHeartbeatAtMs')\n    heartbeat_age_ms = None if heartbeat_at is None else max(0.0, now_ms - float(heartbeat_at))\n    frame_axes, geometry_status = _contact_frame(inputs.get('contactFrame'))\n    incoming = {axis: _number(frame_axes.get(axis)) if frame_axes is not None else None for axis in AXES}\n    sample_fresh = (\n        heartbeat_age_ms is not None\n        and heartbeat_age_ms <= HOLD_MS\n        and geometry_status is not None\n        and geometry_status.get('valid') is True\n        and all(incoming[axis] is not None for axis in AXES)\n    )\n    if sample_fresh:\n        output = {axis: max(0.0, min(1.0, float(incoming[axis]))) for axis in AXES}\n        ctx.locals['lastValid'] = dict(output)\n        ctx.locals['lastValidAtMs'] = now_ms\n        valid_age_ms = 0.0\n        state = 'active'\n    else:\n        valid_at = ctx.locals.get('lastValidAtMs')\n        valid_age_ms = None if valid_at is None else max(0.0, now_ms - float(valid_at))\n        last_valid = dict(ctx.locals.get('lastValid', _center_axes()))\n        if valid_age_ms is not None and valid_age_ms <= HOLD_MS:\n            output = last_valid\n            state = 'holding'\n        else:\n            release_age_ms = RETURN_MS if valid_age_ms is None else max(0.0, valid_age_ms - HOLD_MS)\n            progress = max(0.0, min(1.0, release_age_ms / RETURN_MS))\n            eased = progress * progress * (3.0 - 2.0 * progress)\n            output = {\n                axis: float(last_valid.get(axis, CENTER))\n                + (CENTER - float(last_valid.get(axis, CENTER))) * eased\n                for axis in AXES\n            }\n            state = 'centered' if progress >= 1.0 else 'returning'\n    ctx.locals['state'] = state\n    status = {\n        'state': state,\n        'fresh': sample_fresh,\n        'heartbeatAgeMs': heartbeat_age_ms,\n        'validAgeMs': valid_age_ms,\n        'holdMs': HOLD_MS,\n        'returnMs': RETURN_MS,\n        'center': CENTER,\n    }\n    return {'outputs': {'axesFrame': {'axes': output, 'status': status}}}\n",
           "inputMode": "raw_dict",
           "operatorId": "fd_l0_safety",
           "svcId": "fd_pyengine"
@@ -1383,74 +1205,8 @@
           "dataInPorts": [
             {
               "delivery": "fifo",
-              "description": "Normalized live L0 contact axis.",
-              "name": "L0",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Normalized live L1 contact axis.",
-              "name": "L1",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Normalized live L2 contact axis.",
-              "name": "L2",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Normalized live R0 contact axis.",
-              "name": "R0",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Normalized live R1 contact axis.",
-              "name": "R1",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Normalized live R2 contact axis.",
-              "name": "R2",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Contact geometry validity from the multi-bone solver.",
-              "name": "geometryStatus",
+              "description": "Atomic axes and geometry status from the multi-bone solver.",
+              "name": "contactFrame",
               "payloadKind": "json",
               "required": false,
               "showOnNode": true,
@@ -1473,74 +1229,8 @@
           "dataOutPorts": [
             {
               "delivery": "fifo",
-              "description": "Safety-gated normalized L0 axis.",
-              "name": "L0",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Safety-gated normalized L1 axis.",
-              "name": "L1",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Safety-gated normalized L2 axis.",
-              "name": "L2",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Safety-gated normalized R0 axis.",
-              "name": "R0",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Safety-gated normalized R1 axis.",
-              "name": "R1",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Safety-gated normalized R2 axis.",
-              "name": "R2",
-              "payloadKind": "json",
-              "required": false,
-              "showOnNode": true,
-              "valueSchema": {
-                "type": "number"
-              }
-            },
-            {
-              "delivery": "fifo",
-              "description": "Freshness state for simulation diagnostics.",
-              "name": "status",
+              "description": "One safety-gated coherent SR6 frame.",
+              "name": "axesFrame",
               "payloadKind": "json",
               "required": false,
               "showOnNode": true,
@@ -1709,7 +1399,7 @@
         "height": 370.0,
         "icon": null,
         "layout_direction": 0,
-        "name": "FD Six-Axis Stream Safety",
+        "name": "FD Clocked Six-Axis Stream Safety",
         "pos": [
           1740.0,
           390.0
@@ -2327,11 +2017,22 @@
           "dataInPorts": [
             {
               "delivery": "fifo",
+              "description": "Atomic SR6 axis frame.",
+              "name": "frame",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
               "description": "Axis L0 (0..1).",
               "name": "L0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2344,7 +2045,7 @@
               "name": "L1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2357,7 +2058,7 @@
               "name": "L2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2370,7 +2071,7 @@
               "name": "R0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2383,7 +2084,7 @@
               "name": "R1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2396,7 +2097,7 @@
               "name": "R2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -4003,7 +3704,7 @@
           "specKind": "operator",
           "schemaVersion": "f8operator/1",
           "rendererClass": "default_op",
-          "version": "0.1.0",
+          "version": "0.2.0",
           "description": "Build a multi-bone contact frame and emit normalized SR6 L0/L1/L2/R0/R1/R2 axes.",
           "tags": [
             "skeleton",
@@ -4427,6 +4128,101 @@
           ],
           "dataOutPorts": [
             {
+              "name": "frame",
+              "valueSchema": {
+                "type": "object",
+                "properties": {
+                  "axes": {
+                    "type": "object",
+                    "properties": {
+                      "L0": {
+                        "type": "number"
+                      },
+                      "L1": {
+                        "type": "number"
+                      },
+                      "L2": {
+                        "type": "number"
+                      },
+                      "R0": {
+                        "type": "number"
+                      },
+                      "R1": {
+                        "type": "number"
+                      },
+                      "R2": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "status": {
+                    "type": "object",
+                    "properties": {
+                      "valid": {
+                        "type": "boolean"
+                      },
+                      "contactValid": {
+                        "type": "boolean"
+                      },
+                      "reason": {
+                        "type": "string"
+                      },
+                      "referenceLength": {
+                        "type": "number"
+                      },
+                      "referenceRadius": {
+                        "type": "number"
+                      },
+                      "axialMeters": {
+                        "type": "number"
+                      },
+                      "radialMeters": {
+                        "type": "number"
+                      },
+                      "lateralForwardMeters": {
+                        "type": "number"
+                      },
+                      "lateralRightMeters": {
+                        "type": "number"
+                      },
+                      "twistDegrees": {
+                        "type": "number"
+                      },
+                      "rollDegrees": {
+                        "type": "number"
+                      },
+                      "pitchDegrees": {
+                        "type": "number"
+                      },
+                      "L0": {
+                        "type": "number"
+                      },
+                      "L1": {
+                        "type": "number"
+                      },
+                      "L2": {
+                        "type": "number"
+                      },
+                      "R0": {
+                        "type": "number"
+                      },
+                      "R1": {
+                        "type": "number"
+                      },
+                      "R2": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              },
+              "description": "Atomic SR6 axes and contact diagnostics for one geometry sample.",
+              "required": true,
+              "showOnNode": true,
+              "payloadKind": "json",
+              "delivery": "fifo"
+            },
+            {
               "name": "L0",
               "valueSchema": {
                 "type": "number",
@@ -4629,33 +4425,44 @@
           "dataInPorts": [
             {
               "delivery": "fifo",
-              "description": "Numeric input value (y-axis).",
-              "name": "x",
+              "description": "One safety-gated coherent SR6 frame.",
+              "name": "frame",
+              "payloadKind": "json",
+              "required": false,
+              "showOnNode": true,
+              "valueSchema": {
+                "type": "any"
+              }
+            },
+            {
+              "delivery": "fifo",
+              "description": "Series selected from the atomic R-axis frame.",
+              "name": "R0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "type": "number"
               }
             },
             {
               "delivery": "fifo",
-              "description": "Numeric input value (y-axis).",
-              "name": "y",
+              "description": "Series selected from the atomic R-axis frame.",
+              "name": "R1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "type": "number"
               }
             },
             {
               "delivery": "fifo",
-              "description": "Numeric input value (y-axis).",
-              "name": "z",
+              "description": "Series selected from the atomic R-axis frame.",
+              "name": "R2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": true,
+              "showOnNode": false,
               "valueSchema": {
                 "type": "number"
               }

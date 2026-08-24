@@ -76,8 +76,9 @@ def _frame(timestamp_ms: int) -> str:
             {
                 "name": "R_Hand",
                 "pos": [-0.02, 0.03, 0.15],
-                # local Z -> reference right (-X), -local Y -> reference axis (+Z)
-                "rot": [0.5, -0.5, -0.5, 0.5],
+                # Current R_Hand basis: local Z -> reference axis (+Z),
+                # -local Y -> reference right (-X).
+                "rot": [0.7071067811865476, 0.0, 0.0, -0.7071067811865476],
             }
         ],
     )

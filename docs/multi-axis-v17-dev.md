@@ -10,6 +10,8 @@
 - F8Studio 的 `f8.contact_pose_axes` 使用有限线段最近点、局部投影和有符号角生成归一化 `L0/L1/L2/R0/R1/R2`，不使用 Montage position 或欧拉角差直接驱动。
 - 纯几何与四元数运算位于独立模块；同一非空 F8 `ctx_id` 的 6 个轴和状态只解析、计算一次，配置变化时立即清除缓存。
 - 六轴统一经过 250 ms 保持和 600 ms smoothstep 回中，然后同时接入 OSR Viewer TCode 与设备 TCode。
+- Contact、Safety、TCode 和 Wave 之间使用单个原子 `axesFrame` 传递六轴；Safety 只由
+  20 ms 时钟执行一次，不再为六个标量分别 pull、emit 和跨服务发布。
 - v17 工程中的 USB/Wi-Fi 输出仍默认关闭，且只能启用一种。
 
 ## 文件
@@ -25,6 +27,7 @@
   4. `f8studio/0004-fix-sdk-support-generated-wire-field-aliases.patch`
   5. `f8studio/0005-refactor-pyengine-isolate-and-cache-contact-geometry.patch`
   6. `f8studio/0006-fix-fallen-doll-apply-target-specific-hand-basis.patch`
+  7. `f8studio/0007-perf-sr6-route-axes-as-atomic-frames.patch`
 - UDP 设备链路回环工具：`tools/verify_f8studio_v17_udp.py`
 - 静态骨架依据：`data/skeleton-catalog-v1.json`
 - Hand01/02/03 几何规则：`data/runtime-profiles-v2.json`
@@ -48,8 +51,8 @@ Fallen Doll Source 会把已验证的右手 `basis` 随 `targetBone` 一起发�
 优先使用该逐目标覆盖，没有覆盖的功能骨继续使用工程默认基准。因此修正 Hand 的
 Pitch 不会把同一映射错误地套到 `M_Gen` 等其他目标。
 
-两张 10 秒 Wave 图使用 2000 点缓冲区。安全节点在一帧内可能产生多次一致的轴更新，
-原先 200 点只能覆盖约 2 秒，因此视觉上只占据图表右侧；该问题只影响历史显示范围，
+两张 10 秒 Wave 图使用 2000 点缓冲区。两个 Wave 节点从同一个 `axesFrame` 中分别
+选择 L0/L1/L2 和 R0/R1/R2，因此只需一次跨服务发布；缓冲区只影响历史显示范围，
 不改变设备输出值。
 
 ## 验证顺序
@@ -62,10 +65,13 @@ Pitch 不会把同一映射错误地套到 `M_Gen` 等其他目标。
 
 ## 已完成的自动验证
 
-- v17 工程可由生成器精确重建，包含 14 个节点、36 条连接和 0 个图诊断问题。
-- 多骨骼算子、Source/stream 与 TCode 端口的 25 项定向测试通过；整理后的相关
-  扩展测试共 65 项通过。同一帧 6 轴只计算一次、状态变化清缓存均有回归测试。全仓库
+- v17 工程可由生成器精确重建，包含 14 个节点、16 条连接和 0 个图诊断问题。
+- 原子 Contact frame、TCode 编码与 Wave 展开相关的 27 项定向测试通过；同一帧 6 轴
+  只计算一次、状态变化清缓存、TCode 不回退到六次标量 pull 均有回归测试。全仓库
   `basedpyright` 为 0 errors / 0 warnings。
+- 游戏关闭的同条件实测中，PyEngine `bufferPullDeliveries` 从约 1645/s 降至 182/s，
+  跨服务 emit 从约 728/s 降至 148/s，processed 从约 1517/s 降至 895/s；优化后
+  10 秒窗口 CPU 平均约 0.8%，无错误或丢帧。
 - SDK 状态协议在当前 `field_` 生成模型下通过 41 项测试；另以干净检出中原始
   `field` 生成模型运行 40 项相关测试，确认两种代码生成结果都按线协议字段
   `field` 正常工作，且无需提交本机生成文件。

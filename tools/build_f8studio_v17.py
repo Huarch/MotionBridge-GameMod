@@ -74,8 +74,12 @@ def _number(value):
         return None
     return number if math.isfinite(number) else None
 
-def _geometry_valid(value):
-    return isinstance(value, dict) and value.get('valid') is True
+def _contact_frame(value):
+    if not isinstance(value, dict):
+        return None, None
+    axes = value.get('axes')
+    status = value.get('status')
+    return (axes if isinstance(axes, dict) else None, status if isinstance(status, dict) else None)
 
 def _center_axes():
     return {axis: CENTER for axis in AXES}
@@ -86,18 +90,24 @@ def onStart(ctx):
     ctx.locals['lastHeartbeatAtMs'] = None
     ctx.locals['state'] = 'idle'
 
-def onMsg(ctx, inputs):
+def onExec(ctx, exec_in, inputs):
+    # Data inputs are buffered by F8.  Evaluate and publish one coherent
+    # six-axis snapshot only when the 20 ms safety clock fires.  Defining
+    # onMsg here would run once for every individual axis/status/heartbeat
+    # arrival and multiply a single skeleton frame into many output frames.
     now_ms = time.time() * 1000.0
     timestamps = _timestamps(inputs.get('heartbeat'))
     if timestamps:
         ctx.locals['lastHeartbeatAtMs'] = max(timestamps)
     heartbeat_at = ctx.locals.get('lastHeartbeatAtMs')
     heartbeat_age_ms = None if heartbeat_at is None else max(0.0, now_ms - float(heartbeat_at))
-    incoming = {axis: _number(inputs.get(axis)) for axis in AXES}
+    frame_axes, geometry_status = _contact_frame(inputs.get('contactFrame'))
+    incoming = {axis: _number(frame_axes.get(axis)) if frame_axes is not None else None for axis in AXES}
     sample_fresh = (
         heartbeat_age_ms is not None
         and heartbeat_age_ms <= HOLD_MS
-        and _geometry_valid(inputs.get('geometryStatus'))
+        and geometry_status is not None
+        and geometry_status.get('valid') is True
         and all(incoming[axis] is not None for axis in AXES)
     )
     if sample_fresh:
@@ -133,7 +143,7 @@ def onMsg(ctx, inputs):
         'returnMs': RETURN_MS,
         'center': CENTER,
     }
-    return {'outputs': {**output, 'status': status}}
+    return {'outputs': {'axesFrame': {'axes': output, 'status': status}}}
 """
 
 
@@ -233,36 +243,27 @@ def safety_node(template: dict[str, Any]) -> dict[str, Any]:
     node = copy.deepcopy(template)
     spec = node["f8_spec"]
     old_inputs = {port["name"]: port for port in spec.get("dataInPorts", [])}
-    value_input = old_inputs["value"]
     heartbeat_input = old_inputs["heartbeat"]
-    axis_inputs = []
-    for axis in AXES:
-        port = copy.deepcopy(value_input)
-        port["name"] = axis
-        port["description"] = f"Normalized live {axis} contact axis."
-        axis_inputs.append(port)
-    geometry_status = copy.deepcopy(heartbeat_input)
-    geometry_status["name"] = "geometryStatus"
-    geometry_status["description"] = "Contact geometry validity from the multi-bone solver."
-    spec["dataInPorts"] = [*axis_inputs, geometry_status, heartbeat_input]
+    contact_frame = copy.deepcopy(heartbeat_input)
+    contact_frame["name"] = "contactFrame"
+    contact_frame["description"] = "Atomic axes and geometry status from the multi-bone solver."
+    spec["dataInPorts"] = [contact_frame, heartbeat_input]
 
     old_outputs = {port["name"]: port for port in spec.get("dataOutPorts", [])}
-    value_output = old_outputs["safeValue"]
-    axis_outputs = []
-    for axis in AXES:
-        port = copy.deepcopy(value_output)
-        port["name"] = axis
-        port["description"] = f"Safety-gated normalized {axis} axis."
-        axis_outputs.append(port)
-    spec["dataOutPorts"] = [*axis_outputs, old_outputs["status"]]
+    axes_frame = copy.deepcopy(old_outputs["status"])
+    axes_frame["name"] = "axesFrame"
+    axes_frame["description"] = "One safety-gated coherent SR6 frame."
+    spec["dataOutPorts"] = [axes_frame]
     node["custom"]["code"] = SAFETY_CODE
     node["height"] = 370.0
-    node["name"] = "FD Six-Axis Stream Safety"
+    node["name"] = "FD Clocked Six-Axis Stream Safety"
     node["pos"] = [1740.0, 390.0]
     return node
 
 
-def wave_node(template: dict[str, Any], *, name: str, position: list[float]) -> dict[str, Any]:
+def wave_node(
+    template: dict[str, Any], *, name: str, position: list[float], axes: tuple[str, str, str], frame_port: dict[str, Any]
+) -> dict[str, Any]:
     node = copy.deepcopy(template)
     node["name"] = name
     node["pos"] = position
@@ -272,18 +273,32 @@ def wave_node(template: dict[str, Any], *, name: str, position: list[float]) -> 
     node["custom"]["bufferLimit"] = 2000
     node["custom"]["showLegend"] = True
     node["custom"]["upstreamSampleIntervalMs"] = 50
-    for port in node["f8_spec"].get("dataInPorts", []):
-        if port.get("name") in {"x", "y", "z"}:
-            port["showOnNode"] = True
+    numeric_template = copy.deepcopy(node["f8_spec"]["dataInPorts"][0])
+    atomic_frame = copy.deepcopy(frame_port)
+    atomic_frame["name"] = "frame"
+    atomic_frame["showOnNode"] = True
+    axis_ports = []
+    for axis in axes:
+        port = copy.deepcopy(numeric_template)
+        port["name"] = axis
+        port["description"] = f"Series selected from the atomic {axis[0]}-axis frame."
+        port["showOnNode"] = False
+        axis_ports.append(port)
+    node["f8_spec"]["dataInPorts"] = [atomic_frame, *axis_ports]
     node["f8_sys"] = copy.deepcopy(template.get("f8_sys", {}))
     node["f8_ui_state"] = copy.deepcopy(template.get("f8_ui_state", {}))
     return node
 
 
-def expose_tcode_axes(node: dict[str, Any]) -> None:
+def expose_tcode_frame(node: dict[str, Any], frame_port: dict[str, Any]) -> None:
+    ports = node["f8_spec"].get("dataInPorts", [])
+    if not any(port.get("name") == "frame" for port in ports):
+        port = copy.deepcopy(frame_port)
+        port["name"] = "frame"
+        port["description"] = "Atomic SR6 axis frame."
+        ports.insert(0, port)
     for port in node["f8_spec"].get("dataInPorts", []):
-        if port.get("name") in AXES:
-            port["showOnNode"] = True
+        port["showOnNode"] = port.get("name") == "frame"
 
 
 def input_key(item: dict[str, Any]) -> tuple[str, str]:
@@ -305,19 +320,26 @@ def build_project(source: Path, destination: Path) -> None:
     nodes["fd_source"] = source_node(describe["service"])
     nodes["fd_contact_axes"] = contact_node(relative_template)
     nodes["fd_l0_safety"] = safety_node(safety_template)
+    safety_frame_port = next(
+        port for port in nodes["fd_l0_safety"]["f8_spec"]["dataOutPorts"] if port["name"] == "axesFrame"
+    )
     nodes["fd_l0_safety_tick"]["name"] = "FD Six-Axis Safety Clock"
     nodes["fd_l0_normalized_viz"] = wave_node(
         wave_template,
         name="FD Translation Axes (L0/L1/L2)",
         position=[2320.0, 390.0],
+        axes=AXES[:3],
+        frame_port=safety_frame_port,
     )
     nodes["fd_rotation_viz"] = wave_node(
         wave_template,
         name="FD Rotation Axes (R0/R1/R2)",
         position=[2320.0, 650.0],
+        axes=AXES[3:],
+        frame_port=safety_frame_port,
     )
-    expose_tcode_axes(nodes["fd_tcode"])
-    expose_tcode_axes(nodes["fd_device_tcode"])
+    expose_tcode_frame(nodes["fd_tcode"], safety_frame_port)
+    expose_tcode_frame(nodes["fd_device_tcode"], safety_frame_port)
 
     usb_node = nodes["fd_usb_out"]
     usb_node["custom"]["enabled"] = False
@@ -330,28 +352,34 @@ def build_project(source: Path, destination: Path) -> None:
     generated_connections = [
         connection("fd_source", "referenceSkeleton", "fd_contact_axes", "referenceSkeleton"),
         connection("fd_source", "targetBone", "fd_contact_axes", "targetBone"),
+        connection("fd_contact_axes", "frame", "fd_l0_safety", "contactFrame"),
         connection("fd_source", "skeletons", "fd_l0_safety", "heartbeat"),
-        connection("fd_contact_axes", "status", "fd_l0_safety", "geometryStatus"),
+        connection("fd_l0_safety", "axesFrame", "fd_tcode", "frame"),
+        connection("fd_l0_safety", "axesFrame", "fd_device_tcode", "frame"),
+        connection("fd_l0_safety", "axesFrame", "fd_l0_normalized_viz", "frame"),
+        connection("fd_l0_safety", "axesFrame", "fd_rotation_viz", "frame"),
     ]
-    for axis in AXES:
-        generated_connections.extend(
-            [
-                connection("fd_contact_axes", axis, "fd_l0_safety", axis),
-                connection("fd_l0_safety", axis, "fd_tcode", axis),
-                connection("fd_l0_safety", axis, "fd_device_tcode", axis),
-            ]
-        )
-    for axis, port in zip(AXES[:3], ("x", "y", "z"), strict=True):
-        generated_connections.append(connection("fd_l0_safety", axis, "fd_l0_normalized_viz", port))
-    for axis, port in zip(AXES[3:], ("x", "y", "z"), strict=True):
-        generated_connections.append(connection("fd_l0_safety", axis, "fd_rotation_viz", port))
 
     generated_inputs = {input_key(item) for item in generated_connections}
     retained_connections = []
     for item in layout["connections"]:
         source_node_id = str(item["out"][0])
         target_node_id = str(item["in"][0])
+        is_data_connection = str(item["out"][1]).endswith("[D]")
         if source_node_id in REMOVED_NODE_IDS or target_node_id in REMOVED_NODE_IDS:
+            continue
+        if is_data_connection and source_node_id in {"fd_contact_axes", "fd_l0_safety"}:
+            continue
+        if is_data_connection and target_node_id in {
+            "fd_contact_axes",
+            "fd_l0_safety",
+            "fd_l0_normalized_viz",
+            "fd_rotation_viz",
+        }:
+            continue
+        if is_data_connection and target_node_id in {"fd_tcode", "fd_device_tcode"} and str(item["in"][1]) in {
+            f"[D]{axis}" for axis in AXES
+        }:
             continue
         if input_key(item) in generated_inputs:
             continue

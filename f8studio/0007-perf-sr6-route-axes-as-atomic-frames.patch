@@ -1,0 +1,306 @@
+From ed1af6126ce9dcbf1f22be292b82550b4d77dda9 Mon Sep 17 00:00:00 2001
+From: huarch <huarch97@outlook.com>
+Date: Mon, 24 Aug 2026 20:14:53 +0800
+Subject: [PATCH] perf(sr6): route axes as atomic frames
+
+---
+ .../f8pyengine/operators/contact_pose_axes.py | 25 ++++++++--
+ .../f8pyengine/f8pyengine/operators/tcode.py  | 21 +++++++-
+ .../tests/test_skeleton_motion_operators.py   |  5 ++
+ .../tests/test_tcode_atomic_frame.py          | 50 +++++++++++++++++++
+ .../f8pystudio/operators/viz_wave.py          | 36 ++++++++++---
+ .../tests/test_viz_wave_runtime_node.py       | 24 ++++++++-
+ 6 files changed, 148 insertions(+), 13 deletions(-)
+ create mode 100644 packages/f8pyengine/tests/test_tcode_atomic_frame.py
+
+diff --git a/packages/f8pyengine/f8pyengine/operators/contact_pose_axes.py b/packages/f8pyengine/f8pyengine/operators/contact_pose_axes.py
+index e893a9e..0bfea52 100644
+--- a/packages/f8pyengine/f8pyengine/operators/contact_pose_axes.py
++++ b/packages/f8pyengine/f8pyengine/operators/contact_pose_axes.py
+@@ -72,6 +72,15 @@ def _status_schema():
+     )
+ 
+ 
++def _frame_schema():
++    return complex_object_schema(
++        properties={
++            "axes": complex_object_schema(properties={axis: number_schema() for axis in AXIS_NAMES}),
++            "status": _status_schema(),
++        }
++    )
++
++
+ class ContactPoseAxesRuntimeNode(OperatorNode):
+     def __init__(self, *, node_id: str, node: F8RuntimeNode, initial_state: dict[str, Any] | None = None) -> None:
+         super().__init__(
+@@ -176,7 +185,7 @@ class ContactPoseAxesRuntimeNode(OperatorNode):
+ 
+     async def compute_output(self, port: str, ctx_id: str | int | None = None) -> Any:
+         port_name = str(port or "").strip()
+-        if port_name not in {*AXIS_NAMES, "status"}:
++        if port_name not in {*AXIS_NAMES, "status", "frame"}:
+             return None
+         result = await self._result_for_context(ctx_id)
+         if result is None:
+@@ -184,9 +193,14 @@ class ContactPoseAxesRuntimeNode(OperatorNode):
+                 return {"valid": False, "contactValid": False, "reason": "missing_or_invalid_input"}
+             return None
+         if self._require_contact and not bool(result.status["contactValid"]):
++            status = {**result.status, "valid": False, "reason": "outside_contact_radius"}
+             if port_name == "status":
+-                return {**result.status, "valid": False, "reason": "outside_contact_radius"}
++                return status
++            if port_name == "frame":
++                return {"axes": dict(result.axes), "status": status}
+             return None
++        if port_name == "frame":
++            return {"axes": dict(result.axes), "status": dict(result.status)}
+         return result.status if port_name == "status" else result.axes[port_name]
+ 
+     async def _result_for_context(self, ctx_id: str | int | None) -> ContactResult | None:
+@@ -326,7 +340,7 @@ ContactPoseAxesRuntimeNode.SPEC = F8OperatorSpec(
+     serviceClass=SERVICE_CLASS,
+     paletteCategory=f"{SERVICE_CLASS}.motion",
+     operatorClass=OPERATOR_CLASS,
+-    version="0.1.0",
++    version="0.2.0",
+     label="Contact Pose Axes",
+     description="Build a multi-bone contact frame and emit normalized SR6 L0/L1/L2/R0/R1/R2 axes.",
+     tags=["skeleton", "contact", "geometry", "multibone", "sr6", "tcode"],
+@@ -339,6 +353,11 @@ ContactPoseAxesRuntimeNode.SPEC = F8OperatorSpec(
+         F8DataPortSpec(name="targetBone", description="Selected target functional bone.", valueSchema=_bone_schema()),
+     ],
+     dataOutPorts=[
++        F8DataPortSpec(
++            name="frame",
++            description="Atomic SR6 axes and contact diagnostics for one geometry sample.",
++            valueSchema=_frame_schema(),
++        ),
+         *[
+             F8DataPortSpec(
+                 name=axis,
+diff --git a/packages/f8pyengine/f8pyengine/operators/tcode.py b/packages/f8pyengine/f8pyengine/operators/tcode.py
+index 589ddd0..4d1b57e 100644
+--- a/packages/f8pyengine/f8pyengine/operators/tcode.py
++++ b/packages/f8pyengine/f8pyengine/operators/tcode.py
+@@ -11,6 +11,7 @@ from f8pysdk.specs import (
+     F8RuntimeNode,
+     F8StateAccess,
+     F8StateSpec,
++    complex_object_schema,
+     number_schema,
+     string_schema,
+ )
+@@ -61,9 +62,11 @@ class TCodeRuntimeNode(OperatorNode):
+                 interval_ms = self._initial_state.get("intervalMs", 20)
+         interval_i = max(1, _js_round(float(interval_ms)))
+ 
++        frame_raw = await self.pull("frame", ctx_id=ctx_id)
++        frame_axes = _frame_axes(frame_raw)
+         commands: list[str] = []
+         for axis in AXES:
+-            raw_value = await self.pull(axis, ctx_id=ctx_id)
++            raw_value = frame_axes.get(axis) if frame_axes is not None else await self.pull(axis, ctx_id=ctx_id)
+             numeric = parse_number(raw_value)
+             if numeric is None:
+                 continue
+@@ -100,6 +103,14 @@ TCodeRuntimeNode.SPEC = F8OperatorSpec(
+     description="Generates TCode v0.3 command strings from normalized axis values.",
+     tags=["transform", "tcode", "osr", "command", "string"],
+     dataInPorts=[
++        F8DataPortSpec(
++            name="frame",
++            description="Optional atomic axis frame. When present, scalar axis inputs are not pulled.",
++            valueSchema=complex_object_schema(
++                properties={"axes": complex_object_schema(properties={axis: number_schema() for axis in AXES})}
++            ),
++            showOnNode=True,
++        ),
+         *[
+             F8DataPortSpec(
+                 name=axis,
+@@ -132,6 +143,14 @@ TCodeRuntimeNode.SPEC = F8OperatorSpec(
+     ],
+ )
+ 
++
++def _frame_axes(value: Any) -> dict[str, Any] | None:
++    if not isinstance(value, dict):
++        return None
++    nested = value.get("axes")
++    payload = nested if isinstance(nested, dict) else value
++    return payload if any(axis in payload for axis in AXES) else None
++
+ def register_operator(registry: Registry) -> Registry:
+     registry.register_operator(TCodeRuntimeNode.SPEC, TCodeRuntimeNode, overwrite=True)
+     return registry
+diff --git a/packages/f8pyengine/tests/test_skeleton_motion_operators.py b/packages/f8pyengine/tests/test_skeleton_motion_operators.py
+index c709607..141731a 100644
+--- a/packages/f8pyengine/tests/test_skeleton_motion_operators.py
++++ b/packages/f8pyengine/tests/test_skeleton_motion_operators.py
+@@ -183,6 +183,11 @@ async def test_contact_pose_axes_maps_orthogonal_reference_frame() -> None:
+     assert await node.compute_output("R1", ctx_id=1) == pytest.approx(0.5)
+     assert await node.compute_output("R2", ctx_id=1) == pytest.approx(0.5)
+ 
++    frame = await node.compute_output("frame", ctx_id=1)
++    assert frame["axes"]["L0"] == pytest.approx(0.25)
++    assert frame["axes"]["L1"] == pytest.approx(0.6)
++    assert frame["status"]["valid"] is True
++
+ 
+ async def test_contact_pose_axes_uses_target_supplied_hand_basis() -> None:
+     bus, node = await _build_node(ContactPoseAxesRuntimeNode, register_contact_pose_axes, {})
+diff --git a/packages/f8pyengine/tests/test_tcode_atomic_frame.py b/packages/f8pyengine/tests/test_tcode_atomic_frame.py
+new file mode 100644
+index 0000000..6ea08d8
+--- /dev/null
++++ b/packages/f8pyengine/tests/test_tcode_atomic_frame.py
+@@ -0,0 +1,50 @@
++from __future__ import annotations
++
++from types import MethodType
++from typing import Any
++
++import pytest
++
++from f8pyengine.constants import SERVICE_CLASS
++from f8pyengine.operators.tcode import TCodeRuntimeNode
++from f8pysdk.specs import F8RuntimeNode
++
++
++pytestmark = pytest.mark.anyio
++
++
++@pytest.fixture
++def anyio_backend() -> str:
++    return "asyncio"
++
++
++async def test_atomic_frame_avoids_six_scalar_pulls() -> None:
++    spec = TCodeRuntimeNode.SPEC
++    descriptor = F8RuntimeNode(
++        nodeId="tcode",
++        serviceId="svcA",
++        serviceClass=SERVICE_CLASS,
++        operatorClass=spec.operatorClass,
++        dataInPorts=list(spec.dataInPorts or []),
++        dataOutPorts=list(spec.dataOutPorts or []),
++        stateFields=list(spec.stateFields or []),
++        stateValues={"intervalMs": 20},
++    )
++    node = TCodeRuntimeNode(node_id="tcode", node=descriptor, initial_state={"intervalMs": 20})
++    pulls: list[str] = []
++
++    async def pull(self: Any, port: str, *, ctx_id: str | int | None = None) -> Any:
++        del self, ctx_id
++        pulls.append(port)
++        if port == "frame":
++            return {"axes": {"L0": 0.1, "L1": 0.2, "L2": 0.3, "R0": 0.4, "R1": 0.5, "R2": 0.6}}
++        if port == "intervalMs":
++            return 20
++        raise AssertionError(f"unexpected scalar pull: {port}")
++
++    node.pull = MethodType(pull, node)
++
++    output = await node.compute_output("tcode", ctx_id="frame-1")
++
++    assert output == "L01000I020 L12000I020 L23000I020 R04000I020 R15000I020 R25999I020\n"
++    assert pulls == ["intervalMs", "frame"]
+diff --git a/packages/f8pystudio/f8pystudio/operators/viz_wave.py b/packages/f8pystudio/f8pystudio/operators/viz_wave.py
+index 4ee9709..f14269e 100644
+--- a/packages/f8pystudio/f8pystudio/operators/viz_wave.py
++++ b/packages/f8pystudio/f8pystudio/operators/viz_wave.py
+@@ -89,20 +89,40 @@ class VizWaveRuntimeNode(StudioVizRuntimeNodeBase):
+         if not port:
+             return
+         await self._ensure_config_loaded()
+-        try:
+-            val = float(value)
+-        except (TypeError, ValueError):
++        samples = self._numeric_samples(port, value)
++        if not samples:
+             return
+         ts = int(ts_ms) if ts_ms is not None else int(time.time() * 1000)
+-        buf = self._series.get(port)
+-        if buf is None:
+-            buf = []
+-            self._series[port] = buf
+-        buf.append((ts, val))
++        for series_name, val in samples.items():
++            buf = self._series.get(series_name)
++            if buf is None:
++                buf = []
++                self._series[series_name] = buf
++            buf.append((ts, val))
+         self._dirty = True
+         self._prune_points(window_ms=self._window_ms, buffer_limit=self._buffer_limit, now_ms=ts)
+         await self._schedule_refresh(now_ms=ts)
+ 
++    def _numeric_samples(self, port: str, value: Any) -> dict[str, float]:
++        nested = value.get("axes") if isinstance(value, dict) else None
++        payload = nested if isinstance(nested, dict) else value
++        if isinstance(payload, dict):
++            allowed = set(self.data_in_ports or [])
++            out: dict[str, float] = {}
++            for name, raw in payload.items():
++                series_name = str(name or "").strip()
++                if not series_name or series_name not in allowed:
++                    continue
++                try:
++                    out[series_name] = float(raw)
++                except (TypeError, ValueError):
++                    continue
++            return out
++        try:
++            return {port: float(value)}
++        except (TypeError, ValueError):
++            return {}
++
+     async def on_state(self, field: str, value: Any, *, ts_ms: int | None = None) -> None:
+         f = str(field or "").strip()
+         if f == "throttleMs":
+diff --git a/packages/f8pystudio/tests/test_viz_wave_runtime_node.py b/packages/f8pystudio/tests/test_viz_wave_runtime_node.py
+index 50a8622..f2ca267 100644
+--- a/packages/f8pystudio/tests/test_viz_wave_runtime_node.py
++++ b/packages/f8pystudio/tests/test_viz_wave_runtime_node.py
+@@ -5,7 +5,7 @@ import unittest
+ from typing import Any
+ from unittest.mock import patch
+ 
+-from f8pysdk.specs import F8RuntimeNode
++from f8pysdk.specs import F8DataPortSpec, F8RuntimeNode, number_schema
+ 
+ from f8pystudio.operators.viz_wave import OPERATOR_CLASS, VizWaveRuntimeNode
+ from f8pystudio.studio_specs.identifiers import SERVICE_CLASS
+@@ -109,6 +109,28 @@ class VizWaveRuntimeNodeTests(unittest.IsolatedAsyncioTestCase):
+         self.assertIsNone(runtime._scheduled_refresh_ms)
+         self.assertTrue(task.cancelled())
+ 
++    async def test_atomic_axis_frame_is_expanded_and_filtered_by_declared_ports(self) -> None:
++        node = _runtime_node()
++        node.dataInPorts = [
++            F8DataPortSpec(name=axis, description="", valueSchema=number_schema())
++            for axis in ("L0", "L1", "L2")
++        ]
++        runtime = _InlineStateVizWaveRuntimeNode(
++            node_id="vizwave1",
++            node=node,
++            runtime_state={},
++            initial_state={"throttleMs": 100},
++        )
++
++        with patch("f8pystudio.operators.viz_wave.emit_ui_command"):
++            await runtime.on_data(
++                "L0",
++                {"axes": {"L0": 0.1, "L1": 0.2, "L2": 0.3, "R0": 0.9}},
++                ts_ms=123,
++            )
++
++        self.assertEqual(runtime._series, {"L0": [(123, 0.1)], "L1": [(123, 0.2)], "L2": [(123, 0.3)]})
++
+ 
+ if __name__ == "__main__":
+     unittest.main()
+-- 
+2.55.0.windows.3
+
