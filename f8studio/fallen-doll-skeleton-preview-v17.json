@@ -1114,7 +1114,7 @@
           255
         ],
         "custom": {
-          "bufferLimit": 200,
+          "bufferLimit": 2000,
           "clearNonce": 0,
           "maxVal": 1.0,
           "minVal": 0.0,
@@ -4330,6 +4330,33 @@
                           "items": {
                             "type": "number"
                           }
+                        },
+                        "basis": {
+                          "type": "object",
+                          "properties": {
+                            "up": {
+                              "type": "string",
+                              "enum": [
+                                "+local_x",
+                                "-local_x",
+                                "+local_y",
+                                "-local_y",
+                                "+local_z",
+                                "-local_z"
+                              ]
+                            },
+                            "right": {
+                              "type": "string",
+                              "enum": [
+                                "+local_x",
+                                "-local_x",
+                                "+local_y",
+                                "-local_y",
+                                "+local_z",
+                                "-local_z"
+                              ]
+                            }
+                          }
                         }
                       }
                     }
@@ -4360,6 +4387,33 @@
                     "type": "array",
                     "items": {
                       "type": "number"
+                    }
+                  },
+                  "basis": {
+                    "type": "object",
+                    "properties": {
+                      "up": {
+                        "type": "string",
+                        "enum": [
+                          "+local_x",
+                          "-local_x",
+                          "+local_y",
+                          "-local_y",
+                          "+local_z",
+                          "-local_z"
+                        ]
+                      },
+                      "right": {
+                        "type": "string",
+                        "enum": [
+                          "+local_x",
+                          "-local_x",
+                          "+local_y",
+                          "-local_y",
+                          "+local_z",
+                          "-local_z"
+                        ]
+                      }
                     }
                   }
                 }
@@ -4558,7 +4612,7 @@
           255
         ],
         "custom": {
-          "bufferLimit": 200,
+          "bufferLimit": 2000,
           "clearNonce": 0,
           "maxVal": 1.0,
           "minVal": 0.0,

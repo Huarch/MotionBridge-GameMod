@@ -262,11 +262,14 @@ def safety_node(template: dict[str, Any]) -> dict[str, Any]:
     return node
 
 
-def wave_node(template: dict[str, Any], *, name: str, node_id: str, position: list[float]) -> dict[str, Any]:
+def wave_node(template: dict[str, Any], *, name: str, position: list[float]) -> dict[str, Any]:
     node = copy.deepcopy(template)
     node["name"] = name
     node["pos"] = position
     node["custom"]["throttleMs"] = 50
+    # The safety fan-in can publish several coherent axis updates for one
+    # skeleton frame. Keep enough history to fill the configured 10 s window.
+    node["custom"]["bufferLimit"] = 2000
     node["custom"]["showLegend"] = True
     node["custom"]["upstreamSampleIntervalMs"] = 50
     for port in node["f8_spec"].get("dataInPorts", []):
@@ -274,7 +277,6 @@ def wave_node(template: dict[str, Any], *, name: str, node_id: str, position: li
             port["showOnNode"] = True
     node["f8_sys"] = copy.deepcopy(template.get("f8_sys", {}))
     node["f8_ui_state"] = copy.deepcopy(template.get("f8_ui_state", {}))
-    del node_id
     return node
 
 
@@ -307,13 +309,11 @@ def build_project(source: Path, destination: Path) -> None:
     nodes["fd_l0_normalized_viz"] = wave_node(
         wave_template,
         name="FD Translation Axes (L0/L1/L2)",
-        node_id="fd_l0_normalized_viz",
         position=[2320.0, 390.0],
     )
     nodes["fd_rotation_viz"] = wave_node(
         wave_template,
         name="FD Rotation Axes (R0/R1/R2)",
-        node_id="fd_rotation_viz",
         position=[2320.0, 650.0],
     )
     expose_tcode_axes(nodes["fd_tcode"])
