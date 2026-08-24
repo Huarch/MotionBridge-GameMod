@@ -1,5 +1,7 @@
 # Operation Lovecraft: Fallen Doll TCode Mod
 
+English | [简体中文](README-ZH.md)
+
 An unofficial real-time TCode integration for Operation Lovecraft: Fallen Doll.
 The UE4SS Lua mod reads functional bones from the active HAnime, while F8Studio
 handles participant and functional-bone selection, multi-axis motion, viewers,

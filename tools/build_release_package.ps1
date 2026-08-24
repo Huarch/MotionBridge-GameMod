@@ -159,7 +159,7 @@ foreach ($patch in $studioPatches) {
     Copy-Item -LiteralPath (Join-Path $workspace "f8studio/$patch") -Destination (Join-Path $patchDir $patch)
 }
 Copy-Item -LiteralPath (Join-Path $workspace "docs/user-guide-zh.md") -Destination (Join-Path $packageDir "README-ZH.md")
-Copy-Item -LiteralPath (Join-Path $workspace "docs/user-guide-en.md") -Destination (Join-Path $packageDir "README-English.md")
+Copy-Item -LiteralPath (Join-Path $workspace "docs/user-guide-en.md") -Destination (Join-Path $packageDir "README.md")
 Copy-Item -LiteralPath (Join-Path $workspace "docs/startup-and-troubleshooting-zh.md") -Destination (Join-Path $packageDir "Startup-and-Troubleshooting-ZH.md")
 Copy-Item -LiteralPath (Join-Path $workspace "docs/startup-and-troubleshooting-en.md") -Destination (Join-Path $packageDir "Startup-and-Troubleshooting-English.md")
 Copy-Item -LiteralPath (Join-Path $workspace "docs/release-notes-v0.17.0.md") -Destination (Join-Path $packageDir "RELEASE-NOTES.md")
