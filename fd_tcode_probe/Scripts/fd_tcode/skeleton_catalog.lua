@@ -52,7 +52,10 @@ Catalog.entries = {
             { "CharacterAlet_C_", ".Mesh_Alet" },
         },
         primary_component_names = { "Mesh_Main", "Mesh_Alet" },
-        stream_bones = motion_bones("M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot"),
+        stream_bones = motion_bones(
+            "M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot",
+            "R_Breast_Nipple", "L_Breast_Nipple"
+        ),
         functional = {
             right_hand = "R_Hand",
             left_hand = "L_Hand",
@@ -62,6 +65,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_AnusInside",
+            right_breast_contact = "R_Breast_Nipple",
+            left_breast_contact = "L_Breast_Nipple",
         },
     },
     male = {
@@ -108,7 +113,10 @@ Catalog.entries = {
             { "CharacterEirka", ".Mesh" },
         },
         primary_component_names = { "Mesh", "Mesh_Main", "Mesh_Erika" },
-        stream_bones = motion_bones("M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot"),
+        stream_bones = motion_bones(
+            "M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot",
+            "R_Breast_Nipple", "L_Breast_Nipple"
+        ),
         functional = {
             right_hand = "R_Hand",
             left_hand = "L_Hand",
@@ -118,6 +126,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_AnusInside",
+            right_breast_contact = "R_Breast_Nipple",
+            left_breast_contact = "L_Breast_Nipple",
         },
     },
     galatea = {
@@ -133,7 +143,10 @@ Catalog.entries = {
             { "CharacterGalatea", ".Mesh" },
         },
         primary_component_names = { "Mesh", "Mesh_Main" },
-        stream_bones = motion_bones("M_Gen", "M_Anus_Inside1", "M_Jaw_master", "M_TongueRoot"),
+        stream_bones = motion_bones(
+            "M_Gen", "M_Anus_Inside1", "M_Jaw_master", "M_TongueRoot",
+            "R_Breast_Nipple", "L_Breast_Nipple"
+        ),
         functional = {
             right_hand = "R_Hand",
             left_hand = "L_Hand",
@@ -143,6 +156,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_Anus_Inside1",
+            right_breast_contact = "R_Breast_Nipple",
+            left_breast_contact = "L_Breast_Nipple",
         },
     },
     juzi = {
@@ -159,7 +174,10 @@ Catalog.entries = {
             { "CharacterJuzhi", ".Mesh" },
         },
         primary_component_names = { "Mesh", "Mesh_Main" },
-        stream_bones = motion_bones("M_Gen", "M_Anus_Inside", "Jaw_master", "M_TongueRoot"),
+        stream_bones = motion_bones(
+            "M_Gen", "M_Anus_Inside", "Jaw_master", "M_TongueRoot",
+            "R_Breast_Nipple", "L_Breast_Nipple"
+        ),
         functional = {
             right_hand = "R_Hand",
             left_hand = "L_Hand",
@@ -169,6 +187,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_Anus_Inside",
+            right_breast_contact = "R_Breast_Nipple",
+            left_breast_contact = "L_Breast_Nipple",
         },
     },
     yanshi = {
@@ -188,7 +208,10 @@ Catalog.entries = {
         -- hands and clothing components share Mesh_yanshi as SkinnedAsset but
         -- only Mesh_Main owns the character's complete animated pose.
         primary_component_names = { "Mesh_Main" },
-        stream_bones = motion_bones("M_Gen", "M_Anus_Inside1", "M_Jaw_master", "M_TongueRoot"),
+        stream_bones = motion_bones(
+            "M_Gen", "M_Anus_Inside1", "M_Jaw_master", "M_TongueRoot",
+            "R_Breast_Nipple", "L_Breast_Nipple"
+        ),
         functional = {
             right_hand = "R_Hand",
             left_hand = "L_Hand",
@@ -198,6 +221,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_Anus_Inside1",
+            right_breast_contact = "R_Breast_Nipple",
+            left_breast_contact = "L_Breast_Nipple",
         },
     },
     anya = {
@@ -213,7 +238,10 @@ Catalog.entries = {
             { "CharacterAnya", ".Mesh" },
         },
         primary_component_names = { "Mesh", "Mesh_Main", "Mesh_Anya" },
-        stream_bones = motion_bones("M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot"),
+        stream_bones = motion_bones(
+            "M_Gen", "M_AnusInside", "M_Jaw", "M_TongueRoot",
+            "R_Breast_Nipple", "L_Breast_Nipple"
+        ),
         functional = {
             right_hand = "R_Hand",
             left_hand = "L_Hand",
@@ -223,6 +251,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_AnusInside",
+            right_breast_contact = "R_Breast_Nipple",
+            left_breast_contact = "L_Breast_Nipple",
         },
     },
 }

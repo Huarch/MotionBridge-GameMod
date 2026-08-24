@@ -2,7 +2,7 @@
 param(
     [string]$F8StudioRoot = "",
     [ValidateSet("v16", "v17")]
-    [string]$ProjectVersion = "v16",
+    [string]$ProjectVersion = "v17",
     [switch]$Foreground
 )
 
@@ -39,17 +39,17 @@ $projectFileName = if ($ProjectVersion -eq "v17") {
     "fallen-doll-skeleton-preview-v16.json"
 }
 $projectName = if ($ProjectVersion -eq "v17") {
-    "Fallen Doll Skeleton Preview v17 (multi-bone six-axis dev)"
+    "Fallen Doll Skeleton Preview v17 (real-time multi-axis)"
 } else {
     "Fallen Doll Skeleton Preview v16 (direct L0)"
 }
 $projectDescription = if ($ProjectVersion -eq "v17") {
-    "Operation Lovecraft: Fallen Doll experimental multi-bone six-axis project"
+    "Operation Lovecraft: Fallen Doll real-time multi-axis TCode project"
 } else {
     "Operation Lovecraft: Fallen Doll real-time L0 project"
 }
 $projectTags = if ($ProjectVersion -eq "v17") {
-    @("fallen-doll", "tcode", "six-axis", "dev")
+    @("fallen-doll", "tcode", "six-axis", "release")
 } else {
     @("fallen-doll", "tcode", "l0")
 }

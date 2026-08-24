@@ -11,6 +11,7 @@ UmodelSaved/
 # Editor and language caches
 .vs/
 **/__pycache__/
+.tmp/
 
 # Local runtime output
 logs/

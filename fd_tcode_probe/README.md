@@ -45,7 +45,7 @@ its own key callback.
   non-driving.
 - After the exact HAnime gate opens, stream the currently active registered
   primary participants as a compact functional contact-bone stream at the configured
-  50 ms target interval. Pose geometry profiles are not an
+  20 ms target interval (50 Hz). Pose geometry profiles are not an
   output prerequisite and F8Studio owns no Fallen Doll matching rules.
 - Keep the unpacked common skeleton and functional-bone catalog available for
   diagnostics, but emit only the compact functional contact set on the realtime

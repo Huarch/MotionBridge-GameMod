@@ -57,6 +57,7 @@ local target_functions_by_category = {
 local candidate_functions_by_category = {
     hand = { "right_hand", "left_hand" },
     foot = { "right_foot", "left_foot" },
+    breast = { "right_breast_contact", "left_breast_contact" },
     mouth = { "mouth_origin", "tongue_origin" },
     anal = { "anal_origin" },
     vaginal = { "vaginal_origin" },

@@ -10,9 +10,96 @@ import msgspec
 
 from f8pyengine.operators.contact_pose_axes import ContactPoseAxesRuntimeNode
 from f8pyfallendoll.main import build_app
+from f8pystudio.operators.backdrop import BackdropRuntimeNode
+from f8pystudio.operators.note import NoteRuntimeNode
 
 
 AXES = ("L0", "L1", "L2", "R0", "R1", "R2")
+PIPELINE_INTERVAL_MS = 20
+COMPACT_NODE_POSITIONS = {
+    "fd_source": [-400.0, 350.0],
+    "fd_pyengine": [0.0, -40.0],
+    "fd_contact_axes": [40.0, 340.0],
+    "fd_l0_safety_tick": [370.0, 100.0],
+    "fd_l0_safety": [300.0, 310.0],
+    "fd_tcode": [530.0, 290.0],
+    "fd_device_tcode": [530.0, 450.0],
+    "fd_device_fanout": [530.0, 620.0],
+    "fd_preview_gate": [850.0, 320.0],
+    "fd_3d_viz": [1080.0, 290.0],
+    "fd_tcode_viz": [1300.0, 290.0],
+    "fd_l0_normalized_viz": [1080.0, 480.0],
+    "fd_rotation_viz": [1310.0, 480.0],
+    "fd_wifi_out": [850.0, 1040.0],
+    "fd_usb_out": [1150.0, 1040.0],
+    "fd_backdrop_input": [-450.0, 0.0],
+    "fd_backdrop_engine": [0.0, 0.0],
+    "fd_backdrop_preview": [820.0, 0.0],
+    "fd_backdrop_device": [820.0, 770.0],
+    "fd_note_quick_start": [-420.0, 80.0],
+    "fd_note_engine": [30.0, 70.0],
+    "fd_note_preview": [850.0, 70.0],
+    "fd_note_device": [850.0, 830.0],
+}
+PYENGINE_CONTAINER_SIZE = (1580.0, 1350.0)
+BACKDROP_DEFINITIONS = {
+    "fd_backdrop_input": {
+        "name": "1 · GAME INPUT / 游戏输入",
+        "size": [410.0, 760.0],
+        "color": [48, 126, 164, 255],
+    },
+    "fd_backdrop_engine": {
+        "name": "2 · MOTION ENGINE / 六轴运动引擎（高级）",
+        "size": [780.0, 930.0],
+        "color": [176, 126, 55, 255],
+    },
+    "fd_backdrop_preview": {
+        "name": "3 · LIVE PREVIEW / 实时预览",
+        "size": [720.0, 730.0],
+        "color": [70, 154, 112, 255],
+    },
+    "fd_backdrop_device": {
+        "name": "4 · DEVICE OUTPUT / 设备输出",
+        "size": [720.0, 500.0],
+        "color": [174, 82, 88, 255],
+    },
+}
+NOTE_DEFINITIONS = {
+    "fd_note_quick_start": {
+        "name": "START HERE / 从这里开始",
+        "size": [350.0, 200.0],
+        "content": (
+            "1. **Deploy** this project.\n"
+            "2. Start Fallen Doll and enter an HAnime.\n"
+            "3. Check `Game Stream` on the Source node.\n\n"
+            "部署工程 → 进入 H 动画 → 确认游戏流已连接。"
+        ),
+    },
+    "fd_note_engine": {
+        "name": "ADVANCED / 高级设置",
+        "size": [280.0, 200.0],
+        "content": (
+            "Turns functional bones into raw SR6 axes.\n\n"
+            "一般保持默认。设备运动范围请使用 Safety 节点的六轴滑条调整；游戏 Mod 始终输出原始运动。"
+        ),
+    },
+    "fd_note_preview": {
+        "name": "PREVIEW / 预览说明",
+        "size": [300.0, 200.0],
+        "content": (
+            "Enable **Live Preview**, then use `Open Viewer` on the SR6 or curve nodes.\n\n"
+            "仅调试时开启；完成观察后可关闭以降低界面开销。"
+        ),
+    },
+    "fd_note_device": {
+        "name": "SAFETY / 设备安全",
+        "size": [300.0, 200.0],
+        "content": (
+            "Choose **USB or Wi-Fi**, never both. Outputs start disarmed.\n\n"
+            "只启用一种连接。先确认六轴范围和预览，再填写端口或地址并启用输出。"
+        ),
+    },
+}
 REMOVED_NODE_IDS = {
     "fd_relative_axes",
     "fd_l0_normalize",
@@ -30,6 +117,8 @@ DEFAULT_FUNCTIONAL_BONES = [
     "L_Hand",
     "R_Foot",
     "L_Foot",
+    "R_Breast_Nipple",
+    "L_Breast_Nipple",
     "M_Jaw",
     "M_Jaw_master",
     "Jaw_master",
@@ -47,6 +136,14 @@ AXES = ('L0', 'L1', 'L2', 'R0', 'R1', 'R2')
 HOLD_MS = 250.0
 RETURN_MS = 600.0
 CENTER = 0.5
+DEFAULT_DEVICE_OUTPUT_BOUNDS = {
+    'L0': (0.0, 1.0),
+    'L1': (0.0, 1.0),
+    'L2': (0.0, 1.0),
+    'R0': (0.0, 1.0),
+    'R1': (0.0, 1.0),
+    'R2': (0.35, 0.65),
+}
 
 def _timestamps(value):
     if isinstance(value, list):
@@ -83,6 +180,28 @@ def _contact_frame(value):
 
 def _center_axes():
     return {axis: CENTER for axis in AXES}
+
+def _device_axis_bounds(ctx, axis):
+    default_lower, default_upper = DEFAULT_DEVICE_OUTPUT_BOUNDS[axis]
+    prefix = axis.lower()
+    try:
+        output_range = ctx.states.get(prefix + 'OutputRange')
+        if isinstance(output_range, (list, tuple)) and len(output_range) >= 2:
+            lower = _number(output_range[0])
+            upper = _number(output_range[1])
+        else:
+            # Keep old v17 projects readable while users migrate to the
+            # compact two-value range slider state.
+            lower = _number(ctx.states.get(prefix + 'OutputMin'))
+            upper = _number(ctx.states.get(prefix + 'OutputMax'))
+    except Exception:
+        lower = None
+        upper = None
+    lower = default_lower if lower is None else max(0.0, min(1.0, lower))
+    upper = default_upper if upper is None else max(0.0, min(1.0, upper))
+    if lower > upper:
+        lower, upper = upper, lower
+    return lower, upper
 
 def onStart(ctx):
     ctx.locals['lastValid'] = _center_axes()
@@ -143,7 +262,50 @@ def onExec(ctx, exec_in, inputs):
         'returnMs': RETURN_MS,
         'center': CENTER,
     }
-    return {'outputs': {'axesFrame': {'axes': output, 'status': status}}}
+    device_limits = {axis: _device_axis_bounds(ctx, axis) for axis in AXES}
+    device_output = {
+        axis: device_limits[axis][0]
+        + output[axis] * (device_limits[axis][1] - device_limits[axis][0])
+        for axis in AXES
+    }
+    device_status = dict(status)
+    device_status['limits'] = {
+        axis: {'min': bounds[0], 'max': bounds[1]}
+        for axis, bounds in device_limits.items()
+    }
+    return {
+        'outputs': {
+            'axesFrame': {'axes': output, 'status': status},
+            'deviceFrame': {'axes': device_output, 'status': device_status},
+        }
+    }
+"""
+
+
+PREVIEW_GATE_CODE = """def _enabled(ctx, name, default):
+    try:
+        value = ctx.states.get(name)
+    except Exception:
+        value = None
+    return default if value is None else bool(value)
+
+def onExec(ctx, exec_in, inputs):
+    # Keep the 50 Hz motion/device path independent from diagnostics.  With
+    # Live Preview off this node intentionally emits nothing, so visualizers
+    # do not buffer, serialize, or redraw incoming frames.  This hook is
+    # clocked explicitly: passive visualization consumers do not pull this
+    # node, so an onMsg-only gate would leave all three inputs queued forever.
+    if not _enabled(ctx, 'livePreview', False):
+        return None
+
+    outputs = {}
+    if 'skeletons' in inputs and _enabled(ctx, 'previewSkeleton', True):
+        outputs['skeletons'] = inputs['skeletons']
+    if 'axesFrame' in inputs and _enabled(ctx, 'previewCurves', True):
+        outputs['axesFrame'] = inputs['axesFrame']
+    if 'tcode' in inputs and _enabled(ctx, 'previewModel', True):
+        outputs['tcode'] = inputs['tcode']
+    return {'outputs': outputs} if outputs else None
 """
 
 
@@ -151,7 +313,7 @@ def source_node(spec: dict[str, Any]) -> dict[str, Any]:
     custom = {
         "active": True,
         "runtimeDir": "",
-        "pollIntervalMs": 20,
+        "pollIntervalMs": PIPELINE_INTERVAL_MS,
         "staleAfterMs": 250,
         "referenceRole": "male",
         "targetRole": "female",
@@ -185,7 +347,7 @@ def source_node(spec: dict[str, Any]) -> dict[str, Any]:
         "icon": None,
         "layout_direction": 0,
         "name": "Fallen Doll Source v17",
-        "pos": [-360.0, 70.0],
+        "pos": list(COMPACT_NODE_POSITIONS["fd_source"]),
         "selected": False,
         "subgraph_session": {},
         "text_color": [255, 255, 255, 180],
@@ -200,6 +362,67 @@ def connection(source_node_id: str, source_port: str, target_node_id: str, targe
         "in": [target_node_id, f"[D]{target_port}"],
         "out": [source_node_id, f"{source_port}[D]"],
     }
+
+
+def exec_connection(source_node_id: str, source_port: str, target_node_id: str, target_port: str) -> dict[str, Any]:
+    return {
+        "in": [target_node_id, f"[E]{target_port}"],
+        "out": [source_node_id, f"{source_port}[E]"],
+    }
+
+
+def canvas_node(
+    *,
+    node_id: str,
+    name: str,
+    spec: dict[str, Any],
+    size: list[float],
+    color: list[int],
+    custom: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    return {
+        "border_color": list(color),
+        "color": list(color),
+        "custom": dict(custom or {}),
+        "disabled": False,
+        "f8_spec": copy.deepcopy(spec),
+        "f8_sys": {"svcId": "studio"},
+        "f8_ui_overrides": {},
+        "f8_ui_state": {},
+        "height": float(size[1]),
+        "icon": None,
+        "layout_direction": 0,
+        "name": name,
+        "pos": list(COMPACT_NODE_POSITIONS[node_id]),
+        "selected": False,
+        "subgraph_session": {},
+        "text_color": [240, 245, 248, 255],
+        "type_": f"f8.pystudio.{spec['operatorClass']}",
+        "visible": True,
+        "width": float(size[0]),
+    }
+
+
+def add_canvas_guides(nodes: dict[str, Any]) -> None:
+    backdrop_spec = msgspec.to_builtins(BackdropRuntimeNode.SPEC)
+    note_spec = msgspec.to_builtins(NoteRuntimeNode.SPEC)
+    for node_id, definition in BACKDROP_DEFINITIONS.items():
+        nodes[node_id] = canvas_node(
+            node_id=node_id,
+            name=str(definition["name"]),
+            spec=backdrop_spec,
+            size=list(definition["size"]),
+            color=list(definition["color"]),
+        )
+    for node_id, definition in NOTE_DEFINITIONS.items():
+        nodes[node_id] = canvas_node(
+            node_id=node_id,
+            name=str(definition["name"]),
+            spec=note_spec,
+            size=list(definition["size"]),
+            color=[58, 68, 76, 255],
+            custom={"content": str(definition["content"])},
+        )
 
 
 def contact_node(template: dict[str, Any]) -> dict[str, Any]:
@@ -234,7 +457,7 @@ def contact_node(template: dict[str, Any]) -> dict[str, Any]:
     node["f8_spec"] = spec
     node["height"] = 465.0
     node["name"] = "FD VaM Contact Axes (Six Axis)"
-    node["pos"] = [1220.0, 300.0]
+    node["pos"] = list(COMPACT_NODE_POSITIONS["fd_contact_axes"])
     node["type_"] = "f8.pyengine.f8.contact_pose_axes"
     return node
 
@@ -252,12 +475,119 @@ def safety_node(template: dict[str, Any]) -> dict[str, Any]:
     old_outputs = {port["name"]: port for port in spec.get("dataOutPorts", [])}
     axes_frame = copy.deepcopy(old_outputs["status"])
     axes_frame["name"] = "axesFrame"
-    axes_frame["description"] = "One safety-gated coherent SR6 frame."
-    spec["dataOutPorts"] = [axes_frame]
+    axes_frame["description"] = "One safety-gated coherent raw SR6 frame for preview and diagnostics."
+    device_frame = copy.deepcopy(axes_frame)
+    device_frame["name"] = "deviceFrame"
+    device_frame["description"] = "Device SR6 frame with independently adjustable physical travel limits."
+    spec["dataOutPorts"] = [axes_frame, device_frame]
+    state_template = next(
+        field for field in spec.get("stateFields", []) if field.get("name") in {"inputMode", "svcId", "operatorId"}
+    )
+    default_bounds = {
+        "L0": (0.0, 1.0),
+        "L1": (0.0, 1.0),
+        "L2": (0.0, 1.0),
+        "R0": (0.0, 1.0),
+        "R1": (0.0, 1.0),
+        "R2": (0.35, 0.65),
+    }
+    for axis, (default_min, default_max) in default_bounds.items():
+        name = f"{axis.lower()}OutputRange"
+        default = [default_min, default_max]
+        field = copy.deepcopy(state_template)
+        field.update(
+            {
+                "name": name,
+                "label": f"{axis} Output Range",
+                "description": (
+                    f"Map raw {axis} 0..1 into this physical device output range; "
+                    "raw geometry and preview remain unchanged."
+                ),
+                "access": "rw",
+                "required": True,
+                "showOnNode": True,
+                "redactOnPublish": False,
+                "uiControl": "range_slider",
+                "valueSchema": {
+                    "type": "array",
+                    "items": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+                    "default": default,
+                },
+            }
+        )
+        spec.setdefault("stateFields", []).append(field)
+        node["custom"][name] = default
     node["custom"]["code"] = SAFETY_CODE
-    node["height"] = 370.0
+    node["height"] = 600.0
     node["name"] = "FD Clocked Six-Axis Stream Safety"
-    node["pos"] = [1740.0, 390.0]
+    node["pos"] = list(COMPACT_NODE_POSITIONS["fd_l0_safety"])
+    return node
+
+
+def preview_gate_node(
+    template: dict[str, Any],
+    *,
+    skeleton_port: dict[str, Any],
+    frame_port: dict[str, Any],
+    tcode_port: dict[str, Any],
+) -> dict[str, Any]:
+    node = copy.deepcopy(template)
+    spec = node["f8_spec"]
+
+    skeleton_input = copy.deepcopy(skeleton_port)
+    skeleton_input["name"] = "skeletons"
+    skeleton_input["description"] = "Functional Fallen Doll bones for the optional 3D preview."
+    frame_input = copy.deepcopy(frame_port)
+    frame_input["name"] = "axesFrame"
+    frame_input["description"] = "Raw six-axis frame for optional diagnostic curves."
+    tcode_input = copy.deepcopy(tcode_port)
+    tcode_input["name"] = "tcode"
+    tcode_input["description"] = "Device TCode for the optional SR6/OSR model preview."
+    spec["dataInPorts"] = [skeleton_input, frame_input, tcode_input]
+
+    skeleton_output = copy.deepcopy(skeleton_input)
+    frame_output = copy.deepcopy(frame_input)
+    tcode_output = copy.deepcopy(tcode_input)
+    spec["dataOutPorts"] = [skeleton_output, frame_output, tcode_output]
+
+    state_template = next(
+        field for field in spec.get("stateFields", []) if field.get("name") in {"inputMode", "svcId", "operatorId"}
+    )
+    preview_fields = (
+        (
+            "livePreview",
+            "Live Preview",
+            "Enable diagnostic visualization. Motion calculation and device output remain active when this is off.",
+            False,
+        ),
+        ("previewModel", "SR6 Model", "Forward TCode to the SR6/OSR model viewer.", True),
+        ("previewCurves", "Wave Curves", "Forward raw six-axis frames to the diagnostic curves.", True),
+        ("previewSkeleton", "Skeleton", "Forward functional bones to the 3D skeleton viewer.", True),
+    )
+    for name, label, description, default in preview_fields:
+        field = copy.deepcopy(state_template)
+        field.update(
+            {
+                "name": name,
+                "label": label,
+                "description": description,
+                "access": "rw",
+                "required": True,
+                "showOnNode": True,
+                "redactOnPublish": False,
+                "uiControl": "toggle",
+                "valueSchema": {"type": "boolean", "default": default},
+            }
+        )
+        spec.setdefault("stateFields", []).append(field)
+        node["custom"][name] = default
+
+    node["custom"]["code"] = PREVIEW_GATE_CODE
+    node["custom"]["inputMode"] = "raw_dict"
+    node["custom"]["operatorId"] = "fd_preview_gate"
+    node["height"] = 310.0
+    node["name"] = "FD Live Preview (Off = Production)"
+    node["pos"] = list(COMPACT_NODE_POSITIONS["fd_preview_gate"])
     return node
 
 
@@ -267,12 +597,13 @@ def wave_node(
     node = copy.deepcopy(template)
     node["name"] = name
     node["pos"] = position
-    node["custom"]["throttleMs"] = 50
-    # The safety fan-in can publish several coherent axis updates for one
-    # skeleton frame. Keep enough history to fill the configured 10 s window.
-    node["custom"]["bufferLimit"] = 2000
+    node["custom"]["throttleMs"] = 100
+    # The preview gate forwards at most one coherent frame per source sample.
+    # Five hundred points cover the configured 10 s window at 50 Hz.
+    node["custom"]["bufferLimit"] = 500
     node["custom"]["showLegend"] = True
-    node["custom"]["upstreamSampleIntervalMs"] = 50
+    node["custom"]["upstreamSamplingMode"] = "auto"
+    node["custom"]["upstreamSampleIntervalMs"] = 100
     numeric_template = copy.deepcopy(node["f8_spec"]["dataInPorts"][0])
     atomic_frame = copy.deepcopy(frame_port)
     atomic_frame["name"] = "frame"
@@ -323,23 +654,56 @@ def build_project(source: Path, destination: Path) -> None:
     safety_frame_port = next(
         port for port in nodes["fd_l0_safety"]["f8_spec"]["dataOutPorts"] if port["name"] == "axesFrame"
     )
+    device_frame_port = next(
+        port for port in nodes["fd_l0_safety"]["f8_spec"]["dataOutPorts"] if port["name"] == "deviceFrame"
+    )
+    skeleton_port = next(port for port in nodes["fd_3d_viz"]["f8_spec"]["dataInPorts"] if port["name"] == "skeletons")
+    tcode_viz_port = next(port for port in nodes["fd_tcode_viz"]["f8_spec"]["dataInPorts"] if port["name"] == "tcode")
+    nodes["fd_preview_gate"] = preview_gate_node(
+        safety_template,
+        skeleton_port=skeleton_port,
+        frame_port=safety_frame_port,
+        tcode_port=tcode_viz_port,
+    )
+    add_canvas_guides(nodes)
     nodes["fd_l0_safety_tick"]["name"] = "FD Six-Axis Safety Clock"
+    nodes["fd_l0_safety_tick"]["custom"]["tickMs"] = PIPELINE_INTERVAL_MS
     nodes["fd_l0_normalized_viz"] = wave_node(
         wave_template,
         name="FD Translation Axes (L0/L1/L2)",
-        position=[2320.0, 390.0],
+        position=list(COMPACT_NODE_POSITIONS["fd_l0_normalized_viz"]),
         axes=AXES[:3],
         frame_port=safety_frame_port,
     )
     nodes["fd_rotation_viz"] = wave_node(
         wave_template,
         name="FD Rotation Axes (R0/R1/R2)",
-        position=[2320.0, 650.0],
+        position=list(COMPACT_NODE_POSITIONS["fd_rotation_viz"]),
         axes=AXES[3:],
         frame_port=safety_frame_port,
     )
     expose_tcode_frame(nodes["fd_tcode"], safety_frame_port)
-    expose_tcode_frame(nodes["fd_device_tcode"], safety_frame_port)
+    expose_tcode_frame(nodes["fd_device_tcode"], device_frame_port)
+    nodes["fd_tcode"]["custom"]["intervalMs"] = PIPELINE_INTERVAL_MS
+    nodes["fd_device_tcode"]["custom"]["intervalMs"] = PIPELINE_INTERVAL_MS
+
+    skeleton_viz = nodes["fd_3d_viz"]["custom"]
+    skeleton_viz.update(
+        {
+            "throttleMs": 50,
+            "uiFpsCap": 30,
+            "showBoneAxes": False,
+            "showBoneNames": False,
+            "maxPeople": 16,
+            "maxBonesPerPerson": 64,
+            "upstreamSamplingMode": "auto",
+            "upstreamSampleIntervalMs": 50,
+        }
+    )
+    tcode_viz = nodes["fd_tcode_viz"]["custom"]
+    tcode_viz["throttleMs"] = 50
+    tcode_viz["upstreamSamplingMode"] = "auto"
+    tcode_viz["upstreamSampleIntervalMs"] = 50
 
     usb_node = nodes["fd_usb_out"]
     usb_node["custom"]["enabled"] = False
@@ -349,15 +713,33 @@ def build_project(source: Path, destination: Path) -> None:
     wifi_node["custom"]["enabled"] = False
     wifi_node["name"] = "FD TCode Wi-Fi Out (Disarmed)"
 
+    # Keep the graph readable as one compact left-to-right pipeline.  Apply
+    # layout last so positions inherited from the v16 template cannot leak
+    # back into regenerated v17 projects.
+    for node_id, position in COMPACT_NODE_POSITIONS.items():
+        if node_id in nodes:
+            nodes[node_id]["pos"] = list(position)
+    nodes["fd_pyengine"]["width"] = PYENGINE_CONTAINER_SIZE[0]
+    nodes["fd_pyengine"]["height"] = PYENGINE_CONTAINER_SIZE[1]
+
     generated_connections = [
+        # Exec outputs are single-connect in F8.  Branch 2 of the existing
+        # post-safety sequence is intentionally reserved for diagnostics, so
+        # Preview runs after the coherent safety/device frame is available.
+        exec_connection("fd_device_fanout", "2", "fd_preview_gate", "exec"),
         connection("fd_source", "referenceSkeleton", "fd_contact_axes", "referenceSkeleton"),
         connection("fd_source", "targetBone", "fd_contact_axes", "targetBone"),
         connection("fd_contact_axes", "frame", "fd_l0_safety", "contactFrame"),
         connection("fd_source", "skeletons", "fd_l0_safety", "heartbeat"),
         connection("fd_l0_safety", "axesFrame", "fd_tcode", "frame"),
-        connection("fd_l0_safety", "axesFrame", "fd_device_tcode", "frame"),
-        connection("fd_l0_safety", "axesFrame", "fd_l0_normalized_viz", "frame"),
-        connection("fd_l0_safety", "axesFrame", "fd_rotation_viz", "frame"),
+        connection("fd_l0_safety", "deviceFrame", "fd_device_tcode", "frame"),
+        connection("fd_source", "skeletons", "fd_preview_gate", "skeletons"),
+        connection("fd_l0_safety", "axesFrame", "fd_preview_gate", "axesFrame"),
+        connection("fd_device_tcode", "tcode", "fd_preview_gate", "tcode"),
+        connection("fd_preview_gate", "skeletons", "fd_3d_viz", "skeletons"),
+        connection("fd_preview_gate", "tcode", "fd_tcode_viz", "tcode"),
+        connection("fd_preview_gate", "axesFrame", "fd_l0_normalized_viz", "frame"),
+        connection("fd_preview_gate", "axesFrame", "fd_rotation_viz", "frame"),
     ]
 
     generated_inputs = {input_key(item) for item in generated_connections}
@@ -379,6 +761,11 @@ def build_project(source: Path, destination: Path) -> None:
             continue
         if is_data_connection and target_node_id in {"fd_tcode", "fd_device_tcode"} and str(item["in"][1]) in {
             f"[D]{axis}" for axis in AXES
+        }:
+            continue
+        if is_data_connection and target_node_id == "fd_tcode_viz" and source_node_id in {
+            "fd_tcode",
+            "fd_device_tcode",
         }:
             continue
         if input_key(item) in generated_inputs:

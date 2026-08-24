@@ -1025,7 +1025,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Scorpion/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "AletScorpio_Breast01",
             ["participant_tags"] = {
                 "Alet_01",
@@ -1208,7 +1208,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Tentacle/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "AletTantacle_Breast01",
             ["participant_tags"] = {
                 "Alet_01",
@@ -1823,7 +1823,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Ghast/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "AnyaGhast_Breast01",
             ["participant_tags"] = {
                 "Anya_01",
@@ -1979,7 +1979,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Lloigor/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "AnyaLloigor_Breast01",
             ["participant_tags"] = {
                 "Anya_01",
@@ -2193,7 +2193,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "AnyaMale_Breast01",
             ["participant_tags"] = {
                 "Anya_01",
@@ -2204,7 +2204,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "AnyaMale_Breast02",
             ["participant_tags"] = {
                 "Anya_01",
@@ -3254,7 +3254,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tags"] = {
                 "Erika_01",
@@ -3347,7 +3347,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "ErikaMale_Breast01",
             ["participant_tags"] = {
                 "Erika_01",
@@ -3357,7 +3357,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast03",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "ErikaMale_Breast03",
             ["participant_tags"] = {
                 "Erika_01",
@@ -4830,7 +4830,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tags"] = {
                 "Juzi_01",
@@ -4981,7 +4981,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "YanshiDreamer_Breast01",
             ["participant_tags"] = {
                 "Yanshi_01",
@@ -5092,7 +5092,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["hanime_id"] = "YanshiDreamer_breasts2026019_Wumiao",
             ["participant_tags"] = {
                 "Yanshi_01",
@@ -13611,7 +13611,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Scorpion/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AletScorpio_Breast01",
             ["participant_tag"] = "Alet",
@@ -13625,7 +13625,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Scorpion/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AletScorpio_Breast01",
             ["participant_tag"] = "Alet",
@@ -13639,7 +13639,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Scorpion/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AletScorpio_Breast01",
             ["participant_tag"] = "Alet",
@@ -13653,7 +13653,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Scorpion/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AletScorpio_Breast01",
             ["participant_tag"] = "scorpion",
@@ -13667,7 +13667,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Scorpion/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AletScorpio_Breast01",
             ["participant_tag"] = "scorpion",
@@ -13681,7 +13681,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Scorpion/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AletScorpio_Breast01",
             ["participant_tag"] = "scorpion",
@@ -14787,7 +14787,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Tentacle/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AletTantacle_Breast01",
             ["participant_tag"] = "Alet",
@@ -14801,7 +14801,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Tentacle/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AletTantacle_Breast01",
             ["participant_tag"] = "Alet",
@@ -14815,7 +14815,7 @@ return {
             ["catalog_refs"] = {
                 "Alet/Tentacle/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AletTantacle_Breast01",
             ["participant_tag"] = "Alet",
@@ -19141,7 +19141,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Ghast/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaGhast_Breast01",
             ["participant_tag"] = "Anya",
@@ -19155,7 +19155,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Ghast/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaGhast_Breast01",
             ["participant_tag"] = "Anya",
@@ -19169,7 +19169,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Ghast/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaGhast_Breast01",
             ["participant_tag"] = "Anya",
@@ -19183,7 +19183,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Ghast/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaGhast_Breast01",
             ["participant_tag"] = "Ghast",
@@ -19197,7 +19197,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Ghast/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaGhast_Breast01",
             ["participant_tag"] = "Ghast",
@@ -19211,7 +19211,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Ghast/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaGhast_Breast01",
             ["participant_tag"] = "Ghast",
@@ -20572,7 +20572,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Lloigor/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaLloigor_Breast01",
             ["participant_tag"] = "Anya_01",
@@ -20586,7 +20586,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Lloigor/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaLloigor_Breast01",
             ["participant_tag"] = "Anya_01",
@@ -20600,7 +20600,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Lloigor/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaLloigor_Breast01",
             ["participant_tag"] = "Anya_01",
@@ -20614,7 +20614,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Lloigor/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaLloigor_Breast01",
             ["participant_tag"] = "Lloigor_01",
@@ -20628,7 +20628,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Lloigor/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaLloigor_Breast01",
             ["participant_tag"] = "Lloigor_01",
@@ -20642,7 +20642,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Lloigor/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaLloigor_Breast01",
             ["participant_tag"] = "Lloigor_01",
@@ -22546,7 +22546,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaMale_Breast01",
             ["participant_tag"] = "Anya",
@@ -22560,7 +22560,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaMale_Breast01",
             ["participant_tag"] = "Anya",
@@ -22574,7 +22574,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaMale_Breast01",
             ["participant_tag"] = "Anya",
@@ -22588,7 +22588,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaMale_Breast01",
             ["participant_tag"] = "Male_A",
@@ -22602,7 +22602,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaMale_Breast01",
             ["participant_tag"] = "Male_A",
@@ -22616,7 +22616,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaMale_Breast01",
             ["participant_tag"] = "Male_A",
@@ -22630,7 +22630,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaMale_Breast02",
             ["participant_tag"] = "Anya_01",
@@ -22644,7 +22644,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaMale_Breast02",
             ["participant_tag"] = "Anya_01",
@@ -22658,7 +22658,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "AnyaMale_Breast02",
             ["participant_tag"] = "Anya_01",
@@ -22672,7 +22672,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaMale_Breast02",
             ["participant_tag"] = "Male_A_01",
@@ -22686,7 +22686,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaMale_Breast02",
             ["participant_tag"] = "Male_A_01",
@@ -22700,7 +22700,7 @@ return {
             ["catalog_refs"] = {
                 "Anya/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "AnyaMale_Breast02",
             ["participant_tag"] = "Male_A_01",
@@ -30747,7 +30747,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Erika_01",
@@ -30761,7 +30761,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Erika_01",
@@ -30775,7 +30775,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Erika_01",
@@ -30789,7 +30789,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Handcuffs_A_01",
@@ -30803,7 +30803,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Handcuffs_A_01",
@@ -30817,7 +30817,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Handcuffs_A_01",
@@ -30831,7 +30831,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Male_A_01",
@@ -30845,7 +30845,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Male_A_01",
@@ -30859,7 +30859,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_A_Breast02",
             ["participant_tag"] = "Male_A_01",
@@ -31965,7 +31965,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_Breast01",
             ["participant_tag"] = "Erika_01",
@@ -31979,7 +31979,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_Breast01",
             ["participant_tag"] = "Erika_01",
@@ -31993,7 +31993,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_Breast01",
             ["participant_tag"] = "Erika_01",
@@ -32007,7 +32007,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_Breast01",
             ["participant_tag"] = "Male",
@@ -32021,7 +32021,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_Breast01",
             ["participant_tag"] = "Male",
@@ -32035,7 +32035,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_Breast01",
             ["participant_tag"] = "Male",
@@ -32049,7 +32049,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast03",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_Breast03",
             ["participant_tag"] = "Erika_01",
@@ -32063,7 +32063,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast03",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_Breast03",
             ["participant_tag"] = "Erika_01",
@@ -32077,7 +32077,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast03",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "ErikaMale_Breast03",
             ["participant_tag"] = "Erika_01",
@@ -32091,7 +32091,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast03",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_Breast03",
             ["participant_tag"] = "Male_01",
@@ -32105,7 +32105,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast03",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_Breast03",
             ["participant_tag"] = "Male_01",
@@ -32119,7 +32119,7 @@ return {
             ["catalog_refs"] = {
                 "Erika/Male/Breast03",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "ErikaMale_Breast03",
             ["participant_tag"] = "Male_01",
@@ -44199,7 +44199,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "Juzi_01",
@@ -44213,7 +44213,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "Juzi_01",
@@ -44227,7 +44227,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "Juzi_01",
@@ -44241,7 +44241,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "tchotchoA_01",
@@ -44255,7 +44255,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "tchotchoA_01",
@@ -44269,7 +44269,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "tchotchoA_01",
@@ -44283,7 +44283,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "tchotchoB_01",
@@ -44297,7 +44297,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "tchotchoB_01",
@@ -44311,7 +44311,7 @@ return {
             ["catalog_refs"] = {
                 "Juzi/TchoTchoAB/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "JuziTchoTchoABChair_Breast01",
             ["participant_tag"] = "tchotchoB_01",
@@ -45291,7 +45291,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "YanshiDreamer_Breast01",
             ["participant_tag"] = "Dreamer_A_01",
@@ -45305,7 +45305,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "YanshiDreamer_Breast01",
             ["participant_tag"] = "Dreamer_A_01",
@@ -45319,7 +45319,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "YanshiDreamer_Breast01",
             ["participant_tag"] = "Dreamer_A_01",
@@ -45333,7 +45333,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "YanshiDreamer_Breast01",
             ["participant_tag"] = "Yanshi_01",
@@ -45347,7 +45347,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "YanshiDreamer_Breast01",
             ["participant_tag"] = "Yanshi_01",
@@ -45361,7 +45361,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast01",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "YanshiDreamer_Breast01",
             ["participant_tag"] = "Yanshi_01",
@@ -45375,7 +45375,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "YanshiDreamer_breasts2026019_Wumiao",
             ["participant_tag"] = "Dreamer_A_01",
@@ -45389,7 +45389,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "YanshiDreamer_breasts2026019_Wumiao",
             ["participant_tag"] = "Dreamer_A_01",
@@ -45403,7 +45403,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_family_companion_montage",
             ["hanime_id"] = "YanshiDreamer_breasts2026019_Wumiao",
             ["participant_tag"] = "Dreamer_A_01",
@@ -45417,7 +45417,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "YanshiDreamer_breasts2026019_Wumiao",
             ["participant_tag"] = "Yanshi_01",
@@ -45431,7 +45431,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "YanshiDreamer_breasts2026019_Wumiao",
             ["participant_tag"] = "Yanshi_01",
@@ -45445,7 +45445,7 @@ return {
             ["catalog_refs"] = {
                 "yanshi/Male/Breast02",
             },
-            ["category"] = "other",
+            ["category"] = "breast",
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "YanshiDreamer_breasts2026019_Wumiao",
             ["participant_tag"] = "Yanshi_01",

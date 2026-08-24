@@ -21,6 +21,36 @@ def normalized(value: str) -> str:
     return re.sub(r"[^a-z0-9]", "", value.casefold())
 
 
+def family_spellings(identity: str) -> tuple[str, ...]:
+    """Return cooked naming variants proven to denote one HAnime family.
+
+    Some Fallen Doll TableHAnim rows use ``VaginaNN`` for the primary
+    character while the companion Montage in the same cooked pose directory
+    uses ``VaginalNN``.  Keep this compatibility deliberately narrow: it only
+    changes that token immediately before a numeric pose id, so an unrelated
+    Montage can never become an HAnime activation signal.
+    """
+
+    variants = [identity]
+    if re.search(r"Vagina(?=\d+$)", identity, flags=re.IGNORECASE):
+        variants.append(
+            re.sub(r"Vagina(?=\d+$)", "Vaginal", identity, flags=re.IGNORECASE)
+        )
+    elif re.search(r"Vaginal(?=\d+$)", identity, flags=re.IGNORECASE):
+        variants.append(
+            re.sub(r"Vaginal(?=\d+$)", "Vagina", identity, flags=re.IGNORECASE)
+        )
+    return tuple(variants)
+
+
+def asset_belongs_to_family(asset: str, identity: str) -> bool:
+    lowered = asset.casefold()
+    return any(
+        lowered.startswith(spelling.casefold() + "_")
+        for spelling in family_spellings(identity)
+    )
+
+
 def hanime_id(asset: str) -> str:
     family = re.sub(r"_Montage.*$", "", asset, flags=re.IGNORECASE)
     family = re.sub(
@@ -87,6 +117,8 @@ def list_packages_from_index(index: Path) -> tuple[list[str], bytes]:
 
 def category(identity: str) -> str:
     lowered = identity.casefold()
+    if "breast" in lowered or "boob" in lowered:
+        return "breast"
     if "hand" in lowered:
         return "hand"
     if "foot" in lowered:
@@ -219,16 +251,35 @@ def main() -> None:
     existing_document: dict[str, object] = {}
     if args.existing_identity is not None:
         existing_document = json.loads(args.existing_identity.read_text(encoding="utf-8"))
+        # Rebuilding from a previously complete package scan must still apply
+        # current family metadata to preserved companion Montages. Otherwise
+        # a category fix (for example ``Breast`` -> ``breast``) would update
+        # only the directly imported character Montage while leaving the
+        # partner Montage on its stale category.
+        for old_family_id, old_family in existing_document.get("by_family", {}).items():
+            family = family_metadata.get(normalized(str(old_family_id)))
+            if family is None:
+                continue
+            for field in ("participant_tags", "catalog_refs"):
+                for value in old_family.get(field, []):
+                    if value not in family[field]:
+                        family[field].append(value)
         for key, old_entry in existing_document.get("by_montage", {}).items():
             entry = by_montage.get(key)
+            family = family_metadata.get(normalized(str(old_entry.get("hanime_id") or "")))
             if entry is None:
-                by_montage[key] = old_entry
+                preserved = dict(old_entry)
+                if family is not None:
+                    preserved["category"] = family["category"]
+                by_montage[key] = preserved
                 continue
             if str(entry["hanime_id"]) != str(old_entry.get("hanime_id")):
                 parser.error(
                     f"existing identity conflict for {key}: "
                     f"{entry['hanime_id']} != {old_entry.get('hanime_id')}"
                 )
+            if family is not None:
+                entry["category"] = family["category"]
             for path in old_entry.get("asset_paths", []):
                 if path not in entry["asset_paths"]:
                     entry["asset_paths"].append(path)
@@ -247,7 +298,7 @@ def main() -> None:
                 (
                     family
                     for family in families
-                    if asset.casefold().startswith(family.casefold() + "_")
+                    if asset_belongs_to_family(asset, family)
                 ),
                 None,
             )

@@ -26,7 +26,7 @@ local runtime_dir = resolve_runtime_dir()
 
 return {
     name = "FD-TCode",
-    version = "0.17.0-dev",
+    version = "0.17.0",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
@@ -40,7 +40,7 @@ return {
     -- The realtime path reads only the compact functional contact set per
     -- participant. F8Studio enables/disables candidates and chooses priority.
     -- Full-body debug skeletons are deliberately excluded from this loop.
-    skeleton_sample_interval_ms = 50,
+    skeleton_sample_interval_ms = 20,
     -- HAnime/Montage discovery reads only cached primary components and does
     -- not need to run on every motion frame.
     hanime_poll_interval_ms = 250,

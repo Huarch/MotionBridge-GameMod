@@ -5,7 +5,7 @@
   "package_list_sha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6",
   "recognition_policy": "exact-active-montage-in-authoritative-table-hanime-family",
   "hanime_family_count": 217,
-  "montage_count": 1160,
+  "montage_count": 1178,
   "by_family": {
     "AletAnya_Sex01": {
       "hanime_id": "AletAnya_Sex01",
@@ -192,8 +192,7 @@
         "Alet/DeepOne/Vaginal05"
       ],
       "participant_tags": [
-        "Alet",
-        "DeepOne"
+        "Alet"
       ]
     },
     "AletDeepone_Vaginal05": {
@@ -203,7 +202,9 @@
         "Alet/DeepOne/Vaginal05"
       ],
       "participant_tags": [
-        "Alet_01"
+        "Alet_01",
+        "Alet",
+        "DeepOne"
       ]
     },
     "AletDrone_Anal01": {
@@ -512,7 +513,8 @@
       "participant_tags": [
         "Alet_01",
         "Alet",
-        "WorkshopArm"
+        "WorkshopArm",
+        "1_Lloigor"
       ]
     },
     "AletLloigor_Vaginal02": {
@@ -867,7 +869,7 @@
     },
     "AletScorpio_Breast01": {
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
       ],
@@ -1086,7 +1088,7 @@
     },
     "AletTantacle_Breast01": {
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
       ],
@@ -1400,7 +1402,7 @@
     },
     "AnyaGhast_Breast01": {
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
       ],
@@ -2027,7 +2029,8 @@
         "Erika/Hound/Vagina01"
       ],
       "participant_tags": [
-        "Erika_01"
+        "Erika_01",
+        "1_Hound"
       ]
     },
     "ErikaHound_Vagina02": {
@@ -2037,7 +2040,8 @@
         "Erika/Hound/Vagina02"
       ],
       "participant_tags": [
-        "Erika_01"
+        "Erika_01",
+        "2_Hound"
       ]
     },
     "ErikaHound_Vagina03": {
@@ -2047,7 +2051,8 @@
         "Erika/Hound/Vagina03"
       ],
       "participant_tags": [
-        "Erika_01"
+        "Erika_01",
+        "3_Hound"
       ]
     },
     "ErikaHound_Vagina04": {
@@ -2058,7 +2063,8 @@
       ],
       "participant_tags": [
         "Erika_01",
-        "Erika"
+        "Erika",
+        "4_Hound"
       ]
     },
     "ErikaHound_Vaginal05": {
@@ -2145,7 +2151,7 @@
     },
     "ErikaMale_Breast01": {
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Erika/Male/Breast01"
       ],
@@ -2413,7 +2419,8 @@
         "Erika/Male/Vaginal10"
       ],
       "participant_tags": [
-        "Erika_01"
+        "Erika_01",
+        "0_Male"
       ]
     },
     "ErikaMale_Vaginal11": {
@@ -5334,7 +5341,7 @@
     "aletscorpiobreast01aletmontage": {
       "asset": "AletScorpio_Breast01_Alet_Montage",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -5348,7 +5355,7 @@
     "aletscorpiobreast01aletmontagemax": {
       "asset": "AletScorpio_Breast01_Alet_Montage_Max",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -5362,7 +5369,7 @@
     "aletscorpiobreast01aletmontagemin": {
       "asset": "AletScorpio_Breast01_Alet_Montage_Min",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -6006,7 +6013,7 @@
     "alettantaclebreast01aletmontage": {
       "asset": "AletTantacle_Breast01_Alet_Montage",
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
@@ -6020,7 +6027,7 @@
     "alettantaclebreast01aletmontagemax": {
       "asset": "AletTantacle_Breast01_Alet_Montage_Max",
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
@@ -6034,7 +6041,7 @@
     "alettantaclebreast01aletmontagemin": {
       "asset": "AletTantacle_Breast01_Alet_Montage_Min",
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
@@ -7140,7 +7147,7 @@
     "anyaghastbreast01anyamontage": {
       "asset": "AnyaGhast_Breast01_Anya_Montage",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -7154,7 +7161,7 @@
     "anyaghastbreast01anyamontagemax": {
       "asset": "AnyaGhast_Breast01_Anya_Montage_MAX",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -7168,7 +7175,7 @@
     "anyaghastbreast01anyamontagemin": {
       "asset": "AnyaGhast_Breast01_Anya_Montage_MIN",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -10094,7 +10101,7 @@
     "erikamalebreast01erika01montage": {
       "asset": "ErikaMale_Breast01_Erika_01_Montage",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -10108,7 +10115,7 @@
     "erikamalebreast01erika01montagemax": {
       "asset": "ErikaMale_Breast01_Erika_01_Montage_Max",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -10122,7 +10129,7 @@
     "erikamalebreast01erika01montagemin": {
       "asset": "ErikaMale_Breast01_Erika_01_Montage_Min",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -13738,7 +13745,7 @@
     "erikamalebreast01malemontage": {
       "asset": "ErikaMale_Breast01_Male_Montage",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -13752,7 +13759,7 @@
     "erikamalebreast01malemontagemax": {
       "asset": "ErikaMale_Breast01_Male_Montage_Max",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -13766,7 +13773,7 @@
     "erikamalebreast01malemontagemin": {
       "asset": "ErikaMale_Breast01_Male_Montage_Min",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -14449,6 +14456,48 @@
         "/Game/Characters/MaleB/Anim/Erika/Vaginal08/ErikaMale_Vaginal08_Male_Montage_Min"
       ]
     },
+    "erikamalevaginal10malemontage": {
+      "asset": "ErikaMale_Vaginal10_Male_Montage",
+      "hanime_id": "ErikaMale_Vagina10",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Erika/Male/Vaginal10"
+      ],
+      "participant_tag": "0_Male",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/MaleB/Anim/Erika/Vaginal10/ErikaMale_Vaginal10_Male_Montage"
+      ]
+    },
+    "erikamalevaginal10malemontagemax": {
+      "asset": "ErikaMale_Vaginal10_Male_Montage_MAX",
+      "hanime_id": "ErikaMale_Vagina10",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Erika/Male/Vaginal10"
+      ],
+      "participant_tag": "0_Male",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/MaleB/Anim/Erika/Vaginal10/ErikaMale_Vaginal10_Male_Montage_MAX"
+      ]
+    },
+    "erikamalevaginal10malemontagemin": {
+      "asset": "ErikaMale_Vaginal10_Male_Montage_MIN",
+      "hanime_id": "ErikaMale_Vagina10",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Erika/Male/Vaginal10"
+      ],
+      "participant_tag": "0_Male",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/MaleB/Anim/Erika/Vaginal10/ErikaMale_Vaginal10_Male_Montage_MIN"
+      ]
+    },
     "erikamalevaginal11maleamontage": {
       "asset": "ErikaMale_Vaginal11_Male_A_Montage",
       "hanime_id": "ErikaMale_Vaginal11",
@@ -14871,7 +14920,7 @@
     },
     "aletdeeponevagina05deeponemontage": {
       "asset": "AletDeepone_Vagina05_DeepOne_Montage",
-      "hanime_id": "AletDeepone_Vagina05",
+      "hanime_id": "AletDeepone_Vaginal05",
       "category": "vaginal",
       "phase": "normal",
       "catalog_refs": [
@@ -14885,7 +14934,7 @@
     },
     "aletdeeponevagina05deeponemontagemax": {
       "asset": "AletDeepone_Vagina05_DeepOne_Montage_MAX",
-      "hanime_id": "AletDeepone_Vagina05",
+      "hanime_id": "AletDeepone_Vaginal05",
       "category": "vaginal",
       "phase": "max",
       "catalog_refs": [
@@ -14899,7 +14948,7 @@
     },
     "aletdeeponevagina05deeponemontagemin": {
       "asset": "AletDeepone_Vagina05_DeepOne_Montage_MIN",
-      "hanime_id": "AletDeepone_Vagina05",
+      "hanime_id": "AletDeepone_Vaginal05",
       "category": "vaginal",
       "phase": "min",
       "catalog_refs": [
@@ -15925,7 +15974,7 @@
     "anyaghastbreast01ghastmontage": {
       "asset": "AnyaGhast_Breast01_Ghast_Montage",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -15939,7 +15988,7 @@
     "anyaghastbreast01ghastmontagemax": {
       "asset": "AnyaGhast_Breast01_Ghast_Montage_MAX",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -15953,7 +16002,7 @@
     "anyaghastbreast01ghastmontagemin": {
       "asset": "AnyaGhast_Breast01_Ghast_Montage_MIN",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -17227,6 +17276,174 @@
         "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Mouth01/ErikaHound_Mouth01_Hound_Montage_MIN"
       ]
     },
+    "erikahoundvaginal01houndmontage": {
+      "asset": "ErikaHound_Vaginal01_Hound_Montage",
+      "hanime_id": "ErikaHound_Vagina01",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Erika/Hound/Vagina01"
+      ],
+      "participant_tag": "1_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina01/ErikaHound_Vaginal01_Hound_Montage"
+      ]
+    },
+    "erikahoundvaginal01houndmontagemax": {
+      "asset": "ErikaHound_Vaginal01_Hound_Montage_Max",
+      "hanime_id": "ErikaHound_Vagina01",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Erika/Hound/Vagina01"
+      ],
+      "participant_tag": "1_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina01/ErikaHound_Vaginal01_Hound_Montage_Max"
+      ]
+    },
+    "erikahoundvaginal01houndmontagemin": {
+      "asset": "ErikaHound_Vaginal01_Hound_Montage_Min",
+      "hanime_id": "ErikaHound_Vagina01",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Erika/Hound/Vagina01"
+      ],
+      "participant_tag": "1_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina01/ErikaHound_Vaginal01_Hound_Montage_Min"
+      ]
+    },
+    "erikahoundvaginal02houndmontage": {
+      "asset": "ErikaHound_Vaginal02_Hound_Montage",
+      "hanime_id": "ErikaHound_Vagina02",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Erika/Hound/Vagina02"
+      ],
+      "participant_tag": "2_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina02/ErikaHound_Vaginal02_Hound_Montage"
+      ]
+    },
+    "erikahoundvaginal02houndmontagemax": {
+      "asset": "ErikaHound_Vaginal02_Hound_Montage_Max",
+      "hanime_id": "ErikaHound_Vagina02",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Erika/Hound/Vagina02"
+      ],
+      "participant_tag": "2_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina02/ErikaHound_Vaginal02_Hound_Montage_Max"
+      ]
+    },
+    "erikahoundvaginal02houndmontagemin": {
+      "asset": "ErikaHound_Vaginal02_Hound_Montage_Min",
+      "hanime_id": "ErikaHound_Vagina02",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Erika/Hound/Vagina02"
+      ],
+      "participant_tag": "2_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina02/ErikaHound_Vaginal02_Hound_Montage_Min"
+      ]
+    },
+    "erikahoundvaginal03houndmontage": {
+      "asset": "ErikaHound_Vaginal03_Hound_Montage",
+      "hanime_id": "ErikaHound_Vagina03",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Erika/Hound/Vagina03"
+      ],
+      "participant_tag": "3_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina03/ErikaHound_Vaginal03_Hound_Montage"
+      ]
+    },
+    "erikahoundvaginal03houndmontagemax": {
+      "asset": "ErikaHound_Vaginal03_Hound_Montage_Max",
+      "hanime_id": "ErikaHound_Vagina03",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Erika/Hound/Vagina03"
+      ],
+      "participant_tag": "3_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina03/ErikaHound_Vaginal03_Hound_Montage_Max"
+      ]
+    },
+    "erikahoundvaginal03houndmontagemin": {
+      "asset": "ErikaHound_Vaginal03_Hound_Montage_Min",
+      "hanime_id": "ErikaHound_Vagina03",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Erika/Hound/Vagina03"
+      ],
+      "participant_tag": "3_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina03/ErikaHound_Vaginal03_Hound_Montage_Min"
+      ]
+    },
+    "erikahoundvaginal04houndmontage": {
+      "asset": "ErikaHound_Vaginal04_Hound_Montage",
+      "hanime_id": "ErikaHound_Vagina04",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Erika/Hound/Vagina04"
+      ],
+      "participant_tag": "4_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina04/ErikaHound_Vaginal04_Hound_Montage"
+      ]
+    },
+    "erikahoundvaginal04houndmontagemax": {
+      "asset": "ErikaHound_Vaginal04_Hound_Montage_Max",
+      "hanime_id": "ErikaHound_Vagina04",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Erika/Hound/Vagina04"
+      ],
+      "participant_tag": "4_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina04/ErikaHound_Vaginal04_Hound_Montage_Max"
+      ]
+    },
+    "erikahoundvaginal04houndmontagemin": {
+      "asset": "ErikaHound_Vaginal04_Hound_Montage_Min",
+      "hanime_id": "ErikaHound_Vagina04",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Erika/Hound/Vagina04"
+      ],
+      "participant_tag": "4_Hound",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina04/ErikaHound_Vaginal04_Hound_Montage_Min"
+      ]
+    },
     "erikahoundvaginal05houndoftindalosmontage": {
       "asset": "ErikaHound_Vaginal05_HoundOfTindalos_Montage",
       "hanime_id": "ErikaHound_Vaginal05",
@@ -17687,6 +17904,48 @@
       "evidence": "table_hanim_family_companion_montage",
       "asset_paths": [
         "/Game/Characters/Monster/Lloigor/Anim/HAnim/Alet/Anal02/AletLloigor_Anal02_Lloigor_Montage_Min"
+      ]
+    },
+    "aletlloigorvaginal01lloigormontage": {
+      "asset": "AletLloigor_Vaginal01_Lloigor_Montage",
+      "hanime_id": "AletLloigor_Vagina01",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Alet/Lloigor/Vagina01"
+      ],
+      "participant_tag": "1_Lloigor",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Lloigor/Anim/HAnim/Alet/Vagina01/AletLloigor_Vaginal01_Lloigor_Montage"
+      ]
+    },
+    "aletlloigorvaginal01lloigormontagemax": {
+      "asset": "AletLloigor_Vaginal01_Lloigor_Montage_Max",
+      "hanime_id": "AletLloigor_Vagina01",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Alet/Lloigor/Vagina01"
+      ],
+      "participant_tag": "1_Lloigor",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Lloigor/Anim/HAnim/Alet/Vagina01/AletLloigor_Vaginal01_Lloigor_Montage_Max"
+      ]
+    },
+    "aletlloigorvaginal01lloigormontagemin": {
+      "asset": "AletLloigor_Vaginal01_Lloigor_Montage_Min",
+      "hanime_id": "AletLloigor_Vagina01",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Alet/Lloigor/Vagina01"
+      ],
+      "participant_tag": "1_Lloigor",
+      "evidence": "table_hanim_family_companion_montage",
+      "asset_paths": [
+        "/Game/Characters/Monster/Lloigor/Anim/HAnim/Alet/Vagina01/AletLloigor_Vaginal01_Lloigor_Montage_Min"
       ]
     },
     "aletlloigorvaginal02lloigormontage": {
@@ -18328,7 +18587,7 @@
     "aletscorpiobreast01scorpionmontage": {
       "asset": "AletScorpio_Breast01_scorpion_Montage",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -18342,7 +18601,7 @@
     "aletscorpiobreast01scorpionmontagemax": {
       "asset": "AletScorpio_Breast01_scorpion_Montage_Max",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -18356,7 +18615,7 @@
     "aletscorpiobreast01scorpionmontagemin": {
       "asset": "AletScorpio_Breast01_scorpion_Montage_Min",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"

@@ -1051,7 +1051,7 @@
     },
     "AletScorpio_Breast01": {
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
       ],
@@ -1255,7 +1255,7 @@
     },
     "AletTantacle_Breast01": {
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
       ],
@@ -1901,7 +1901,7 @@
     },
     "AnyaGhast_Breast01": {
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
       ],
@@ -2067,7 +2067,7 @@
     },
     "AnyaLloigor_Breast01": {
       "hanime_id": "AnyaLloigor_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Anya/Lloigor/Breast01"
       ],
@@ -2200,7 +2200,7 @@
     },
     "AnyaMale_Breast01": {
       "hanime_id": "AnyaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Anya/Male/Breast01"
       ],
@@ -2211,7 +2211,7 @@
     },
     "AnyaMale_Breast02": {
       "hanime_id": "AnyaMale_Breast02",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Anya/Male/Breast02"
       ],
@@ -3344,7 +3344,7 @@
     },
     "ErikaMale_Breast01": {
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Erika/Male/Breast01"
       ],
@@ -3354,7 +3354,7 @@
     },
     "ErikaMale_A_Breast02": {
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Erika/Male/Breast02"
       ],
@@ -3364,7 +3364,7 @@
     },
     "ErikaMale_Breast03": {
       "hanime_id": "ErikaMale_Breast03",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Erika/Male/Breast03"
       ],
@@ -4945,7 +4945,7 @@
     },
     "JuziTchoTchoABChair_Breast01": {
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
       ],
@@ -5137,7 +5137,7 @@
     },
     "YanshiDreamer_Breast01": {
       "hanime_id": "YanshiDreamer_Breast01",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "yanshi/Male/Breast01"
       ],
@@ -5147,7 +5147,7 @@
     },
     "YanshiDreamer_breasts2026019_Wumiao": {
       "hanime_id": "YanshiDreamer_breasts2026019_Wumiao",
-      "category": "other",
+      "category": "breast",
       "catalog_refs": [
         "yanshi/Male/Breast02"
       ],
@@ -9111,7 +9111,7 @@
     "aletscorpiobreast01aletmontage": {
       "asset": "AletScorpio_Breast01_Alet_Montage",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -9125,7 +9125,7 @@
     "aletscorpiobreast01aletmontagemax": {
       "asset": "AletScorpio_Breast01_Alet_Montage_Max",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -9139,7 +9139,7 @@
     "aletscorpiobreast01aletmontagemin": {
       "asset": "AletScorpio_Breast01_Alet_Montage_Min",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -9825,7 +9825,7 @@
     "alettantaclebreast01aletmontage": {
       "asset": "AletTantacle_Breast01_Alet_Montage",
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
@@ -9839,7 +9839,7 @@
     "alettantaclebreast01aletmontagemax": {
       "asset": "AletTantacle_Breast01_Alet_Montage_Max",
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
@@ -9853,7 +9853,7 @@
     "alettantaclebreast01aletmontagemin": {
       "asset": "AletTantacle_Breast01_Alet_Montage_Min",
       "hanime_id": "AletTantacle_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Alet/Tentacle/Breast01"
@@ -12205,7 +12205,7 @@
     "anyaghastbreast01anyamontage": {
       "asset": "AnyaGhast_Breast01_Anya_Montage",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -12219,7 +12219,7 @@
     "anyaghastbreast01anyamontagemax": {
       "asset": "AnyaGhast_Breast01_Anya_Montage_MAX",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -12233,7 +12233,7 @@
     "anyaghastbreast01anyamontagemin": {
       "asset": "AnyaGhast_Breast01_Anya_Montage_MIN",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -12877,7 +12877,7 @@
     "anyalloigorbreast01anya01montage": {
       "asset": "AnyaLloigor_Breast01_Anya_01_Montage",
       "hanime_id": "AnyaLloigor_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Lloigor/Breast01"
@@ -12891,7 +12891,7 @@
     "anyalloigorbreast01anya01montagemax": {
       "asset": "AnyaLloigor_Breast01_Anya_01_Montage_MAX",
       "hanime_id": "AnyaLloigor_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Lloigor/Breast01"
@@ -12905,7 +12905,7 @@
     "anyalloigorbreast01anya01montagemin": {
       "asset": "AnyaLloigor_Breast01_Anya_01_Montage_MIN",
       "hanime_id": "AnyaLloigor_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Lloigor/Breast01"
@@ -13423,7 +13423,7 @@
     "anyamalebreast01anyamontage": {
       "asset": "AnyaMale_Breast01_Anya_Montage",
       "hanime_id": "AnyaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Male/Breast01"
@@ -13437,7 +13437,7 @@
     "anyamalebreast01anyamontagemax": {
       "asset": "AnyaMale_Breast01_Anya_Montage_MAX",
       "hanime_id": "AnyaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Male/Breast01"
@@ -13451,7 +13451,7 @@
     "anyamalebreast01anyamontagemin": {
       "asset": "AnyaMale_Breast01_Anya_Montage_MIN",
       "hanime_id": "AnyaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Male/Breast01"
@@ -13465,7 +13465,7 @@
     "anyamalebreast02anya01montage": {
       "asset": "AnyaMale_Breast02_Anya_01_Montage",
       "hanime_id": "AnyaMale_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Male/Breast02"
@@ -13479,7 +13479,7 @@
     "anyamalebreast02anya01montagemax": {
       "asset": "AnyaMale_Breast02_Anya_01_Montage_Max",
       "hanime_id": "AnyaMale_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Male/Breast02"
@@ -13493,7 +13493,7 @@
     "anyamalebreast02anya01montagemin": {
       "asset": "AnyaMale_Breast02_Anya_01_Montage_Min",
       "hanime_id": "AnyaMale_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Male/Breast02"
@@ -18681,7 +18681,7 @@
     "erikamalebreast01erika01montage": {
       "asset": "ErikaMale_Breast01_Erika_01_Montage",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -18695,7 +18695,7 @@
     "erikamalebreast01erika01montagemax": {
       "asset": "ErikaMale_Breast01_Erika_01_Montage_Max",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -18709,7 +18709,7 @@
     "erikamalebreast01erika01montagemin": {
       "asset": "ErikaMale_Breast01_Erika_01_Montage_Min",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -18723,7 +18723,7 @@
     "erikamaleabreast02erika01montage": {
       "asset": "ErikaMale_A_Breast02_Erika_01_Montage",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -18737,7 +18737,7 @@
     "erikamaleabreast02erika01montagemax": {
       "asset": "ErikaMale_A_Breast02_Erika_01_Montage_MAX",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -18751,7 +18751,7 @@
     "erikamaleabreast02erika01montagemin": {
       "asset": "ErikaMale_A_Breast02_Erika_01_Montage_MIN",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -18765,7 +18765,7 @@
     "erikamalebreast03erika01montage": {
       "asset": "ErikaMale_Breast03_Erika_01_Montage",
       "hanime_id": "ErikaMale_Breast03",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast03"
@@ -18779,7 +18779,7 @@
     "erikamalebreast03erika01montagemax": {
       "asset": "ErikaMale_Breast03_Erika_01_Montage_MAX",
       "hanime_id": "ErikaMale_Breast03",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast03"
@@ -18793,7 +18793,7 @@
     "erikamalebreast03erika01montagemin": {
       "asset": "ErikaMale_Breast03_Erika_01_Montage_MIN",
       "hanime_id": "ErikaMale_Breast03",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast03"
@@ -24861,7 +24861,7 @@
     "juzitchotchoabchairbreast01juzi01montage": {
       "asset": "JuziTchoTchoABChair_Breast01_Juzi_01_Montage",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -24875,7 +24875,7 @@
     "juzitchotchoabchairbreast01juzi01montagemax": {
       "asset": "JuziTchoTchoABChair_Breast01_Juzi_01_Montage_MAX",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -24889,7 +24889,7 @@
     "juzitchotchoabchairbreast01juzi01montagemin": {
       "asset": "JuziTchoTchoABChair_Breast01_Juzi_01_Montage_MIN",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -25701,7 +25701,7 @@
     "yanshidreamerbreast01yanshi01montage": {
       "asset": "YanshiDreamer_Breast01_Yanshi_01_Montage",
       "hanime_id": "YanshiDreamer_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "yanshi/Male/Breast01"
@@ -25715,7 +25715,7 @@
     "yanshidreamerbreast01yanshi01montagemax": {
       "asset": "YanshiDreamer_Breast01_Yanshi_01_Montage_MAX",
       "hanime_id": "YanshiDreamer_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "yanshi/Male/Breast01"
@@ -25729,7 +25729,7 @@
     "yanshidreamerbreast01yanshi01montagemin": {
       "asset": "YanshiDreamer_Breast01_Yanshi_01_Montage_MIN",
       "hanime_id": "YanshiDreamer_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "yanshi/Male/Breast01"
@@ -25743,7 +25743,7 @@
     "yanshidreamerbreasts2026019wumiaoyanshi01montage": {
       "asset": "YanshiDreamer_breasts2026019_Wumiao_Yanshi_01_Montage",
       "hanime_id": "YanshiDreamer_breasts2026019_Wumiao",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "yanshi/Male/Breast02"
@@ -25757,7 +25757,7 @@
     "yanshidreamerbreasts2026019wumiaoyanshi01montagemax": {
       "asset": "YanshiDreamer_breasts2026019_Wumiao_Yanshi_01_Montage_MAX",
       "hanime_id": "YanshiDreamer_breasts2026019_Wumiao",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "yanshi/Male/Breast02"
@@ -25771,7 +25771,7 @@
     "yanshidreamerbreasts2026019wumiaoyanshi01montagemin": {
       "asset": "YanshiDreamer_breasts2026019_Wumiao_Yanshi_01_Montage_MIN",
       "hanime_id": "YanshiDreamer_breasts2026019_Wumiao",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "yanshi/Male/Breast02"
@@ -29742,7 +29742,7 @@
     "erikamaleabreast02handcuffsa01montage": {
       "asset": "ErikaMale_A_Breast02_Handcuffs_A_01_Montage",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -29756,7 +29756,7 @@
     "erikamaleabreast02handcuffsa01montagemax": {
       "asset": "ErikaMale_A_Breast02_Handcuffs_A_01_Montage_MAX",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -29770,7 +29770,7 @@
     "erikamaleabreast02handcuffsa01montagemin": {
       "asset": "ErikaMale_A_Breast02_Handcuffs_A_01_Montage_MIN",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -32716,7 +32716,7 @@
     "anyamalebreast01maleamontage": {
       "asset": "AnyaMale_Breast01_Male_A_Montage",
       "hanime_id": "AnyaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Male/Breast01"
@@ -32730,7 +32730,7 @@
     "anyamalebreast01maleamontagemax": {
       "asset": "AnyaMale_Breast01_Male_A_Montage_MAX",
       "hanime_id": "AnyaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Male/Breast01"
@@ -32744,7 +32744,7 @@
     "anyamalebreast01maleamontagemin": {
       "asset": "AnyaMale_Breast01_Male_A_Montage_MIN",
       "hanime_id": "AnyaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Male/Breast01"
@@ -32758,7 +32758,7 @@
     "anyamalebreast02malea01montage": {
       "asset": "AnyaMale_Breast02_Male_A_01_Montage",
       "hanime_id": "AnyaMale_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Male/Breast02"
@@ -32772,7 +32772,7 @@
     "anyamalebreast02malea01montagemax": {
       "asset": "AnyaMale_Breast02_Male_A_01_Montage_Max",
       "hanime_id": "AnyaMale_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Male/Breast02"
@@ -32786,7 +32786,7 @@
     "anyamalebreast02malea01montagemin": {
       "asset": "AnyaMale_Breast02_Male_A_01_Montage_Min",
       "hanime_id": "AnyaMale_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Male/Breast02"
@@ -34690,7 +34690,7 @@
     "erikamalebreast01malemontage": {
       "asset": "ErikaMale_Breast01_Male_Montage",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -34704,7 +34704,7 @@
     "erikamalebreast01malemontagemax": {
       "asset": "ErikaMale_Breast01_Male_Montage_Max",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -34718,7 +34718,7 @@
     "erikamalebreast01malemontagemin": {
       "asset": "ErikaMale_Breast01_Male_Montage_Min",
       "hanime_id": "ErikaMale_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast01"
@@ -34732,7 +34732,7 @@
     "erikamaleabreast02malea01montage": {
       "asset": "ErikaMale_A_Breast02_Male_A_01_Montage",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -34746,7 +34746,7 @@
     "erikamaleabreast02malea01montagemax": {
       "asset": "ErikaMale_A_Breast02_Male_A_01_Montage_MAX",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -34760,7 +34760,7 @@
     "erikamaleabreast02malea01montagemin": {
       "asset": "ErikaMale_A_Breast02_Male_A_01_Montage_MIN",
       "hanime_id": "ErikaMale_A_Breast02",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast02"
@@ -34774,7 +34774,7 @@
     "erikamalebreast03male01montage": {
       "asset": "ErikaMale_Breast03_Male_01_Montage",
       "hanime_id": "ErikaMale_Breast03",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Erika/Male/Breast03"
@@ -34788,7 +34788,7 @@
     "erikamalebreast03male01montagemax": {
       "asset": "ErikaMale_Breast03_Male_01_Montage_MAX",
       "hanime_id": "ErikaMale_Breast03",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Erika/Male/Breast03"
@@ -34802,7 +34802,7 @@
     "erikamalebreast03male01montagemin": {
       "asset": "ErikaMale_Breast03_Male_01_Montage_MIN",
       "hanime_id": "ErikaMale_Breast03",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Erika/Male/Breast03"
@@ -37300,7 +37300,7 @@
     "yanshidreamerbreast01dreamera01montage": {
       "asset": "YanshiDreamer_Breast01_Dreamer_A_01_Montage",
       "hanime_id": "YanshiDreamer_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "yanshi/Male/Breast01"
@@ -37314,7 +37314,7 @@
     "yanshidreamerbreast01dreamera01montagemax": {
       "asset": "YanshiDreamer_Breast01_Dreamer_A_01_Montage_max",
       "hanime_id": "YanshiDreamer_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "yanshi/Male/Breast01"
@@ -37328,7 +37328,7 @@
     "yanshidreamerbreast01dreamera01montagemin": {
       "asset": "YanshiDreamer_Breast01_Dreamer_A_01_Montage_MIN",
       "hanime_id": "YanshiDreamer_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "yanshi/Male/Breast01"
@@ -37342,7 +37342,7 @@
     "yanshidreamerbreasts2026019wumiaodreamera01montage": {
       "asset": "YanshiDreamer_breasts2026019_Wumiao_Dreamer_A_01_Montage",
       "hanime_id": "YanshiDreamer_breasts2026019_Wumiao",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "yanshi/Male/Breast02"
@@ -37356,7 +37356,7 @@
     "yanshidreamerbreasts2026019wumiaodreamera01montagemax": {
       "asset": "YanshiDreamer_breasts2026019_Wumiao_Dreamer_A_01_Montage_MAX",
       "hanime_id": "YanshiDreamer_breasts2026019_Wumiao",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "yanshi/Male/Breast02"
@@ -37370,7 +37370,7 @@
     "yanshidreamerbreasts2026019wumiaodreamera01montagemin": {
       "asset": "YanshiDreamer_breasts2026019_Wumiao_Dreamer_A_01_Montage_MIN",
       "hanime_id": "YanshiDreamer_breasts2026019_Wumiao",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "yanshi/Male/Breast02"
@@ -40915,7 +40915,7 @@
     "anyaghastbreast01ghastmontage": {
       "asset": "AnyaGhast_Breast01_Ghast_Montage",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -40929,7 +40929,7 @@
     "anyaghastbreast01ghastmontagemax": {
       "asset": "AnyaGhast_Breast01_Ghast_Montage_MAX",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -40943,7 +40943,7 @@
     "anyaghastbreast01ghastmontagemin": {
       "asset": "AnyaGhast_Breast01_Ghast_Montage_MIN",
       "hanime_id": "AnyaGhast_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Ghast/Breast01"
@@ -45496,7 +45496,7 @@
     "anyalloigorbreast01lloigor01montage": {
       "asset": "AnyaLloigor_Breast01_Lloigor_01_Montage",
       "hanime_id": "AnyaLloigor_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Anya/Lloigor/Breast01"
@@ -45510,7 +45510,7 @@
     "anyalloigorbreast01lloigor01montagemax": {
       "asset": "AnyaLloigor_Breast01_Lloigor_01_Montage_MAX",
       "hanime_id": "AnyaLloigor_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Anya/Lloigor/Breast01"
@@ -45524,7 +45524,7 @@
     "anyalloigorbreast01lloigor01montagemin": {
       "asset": "AnyaLloigor_Breast01_Lloigor_01_Montage_MIN",
       "hanime_id": "AnyaLloigor_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Anya/Lloigor/Breast01"
@@ -47140,7 +47140,7 @@
     "aletscorpiobreast01scorpionmontage": {
       "asset": "AletScorpio_Breast01_scorpion_Montage",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -47154,7 +47154,7 @@
     "aletscorpiobreast01scorpionmontagemax": {
       "asset": "AletScorpio_Breast01_scorpion_Montage_Max",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -47168,7 +47168,7 @@
     "aletscorpiobreast01scorpionmontagemin": {
       "asset": "AletScorpio_Breast01_scorpion_Montage_Min",
       "hanime_id": "AletScorpio_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Alet/Scorpion/Breast01"
@@ -48106,7 +48106,7 @@
     "juzitchotchoabchairbreast01tchotchoa01montage": {
       "asset": "JuziTchoTchoABChair_Breast01_tchotchoA_01_Montage",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -48120,7 +48120,7 @@
     "juzitchotchoabchairbreast01tchotchoa01montagemax": {
       "asset": "JuziTchoTchoABChair_Breast01_tchotchoA_01_Montage_MAX",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -48134,7 +48134,7 @@
     "juzitchotchoabchairbreast01tchotchoa01montagemin": {
       "asset": "JuziTchoTchoABChair_Breast01_tchotchoA_01_Montage_MIN",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -48148,7 +48148,7 @@
     "juzitchotchoabchairbreast01tchotchob01montage": {
       "asset": "JuziTchoTchoABChair_Breast01_tchotchoB_01_Montage",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "normal",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -48162,7 +48162,7 @@
     "juzitchotchoabchairbreast01tchotchob01montagemax": {
       "asset": "JuziTchoTchoABChair_Breast01_tchotchoB_01_Montage_MAX",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "max",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"
@@ -48176,7 +48176,7 @@
     "juzitchotchoabchairbreast01tchotchob01montagemin": {
       "asset": "JuziTchoTchoABChair_Breast01_tchotchoB_01_Montage_MIN",
       "hanime_id": "JuziTchoTchoABChair_Breast01",
-      "category": "other",
+      "category": "breast",
       "phase": "min",
       "catalog_refs": [
         "Juzi/TchoTchoAB/Breast01"

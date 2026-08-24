@@ -12,7 +12,7 @@ from f8pystudio.assets.projects.project_storage import ProjectStorageService
 from f8pystudio.nodegraph.session_schema import extract_layout
 
 
-DEFAULT_PROJECT_NAME = "Fallen Doll Skeleton Preview v16 (direct L0)"
+DEFAULT_PROJECT_NAME = "Fallen Doll Skeleton Preview v17 (real-time multi-axis)"
 
 
 def main() -> int:
@@ -39,7 +39,7 @@ def main() -> int:
             content=content,
             name=args.name,
             description=args.description,
-            tags=args.tags or ["fallen-doll", "tcode", "l0"],
+            tags=args.tags or ["fallen-doll", "tcode", "six-axis", "release"],
             set_current=True,
         )
         print(f"Updated and selected Fallen Doll Studio project: {project.projectId}")
@@ -49,7 +49,7 @@ def main() -> int:
         path=str(project_path),
         name=args.name,
         description=args.description,
-        tags=args.tags or ["fallen-doll", "tcode", "l0"],
+        tags=args.tags or ["fallen-doll", "tcode", "six-axis", "release"],
         set_current=True,
     )
     print(f"Imported Fallen Doll Studio project: {project.projectId}")
