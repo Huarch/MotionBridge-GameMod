@@ -13,6 +13,10 @@
 
 `fd_pyengine` 和 `fd_source` 应由 Deploy 自动启动，不是三个需要分别运行的程序。
 
+桌面启动器只会在首次使用时导入随附的 v17 工程。以后启动只选择已保存工程，不会
+覆盖 USB/Wi-Fi 设置或六轴范围。只有明确希望用随附默认值重置工程时，才运行
+`Prepare-F8StudioProject.py --refresh-existing`。
+
 ## Pixi 启动问题
 
 源码版 F8Studio 使用 Pixi 管理运行环境。全局命令找不到 Pixi，并不代表已经安装的

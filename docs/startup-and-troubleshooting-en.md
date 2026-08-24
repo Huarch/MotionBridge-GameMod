@@ -14,6 +14,11 @@
 Deploy should start `fd_pyengine` and `fd_source` automatically. They are not three
 separate applications that players must launch by hand.
 
+The desktop launcher imports the bundled v17 project only the first time. On later
+starts it selects the saved project without replacing USB/Wi-Fi settings or axis ranges.
+Run `Prepare-F8StudioProject.py --refresh-existing` only when you intentionally want to
+replace the saved graph with bundled defaults.
+
 ## Pixi startup issues
 
 Source builds of F8Studio use Pixi for managed environments. A missing global
