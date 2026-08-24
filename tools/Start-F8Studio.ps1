@@ -54,5 +54,5 @@ if ($Foreground) {
 
 New-Item -ItemType Directory -Path $launchLogDirectory -Force | Out-Null
 $hostExecutable = if (Test-Path -LiteralPath $pythonw -PathType Leaf) { $pythonw } else { $python }
-$process = Start-Process -FilePath $hostExecutable -ArgumentList $arguments -WorkingDirectory $root -WindowStyle Hidden -RedirectStandardOutput $stdoutLog -RedirectStandardError $stderrLog -PassThru
+$process = Start-Process -FilePath $hostExecutable -ArgumentList $arguments -WorkingDirectory $root -RedirectStandardOutput $stdoutLog -RedirectStandardError $stderrLog -PassThru
 Write-Output "F8Studio started in the background (PID $($process.Id)). Logs: $launchLogDirectory"
