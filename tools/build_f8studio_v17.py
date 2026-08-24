@@ -269,10 +269,19 @@ def wave_node(template: dict[str, Any], *, name: str, node_id: str, position: li
     node["custom"]["throttleMs"] = 50
     node["custom"]["showLegend"] = True
     node["custom"]["upstreamSampleIntervalMs"] = 50
+    for port in node["f8_spec"].get("dataInPorts", []):
+        if port.get("name") in {"x", "y", "z"}:
+            port["showOnNode"] = True
     node["f8_sys"] = copy.deepcopy(template.get("f8_sys", {}))
     node["f8_ui_state"] = copy.deepcopy(template.get("f8_ui_state", {}))
     del node_id
     return node
+
+
+def expose_tcode_axes(node: dict[str, Any]) -> None:
+    for port in node["f8_spec"].get("dataInPorts", []):
+        if port.get("name") in AXES:
+            port["showOnNode"] = True
 
 
 def input_key(item: dict[str, Any]) -> tuple[str, str]:
@@ -307,6 +316,8 @@ def build_project(source: Path, destination: Path) -> None:
         node_id="fd_rotation_viz",
         position=[2320.0, 650.0],
     )
+    expose_tcode_axes(nodes["fd_tcode"])
+    expose_tcode_axes(nodes["fd_device_tcode"])
 
     usb_node = nodes["fd_usb_out"]
     usb_node["custom"]["enabled"] = False

@@ -1,0 +1,62 @@
+From 329ab3c8e2c06ae568c82e4e1b296643af95141c Mon Sep 17 00:00:00 2001
+From: huarch <huarch97@outlook.com>
+Date: Mon, 24 Aug 2026 16:59:26 +0800
+Subject: [PATCH] fix(sdk): use generated state field alias
+
+---
+ packages/f8pysdk/f8pysdk/service_bus/internal/micro.py        | 4 ++--
+ packages/f8pysdk/tests/test_zenoh_service_bus_integration.py  | 2 +-
+ .../f8pystudio/f8pystudio/bridge/service_endpoint_client.py   | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py b/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py
+index 2f23051..29345a9 100644
+--- a/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py
++++ b/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py
+@@ -369,7 +369,7 @@ class ServiceBusControlHandlers:
+             return
+         req_id = self._req_id(payload.reqId)
+         node_id_s = str(payload.args.nodeId or "").strip()
+-        field_s = str(payload.args.field or "").strip()
++        field_s = str(payload.args.field_ or "").strip()
+         value = payload.args.value
+         if not node_id_s or not field_s:
+             await req.respond(
+@@ -438,7 +438,7 @@ class ServiceBusControlHandlers:
+                 F8SetStateReply(
+                     reqId=req_id,
+                     ok=True,
+-                    result=F8SetStateReplyResult(nodeId=node_id_s, field=field_s),
++                    result=F8SetStateReplyResult(nodeId=node_id_s, field_=field_s),
+                     error=None,
+                 )
+             )
+diff --git a/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py b/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py
+index 6cba53d..57bab6e 100644
+--- a/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py
++++ b/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py
+@@ -287,7 +287,7 @@ def test_two_python_service_buses_roundtrip_over_zenoh() -> None:
+                 endpoint="set_state",
+                 payload=F8SetStateRequest(
+                     reqId="set-state-b",
+-                    args=F8SetStateArgs(nodeId="sink", field="input", value="endpoint"),
++                    args=F8SetStateArgs(nodeId="sink", field_="input", value="endpoint"),
+                     meta={"source": "test"},
+                 ),
+                 reply_type=F8SetStateReply,
+diff --git a/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py b/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py
+index 4207423..db11697 100644
+--- a/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py
++++ b/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py
+@@ -239,7 +239,7 @@ async def request_set_remote_state(
+     payload = encode_obj(
+         F8SetStateRequest(
+             reqId=new_id(),
+-            args=F8SetStateArgs(nodeId=nid, field=state_field, value=value),
++            args=F8SetStateArgs(nodeId=nid, field_=state_field, value=value),
+             meta={"actor": "studio", "source": "ui"},
+         )
+     )
+-- 
+2.55.0.windows.3
+

@@ -1,12 +1,18 @@
 [CmdletBinding()]
 param(
-    [string]$F8StudioRoot = (Join-Path $PSScriptRoot "..\.deps\f8studio-pr"),
+    [string]$F8StudioRoot = "",
     [ValidateSet("v16", "v17")]
     [string]$ProjectVersion = "v16",
     [switch]$Foreground
 )
 
 $ErrorActionPreference = "Stop"
+if ([string]::IsNullOrWhiteSpace($F8StudioRoot)) {
+    # `$PSScriptRoot` is not reliably populated while Windows PowerShell is
+    # evaluating parameter default expressions. Resolve the default here,
+    # after script invocation has established the script directory.
+    $F8StudioRoot = Join-Path $PSScriptRoot "..\.deps\f8studio-pr"
+}
 $root = [System.IO.Path]::GetFullPath($F8StudioRoot)
 $python = Join-Path $root ".pixi\envs\default\python.exe"
 $pythonw = Join-Path $root ".pixi\envs\default\pythonw.exe"

@@ -16,7 +16,11 @@
 - F8Studio 工程：`f8studio/fallen-doll-skeleton-preview-v17.json`
 - 工程生成器：`tools/build_f8studio_v17.py`
 - 六轴算子：F8Studio 分支中的 `packages/f8pyengine/f8pyengine/operators/contact_pose_axes.py`
-- F8Studio 可应用补丁：`f8studio/0001-feat-pyengine-add-multi-bone-contact-axes.patch`
+- F8Studio v17 补丁按以下顺序应用：
+  1. `f8studio/0001-feat-pyengine-add-multi-bone-contact-axes.patch`
+  2. `f8studio/0002-fix-sdk-use-generated-state-field-alias.patch`
+  3. `f8studio/0003-feat-tcode-expose-all-SR6-graph-inputs.patch`
+- UDP 设备链路回环工具：`tools/verify_f8studio_v17_udp.py`
 - 静态骨架依据：`data/skeleton-catalog-v1.json`
 - Hand01/02/03 几何规则：`data/runtime-profiles-v2.json`
 
@@ -40,3 +44,18 @@
 2. 保持 USB/Wi-Fi 为 Disabled，先验证 Hand02 的六轴方向、幅度和动画速度同步。
 3. 验证动作切换、回 Idle、ESC、隐藏角色、VR 第一人称切换及断流时没有突然下砸。
 4. 完成画面对照后，再单独启用 USB 或 Wi-Fi 输出。
+
+## 已完成的自动验证
+
+- v17 工程可由生成器精确重建，包含 14 个节点、36 条连接和 0 个图诊断问题。
+- 多骨骼算子、Source/stream 与 TCode 端口的 23 项定向测试通过；全仓库
+  `basedpyright` 为 0 errors / 0 warnings。
+- 使用 `tools/verify_f8studio_v17_udp.py` 向临时 spool 写入一组确定几何，并将
+  Wi-Fi 节点临时指向本机 UDP 端口，真实 F8Studio v17 图捕获到：
+
+  ```text
+  L03684I020 L15999I020 L25666I020 R05000I020 R15000I020 R25000I020
+  ```
+
+  验证后已恢复 `runtimeDir=""`、`enabled=false` 与 `tcode.local:8000`。该测试
+  只使用 `127.0.0.1`，不会连接真实设备。

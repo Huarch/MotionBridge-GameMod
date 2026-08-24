@@ -863,7 +863,7 @@
               "name": "L1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -876,7 +876,7 @@
               "name": "L2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -889,7 +889,7 @@
               "name": "R0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -902,7 +902,7 @@
               "name": "R1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -915,7 +915,7 @@
               "name": "R2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -1146,7 +1146,7 @@
               "name": "y",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "type": "number"
               }
@@ -1157,7 +1157,7 @@
               "name": "z",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "type": "number"
               }
@@ -2344,7 +2344,7 @@
               "name": "L1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2357,7 +2357,7 @@
               "name": "L2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2370,7 +2370,7 @@
               "name": "R0",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2383,7 +2383,7 @@
               "name": "R1",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -2396,7 +2396,7 @@
               "name": "R2",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "maximum": 1.0,
                 "minimum": 0.0,
@@ -4590,7 +4590,7 @@
               "name": "y",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "type": "number"
               }
@@ -4601,7 +4601,7 @@
               "name": "z",
               "payloadKind": "json",
               "required": true,
-              "showOnNode": false,
+              "showOnNode": true,
               "valueSchema": {
                 "type": "number"
               }
