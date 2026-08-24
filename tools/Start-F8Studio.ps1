@@ -25,6 +25,8 @@ $connectionFile = Join-Path $env:USERPROFILE ".f8\studio\automation\connection.j
 $launchLogDirectory = Join-Path $env:LOCALAPPDATA "FallenDollTCode\logs"
 $stdoutLog = Join-Path $launchLogDirectory "f8studio.stdout.log"
 $stderrLog = Join-Path $launchLogDirectory "f8studio.stderr.log"
+$projectFile = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\f8studio\fallen-doll-skeleton-preview-v16.json"))
+$projectSelector = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "Prepare-F8StudioProject.py"))
 # This launcher is for Fallen Doll only.  Avoid probing unrelated audio, AI, video,
 # and capture services (some require optional Pixi environments) during Studio startup.
 $env:F8_DISABLED_SERVICE_CLASSES = @(
@@ -36,6 +38,13 @@ $env:F8_DISABLED_SERVICE_CLASSES = @(
     "f8.proclauncher", "f8.pyexpr", "f8.pyscript", "f8.screencap"
 ) -join ","
 Set-Location -LiteralPath $root
+if (-not (Test-Path -LiteralPath $projectFile -PathType Leaf)) {
+    throw "Fallen Doll F8Studio project file not found: $projectFile"
+}
+& $python $projectSelector $projectFile
+if ($LASTEXITCODE -ne 0) {
+    throw "Could not prepare the Fallen Doll F8Studio project."
+}
 $arguments = @("-m", "f8pystudio.main", "--automation", "--automation-port-file", $connectionFile)
 
 if ($Foreground) {
