@@ -1,0 +1,51 @@
+name: Feature request / 功能建议
+description: Suggest a focused improvement to the mod, project graph, or documentation / 提议 Mod、工程图或文档改进
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: User need / 使用需求
+      description: What problem are you trying to solve? / 你希望解决什么问题？
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior / 建议方案
+      description: Describe the expected workflow or result. / 描述期望的操作流程或结果。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / 所属范围
+      options:
+        - Game-side UE4SS Lua mod / 游戏侧 Lua Mod
+        - HAnime recognition / 动作识别
+        - Multi-axis motion / 多轴运动
+        - F8Studio project or viewer / F8Studio 工程或 Viewer
+        - USB or Wi-Fi device output / 设备连接
+        - Installation or documentation / 安装或文档
+        - Other / 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or references / 替代方案或参考
+      description: Optional links, examples, or existing workarounds. / 可选：相关链接、示例或目前的临时方案。
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist / 提交前检查
+      options:
+        - label: I searched existing issues and releases first. / 我已先搜索现有 Issue 和 Release。
+          required: true
+

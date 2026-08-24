@@ -1,0 +1,115 @@
+name: Motion calibration / 动作与多轴校准
+description: Report a recognized HAnime with missing, reversed, excessive, or discontinuous axes / 报告已识别动作的缺失、反向、过量或突变
+title: "[Motion] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when the game and services keep running, but the generated motion does not match the animation. Test with **Live Preview on and physical output off**.
+
+        当游戏与服务正常运行，但输出动作和画面不一致时使用此模板。请打开 **Live Preview** 并关闭实体设备输出后测试。
+
+  - type: dropdown
+    id: game_build
+    attributes:
+      label: Game build / 游戏版本
+      options:
+        - Playtest / Closed Beta
+        - Steam Demo
+    validations:
+      required: true
+
+  - type: dropdown
+    id: display_mode
+    attributes:
+      label: Display mode / 显示模式
+      options:
+        - Desktop / 桌面
+        - VR
+        - Both / 两者都会
+    validations:
+      required: true
+
+  - type: input
+    id: character
+    attributes:
+      label: Character(s) / 参与角色
+      placeholder: Alet; MaleA
+    validations:
+      required: true
+
+  - type: input
+    id: hanime
+    attributes:
+      label: HAnime or pose name / HAnime 或姿势名称
+      description: Use the visible game name. Add Montage/Section only if available. / 使用游戏内可见名称；若能取得 Montage/Section 可一并填写。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: interaction
+    attributes:
+      label: Interaction type / 交互类型
+      options:
+        - Vaginal / 阴道
+        - Anal / 肛门
+        - Hand / 手
+        - Foot / 足
+        - Mouth / 口
+        - Breast / 乳
+        - Multi-participant / 多人
+        - Non-human or prop / 非人类或道具
+        - Other / 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: affected_axes
+    attributes:
+      label: Affected axes / 异常轴
+      options:
+        - label: L0 — stroke / 主行程
+        - label: L1 — surge
+        - label: L2 — sway
+        - label: R0 — twist
+        - label: R1 — roll
+        - label: R2 — pitch
+        - label: All axes are static or missing / 全部轴无输出
+
+  - type: checkboxes
+    id: symptom
+    attributes:
+      label: Symptom / 现象
+      options:
+        - label: Missing or static / 无输出或不动
+        - label: Reversed direction / 方向相反
+        - label: Sudden jump or wrap / 突变或角度翻转
+        - label: Excessive range / 幅度过大
+        - label: Wrong participant or functional bone / 参与者或功能骨选错
+        - label: Stops after switching action or returning from idle / 切换动作或待机后停止
+        - label: Does not follow animation speed / 不跟随动画速度
+
+  - type: textarea
+    id: observation
+    attributes:
+      label: What should the motion follow? / 输出应跟随什么动作
+      description: Describe the primary participant, limb/contact point, direction, and what the Viewer currently does. / 描述主要参与者、功能骨或接触点、方向，以及 Viewer 当前表现。
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / 证据
+      description: Attach a short screen recording, waveform screenshot, or relevant logs. Do not upload game assets. Remove private information first. / 可附短视频、波形截图或相关日志；不要上传游戏资源，并先移除隐私信息。
+
+  - type: checkboxes
+    id: safety_check
+    attributes:
+      label: Safety check / 安全确认
+      options:
+        - label: I reproduced this with physical device output disabled. / 我已在关闭实体设备输出时复现。
+          required: true
+

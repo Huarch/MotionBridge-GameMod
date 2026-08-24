@@ -1,0 +1,111 @@
+name: Bug report / 程序故障
+description: Report crashes, missing services, lost output, or other reproducible failures / 报告崩溃、服务或输出异常
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve FallenDollTCode. Please reproduce the issue in **Live Preview with device output disabled first** when possible.
+
+        感谢协助改进 FallenDollTCode。条件允许时，请先在**关闭实体设备输出**的情况下通过 Live Preview 复现。
+
+  - type: dropdown
+    id: mod_version
+    attributes:
+      label: Mod version / Mod 版本
+      options:
+        - v0.17.0
+        - Newer development build / 更新的开发版本
+        - Older version / 旧版本
+        - Unknown / 不清楚
+    validations:
+      required: true
+
+  - type: dropdown
+    id: game_build
+    attributes:
+      label: Game build / 游戏版本
+      options:
+        - Playtest / Closed Beta
+        - Steam Demo
+        - Other / 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: display_mode
+    attributes:
+      label: Display mode / 显示模式
+      options:
+        - Desktop / 桌面
+        - VR
+        - Both / 两者都会
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened? / 问题描述
+      description: Include what you saw in the game, Live Preview, waveform, or service status. / 说明游戏画面、Live Preview、波形或服务状态。
+      placeholder: Expected result / 预期结果：
+
+        Actual result / 实际结果：
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps / 复现步骤
+      placeholder: |
+        1. Start F8Studio and Deploy the v17 project
+        2. Start the game and enter ...
+        3. Switch to ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: input
+    id: action
+    attributes:
+      label: Character and HAnime / 角色与 HAnime
+      description: Give the visible character and pose/action name. Montage names are welcome but not required. / 填写画面中的角色和姿势名称；不强制要求 Montage 名称。
+      placeholder: Alet — Hand02
+
+  - type: dropdown
+    id: device_output
+    attributes:
+      label: Device output / 设备输出
+      options:
+        - Disabled; Live Preview only / 已关闭，仅预览
+        - USB
+        - Wi-Fi
+        - Not applicable / 不相关
+    validations:
+      required: true
+
+  - type: input
+    id: f8studio_revision
+    attributes:
+      label: F8Studio build or commit / F8Studio 版本或提交
+      description: Paste the commit hash or state where the build came from. / 填写提交哈希或构建来源。
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and screenshots / 日志与截图
+      description: Drag relevant UE4SS/F8Studio logs or screenshots here. Remove API keys, passwords, private paths, and device identifiers first. / 可拖入相关日志或截图；请先移除 API Key、密码、隐私路径和设备标识。
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist / 提交前检查
+      options:
+        - label: I tested with USB and Wi-Fi not enabled at the same time. / 我没有同时启用 USB 和 Wi-Fi。
+          required: true
+        - label: I searched existing issues for the same problem. / 我已搜索是否存在相同 Issue。
+          required: true
+
