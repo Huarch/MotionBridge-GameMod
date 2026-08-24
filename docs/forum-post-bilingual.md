@@ -10,6 +10,8 @@ the game instead of replaying a pre-made Funscript.
 Game: [Steam store](https://store.steampowered.com/app/1685960/) ·
 [Steam Demo](https://store.steampowered.com/app/1811180/)
 
+![Operation Lovecraft: Fallen Doll runtime test](https://eroscripts-discourse.eroscripts.com/original/4X/2/9/f/29ff6660233c7bf3cf40e4363932f222b7e9b377.jpeg)
+
 ### v0.17.0
 
 - real-time SR6 `L0/L1/L2/R0/R1/R2` motion; OSR2 uses `L0`
@@ -22,6 +24,8 @@ Game: [Steam store](https://store.steampowered.com/app/1685960/) ·
 - SR6 model, 3D skeleton and six-axis waveform preview
 - per-axis minimum/maximum range sliders in F8Studio
 - USB or Wi-Fi TCode output; only one may be enabled
+
+![F8Studio Fallen Doll motion graph](https://eroscripts-discourse.eroscripts.com/original/4X/2/c/f/2cf23ec1118c3c6ace03b4c4a776a4af4e2b8fdd.png)
 
 Multi-axis output is ready for use, but not every HAnime has been manually calibrated.
 Some left/right and dual-limb priorities, special actions, multiplayer scenes, and non-human
