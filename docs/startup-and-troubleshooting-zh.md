@@ -6,7 +6,7 @@
 2. 导入 Fallen Doll 工程并点击 Deploy。
 3. 在服务监视器确认三个服务：
    - `studio`：主界面自身；
-   - `fd_pyengine`：L0、安全和 TCode 图；
+   - `fd_pyengine`：多轴运动、安全和 TCode 图；
    - `fd_source`：读取游戏骨骼文件。
 4. 只启用 USB 或 Wi-Fi 中的一种输出。
 5. 启动游戏并进入 HAnime。

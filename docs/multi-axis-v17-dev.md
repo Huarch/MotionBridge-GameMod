@@ -1,15 +1,22 @@
 # v17 多骨骼六轴实验分支
 
-状态：`0.17.0-dev`，需要在游戏画面中校准，不替代已验证的 `0.16.6` L0 发布版。
+状态：`0.17.0` 正式多轴版本。SR6 使用六轴，OSR2 使用 L0；仍需按姿势和设备校准范围。
 
 ## 实现
 
-- 游戏侧仍以 20 Hz 读取紧凑功能骨，不读取完整骨架。
+- 游戏侧以 50 Hz（20 ms）读取紧凑功能骨，不读取完整骨架；HAnime 身份发现仍保持 250 ms。
 - 常规接触帧只读取 Reference 的 `Penis01`、`Penis02`、`Penis09`、`M_Hips`，以及当前 Target，典型共 5 根骨骼。
 - `Penis01 -> Penis02` 确定实时主轴方向；`Penis01 -> Penis09` 提供约 19.6 cm 的完整有限圆柱长度；`M_Hips` 的校准本地轴构成稳定参考面。
 - F8Studio 的 `f8.contact_pose_axes` 使用有限线段最近点、局部投影和有符号角生成归一化 `L0/L1/L2/R0/R1/R2`，不使用 Montage position 或欧拉角差直接驱动。
 - 纯几何与四元数运算位于独立模块；同一非空 F8 `ctx_id` 的 6 个轴和状态只解析、计算一次，配置变化时立即清除缓存。
 - 六轴统一经过 250 ms 保持和 600 ms smoothstep 回中，然后同时接入 OSR Viewer TCode 与设备 TCode。
+- `FD Live Preview (Off = Production)` 默认关闭。关闭时 3D、SR6 Viewer 和两组波形不再接收、缓存或绘制数据，但 50 Hz 骨骼计算与设备输出保持运行；需要诊断时打开总开关，并可分别控制模型、曲线和骨骼预览。
+- 原始六轴仍完整送入 Wave 诊断；OSR Viewer 与真实设备共用 `deviceFrame`，因此范围调整
+  会立即反映在模拟姿态上。真实设备分支为六轴分别提供
+  `Output Min/Max`，把原始 `0..1` 连续映射到用户选择的设备区间。默认保持 L0/L1/L2/R0/R1
+  全幅，仅将尚在校准的 Pitch/R2 设为 `0.35..0.65`（`R23500..R26500`）。所有范围均可在
+  F8Studio Safety 节点通过六行范围滑动条调整；每行把一个轴的 Min/Max 并排显示，且不用
+  设备限幅后的波形掩盖姿态算法问题。
 - Contact、Safety、TCode 和 Wave 之间使用单个原子 `axesFrame` 传递六轴；Safety 只由
   20 ms 时钟执行一次，不再为六个标量分别 pull、emit 和跨服务发布。
 - v17 工程中的 USB/Wi-Fi 输出仍默认关闭，且只能启用一种。
@@ -43,6 +50,9 @@
 - R0：`±90°`
 - R1/R2：`±30°`
 
+这里的 `±30°` 是几何角度到归一化姿态的映射范围，不是设备安全行程。六轴设备输出
+范围属于 F8Studio 用户配置；两者不能共用一套参数。
+
 Reference 映射来自解包骨架；Alet 右手映射由 Hand01 运行日志校准。旧映射会让
 Pitch 在 `+180°/-180°` 边界翻转并使 R2 全程饱和。不同 Target（左手、脚、口部、
 阴道、肛门）仍需在游戏内确认各自本地轴映射后，才能作为正式设备输出配置。
@@ -51,21 +61,26 @@ Fallen Doll Source 会把已验证的右手 `basis` 随 `targetBone` 一起发�
 优先使用该逐目标覆盖，没有覆盖的功能骨继续使用工程默认基准。因此修正 Hand 的
 Pitch 不会把同一映射错误地套到 `M_Gen` 等其他目标。
 
-两张 10 秒 Wave 图使用 2000 点缓冲区。两个 Wave 节点从同一个 `axesFrame` 中分别
-选择 L0/L1/L2 和 R0/R1/R2，因此只需一次跨服务发布；缓冲区只影响历史显示范围，
-不改变设备输出值。
+两张 10 秒 Wave 图使用 500 点缓冲区，并以 100 ms 间隔刷新 UI。两个 Wave 节点从
+同一个 `axesFrame` 中分别选择 L0/L1/L2 和 R0/R1/R2；缓冲区和显示刷新率只影响
+诊断画面，不改变 50 Hz 设备输出值。3D 骨骼预览限制为 30 FPS，SR6 Viewer 的 UI
+推送限制为 20 FPS。
 
 ## 验证顺序
 
-1. 在 F8Studio 导入 v17 工程并 Deploy，只打开 3D Viewer、波形与 OSR Viewer。
-   也可运行 `powershell -ExecutionPolicy Bypass -File tools/Start-F8Studio.ps1 -ProjectVersion v17`，它会导入或选择独立的 v17 工程；默认不带参数仍打开稳定的 v16 工程。
+1. 在 F8Studio 导入 v17 工程并 Deploy；需要画面对照时，在
+   `FD Live Preview (Off = Production)` 节点打开 `Live Preview`，再打开所需的 3D、
+   波形或 OSR Viewer。正式使用时保持该开关关闭。
+   也可运行 `powershell -ExecutionPolicy Bypass -File tools/Start-F8Studio.ps1`，它会导入或选择正式的 v17 多轴工程；只有兼容旧工程时才显式传入 `-ProjectVersion v16`。
 2. 保持 USB/Wi-Fi 为 Disabled，先验证 Hand02 的六轴方向、幅度和动画速度同步。
 3. 验证动作切换、回 Idle、ESC、隐藏角色、VR 第一人称切换及断流时没有突然下砸。
 4. 完成画面对照后，再单独启用 USB 或 Wi-Fi 输出。
 
 ## 已完成的自动验证
 
-- v17 工程可由生成器精确重建，包含 14 个节点、16 条连接和 0 个图诊断问题。
+- v17 工程可由生成器精确重建，包含 23 个节点和 20 条连接，并按游戏输入、运动
+  引擎、实时预览和设备输出四个背景区块整理。Preview Gate 默认关闭，且不位于设备
+  输出路径上。
 - 原子 Contact frame、TCode 编码与 Wave 展开相关的 27 项定向测试通过；同一帧 6 轴
   只计算一次、状态变化清缓存、TCode 不回退到六次标量 pull 均有回归测试。全仓库
   `basedpyright` 为 0 errors / 0 warnings。

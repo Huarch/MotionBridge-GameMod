@@ -1,14 +1,14 @@
 # Operation Lovecraft: Fallen Doll TCode Mod
 
 非官方的实时 TCode 接入项目。游戏侧使用 UE4SS Lua 读取正在播放的 HAnime
-功能骨骼，F8Studio 负责参与者/功能骨选择、L0 计算、Viewer、安全回中以及
+功能骨骼，F8Studio 负责参与者/功能骨选择、多轴计算、Viewer、安全回中以及
 USB 或 Wi-Fi 输出。它不是离线 Funscript，也不修改或重新打包游戏 Pak。
 
-当前版本：`0.16.6`
+当前版本：`0.17.0`
 
-实验性六轴工作位于 `feature/multi-bone-six-axis` 分支，使用独立的
-`fallen-doll-skeleton-preview-v17.json`，不会替换当前已验证的 v16/L0 工程。
-实现与验证边界见 [multi-axis-v17-dev.md](docs/multi-axis-v17-dev.md)。
+`0.17.0` 正式启用 `fallen-doll-skeleton-preview-v17.json` 的实时多轴运动引擎。
+SR6 接收 `L0/L1/L2/R0/R1/R2` 六轴，OSR2 使用同一运动流中的 `L0`。
+实现与校准边界见 [multi-axis-v17-dev.md](docs/multi-axis-v17-dev.md)。
 
 游戏商店：
 [Operation Lovecraft: Fallen Doll（Steam）](https://store.steampowered.com/app/1685960/)
@@ -20,13 +20,15 @@ USB 或 Wi-Fi 输出。它不是离线 Funscript，也不修改或重新打包�
 - 旧 Demo（桌面与 VR）
 - Playtest：508 个 HAnime family、3081 条精确 Montage 身份
 - Demo：217 个 HAnime family、1160 条精确 Montage 身份
-- 实时 3D 骨骼与 SR6/OSR Viewer
-- SR6/OSR2 的 L0 输出；USB 与 Wi-Fi 二选一
+- 50 Hz 实时功能骨采集与 VaM 式接触几何
+- SR6 六轴输出、OSR2 L0 输出，以及 3D 骨骼、SR6/OSR 与六轴波形 Viewer
+- 六轴独立范围滑条；USB 与 Wi-Fi 二选一
 - HAnime/参与者切换使用组件与 Montage 事件触发，低频轮询只作核验
 - 断流保持最后值 250 ms，再用 600 ms 平滑回到 `L05000`
 
-当前真实设备链只正式支持 L0。部分 Hand/Foot 的左右侧和主次骨、特殊动作、
-多人及非人类动作仍需继续标注；其余五轴属于后续目标。
+多轴管线已正式可用，但“支持六轴”不代表全部 HAnime 都已逐条人工校准。部分
+Hand/Foot 的左右侧和主次骨、特殊动作、多人及非人类动作仍需继续标注。遇到未校准
+姿势时应先使用 Viewer 检查方向，并在 F8Studio 中限制各轴设备范围。
 
 ## 数据链路
 
@@ -35,8 +37,8 @@ Operation Lovecraft: Fallen Doll
   → UE4SS Lua（精确识别 HAnime，采集紧凑功能骨集合）
   → ~/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson
   → Fallen Doll Source (fd_source)
-  → PyEngine (fd_pyengine)
-  → 3D Viewer / Relative L0 / TCode / OSR Viewer / USB 或 Wi-Fi
+  → PyEngine (fd_pyengine：接触几何、六轴、安全回中、范围映射)
+  → 3D / SR6 / Wave Viewer → TCode → USB 或 Wi-Fi
 ```
 
 `studio` 是 F8Studio 主程序自身。导入并 Deploy 工程后，它应自动启动
@@ -47,7 +49,7 @@ Operation Lovecraft: Fallen Doll
 1. 关闭游戏，把发布包 `Game` 内的内容复制到对应版本的
    `Paralogue/Binaries/Win64`；也可使用包内 `Install-Mod.ps1`。
 2. 使用包含 `Fallen Doll Source` 的 F8Studio，导入
-   `f8studio/fallen-doll-skeleton-preview-v16.json` 并 Deploy。
+   `f8studio/fallen-doll-skeleton-preview-v17.json` 并 Deploy。
 3. 确认 `studio`、`fd_pyengine`、`fd_source` 均为 Running/Active。
 4. 只启用 USB 或 Wi-Fi 中的一种输出。首次使用先打开 Viewer，不连接设备。
 5. 启动游戏并进入 HAnime；离开动作或断流会自动安全回中。
@@ -83,8 +85,7 @@ UI，Viewer 是 F8Studio 的独立窗口。
 
 ## F8Studio
 
-测试工程：`Fallen Doll Skeleton Preview v16 (direct L0)`
-Project ID：`a2bfd785-51a2-4920-86d3-3bc82d262f36`
+正式工程：`Fallen Doll Skeleton Preview v17 (real-time multi-axis)`
 
 Fallen Doll Source 上游 PR：
 [feel8-fun/f8studio#3](https://github.com/feel8-fun/f8studio/pull/3)

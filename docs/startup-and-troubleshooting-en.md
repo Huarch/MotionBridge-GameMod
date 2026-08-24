@@ -6,7 +6,7 @@
 2. Import the Fallen Doll project and click Deploy.
 3. Confirm all three entries in the service monitor:
    - `studio`: the UI itself;
-   - `fd_pyengine`: the L0, safety, and TCode graph;
+   - `fd_pyengine`: the multi-axis motion, safety, and TCode graph;
    - `fd_source`: the game skeleton reader.
 4. Enable either USB or Wi-Fi, not both.
 5. Start the game and enter HAnime.
