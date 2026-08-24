@@ -4,11 +4,11 @@
 
 ## 当前正式范围
 
-`AletMale_Hand01`、`AletMale_Hand02` 与 `AletMale_Hand03` 已迁移至 `data/runtime-profiles-v2.json`。三者均以配对目标的 `Penis01 -> Penis02` 作为 Reference，以主动方 `R_Hand` 作为 Target。它们不再读取动画进度或离线曲线；L0/L1/L2/R0/R1/R2 由当前帧相对几何计算。
+`AletMale_Hand01`、`AletMale_Hand02` 与 `AletMale_Hand03` 已迁移至 `data/runtime-profiles-v2.json`。三者均以配对目标的 `Penis01` 为起点、`Penis02` 为实时方向、`Penis09` 为完整长度，并用 `M_Hips` 稳定参考面；主动方 `R_Hand` 是 Target。它们不再读取动画进度或离线曲线；L0/L1/L2/R0/R1/R2 由当前帧相对几何计算。
 
 此前导出的 `paired-motion-profiles.json` 仍保留为 L0 周期和方向的回归证据。最新实时捕获确认 `local_x` 已按 `Penis01 -> Penis02` 正向增长，因此 L0 不再额外反向；其余五轴必须经游戏内模拟画面对照后再校准。
 
-Pak4 定向导出进一步确认：Alet 使用 `Mesh_Alet_Skeleton`（396 个参考骨），男性主体使用 `MeshMaleB_Skeleton`（353 个参考骨）。男性接触轴的真实父链是 `M_Hips -> M_Gen -> Penis01 -> Penis02`，旧分析器中跳过 `M_Gen` 的近似已移除。完整层级位于 `data/exported-skeletons/`。
+Pak4 定向导出进一步确认：Alet 使用 `Mesh_Alet_Skeleton`（396 个参考骨），男性主体使用 `MeshMaleB_Skeleton`（353 个参考骨）。男性接触轴的真实父链是 `M_Hips -> M_Gen -> Penis01 -> ... -> Penis09`；`Penis01 -> Penis02` 只有约 2.6 cm，仅适合确定方向，`Penis01 -> Penis09` 约 19.6 cm，才适合作为有限圆柱长度。完整层级位于 `data/exported-skeletons/`。
 
 Hand01/02/03 的六条配对 PSA 及准确包路径记录于 `data/hand-pose-assets-v1.json`。动画轨道中的 `Male_A` 是参与者槽位，而不是另一套 MaleA 骨架；三条动作均绑定 `MeshMaleB_Skeleton`。Hand03 另有椅子同步轨道，但它不参与当前接触轴计算。
 

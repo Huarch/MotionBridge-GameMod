@@ -6,6 +6,10 @@ USB 或 Wi-Fi 输出。它不是离线 Funscript，也不修改或重新打包�
 
 当前版本：`0.16.6`
 
+实验性六轴工作位于 `feature/multi-bone-six-axis` 分支，使用独立的
+`fallen-doll-skeleton-preview-v17.json`，不会替换当前已验证的 v16/L0 工程。
+实现与验证边界见 [multi-axis-v17-dev.md](docs/multi-axis-v17-dev.md)。
+
 游戏商店：
 [Operation Lovecraft: Fallen Doll（Steam）](https://store.steampowered.com/app/1685960/)
  · [Demo（Steam）](https://store.steampowered.com/app/1811180/)

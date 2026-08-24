@@ -14,10 +14,16 @@
       "reference": {
         "role": "paired_target",
         "origin_bone": "Penis01",
-        "tip_bone": "Penis02",
+        "direction_bone": "Penis02",
+        "tip_bone": "Penis09",
+        "support_bone": "M_Hips",
         "radius_scale": 0.22,
         "lateral_range_scale": 0.50,
-        "basis": "reference_bone_basis"
+        "basis": {
+          "axis": "origin_to_direction",
+          "right": "support_-local_x",
+          "up": "support_+local_y"
+        }
       },
       "target": { "role": "driver", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": "catalog_bone_basis" },
       "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": false, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false }, "input_range": { "L0": [0.08, 0.27] } },
@@ -29,7 +35,7 @@
       "status": "enabled_for_simulation_validation",
       "match": { "montage_asset_key": "AletMale_Hand02", "sections": [] },
       "roles": { "driver": { "skeleton_catalog": "alet-humanoid" }, "paired_target": { "skeleton_catalog": "male-b-humanoid" } },
-      "reference": { "role": "paired_target", "origin_bone": "Penis01", "tip_bone": "Penis02", "radius_scale": 0.22, "lateral_range_scale": 0.50, "basis": "reference_bone_basis" },
+      "reference": { "role": "paired_target", "origin_bone": "Penis01", "direction_bone": "Penis02", "tip_bone": "Penis09", "support_bone": "M_Hips", "radius_scale": 0.22, "lateral_range_scale": 0.50, "basis": { "axis": "origin_to_direction", "right": "support_-local_x", "up": "support_+local_y" } },
       "target": { "role": "driver", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": "catalog_bone_basis" },
       "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": false, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false }, "input_range": { "L0": [0.08, 0.27] } },
       "selection": { "acquire_frames": 3, "release_frames": 5, "switch_improvement": 0.20, "switch_hold_seconds": 0.25 },
@@ -40,7 +46,7 @@
       "status": "enabled_for_simulation_validation",
       "match": { "montage_asset_key": "AletMale_Hand03", "sections": [] },
       "roles": { "driver": { "skeleton_catalog": "alet-humanoid" }, "paired_target": { "skeleton_catalog": "male-b-humanoid" } },
-      "reference": { "role": "paired_target", "origin_bone": "Penis01", "tip_bone": "Penis02", "radius_scale": 0.22, "lateral_range_scale": 0.50, "basis": "reference_bone_basis" },
+      "reference": { "role": "paired_target", "origin_bone": "Penis01", "direction_bone": "Penis02", "tip_bone": "Penis09", "support_bone": "M_Hips", "radius_scale": 0.22, "lateral_range_scale": 0.50, "basis": { "axis": "origin_to_direction", "right": "support_-local_x", "up": "support_+local_y" } },
       "target": { "role": "driver", "position_bone": "R_Hand", "orientation_bone": "R_Hand", "basis": "catalog_bone_basis" },
       "axes": { "enabled": ["L0", "L1", "L2", "R0", "R1", "R2"], "invert": { "L0": false, "L1": false, "L2": false, "R0": false, "R1": false, "R2": false }, "input_range": { "L0": [0.08, 0.27] } },
       "selection": { "acquire_frames": 3, "release_frames": 5, "switch_improvement": 0.20, "switch_hold_seconds": 0.25 },

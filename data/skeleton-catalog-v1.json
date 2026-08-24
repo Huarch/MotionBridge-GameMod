@@ -25,10 +25,11 @@
         {
           "id": "primary_contact_axis",
           "originBone": "Penis01",
-          "tipBone": "Penis02",
-          "extendedTipBone": "Penis09",
+          "directionBone": "Penis02",
+          "tipBone": "Penis09",
+          "supportBone": "M_Hips",
           "parentChain": ["M_Hips", "M_Gen", "Penis01", "Penis02"],
-          "basis": { "axis": "base_to_tip", "right": "bone_local_x", "forward": "bone_local_z" },
+          "basis": { "axis": "origin_to_direction", "right": "support_-local_x", "up": "support_+local_y" },
           "status": "verified_from_export"
         }
       ],

@@ -85,6 +85,7 @@ Catalog.entries = {
             primary_origin = "Penis01",
             primary_tip = "Penis02",
             extended_tip = "Penis09",
+            support = "M_Hips",
             right_hand = "R_Hand",
             left_hand = "L_Hand",
             right_foot = "R_Foot",

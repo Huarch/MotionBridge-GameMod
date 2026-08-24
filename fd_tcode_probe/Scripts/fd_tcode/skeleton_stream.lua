@@ -55,7 +55,7 @@ end
 local function trailer_json(participant, sample)
     local identity = sample.hanime_identity or {}
     return string.format(
-        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","preferredBones":%s,"streamMode":"functional-contact-bones","exporterVersion":"fd-tcode-lua-0.16.6"}',
+        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","preferredBones":%s,"streamMode":"functional-contact-bones","exporterVersion":"fd-tcode-lua-0.17.0-dev"}',
         json_escape(sample.matched_pose or ""),
         json_escape(sample.matched_pose_status or "unmapped"),
         json_escape(identity.hanime_id or ""),

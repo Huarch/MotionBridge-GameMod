@@ -76,10 +76,13 @@ target_functions_by_category.other = candidate_functions_by_category.other
 
 -- Runtime-confirmed HAnime annotations rank all useful candidates. F8Studio
 -- may disable the preferred bone and will then fall back to the next enabled
--- candidate without reloading this Mod. Hand02 was verified as right-primary;
--- the left hand remains an explicit secondary candidate.
+-- candidate without reloading this Mod. The three unpacked Hand profiles use
+-- R_Hand as their declared Target; the left hand remains an explicit fallback
+-- that users can select by disabling R_Hand in F8Studio.
 local target_functions_by_hanime_id = {
+    AletMale_Hand01 = { "right_hand", "left_hand" },
     AletMale_Hand02 = { "right_hand", "left_hand" },
+    AletMale_Hand03 = { "right_hand", "left_hand" },
     JuziDreamer_Sleep01 = { "vaginal_origin" },
 }
 
@@ -94,9 +97,11 @@ end
 
 local function candidate_function_names(entry, identity)
     if entry.motion_role == "male" then
-        -- Two points define the reference direction. Unrelated functional
-        -- bones are not sampled for this participant on every motion frame.
-        return { "primary_origin", "primary_tip" }
+        -- Four compact points define the VaM-style reference cylinder and its
+        -- stable transverse plane. Penis02 supplies the live axis direction,
+        -- Penis09 supplies the full contact length, and M_Hips supplies the
+        -- unpacked-skeleton-calibrated reference plane.
+        return { "primary_origin", "primary_tip", "extended_tip", "support" }
     end
     return target_functions_by_hanime_id[tostring(identity.hanime_id or "")]
         or candidate_functions_by_category[tostring(identity.category or "")]

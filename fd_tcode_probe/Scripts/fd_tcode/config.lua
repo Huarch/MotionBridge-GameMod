@@ -26,13 +26,15 @@ local runtime_dir = resolve_runtime_dir()
 
 return {
     name = "FD-TCode",
-    version = "0.16.6",
+    version = "0.17.0-dev",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
         "R_Hand",
         "Penis01",
         "Penis02",
+        "Penis09",
+        "M_Hips",
     },
     bone_probe_max_matches = 24,
     -- The realtime path reads only the compact functional contact set per

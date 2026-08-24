@@ -1,6 +1,8 @@
 [CmdletBinding()]
 param(
     [string]$F8StudioRoot = (Join-Path $PSScriptRoot "..\.deps\f8studio-pr"),
+    [ValidateSet("v16", "v17")]
+    [string]$ProjectVersion = "v16",
     [switch]$Foreground
 )
 
@@ -25,7 +27,27 @@ $connectionFile = Join-Path $env:USERPROFILE ".f8\studio\automation\connection.j
 $launchLogDirectory = Join-Path $env:LOCALAPPDATA "FallenDollTCode\logs"
 $stdoutLog = Join-Path $launchLogDirectory "f8studio.stdout.log"
 $stderrLog = Join-Path $launchLogDirectory "f8studio.stderr.log"
-$projectFile = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\f8studio\fallen-doll-skeleton-preview-v16.json"))
+$projectFileName = if ($ProjectVersion -eq "v17") {
+    "fallen-doll-skeleton-preview-v17.json"
+} else {
+    "fallen-doll-skeleton-preview-v16.json"
+}
+$projectName = if ($ProjectVersion -eq "v17") {
+    "Fallen Doll Skeleton Preview v17 (multi-bone six-axis dev)"
+} else {
+    "Fallen Doll Skeleton Preview v16 (direct L0)"
+}
+$projectDescription = if ($ProjectVersion -eq "v17") {
+    "Operation Lovecraft: Fallen Doll experimental multi-bone six-axis project"
+} else {
+    "Operation Lovecraft: Fallen Doll real-time L0 project"
+}
+$projectTags = if ($ProjectVersion -eq "v17") {
+    @("fallen-doll", "tcode", "six-axis", "dev")
+} else {
+    @("fallen-doll", "tcode", "l0")
+}
+$projectFile = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\f8studio\$projectFileName"))
 $projectSelector = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "Prepare-F8StudioProject.py"))
 # This launcher is for Fallen Doll only.  Avoid probing unrelated audio, AI, video,
 # and capture services (some require optional Pixi environments) during Studio startup.
@@ -41,7 +63,11 @@ Set-Location -LiteralPath $root
 if (-not (Test-Path -LiteralPath $projectFile -PathType Leaf)) {
     throw "Fallen Doll F8Studio project file not found: $projectFile"
 }
-& $python $projectSelector $projectFile
+$selectorArguments = @($projectSelector, $projectFile, "--name", $projectName, "--description", $projectDescription)
+foreach ($tag in $projectTags) {
+    $selectorArguments += @("--tag", $tag)
+}
+& $python @selectorArguments
 if ($LASTEXITCODE -ne 0) {
     throw "Could not prepare the Fallen Doll F8Studio project."
 }
