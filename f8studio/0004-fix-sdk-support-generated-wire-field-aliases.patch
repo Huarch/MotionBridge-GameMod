@@ -1,0 +1,173 @@
+From eaeabe2b1eb2039b2cf1255e8a0b59bd77ff72e6 Mon Sep 17 00:00:00 2001
+From: huarch <huarch97@outlook.com>
+Date: Mon, 24 Aug 2026 17:51:40 +0800
+Subject: [PATCH] fix(sdk): support generated wire field aliases
+
+---
+ .../f8pysdk/service_bus/internal/micro.py     | 10 +++++--
+ packages/f8pysdk/tests/test_state_write.py    | 28 ++++++++++++++++++-
+ .../test_zenoh_service_bus_integration.py     |  7 +++--
+ .../bridge/service_endpoint_client.py         |  7 +++--
+ .../tests/test_service_endpoint_client.py     |  4 ++-
+ 5 files changed, 47 insertions(+), 9 deletions(-)
+
+diff --git a/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py b/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py
+index 29345a9..d474255 100644
+--- a/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py
++++ b/packages/f8pysdk/f8pysdk/service_bus/internal/micro.py
+@@ -8,7 +8,7 @@ from typing import Any, TYPE_CHECKING
+ 
+ import msgspec
+ 
+-from ...codec import decode_as, decode_obj, encode_obj
++from ...codec import decode_as, decode_obj, dump_json, encode_obj, validate_as
+ from ...generated import (
+     Code,
+     F8ActivateRequest,
+@@ -369,7 +369,8 @@ class ServiceBusControlHandlers:
+             return
+         req_id = self._req_id(payload.reqId)
+         node_id_s = str(payload.args.nodeId or "").strip()
+-        field_s = str(payload.args.field_ or "").strip()
++        args_mapping = dump_json(payload.args)
++        field_s = str(args_mapping.get("field") or "").strip() if isinstance(args_mapping, dict) else ""
+         value = payload.args.value
+         if not node_id_s or not field_s:
+             await req.respond(
+@@ -438,7 +439,10 @@ class ServiceBusControlHandlers:
+                 F8SetStateReply(
+                     reqId=req_id,
+                     ok=True,
+-                    result=F8SetStateReplyResult(nodeId=node_id_s, field_=field_s),
++                    result=validate_as(
++                        F8SetStateReplyResult,
++                        {"nodeId": node_id_s, "field": field_s},
++                    ),
+                     error=None,
+                 )
+             )
+diff --git a/packages/f8pysdk/tests/test_state_write.py b/packages/f8pysdk/tests/test_state_write.py
+index 724a041..3ceafbd 100644
+--- a/packages/f8pysdk/tests/test_state_write.py
++++ b/packages/f8pysdk/tests/test_state_write.py
+@@ -20,6 +20,8 @@ from f8pysdk.specs import (  # noqa: E402
+     F8RuntimeGraph,
+     F8RuntimeNode,
+     F8ServiceSpec,
++    F8SetStateReply,
++    F8SetStateRequest,
+     F8StateAccess,
+     F8StateSpec,
+ )
+@@ -33,7 +35,7 @@ from f8pysdk.service_bus.internal.micro import ServiceBusControlHandlers  # noqa
+ from f8pysdk.service_bus.state.options import StatePublishOptions  # noqa: E402
+ from f8pysdk.service_bus.state.pipeline import publish_state, validate_state_update  # noqa: E402
+ from f8pysdk.state import StateWriteContext, StateWriteError, StateWriteOrigin  # noqa: E402
+-from f8pysdk.codec import decode_as, decode_obj, encode_obj  # noqa: E402
++from f8pysdk.codec import decode_as, decode_obj, dump_json, encode_obj, validate_as  # noqa: E402
+ from f8pysdk.testing import InMemoryCluster, InMemoryTransport, ServiceBusHarness  # noqa: E402
+ 
+ 
+@@ -156,6 +158,30 @@ class _FakeReq:
+ 
+ 
+ class StateWriteTests(unittest.IsolatedAsyncioTestCase):
++    async def test_set_state_endpoint_uses_wire_field_name_across_generated_aliases(self) -> None:
++        bus = AsyncMock()
++        endpoint = ServiceBusControlHandlers(bus)
++        req = _FakeReq(
++            validate_as(
++                F8SetStateRequest,
++                {
++                    "reqId": "r1",
++                    "args": {"nodeId": "sink", "field": "input", "value": "endpoint"},
++                    "meta": {"source": "test"},
++                },
++            )
++        )
++
++        await endpoint._set_state(req)
++
++        bus.publish_state_external.assert_awaited_once()
++        call = bus.publish_state_external.await_args
++        self.assertEqual(call.args[:3], ("sink", "input", "endpoint"))
++        self.assertIsNotNone(req.response)
++        reply = decode_as(req.response or b"", F8SetStateReply)
++        self.assertTrue(reply.ok)
++        self.assertEqual(dump_json(reply.result), {"nodeId": "sink", "field": "input"})
++
+     async def test_external_cannot_write_ro(self) -> None:
+         bus = ServiceBus(ServiceBusConfig(service_id="svc"))
+         bus._graph = object()
+diff --git a/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py b/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py
+index 57bab6e..72f848c 100644
+--- a/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py
++++ b/packages/f8pysdk/tests/test_zenoh_service_bus_integration.py
+@@ -8,7 +8,7 @@ from typing import Any
+ import pytest
+ 
+ from f8pysdk.bus import ServiceBus, ServiceBusConfig
+-from f8pysdk.codec import decode_as, encode_obj
++from f8pysdk.codec import decode_as, encode_obj, validate_as
+ from f8pysdk.f8_naming import cmd_channel_key, svc_endpoint_key
+ from f8pysdk.nodes import RuntimeNode, ServiceNode
+ from f8pysdk.service_runtime_tools.deploy.readiness import wait_service_ready
+@@ -287,7 +287,10 @@ def test_two_python_service_buses_roundtrip_over_zenoh() -> None:
+                 endpoint="set_state",
+                 payload=F8SetStateRequest(
+                     reqId="set-state-b",
+-                    args=F8SetStateArgs(nodeId="sink", field_="input", value="endpoint"),
++                    args=validate_as(
++                        F8SetStateArgs,
++                        {"nodeId": "sink", "field": "input", "value": "endpoint"},
++                    ),
+                     meta={"source": "test"},
+                 ),
+                 reply_type=F8SetStateReply,
+diff --git a/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py b/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py
+index db11697..821e569 100644
+--- a/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py
++++ b/packages/f8pystudio/f8pystudio/bridge/service_endpoint_client.py
+@@ -21,7 +21,7 @@ from f8pysdk.specs import (
+     F8TerminateRequest,
+ )
+ from f8pysdk.f8_naming import ensure_token, new_id, svc_endpoint_key
+-from f8pysdk.codec import decode_as, decode_obj, encode_obj
++from f8pysdk.codec import decode_as, decode_obj, encode_obj, validate_as
+ 
+ from .runtime_request import RuntimeRequester
+ 
+@@ -239,7 +239,10 @@ async def request_set_remote_state(
+     payload = encode_obj(
+         F8SetStateRequest(
+             reqId=new_id(),
+-            args=F8SetStateArgs(nodeId=nid, field_=state_field, value=value),
++            args=validate_as(
++                F8SetStateArgs,
++                {"nodeId": nid, "field": state_field, "value": value},
++            ),
+             meta={"actor": "studio", "source": "ui"},
+         )
+     )
+diff --git a/packages/f8pystudio/tests/test_service_endpoint_client.py b/packages/f8pystudio/tests/test_service_endpoint_client.py
+index ce3cfec..cee8128 100644
+--- a/packages/f8pystudio/tests/test_service_endpoint_client.py
++++ b/packages/f8pystudio/tests/test_service_endpoint_client.py
+@@ -4,7 +4,7 @@ import asyncio
+ from typing import Any
+ 
+ from f8pysdk.f8_naming import svc_endpoint_key
+-from f8pysdk.codec import encode_obj
++from f8pysdk.codec import decode_obj, encode_obj
+ 
+ from f8pystudio.bridge.service_endpoint_client import (
+     request_service_status,
+@@ -234,3 +234,5 @@ def test_request_set_remote_state_returns_reject_details() -> None:
+     assert result.reject_code == "INVALID_ARGS"
+     assert result.reject_message == "invalid field"
+     assert requester.calls[0][0] == svc_endpoint_key("svc_demo", "set_state")
++    request_payload = decode_obj(requester.calls[0][1])
++    assert request_payload["args"]["field"] == "gain"
+-- 
+2.55.0.windows.3
+

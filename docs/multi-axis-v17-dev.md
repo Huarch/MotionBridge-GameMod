@@ -20,6 +20,7 @@
   1. `f8studio/0001-feat-pyengine-add-multi-bone-contact-axes.patch`
   2. `f8studio/0002-fix-sdk-use-generated-state-field-alias.patch`
   3. `f8studio/0003-feat-tcode-expose-all-SR6-graph-inputs.patch`
+  4. `f8studio/0004-fix-sdk-support-generated-wire-field-aliases.patch`
 - UDP 设备链路回环工具：`tools/verify_f8studio_v17_udp.py`
 - 静态骨架依据：`data/skeleton-catalog-v1.json`
 - Hand01/02/03 几何规则：`data/runtime-profiles-v2.json`
@@ -50,6 +51,9 @@
 - v17 工程可由生成器精确重建，包含 14 个节点、36 条连接和 0 个图诊断问题。
 - 多骨骼算子、Source/stream 与 TCode 端口的 23 项定向测试通过；全仓库
   `basedpyright` 为 0 errors / 0 warnings。
+- SDK 状态协议在当前 `field_` 生成模型下通过 41 项测试；另以干净检出中原始
+  `field` 生成模型运行 40 项相关测试，确认两种代码生成结果都按线协议字段
+  `field` 正常工作，且无需提交本机生成文件。
 - 使用 `tools/verify_f8studio_v17_udp.py` 向临时 spool 写入一组确定几何，并将
   Wi-Fi 节点临时指向本机 UDP 端口，真实 F8Studio v17 图捕获到：
 
