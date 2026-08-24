@@ -1,11 +1,13 @@
 [CmdletBinding()]
 param(
-    [string]$F8StudioRoot = (Join-Path $PSScriptRoot "..\.deps\f8studio-pr")
+    [string]$F8StudioRoot = (Join-Path $PSScriptRoot "..\.deps\f8studio-pr"),
+    [switch]$Foreground
 )
 
 $ErrorActionPreference = "Stop"
 $root = [System.IO.Path]::GetFullPath($F8StudioRoot)
 $python = Join-Path $root ".pixi\envs\default\python.exe"
+$pythonw = Join-Path $root ".pixi\envs\default\pythonw.exe"
 $localPixi = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\.toolchain\pixi\pixi.exe"))
 
 if (-not (Test-Path -LiteralPath (Join-Path $root "pixi.toml") -PathType Leaf)) {
@@ -20,5 +22,28 @@ if (-not (Get-Command pixi -ErrorAction SilentlyContinue) -and (Test-Path -Liter
 }
 
 $connectionFile = Join-Path $env:USERPROFILE ".f8\studio\automation\connection.json"
+$launchLogDirectory = Join-Path $env:LOCALAPPDATA "FallenDollTCode\logs"
+$stdoutLog = Join-Path $launchLogDirectory "f8studio.stdout.log"
+$stderrLog = Join-Path $launchLogDirectory "f8studio.stderr.log"
+# This launcher is for Fallen Doll only.  Avoid probing unrelated audio, AI, video,
+# and capture services (some require optional Pixi environments) during Studio startup.
+$env:F8_DISABLED_SERVICE_CLASSES = @(
+    "f8.audiocap", "f8.audiofeat.core", "f8.audiofeat.rhythm",
+    "f8.cppengine", "f8.cvkit.denseoptflow", "f8.cvkit.flowmetric",
+    "f8.cvkit.templatematch", "f8.cvkit.tracking", "f8.cvkit.videostab",
+    "f8.dl.classifier", "f8.dl.detector", "f8.dl.detsorter", "f8.dl.humandetector",
+    "f8.dl.optflow", "f8.dl.tcnwave", "f8.implayer", "f8.mp.pose",
+    "f8.proclauncher", "f8.pyexpr", "f8.pyscript", "f8.screencap"
+) -join ","
 Set-Location -LiteralPath $root
-& $python -m f8pystudio.main --automation --automation-port-file $connectionFile
+$arguments = @("-m", "f8pystudio.main", "--automation", "--automation-port-file", $connectionFile)
+
+if ($Foreground) {
+    & $python @arguments
+    exit $LASTEXITCODE
+}
+
+New-Item -ItemType Directory -Path $launchLogDirectory -Force | Out-Null
+$hostExecutable = if (Test-Path -LiteralPath $pythonw -PathType Leaf) { $pythonw } else { $python }
+$process = Start-Process -FilePath $hostExecutable -ArgumentList $arguments -WorkingDirectory $root -WindowStyle Hidden -RedirectStandardOutput $stdoutLog -RedirectStandardError $stderrLog -PassThru
+Write-Output "F8Studio started in the background (PID $($process.Id)). Logs: $launchLogDirectory"
