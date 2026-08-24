@@ -39,6 +39,7 @@ $required = @(
     "f8studio/0007-perf-sr6-route-axes-as-atomic-frames.patch",
     "f8studio/0008-fix-sr6-stabilize-functional-contact-targets.patch",
     "f8studio/0009-feat-studio-add-compact-range-slider-controls.patch",
+    "f8studio/0010-fix-fallen-doll-calibrate-relative-twist-and-foot-co.patch",
     "tools/Install-FallenDollTCode.ps1",
     "docs/user-guide-zh.md",
     "docs/user-guide-en.md",
@@ -151,7 +152,8 @@ $studioPatches = @(
     "0006-fix-fallen-doll-apply-target-specific-hand-basis.patch",
     "0007-perf-sr6-route-axes-as-atomic-frames.patch",
     "0008-fix-sr6-stabilize-functional-contact-targets.patch",
-    "0009-feat-studio-add-compact-range-slider-controls.patch"
+    "0009-feat-studio-add-compact-range-slider-controls.patch",
+    "0010-fix-fallen-doll-calibrate-relative-twist-and-foot-co.patch"
 )
 foreach ($patch in $studioPatches) {
     Copy-Item -LiteralPath (Join-Path $workspace "f8studio/$patch") -Destination (Join-Path $patchDir $patch)

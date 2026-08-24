@@ -13,6 +13,10 @@ This release promotes the v17 motion graph to the default Fallen Doll integratio
 - Working Live Preview for the SR6 model, 3D skeleton, and six-axis waveforms.
 - Compact per-axis minimum/maximum range sliders.
 - Updated Playtest and Demo HAnime identity data.
+- Twist is now relative to the active contact binding instead of the pose's
+  absolute anatomical orientation.
+- Single-foot scenes select the active foot by proximity to the contact axis;
+  corrected foot-local axes prevent false Twist, Roll, and Pitch saturation.
 
 ## Safety and scope
 
