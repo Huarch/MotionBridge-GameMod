@@ -3,7 +3,7 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$GameRoot,
 
-    [ValidateSet("Auto", "Playtest", "DemoDesktop", "DemoVR")]
+    [ValidateSet("Auto", "Playtest", "Legacy049", "DemoDesktop", "DemoVR")]
     [string]$Edition = "Auto",
 
     [string]$PayloadRoot = (Join-Path $PSScriptRoot "Game")
@@ -21,22 +21,32 @@ if (-not (Test-Path -LiteralPath (Join-Path $resolvedPayloadRoot "dwmapi.dll") -
 }
 
 if ($Edition -eq "Auto") {
-    if (Test-Path -LiteralPath (Join-Path $resolvedGameRoot "Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe")) {
+    if (Test-Path -LiteralPath (Join-Path $resolvedGameRoot "Paralogue\Binaries\Win64\KiritoMod049.exe")) {
+        $Edition = "Legacy049"
+    } elseif (Test-Path -LiteralPath (Join-Path $resolvedGameRoot "Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe")) {
         $Edition = "Playtest"
     } elseif (Test-Path -LiteralPath (Join-Path $resolvedGameRoot "Desktop\WindowsNoEditor\Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe")) {
         $Edition = "DemoDesktop"
+    } elseif (Test-Path -LiteralPath (Join-Path $resolvedGameRoot "VR\WindowsNoEditor\Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe")) {
+        $Edition = "DemoVR"
     } else {
-        throw "Could not recognize the Playtest or Demo layout under: $resolvedGameRoot"
+        throw "Could not recognize a Playtest, legacy 0.49, or Demo layout under: $resolvedGameRoot"
     }
 }
 
 $relativeTarget = switch ($Edition) {
     "Playtest" { "Paralogue\Binaries\Win64" }
+    "Legacy049" { "Paralogue\Binaries\Win64" }
     "DemoDesktop" { "Desktop\WindowsNoEditor\Paralogue\Binaries\Win64" }
     "DemoVR" { "VR\WindowsNoEditor\Paralogue\Binaries\Win64" }
 }
 $target = [System.IO.Path]::GetFullPath((Join-Path $resolvedGameRoot $relativeTarget))
-$expectedExecutable = Join-Path $target "Paralogue-Win64-Shipping.exe"
+$expectedExecutableName = if ($Edition -eq "Legacy049") {
+    "KiritoMod049.exe"
+} else {
+    "Paralogue-Win64-Shipping.exe"
+}
+$expectedExecutable = Join-Path $target $expectedExecutableName
 if (-not (Test-Path -LiteralPath $expectedExecutable -PathType Leaf)) {
     throw "Selected edition is not installed at: $target"
 }

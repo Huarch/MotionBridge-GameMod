@@ -13,6 +13,7 @@
 
 1. 关闭游戏，将包内 `Game` 的全部内容复制到对应目录：
    - Playtest：`Paralogue/Binaries/Win64`
+   - 旧版 0.49：`Paralogue/Binaries/Win64`（通过 `KiritoMod049.exe` 识别；安装后仍使用该版本原有的 `Launch.bat` 启动）
    - Demo 桌面：`Desktop/WindowsNoEditor/Paralogue/Binaries/Win64`
    - Demo VR：`VR/WindowsNoEditor/Paralogue/Binaries/Win64`
    也可运行 `Install-Mod.ps1 -GameRoot "游戏根目录"`。发布包已包含 UE4SS。
@@ -40,7 +41,7 @@ Wi-Fi 默认使用 `tcode.local:8000`。USB 需要选择正确串口并使用 11
 
 ## 当前状态
 
-- 支持 Playtest、Demo 桌面与 Demo VR 的目录结构。
+- 支持 Playtest、旧版 0.49、Demo 桌面与 Demo VR 的目录结构。
 - Playtest 身份目录包含 508 个 HAnime family、3081 条精确 Montage。
 - Demo 身份目录包含 217 个 family、1160 条精确 Montage。
 - SR6 已支持 50 Hz 实时六轴输出，OSR2 使用 L0。

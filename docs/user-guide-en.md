@@ -14,6 +14,7 @@ pose and animation speed rather than replaying a pre-made Funscript.
 
 1. Close the game and copy everything under `Game` into the matching directory:
    - Playtest: `Paralogue/Binaries/Win64`
+   - Legacy 0.49: `Paralogue/Binaries/Win64` (detected by `KiritoMod049.exe`; keep using the build's existing `Launch.bat` to start it)
    - Demo desktop: `Desktop/WindowsNoEditor/Paralogue/Binaries/Win64`
    - Demo VR: `VR/WindowsNoEditor/Paralogue/Binaries/Win64`
    Alternatively run `Install-Mod.ps1 -GameRoot "game root"`. UE4SS is included.
@@ -44,7 +45,7 @@ Detection is automatically armed. Viewers are F8Studio windows, not an in-game o
 
 ## Current status
 
-- Playtest, Demo desktop, and Demo VR layouts are supported.
+- Playtest, legacy 0.49, Demo desktop, and Demo VR layouts are supported.
 - Playtest catalog: 508 HAnime families and 3,081 exact Montage identities.
 - Demo catalog: 217 families and 1,160 exact Montage identities.
 - SR6 real-time six-axis output and OSR2 L0 output are available at 50 Hz.

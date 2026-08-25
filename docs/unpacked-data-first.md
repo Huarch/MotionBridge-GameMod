@@ -48,3 +48,17 @@ Fallen Doll 的 Pak、UAsset、骨架和动画导出结果是进入游戏实验�
   `GetSPAnimCount` 单个结果、Pak 文件数、TableHAnim 导入目录数或名称模式推断。
 
 完整机器可读记录见 `data/unpacked-hsystem-contract-v1.json`。
+
+## 旧版 0.49 记录
+
+- 独立版本根目录由 `Paralogue/Binaries/Win64/KiritoMod049.exe` 标识，运行引擎为
+  Unreal Engine 4.25；Mod 仍部署到同一个 `Paralogue/Binaries/Win64`。
+- 该版本使用 `Alet.pak`、`Anya.pak`、`Erika.pak`、`Character.pak`、
+  `Data.pak` 等旧式拆分。现代 Playtest/Demo 的 QuickBMS 脚本与现有 AES 密钥
+  均不能读取其 `Data.pak`，不要把现代解包参数直接套用或重复全盘遍历。
+- UE4SS 3.0.1 (`d7e7826d`) 已在该 UE4.25 构建中验证可注入，Lua 重载、
+  `Montage_Play` hook 与 50 Hz 功能骨采集均正常。
+- 运行实测精确识别 `AletMale_Vaginal04` 与 `ErikaMale_Foot01`；退出到
+  `AletExp_Idle_*` 时会停止输出，再进入另一 HAnime 后会自动恢复并更新绑定。
+  旧版出现未识别动作时，应记录实际 Montage 并建立独立身份表，不得放宽成
+  “任意活动 Montage 都是 HAnime”。

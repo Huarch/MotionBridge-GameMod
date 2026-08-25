@@ -20,6 +20,7 @@ SR6 接收 `L0/L1/L2/R0/R1/R2` 六轴，OSR2 使用同一运动流中的 `L0`。
 ## 支持范围
 
 - Closed Beta / Playtest（桌面与 VR）
+- 旧版 0.49 独立版本（`KiritoMod049.exe`，Unreal Engine 4.25）
 - 旧 Demo（桌面与 VR）
 - Playtest：508 个 HAnime family、3,081 条精确 Montage 身份
 - Demo：217 个 HAnime family、1,160 条精确 Montage 身份
