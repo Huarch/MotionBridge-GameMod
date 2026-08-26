@@ -98,6 +98,19 @@ Unpacked data is consulted before runtime experiments. See
 enumerates the entire skeleton repeatedly, avoiding game stutter and physics
 resets.
 
+## Standalone Motion Bridge
+
+The native Motion Bridge application has moved to its own repository. It
+contains the Qt desktop UI, multi-game adapter protocol, motion engine, device
+outputs, SR6 preview, portable build, and F8Studio settings migration tool.
+This repository now owns only the Fallen Doll game integration and its
+F8Studio workflow.
+
+The local standalone checkout is expected at the sibling path
+`../MotionBridge`. A public repository URL will be added after the new
+repository is published. Fallen Doll remains Motion Bridge's first bundled
+adapter and continues to consume the same `fd-skeleton.ndjson` stream.
+
 ## F8Studio
 
 Recommended project: `Fallen Doll Skeleton Preview v17 (real-time multi-axis)`

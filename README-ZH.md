@@ -87,6 +87,16 @@ UI，Viewer 是 F8Studio 的独立窗口。
 [unpacked-data-first.md](docs/unpacked-data-first.md)。运行时不再周期性全局枚举整套
 骨架，以避免游戏卡顿和物理刷新。
 
+## 独立 Motion Bridge
+
+原生 Motion Bridge 桌面程序已迁移到独立仓库，其中包含 Qt 桌面界面、多游戏
+Adapter 协议、运动引擎、设备输出、SR6 预览、便携构建及 F8Studio 配置迁移
+工具。本仓库此后只维护 Fallen Doll 游戏侧接入和对应的 F8Studio 流程。
+
+本地独立仓库位于同级目录 `../MotionBridge`。待新仓库发布后再补充公开地址。
+Fallen Doll 仍是 Motion Bridge 首个内置 Adapter，并继续读取相同的
+`fd-skeleton.ndjson` 数据流。
+
 ## F8Studio
 
 推荐工程：`Fallen Doll Skeleton Preview v17 (real-time multi-axis)`
