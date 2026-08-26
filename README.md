@@ -1,4 +1,4 @@
-# Operation Lovecraft: Fallen Doll TCode Mod
+# Motion Bridge — Operation Lovecraft: Fallen Doll
 
 English | [简体中文](README-ZH.md)
 
