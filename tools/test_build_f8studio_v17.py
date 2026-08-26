@@ -59,10 +59,9 @@ class SafetyCodeTests(unittest.TestCase):
         self.assertEqual(outputs["axesFrame"]["status"]["state"], "active")
         self.assertTrue(outputs["axesFrame"]["status"]["fresh"])
         self.assertAlmostEqual(outputs["deviceFrame"]["axes"]["R2"], 0.62)
-        self.assertEqual(
-            {axis: outputs["deviceFrame"]["axes"][axis] for axis in AXES if axis != "R2"},
-            {axis: expected[axis] for axis in AXES if axis != "R2"},
-        )
+        for axis in AXES:
+            if axis != "R2":
+                self.assertAlmostEqual(outputs["deviceFrame"]["axes"][axis], expected[axis])
 
     def test_all_device_axis_bounds_are_adjustable_without_changing_preview(self) -> None:
         runtime = self._runtime()
@@ -89,10 +88,54 @@ class SafetyCodeTests(unittest.TestCase):
         for axis in AXES:
             self.assertAlmostEqual(result["outputs"]["deviceFrame"]["axes"][axis], expected[axis])
 
+    def test_motion_gain_expands_short_stroke_around_center_before_device_limits(self) -> None:
+        runtime = self._runtime()
+        context = _Context({"l0MotionGain": 2.0})
+        runtime["onStart"](context)
+        raw = {axis: 0.5 for axis in AXES}
+        raw["L0"] = 0.6
+
+        result = runtime["onExec"](
+            context,
+            "exec",
+            {
+                "contactFrame": {"axes": raw, "status": {"valid": True}},
+                "heartbeat": {"receivedAtMs": time.time() * 1000.0},
+            },
+        )
+
+        self.assertEqual(result["outputs"]["axesFrame"]["axes"], raw)
+        self.assertAlmostEqual(result["outputs"]["deviceFrame"]["axes"]["L0"], 0.7)
+        self.assertEqual(result["outputs"]["deviceFrame"]["status"]["tuning"]["L0"]["gain"], 2.0)
+
+    def test_dead_zone_and_curve_preserve_center_and_shape_only_device_output(self) -> None:
+        runtime = self._runtime()
+        context = _Context(
+            {
+                "l0MotionDeadZone": 0.2,
+                "l0MotionCurve": "SMOOTHSTEP",
+            }
+        )
+        runtime["onStart"](context)
+        raw = {axis: 0.5 for axis in AXES}
+        raw["L0"] = 0.55
+
+        result = runtime["onExec"](
+            context,
+            "exec",
+            {
+                "contactFrame": {"axes": raw, "status": {"valid": True}},
+                "heartbeat": {"receivedAtMs": time.time() * 1000.0},
+            },
+        )
+
+        self.assertEqual(result["outputs"]["axesFrame"]["axes"], raw)
+        self.assertAlmostEqual(result["outputs"]["deviceFrame"]["axes"]["L0"], 0.5)
+
     def test_generated_graph_routes_one_atomic_frame(self) -> None:
         project_path = Path(__file__).resolve().parents[1] / "f8studio" / "fallen-doll-skeleton-preview-v17.json"
         layout = json.loads(project_path.read_text(encoding="utf-8"))["layout"]
-        self.assertEqual(len(layout["nodes"]), 23)
+        self.assertEqual(len(layout["nodes"]), 25)
         self.assertEqual(len(layout["connections"]), 20)
         frame_edges = [
             edge
@@ -103,7 +146,6 @@ class SafetyCodeTests(unittest.TestCase):
             {tuple(edge["in"]) for edge in frame_edges},
             {
                 ("fd_tcode", "[D]frame"),
-                ("fd_preview_gate", "[D]axesFrame"),
             },
         )
         device_edges = [
@@ -113,7 +155,9 @@ class SafetyCodeTests(unittest.TestCase):
         ]
         self.assertEqual(
             {tuple(edge["in"]) for edge in device_edges},
-            {("fd_device_tcode", "[D]frame")},
+            {("fd_device_tcode", "[D]frame"), ("fd_preview_gate", "[D]axesFrame")},
+            # The viewers intentionally receive the final tuned device axes,
+            # so their waveforms agree with the SR6/OSR model and hardware.
         )
         viewer_edges = [
             edge
@@ -168,6 +212,19 @@ class SafetyCodeTests(unittest.TestCase):
         for field in safety_fields.values():
             self.assertEqual(field["uiControl"], "range_slider")
             self.assertEqual(field["valueSchema"]["type"], "array")
+        all_safety_fields = {
+            field["name"]: field
+            for field in nodes["fd_l0_safety"]["f8_spec"]["stateFields"]
+        }
+        for axis in AXES:
+            prefix = axis.lower()
+            self.assertEqual(all_safety_fields[f"{prefix}MotionGain"]["uiControl"], "slider")
+            self.assertEqual(all_safety_fields[f"{prefix}MotionGain"]["valueSchema"]["default"], 1.0)
+            self.assertEqual(all_safety_fields[f"{prefix}MotionCenter"]["valueSchema"]["default"], 0.5)
+            self.assertEqual(all_safety_fields[f"{prefix}MotionDeadZone"]["valueSchema"]["default"], 0.0)
+            self.assertEqual(
+                all_safety_fields[f"{prefix}MotionCurve"]["valueSchema"]["default"], "LINEAR"
+            )
         self.assertEqual(nodes["fd_source"]["custom"]["pollIntervalMs"], PIPELINE_INTERVAL_MS)
         self.assertEqual(nodes["fd_l0_safety_tick"]["custom"]["tickMs"], PIPELINE_INTERVAL_MS)
         self.assertEqual(nodes["fd_tcode"]["custom"]["intervalMs"], PIPELINE_INTERVAL_MS)
@@ -203,7 +260,7 @@ class SafetyCodeTests(unittest.TestCase):
         operator_ids = [
             node_id
             for node_id in COMPACT_NODE_POSITIONS
-            if node_id not in {"fd_source", "fd_pyengine", *BACKDROP_DEFINITIONS}
+            if node_id not in {"fd_source", "fd_pyengine", *BACKDROP_DEFINITIONS, *NOTE_DEFINITIONS}
         ]
         for index, left_id in enumerate(operator_ids):
             left = nodes[left_id]

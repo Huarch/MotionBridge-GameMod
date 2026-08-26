@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import copy
 from pathlib import Path
+from typing import Any
 
 from qtpy import QtCore
 
@@ -13,6 +15,137 @@ from f8pystudio.nodegraph.session_schema import extract_layout
 
 
 DEFAULT_PROJECT_NAME = "Fallen Doll Skeleton Preview v17 (real-time multi-axis)"
+
+_PRESERVED_CUSTOM_FIELDS: dict[str, tuple[str, ...]] = {
+    "fd_source": (
+        "active",
+        "runtimeDir",
+        "pollIntervalMs",
+        "staleAfterMs",
+        "referenceRole",
+        "targetRole",
+        "enabledReferenceParticipants",
+        "enabledTargetParticipants",
+        "enabledReferenceBones",
+        "enabledTargetBones",
+    ),
+    "fd_contact_axes": (
+        "originBone",
+        "directionBone",
+        "tipBone",
+        "supportBone",
+        "supportRightAxis",
+        "supportUpAxis",
+        "targetUpAxis",
+        "targetRightAxis",
+        "l0MinMeters",
+        "l0MaxMeters",
+        "lateralRangeMeters",
+        "twistRangeDegrees",
+        "tiltRangeDegrees",
+        "radiusScale",
+        "invertL0",
+        "requireContact",
+    ),
+    "fd_l0_safety": (
+        "l0OutputRange",
+        "l1OutputRange",
+        "l2OutputRange",
+        "r0OutputRange",
+        "r1OutputRange",
+        "r2OutputRange",
+    ),
+    "fd_preview_gate": ("livePreview", "previewModel", "previewCurves", "previewSkeleton"),
+    "fd_wifi_out": ("appendNewline", "enabled", "forceText", "host", "port"),
+    "fd_usb_out": ("baudrate", "enabled", "port"),
+    "fd_3d_viz": (
+        "autoZoomOnNewPeople",
+        "markerScale",
+        "maxBonesPerPerson",
+        "maxPeople",
+        "showBoneAxes",
+        "showBoneNames",
+        "showBonePoints",
+        "showPersonBoxes",
+        "showPersonNames",
+        "showSkeletonLines",
+        "throttleMs",
+        "uiFpsCap",
+        "upstreamSampleIntervalMs",
+        "upstreamSamplingMode",
+        "worldUp",
+    ),
+    "fd_tcode_viz": ("maxLineLength", "model", "throttleMs", "upstreamSampleIntervalMs", "upstreamSamplingMode"),
+    "fd_l0_normalized_viz": (
+        "bufferLimit",
+        "clearNonce",
+        "maxVal",
+        "minVal",
+        "showLegend",
+        "throttleMs",
+        "uiUpdate",
+        "upstreamSampleIntervalMs",
+        "upstreamSamplingMode",
+        "windowMs",
+    ),
+    "fd_rotation_viz": (
+        "bufferLimit",
+        "clearNonce",
+        "maxVal",
+        "minVal",
+        "showLegend",
+        "throttleMs",
+        "uiUpdate",
+        "upstreamSampleIntervalMs",
+        "upstreamSamplingMode",
+        "windowMs",
+    ),
+}
+
+
+def _layout_nodes(content: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    layout = content.get("layout")
+    if not isinstance(layout, dict):
+        return {}
+    nodes = layout.get("nodes")
+    if not isinstance(nodes, dict):
+        return {}
+    return {
+        str(node_id): node
+        for node_id, node in nodes.items()
+        if isinstance(node, dict)
+    }
+
+
+def _needs_motion_tuning_migration(content: dict[str, Any]) -> bool:
+    safety = _layout_nodes(content).get("fd_l0_safety")
+    if not isinstance(safety, dict):
+        return False
+    custom = safety.get("custom")
+    return isinstance(custom, dict) and "l0MotionGain" not in custom
+
+
+def _migrate_motion_tuning_layout(
+    existing_content: dict[str, Any], fresh_content: dict[str, Any]
+) -> dict[str, Any]:
+    """Apply the new graph while retaining user calibration and connection settings."""
+
+    result = copy.deepcopy(fresh_content)
+    old_nodes = _layout_nodes(existing_content)
+    new_nodes = _layout_nodes(result)
+    for node_id, field_names in _PRESERVED_CUSTOM_FIELDS.items():
+        old_node = old_nodes.get(node_id)
+        new_node = new_nodes.get(node_id)
+        if old_node is None or new_node is None:
+            continue
+        old_custom = old_node.get("custom")
+        new_custom = new_node.get("custom")
+        if not isinstance(old_custom, dict) or not isinstance(new_custom, dict):
+            continue
+        for field_name in field_names:
+            if field_name in old_custom:
+                new_custom[field_name] = copy.deepcopy(old_custom[field_name])
+    return result
 
 
 def prepare_project(
@@ -24,9 +157,27 @@ def prepare_project(
     tags: list[str],
     refresh_existing: bool = False,
 ) -> str:
+    content = json_object_loads(project_path.read_text(encoding="utf-8"))
     existing = storage.list_projects_by_name(name)
     if existing:
         project_id = existing[0].projectId
+        stored = storage.project(project_id)
+        if stored is not None and _needs_motion_tuning_migration(stored.content):
+            migrated = _migrate_motion_tuning_layout(stored.content, content)
+            _ = extract_layout(migrated)
+            project = storage.save_project(
+                project_id=project_id,
+                content=migrated,
+                name=name,
+                description=description,
+                tags=tags,
+                set_current=True,
+            )
+            print(
+                "Migrated Fallen Doll Studio project to the Motion Tuning layout "
+                f"while preserving device and calibration settings: {project.projectId}"
+            )
+            return project.projectId
         if not refresh_existing:
             # The Studio project is the user's persistent configuration.  Do not
             # replace saved ports, addresses, axis ranges, or enabled states with
@@ -35,7 +186,6 @@ def prepare_project(
             print(f"Selected existing Fallen Doll Studio project without overwriting settings: {project_id}")
             return project_id
 
-        content = json_object_loads(project_path.read_text(encoding="utf-8"))
         _ = extract_layout(content)
         project = storage.save_project(
             project_id=project_id,

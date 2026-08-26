@@ -22,8 +22,8 @@
 3. 确认 `studio`、`fd_pyengine`、`fd_source` 都已运行。后两个服务应由 Studio
    自动启动，不需要分别手动运行。
 4. 进入 HAnime，打开 `Live Preview`，先检查 SR6 模型和六轴波形。
-5. 在 Safety 分区中用各轴的最小/最大滑条设置设备范围，再只启用 USB 或 Wi-Fi
-   中的一种输出，不能同时启用。
+5. 在 Motion Tuning 分区中，短行程先提高对应轴的 `Motion Gain`（L0 可从 `1.25×`
+   开始）；`Output Range` 只设置设备安全范围。再只启用 USB 或 Wi-Fi 中的一种输出，不能同时启用。
 
 Wi-Fi 默认使用 `tcode.local:8000`。USB 需要选择正确串口并使用 115200 波特率。
 两个设备输出节点默认关闭，USB 端口默认留空。
@@ -42,7 +42,7 @@ Wi-Fi 默认使用 `tcode.local:8000`。USB 需要选择正确串口并使用 11
 ## 当前状态
 
 - 支持 Playtest、旧版 0.49、Demo 桌面与 Demo VR 的目录结构。
-- Playtest 身份目录包含 508 个 HAnime family、3081 条精确 Montage。
+- Playtest 身份目录包含 508 个 HAnime family、3,087 条精确 Montage。
 - Demo 身份目录包含 217 个 family、1160 条精确 Montage。
 - SR6 已支持 50 Hz 实时六轴输出，OSR2 使用 L0。
 - 部分左右手脚、双肢主次、特殊动作、多人和非人类动作仍需逐项校准。“支持多轴”

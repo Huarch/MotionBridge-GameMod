@@ -24,8 +24,9 @@ pose and animation speed rather than replaying a pre-made Funscript.
 3. Confirm that `studio`, `fd_pyengine`, and `fd_source` are running. Studio should
    start the latter two automatically; do not launch three separate applications.
 4. Enter HAnime and enable `Live Preview` to check the SR6 model and six-axis waveform.
-5. In the Safety section, set the minimum and maximum slider for each axis to suit your
-   device. Then enable either USB or Wi-Fi output, never both.
+5. In Motion Tuning, raise the matching axis `Motion Gain` for short travel (start L0 at
+   `1.25×`). `Output Range` is only the physical safety boundary. Then enable either USB
+   or Wi-Fi output, never both.
 
 Wi-Fi defaults to `tcode.local:8000`. USB requires the correct serial port at
 115200 baud. Both physical-output nodes are disabled by default, and the USB port
@@ -46,7 +47,7 @@ Detection is automatically armed. Viewers are F8Studio windows, not an in-game o
 ## Current status
 
 - Playtest, legacy 0.49, Demo desktop, and Demo VR layouts are supported.
-- Playtest catalog: 508 HAnime families and 3,081 exact Montage identities.
+- Playtest catalog: 508 HAnime families and 3,087 exact Montage identities.
 - Demo catalog: 217 families and 1,160 exact Montage identities.
 - SR6 real-time six-axis output and OSR2 L0 output are available at 50 Hz.
 - Some left/right and dual-limb priorities, special actions, multiplayer scenes, and

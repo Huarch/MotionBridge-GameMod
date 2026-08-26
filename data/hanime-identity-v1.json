@@ -5,7 +5,7 @@
   "package_list_sha256": "b7cec357a7bbb01ce529c30acb211f63a8caa34a4a6437bb048a84102996dfbd",
   "recognition_policy": "exact-active-montage-in-authoritative-table-hanime-family",
   "hanime_family_count": 508,
-  "montage_count": 3081,
+  "montage_count": 3087,
   "by_family": {
     "AletAnya_Sex01": {
       "hanime_id": "AletAnya_Sex01",
@@ -4787,7 +4787,9 @@
       "participant_tags": [
         "Montage",
         "Montage_MAX",
-        "Montage_MIN"
+        "Montage_MIN",
+        "Dreamer_A_01",
+        "Juzi1_01"
       ]
     },
     "JuziDreamer_Vaginal08_Juzi1_01": {
@@ -4799,7 +4801,9 @@
       "participant_tags": [
         "Montage",
         "Montage_MAX",
-        "Montage_MIN"
+        "Montage_MIN",
+        "Dreamer_A_01",
+        "Juzi1_01"
       ]
     },
     "JuziDreamer_Vaginal09": {
@@ -48564,6 +48568,80 @@
       "asset_paths": [
         "/Paralogue/Content/Characters/Talon/Anim/HAnim/Juzi/Kiss01/Talonjuzi_kiss01_Talon_01_Montage_MIN"
       ]
+    },
+    "juzidreamervaginal08dreamera01montage": {
+      "asset": "JuziDreamer_Vaginal08_Dreamer_A_01_Montage",
+      "hanime_id": "JuziDreamer_Vaginal08_Juzi1_01",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Juzi/Male/Vaginal08"
+      ],
+      "participant_tag": "Dreamer_A_01",
+      "evidence": "runtime_observed_exact_montage",
+      "asset_paths": []
+    },
+    "juzidreamervaginal08dreamera01montagemax": {
+      "asset": "JuziDreamer_Vaginal08_Dreamer_A_01_Montage_MAX",
+      "hanime_id": "JuziDreamer_Vaginal08_Juzi1_01",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Juzi/Male/Vaginal08"
+      ],
+      "participant_tag": "Dreamer_A_01",
+      "evidence": "runtime_observed_exact_montage",
+      "asset_paths": []
+    },
+    "juzidreamervaginal08dreamera01montagemin": {
+      "asset": "JuziDreamer_Vaginal08_Dreamer_A_01_Montage_MIN",
+      "hanime_id": "JuziDreamer_Vaginal08_Juzi1_01",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Juzi/Male/Vaginal08"
+      ],
+      "participant_tag": "Dreamer_A_01",
+      "evidence": "runtime_observed_exact_montage",
+      "asset_paths": []
+    },
+    "juzidreamervaginal07dreamera01montage": {
+      "asset": "JuziDreamer_Vaginal07_Dreamer_A_01_Montage",
+      "hanime_id": "JuziDreamer_Vaginal07_Juzi1_01",
+      "category": "vaginal",
+      "phase": "normal",
+      "catalog_refs": [
+        "Juzi/Male/Vaginal07"
+      ],
+      "participant_tag": "Dreamer_A_01",
+      "evidence": "runtime_observed_exact_montage",
+      "asset_paths": []
+    },
+    "juzidreamervaginal07dreamera01montagemax": {
+      "asset": "JuziDreamer_Vaginal07_Dreamer_A_01_Montage_MAX",
+      "hanime_id": "JuziDreamer_Vaginal07_Juzi1_01",
+      "category": "vaginal",
+      "phase": "max",
+      "catalog_refs": [
+        "Juzi/Male/Vaginal07"
+      ],
+      "participant_tag": "Dreamer_A_01",
+      "evidence": "runtime_observed_exact_montage",
+      "asset_paths": []
+    },
+    "juzidreamervaginal07dreamera01montagemin": {
+      "asset": "JuziDreamer_Vaginal07_Dreamer_A_01_Montage_MIN",
+      "hanime_id": "JuziDreamer_Vaginal07_Juzi1_01",
+      "category": "vaginal",
+      "phase": "min",
+      "catalog_refs": [
+        "Juzi/Male/Vaginal07"
+      ],
+      "participant_tag": "Dreamer_A_01",
+      "evidence": "runtime_observed_exact_montage",
+      "asset_paths": []
     }
-  }
+  },
+  "runtime_override_source": "data\\playtest-hanime-runtime-overrides-v1.json",
+  "runtime_override_count": 6
 }

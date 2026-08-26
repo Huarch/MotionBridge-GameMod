@@ -4560,6 +4560,8 @@ return {
                 "Montage",
                 "Montage_MAX",
                 "Montage_MIN",
+                "Dreamer_A_01",
+                "Juzi1_01",
             },
         },
         ["JuziDreamer_Vaginal08_Juzi1_01"] = {
@@ -4572,6 +4574,8 @@ return {
                 "Montage",
                 "Montage_MAX",
                 "Montage_MIN",
+                "Dreamer_A_01",
+                "Juzi1_01",
             },
         },
         ["JuziDreamer_Vaginal09"] = {
@@ -41503,6 +41507,42 @@ return {
             ["participant_tag"] = "Montage_MIN",
             ["phase"] = "min",
         },
+        ["juzidreamervaginal07dreamera01montage"] = {
+            ["asset"] = "JuziDreamer_Vaginal07_Dreamer_A_01_Montage",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal07",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal07_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
+            ["phase"] = "normal",
+        },
+        ["juzidreamervaginal07dreamera01montagemax"] = {
+            ["asset"] = "JuziDreamer_Vaginal07_Dreamer_A_01_Montage_MAX",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal07",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal07_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
+            ["phase"] = "max",
+        },
+        ["juzidreamervaginal07dreamera01montagemin"] = {
+            ["asset"] = "JuziDreamer_Vaginal07_Dreamer_A_01_Montage_MIN",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal07",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal07_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
+            ["phase"] = "min",
+        },
         ["juzidreamervaginal07juzi101montage"] = {
             ["asset"] = "JuziDreamer_Vaginal07_Juzi1_01_Montage",
             ["asset_paths"] = {
@@ -41543,6 +41583,42 @@ return {
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "JuziDreamer_Vaginal07_Juzi1_01",
             ["participant_tag"] = "Montage_MIN",
+            ["phase"] = "min",
+        },
+        ["juzidreamervaginal08dreamera01montage"] = {
+            ["asset"] = "JuziDreamer_Vaginal08_Dreamer_A_01_Montage",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal08",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal08_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
+            ["phase"] = "normal",
+        },
+        ["juzidreamervaginal08dreamera01montagemax"] = {
+            ["asset"] = "JuziDreamer_Vaginal08_Dreamer_A_01_Montage_MAX",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal08",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal08_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
+            ["phase"] = "max",
+        },
+        ["juzidreamervaginal08dreamera01montagemin"] = {
+            ["asset"] = "JuziDreamer_Vaginal08_Dreamer_A_01_Montage_MIN",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal08",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal08_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
             ["phase"] = "min",
         },
         ["juzidreamervaginal08juzi101montage"] = {
@@ -48561,10 +48637,12 @@ return {
         },
     },
     ["hanime_family_count"] = 508,
-    ["montage_count"] = 3081,
+    ["montage_count"] = 3087,
     ["package_list_sha256"] = "b7cec357a7bbb01ce529c30acb211f63a8caa34a4a6437bb048a84102996dfbd",
     ["recognition_policy"] = "exact-active-montage-in-authoritative-table-hanime-family",
     ["revision"] = "table-hanim-families-all-participant-montages-v3",
+    ["runtime_override_count"] = 6,
+    ["runtime_override_source"] = "data\\playtest-hanime-runtime-overrides-v1.json",
     ["schema_version"] = 2,
     ["source_index_sha256"] = "c500f6503b3629bcd5751a64b5505906a52f0a11e53a2e6f17c5588103931b05",
 }

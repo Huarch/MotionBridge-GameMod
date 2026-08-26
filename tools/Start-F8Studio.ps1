@@ -33,6 +33,8 @@ $connectionFile = Join-Path $env:USERPROFILE ".f8\studio\automation\connection.j
 $launchLogDirectory = Join-Path $env:LOCALAPPDATA "FallenDollTCode\logs"
 $stdoutLog = Join-Path $launchLogDirectory "f8studio.stdout.log"
 $stderrLog = Join-Path $launchLogDirectory "f8studio.stderr.log"
+$serviceStdoutLog = Join-Path $launchLogDirectory "f8studio-services.stdout.log"
+$serviceStderrLog = Join-Path $launchLogDirectory "f8studio-services.stderr.log"
 $projectFileName = if ($ProjectVersion -eq "v17") {
     "fallen-doll-skeleton-preview-v17.json"
 } else {
@@ -55,6 +57,7 @@ $projectTags = if ($ProjectVersion -eq "v17") {
 }
 $projectFile = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\f8studio\$projectFileName"))
 $projectSelector = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "Prepare-F8StudioProject.py"))
+$serviceBootstrap = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "Start-F8StudioServices.py"))
 # This launcher is for Fallen Doll only.  Avoid probing unrelated audio, AI, video,
 # and capture services (some require optional Pixi environments) during Studio startup.
 $env:F8_DISABLED_SERVICE_CLASSES = @(
@@ -68,6 +71,9 @@ $env:F8_DISABLED_SERVICE_CLASSES = @(
 Set-Location -LiteralPath $root
 if (-not (Test-Path -LiteralPath $projectFile -PathType Leaf)) {
     throw "Fallen Doll F8Studio project file not found: $projectFile"
+}
+if (-not (Test-Path -LiteralPath $serviceBootstrap -PathType Leaf)) {
+    throw "Fallen Doll F8Studio service bootstrap not found: $serviceBootstrap"
 }
 $selectorArguments = @($projectSelector, $projectFile, "--name", $projectName, "--description", $projectDescription)
 foreach ($tag in $projectTags) {
@@ -87,4 +93,13 @@ if ($Foreground) {
 New-Item -ItemType Directory -Path $launchLogDirectory -Force | Out-Null
 $hostExecutable = if (Test-Path -LiteralPath $pythonw -PathType Leaf) { $pythonw } else { $python }
 $process = Start-Process -FilePath $hostExecutable -ArgumentList $arguments -WorkingDirectory $root -RedirectStandardOutput $stdoutLog -RedirectStandardError $stderrLog -PassThru
-Write-Output "F8Studio started in the background (PID $($process.Id)). Logs: $launchLogDirectory"
+$serviceArguments = @(
+    "`"$serviceBootstrap`"",
+    "--connection-file", "`"$connectionFile`"",
+    "--studio-pid", "$($process.Id)",
+    "--timeout", "45"
+)
+$serviceProcess = Start-Process -FilePath $hostExecutable -ArgumentList $serviceArguments -WorkingDirectory $root -RedirectStandardOutput $serviceStdoutLog -RedirectStandardError $serviceStderrLog -PassThru
+Write-Output "F8Studio started in the background (PID $($process.Id))."
+Write-Output "Service bootstrap started in the background (PID $($serviceProcess.Id)): fd_pyengine, fd_source."
+Write-Output "Logs: $launchLogDirectory"

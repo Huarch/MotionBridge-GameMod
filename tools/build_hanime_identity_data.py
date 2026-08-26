@@ -159,6 +159,62 @@ def lua_value(value: object, indent: int = 0) -> str:
     raise TypeError(f"unsupported Lua value: {type(value)!r}")
 
 
+def apply_runtime_overrides(
+    document: dict[str, object], overrides: dict[str, object]
+) -> None:
+    """Merge exact Montage identities confirmed by runtime observation.
+
+    A package index can lag behind the installed Playtest build. Runtime
+    overrides remain deliberately exact: every entry names one observed
+    Montage and the authoritative TableHAnim family it belongs to. They never
+    enable category/name based matching.
+    """
+
+    by_montage = document["by_montage"]
+    by_family = document["by_family"]
+    for identity, tags in overrides.get("family_participant_tags", {}).items():
+        family = by_family.get(str(identity))
+        if family is None:
+            raise ValueError(
+                f"runtime participant override references unknown HAnime family {identity!r}"
+            )
+        for tag in tags:
+            tag = str(tag)
+            if tag and tag not in family["participant_tags"]:
+                family["participant_tags"].append(tag)
+    for override in overrides.get("montages", []):
+        asset = str(override["asset"])
+        identity = str(override["hanime_id"])
+        family = by_family.get(identity)
+        if family is None:
+            raise ValueError(
+                f"runtime override {asset!r} references unknown HAnime family {identity!r}"
+            )
+
+        key = normalized(asset)
+        existing = by_montage.get(key)
+        if existing is not None and str(existing.get("hanime_id")) != identity:
+            raise ValueError(
+                f"runtime override conflict for {asset!r}: "
+                f"{existing.get('hanime_id')!r} != {identity!r}"
+            )
+
+        tag = str(override.get("participant_tag") or participant_tag(asset, identity))
+        entry = {
+            "asset": asset,
+            "hanime_id": identity,
+            "category": str(family["category"]),
+            "phase": str(override.get("phase") or phase(asset)),
+            "catalog_refs": list(family["catalog_refs"]),
+            "participant_tag": tag,
+            "evidence": "runtime_observed_exact_montage",
+            "asset_paths": list(override.get("asset_paths", [])),
+        }
+        by_montage[key] = entry
+        if tag and tag not in family["participant_tags"]:
+            family["participant_tags"].append(tag)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--index", type=Path, required=True)
@@ -174,6 +230,11 @@ def main() -> None:
         "--existing-identity",
         type=Path,
         help="Preserve previously indexed companion Montages while rebuilding family metadata.",
+    )
+    parser.add_argument(
+        "--runtime-overrides",
+        type=Path,
+        help="Exact Montage identities confirmed from UE4SS runtime logs.",
     )
     parser.add_argument(
         "--game",
@@ -341,6 +402,12 @@ def main() -> None:
         },
         "by_montage": by_montage,
     }
+    if args.runtime_overrides is not None:
+        overrides = json.loads(args.runtime_overrides.read_text(encoding="utf-8"))
+        apply_runtime_overrides(document, overrides)
+        document["runtime_override_source"] = str(args.runtime_overrides)
+        document["runtime_override_count"] = len(overrides.get("montages", []))
+        document["montage_count"] = len(by_montage)
     args.json_output.parent.mkdir(parents=True, exist_ok=True)
     args.lua_output.parent.mkdir(parents=True, exist_ok=True)
     args.json_output.write_text(

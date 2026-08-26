@@ -20,47 +20,54 @@ COMPACT_NODE_POSITIONS = {
     "fd_source": [-400.0, 350.0],
     "fd_pyengine": [0.0, -40.0],
     "fd_contact_axes": [40.0, 340.0],
-    "fd_l0_safety_tick": [370.0, 100.0],
+    "fd_l0_safety_tick": [370.0, 220.0],
     "fd_l0_safety": [300.0, 310.0],
-    "fd_tcode": [530.0, 290.0],
-    "fd_device_tcode": [530.0, 450.0],
-    "fd_device_fanout": [530.0, 620.0],
+    "fd_tcode": [550.0, 250.0],
+    "fd_device_tcode": [550.0, 460.0],
+    "fd_device_fanout": [550.0, 630.0],
     "fd_preview_gate": [850.0, 320.0],
     "fd_3d_viz": [1080.0, 290.0],
     "fd_tcode_viz": [1300.0, 290.0],
     "fd_l0_normalized_viz": [1080.0, 480.0],
     "fd_rotation_viz": [1310.0, 480.0],
-    "fd_wifi_out": [850.0, 1040.0],
-    "fd_usb_out": [1150.0, 1040.0],
+    "fd_wifi_out": [850.0, 990.0],
+    "fd_usb_out": [1150.0, 990.0],
     "fd_backdrop_input": [-450.0, 0.0],
-    "fd_backdrop_engine": [0.0, 0.0],
+    "fd_backdrop_contact": [-10.0, 0.0],
+    "fd_backdrop_tuning": [280.0, 0.0],
     "fd_backdrop_preview": [820.0, 0.0],
-    "fd_backdrop_device": [820.0, 770.0],
+    "fd_backdrop_device": [820.0, 730.0],
     "fd_note_quick_start": [-420.0, 80.0],
-    "fd_note_engine": [30.0, 70.0],
+    "fd_note_contact": [10.0, 80.0],
+    "fd_note_tuning": [300.0, 80.0],
     "fd_note_preview": [850.0, 70.0],
-    "fd_note_device": [850.0, 830.0],
+    "fd_note_device": [850.0, 790.0],
 }
-PYENGINE_CONTAINER_SIZE = (1580.0, 1350.0)
+PYENGINE_CONTAINER_SIZE = (1580.0, 1300.0)
 BACKDROP_DEFINITIONS = {
     "fd_backdrop_input": {
         "name": "1 · GAME INPUT / 游戏输入",
         "size": [410.0, 760.0],
         "color": [48, 126, 164, 255],
     },
-    "fd_backdrop_engine": {
-        "name": "2 · MOTION ENGINE / 六轴运动引擎（高级）",
-        "size": [780.0, 930.0],
+    "fd_backdrop_contact": {
+        "name": "2 · CONTACT MAPPING / 接触几何（高级）",
+        "size": [270.0, 710.0],
         "color": [176, 126, 55, 255],
     },
+    "fd_backdrop_tuning": {
+        "name": "3 · MOTION TUNING / 运动调节",
+        "size": [500.0, 710.0],
+        "color": [155, 103, 183, 255],
+    },
     "fd_backdrop_preview": {
-        "name": "3 · LIVE PREVIEW / 实时预览",
+        "name": "4 · LIVE PREVIEW / 实时预览",
         "size": [720.0, 730.0],
         "color": [70, 154, 112, 255],
     },
     "fd_backdrop_device": {
-        "name": "4 · DEVICE OUTPUT / 设备输出",
-        "size": [720.0, 500.0],
+        "name": "5 · DEVICE OUTPUT / 设备输出",
+        "size": [720.0, 470.0],
         "color": [174, 82, 88, 255],
     },
 }
@@ -75,20 +82,29 @@ NOTE_DEFINITIONS = {
             "部署工程 → 进入 H 动画 → 确认游戏流已连接。"
         ),
     },
-    "fd_note_engine": {
-        "name": "ADVANCED / 高级设置",
-        "size": [280.0, 200.0],
+    "fd_note_contact": {
+        "name": "CONTACT / 接触参考",
+        "size": [240.0, 200.0],
         "content": (
-            "Turns functional bones into raw SR6 axes.\n\n"
-            "一般保持默认。设备运动范围请使用 Safety 节点的六轴滑条调整；游戏 Mod 始终输出原始运动。"
+            "Selects the reference/target bones and their local axes.\n\n"
+            "通常保持默认；只有姿势方向明显错误时才调整。"
+        ),
+    },
+    "fd_note_tuning": {
+        "name": "TUNING / 常用调节",
+        "size": [420.0, 125.0],
+        "content": (
+            "For short strokes, raise **L0 Motion Gain** (start at 1.25×).\n"
+            "Output Range is the physical safety limit, not an amplifier.\n\n"
+            "短行程先调 L0 Motion Gain；Output Range 只限制设备活动范围。"
         ),
     },
     "fd_note_preview": {
         "name": "PREVIEW / 预览说明",
         "size": [300.0, 200.0],
         "content": (
-            "Enable **Live Preview**, then use `Open Viewer` on the SR6 or curve nodes.\n\n"
-            "仅调试时开启；完成观察后可关闭以降低界面开销。"
+            "Enable **Live Preview**, then use `Open Viewer` on the SR6 or curve nodes. Curves show tuned device axes.\n\n"
+            "仅调试时开启；曲线与模型显示调节后的设备输出。"
         ),
     },
     "fd_note_device": {
@@ -105,6 +121,8 @@ REMOVED_NODE_IDS = {
     "fd_l0_normalize",
     "fd_device_range",
     "fd_l0_viz",
+    "fd_backdrop_engine",
+    "fd_note_engine",
 }
 DEFAULT_REFERENCE_PARTICIPANTS = [f"fallen-doll:male:{index}" for index in range(8)]
 DEFAULT_TARGET_PARTICIPANTS = [f"fallen-doll:female:{index}" for index in range(8)]
@@ -203,6 +221,51 @@ def _device_axis_bounds(ctx, axis):
         lower, upper = upper, lower
     return lower, upper
 
+def _state_number(ctx, name, default, minimum, maximum):
+    try:
+        value = _number(ctx.states.get(name))
+    except (AttributeError, KeyError, TypeError):
+        value = None
+    value = default if value is None else value
+    return max(minimum, min(maximum, value))
+
+def _state_curve(ctx, axis):
+    try:
+        value = str(ctx.states.get(axis.lower() + 'MotionCurve') or 'LINEAR').upper()
+    except (AttributeError, KeyError, TypeError):
+        value = 'LINEAR'
+    return value if value in ('LINEAR', 'SMOOTHSTEP', 'SMOOTHERSTEP') else 'LINEAR'
+
+def _shape_progress(value, curve):
+    if curve == 'SMOOTHSTEP':
+        return value * value * (3.0 - 2.0 * value)
+    if curve == 'SMOOTHERSTEP':
+        return value * value * value * (value * (value * 6.0 - 15.0) + 10.0)
+    return value
+
+def _tune_axis(ctx, axis, value):
+    prefix = axis.lower()
+    center = _state_number(ctx, prefix + 'MotionCenter', CENTER, 0.0, 1.0)
+    gain = _state_number(ctx, prefix + 'MotionGain', 1.0, 0.25, 4.0)
+    dead_zone = _state_number(ctx, prefix + 'MotionDeadZone', 0.0, 0.0, 0.4)
+    curve = _state_curve(ctx, axis)
+    value = max(0.0, min(1.0, value))
+
+    # Normalize one side at a time, so center remains stable even when the
+    # user deliberately offsets it from 0.5. Dead zone removes minor skeleton
+    # jitter, gain expands short motions, and curve shapes the final travel.
+    if value >= center:
+        span = max(1.0 - center, 1e-6)
+        progress = max(0.0, min(1.0, (value - center) / span))
+        progress = max(0.0, (progress - dead_zone) / max(1.0 - dead_zone, 1e-6))
+        progress = min(1.0, progress * gain)
+        return center + span * _shape_progress(progress, curve)
+    span = max(center, 1e-6)
+    progress = max(0.0, min(1.0, (center - value) / span))
+    progress = max(0.0, (progress - dead_zone) / max(1.0 - dead_zone, 1e-6))
+    progress = min(1.0, progress * gain)
+    return center - span * _shape_progress(progress, curve)
+
 def onStart(ctx):
     ctx.locals['lastValid'] = _center_axes()
     ctx.locals['lastValidAtMs'] = None
@@ -262,16 +325,26 @@ def onExec(ctx, exec_in, inputs):
         'returnMs': RETURN_MS,
         'center': CENTER,
     }
+    tuned_output = {axis: _tune_axis(ctx, axis, output[axis]) for axis in AXES}
     device_limits = {axis: _device_axis_bounds(ctx, axis) for axis in AXES}
     device_output = {
         axis: device_limits[axis][0]
-        + output[axis] * (device_limits[axis][1] - device_limits[axis][0])
+        + tuned_output[axis] * (device_limits[axis][1] - device_limits[axis][0])
         for axis in AXES
     }
     device_status = dict(status)
     device_status['limits'] = {
         axis: {'min': bounds[0], 'max': bounds[1]}
         for axis, bounds in device_limits.items()
+    }
+    device_status['tuning'] = {
+        axis: {
+            'gain': _state_number(ctx, axis.lower() + 'MotionGain', 1.0, 0.25, 4.0),
+            'center': _state_number(ctx, axis.lower() + 'MotionCenter', CENTER, 0.0, 1.0),
+            'deadZone': _state_number(ctx, axis.lower() + 'MotionDeadZone', 0.0, 0.0, 0.4),
+            'curve': _state_curve(ctx, axis),
+        }
+        for axis in AXES
     }
     return {
         'outputs': {
@@ -478,11 +551,19 @@ def safety_node(template: dict[str, Any]) -> dict[str, Any]:
     axes_frame["description"] = "One safety-gated coherent raw SR6 frame for preview and diagnostics."
     device_frame = copy.deepcopy(axes_frame)
     device_frame["name"] = "deviceFrame"
-    device_frame["description"] = "Device SR6 frame with independently adjustable physical travel limits."
+    device_frame["description"] = "Final device SR6 frame after motion gain, center, dead zone, curve, and physical travel limits."
     spec["dataOutPorts"] = [axes_frame, device_frame]
     state_template = next(
         field for field in spec.get("stateFields", []) if field.get("name") in {"inputMode", "svcId", "operatorId"}
     )
+    generated_state_names = {
+        f"{axis.lower()}{suffix}"
+        for axis in AXES
+        for suffix in ("MotionGain", "MotionCenter", "MotionDeadZone", "MotionCurve", "OutputRange")
+    }
+    spec["stateFields"] = [
+        field for field in spec.get("stateFields", []) if field.get("name") not in generated_state_names
+    ]
     default_bounds = {
         "L0": (0.0, 1.0),
         "L1": (0.0, 1.0),
@@ -492,6 +573,86 @@ def safety_node(template: dict[str, Any]) -> dict[str, Any]:
         "R2": (0.35, 0.65),
     }
     for axis, (default_min, default_max) in default_bounds.items():
+        prefix = axis.lower()
+        tuning_fields = (
+            (
+                f"{prefix}MotionGain",
+                f"{axis} Motion Gain",
+                (
+                    f"Expand or reduce {axis} travel around its center before the physical safety range. "
+                    "1.0× keeps the original motion; try 1.25× first for short movement."
+                ),
+                1.0,
+                0.25,
+                4.0,
+                "slider",
+                True,
+            ),
+            (
+                f"{prefix}MotionCenter",
+                f"{axis} Motion Center",
+                f"Neutral center used by {axis} gain, dead zone, and curve shaping.",
+                0.5,
+                0.0,
+                1.0,
+                "slider",
+                False,
+            ),
+            (
+                f"{prefix}MotionDeadZone",
+                f"{axis} Motion Dead Zone",
+                f"Ignore small {axis} movement around the motion center to suppress skeleton jitter.",
+                0.0,
+                0.0,
+                0.4,
+                "slider",
+                False,
+            ),
+        )
+        for name, label, description, default, minimum, maximum, ui_control, show_on_node in tuning_fields:
+            field = copy.deepcopy(state_template)
+            field.update(
+                {
+                    "name": name,
+                    "label": label,
+                    "description": description,
+                    "access": "rw",
+                    "required": True,
+                    "showOnNode": show_on_node,
+                    "redactOnPublish": False,
+                    "uiControl": ui_control,
+                    "valueSchema": {
+                        "type": "number",
+                        "minimum": minimum,
+                        "maximum": maximum,
+                        "default": default,
+                    },
+                }
+            )
+            spec.setdefault("stateFields", []).append(field)
+            node["custom"][name] = default
+
+        curve_name = f"{prefix}MotionCurve"
+        curve_field = copy.deepcopy(state_template)
+        curve_field.update(
+            {
+                "name": curve_name,
+                "label": f"{axis} Motion Curve",
+                "description": f"Shape {axis} travel after gain: Linear, Smoothstep, or Smootherstep.",
+                "access": "rw",
+                "required": True,
+                "showOnNode": False,
+                "redactOnPublish": False,
+                "valueSchema": {
+                    "type": "string",
+                    "enum": ["LINEAR", "SMOOTHSTEP", "SMOOTHERSTEP"],
+                    "default": "LINEAR",
+                },
+            }
+        )
+        spec.setdefault("stateFields", []).append(curve_field)
+        node["custom"][curve_name] = "LINEAR"
+
         name = f"{axis.lower()}OutputRange"
         default = [default_min, default_max]
         field = copy.deepcopy(state_template)
@@ -518,8 +679,8 @@ def safety_node(template: dict[str, Any]) -> dict[str, Any]:
         spec.setdefault("stateFields", []).append(field)
         node["custom"][name] = default
     node["custom"]["code"] = SAFETY_CODE
-    node["height"] = 600.0
-    node["name"] = "FD Clocked Six-Axis Stream Safety"
+    node["height"] = 700.0
+    node["name"] = "FD Motion Tuning & Stream Safety"
     node["pos"] = list(COMPACT_NODE_POSITIONS["fd_l0_safety"])
     return node
 
@@ -539,7 +700,7 @@ def preview_gate_node(
     skeleton_input["description"] = "Functional Fallen Doll bones for the optional 3D preview."
     frame_input = copy.deepcopy(frame_port)
     frame_input["name"] = "axesFrame"
-    frame_input["description"] = "Raw six-axis frame for optional diagnostic curves."
+    frame_input["description"] = "Final tuned six-axis device frame for optional diagnostic curves."
     tcode_input = copy.deepcopy(tcode_port)
     tcode_input["name"] = "tcode"
     tcode_input["description"] = "Device TCode for the optional SR6/OSR model preview."
@@ -561,7 +722,7 @@ def preview_gate_node(
             False,
         ),
         ("previewModel", "SR6 Model", "Forward TCode to the SR6/OSR model viewer.", True),
-        ("previewCurves", "Wave Curves", "Forward raw six-axis frames to the diagnostic curves.", True),
+        ("previewCurves", "Wave Curves", "Forward tuned device axes to the diagnostic curves.", True),
         ("previewSkeleton", "Skeleton", "Forward functional bones to the 3D skeleton viewer.", True),
     )
     for name, label, description, default in preview_fields:
@@ -662,7 +823,7 @@ def build_project(source: Path, destination: Path) -> None:
     nodes["fd_preview_gate"] = preview_gate_node(
         safety_template,
         skeleton_port=skeleton_port,
-        frame_port=safety_frame_port,
+        frame_port=device_frame_port,
         tcode_port=tcode_viz_port,
     )
     add_canvas_guides(nodes)
@@ -684,6 +845,8 @@ def build_project(source: Path, destination: Path) -> None:
     )
     expose_tcode_frame(nodes["fd_tcode"], safety_frame_port)
     expose_tcode_frame(nodes["fd_device_tcode"], device_frame_port)
+    nodes["fd_tcode"]["name"] = "FD Raw TCode (Diagnostics)"
+    nodes["fd_device_tcode"]["name"] = "FD Tuned Device TCode"
     nodes["fd_tcode"]["custom"]["intervalMs"] = PIPELINE_INTERVAL_MS
     nodes["fd_device_tcode"]["custom"]["intervalMs"] = PIPELINE_INTERVAL_MS
 
@@ -734,7 +897,7 @@ def build_project(source: Path, destination: Path) -> None:
         connection("fd_l0_safety", "axesFrame", "fd_tcode", "frame"),
         connection("fd_l0_safety", "deviceFrame", "fd_device_tcode", "frame"),
         connection("fd_source", "skeletons", "fd_preview_gate", "skeletons"),
-        connection("fd_l0_safety", "axesFrame", "fd_preview_gate", "axesFrame"),
+        connection("fd_l0_safety", "deviceFrame", "fd_preview_gate", "axesFrame"),
         connection("fd_device_tcode", "tcode", "fd_preview_gate", "tcode"),
         connection("fd_preview_gate", "skeletons", "fd_3d_viz", "skeletons"),
         connection("fd_preview_gate", "tcode", "fd_tcode_viz", "tcode"),

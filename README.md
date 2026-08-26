@@ -25,7 +25,7 @@ Game store pages:
 - Closed Beta / Playtest, desktop and VR
 - Legacy 0.49 standalone build (`KiritoMod049.exe`, Unreal Engine 4.25)
 - Legacy Demo, desktop and VR
-- Playtest catalog: 508 HAnime families and 3,081 exact Montage identities
+- Playtest catalog: 508 HAnime families and 3,087 exact Montage identities
 - Demo catalog: 217 HAnime families and 1,160 exact Montage identities
 - 50 Hz real-time functional-bone capture with VaM-style contact geometry
 - Six-axis SR6 output, OSR2 L0 output, plus 3D skeleton, SR6/OSR, and six-axis waveform viewers
