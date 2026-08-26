@@ -155,3 +155,24 @@ the legacy localhost UDP relay is not required by the current v15 project.
   the automatic functional contact stream.
 - `fd_tcode/profile_store.lua`: validated refresh/fallback for those manual
   diagnostics.
+
+## Static-formal profile sidecars
+
+The game-side profile store can read table-ready static formal records without
+turning them into calibrated geometry. Before launching the Mod, set exactly
+one edition value in its environment:
+
+```powershell
+$env:FD_TCODE_GAME_EDITION = "demo-ue4.25" # Demo
+# or
+$env:FD_TCODE_GAME_EDITION = "playtest-ue5" # Playtest
+```
+
+With `demo-ue4.25`, only `demo_static_formal_profile_data.lua` is merged.
+With `playtest-ue5`, only the Playtest F/F and nonhuman static sidecars are
+merged. Missing or invalid values load no static-formal sidecar, rather than
+mixing editions with potentially colliding HAnime IDs. A sidecar never replaces
+an existing `enabled_for_simulation_validation` calibrated profile. Static rows
+remain `static_formal_pending_runtime_calibration`; they have no geometry or
+local-axis calibration. These files are generated in the workspace only—this
+repository does not deploy or overwrite an external game installation.

@@ -1,4 +1,5 @@
 local Log = require("fd_tcode.log")
+local Config = require("fd_tcode.config")
 
 local ProfileStore = {
     generation = 0,
@@ -6,6 +7,19 @@ local ProfileStore = {
         schema_version = 1,
         revision = "builtin-fallback",
         profiles = {},
+    },
+}
+
+-- Static-formal sidecars are edition-isolated.  Demo and Playtest can reuse
+-- an exact HAnime ID, so an absent/invalid edition is a refusal rather than a
+-- cross-build fallback.
+local static_sidecars_by_edition = {
+    ["demo-ue4.25"] = {
+        { file = "demo_static_formal_profile_data.lua", edition = "demo-ue4.25" },
+    },
+    ["playtest-ue5"] = {
+        { file = "female_female_provisional_profile_data.lua", edition = "playtest-ue5" },
+        { file = "nonhuman_static_formal_profile_data.lua", edition = "playtest-ue5" },
     },
 }
 
@@ -86,16 +100,32 @@ local function validate(data)
     return validate_plain_value(data, {}, 0)
 end
 
-local function profile_path()
+local function profile_path(file_name)
     local directory = source_directory()
     if directory == nil then
         return nil, "cannot resolve profile_store.lua source directory"
     end
-    return directory .. "profile_data.lua"
+    return directory .. tostring(file_name or "profile_data.lua")
+end
+
+local function load_data_file(path)
+    local load_ok, chunk, load_error = pcall(loadfile, path, "t", {})
+    if not load_ok or chunk == nil then
+        return nil, tostring(load_ok and load_error or chunk)
+    end
+    local ok, candidate = pcall(chunk)
+    if not ok then
+        return nil, tostring(candidate)
+    end
+    local valid, reason = validate(candidate)
+    if not valid then
+        return nil, tostring(reason)
+    end
+    return candidate, nil
 end
 
 function ProfileStore.reload()
-    local path, path_error = profile_path()
+    local path, path_error = profile_path("profile_data.lua")
     if path == nil then
         Log.error("rule refresh failed: " .. path_error)
         return false
@@ -105,28 +135,46 @@ function ProfileStore.reload()
         return false
     end
 
-    -- The empty environment permits table literals but prevents the data file
+    -- The empty environment permits table literals but prevents profile data
     -- from calling UE4SS or Unreal functions.
-    local load_ok, chunk, load_error = pcall(loadfile, path, "t", {})
-    if not load_ok then
-        Log.error("rule refresh failed; keeping previous rules: " .. tostring(chunk))
-        return false
-    end
-    if chunk == nil then
-        Log.error("rule refresh failed; keeping previous rules: " .. tostring(load_error))
+    local candidate, load_error = load_data_file(path)
+    if candidate == nil then
+        Log.error("rule refresh rejected; keeping previous rules: " .. tostring(load_error))
         return false
     end
 
-    local ok, candidate = pcall(chunk)
-    if not ok then
-        Log.error("rule refresh failed; keeping previous rules: " .. tostring(candidate))
-        return false
-    end
-
-    local valid, reason = validate(candidate)
-    if not valid then
-        Log.error("rule refresh rejected; keeping previous rules: " .. tostring(reason))
-        return false
+    local game_edition = Config.game_edition
+    local sidecar_names = static_sidecars_by_edition[game_edition]
+    if sidecar_names == nil then
+        Log.warn("static formal sidecars skipped: installed edition_local.lua (or FD_TCODE_GAME_EDITION fallback) must be demo-ue4.25 or playtest-ue5; got " .. tostring(game_edition))
+    else
+        for _, sidecar_spec in ipairs(sidecar_names) do
+            local sidecar_name = sidecar_spec.file
+            local sidecar_path = profile_path(sidecar_name)
+            local sidecar, sidecar_error = load_data_file(sidecar_path)
+            if sidecar ~= nil then
+                for id, profile in pairs(sidecar.profiles or {}) do
+                    local profile_edition = profile.edition
+                    if profile_edition == nil and type(profile.staticEvidence) == "table" then
+                        profile_edition = profile.staticEvidence.edition
+                    end
+                    if profile_edition ~= sidecar_spec.edition then
+                        Log.warn("static formal profile skipped because sidecar edition does not match configured game: " .. tostring(id))
+                    else
+                        local existing = candidate.profiles[id]
+                        if existing == nil or existing.status ~= "enabled_for_simulation_validation" then
+                            candidate.profiles[id] = profile
+                        else
+                            Log.warn("static formal profile skipped because a calibrated profile already exists: " .. tostring(id))
+                        end
+                    end
+                end
+                candidate.revision = tostring(candidate.revision) .. "+" .. tostring(sidecar.revision)
+                candidate.profile_count = count_entries(candidate.profiles)
+            elseif sidecar_error ~= nil and string.find(tostring(sidecar_error), "cannot open", 1, true) == nil then
+                Log.warn("static formal sidecar rejected (" .. tostring(sidecar_name) .. "); retaining loaded profiles: " .. tostring(sidecar_error))
+            end
+        end
     end
 
     ProfileStore.data = candidate

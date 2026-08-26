@@ -1,0 +1,7 @@
+-export
+-nooverwrite
+-out="D:\zhifu\Desktop\data\mmd\exports\nonhuman-family-evidence\JuziScorpio_Vaginal01\Skorpios"
+-game=love
+-aes=0x64207C05285D224C34D110CB6D935862BB019CC2FE87169E189A97E27A927FAC
+-path="D:\SteamLibrary\steamapps\common\Operation Lovecraft Fallen Doll Playtest\Paralogue\Content\Paks"
+/Paralogue/Content/Characters/Monster/Skorpios/Meshes/Mesh_Skorpios_Crawler

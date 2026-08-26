@@ -24,6 +24,26 @@ end
 
 local runtime_dir = resolve_runtime_dir()
 
+-- An installed local marker takes priority over a process environment value.
+-- It is intentionally data-only and blank in the repository checkout.
+local local_ok, edition_local = pcall(require, "fd_tcode.edition_local")
+if not local_ok or type(edition_local) ~= "table" then
+    edition_local = {}
+end
+local local_edition = tostring(edition_local.edition or "")
+local environment_edition = tostring(os.getenv("FD_TCODE_GAME_EDITION") or "")
+local game_edition = local_edition ~= "" and local_edition or environment_edition
+
+-- This recorder is intentionally opt-in.  It is independent from the ordinary
+-- F8Studio stream and never changes its packet selection, device routing, or
+-- motion rules.  An empty/invalid edition is a hard refusal rather than a
+-- cross-build fallback.
+local precision_capture_enabled = os.getenv("FD_TCODE_PRECISION_CAPTURE") == "1"
+local precision_capture_edition = local_edition ~= "" and local_edition
+    or tostring(os.getenv("FD_TCODE_PRECISION_EDITION") or environment_edition)
+-- Static formal profile sidecars are intentionally edition-gated.  Empty or
+-- invalid means they are not loaded; this prevents Demo/Playtest ID collisions.
+
 return {
     name = "FD-TCode",
     version = "0.17.0",
@@ -61,6 +81,12 @@ return {
     hand_pair_max_distance_cm = 100,
     skeleton_spool_path = runtime_dir .. "/fd-skeleton.ndjson",
     pose_catalog_path = runtime_dir .. "/fd-visible-poses.tsv",
+    precision_capture_enabled = precision_capture_enabled,
+    precision_capture_edition = precision_capture_edition,
+    game_edition = game_edition,
+    edition_local_source = tostring(edition_local.source or "<unknown>"),
+    precision_capture_interval_ms = 100,
+    precision_capture_spool_path = runtime_dir .. "/fd-precision-capture.ndjson",
 
     -- F7 is reserved for a future external F8Studio preview launcher and is
     -- intentionally not registered by Lua. F8 performs a one-shot, read-only

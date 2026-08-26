@@ -1,0 +1,3199 @@
+{
+  "schema": "controlled-hanime-export-v1",
+  "edition": "demo-ue4.25",
+  "export": {
+    "game": "ue4.25+",
+    "sourcePakEvidence": {
+      "sourcePak": "D:\\SteamLibrary\\steamapps\\common\\Operation Lovecraft Fallen Doll Demo\\Desktop\\WindowsNoEditor\\Paralogue\\Content\\Paks\\Paralogue-WindowsNoEditor.pak",
+      "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+      "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+    },
+    "tableHAnimSource": "/Game/Data/TableHAnim"
+  },
+  "sourceEvidence": {
+    "poseEvidence": {
+      "path": "data\\demo-pose-evidence-v1.json",
+      "sha256": "809c075530f2d8ccd0ef3202df518c6ac782cf200303f262519d16e7633cbb41"
+    },
+    "normalInventory": {
+      "path": "data\\demo-ue425-export-manifest-v1.json",
+      "sha256": "6366c1e3adc21670737ccc55fb66c4097459be162da345f45dfb2beac24f11fd"
+    },
+    "selection": "TableHAnim exact family + direct Montage proof + UE4.25 Pak class=AnimSequence exact *_04_NOR; every participant needs a unique UE4.25 Pak SkeletalMesh root binding"
+  },
+  "families": [
+    {
+      "hanimeId": "AletByakhee_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Byakhee/Vagina01/AletByakhee_Vaginal01_Alet_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletByakhee_Vaginal01_Alet_Montage",
+              "AletByakhee_Vaginal01_Alet_Montage_Max",
+              "AletByakhee_Vaginal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/FlyCreature/Anim/HAnim/Alet/Vagina01/AletByakhee_Vaginal01_Byakhee_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletByakhee_Vaginal01_Alet_Montage",
+              "AletByakhee_Vaginal01_Alet_Montage_Max",
+              "AletByakhee_Vaginal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Byakhee"
+      ]
+    },
+    {
+      "hanimeId": "AletDeepOne_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/DeepOne/Anal01/AletDeepOne_Anal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepOne_Anal01_Alet_Montage",
+              "AletDeepOne_Anal01_Alet_Montage_MAX",
+              "AletDeepOne_Anal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Alet/Anal01/AletDeepOne_Anal01_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepOne_Anal01_Alet_Montage",
+              "AletDeepOne_Anal01_Alet_Montage_MAX",
+              "AletDeepOne_Anal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:DeepOne"
+      ]
+    },
+    {
+      "hanimeId": "AletDeepone_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/DeepOne/Anal02/AletDeepone_Anal02_Alet_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Anal02_Alet_Montage",
+              "AletDeepone_Anal02_Alet_Montage_Max",
+              "AletDeepone_Anal02_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Alet/Anal02/AletDeepone_Anal02_DeepOne_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Anal02_Alet_Montage",
+              "AletDeepone_Anal02_Alet_Montage_Max",
+              "AletDeepone_Anal02_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:DeepOne"
+      ]
+    },
+    {
+      "hanimeId": "AletDeepOne_Mouth01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/DeepOne/Mouth01/AletDeepOne_Mouth01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepOne_Mouth01_Alet_Montage",
+              "AletDeepOne_Mouth01_Alet_Montage_Max",
+              "AletDeepOne_Mouth01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Alet/Mouth01/AletDeepOne_Mouth01_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepOne_Mouth01_Alet_Montage",
+              "AletDeepOne_Mouth01_Alet_Montage_Max",
+              "AletDeepOne_Mouth01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:DeepOne"
+      ]
+    },
+    {
+      "hanimeId": "AletDeepone_Vagina02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/DeepOne/Vagina02/AletDeepone_Vagina02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vagina02_Alet_Montage",
+              "AletDeepone_Vagina02_Alet_Montage_Max",
+              "AletDeepone_Vagina02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Alet/Vagina02/AletDeepone_Vagina02_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vagina02_Alet_Montage",
+              "AletDeepone_Vagina02_Alet_Montage_Max",
+              "AletDeepone_Vagina02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:DeepOne"
+      ]
+    },
+    {
+      "hanimeId": "AletDeepone_Vagina03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/DeepOne/Vagina03/AletDeepone_Vagina03_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vagina03_Alet_Montage",
+              "AletDeepone_Vagina03_Alet_Montage_Max",
+              "AletDeepone_Vagina03_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Alet/Vagina03/AletDeepone_Vagina03_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vagina03_Alet_Montage",
+              "AletDeepone_Vagina03_Alet_Montage_Max",
+              "AletDeepone_Vagina03_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:DeepOne"
+      ]
+    },
+    {
+      "hanimeId": "AletDeepone_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/DeepOne/Vagina01/AletDeepone_Vaginal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vaginal01_Alet_Montage",
+              "AletDeepone_Vaginal01_Alet_Montage_Max",
+              "AletDeepone_Vaginal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Alet/Vagina01/AletDeepone_Vaginal01_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vaginal01_Alet_Montage",
+              "AletDeepone_Vaginal01_Alet_Montage_Max",
+              "AletDeepone_Vaginal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:DeepOne"
+      ]
+    },
+    {
+      "hanimeId": "AletDeepone_Vaginal04",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/DeepOne/Vagina04/AletDeepone_Vaginal04_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vaginal04_Alet_Montage",
+              "AletDeepone_Vaginal04_Alet_Montage_Montage",
+              "AletDeepone_Vaginal04_Alet_Montage_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Alet/Vagina04/AletDeepone_Vaginal04_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletDeepone_Vaginal04_Alet_Montage",
+              "AletDeepone_Vaginal04_Alet_Montage_Montage",
+              "AletDeepone_Vaginal04_Alet_Montage_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:DeepOne"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_DoubleDildo01",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/DoubleDildo01/AletErika_DoubleDildo01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_DoubleDildo01_Alet_Montage",
+              "AletErika_DoubleDildo01_Alet_Montage_Max",
+              "AletErika_DoubleDildo01_Alet_Montage_Min",
+              "AletErika_DoubleDildo01_Erika_Montage",
+              "AletErika_DoubleDildo01_Erika_Montage_Max",
+              "AletErika_DoubleDildo01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/DoubleDildo01/AletErika_DoubleDildo01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_DoubleDildo01_Alet_Montage",
+              "AletErika_DoubleDildo01_Alet_Montage_Max",
+              "AletErika_DoubleDildo01_Alet_Montage_Min",
+              "AletErika_DoubleDildo01_Erika_Montage",
+              "AletErika_DoubleDildo01_Erika_Montage_Max",
+              "AletErika_DoubleDildo01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Item/DoubleDildo/Anim/AletErika/DoubleDildo01/AletErika_DoubleDildo01_DoubleDildo_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_DoubleDildo01_Alet_Montage",
+              "AletErika_DoubleDildo01_Alet_Montage_Max",
+              "AletErika_DoubleDildo01_Alet_Montage_Min",
+              "AletErika_DoubleDildo01_Erika_Montage",
+              "AletErika_DoubleDildo01_Erika_Montage_Max",
+              "AletErika_DoubleDildo01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_DoubleDildo02",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/DoubleDildo02/AletErika_DoubleDildo02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_DoubleDildo02_Alet_Montage",
+              "AletErika_DoubleDildo02_Alet_Montage_Max",
+              "AletErika_DoubleDildo02_Alet_Montage_Min",
+              "AletErika_DoubleDildo02_Erika_Montage",
+              "AletErika_DoubleDildo02_Erika_Montage_Max",
+              "AletErika_DoubleDildo02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/DoubleDildo02/AletErika_DoubleDildo02_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_DoubleDildo02_Alet_Montage",
+              "AletErika_DoubleDildo02_Alet_Montage_Max",
+              "AletErika_DoubleDildo02_Alet_Montage_Min",
+              "AletErika_DoubleDildo02_Erika_Montage",
+              "AletErika_DoubleDildo02_Erika_Montage_Max",
+              "AletErika_DoubleDildo02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Item/DoubleDildo/Anim/AletErika/DoubleDildo02/AletErika_DoubleDildo02_DoubleDildo_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_DoubleDildo02_Alet_Montage",
+              "AletErika_DoubleDildo02_Alet_Montage_Max",
+              "AletErika_DoubleDildo02_Alet_Montage_Min",
+              "AletErika_DoubleDildo02_Erika_Montage",
+              "AletErika_DoubleDildo02_Erika_Montage_Max",
+              "AletErika_DoubleDildo02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_Sex01",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/Sex01/AletErika_Sex01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex01_Alet_Montage",
+              "AletErika_Sex01_Alet_Montage_MAX",
+              "AletErika_Sex01_Alet_Montage_MIN",
+              "AletErika_Sex01_Erika_Montage",
+              "AletErika_Sex01_Erika_Montage_MAX",
+              "AletErika_Sex01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/Sex01/AletErika_Sex01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex01_Alet_Montage",
+              "AletErika_Sex01_Alet_Montage_MAX",
+              "AletErika_Sex01_Alet_Montage_MIN",
+              "AletErika_Sex01_Erika_Montage",
+              "AletErika_Sex01_Erika_Montage_MAX",
+              "AletErika_Sex01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_Sex02",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/Sex02/AletErika_Sex02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex02_Alet_Montage",
+              "AletErika_Sex02_Alet_Montage_MAX",
+              "AletErika_Sex02_Alet_Montage_MIN",
+              "AletErika_Sex02_Erika_Montage",
+              "AletErika_Sex02_Erika_Montage_MAX",
+              "AletErika_Sex02_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/Sex02/AletErika_Sex02_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex02_Alet_Montage",
+              "AletErika_Sex02_Alet_Montage_MAX",
+              "AletErika_Sex02_Alet_Montage_MIN",
+              "AletErika_Sex02_Erika_Montage",
+              "AletErika_Sex02_Erika_Montage_MAX",
+              "AletErika_Sex02_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_Sex03",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/Sex03/AletErika_Sex03_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex03_Alet_Montage",
+              "AletErika_Sex03_Alet_Montage_MAX",
+              "AletErika_Sex03_Alet_Montage_MIN",
+              "AletErika_Sex03_Erika_Montage",
+              "AletErika_Sex03_Erika_Montage_MAX",
+              "AletErika_Sex03_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/Sex03/AletErika_Sex03_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex03_Alet_Montage",
+              "AletErika_Sex03_Alet_Montage_MAX",
+              "AletErika_Sex03_Alet_Montage_MIN",
+              "AletErika_Sex03_Erika_Montage",
+              "AletErika_Sex03_Erika_Montage_MAX",
+              "AletErika_Sex03_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_Sex04",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/Sex04/AletErika_Sex04_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex04_Alet_Montage",
+              "AletErika_Sex04_Alet_Montage_MAX",
+              "AletErika_Sex04_Alet_Montage_MIN",
+              "AletErika_Sex04_Erika_Montage",
+              "AletErika_Sex04_Erika_Montage_MAX",
+              "AletErika_Sex04_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/Sex04/AletErika_Sex04_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex04_Alet_Montage",
+              "AletErika_Sex04_Alet_Montage_MAX",
+              "AletErika_Sex04_Alet_Montage_MIN",
+              "AletErika_Sex04_Erika_Montage",
+              "AletErika_Sex04_Erika_Montage_MAX",
+              "AletErika_Sex04_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_Sex05",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/Sex05/AletErika_Sex05_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex05_Alet_Montage",
+              "AletErika_Sex05_Alet_Montage_Max",
+              "AletErika_Sex05_Alet_Montage_Min",
+              "AletErika_Sex05_Erika_Montage",
+              "AletErika_Sex05_Erika_Montage_Max",
+              "AletErika_Sex05_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/Sex05/AletErika_Sex05_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex05_Alet_Montage",
+              "AletErika_Sex05_Alet_Montage_Max",
+              "AletErika_Sex05_Alet_Montage_Min",
+              "AletErika_Sex05_Erika_Montage",
+              "AletErika_Sex05_Erika_Montage_Max",
+              "AletErika_Sex05_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletErika_Sex06",
+      "scope": "female_female",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Erika/Sex06/AletErika_Sex06_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex06_Alet_Montage",
+              "AletErika_Sex06_Alet_Montage_Max",
+              "AletErika_Sex06_Alet_Montage_Min",
+              "AletErika_Sex06_Erika_Montage",
+              "AletErika_Sex06_Erika_Montage_Max",
+              "AletErika_Sex06_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Alet/Sex06/AletErika_Sex06_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletErika_Sex06_Alet_Montage",
+              "AletErika_Sex06_Alet_Montage_Max",
+              "AletErika_Sex06_Alet_Montage_Min",
+              "AletErika_Sex06_Erika_Montage",
+              "AletErika_Sex06_Erika_Montage_Max",
+              "AletErika_Sex06_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Anal01/AletHound_Anal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Anal01_Alet_Montage",
+              "AletHound_Anal01_Alet_Montage_MAX",
+              "AletHound_Anal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Anal01/AletHound_Anal01_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Anal01_Alet_Montage",
+              "AletHound_Anal01_Alet_Montage_MAX",
+              "AletHound_Anal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Anal02/AletHound_Anal02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Anal02_Alet_Montage",
+              "AletHound_Anal02_Alet_Montage_MAX",
+              "AletHound_Anal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Anal02/AletHound_Anal02_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Anal02_Alet_Montage",
+              "AletHound_Anal02_Alet_Montage_MAX",
+              "AletHound_Anal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Mouth01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Mouth01/AletHound_Mouth01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Mouth01_Alet_Montage",
+              "AletHound_Mouth01_Alet_Montage_Max",
+              "AletHound_Mouth01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Mouth01/AletHound_Mouth01_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Mouth01_Alet_Montage",
+              "AletHound_Mouth01_Alet_Montage_Max",
+              "AletHound_Mouth01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Vaginal01/AletHound_Vaginal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal01_Alet_Montage",
+              "AletHound_Vaginal01_Alet_Montage_Max",
+              "AletHound_Vaginal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Vaginal01/AletHound_Vaginal01_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal01_Alet_Montage",
+              "AletHound_Vaginal01_Alet_Montage_Max",
+              "AletHound_Vaginal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Vaginal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Vaginal02/AletHound_Vaginal02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal02_Alet_Montage",
+              "AletHound_Vaginal02_Alet_Montage_MAX",
+              "AletHound_Vaginal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Vaginal02/AletHound_Vaginal02_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal02_Alet_Montage",
+              "AletHound_Vaginal02_Alet_Montage_MAX",
+              "AletHound_Vaginal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Vaginal03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Vaginal03/AletHound_Vaginal03_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal03_Alet_Montage",
+              "AletHound_Vaginal03_Alet_Montage_MAX",
+              "AletHound_Vaginal03_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Vaginal03/AletHound_Vaginal03_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal03_Alet_Montage",
+              "AletHound_Vaginal03_Alet_Montage_MAX",
+              "AletHound_Vaginal03_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Vaginal04",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Vaginal04/AletHound_Vaginal04_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal04_Alet_Montage",
+              "AletHound_Vaginal04_Alet_Montage_MAX",
+              "AletHound_Vaginal04_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Vaginal04/AletHound_Vaginal04_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal04_Alet_Montage",
+              "AletHound_Vaginal04_Alet_Montage_MAX",
+              "AletHound_Vaginal04_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Vaginal05",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Vaginal05/AletHound_Vaginal05_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal05_Alet_Montage",
+              "AletHound_Vaginal05_Alet_Montage_MAX",
+              "AletHound_Vaginal05_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Item/Container/Anim/AletHound/AletHound_Vaginal05_Container_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal05_Alet_Montage",
+              "AletHound_Vaginal05_Alet_Montage_MAX",
+              "AletHound_Vaginal05_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Vaginal05/AletHound_Vaginal05_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal05_Alet_Montage",
+              "AletHound_Vaginal05_Alet_Montage_MAX",
+              "AletHound_Vaginal05_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletHound_Vaginal06",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Hound/Vaginal06/AletHound_Vaginal06_Alet_04-nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal06_Alet_Montage",
+              "AletHound_Vaginal06_Alet_Montage_Max",
+              "AletHound_Vaginal06_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Vaginal06/AletHound_Vaginal06_Hound_04-nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletHound_Vaginal06_Alet_Montage",
+              "AletHound_Vaginal06_Alet_Montage_Max",
+              "AletHound_Vaginal06_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "AletLloigor_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Lloigor/Anal01/AletLloigor_Anal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Anal01_Alet_Montage",
+              "AletLloigor_Anal01_Alet_Montage_Max",
+              "AletLloigor_Anal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Lloigor/Anim/HAnim/Alet/Anal01/AletLloigor_Anal01_lloigor_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Anal01_Alet_Montage",
+              "AletLloigor_Anal01_Alet_Montage_Max",
+              "AletLloigor_Anal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Lloigor"
+      ]
+    },
+    {
+      "hanimeId": "AletLloigor_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Lloigor/Anal02/AletLloigor_Anal02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Anal02_Alet_Montage",
+              "AletLloigor_Anal02_Alet_Montage_Max",
+              "AletLloigor_Anal02_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Item/Handcuff/Anim/AletLloigor/Anal02/AletLloigor_Anal02_Handcuffs_A_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Anal02_Alet_Montage",
+              "AletLloigor_Anal02_Alet_Montage_Max",
+              "AletLloigor_Anal02_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Lloigor/Anim/HAnim/Alet/Anal02/AletLloigor_Anal02_Lloigor_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Anal02_Alet_Montage",
+              "AletLloigor_Anal02_Alet_Montage_Max",
+              "AletLloigor_Anal02_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Lloigor"
+      ]
+    },
+    {
+      "hanimeId": "AletLloigor_Vagina01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Lloigor/Vagina01/AletLloigor_Vagina01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Vagina01_Alet_Montage",
+              "AletLloigor_Vagina01_Alet_Montage_Max",
+              "AletLloigor_Vagina01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Item/WorkshopArm/Anim/AletLloigor/Vagina01/AletLloigor_Vagina01_WorkshopArm_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Vagina01_Alet_Montage",
+              "AletLloigor_Vagina01_Alet_Montage_Max",
+              "AletLloigor_Vagina01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Lloigor/Anim/HAnim/Alet/Vagina01/AletLloigor_Vagina01_Lloigor_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletLloigor_Vagina01_Alet_Montage",
+              "AletLloigor_Vagina01_Alet_Montage_Max",
+              "AletLloigor_Vagina01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Lloigor"
+      ]
+    },
+    {
+      "hanimeId": "AletSylph_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Sylph/Anal01/AletSylph_Anal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Anal01_Alet_Montage",
+              "AletSylph_Anal01_Alet_Montage_MAX",
+              "AletSylph_Anal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Sylph/Anim/Anal01/AletSylph_Anal01_Sylph_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Anal01_Alet_Montage",
+              "AletSylph_Anal01_Alet_Montage_MAX",
+              "AletSylph_Anal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Sylph"
+      ]
+    },
+    {
+      "hanimeId": "AletSylph_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Sylph/Anal02/AletSylph_Anal02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Anal02_Alet_Montage",
+              "AletSylph_Anal02_Alet_Montage_MAX",
+              "AletSylph_Anal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Sylph/Anim/Anal02/AletSylph_Anal02_Sylph_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Anal02_Alet_Montage",
+              "AletSylph_Anal02_Alet_Montage_MAX",
+              "AletSylph_Anal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Sylph"
+      ]
+    },
+    {
+      "hanimeId": "AletSylph_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Sylph/Vaginal01/AletSylph_Vaginal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal01_Alet_Montage",
+              "AletSylph_Vaginal01_Alet_Montage_MAX",
+              "AletSylph_Vaginal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Sylph/Anim/Vaginal01/AletSylph_Vaginal01_Sylph_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal01_Alet_Montage",
+              "AletSylph_Vaginal01_Alet_Montage_MAX",
+              "AletSylph_Vaginal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Sylph"
+      ]
+    },
+    {
+      "hanimeId": "AletSylph_Vaginal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Sylph/Vaginal02/AletSylph_Vaginal02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal02_Alet_Montage",
+              "AletSylph_Vaginal02_Alet_Montage_MAX",
+              "AletSylph_Vaginal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Sylph/Anim/Vaginal02/AletSylph_Vaginal02_Sylph_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal02_Alet_Montage",
+              "AletSylph_Vaginal02_Alet_Montage_MAX",
+              "AletSylph_Vaginal02_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Sylph"
+      ]
+    },
+    {
+      "hanimeId": "AletSylph_Vaginal03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Sylph/Vaginal03/AletSylph_Vaginal03_Alet_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal03_Alet_Montage",
+              "AletSylph_Vaginal03_Alet_Montage_MAX",
+              "AletSylph_Vaginal03_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Sylph/Anim/Vaginal03/AletSylph_Vaginal03_Sylph_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal03_Alet_Montage",
+              "AletSylph_Vaginal03_Alet_Montage_MAX",
+              "AletSylph_Vaginal03_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Sylph"
+      ]
+    },
+    {
+      "hanimeId": "AletSylph_Vaginal04",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Sylph/Vaginal04/AletSylph_Vaginal04_Alet_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal04_Alet_Montage",
+              "AletSylph_Vaginal04_Alet_Montage_MAX",
+              "AletSylph_Vaginal04_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Sylph/Anim/Vaginal04/AletSylph_Vaginal04_Sylph_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal04_Alet_Montage",
+              "AletSylph_Vaginal04_Alet_Montage_MAX",
+              "AletSylph_Vaginal04_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Sylph"
+      ]
+    },
+    {
+      "hanimeId": "AletSylph_Vaginal05",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Sylph/Vaginal05/AletSylph_Vaginal05_Alet_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal05_Alet_Montage",
+              "AletSylph_Vaginal05_Alet_Montage_MAX",
+              "AletSylph_Vaginal05_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Sylph/Anim/Vaginal05/AletSylph_Vaginal05_Sylph_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletSylph_Vaginal05_Alet_Montage",
+              "AletSylph_Vaginal05_Alet_Montage_MAX",
+              "AletSylph_Vaginal05_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Sylph"
+      ]
+    },
+    {
+      "hanimeId": "AletTantacle_Breast01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Breast01/AletTantacle_Breast01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTantacle_Breast01_Alet_Montage",
+              "AletTantacle_Breast01_Alet_Montage_Max",
+              "AletTantacle_Breast01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Breast01/AletTantacle_Breast01_Tantacle_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTantacle_Breast01_Alet_Montage",
+              "AletTantacle_Breast01_Alet_Montage_Max",
+              "AletTantacle_Breast01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "AletTentacle_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Anal01/AletTentacle_Anal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Anal01_Alet_Montage",
+              "AletTentacle_Anal01_Alet_Montage_Max",
+              "AletTentacle_Anal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Anal01/AletTentacle_Anal01_Tentacle_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Anal01_Alet_Montage",
+              "AletTentacle_Anal01_Alet_Montage_Max",
+              "AletTentacle_Anal01_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Vaginal01/AletTentacle_Vaginal01_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal01_Alet_Montage",
+              "AletTentacle_Vaginal01_Alet_Montage_MAX",
+              "AletTentacle_Vaginal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Vaginal01/AletTentacle_Vaginal01_Tentacle_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal01_Alet_Montage",
+              "AletTentacle_Vaginal01_Alet_Montage_MAX",
+              "AletTentacle_Vaginal01_Alet_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Vaginal02/AletTentacle_Vaginal02_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal02_Alet_Montage",
+              "AletTentacle_Vaginal02_Alet_Montage_Max",
+              "AletTentacle_Vaginal02_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Vaginal02/AletTentacle_Vaginal02_Tentacle_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal02_Alet_Montage",
+              "AletTentacle_Vaginal02_Alet_Montage_Max",
+              "AletTentacle_Vaginal02_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Vaginal03/AletTentacle_Vaginal03_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal03_Alet_Montage",
+              "AletTentacle_Vaginal03_Alet_Montage_Max",
+              "AletTentacle_Vaginal03_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Vaginal03/AletTentacle_Vaginal03_Tentacle_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal03_Alet_Montage",
+              "AletTentacle_Vaginal03_Alet_Montage_Max",
+              "AletTentacle_Vaginal03_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal04",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Vaginal04/AletTentacle_Vaginal04_Alet_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal04_Alet_Montage",
+              "AletTentacle_Vaginal04_Alet_Montage_Max",
+              "AletTentacle_Vaginal04_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Vaginal04/AletTentacle_Vaginal04_Tentacle_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal04_Alet_Montage",
+              "AletTentacle_Vaginal04_Alet_Montage_Max",
+              "AletTentacle_Vaginal04_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal05",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Vaginal05/AletTentacle_Vaginal05_Alet_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal05_Alet_Montage",
+              "AletTentacle_Vaginal05_Alet_Montage_Max",
+              "AletTentacle_Vaginal05_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Vaginal05/AletTentacle_Vaginal05_Tentacle_04-NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal05_Alet_Montage",
+              "AletTentacle_Vaginal05_Alet_Montage_Max",
+              "AletTentacle_Vaginal05_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal06",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Alet/Anim/HAnim/Tentacle/Vaginal06/AletTentacle_Vaginal06_Alet_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal06_Alet_Montage",
+              "AletTentacle_Vaginal06_Alet_Montage_Max",
+              "AletTentacle_Vaginal06_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Vaginal06/AletTentacle_Vaginal06_Tentacle_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "AletTentacle_Vaginal06_Alet_Montage",
+              "AletTentacle_Vaginal06_Alet_Montage_Max",
+              "AletTentacle_Vaginal06_Alet_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Alet",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "EriakDeepone_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/DeepOne/Anal01/EriakDeepone_Anal01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "EriakDeepone_Anal01_Erika_Montage",
+              "EriakDeepone_Anal01_Erika_Montage_Max",
+              "EriakDeepone_Anal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Erika/Anal01/EriakDeepone_Anal01_DeepOne_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "EriakDeepone_Anal01_Erika_Montage",
+              "EriakDeepone_Anal01_Erika_Montage_Max",
+              "EriakDeepone_Anal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:DeepOne",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaByakhee_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Byakhee/Anal01/ErikaByakhee_Anal01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Anal01_Erika_Montage",
+              "ErikaByakhee_Anal01_Erika_Montage_Max",
+              "ErikaByakhee_Anal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/FlyCreature/Anim/HAnim/Erika/Anal01/ErikaByakhee_Anal01_Byakhee_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Anal01_Erika_Montage",
+              "ErikaByakhee_Anal01_Erika_Montage_Max",
+              "ErikaByakhee_Anal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Byakhee",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaByakhee_Hand01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Byakhee/Hand01/ErikaByakhee_Hand01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Hand01_Erika_Montage",
+              "ErikaByakhee_Hand01_Erika_Montage_Max",
+              "ErikaByakhee_Hand01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/FlyCreature/Anim/HAnim/Erika/Hand01/ErikaByakhee_Hand01_Byakhee_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Hand01_Erika_Montage",
+              "ErikaByakhee_Hand01_Erika_Montage_Max",
+              "ErikaByakhee_Hand01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Byakhee",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaByakhee_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Byakhee/Vagina01/ErikaByakhee_Vaginal01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Vaginal01_Erika_Montage",
+              "ErikaByakhee_Vaginal01_Erika_Montage_Max",
+              "ErikaByakhee_Vaginal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/FlyCreature/Anim/HAnim/Erika/Vagina01/ErikaByakhee_Vaginal01_Byakhee_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Vaginal01_Erika_Montage",
+              "ErikaByakhee_Vaginal01_Erika_Montage_Max",
+              "ErikaByakhee_Vaginal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Byakhee",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaByakhee_Vaginal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Byakhee/Vagina02/ErikaByakhee_Vaginal02_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Vaginal02_Erika_Montage",
+              "ErikaByakhee_Vaginal02_Erika_Montage_Max",
+              "ErikaByakhee_Vaginal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/FlyCreature/Anim/HAnim/Erika/Vagina02/ErikaByakhee_Vaginal02_Byakhee_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Vaginal02_Erika_Montage",
+              "ErikaByakhee_Vaginal02_Erika_Montage_Max",
+              "ErikaByakhee_Vaginal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Byakhee",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaByakhee_Vaginal03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Byakhee/Vaginal03/ErikaByakhee_Vaginal03_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Vaginal03_Erika_Montage",
+              "ErikaByakhee_Vaginal03_Erika_Montage_MAX",
+              "ErikaByakhee_Vaginal03_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/FlyCreature/Anim/HAnim/Erika/Vaginal03/ErikaByakhee_Vaginal03_Byakhee_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaByakhee_Vaginal03_Erika_Montage",
+              "ErikaByakhee_Vaginal03_Erika_Montage_MAX",
+              "ErikaByakhee_Vaginal03_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Byakhee",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaDeepone_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/DeepOne/Anal02/ErikaDeepone_Anal02_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Anal02_Erika_Montage",
+              "ErikaDeepone_Anal02_Erika_Montage_Max",
+              "ErikaDeepone_Anal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Erika/Anal02/ErikaDeepone_Anal02_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Anal02_Erika_Montage",
+              "ErikaDeepone_Anal02_Erika_Montage_Max",
+              "ErikaDeepone_Anal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:DeepOne",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaDeepone_Hand01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/DeepOne/Hand01/ErikaDeepone_Hand01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Hand01_Erika_Montage",
+              "ErikaDeepone_Hand01_Erika_Montage_Max",
+              "ErikaDeepone_Hand01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Erika/Hand01/ErikaDeepone_Hand01_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Hand01_Erika_Montage",
+              "ErikaDeepone_Hand01_Erika_Montage_Max",
+              "ErikaDeepone_Hand01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:DeepOne",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaDeepone_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/DeepOne/Vaginal01/ErikaDeepone_Vaginal01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Vaginal01_Erika_Montage",
+              "ErikaDeepone_Vaginal01_Erika_Montage_MAX",
+              "ErikaDeepone_Vaginal01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Erika/Vaginal01/ErikaDeepone_Vaginal01_DeepOne_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Vaginal01_Erika_Montage",
+              "ErikaDeepone_Vaginal01_Erika_Montage_MAX",
+              "ErikaDeepone_Vaginal01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:DeepOne",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaDeepone_Vaginal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/DeepOne/Vaginal02/ErikaDeepone_Vaginal02_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Vaginal02_Erika_Montage",
+              "ErikaDeepone_Vaginal02_Erika_Montage_Max",
+              "ErikaDeepone_Vaginal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/DeepOne/Anim/HAnim/Erika/Vaginal02/ErikaDeepone_Vaginal02_DeepOne_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaDeepone_Vaginal02_Erika_Montage",
+              "ErikaDeepone_Vaginal02_Erika_Montage_Max",
+              "ErikaDeepone_Vaginal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:DeepOne",
+        "demo:Erika"
+      ]
+    },
+    {
+      "hanimeId": "ErikaGhast_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Ghast/Anal01/ErikaGhast_Anal01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Anal01_Erika_Montage",
+              "ErikaGhast_Anal01_Erika_Montage_MAX",
+              "ErikaGhast_Anal01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Ghast/Anim/Erika/Anal01/ErikaGhast_Anal01_Ghast_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Anal01_Erika_Montage",
+              "ErikaGhast_Anal01_Erika_Montage_MAX",
+              "ErikaGhast_Anal01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Ghast"
+      ]
+    },
+    {
+      "hanimeId": "ErikaGhast_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Ghast/Anal02/ErikaGhast_Anal02_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Anal02_Erika_Montage",
+              "ErikaGhast_Anal02_Erika_Montage_Max",
+              "ErikaGhast_Anal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Ghast/Anim/Erika/Anal02/ErikaGhast_Anal02_Ghast_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Anal02_Erika_Montage",
+              "ErikaGhast_Anal02_Erika_Montage_Max",
+              "ErikaGhast_Anal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Ghast"
+      ]
+    },
+    {
+      "hanimeId": "ErikaGhast_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Ghast/Vaginal01/ErikaGhast_Vaginal01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Vaginal01_Erika_Montage",
+              "ErikaGhast_Vaginal01_Erika_Montage_MAX",
+              "ErikaGhast_Vaginal01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Ghast/Anim/Erika/Vaginal01/ErikaGhast_Vaginal01_Ghast_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Vaginal01_Erika_Montage",
+              "ErikaGhast_Vaginal01_Erika_Montage_MAX",
+              "ErikaGhast_Vaginal01_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Ghast"
+      ]
+    },
+    {
+      "hanimeId": "ErikaGhast_Vaginal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Ghast/Vaginal02/ErikaGhast_Vaginal02_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Vaginal02_Erika_Montage",
+              "ErikaGhast_Vaginal02_Erika_Montage_MAX",
+              "ErikaGhast_Vaginal02_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Ghast/Anim/Erika/Vaginal02/ErikaGhast_Vaginal02_Ghast_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Vaginal02_Erika_Montage",
+              "ErikaGhast_Vaginal02_Erika_Montage_MAX",
+              "ErikaGhast_Vaginal02_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Ghast"
+      ]
+    },
+    {
+      "hanimeId": "ErikaGhast_Vaginal03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Ghast/Vaginal03/ErikaGhast_Vaginal03_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Vaginal03_Erika_Montage",
+              "ErikaGhast_Vaginal03_Erika_Montage_MAX",
+              "ErikaGhast_Vaginal03_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Ghast/Anim/Erika/Vaginal03/ErikaGhast_Vaginal03_Ghast_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaGhast_Vaginal03_Erika_Montage",
+              "ErikaGhast_Vaginal03_Erika_Montage_MAX",
+              "ErikaGhast_Vaginal03_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Ghast"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Anal01/ErikaHound_Anal01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal01_Erika_Montage",
+              "ErikaHound_Anal01_Erika_Montage_Max",
+              "ErikaHound_Anal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Anal01/ErikaHound_Anal01_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal01_Erika_Montage",
+              "ErikaHound_Anal01_Erika_Montage_Max",
+              "ErikaHound_Anal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Anal02/ErikaHound_Anal02_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal02_Erika_Montage",
+              "ErikaHound_Anal02_Erika_Montage_MAX",
+              "ErikaHound_Anal02_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Anal02/ErikaHound_Anal02_HoundOfTindalos_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal02_Erika_Montage",
+              "ErikaHound_Anal02_Erika_Montage_MAX",
+              "ErikaHound_Anal02_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Anal03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Anal03/ErikaHound_Anal03_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal03_Erika_Montage",
+              "ErikaHound_Anal03_Erika_Montage_Max",
+              "ErikaHound_Anal03_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Anal03/ErikaHound_Anal03_HoundOfTindalos_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal03_Erika_Montage",
+              "ErikaHound_Anal03_Erika_Montage_Max",
+              "ErikaHound_Anal03_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Anal04",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Anal04/ErikaHound_Anal04_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal04_Erika_Montage",
+              "ErikaHound_Anal04_Erika_Montage_Max",
+              "ErikaHound_Anal04_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Anal04/ErikaHound_Anal04_HoundOfTindalos_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Anal04_Erika_Montage",
+              "ErikaHound_Anal04_Erika_Montage_Max",
+              "ErikaHound_Anal04_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Foot01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Foot01/ErikaHound_Foot01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Foot01_Erika_Montage",
+              "ErikaHound_Foot01_Erika_Montage_Max",
+              "ErikaHound_Foot01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Item/Chair/Anim/ErikaHound/Foot01/ErikaHound_Foot01_Chair_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Foot01_Erika_Montage",
+              "ErikaHound_Foot01_Erika_Montage_Max",
+              "ErikaHound_Foot01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Foot01/ErikaHound_Foot01_HoundOfTindalos_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Foot01_Erika_Montage",
+              "ErikaHound_Foot01_Erika_Montage_Max",
+              "ErikaHound_Foot01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Hand01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Hand01/ErikaHound_Hand01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Hand01_Erika_Montage"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Hand01/ErikaHound_Hand01_HoundOfTindalos_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Hand01_Erika_Montage"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Mouth01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Mouth01/ErikaHound_Mouth01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Mouth01_Montage",
+              "ErikaHound_Mouth01_Montage_MAX",
+              "ErikaHound_Mouth01_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Mouth01/ErikaHound_Mouth01_HoundOfTindalos_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Mouth01_Montage",
+              "ErikaHound_Mouth01_Montage_MAX",
+              "ErikaHound_Mouth01_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Vagina01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Vagina01/ErikaHound_Vagina01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vagina01_Erika_01_Montage",
+              "ErikaHound_Vagina01_Erika_01_Montage_Max",
+              "ErikaHound_Vagina01_Erika_01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina01/ErikaHound_Vagina01_Hound_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vagina01_Erika_01_Montage",
+              "ErikaHound_Vagina01_Erika_01_Montage_Max",
+              "ErikaHound_Vagina01_Erika_01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Vagina02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Vagina02/ErikaHound_Vagina02_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vagina02_Erika_01_Montage",
+              "ErikaHound_Vagina02_Erika_01_Montage_Max",
+              "ErikaHound_Vagina02_Erika_01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina02/ErikaHound_Vagina02_Hound_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vagina02_Erika_01_Montage",
+              "ErikaHound_Vagina02_Erika_01_Montage_Max",
+              "ErikaHound_Vagina02_Erika_01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Vagina03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Vagina03/ErikaHound_Vagina03_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vagina03_Erika_01_Montage",
+              "ErikaHound_Vagina03_Erika_01_Montage_Max",
+              "ErikaHound_Vagina03_Erika_01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina03/ErikaHound_Vagina03_Hound_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vagina03_Erika_01_Montage",
+              "ErikaHound_Vagina03_Erika_01_Montage_Max",
+              "ErikaHound_Vagina03_Erika_01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Vagina04",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Vagina04/ErikaHound_Vagina04_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vagina04_Erika_Montage",
+              "ErikaHound_Vagina04_Erika_Montage_Max",
+              "ErikaHound_Vagina04_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Vaginal05",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Vagina05/ErikaHound_Vaginal05_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vaginal05_Erika_Montage",
+              "ErikaHound_Vaginal05_Erika_Montage_MAX",
+              "ErikaHound_Vaginal05_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina05/ErikaHound_Vaginal05_HoundOfTindalos_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vaginal05_Erika_Montage",
+              "ErikaHound_Vaginal05_Erika_Montage_MAX",
+              "ErikaHound_Vaginal05_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaHound_Vaginal06",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Hound/Vagina06/ErikaHound_Vaginal06_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vaginal06_Erika_01_Montage",
+              "ErikaHound_Vaginal06_Erika_01_Montage_MAX",
+              "ErikaHound_Vaginal06_Erika_01_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Erika/Vagina06/ErikaHound_Vaginal06_HoundOfTindalos_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaHound_Vaginal06_Erika_01_Montage",
+              "ErikaHound_Vaginal06_Erika_01_Montage_MAX",
+              "ErikaHound_Vaginal06_Erika_01_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Hound"
+      ]
+    },
+    {
+      "hanimeId": "ErikaLloigor_Vaginal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Lloigor/Vaginal01/ErikaLloigor_Vaginal01_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaLloigor_Vaginal01_Erika_Montage",
+              "ErikaLloigor_Vaginal01_Erika_Montage_Max",
+              "ErikaLloigor_Vaginal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/Lloigor/Anim/HAnim/Erika/Vaginal01/ErikaLloigor_Vaginal01_Lloigor_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaLloigor_Vaginal01_Erika_Montage",
+              "ErikaLloigor_Vaginal01_Erika_Montage_Max",
+              "ErikaLloigor_Vaginal01_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Lloigor"
+      ]
+    },
+    {
+      "hanimeId": "ErikaYith_Anal01",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Tentacle/Anal01/ErikaYith_Anal01_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal01_Montage",
+              "ErikaYith_Anal01_Montage_Max",
+              "ErikaYith_Anal01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Erika/Anal01/ErikaYith_Anal01_Yith_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal01_Montage",
+              "ErikaYith_Anal01_Montage_Max",
+              "ErikaYith_Anal01_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "ErikaYith_Anal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Tentacle/Anal02/ErikaYith_Anal02_Erika_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal02_Erika_Montage",
+              "ErikaYith_Anal02_Erika_Montage_Max",
+              "ErikaYith_Anal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Erika/Anal02/ErikaYith_Anal02_Yith_04_NOR",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal02_Erika_Montage",
+              "ErikaYith_Anal02_Erika_Montage_Max",
+              "ErikaYith_Anal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "ErikaYith_Anal03",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Tentacle/Anal03/ErikaYith_Anal03_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal03_Erika_Montage",
+              "ErikaYith_Anal03_Erika_Montage_Max",
+              "ErikaYith_Anal03_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Item/Chair/Anim/ErikaTentacle/Anal03/ErikaYith_Anal03_Chair_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal03_Erika_Montage",
+              "ErikaYith_Anal03_Erika_Montage_Max",
+              "ErikaYith_Anal03_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Erika/Anal03/ErikaYith_Anal03_Yith_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal03_Erika_Montage",
+              "ErikaYith_Anal03_Erika_Montage_Max",
+              "ErikaYith_Anal03_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "ErikaYith_Anal04",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Tentacle/Anal04/ErikaYith_Anal04_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal04_Erika_Montage",
+              "ErikaYith_Anal04_Erika_Montage_MAX",
+              "ErikaYith_Anal04_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Erika/Anal04/ErikaYith_Anal04_Yith_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Anal04_Erika_Montage",
+              "ErikaYith_Anal04_Erika_Montage_MAX",
+              "ErikaYith_Anal04_Erika_Montage_MIN"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Tentacle"
+      ]
+    },
+    {
+      "hanimeId": "ErikaYith_Vaginal02",
+      "scope": "nonhuman",
+      "normalAnimSequences": [
+        {
+          "sourceAsset": "/Game/Characters/Eirka/Anim/Tentacle/Vagina02/ErikaYith_Vaginal02_Erika_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Vaginal02_Erika_Montage",
+              "ErikaYith_Vaginal02_Erika_Montage_Max",
+              "ErikaYith_Vaginal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        },
+        {
+          "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Anim/HAnim/Erika/Vagina02/ErikaYith_Vaginal02_Yith_04_nor",
+          "assetClass": "AnimSequence",
+          "phase": "normal",
+          "tableHAnimProof": {
+            "familyImportedMontages": [
+              "ErikaYith_Vaginal02_Erika_Montage",
+              "ErikaYith_Vaginal02_Erika_Montage_Max",
+              "ErikaYith_Vaginal02_Erika_Montage_Min"
+            ],
+            "sourceAsset": "/Game/Data/TableHAnim"
+          }
+        }
+      ],
+      "meshRefs": [
+        "demo:Erika",
+        "demo:Tentacle"
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "meshId": "demo:Alet",
+      "speciesId": "Alet",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Alet/Body/Meshes/Mesh_Alet",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Alet/Body/Meshes/Mesh_Alet",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletByakhee_Vaginal01",
+        "AletDeepOne_Anal01",
+        "AletDeepone_Anal02",
+        "AletDeepOne_Mouth01",
+        "AletDeepone_Vagina02",
+        "AletDeepone_Vagina03",
+        "AletDeepone_Vaginal01",
+        "AletDeepone_Vaginal04",
+        "AletErika_DoubleDildo01",
+        "AletErika_DoubleDildo02",
+        "AletErika_Sex01",
+        "AletErika_Sex02",
+        "AletErika_Sex03",
+        "AletErika_Sex04",
+        "AletErika_Sex05",
+        "AletErika_Sex06",
+        "AletHound_Anal01",
+        "AletHound_Anal02",
+        "AletHound_Mouth01",
+        "AletHound_Vaginal01",
+        "AletHound_Vaginal02",
+        "AletHound_Vaginal03",
+        "AletHound_Vaginal04",
+        "AletHound_Vaginal05",
+        "AletHound_Vaginal06",
+        "AletLloigor_Anal01",
+        "AletLloigor_Anal02",
+        "AletLloigor_Vagina01",
+        "AletSylph_Anal01",
+        "AletSylph_Anal02",
+        "AletSylph_Vaginal01",
+        "AletSylph_Vaginal02",
+        "AletSylph_Vaginal03",
+        "AletSylph_Vaginal04",
+        "AletSylph_Vaginal05",
+        "AletTantacle_Breast01",
+        "AletTentacle_Anal01",
+        "AletTentacle_Vaginal01",
+        "AletTentacle_Vaginal02",
+        "AletTentacle_Vaginal03",
+        "AletTentacle_Vaginal04",
+        "AletTentacle_Vaginal05",
+        "AletTentacle_Vaginal06"
+      ]
+    },
+    {
+      "meshId": "demo:Byakhee",
+      "speciesId": "Byakhee",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Monster/FlyCreature/Mesh_Byakhee",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Monster/FlyCreature/Mesh_Byakhee",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletByakhee_Vaginal01",
+        "ErikaByakhee_Anal01",
+        "ErikaByakhee_Hand01",
+        "ErikaByakhee_Vaginal01",
+        "ErikaByakhee_Vaginal02",
+        "ErikaByakhee_Vaginal03"
+      ]
+    },
+    {
+      "meshId": "demo:DeepOne",
+      "speciesId": "DeepOne",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Monster/DeepOne/Meshes/Mesh_DeepOne",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Monster/DeepOne/Meshes/Mesh_DeepOne",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletDeepOne_Anal01",
+        "AletDeepone_Anal02",
+        "AletDeepOne_Mouth01",
+        "AletDeepone_Vagina02",
+        "AletDeepone_Vagina03",
+        "AletDeepone_Vaginal01",
+        "AletDeepone_Vaginal04",
+        "EriakDeepone_Anal01",
+        "ErikaDeepone_Anal02",
+        "ErikaDeepone_Hand01",
+        "ErikaDeepone_Vaginal01",
+        "ErikaDeepone_Vaginal02"
+      ]
+    },
+    {
+      "meshId": "demo:Erika",
+      "speciesId": "Erika",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Eirka/Body/Meshes/Mesh_Erika",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Eirka/Body/Meshes/Mesh_Erika",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletErika_DoubleDildo01",
+        "AletErika_DoubleDildo02",
+        "AletErika_Sex01",
+        "AletErika_Sex02",
+        "AletErika_Sex03",
+        "AletErika_Sex04",
+        "AletErika_Sex05",
+        "AletErika_Sex06",
+        "EriakDeepone_Anal01",
+        "ErikaByakhee_Anal01",
+        "ErikaByakhee_Hand01",
+        "ErikaByakhee_Vaginal01",
+        "ErikaByakhee_Vaginal02",
+        "ErikaByakhee_Vaginal03",
+        "ErikaDeepone_Anal02",
+        "ErikaDeepone_Hand01",
+        "ErikaDeepone_Vaginal01",
+        "ErikaDeepone_Vaginal02",
+        "ErikaGhast_Anal01",
+        "ErikaGhast_Anal02",
+        "ErikaGhast_Vaginal01",
+        "ErikaGhast_Vaginal02",
+        "ErikaGhast_Vaginal03",
+        "ErikaHound_Anal01",
+        "ErikaHound_Anal02",
+        "ErikaHound_Anal03",
+        "ErikaHound_Anal04",
+        "ErikaHound_Foot01",
+        "ErikaHound_Hand01",
+        "ErikaHound_Mouth01",
+        "ErikaHound_Vagina01",
+        "ErikaHound_Vagina02",
+        "ErikaHound_Vagina03",
+        "ErikaHound_Vagina04",
+        "ErikaHound_Vaginal05",
+        "ErikaHound_Vaginal06",
+        "ErikaLloigor_Vaginal01",
+        "ErikaYith_Anal01",
+        "ErikaYith_Anal02",
+        "ErikaYith_Anal03",
+        "ErikaYith_Anal04",
+        "ErikaYith_Vaginal02"
+      ]
+    },
+    {
+      "meshId": "demo:Ghast",
+      "speciesId": "Ghast",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Monster/Ghast/Mesh_Ghast",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Monster/Ghast/Mesh_Ghast",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "ErikaGhast_Anal01",
+        "ErikaGhast_Anal02",
+        "ErikaGhast_Vaginal01",
+        "ErikaGhast_Vaginal02",
+        "ErikaGhast_Vaginal03"
+      ]
+    },
+    {
+      "meshId": "demo:Hound",
+      "speciesId": "Hound",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Monster/Hound/Meshes/Mesh_Hound",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Monster/Hound/Meshes/Mesh_Hound",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletHound_Anal01",
+        "AletHound_Anal02",
+        "AletHound_Mouth01",
+        "AletHound_Vaginal01",
+        "AletHound_Vaginal02",
+        "AletHound_Vaginal03",
+        "AletHound_Vaginal04",
+        "AletHound_Vaginal05",
+        "AletHound_Vaginal06",
+        "ErikaHound_Anal01",
+        "ErikaHound_Anal02",
+        "ErikaHound_Anal03",
+        "ErikaHound_Anal04",
+        "ErikaHound_Foot01",
+        "ErikaHound_Hand01",
+        "ErikaHound_Mouth01",
+        "ErikaHound_Vagina01",
+        "ErikaHound_Vagina02",
+        "ErikaHound_Vagina03",
+        "ErikaHound_Vagina04",
+        "ErikaHound_Vaginal05",
+        "ErikaHound_Vaginal06"
+      ]
+    },
+    {
+      "meshId": "demo:Lloigor",
+      "speciesId": "Lloigor",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Monster/Lloigor/Mesh/Mesh_Lloigor",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Monster/Lloigor/Mesh/Mesh_Lloigor",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletLloigor_Anal01",
+        "AletLloigor_Anal02",
+        "AletLloigor_Vagina01",
+        "ErikaLloigor_Vaginal01"
+      ]
+    },
+    {
+      "meshId": "demo:Sylph",
+      "speciesId": "Sylph",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Monster/Sylph/Mesh_Sylph",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Monster/Sylph/Mesh_Sylph",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletSylph_Anal01",
+        "AletSylph_Anal02",
+        "AletSylph_Vaginal01",
+        "AletSylph_Vaginal02",
+        "AletSylph_Vaginal03",
+        "AletSylph_Vaginal04",
+        "AletSylph_Vaginal05"
+      ]
+    },
+    {
+      "meshId": "demo:Tentacle",
+      "speciesId": "Tentacle",
+      "assetClass": "SkeletalMesh",
+      "sourceAsset": "/Game/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+      "packageEvidence": {
+        "exactAssetPath": "/Game/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+        "packageList": "D:\\zhifu\\Desktop\\data\\mmd\\docs\\demo-ue425-package-index.txt",
+        "packageListSha256": "8b8d51cdd49f43512c845d4c4ee0825327f512ceeac429a2636bcb403279ffd6"
+      },
+      "familyIds": [
+        "AletTantacle_Breast01",
+        "AletTentacle_Anal01",
+        "AletTentacle_Vaginal01",
+        "AletTentacle_Vaginal02",
+        "AletTentacle_Vaginal03",
+        "AletTentacle_Vaginal04",
+        "AletTentacle_Vaginal05",
+        "AletTentacle_Vaginal06",
+        "ErikaYith_Anal01",
+        "ErikaYith_Anal02",
+        "ErikaYith_Anal03",
+        "ErikaYith_Anal04",
+        "ErikaYith_Vaginal02"
+      ]
+    }
+  ]
+}

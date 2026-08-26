@@ -1,0 +1,841 @@
+{
+  "schemaVersion": 1,
+  "tool": "tools/measure_actorx_psa.py",
+  "policy": "Static ActorX PSA/REFSKELT evidence only; this output creates no runtime rule or functional-axis inference.",
+  "caseFile": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\actorx-psa-measurement-cases-v1.json",
+  "caseFileSha256": "1d07d476115d464fc8007c1d121cd9bd416b235faeb65f902363b5f83997fabb",
+  "measurements": [
+    {
+      "id": "demo-hound-mouth01",
+      "edition": "demo-ue4.25",
+      "manifestEvidence": {
+        "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\demo-ue425-export-manifest-v1.json",
+        "sha256": "6366c1e3adc21670737ccc55fb66c4097459be162da345f45dfb2beac24f11fd",
+        "family": "AletHound_Mouth01"
+      },
+      "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Mouth01/AletHound_Mouth01_Hound_04_NOR",
+      "sourceMesh": "/Game/Characters/Monster/Hound/Meshes/Mesh_Hound",
+      "inputs": {
+        "psaPath": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\analysis-assets\\demo-ue425-evidence\\Game\\Characters\\Monster\\Hound\\Anim\\HAnim\\Mouth01\\AletHound_Mouth01_Hound_04_NOR.psa",
+        "psaSha256": "6b8087391caffa951c75820881fe6996cc534e4215d9316a616d4d2b62ce1cc1",
+        "refSkeletonPath": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\analysis-assets\\demo-ue425-evidence\\Game\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.psk",
+        "refSkeletonSha256": "6331b758b227c9b7e8ad94b407df8a16b277bfdb1171b764b8383521b3271479"
+      },
+      "animation": {
+        "trackCount": 205,
+        "frameCount": 181,
+        "frameRate": 30.16666603088379,
+        "trackTimeSeconds": 181.0,
+        "firstRawFrame": 0
+      },
+      "trackPresence": {
+        "Tongue1": {
+          "present": true,
+          "psaTrackIndex": 1,
+          "psaParent": 0,
+          "refSkeletonIndex": 1,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 2.440103702877067,
+          "maxWorldRotationFromFrame0Degrees": 33.647176682210954
+        },
+        "Tongue2": {
+          "present": true,
+          "psaTrackIndex": 2,
+          "psaParent": 0,
+          "refSkeletonIndex": 2,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 1.9184482349302545,
+          "maxWorldRotationFromFrame0Degrees": 52.36809659271733
+        },
+        "Tongue71": {
+          "present": true,
+          "psaTrackIndex": 71,
+          "psaParent": 0,
+          "refSkeletonIndex": 71,
+          "refSkeletonParent": 70,
+          "maxWorldMotionFromFrame0Cm": 84.08422785938275,
+          "maxWorldRotationFromFrame0Degrees": 79.83128779036669
+        },
+        "RootPart1_M": {
+          "present": true,
+          "psaTrackIndex": 102,
+          "psaParent": 0,
+          "refSkeletonIndex": 102,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 3.8379435449907935,
+          "maxWorldRotationFromFrame0Degrees": 13.43386413463981
+        },
+        "Root_M": {
+          "present": true,
+          "psaTrackIndex": 0,
+          "psaParent": -1,
+          "refSkeletonIndex": 0,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 4.535142752685325,
+          "maxWorldRotationFromFrame0Degrees": 15.024991914261735
+        }
+      },
+      "axis": {
+        "originBone": "Tongue1",
+        "directionBone": "Tongue2",
+        "extendedTipBone": "Tongue71",
+        "supportBone": "RootPart1_M",
+        "topology": "continuous_parent_chain",
+        "interpretation": "static_geometry_candidate",
+        "animationHierarchy": "refskelt_by_name_when_present",
+        "psaNativeParentPath": null,
+        "psaParentPath": [
+          "Tongue1",
+          "Tongue2",
+          "Tongue3",
+          "Tongue4",
+          "Tongue5",
+          "Tongue6",
+          "Tongue7",
+          "Tongue8",
+          "Tongue9",
+          "Tongue10",
+          "Tongue11",
+          "Tongue12",
+          "Tongue13",
+          "Tongue14",
+          "Tongue15",
+          "Tongue16",
+          "Tongue17",
+          "Tongue18",
+          "Tongue19",
+          "Tongue20",
+          "Tongue21",
+          "Tongue22",
+          "Tongue23",
+          "Tongue24",
+          "Tongue25",
+          "Tongue26",
+          "Tongue27",
+          "Tongue28",
+          "Tongue29",
+          "Tongue30",
+          "Tongue31",
+          "Tongue32",
+          "Tongue33",
+          "Tongue34",
+          "Tongue35",
+          "Tongue36",
+          "Tongue37",
+          "Tongue38",
+          "Tongue39",
+          "Tongue40",
+          "Tongue41",
+          "Tongue42",
+          "Tongue43",
+          "Tongue44",
+          "Tongue45",
+          "Tongue46",
+          "Tongue47",
+          "Tongue48",
+          "Tongue49",
+          "Tongue50",
+          "Tongue51",
+          "Tongue52",
+          "Tongue53",
+          "Tongue54",
+          "Tongue55",
+          "Tongue56",
+          "Tongue57",
+          "Tongue58",
+          "Tongue59",
+          "Tongue60",
+          "Tongue61",
+          "Tongue62",
+          "Tongue63",
+          "Tongue64",
+          "Tongue65",
+          "Tongue66",
+          "Tongue67",
+          "Tongue68",
+          "Tongue69",
+          "Tongue70",
+          "Tongue71"
+        ],
+        "refSkeletonParentPath": [
+          "Tongue1",
+          "Tongue2",
+          "Tongue3",
+          "Tongue4",
+          "Tongue5",
+          "Tongue6",
+          "Tongue7",
+          "Tongue8",
+          "Tongue9",
+          "Tongue10",
+          "Tongue11",
+          "Tongue12",
+          "Tongue13",
+          "Tongue14",
+          "Tongue15",
+          "Tongue16",
+          "Tongue17",
+          "Tongue18",
+          "Tongue19",
+          "Tongue20",
+          "Tongue21",
+          "Tongue22",
+          "Tongue23",
+          "Tongue24",
+          "Tongue25",
+          "Tongue26",
+          "Tongue27",
+          "Tongue28",
+          "Tongue29",
+          "Tongue30",
+          "Tongue31",
+          "Tongue32",
+          "Tongue33",
+          "Tongue34",
+          "Tongue35",
+          "Tongue36",
+          "Tongue37",
+          "Tongue38",
+          "Tongue39",
+          "Tongue40",
+          "Tongue41",
+          "Tongue42",
+          "Tongue43",
+          "Tongue44",
+          "Tongue45",
+          "Tongue46",
+          "Tongue47",
+          "Tongue48",
+          "Tongue49",
+          "Tongue50",
+          "Tongue51",
+          "Tongue52",
+          "Tongue53",
+          "Tongue54",
+          "Tongue55",
+          "Tongue56",
+          "Tongue57",
+          "Tongue58",
+          "Tongue59",
+          "Tongue60",
+          "Tongue61",
+          "Tongue62",
+          "Tongue63",
+          "Tongue64",
+          "Tongue65",
+          "Tongue66",
+          "Tongue67",
+          "Tongue68",
+          "Tongue69",
+          "Tongue70",
+          "Tongue71"
+        ],
+        "referenceParentChainLengthCm": 77.84480162640679,
+        "referenceOriginToTipDistanceCm": 77.83974943391024,
+        "animatedParentChainLengthCm": {
+          "min": 77.84478733650768,
+          "max": 77.84478733650782,
+          "mean": 77.84478733650776
+        },
+        "animatedOriginToTipDistanceCm": {
+          "min": 66.75776225904929,
+          "max": 72.58044275669143,
+          "mean": 69.51197850761339
+        },
+        "animatedOriginToDirectionDistanceCm": {
+          "min": 1.1120787858962935,
+          "max": 1.1120787858963097,
+          "mean": 1.1120787858963015
+        },
+        "originMaxWorldMotionFromFrame0Cm": 2.440103702877067,
+        "tipMaxWorldMotionFromFrame0Cm": 84.08422785938275
+      }
+    },
+    {
+      "id": "playtest-deepone-anal01",
+      "edition": "playtest-ue5",
+      "manifestEvidence": {
+        "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\playtest-static-pose-export-manifest-v1.json",
+        "sha256": "35af29527e5d2b66d27a8e74044b807e6b1549101d5e1f5effb22a12a1df5094",
+        "requestCount": 1,
+        "hanimeId": "AletDeepOne_Anal01",
+        "monsterDirectory": "DeepOne"
+      },
+      "sourceAsset": "/Paralogue/Content/Characters/Monster/DeepOne/Anim/HAnim/Alet/Anal01/AletDeepOne_Anal01_DeepOne_04_NOR",
+      "sourceMesh": "/Paralogue/Content/Characters/Monster/DeepOne/Meshes/Mesh_DeepOne",
+      "inputs": {
+        "psaPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\DeepOne\\Anim\\HAnim\\Alet\\Anal01\\AletDeepOne_Anal01_DeepOne_04_NOR.psa",
+        "psaSha256": "45d26ec0462ee8c8d63101b409aaaf848f7157df6305e42aafee8fd798968f40",
+        "refSkeletonPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\DeepOne\\Meshes\\Mesh_DeepOne.pskx",
+        "refSkeletonSha256": "710b20883d19cca486116f9874551590780b8d8433b7325337d2454eaf8158e4"
+      },
+      "animation": {
+        "trackCount": 188,
+        "frameCount": 211,
+        "frameRate": 30.14285659790039,
+        "trackTimeSeconds": 211.0,
+        "firstRawFrame": 0
+      },
+      "trackPresence": {
+        "JJ02_joint1": {
+          "present": true,
+          "psaTrackIndex": 151,
+          "psaParent": 0,
+          "refSkeletonIndex": 151,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 13.87946255307022,
+          "maxWorldRotationFromFrame0Degrees": 4.026356054876596
+        },
+        "JJ02_joint2": {
+          "present": true,
+          "psaTrackIndex": 152,
+          "psaParent": 0,
+          "refSkeletonIndex": 152,
+          "refSkeletonParent": 151,
+          "maxWorldMotionFromFrame0Cm": 13.856953393055857,
+          "maxWorldRotationFromFrame0Degrees": 4.026356054876234
+        },
+        "JJ02_joint15": {
+          "present": true,
+          "psaTrackIndex": 165,
+          "psaParent": 0,
+          "refSkeletonIndex": 165,
+          "refSkeletonParent": 164,
+          "maxWorldMotionFromFrame0Cm": 14.86621682382129,
+          "maxWorldRotationFromFrame0Degrees": 32.69586742395096
+        },
+        "M_Hips": {
+          "present": true,
+          "psaTrackIndex": 1,
+          "psaParent": 0,
+          "refSkeletonIndex": 1,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 13.8795213624649,
+          "maxWorldRotationFromFrame0Degrees": 4.026356054876596
+        }
+      },
+      "axis": {
+        "originBone": "JJ02_joint1",
+        "directionBone": "JJ02_joint2",
+        "extendedTipBone": "JJ02_joint15",
+        "supportBone": "M_Hips",
+        "topology": "continuous_parent_chain",
+        "interpretation": "static_geometry_candidate",
+        "animationHierarchy": "refskelt_by_name_when_present",
+        "psaNativeParentPath": null,
+        "psaParentPath": [
+          "JJ02_joint1",
+          "JJ02_joint2",
+          "JJ02_joint3",
+          "JJ02_joint4",
+          "JJ02_joint5",
+          "JJ02_joint6",
+          "JJ02_joint7",
+          "JJ02_joint8",
+          "JJ02_joint9",
+          "JJ02_joint10",
+          "JJ02_joint11",
+          "JJ02_joint12",
+          "JJ02_joint13",
+          "JJ02_joint14",
+          "JJ02_joint15"
+        ],
+        "refSkeletonParentPath": [
+          "JJ02_joint1",
+          "JJ02_joint2",
+          "JJ02_joint3",
+          "JJ02_joint4",
+          "JJ02_joint5",
+          "JJ02_joint6",
+          "JJ02_joint7",
+          "JJ02_joint8",
+          "JJ02_joint9",
+          "JJ02_joint10",
+          "JJ02_joint11",
+          "JJ02_joint12",
+          "JJ02_joint13",
+          "JJ02_joint14",
+          "JJ02_joint15"
+        ],
+        "referenceParentChainLengthCm": 29.31879329681397,
+        "referenceOriginToTipDistanceCm": 27.011083854998873,
+        "animatedParentChainLengthCm": {
+          "min": 29.31879019737243,
+          "max": 29.318790197372454,
+          "mean": 29.31879019737244
+        },
+        "animatedOriginToTipDistanceCm": {
+          "min": 25.19142289976987,
+          "max": 26.564310682613844,
+          "mean": 26.137057574118607
+        },
+        "animatedOriginToDirectionDistanceCm": {
+          "min": 2.094249963760374,
+          "max": 2.094249963760378,
+          "mean": 2.0942499637603764
+        },
+        "originMaxWorldMotionFromFrame0Cm": 13.87946255307022,
+        "tipMaxWorldMotionFromFrame0Cm": 14.86621682382129
+      }
+    },
+    {
+      "id": "playtest-ghast-anal01",
+      "edition": "playtest-ue5",
+      "manifestEvidence": {
+        "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\playtest-static-pose-export-manifest-v1.json",
+        "sha256": "35af29527e5d2b66d27a8e74044b807e6b1549101d5e1f5effb22a12a1df5094",
+        "requestCount": 1,
+        "hanimeId": "AnyaGhast_Anal01",
+        "monsterDirectory": "Ghast"
+      },
+      "sourceAsset": "/Paralogue/Content/Characters/Monster/Ghast/Anim/Anya/Anal01/AnyaGhast_Anal01_Ghast_04_NOR",
+      "sourceMesh": "/Paralogue/Content/Characters/Monster/Ghast/Mesh_Ghast",
+      "inputs": {
+        "psaPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Ghast\\Anim\\Anya\\Anal01\\AnyaGhast_Anal01_Ghast_04_NOR.psa",
+        "psaSha256": "729cb05703c38d1beac8d6dad27b1b23d05bb03cea8f1e41bbc38c0a429a0dad",
+        "refSkeletonPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Ghast\\Mesh_Ghast.psk",
+        "refSkeletonSha256": "7f52e98c80bfb8e0d3f1fe8c0a8478474b264123c8b5304549eec4eb84bf89d8"
+      },
+      "animation": {
+        "trackCount": 160,
+        "frameCount": 181,
+        "frameRate": 30.16666603088379,
+        "trackTimeSeconds": 181.0,
+        "firstRawFrame": 0
+      },
+      "trackPresence": {
+        "Ghast_jj_joint1": {
+          "present": true,
+          "psaTrackIndex": 125,
+          "psaParent": 0,
+          "refSkeletonIndex": 141,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 18.08174212751561,
+          "maxWorldRotationFromFrame0Degrees": 18.95242944724587
+        },
+        "Ghast_jj_joint2": {
+          "present": true,
+          "psaTrackIndex": 126,
+          "psaParent": 0,
+          "refSkeletonIndex": 142,
+          "refSkeletonParent": 141,
+          "maxWorldMotionFromFrame0Cm": 18.134688894963926,
+          "maxWorldRotationFromFrame0Degrees": 35.412947086058786
+        },
+        "Ghast_jj_joint16": {
+          "present": true,
+          "psaTrackIndex": 140,
+          "psaParent": 0,
+          "refSkeletonIndex": 156,
+          "refSkeletonParent": 155,
+          "maxWorldMotionFromFrame0Cm": 24.72893155007754,
+          "maxWorldRotationFromFrame0Degrees": 31.09037773261205
+        },
+        "M_Hips": {
+          "present": true,
+          "psaTrackIndex": 1,
+          "psaParent": 0,
+          "refSkeletonIndex": 1,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 17.532490788795638,
+          "maxWorldRotationFromFrame0Degrees": 6.968588905143766
+        }
+      },
+      "axis": {
+        "originBone": "Ghast_jj_joint1",
+        "directionBone": "Ghast_jj_joint2",
+        "extendedTipBone": "Ghast_jj_joint16",
+        "supportBone": "M_Hips",
+        "topology": "continuous_parent_chain",
+        "interpretation": "static_geometry_candidate",
+        "animationHierarchy": "refskelt_by_name_when_present",
+        "psaNativeParentPath": null,
+        "psaParentPath": [
+          "Ghast_jj_joint1",
+          "Ghast_jj_joint2",
+          "Ghast_jj_joint3",
+          "Ghast_jj_joint4",
+          "Ghast_jj_joint5",
+          "Ghast_jj_joint6",
+          "Ghast_jj_joint7",
+          "Ghast_jj_joint8",
+          "Ghast_jj_joint9",
+          "Ghast_jj_joint10",
+          "Ghast_jj_joint11",
+          "Ghast_jj_joint12",
+          "Ghast_jj_joint13",
+          "Ghast_jj_joint14",
+          "Ghast_jj_joint15",
+          "Ghast_jj_joint16"
+        ],
+        "refSkeletonParentPath": [
+          "Ghast_jj_joint1",
+          "Ghast_jj_joint2",
+          "Ghast_jj_joint3",
+          "Ghast_jj_joint4",
+          "Ghast_jj_joint5",
+          "Ghast_jj_joint6",
+          "Ghast_jj_joint7",
+          "Ghast_jj_joint8",
+          "Ghast_jj_joint9",
+          "Ghast_jj_joint10",
+          "Ghast_jj_joint11",
+          "Ghast_jj_joint12",
+          "Ghast_jj_joint13",
+          "Ghast_jj_joint14",
+          "Ghast_jj_joint15",
+          "Ghast_jj_joint16"
+        ],
+        "referenceParentChainLengthCm": 24.390599727630626,
+        "referenceOriginToTipDistanceCm": 24.390599727630626,
+        "animatedParentChainLengthCm": {
+          "min": 24.390599489211986,
+          "max": 24.390599489212086,
+          "mean": 24.39059948921204
+        },
+        "animatedOriginToTipDistanceCm": {
+          "min": 23.653693635907644,
+          "max": 24.224137232435698,
+          "mean": 23.972522441851588
+        },
+        "animatedOriginToDirectionDistanceCm": {
+          "min": 1.6260404586791959,
+          "max": 1.626040458679203,
+          "mean": 1.6260404586791994
+        },
+        "originMaxWorldMotionFromFrame0Cm": 18.08174212751561,
+        "tipMaxWorldMotionFromFrame0Cm": 24.72893155007754
+      }
+    },
+    {
+      "id": "playtest-hound-mouth01",
+      "edition": "playtest-ue5",
+      "manifestEvidence": {
+        "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\playtest-static-pose-export-manifest-v1.json",
+        "sha256": "35af29527e5d2b66d27a8e74044b807e6b1549101d5e1f5effb22a12a1df5094",
+        "requestCount": 1,
+        "hanimeId": "AletHound_Mouth01",
+        "monsterDirectory": "Hound"
+      },
+      "sourceAsset": "/Paralogue/Content/Characters/Monster/Hound/Anim/HAnim/Mouth01/AletHound_Mouth01_Hound_04_NOR",
+      "sourceMesh": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+      "inputs": {
+        "psaPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Anim\\HAnim\\Mouth01\\AletHound_Mouth01_Hound_04_NOR.psa",
+        "psaSha256": "2c5d20f6885ad181ac4f206dea26655b9a1ede0faca1ee5f2a44452fe1df0fb1",
+        "refSkeletonPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.psk",
+        "refSkeletonSha256": "332f708d4b506afacba3b57e885447c510d9709735552abe321466dfbb5c48dd"
+      },
+      "animation": {
+        "trackCount": 264,
+        "frameCount": 181,
+        "frameRate": 30.0,
+        "trackTimeSeconds": 181.0,
+        "firstRawFrame": 0
+      },
+      "trackPresence": {
+        "Tongue1": {
+          "present": true,
+          "psaTrackIndex": 1,
+          "psaParent": 0,
+          "refSkeletonIndex": 1,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 2.44023788686306,
+          "maxWorldRotationFromFrame0Degrees": 33.64847452688546
+        },
+        "Tongue2": {
+          "present": true,
+          "psaTrackIndex": 71,
+          "psaParent": 0,
+          "refSkeletonIndex": 71,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 1.9185059854787438,
+          "maxWorldRotationFromFrame0Degrees": 52.303832257917634
+        },
+        "Tongue71": {
+          "present": true,
+          "psaTrackIndex": 2,
+          "psaParent": 0,
+          "refSkeletonIndex": 2,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 13.658599390321335,
+          "maxWorldRotationFromFrame0Degrees": 79.92826736841262
+        },
+        "RootPart1_M": {
+          "present": true,
+          "psaTrackIndex": 108,
+          "psaParent": 0,
+          "refSkeletonIndex": 108,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 3.8368715455904567,
+          "maxWorldRotationFromFrame0Degrees": 13.437309245084746
+        },
+        "Root_M": {
+          "present": true,
+          "psaTrackIndex": 0,
+          "psaParent": -1,
+          "refSkeletonIndex": 0,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 4.535142752685325,
+          "maxWorldRotationFromFrame0Degrees": 15.026098790504028
+        }
+      },
+      "axis": {
+        "originBone": "Tongue1",
+        "directionBone": "Tongue2",
+        "extendedTipBone": "Tongue71",
+        "supportBone": "RootPart1_M",
+        "topology": "ordered_leaf_fan",
+        "interpretation": "static_geometry_candidate",
+        "animationHierarchy": "refskelt_by_name_when_present",
+        "psaNativeParentPath": null,
+        "psaParentPath": [
+          "Tongue1",
+          "Tongue71"
+        ],
+        "refSkeletonParentPath": [
+          "Tongue1",
+          "Tongue71"
+        ],
+        "referenceParentChainLengthCm": 76.60937973675064,
+        "referenceOriginToTipDistanceCm": 76.60937973675064,
+        "animatedParentChainLengthCm": {
+          "min": 66.74448300771027,
+          "max": 72.5618291789593,
+          "mean": 69.4917214966316
+        },
+        "animatedOriginToTipDistanceCm": {
+          "min": 66.74448300771027,
+          "max": 72.5618291789593,
+          "mean": 69.4917214966316
+        },
+        "animatedOriginToDirectionDistanceCm": {
+          "min": 1.1120799779891894,
+          "max": 1.1120799779892039,
+          "mean": 1.1120799779891968
+        },
+        "originMaxWorldMotionFromFrame0Cm": 2.44023788686306,
+        "tipMaxWorldMotionFromFrame0Cm": 13.658599390321335
+      }
+    },
+    {
+      "id": "playtest-hound-anal01",
+      "edition": "playtest-ue5",
+      "manifestEvidence": {
+        "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\playtest-static-pose-export-manifest-v1.json",
+        "sha256": "35af29527e5d2b66d27a8e74044b807e6b1549101d5e1f5effb22a12a1df5094",
+        "requestCount": 1,
+        "hanimeId": "AletHound_Anal01",
+        "monsterDirectory": "Hound"
+      },
+      "sourceAsset": "/Paralogue/Content/Characters/Monster/Hound/Anim/HAnim/Anal01/AletHound_Anal01_Hound_04_NOR",
+      "sourceMesh": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+      "inputs": {
+        "psaPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Anim\\HAnim\\Anal01\\AletHound_Anal01_Hound_04_NOR.psa",
+        "psaSha256": "85174ad4947e0bef24a5b165c591ec8b4103d18e96aa546065c9563ca9d031c5",
+        "refSkeletonPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.psk",
+        "refSkeletonSha256": "332f708d4b506afacba3b57e885447c510d9709735552abe321466dfbb5c48dd"
+      },
+      "animation": {
+        "trackCount": 264,
+        "frameCount": 186,
+        "frameRate": 30.16216278076172,
+        "trackTimeSeconds": 186.0,
+        "firstRawFrame": 0
+      },
+      "trackPresence": {
+        "Tongue1": {
+          "present": true,
+          "psaTrackIndex": 1,
+          "psaParent": 0,
+          "refSkeletonIndex": 1,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 4.049224123382915,
+          "maxWorldRotationFromFrame0Degrees": 4.434197635277782
+        },
+        "Tongue2": {
+          "present": true,
+          "psaTrackIndex": 71,
+          "psaParent": 0,
+          "refSkeletonIndex": 71,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 3.998604229115237,
+          "maxWorldRotationFromFrame0Degrees": 3.9074079155465173
+        },
+        "Tongue71": {
+          "present": true,
+          "psaTrackIndex": 2,
+          "psaParent": 0,
+          "refSkeletonIndex": 2,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 11.193146227258488,
+          "maxWorldRotationFromFrame0Degrees": 28.47882763714922
+        },
+        "RootPart1_M": {
+          "present": true,
+          "psaTrackIndex": 108,
+          "psaParent": 0,
+          "refSkeletonIndex": 108,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 3.5333247048270473,
+          "maxWorldRotationFromFrame0Degrees": 9.522808461726544
+        },
+        "Root_M": {
+          "present": true,
+          "psaTrackIndex": 0,
+          "psaParent": -1,
+          "refSkeletonIndex": 0,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 3.9105792133803217,
+          "maxWorldRotationFromFrame0Degrees": 9.970986030761939
+        }
+      },
+      "axis": {
+        "originBone": "Tongue1",
+        "directionBone": "Tongue2",
+        "extendedTipBone": "Tongue71",
+        "supportBone": "RootPart1_M",
+        "topology": "ordered_leaf_fan",
+        "interpretation": "negative_control_not_contact_reference",
+        "animationHierarchy": "refskelt_by_name_when_present",
+        "psaNativeParentPath": null,
+        "psaParentPath": [
+          "Tongue1",
+          "Tongue71"
+        ],
+        "refSkeletonParentPath": [
+          "Tongue1",
+          "Tongue71"
+        ],
+        "referenceParentChainLengthCm": 76.60937973675064,
+        "referenceOriginToTipDistanceCm": 76.60937973675064,
+        "animatedParentChainLengthCm": {
+          "min": 75.43205416146515,
+          "max": 77.21527267524417,
+          "mean": 76.58866709973529
+        },
+        "animatedOriginToTipDistanceCm": {
+          "min": 75.43205416146515,
+          "max": 77.21527267524417,
+          "mean": 76.58866709973529
+        },
+        "animatedOriginToDirectionDistanceCm": {
+          "min": 1.1120803356170643,
+          "max": 1.1120803356170668,
+          "mean": 1.1120803356170657
+        },
+        "originMaxWorldMotionFromFrame0Cm": 4.049224123382915,
+        "tipMaxWorldMotionFromFrame0Cm": 11.193146227258488
+      }
+    },
+    {
+      "id": "playtest-hound-vaginal01",
+      "edition": "playtest-ue5",
+      "manifestEvidence": {
+        "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\playtest-static-pose-export-manifest-v1.json",
+        "sha256": "35af29527e5d2b66d27a8e74044b807e6b1549101d5e1f5effb22a12a1df5094",
+        "requestCount": 1,
+        "hanimeId": "AletHound_Vaginal01",
+        "monsterDirectory": "Hound"
+      },
+      "sourceAsset": "/Paralogue/Content/Characters/Monster/Hound/Anim/HAnim/Vaginal01/AletHound_Vaginal01_Hound_04_NOR",
+      "sourceMesh": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+      "inputs": {
+        "psaPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Anim\\HAnim\\Vaginal01\\AletHound_Vaginal01_Hound_04_NOR.psa",
+        "psaSha256": "102d301cf4cd6766d6feae3620993b71acf5673692b70889932f30e5363cabb6",
+        "refSkeletonPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.psk",
+        "refSkeletonSha256": "332f708d4b506afacba3b57e885447c510d9709735552abe321466dfbb5c48dd"
+      },
+      "animation": {
+        "trackCount": 264,
+        "frameCount": 183,
+        "frameRate": 30.16483497619629,
+        "trackTimeSeconds": 183.0,
+        "firstRawFrame": 0
+      },
+      "trackPresence": {
+        "Tongue1": {
+          "present": true,
+          "psaTrackIndex": 1,
+          "psaParent": 0,
+          "refSkeletonIndex": 1,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 2.1167046383967976,
+          "maxWorldRotationFromFrame0Degrees": 4.412034264161697
+        },
+        "Tongue2": {
+          "present": true,
+          "psaTrackIndex": 71,
+          "psaParent": 0,
+          "refSkeletonIndex": 71,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 2.079339633843338,
+          "maxWorldRotationFromFrame0Degrees": 6.637687664354378
+        },
+        "Tongue71": {
+          "present": true,
+          "psaTrackIndex": 2,
+          "psaParent": 0,
+          "refSkeletonIndex": 2,
+          "refSkeletonParent": 1,
+          "maxWorldMotionFromFrame0Cm": 14.919062654900063,
+          "maxWorldRotationFromFrame0Degrees": 33.13167864219898
+        },
+        "RootPart1_M": {
+          "present": true,
+          "psaTrackIndex": 108,
+          "psaParent": 0,
+          "refSkeletonIndex": 108,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 2.1667018594294687,
+          "maxWorldRotationFromFrame0Degrees": 3.565035015077464
+        },
+        "Root_M": {
+          "present": true,
+          "psaTrackIndex": 0,
+          "psaParent": -1,
+          "refSkeletonIndex": 0,
+          "refSkeletonParent": 0,
+          "maxWorldMotionFromFrame0Cm": 2.280616704935056,
+          "maxWorldRotationFromFrame0Degrees": 3.674431201997205
+        }
+      },
+      "axis": {
+        "originBone": "Tongue1",
+        "directionBone": "Tongue2",
+        "extendedTipBone": "Tongue71",
+        "supportBone": "RootPart1_M",
+        "topology": "ordered_leaf_fan",
+        "interpretation": "negative_control_not_contact_reference",
+        "animationHierarchy": "refskelt_by_name_when_present",
+        "psaNativeParentPath": null,
+        "psaParentPath": [
+          "Tongue1",
+          "Tongue71"
+        ],
+        "refSkeletonParentPath": [
+          "Tongue1",
+          "Tongue71"
+        ],
+        "referenceParentChainLengthCm": 76.60937973675064,
+        "referenceOriginToTipDistanceCm": 76.60937973675064,
+        "animatedParentChainLengthCm": {
+          "min": 62.522404262998506,
+          "max": 71.18022229652222,
+          "mean": 67.47286515546777
+        },
+        "animatedOriginToTipDistanceCm": {
+          "min": 62.522404262998506,
+          "max": 71.18022229652222,
+          "mean": 67.47286515546777
+        },
+        "animatedOriginToDirectionDistanceCm": {
+          "min": 1.1120802164077752,
+          "max": 1.1120802164077768,
+          "mean": 1.112080216407776
+        },
+        "originMaxWorldMotionFromFrame0Cm": 2.1167046383967976,
+        "tipMaxWorldMotionFromFrame0Cm": 14.919062654900063
+      }
+    }
+  ]
+}

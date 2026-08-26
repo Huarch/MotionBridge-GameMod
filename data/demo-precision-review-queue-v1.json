@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "schema": "demo-precision-review-queue-v1",
+  "edition": "demo-ue4.25",
+  "policy": "A case is admitted only from an already-declared Demo static geometry candidate plus its exact full-coverage controlled NORMAL PSA/REFSKELT audit. Geometry is copied verbatim. This queue does not select a contact target, actor role, local basis, calibration, runtime component, or runtime rule.",
+  "sources": {
+    "familyEvidenceStatus": {
+      "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\demo-family-evidence-status-v1.json",
+      "sha256": "6f4681d48af40149ed2fab1d580d80dcefb5d4723d0782752704a0dcf38f56a6"
+    },
+    "demoPakInventory": {
+      "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\demo-ue425-export-manifest-v1.json",
+      "sha256": "6366c1e3adc21670737ccc55fb66c4097459be162da345f45dfb2beac24f11fd"
+    },
+    "normalPsaAudit": {
+      "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\demo-normal-psa-audit-v1.json",
+      "sha256": "714c8d6aef11e2f99957562ff301000b35263407c262618732d0ed6796931dd9"
+    }
+  },
+  "coverage": {
+    "statusFamilyCount": 145,
+    "admittedFamilyCount": 1,
+    "motionMeasurementCaseCount": 1,
+    "runtimeVerifiedFamilyCount": 0,
+    "runtimeRuleGeneratedFamilyCount": 0
+  },
+  "cases": [
+    {
+      "id": "demo-alethound-mouth01",
+      "edition": "demo-ue4.25",
+      "hanimeId": "AletHound_Mouth01",
+      "scope": [
+        "nonhuman"
+      ],
+      "category": "mouth",
+      "manifest": "data/demo-ue425-export-manifest-v1.json",
+      "sourceAsset": "/Game/Characters/Monster/Hound/Anim/HAnim/Mouth01/AletHound_Mouth01_Hound_04_NOR",
+      "sourceMesh": "/Game/Characters/Monster/Hound/Meshes/Mesh_Hound",
+      "psaPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\controlled-hanime-evidence-demo\\demo-ue4.25\\Game\\Characters\\Monster\\Hound\\Anim\\HAnim\\Mouth01\\AletHound_Mouth01_Hound_04_NOR.psa",
+      "refSkeletonPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\controlled-hanime-evidence-demo\\demo-ue4.25\\Game\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.psk",
+      "bones": [
+        "Tongue1",
+        "Tongue2",
+        "Tongue71",
+        "RootPart1_M",
+        "Root_M"
+      ],
+      "interpretation": "static_geometry_candidate",
+      "axis": {
+        "originBone": "Tongue1",
+        "directionBone": "Tongue2",
+        "extendedTipBone": "Tongue71",
+        "topology": "continuous_parent_chain"
+      },
+      "supportBoneCandidates": [
+        "RootPart1_M",
+        "Root_M"
+      ],
+      "admissionEvidence": {
+        "sourceStatus": "demo_refskelt_and_reference_participant_psa_track_candidate",
+        "operationKey": "animation:AletHound_Mouth01:/game/characters/monster/hound/anim/hanim/mouth01/alethound_mouth01_hound_04_nor",
+        "meshRef": "demo:Hound",
+        "fullTrackNameCoverage": true,
+        "exactNormalPsaIntegrity": {
+          "noMontage": true,
+          "exactNormalSuffix": true,
+          "exactTableHAnimMontageIdentityProof": true,
+          "exactLedgerSourceAsset": true,
+          "exactLedgerFamilyId": true,
+          "exactPsaStem": true,
+          "actorXStructure": "valid"
+        },
+        "declaredStaticGeometryCopiedVerbatim": true
+      },
+      "runtimeStatus": {
+        "runtimeVerified": false,
+        "runtimeRuleGenerated": false,
+        "unresolved": [
+          "active/reference participant",
+          "primary target and ordering",
+          "all local-axis calibration",
+          "runtime component binding",
+          "viewer/runtime confirmation"
+        ]
+      }
+    }
+  ]
+}

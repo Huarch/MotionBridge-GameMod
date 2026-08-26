@@ -15,7 +15,8 @@ function Assert-AutoEdition {
     param(
         [Parameter(Mandatory = $true)][string]$Name,
         [Parameter(Mandatory = $true)][string]$Executable,
-        [Parameter(Mandatory = $true)][string]$ExpectedEdition
+        [Parameter(Mandatory = $true)][string]$ExpectedEdition,
+        [Parameter(Mandatory = $true)][string]$ExpectedRuntimeEdition
     )
 
     $gameRoot = Join-Path $testRoot $Name
@@ -24,6 +25,9 @@ function Assert-AutoEdition {
     if ($result -notmatch [regex]::Escape("Validated $ExpectedEdition target")) {
         throw "Auto detection failed for $Name. Output: $result"
     }
+    if ($result -notmatch [regex]::Escape("Would configure local runtime edition: $ExpectedRuntimeEdition")) {
+        throw "Edition-local mapping failed for $Name. Output: $result"
+    }
 }
 
 try {
@@ -31,16 +35,20 @@ try {
 
     Assert-AutoEdition -Name "legacy049" `
         -Executable "Paralogue\Binaries\Win64\KiritoMod049.exe" `
-        -ExpectedEdition "Legacy049"
+        -ExpectedEdition "Legacy049" `
+        -ExpectedRuntimeEdition "<sidecars-refused>"
     Assert-AutoEdition -Name "playtest" `
         -Executable "Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe" `
-        -ExpectedEdition "Playtest"
+        -ExpectedEdition "Playtest" `
+        -ExpectedRuntimeEdition "playtest-ue5"
     Assert-AutoEdition -Name "demo-desktop" `
         -Executable "Desktop\WindowsNoEditor\Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe" `
-        -ExpectedEdition "DemoDesktop"
+        -ExpectedEdition "DemoDesktop" `
+        -ExpectedRuntimeEdition "demo-ue4.25"
     Assert-AutoEdition -Name "demo-vr" `
         -Executable "VR\WindowsNoEditor\Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe" `
-        -ExpectedEdition "DemoVR"
+        -ExpectedEdition "DemoVR" `
+        -ExpectedRuntimeEdition "demo-ue4.25"
 
     $priorityRoot = Join-Path $testRoot "legacy-priority"
     New-EmptyFile -Path (Join-Path $priorityRoot "Paralogue\Binaries\Win64\KiritoMod049.exe")
@@ -48,6 +56,9 @@ try {
     $priorityResult = & $installer -GameRoot $priorityRoot -PayloadRoot $payload -WhatIf 6>&1 | Out-String
     if ($priorityResult -notmatch [regex]::Escape("Validated Legacy049 target")) {
         throw "Legacy 0.49 did not take precedence over the modern layout. Output: $priorityResult"
+    }
+    if ($priorityResult -notmatch [regex]::Escape("Would configure local runtime edition: <sidecars-refused>")) {
+        throw "Legacy 0.49 must not map to Demo/Playtest static sidecars. Output: $priorityResult"
     }
 
     Write-Output "Installer edition tests passed."

@@ -33,3 +33,7 @@ Hand01/02/03 的六条配对 PSA 及准确包路径记录于 `data/hand-pose-ass
 | generic_pair | 明确的主接触对 | 每姿势人工标注 |
 
 多人动作只选一个主接触对驱动一条 SR6 轨道。非人类只能使用 `skeleton-catalog-v1.json` 中已验证的附肢/目标，不从物种名称猜测。触发型短动作在首版仅记录 Montage/Section，不会另行覆盖轴。
+
+非人骨架的 Pak4 静态清单、候选附肢链和 DeepOne 代表动画测量记录于
+[`nonhuman-skeleton-analysis.md`](nonhuman-skeleton-analysis.md)。候选条目在完成
+动画与运行时组件验证前不会自动加入正式骨架目录。

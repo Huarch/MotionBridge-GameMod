@@ -1,0 +1,4802 @@
+{
+  "schema": "playtest-nonhuman-algorithmic-chain-scan-v1",
+  "edition": "playtest-ue5",
+  "policy": "Same-family, same-edition REFSKELT topology scan only. Tags rank parent chains but do not identify active contact, components, target, role, or local axis.",
+  "source": {
+    "path": "D:\\zhifu\\Desktop\\code\\tcode plugin FD\\data\\playtest-static-pose-evidence-v1.json",
+    "sha256": "67624ed44869d0560e65a12e94cb2e398d059e24996ecf7f9dde25f3991ba2a4"
+  },
+  "coverage": {
+    "scannedNoDeclaredStaticCandidateFamilyCount": 77,
+    "familiesWithAlgorithmicChainCount": 77,
+    "familiesWithoutProvableAlgorithmicChainCount": 0
+  },
+  "families": [
+    {
+      "hanimeId": "AletDrone_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletDrone_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletDrone_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Anal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Hand01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Vaginal03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Vaginal04",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Vaginal05",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletHound_Vaginal06",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletMiGoNymph_Arse01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletTentacle_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal04",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal05",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AletTentacle_Vaginal06",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaElderthing_Vagina01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "ElderThing",
+          "originBone": "Petals1_1_R",
+          "directionBone": "Petals1_2_R",
+          "extendedTipBone": "Petals1_8_R",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Petals1_1_R",
+            "Petals1_2_R",
+            "Petals1_3_R",
+            "Petals1_4_R",
+            "Petals1_5_R",
+            "Petals1_6_R",
+            "Petals1_7_R",
+            "Petals1_8_R"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/ElderThing/Mesh_ElderThing",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\ElderThing\\Mesh_ElderThing.skeleton.json",
+            "skeletonName": "Mesh_ElderThing_Skeleton",
+            "boneCount": 268
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "petal",
+            "tagScore": 8,
+            "pathBoneCount": 8
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaElderthing_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "ElderThing",
+          "originBone": "Petals1_1_R",
+          "directionBone": "Petals1_2_R",
+          "extendedTipBone": "Petals1_8_R",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Petals1_1_R",
+            "Petals1_2_R",
+            "Petals1_3_R",
+            "Petals1_4_R",
+            "Petals1_5_R",
+            "Petals1_6_R",
+            "Petals1_7_R",
+            "Petals1_8_R"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/ElderThing/Mesh_ElderThing",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\ElderThing\\Mesh_ElderThing.skeleton.json",
+            "skeletonName": "Mesh_ElderThing_Skeleton",
+            "boneCount": 268
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "petal",
+            "tagScore": 8,
+            "pathBoneCount": 8
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaElderthing_Vaginal03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "ElderThing",
+          "originBone": "Petals1_1_R",
+          "directionBone": "Petals1_2_R",
+          "extendedTipBone": "Petals1_8_R",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Petals1_1_R",
+            "Petals1_2_R",
+            "Petals1_3_R",
+            "Petals1_4_R",
+            "Petals1_5_R",
+            "Petals1_6_R",
+            "Petals1_7_R",
+            "Petals1_8_R"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/ElderThing/Mesh_ElderThing",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\ElderThing\\Mesh_ElderThing.skeleton.json",
+            "skeletonName": "Mesh_ElderThing_Skeleton",
+            "boneCount": 268
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "petal",
+            "tagScore": 8,
+            "pathBoneCount": 8
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaHound_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaHound_Anal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaHound_Vagina03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaHound_Vagina04",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaHound_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaHound_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaMaleHound_VaginalMouth01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaMigo_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Migo_2",
+          "originBone": "tail_C0_0_jnt",
+          "directionBone": "tail_C0_1_jnt",
+          "extendedTipBone": "tail_C0_44_jnt",
+          "supportBone": "spine_C0_4_jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "tail_C0_0_jnt",
+            "tail_C0_1_jnt",
+            "tail_C0_2_jnt",
+            "tail_C0_3_jnt",
+            "tail_C0_4_jnt",
+            "tail_C0_5_jnt",
+            "tail_C0_6_jnt",
+            "tail_C0_7_jnt",
+            "tail_C0_8_jnt",
+            "tail_C0_9_jnt",
+            "tail_C0_10_jnt",
+            "tail_C0_11_jnt",
+            "tail_C0_12_jnt",
+            "tail_C0_13_jnt",
+            "tail_C0_14_jnt",
+            "tail_C0_15_jnt",
+            "tail_C0_16_jnt",
+            "tail_C0_17_jnt",
+            "tail_C0_18_jnt",
+            "tail_C0_19_jnt",
+            "tail_C0_20_jnt",
+            "tail_C0_21_jnt",
+            "tail_C0_22_jnt",
+            "tail_C0_23_jnt",
+            "tail_C0_24_jnt",
+            "tail_C0_25_jnt",
+            "tail_C0_26_jnt",
+            "tail_C0_27_jnt",
+            "tail_C0_28_jnt",
+            "tail_C0_29_jnt",
+            "tail_C0_30_jnt",
+            "tail_C0_31_jnt",
+            "tail_C0_32_jnt",
+            "tail_C0_33_jnt",
+            "tail_C0_34_jnt",
+            "tail_C0_35_jnt",
+            "tail_C0_36_jnt",
+            "tail_C0_37_jnt",
+            "tail_C0_38_jnt",
+            "tail_C0_39_jnt",
+            "tail_C0_40_jnt",
+            "tail_C0_41_jnt",
+            "tail_C0_42_jnt",
+            "tail_C0_43_jnt",
+            "tail_C0_44_jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Migo_2/migo_warrior",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Migo_2\\migo_warrior.skeleton.json",
+            "skeletonName": "migo_warrior_Skeleton",
+            "boneCount": 367
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaMiGo_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaMiGoNympth_VaginalAnal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaMiGoNympth_VaginalAnal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaYith_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "AnyaYith_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Anal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Anal03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Anal04",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Foot01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Foot02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Hand01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Hand02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Hand03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Mouth01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Sleep01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Vaginal05",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Vaginal06",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaHound_Vaginal08",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaMiGoNymph_AnusHand01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaMiGoNymph_AnusMouth01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaYith_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaYith_Anal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaYith_Anal03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaYith_Anal04",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaYith_Mouth01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "ErikaYith_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaElderthing_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "ElderThing",
+          "originBone": "Petals1_1_R",
+          "directionBone": "Petals1_2_R",
+          "extendedTipBone": "Petals1_8_R",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Petals1_1_R",
+            "Petals1_2_R",
+            "Petals1_3_R",
+            "Petals1_4_R",
+            "Petals1_5_R",
+            "Petals1_6_R",
+            "Petals1_7_R",
+            "Petals1_8_R"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/ElderThing/Mesh_ElderThing",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\ElderThing\\Mesh_ElderThing.skeleton.json",
+            "skeletonName": "Mesh_ElderThing_Skeleton",
+            "boneCount": 268
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "petal",
+            "tagScore": 8,
+            "pathBoneCount": 8
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaElderthing_MouthAnal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "ElderThing",
+          "originBone": "Petals1_1_R",
+          "directionBone": "Petals1_2_R",
+          "extendedTipBone": "Petals1_8_R",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Petals1_1_R",
+            "Petals1_2_R",
+            "Petals1_3_R",
+            "Petals1_4_R",
+            "Petals1_5_R",
+            "Petals1_6_R",
+            "Petals1_7_R",
+            "Petals1_8_R"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/ElderThing/Mesh_ElderThing",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\ElderThing\\Mesh_ElderThing.skeleton.json",
+            "skeletonName": "Mesh_ElderThing_Skeleton",
+            "boneCount": 268
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "petal",
+            "tagScore": 8,
+            "pathBoneCount": 8
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaHound_Sleep01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaMigowarrior_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Migo_2",
+          "originBone": "tail_C0_0_jnt",
+          "directionBone": "tail_C0_1_jnt",
+          "extendedTipBone": "tail_C0_44_jnt",
+          "supportBone": "spine_C0_4_jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "tail_C0_0_jnt",
+            "tail_C0_1_jnt",
+            "tail_C0_2_jnt",
+            "tail_C0_3_jnt",
+            "tail_C0_4_jnt",
+            "tail_C0_5_jnt",
+            "tail_C0_6_jnt",
+            "tail_C0_7_jnt",
+            "tail_C0_8_jnt",
+            "tail_C0_9_jnt",
+            "tail_C0_10_jnt",
+            "tail_C0_11_jnt",
+            "tail_C0_12_jnt",
+            "tail_C0_13_jnt",
+            "tail_C0_14_jnt",
+            "tail_C0_15_jnt",
+            "tail_C0_16_jnt",
+            "tail_C0_17_jnt",
+            "tail_C0_18_jnt",
+            "tail_C0_19_jnt",
+            "tail_C0_20_jnt",
+            "tail_C0_21_jnt",
+            "tail_C0_22_jnt",
+            "tail_C0_23_jnt",
+            "tail_C0_24_jnt",
+            "tail_C0_25_jnt",
+            "tail_C0_26_jnt",
+            "tail_C0_27_jnt",
+            "tail_C0_28_jnt",
+            "tail_C0_29_jnt",
+            "tail_C0_30_jnt",
+            "tail_C0_31_jnt",
+            "tail_C0_32_jnt",
+            "tail_C0_33_jnt",
+            "tail_C0_34_jnt",
+            "tail_C0_35_jnt",
+            "tail_C0_36_jnt",
+            "tail_C0_37_jnt",
+            "tail_C0_38_jnt",
+            "tail_C0_39_jnt",
+            "tail_C0_40_jnt",
+            "tail_C0_41_jnt",
+            "tail_C0_42_jnt",
+            "tail_C0_43_jnt",
+            "tail_C0_44_jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Migo_2/migo_warrior",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Migo_2\\migo_warrior.skeleton.json",
+            "skeletonName": "migo_warrior_Skeleton",
+            "boneCount": 367
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaNightgaunt_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "yeyan",
+          "originBone": "wing_R1_0_Jnt",
+          "directionBone": "wing_R1_1_Jnt",
+          "extendedTipBone": "wing04_R1_10_Jnt",
+          "supportBone": "spine_C0_spine_05_Jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "wing_R1_0_Jnt",
+            "wing_R1_1_Jnt",
+            "wing_R1_2_Jnt",
+            "wing_R1_3_Jnt",
+            "wing_R1_4_Jnt",
+            "wing_R1_5_Jnt",
+            "wing_R1_6_Jnt",
+            "wing_R1_7_Jnt",
+            "wing_R1_end_Jnt",
+            "wing_Z_R0_0_Jnt",
+            "wing_Z_R0_1_Jnt",
+            "wing_Z_R0_2_Jnt",
+            "wing_Z_R0_3_Jnt",
+            "wing04_R1_0_Jnt",
+            "wing04_R1_1_Jnt",
+            "wing04_R1_2_Jnt",
+            "wing04_R1_3_Jnt",
+            "wing04_R1_4_Jnt",
+            "wing04_R1_5_Jnt",
+            "wing04_R1_6_Jnt",
+            "wing04_R1_7_Jnt",
+            "wing04_R1_8_Jnt",
+            "wing04_R1_9_Jnt",
+            "wing04_R1_10_Jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/yeyan/nightgaunt",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\yeyan\\nightgaunt.skeleton.json",
+            "skeletonName": "nightgaunt_Skeleton",
+            "boneCount": 249
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "wing",
+            "tagScore": 8,
+            "pathBoneCount": 24
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaNightgaunt_Vaginal02",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "yeyan",
+          "originBone": "wing_R1_0_Jnt",
+          "directionBone": "wing_R1_1_Jnt",
+          "extendedTipBone": "wing04_R1_10_Jnt",
+          "supportBone": "spine_C0_spine_05_Jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "wing_R1_0_Jnt",
+            "wing_R1_1_Jnt",
+            "wing_R1_2_Jnt",
+            "wing_R1_3_Jnt",
+            "wing_R1_4_Jnt",
+            "wing_R1_5_Jnt",
+            "wing_R1_6_Jnt",
+            "wing_R1_7_Jnt",
+            "wing_R1_end_Jnt",
+            "wing_Z_R0_0_Jnt",
+            "wing_Z_R0_1_Jnt",
+            "wing_Z_R0_2_Jnt",
+            "wing_Z_R0_3_Jnt",
+            "wing04_R1_0_Jnt",
+            "wing04_R1_1_Jnt",
+            "wing04_R1_2_Jnt",
+            "wing04_R1_3_Jnt",
+            "wing04_R1_4_Jnt",
+            "wing04_R1_5_Jnt",
+            "wing04_R1_6_Jnt",
+            "wing04_R1_7_Jnt",
+            "wing04_R1_8_Jnt",
+            "wing04_R1_9_Jnt",
+            "wing04_R1_10_Jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/yeyan/nightgaunt",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\yeyan\\nightgaunt.skeleton.json",
+            "skeletonName": "nightgaunt_Skeleton",
+            "boneCount": 249
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "wing",
+            "tagScore": 8,
+            "pathBoneCount": 24
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaNightgaunt_Vaginal03",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "yeyan",
+          "originBone": "wing_R1_0_Jnt",
+          "directionBone": "wing_R1_1_Jnt",
+          "extendedTipBone": "wing04_R1_10_Jnt",
+          "supportBone": "spine_C0_spine_05_Jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "wing_R1_0_Jnt",
+            "wing_R1_1_Jnt",
+            "wing_R1_2_Jnt",
+            "wing_R1_3_Jnt",
+            "wing_R1_4_Jnt",
+            "wing_R1_5_Jnt",
+            "wing_R1_6_Jnt",
+            "wing_R1_7_Jnt",
+            "wing_R1_end_Jnt",
+            "wing_Z_R0_0_Jnt",
+            "wing_Z_R0_1_Jnt",
+            "wing_Z_R0_2_Jnt",
+            "wing_Z_R0_3_Jnt",
+            "wing04_R1_0_Jnt",
+            "wing04_R1_1_Jnt",
+            "wing04_R1_2_Jnt",
+            "wing04_R1_3_Jnt",
+            "wing04_R1_4_Jnt",
+            "wing04_R1_5_Jnt",
+            "wing04_R1_6_Jnt",
+            "wing04_R1_7_Jnt",
+            "wing04_R1_8_Jnt",
+            "wing04_R1_9_Jnt",
+            "wing04_R1_10_Jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/yeyan/nightgaunt",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\yeyan\\nightgaunt.skeleton.json",
+            "skeletonName": "nightgaunt_Skeleton",
+            "boneCount": 249
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "wing",
+            "tagScore": 8,
+            "pathBoneCount": 24
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "GalaNightgaunt_Vaginal04",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "yeyan",
+          "originBone": "wing_R1_0_Jnt",
+          "directionBone": "wing_R1_1_Jnt",
+          "extendedTipBone": "wing04_R1_10_Jnt",
+          "supportBone": "spine_C0_spine_05_Jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "wing_R1_0_Jnt",
+            "wing_R1_1_Jnt",
+            "wing_R1_2_Jnt",
+            "wing_R1_3_Jnt",
+            "wing_R1_4_Jnt",
+            "wing_R1_5_Jnt",
+            "wing_R1_6_Jnt",
+            "wing_R1_7_Jnt",
+            "wing_R1_end_Jnt",
+            "wing_Z_R0_0_Jnt",
+            "wing_Z_R0_1_Jnt",
+            "wing_Z_R0_2_Jnt",
+            "wing_Z_R0_3_Jnt",
+            "wing04_R1_0_Jnt",
+            "wing04_R1_1_Jnt",
+            "wing04_R1_2_Jnt",
+            "wing04_R1_3_Jnt",
+            "wing04_R1_4_Jnt",
+            "wing04_R1_5_Jnt",
+            "wing04_R1_6_Jnt",
+            "wing04_R1_7_Jnt",
+            "wing04_R1_8_Jnt",
+            "wing04_R1_9_Jnt",
+            "wing04_R1_10_Jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/yeyan/nightgaunt",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\yeyan\\nightgaunt.skeleton.json",
+            "skeletonName": "nightgaunt_Skeleton",
+            "boneCount": 249
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "wing",
+            "tagScore": 8,
+            "pathBoneCount": 24
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "JuziHound_A_Hand01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "JuziHound_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "JuziMigowarrior_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Migo_2",
+          "originBone": "tail_C0_0_jnt",
+          "directionBone": "tail_C0_1_jnt",
+          "extendedTipBone": "tail_C0_44_jnt",
+          "supportBone": "spine_C0_4_jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "tail_C0_0_jnt",
+            "tail_C0_1_jnt",
+            "tail_C0_2_jnt",
+            "tail_C0_3_jnt",
+            "tail_C0_4_jnt",
+            "tail_C0_5_jnt",
+            "tail_C0_6_jnt",
+            "tail_C0_7_jnt",
+            "tail_C0_8_jnt",
+            "tail_C0_9_jnt",
+            "tail_C0_10_jnt",
+            "tail_C0_11_jnt",
+            "tail_C0_12_jnt",
+            "tail_C0_13_jnt",
+            "tail_C0_14_jnt",
+            "tail_C0_15_jnt",
+            "tail_C0_16_jnt",
+            "tail_C0_17_jnt",
+            "tail_C0_18_jnt",
+            "tail_C0_19_jnt",
+            "tail_C0_20_jnt",
+            "tail_C0_21_jnt",
+            "tail_C0_22_jnt",
+            "tail_C0_23_jnt",
+            "tail_C0_24_jnt",
+            "tail_C0_25_jnt",
+            "tail_C0_26_jnt",
+            "tail_C0_27_jnt",
+            "tail_C0_28_jnt",
+            "tail_C0_29_jnt",
+            "tail_C0_30_jnt",
+            "tail_C0_31_jnt",
+            "tail_C0_32_jnt",
+            "tail_C0_33_jnt",
+            "tail_C0_34_jnt",
+            "tail_C0_35_jnt",
+            "tail_C0_36_jnt",
+            "tail_C0_37_jnt",
+            "tail_C0_38_jnt",
+            "tail_C0_39_jnt",
+            "tail_C0_40_jnt",
+            "tail_C0_41_jnt",
+            "tail_C0_42_jnt",
+            "tail_C0_43_jnt",
+            "tail_C0_44_jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Migo_2/migo_warrior",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Migo_2\\migo_warrior.skeleton.json",
+            "skeletonName": "migo_warrior_Skeleton",
+            "boneCount": 367
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "JuziShaggai_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "JuziShaggaiMigoWarrior_VaginalMouth01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Migo_2",
+          "originBone": "tail_C0_0_jnt",
+          "directionBone": "tail_C0_1_jnt",
+          "extendedTipBone": "tail_C0_44_jnt",
+          "supportBone": "spine_C0_4_jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "tail_C0_0_jnt",
+            "tail_C0_1_jnt",
+            "tail_C0_2_jnt",
+            "tail_C0_3_jnt",
+            "tail_C0_4_jnt",
+            "tail_C0_5_jnt",
+            "tail_C0_6_jnt",
+            "tail_C0_7_jnt",
+            "tail_C0_8_jnt",
+            "tail_C0_9_jnt",
+            "tail_C0_10_jnt",
+            "tail_C0_11_jnt",
+            "tail_C0_12_jnt",
+            "tail_C0_13_jnt",
+            "tail_C0_14_jnt",
+            "tail_C0_15_jnt",
+            "tail_C0_16_jnt",
+            "tail_C0_17_jnt",
+            "tail_C0_18_jnt",
+            "tail_C0_19_jnt",
+            "tail_C0_20_jnt",
+            "tail_C0_21_jnt",
+            "tail_C0_22_jnt",
+            "tail_C0_23_jnt",
+            "tail_C0_24_jnt",
+            "tail_C0_25_jnt",
+            "tail_C0_26_jnt",
+            "tail_C0_27_jnt",
+            "tail_C0_28_jnt",
+            "tail_C0_29_jnt",
+            "tail_C0_30_jnt",
+            "tail_C0_31_jnt",
+            "tail_C0_32_jnt",
+            "tail_C0_33_jnt",
+            "tail_C0_34_jnt",
+            "tail_C0_35_jnt",
+            "tail_C0_36_jnt",
+            "tail_C0_37_jnt",
+            "tail_C0_38_jnt",
+            "tail_C0_39_jnt",
+            "tail_C0_40_jnt",
+            "tail_C0_41_jnt",
+            "tail_C0_42_jnt",
+            "tail_C0_43_jnt",
+            "tail_C0_44_jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Migo_2/migo_warrior",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Migo_2\\migo_warrior.skeleton.json",
+            "skeletonName": "migo_warrior_Skeleton",
+            "boneCount": 367
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Shaggai",
+          "originBone": "Tail1_M",
+          "directionBone": "Tail1Part1_M",
+          "extendedTipBone": "joint4",
+          "supportBone": "Reoot_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail1_M",
+            "Tail1Part1_M",
+            "Tail1Part2_M",
+            "Tail2_M",
+            "Tail2Part1_M",
+            "Tail2Part2_M",
+            "Tail3_M",
+            "Tail3Part1_M",
+            "Tail3Part2_M",
+            "curve4Joint0BnA",
+            "curve4Joint0Bn1",
+            "curve4Joint0Bn2",
+            "curve4Joint0Bn3",
+            "curve4Joint0Bn4",
+            "curve4Joint0Bn5",
+            "curve4Joint0Bn6",
+            "curve4Joint0Bn7",
+            "curve4Joint0Bn8",
+            "curve4Joint0Bn9",
+            "curve4Joint0Bn10",
+            "curve4Joint0Bn11",
+            "curve4Joint0Bn12",
+            "Tail0_M",
+            "Tail0Part1_M",
+            "Tail0Part2_M",
+            "Tail11_M",
+            "Tail11Part1_M",
+            "Tail11Part2_M",
+            "Tail21_M",
+            "Tail21Part1_M",
+            "Tail21Part2_M",
+            "Tail31_M",
+            "Tail31Part1_M",
+            "Tail31Part2_M",
+            "Tail41_M",
+            "Tail41Part1_M",
+            "Tail41Part2_M",
+            "Tail51_M",
+            "Tail51Part1_M",
+            "Tail51Part2_M",
+            "Tail61_M",
+            "tuitou",
+            "tuitou1",
+            "tuitou2",
+            "joint4"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Shaggai/Mesh_Shaggai",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Shaggai\\Mesh_Shaggai.skeleton.json",
+            "skeletonName": "Mesh_Shaggai_Skeleton",
+            "boneCount": 169
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "JuziYith_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "YanshiHound_Anal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "YanshiHound_Vaginal20251006_Jean",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_Hound",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_Hound.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 203
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        },
+        {
+          "monsterDirectory": "Hound",
+          "originBone": "Tail0_M",
+          "directionBone": "Tail1_M",
+          "extendedTipBone": "Tail8_M",
+          "supportBone": "Root_M",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "Tail0_M",
+            "Tail1_M",
+            "Tail2_M",
+            "Tail3_M",
+            "Tail4_M",
+            "Tail5_M",
+            "Tail6_M",
+            "Tail7_M",
+            "Tail8_M"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Hound/Meshes/Mesh_HoundRemake",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Hound\\Meshes\\Mesh_HoundRemake.skeleton.json",
+            "skeletonName": "Mesh_Hound_Skeleton",
+            "boneCount": 264
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 9
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "YanshiNightgaunt_Vaginal01",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "yeyan",
+          "originBone": "wing_R1_0_Jnt",
+          "directionBone": "wing_R1_1_Jnt",
+          "extendedTipBone": "wing04_R1_10_Jnt",
+          "supportBone": "spine_C0_spine_05_Jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "wing_R1_0_Jnt",
+            "wing_R1_1_Jnt",
+            "wing_R1_2_Jnt",
+            "wing_R1_3_Jnt",
+            "wing_R1_4_Jnt",
+            "wing_R1_5_Jnt",
+            "wing_R1_6_Jnt",
+            "wing_R1_7_Jnt",
+            "wing_R1_end_Jnt",
+            "wing_Z_R0_0_Jnt",
+            "wing_Z_R0_1_Jnt",
+            "wing_Z_R0_2_Jnt",
+            "wing_Z_R0_3_Jnt",
+            "wing04_R1_0_Jnt",
+            "wing04_R1_1_Jnt",
+            "wing04_R1_2_Jnt",
+            "wing04_R1_3_Jnt",
+            "wing04_R1_4_Jnt",
+            "wing04_R1_5_Jnt",
+            "wing04_R1_6_Jnt",
+            "wing04_R1_7_Jnt",
+            "wing04_R1_8_Jnt",
+            "wing04_R1_9_Jnt",
+            "wing04_R1_10_Jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/yeyan/nightgaunt",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\yeyan\\nightgaunt.skeleton.json",
+            "skeletonName": "nightgaunt_Skeleton",
+            "boneCount": 249
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "wing",
+            "tagScore": 8,
+            "pathBoneCount": 24
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "YanshiShaggai_navel20260126_Wumiao",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "Migo_2",
+          "originBone": "tail_C0_0_jnt",
+          "directionBone": "tail_C0_1_jnt",
+          "extendedTipBone": "tail_C0_44_jnt",
+          "supportBone": "spine_C0_4_jnt",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "tail_C0_0_jnt",
+            "tail_C0_1_jnt",
+            "tail_C0_2_jnt",
+            "tail_C0_3_jnt",
+            "tail_C0_4_jnt",
+            "tail_C0_5_jnt",
+            "tail_C0_6_jnt",
+            "tail_C0_7_jnt",
+            "tail_C0_8_jnt",
+            "tail_C0_9_jnt",
+            "tail_C0_10_jnt",
+            "tail_C0_11_jnt",
+            "tail_C0_12_jnt",
+            "tail_C0_13_jnt",
+            "tail_C0_14_jnt",
+            "tail_C0_15_jnt",
+            "tail_C0_16_jnt",
+            "tail_C0_17_jnt",
+            "tail_C0_18_jnt",
+            "tail_C0_19_jnt",
+            "tail_C0_20_jnt",
+            "tail_C0_21_jnt",
+            "tail_C0_22_jnt",
+            "tail_C0_23_jnt",
+            "tail_C0_24_jnt",
+            "tail_C0_25_jnt",
+            "tail_C0_26_jnt",
+            "tail_C0_27_jnt",
+            "tail_C0_28_jnt",
+            "tail_C0_29_jnt",
+            "tail_C0_30_jnt",
+            "tail_C0_31_jnt",
+            "tail_C0_32_jnt",
+            "tail_C0_33_jnt",
+            "tail_C0_34_jnt",
+            "tail_C0_35_jnt",
+            "tail_C0_36_jnt",
+            "tail_C0_37_jnt",
+            "tail_C0_38_jnt",
+            "tail_C0_39_jnt",
+            "tail_C0_40_jnt",
+            "tail_C0_41_jnt",
+            "tail_C0_42_jnt",
+            "tail_C0_43_jnt",
+            "tail_C0_44_jnt"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/Migo_2/migo_warrior",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\Migo_2\\migo_warrior.skeleton.json",
+            "skeletonName": "migo_warrior_Skeleton",
+            "boneCount": 367
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "tail",
+            "tagScore": 9,
+            "pathBoneCount": 45
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    },
+    {
+      "hanimeId": "YanshiYith_AnalMouth20260114_MSJ",
+      "algorithmicCandidates": [
+        {
+          "monsterDirectory": "GreatRaceofYith",
+          "originBone": "waist_jiointBnA",
+          "directionBone": "waist_jiointBn1",
+          "extendedTipBone": "waist_jiointBn5",
+          "supportBone": "body_joint",
+          "structure": "algorithmic_continuous_parent_chain",
+          "refSkeletonParentChain": [
+            "waist_jiointBnA",
+            "waist_jiointBn1",
+            "waist_jiointBn2",
+            "waist_jiointBn3",
+            "waist_jiointBn4",
+            "waist_jiointBn5"
+          ],
+          "staticRefSkeletonExport": {
+            "assetPath": "/Paralogue/Content/Characters/Monster/GreatRaceofYith/Mesh_Tentacle",
+            "exportPath": "D:\\zhifu\\Desktop\\data\\mmd\\exports\\nonhuman-skeleton-analysis\\Characters\\Monster\\GreatRaceofYith\\Mesh_Tentacle.skeleton.json",
+            "skeletonName": "Mesh_Tentacle_Skeleton",
+            "boneCount": 483
+          },
+          "scan": {
+            "method": "same_mesh_tagged_parent_chain_v1",
+            "tag": "waist",
+            "tagScore": 2,
+            "pathBoneCount": 6
+          },
+          "confidence": "algorithmic_static_parent_chain_needs_component_binding",
+          "formalRuleStatus": "static_formal_pending_runtime_calibration"
+        }
+      ],
+      "unresolvedReasons": []
+    }
+  ]
+}
