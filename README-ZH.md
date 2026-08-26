@@ -2,9 +2,9 @@
 
 [English](README.md) | 简体中文
 
-这是一个为 Operation Lovecraft: Fallen Doll 制作的非官方实时 TCode 接入项目。
-游戏侧使用 UE4SS Lua 读取当前 HAnime 的功能骨骼；F8Studio 负责参与者与功能骨
-选择、多轴运动计算、Viewer、安全回中以及 USB 或 Wi-Fi 输出。本项目不是离线
+这是 Motion Bridge 的 Operation Lovecraft: Fallen Doll 游戏适配仓库。
+UE4SS Lua Mod 识别当前 HAnime 并输出精简的功能骨帧；Motion Bridge 将实时动作
+转换为 OSR2/SR6 TCode，提供 3D Viewer、设备连接与安全回中。本项目不是离线
 Funscript，也不会修改或重新打包游戏 Pak。
 
 当前版本：`0.17.0`
@@ -25,14 +25,14 @@ SR6 接收 `L0/L1/L2/R0/R1/R2` 六轴，OSR2 使用同一运动流中的 `L0`。
 - Playtest：508 个 HAnime family、3,087 条精确 Montage 身份
 - Demo：217 个 HAnime family、1,160 条精确 Montage 身份
 - 50 Hz 实时功能骨采集与 VaM 式接触几何
-- SR6 六轴输出、OSR2 L0 输出，以及 3D 骨骼、SR6/OSR 与六轴波形 Viewer
+- SR6 六轴输出、OSR2 L0 输出，以及独立的 SR6/OSR 3D Viewer
 - 六轴独立范围滑条；USB 与 Wi-Fi 二选一
 - HAnime/参与者切换使用组件与 Montage 事件触发，低频轮询只作核验
 - 断流保持最后值 250 ms，再用 600 ms 平滑回到 `L05000`
 
 多轴管线已经可以正常使用，但“支持六轴”不代表全部 HAnime 都已逐条人工校准。
 部分 Hand/Foot 的左右侧和主次骨、特殊动作、多人及非人类动作仍需继续标注。
-遇到未校准姿势时，应先使用 Viewer 检查方向，并在 F8Studio 中限制各轴设备范围。
+遇到未校准姿势时，应先使用 Viewer 检查方向，并在 Motion Bridge 中限制各轴设备范围。
 
 ## 数据链路
 
@@ -40,22 +40,22 @@ SR6 接收 `L0/L1/L2/R0/R1/R2` 六轴，OSR2 使用同一运动流中的 `L0`。
 Operation Lovecraft: Fallen Doll
   → UE4SS Lua（精确识别 HAnime，采集紧凑功能骨集合）
   → ~/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson
-  → Fallen Doll Source (fd_source)
-  → PyEngine (fd_pyengine：接触几何、六轴、安全回中、范围映射)
-  → 3D / SR6 / Wave Viewer → TCode → USB 或 Wi-Fi
+  → Motion Bridge Fallen Doll Adapter
+  → 接触几何、六轴、安全回中和范围映射
+  → 3D SR6/OSR Viewer → TCode → USB、Wi-Fi 或 Intiface
 ```
 
-`studio` 是 F8Studio 主程序自身。导入并 Deploy 工程后，它应自动启动
-`fd_pyengine` 和 `fd_source`，不需要玩家手动打开三个终端窗口。
+数据流路径继续兼容已有安装，但正常使用不再需要 F8Studio、`fd_source` 或
+`fd_pyengine`。
 
 ## 快速开始
 
 1. 关闭游戏，把发布包 `Game` 内的内容复制到对应版本的
    `Paralogue/Binaries/Win64`，也可以运行包内的 `Install-Mod.ps1`。
-2. 使用包含 `Fallen Doll Source` 的 F8Studio，导入
-   `f8studio/fallen-doll-skeleton-preview-v17.json` 并 Deploy。
-3. 确认 `studio`、`fd_pyengine`、`fd_source` 均为 Running/Active。
-4. USB 和 Wi-Fi 只能启用一种。首次使用时先打开 Viewer，不连接真实设备。
+2. 解压并启动 Motion Bridge；Full 完整包已包含匹配的便携版本。
+3. 确认 Motion Bridge 显示 Fallen Doll 数据流 Online。
+4. 选择 USB、Wi-Fi 或 Intiface。首次使用时先打开 3D Viewer 验证动作，再解锁
+   真实设备输出。
 5. 启动游戏并进入 HAnime；离开动作或断流后会自动安全回中。
 
 详细安装与排错：
@@ -71,15 +71,15 @@ Operation Lovecraft: Fallen Doll
 - `F8`：一次性导出当前姿势列表
 - `F10`：安全热重载 Lua Mod
 
-实时识别与骨骼流默认自动待命，不需要启动/停止侦测快捷键。Lua 不创建游戏内
-UI，Viewer 是 F8Studio 的独立窗口。
+实时识别与骨骼流默认自动待命，不需要启动/停止侦测快捷键。Lua Mod 不创建
+游戏内 UI，Motion Bridge Viewer 是独立桌面窗口。
 
 ## 工程目录
 
 - `fd_tcode_probe/`：游戏侧 UE4SS Lua Mod
 - `fd_tcode_reloader/`：Lua 安全热重载 broker
 - `data/`：从解包资料生成的 HAnime、姿势与骨架索引
-- `f8studio/`：F8Studio 工程导出及 Fallen Doll Source 上游补丁
+- `f8studio/`：可选的旧版/开发调试工程及上游补丁
 - `tools/`：数据生成、安装、启动与发布脚本
 - `docs/`：用户文档、发布帖与解包资料约束
 
@@ -87,19 +87,23 @@ UI，Viewer 是 F8Studio 的独立窗口。
 [unpacked-data-first.md](docs/unpacked-data-first.md)。运行时不再周期性全局枚举整套
 骨架，以避免游戏卡顿和物理刷新。
 
-## 独立 Motion Bridge
+## Motion Bridge
 
 原生 Motion Bridge 桌面程序已迁移到独立仓库，其中包含 Qt 桌面界面、多游戏
 Adapter 协议、运动引擎、设备输出、SR6 预览、便携构建及 F8Studio 配置迁移
 工具。本仓库此后只维护 Fallen Doll 游戏侧接入和对应的 F8Studio 流程。
 
-本地独立仓库位于同级目录 `../MotionBridge`。待新仓库发布后再补充公开地址。
+源码与独立版本发布地址：
+[Huarch/MotionBridge](https://github.com/Huarch/MotionBridge)
+
 Fallen Doll 仍是 Motion Bridge 首个内置 Adapter，并继续读取相同的
-`fd-skeleton.ndjson` 数据流。
+`fd-skeleton.ndjson` 数据流。游戏 Release 为新用户提供 Full 完整包，同时为已
+安装 Motion Bridge 的用户提供体积更小的 Mod-only 包。
 
-## F8Studio
+## 可选 F8Studio 流程
 
-推荐工程：`Fallen Doll Skeleton Preview v17 (real-time multi-axis)`
+正常运行 Mod 已不再需要 F8Studio。现有 `Fallen Doll Skeleton Preview v17`
+工程继续用于节点图编辑、诊断以及与独立运动引擎进行对比。
 
 Fallen Doll Source 上游 PR：
 [feel8-fun/f8studio#3](https://github.com/feel8-fun/f8studio/pull/3)
