@@ -12,6 +12,7 @@ UmodelSaved/
 .vs/
 **/__pycache__/
 .tmp/
+companion/out/
 
 # Local runtime output
 logs/

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MotionFrame v1",
+  "description": "One complete real-time skeleton frame for a Motion Bridge input adapter.",
+  "type": "object",
+  "required": ["schema", "gameId", "sequence", "monotonicUs", "action", "participants"],
+  "properties": {
+    "schema": { "const": "motion-frame/v1" },
+    "gameId": { "type": "string", "minLength": 1 },
+    "sequence": { "type": "integer", "minimum": 0 },
+    "monotonicUs": { "type": "integer", "minimum": 0 },
+    "action": {
+      "type": "object",
+      "required": ["active"],
+      "properties": {
+        "active": { "type": "boolean" },
+        "id": { "type": "string" },
+        "category": { "type": "string" }
+      }
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["stableKey", "bones"],
+        "properties": {
+          "stableKey": { "type": "string" },
+          "role": { "type": "string" },
+          "skeletonId": { "type": "string" },
+          "bones": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "pos", "rot"],
+              "properties": {
+                "name": { "type": "string" },
+                "pos": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } },
+                "rot": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number" } }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "fallen-doll",
+  "displayName": "Operation Lovecraft: Fallen Doll",
+  "input": {
+    "kind": "fallen-doll-ue4ss-ndjson",
+    "defaultPath": "%USERPROFILE%/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson",
+    "schema": "fallen-doll-ue-world-v1"
+  },
+  "supportedEditions": ["Playtest", "Demo", "Legacy049"],
+  "defaultContact": {
+    "originBone": "Penis01",
+    "directionBone": "Penis02",
+    "tipBone": "Penis09",
+    "supportBone": "M_Hips",
+    "targetBone": "M_Gen"
+  }
+}
