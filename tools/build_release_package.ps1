@@ -6,7 +6,7 @@ param(
 $ErrorActionPreference = "Stop"
 $workspace = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
 $outputRoot = [System.IO.Path]::GetFullPath((Join-Path $workspace "dist"))
-$packageName = "MotionBridge-FallenDoll-Mod-$Version"
+$packageName = "MotionBridge-FallenDoll-Playtest-Mod-$Version"
 $packageDir = [System.IO.Path]::GetFullPath((Join-Path $outputRoot $packageName))
 $archivePath = [System.IO.Path]::GetFullPath((Join-Path $outputRoot "$packageName.zip"))
 
