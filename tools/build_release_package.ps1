@@ -10,11 +10,11 @@ $packageName = "MotionBridge-FallenDoll-Demo-Mod-$Version"
 $packageDir = [System.IO.Path]::GetFullPath((Join-Path $outputRoot $packageName))
 $archivePath = [System.IO.Path]::GetFullPath((Join-Path $outputRoot "$packageName.zip"))
 
-$ue4ssAssetName = "UE4SS_v3.0.1-1028-gd7e7826d.zip"
-$ue4ssAssetUrl = "https://github.com/UE4SS-RE/RE-UE4SS/releases/download/experimental-latest/$ue4ssAssetName"
-$ue4ssExpectedSha256 = "342D893C3F64CB36B88AC4D58CEFC1DD8571B9E37B03F86B793F63955CCC2C0B"
+$ue4ssAssetName = "UE4SS_v3.0.1.zip"
+$ue4ssAssetUrl = "https://github.com/UE4SS-RE/RE-UE4SS/releases/download/v3.0.1/$ue4ssAssetName"
+$ue4ssExpectedSha256 = "4B47D4BCEDDD2F561A4E395BFA00924CCFC945AF576A2D0C613E6537846C57EC"
 if ([string]::IsNullOrWhiteSpace($UE4SSArchive)) {
-    $UE4SSArchive = Join-Path $workspace ".deps/ue4ss-d7e7826/$ue4ssAssetName"
+    $UE4SSArchive = Join-Path $workspace ".deps/ue4ss-v3.0.1/$ue4ssAssetName"
 }
 $ue4ssArchivePath = [System.IO.Path]::GetFullPath($UE4SSArchive)
 
