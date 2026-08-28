@@ -7,9 +7,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this form when the game and services keep running, but the generated motion does not match the animation. Test with **Live Preview on and physical output off**.
+        Use this form when the game and Motion Bridge keep running, but the generated motion does not match the animation. Test with the **3D viewer open and physical output off**.
 
-        当游戏与服务正常运行，但输出动作和画面不一致时使用此模板。请打开 **Live Preview** 并关闭实体设备输出后测试。
+        当游戏和 Motion Bridge 正常运行，但输出动作与画面不一致时使用此模板。请打开 **3D Viewer** 并关闭实体设备输出后测试。
 
   - type: dropdown
     id: game_build

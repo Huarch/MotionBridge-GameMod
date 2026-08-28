@@ -72,6 +72,7 @@ end
 function Runtime.snapshot()
     ExecuteInGameThread(function()
         Diagnostics.snapshot(true)
+        Diagnostics.skeletal_mesh_inventory()
     end)
 end
 

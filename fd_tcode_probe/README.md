@@ -1,178 +1,39 @@
-# FD-TCode Lua development mod
+# Fallen Doll UE4SS motion probe
 
-This is the live Lua development path for Fallen Doll runtime discovery. It
-does not send TCode and does not control a physical device. Full code reload is
-owned by a separate broker mod so the target never destroys itself from inside
-its own key callback.
+This Lua Mod detects the current HAnime, resolves active participants, and writes compact functional-bone frames for Motion Bridge. It deliberately avoids full-skeleton polling during normal play.
 
-## Current stage
+## Runtime flow
 
-- Follow the mandatory static-first workflow in
-  `docs/unpacked-data-first.md` and cache confirmed H-system relationships in
-  `data/unpacked-hsystem-contract-v1.json` before designing runtime probes.
-- Keep `HSceneManager` and animation-manager inspection behind the explicit
-  F6/F8 diagnostic path; the automatic stream does not depend on an HScene snapshot.
-- Keep compact monitoring to primitive state fields and verified UObject links;
-  array/struct containers are deferred until a manual diagnostic requires them.
-- Log only when the compact HScene state changes.
-- Keep expensive schema and inventory dumps behind manual diagnostics.
-- Start only the compact HAnime detector automatically; keep the expensive
-  HScene/schema diagnostics manual.
-- Reject inactive components that return zero quaternions. The automatic stream binds exact
-  TableHAnim Montage owners plus the unpacked family participant roles rather
-  than guessing participants from arbitrary skeletal meshes.
-- Recognize seven unpacked skeleton catalogs independently: Alet, MaleB,
-  Erika, Galatea, Juzi, yanshi, and Anya. Bone names are never shared across
-  catalogs merely because two characters are humanoid.
-- Match active Montage assets exactly against the generated TableHAnim family
-  allowlist. The older 102-pose catalog remains a manual annotation worklist;
-  it is not the realtime identity gate and does not imply that limb side or contact
-  priority has been verified.
-- Keep two read-only static indexes with deliberately limited meanings. The
-  `TableHAnim` reference index finds primary pose directories imported by the
-  cooked table, including disabled, unreleased, legacy, test, or otherwise
-  filtered content; it can also omit shared or redirected poses. The loose Pak
-  normal-cycle index is only an animation-asset coverage aid. Neither count nor
-  either index's relative size may be presented as the number of HAnime entries
-  visible in game. `GetSPAnimCount` is called with UE4SS's required Blueprint
-  output table, but its value is only the current SP/session count. The cooked
-  `LocalHDatas` name is a Blueprint-local graph symbol, not a reflected live
-  property. Full runtime entries therefore use the Card ID accessors, beginning
-  with `GetDatabyCardID`.
-- Legacy profile and pose-resolver probes remain available for manual
-  diagnostics, but the automatic stream never enables an unknown animation from a path/category
-  guess. Combined-contact, unknown-partner, and unannotated limb poses remain
-  non-driving.
-- After the exact HAnime gate opens, stream the currently active registered
-  primary participants as a compact functional contact-bone stream at the configured
-  20 ms target interval (50 Hz). Pose geometry profiles are not an
-  output prerequisite and F8Studio owns no Fallen Doll matching rules.
-- Keep the unpacked common skeleton and functional-bone catalog available for
-  diagnostics, but emit only the compact functional contact set on the realtime
-  path.
-  Participants receive deterministic indices within the generic `male/female`
-  motion role and separate stable keys, including multiplayer scenes.
-- Derive participant candidates and their A/B/C priority from the unpacked
-  TableHAnim participant tags. Runtime Montage ownership binds those static
-  slots to live components; F8Studio may disable any participant and fall back
-  to the next enabled ranked slot, or disable all output.
-- Treat modular meshes as one character: only the catalog's confirmed primary
-  component is eligible. The exact HAnime family supplies per-role participant
-  counts, preventing shared body/clothing SkinnedAssets from multiplying one
-  actor into dozens of streams.
-- Emit generic `male/female` motion identities for F8Studio selectors while
-  preserving the exact playable-character catalog as `characterRole` and
-  `catalogId` trailer metadata.
-- Keep full-body debug skeletons out of the realtime path. Each participant
-  contributes only the compact candidates required by the current interaction
-  category: left/right hands, left/right feet, mouth/tongue, one vaginal/anal
-  contact point, or the penetration-axis origin/tip. Unrelated categories are
-  not sampled in the same frame. The packet trailer ranks verified candidates;
-  F8Studio may disable
-  any candidate and falls back to the next enabled ranked bone. Alet/Male
-  Hand02 is currently annotated right-hand primary and left-hand secondary.
-  Other hand/foot poses remain recognized but have no automatic ranked output
-  until left/right, combined-limb, and primary/secondary annotations exist.
-  Special actions do not change the selected bone in this milestone. Montage
-  discovery is polled separately at 250 ms, so speed changes are represented
-  by current transforms rather than a fixed-rate animation phase.
-- Perform global skeletal-component discovery only when the Mod stream starts, a cached
-  component becomes invalid, or a dormant stream observes a confirmed
-  `Exp_In`/`Exp_Sexing` HAnime re-entry. `Exp_Idle` never performs discovery or
-  consumes the one-shot re-entry recovery. The realtime gate does not call
-  `HScene.snapshot`; its multi-class searches remain explicit F6/F8 diagnostics.
-- Write F8Studio-compatible skeleton JSON lines to
-  `%USERPROFILE%/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson`.
-  `F8STUDIO_GAMES_DIR` may relocate the shared games directory and
-  `FD_TCODE_RUNTIME_DIR` may override only Fallen Doll's runtime directory.
-  The game Mod and F8Studio must inherit the same override when one is used.
-  Positions are converted from Unreal centimetres to metres; rotations are
-  reordered from Unreal XYZW to F8 WXYZ. Coordinate handedness is intentionally
-  unchanged until the first 3D Viz comparison.
-- Do not calculate axes or control devices in Lua.
-- Treat HAnime identity as a hard game-side output gate. `TableHAnim` defines
-  477 authoritative HAnime families; the read-only full Pak index expands
-  those families to 3,081 exact primary, companion-character, and item Montage
-  assets. Three consecutive frames confirm a new HAnime. Unrelated idle and
-  expression Montages remain outside the allowlist.
-- Never use category words, geometry proximity, Montage position, or the old
-  Hand fallback to classify an unknown animation as HAnime. Idle and transition
-  animation therefore produce no skeleton packets for F8Studio. HManager/Card
-  access remains diagnostic data; realtime identity comes only from exact active
-  Montage assets in the generated allowlist.
-- Include `hanimeActive`, `hanimeId`, `hanimeAsset`, `hanimeCategory`,
-  `hanimePhase`, `hanimeState`, and `recognitionSource` in the ordinary skeleton
-  trailer. F8Studio remains a generic receiver and owns no Fallen Doll rules.
+`app.lua` registers the object/Montage events and starts the stream. The
+realtime path is intentionally split into four stages:
 
-## Keys
+1. `hanime_component_registry.lua` owns the cached primary mesh components.
+2. `hanime_identity_resolver.lua` resolves exact TableHAnim/Montage identity,
+   while `hanime_hsystem_state.lua` maintains the event-armed HManager cache.
+3. `hanime_detector.lua` owns only the HAnime acquire/hold/release state
+   machine and participant bindings.
+4. `hanime_motion_contract.lua` converts every participant—human, nonhuman,
+   multi-participant, or calibrated override—into the same bone-read contract.
+5. `generic_hanime_probe.lua` executes that contract and
+   `skeleton_stream.lua` serializes it for Motion Bridge.
 
-- `F6`: start/stop the HScene state monitor.
-- `F7`: reserved for the external F8Studio preview launcher; it is not
-  registered by Lua yet.
-- `F8`: export the current runtime-filtered pose list once to
-  `runtime/fd-visible-poses.tsv`. It does not start a recorder.
-- The functional contact-bone stream is armed automatically. Exact HAnime opens
-  the output gate; idle/exit closes it while low-frequency
-  re-entry detection remains active.
-- `F10`: fully reload `fd_tcode_probe` through the separate reload broker.
+Supporting modules have narrower responsibilities:
 
-UE4SS global hot reload and automatic file watching remain disabled. The broker
-uses `RestartMod("fd_tcode_probe")`; do not call `RestartCurrentMod()` from a
-callback owned by `fd_tcode_probe`. Invalid rule files are rejected and the
-last valid in-memory rules remain active until the next successful reload.
+- `skeleton_catalog.lua`: unpacked skeleton/component evidence and functional
+  bone catalog
+- `profile_store.lua` / `pose_resolver.lua`: interaction and runtime profile
+  lookup
+- `safe.lua`: guarded Unreal object/property access
+- generated `*_data.lua`: data-only identity, skeleton, and calibration tables
 
-The Lua mod does not build an Unreal/Canvas UI. Visualization is owned by
-F8Studio. Its managed `Fallen Doll Source` incrementally reads the spool file;
-the legacy localhost UDP relay is not required by the current v15 project.
+Generated data is kept separate from the runtime state machine. It should be
+regenerated by the analysis pipeline rather than hand-edited into detector
+logic.
 
-## Layout
+All Unreal object access stays on the game thread. Scene and Montage events drive rediscovery; low-frequency polling is only a recovery path. An invalid object or missing binding suppresses the frame instead of retaining a stale pointer.
 
-- `Scripts/main.lua`: minimal protected entry point.
-- `fd_tcode/app.lua`: lifecycle and key registration.
-- `fd_tcode/runtime.lua`: change-only monitor.
-- `fd_tcode/hscene.lua`: HScene discovery and plain snapshot construction.
-- `fd_tcode/bone_probe.lua`: active-participant binding and compatibility Hand
-  sampler.
-- `fd_tcode/profile_probe.lua`: profile-selected primary/reference binding for
-  all registered playable skeletons.
-- `fd_tcode/pose_resolver.lua`: HScene/Montage matching against the hot pose
-  catalog.
-- `fd_tcode/hanime_detector.lua`: exact active-Montage HAnime gate,
-  acquisition/release state, and idle-to-HAnime component-cache recovery.
-- `fd_tcode/generic_hanime_probe.lua`: profile-free active-participant skeleton
-  sampler used only while the exact HAnime gate is open.
-- `fd_tcode/hanime_identity_data.lua`: generated `TableHAnim` Montage allowlist.
-- `fd_tcode/pose_catalog_probe.lua`: safe, one-shot active `HManager_C`
-  `LocalHDatas` reflection and TSV export.
-- `data/hanim-table-index-v1.json`: direct primary-character asset references
-  from `/Game/Data/TableHAnim`; not a visible pose count or count bound.
-- `data/character-pose-index-v1.json`: loose Pak normal-cycle asset coverage;
-  not an in-game pose count.
-- `fd_tcode/diagnostics.lua`: manual detailed diagnostics.
-- `fd_tcode/safe.lua`: protected Unreal reads and value formatting.
-- `fd_tcode/config.lua`: diagnostic hotkeys, polling interval, and known property names.
-- `fd_tcode/profile_data.lua`: legacy/manual geometry rules; not consumed by
-  the automatic functional contact stream.
-- `fd_tcode/profile_store.lua`: validated refresh/fallback for those manual
-  diagnostics.
+## Hot reload
 
-## Static-formal profile sidecars
+Use `F10` through `fd_tcode_reloader` for normal Lua iteration. `F6` toggles low-frequency diagnostics and `F8` exports the current pose list once.
 
-The game-side profile store can read table-ready static formal records without
-turning them into calibrated geometry. Before launching the Mod, set exactly
-one edition value in its environment:
-
-```powershell
-$env:FD_TCODE_GAME_EDITION = "demo-ue4.25" # Demo
-# or
-$env:FD_TCODE_GAME_EDITION = "playtest-ue5" # Playtest
-```
-
-With `demo-ue4.25`, only `demo_static_formal_profile_data.lua` is merged.
-With `playtest-ue5`, only the Playtest F/F and nonhuman static sidecars are
-merged. Missing or invalid values load no static-formal sidecar, rather than
-mixing editions with potentially colliding HAnime IDs. A sidecar never replaces
-an existing `enabled_for_simulation_validation` calibrated profile. Static rows
-remain `static_formal_pending_runtime_calibration`; they have no geometry or
-local-axis calibration. These files are generated in the workspace only—this
-repository does not deploy or overwrite an external game installation.
+Generated profile files are committed with the Mod so players do not need unpacked assets, Python tools, or analysis datasets.

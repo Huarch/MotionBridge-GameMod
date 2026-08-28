@@ -3,6 +3,6 @@ contact_links:
   - name: EroScripts discussion / EroScripts 讨论帖
     url: https://discuss.eroscripts.com/t/333156
     about: Usage questions, player discussion, and general feedback / 使用问题、玩家讨论与一般反馈
-  - name: F8Studio upstream issues / F8Studio 上游问题
-    url: https://github.com/feel8-fun/f8studio/issues
-    about: Problems reproducible without the Fallen Doll mod or in F8Studio itself / 与 Fallen Doll Mod 无关、可在 F8Studio 本体复现的问题
+  - name: Motion Bridge issues / Motion Bridge 程序问题
+    url: https://github.com/Huarch/MotionBridge/issues
+    about: Desktop UI, 3D viewer, device connection, and output tuning / 桌面界面、3D Viewer、设备连接与输出调节

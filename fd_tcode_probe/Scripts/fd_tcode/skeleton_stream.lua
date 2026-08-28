@@ -19,6 +19,8 @@ local SkeletonStream = {
     spool_retry_count = 0,
 }
 
+local exporter_version = "fd-tcode-lua-" .. tostring(Config.version)
+
 local function json_escape(value)
     local text = tostring(value or "")
     text = string.gsub(text, "\\", "\\\\")
@@ -52,10 +54,51 @@ local function bone_json(name, bone)
     )
 end
 
+local function direct_geometry_json(geometry)
+    if type(geometry) ~= "table" then
+        return "null"
+    end
+    local basis = geometry.targetBasis or {}
+    local fallback = geometry.axisFallback
+    local plane = geometry.referencePlane or {}
+    local fallback_json = "null"
+    if type(fallback) == "table" then
+        fallback_json = string.format(
+            '{"mode":"%s","lengthCm":%.9f,"evidence":"%s"}',
+            json_escape(fallback.mode),
+            tonumber(fallback.lengthCm or 0.0),
+            json_escape(fallback.evidence)
+        )
+    end
+    return string.format(
+        '{"source":"%s","deviceOutput":"%s","referenceOriginBone":"%s","referenceDirectionBone":"%s","referenceTipBone":"%s","referenceSupportBone":"%s","referencePlane":{"mode":"%s","centerBone":"%s","forwardBone":"%s","leftBone":"%s","rightBone":"%s"},"l0Normalization":"%s","l0MinMeters":%.6f,"l0MaxMeters":%.6f,"l0Inverted":%s,"targetSemantic":"%s","targetBasis":{"up":"%s","right":"%s"},"outputAxes":%s,"axisFallback":%s}',
+        json_escape(geometry.source),
+        json_escape(geometry.deviceOutput),
+        json_escape(geometry.referenceOriginBone),
+        json_escape(geometry.referenceDirectionBone),
+        json_escape(geometry.referenceTipBone),
+        json_escape(geometry.referenceSupportBone),
+        json_escape(plane.mode),
+        json_escape(plane.centerBone),
+        json_escape(plane.forwardBone),
+        json_escape(plane.leftBone),
+        json_escape(plane.rightBone),
+        json_escape(geometry.l0Normalization),
+        tonumber(geometry.l0MinMeters or 0.0),
+        tonumber(geometry.l0MaxMeters or 0.0),
+        geometry.l0Inverted == true and "true" or "false",
+        json_escape(geometry.targetSemantic),
+        json_escape(basis.up),
+        json_escape(basis.right),
+        string_array_json(geometry.outputAxes),
+        fallback_json
+    )
+end
+
 local function trailer_json(participant, sample)
     local identity = sample.hanime_identity or {}
     return string.format(
-        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","preferredBones":%s,"streamMode":"functional-contact-bones","exporterVersion":"fd-tcode-lua-0.17.0"}',
+        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","componentMatchMethod":"%s","preferredBones":%s,"contactBones":%s,"motionContractKind":"%s","motionContractSource":"%s","directGeometry":%s,"streamMode":"functional-contact-bones","exporterVersion":"%s"}',
         json_escape(sample.matched_pose or ""),
         json_escape(sample.matched_pose_status or "unmapped"),
         json_escape(identity.hanime_id or ""),
@@ -73,7 +116,13 @@ local function trailer_json(participant, sample)
         json_escape(participant.participant_slot),
         tonumber(participant.participant_priority or 0),
         json_escape(participant.component_name),
-        string_array_json(participant.preferred_bone_names)
+        json_escape(participant.component_match_method),
+        string_array_json(participant.preferred_bone_names),
+        string_array_json(participant.contact_bone_names),
+        json_escape(participant.motion_contract_kind),
+        json_escape(participant.motion_contract_source),
+        direct_geometry_json(participant.direct_geometry),
+        json_escape(exporter_version)
     )
 end
 

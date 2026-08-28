@@ -3,6 +3,12 @@ $out/
 dist/
 analysis-assets/
 UmodelSaved/
+data/
+docs/
+f8studio/
+research/
+.analysis/
+aqtinstall.log
 
 # Local dependencies and tool runtimes
 .deps/
@@ -18,3 +24,8 @@ logs/
 runtime/
 *.log
 *.dmp
+
+# Local profile-generation and validation helpers are kept outside the public
+# player-facing Mod repository.
+tools/*.py
+tools/*.mjs

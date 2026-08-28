@@ -4548,6 +4548,8 @@ return {
                 "Montage",
                 "Montage_MAX",
                 "Montage_MIN",
+                "Dreamer_A_01",
+                "Juzi1_01",
             },
         },
         ["JuziDreamer_Vaginal07_Juzi1_01"] = {
@@ -41505,6 +41507,42 @@ return {
             ["evidence"] = "table_hanim_direct_import",
             ["hanime_id"] = "JuziDreamer_Vaginal06_Juzi1_01",
             ["participant_tag"] = "Montage_MIN",
+            ["phase"] = "min",
+        },
+        ["juzidreamervaginal06dreamera01montage"] = {
+            ["asset"] = "JuziDreamer_Vaginal06_Dreamer_A_01_Montage",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal06",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal06_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
+            ["phase"] = "normal",
+        },
+        ["juzidreamervaginal06dreamera01montagemax"] = {
+            ["asset"] = "JuziDreamer_Vaginal06_Dreamer_A_01_Montage_MAX",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal06",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal06_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
+            ["phase"] = "max",
+        },
+        ["juzidreamervaginal06dreamera01montagemin"] = {
+            ["asset"] = "JuziDreamer_Vaginal06_Dreamer_A_01_Montage_MIN",
+            ["asset_paths"] = {},
+            ["catalog_refs"] = {
+                "Juzi/Male/Vaginal06",
+            },
+            ["category"] = "vaginal",
+            ["evidence"] = "runtime_observed_exact_montage",
+            ["hanime_id"] = "JuziDreamer_Vaginal06_Juzi1_01",
+            ["participant_tag"] = "Dreamer_A_01",
             ["phase"] = "min",
         },
         ["juzidreamervaginal07dreamera01montage"] = {

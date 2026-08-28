@@ -295,7 +295,7 @@ local function active_cases()
     for _, group in pairs(grouped) do
         if selected == nil or group.count > selected.count then
             selected = group
-        elseif selected ~= nil and group.count == selected.count
+        elseif selected ~= nil and group.count == selected.count then
             -- Two exact queued HAnime IDs at the same priority are ambiguous;
             -- never guess which scene supplies a capture record.
             return nil, "ambiguous_exact_hanime"

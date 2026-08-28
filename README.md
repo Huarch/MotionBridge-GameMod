@@ -1,130 +1,57 @@
-# Motion Bridge — Operation Lovecraft: Fallen Doll
+# Motion Bridge — Operation Lovecraft: Fallen Doll Mod
 
 English | [简体中文](README-ZH.md)
 
-The Fallen Doll game adapter for Motion Bridge. The UE4SS Lua Mod
-recognizes the active HAnime and streams a compact set of functional bones;
-Motion Bridge converts that live motion into OSR2/SR6 TCode, provides the 3D
-viewer and device controls, and handles safe return-to-center behavior. This is
-not an offline Funscript and it does not modify or repack the game's Pak files.
+The game-side UE4SS Lua Mod for [Motion Bridge](https://github.com/Huarch/MotionBridge). It recognizes the active HAnime and streams a compact set of functional bones in real time. Motion Bridge converts that stream into OSR2/SR6 TCode and handles the 3D viewer, tuning, device connections, and safe return to center.
 
-Current version: `0.17.0`
+This is a real-time integration, not an offline Funscript. It does not modify or repack the game's Pak files.
 
-Version `0.17.0` formally enables the real-time multi-axis motion engine in
-`fallen-doll-skeleton-preview-v17.json`. SR6 receives all six axes
-(`L0/L1/L2/R0/R1/R2`), while OSR2 uses `L0` from the same motion stream. See
-[multi-axis-v17-dev.md](docs/multi-axis-v17-dev.md) for implementation and
-calibration details.
+Current Mod version: `0.17.0`
 
-Game store pages:
-[Operation Lovecraft: Fallen Doll on Steam](https://store.steampowered.com/app/1685960/)
-· [Demo on Steam](https://store.steampowered.com/app/1811180/)
+## Supported game builds
 
-## Supported Versions and Features
+- Closed Beta / Playtest — desktop and VR
+- Legacy 0.49 standalone build
+- Legacy Steam Demo — desktop and VR
 
-- Closed Beta / Playtest, desktop and VR
-- Legacy 0.49 standalone build (`KiritoMod049.exe`, Unreal Engine 4.25)
-- Legacy Demo, desktop and VR
-- Playtest catalog: 508 HAnime families and 3,087 exact Montage identities
-- Demo catalog: 217 HAnime families and 1,160 exact Montage identities
-- 50 Hz real-time functional-bone capture with VaM-style contact geometry
-- Six-axis SR6 output, OSR2 L0 output, plus a standalone SR6/OSR 3D viewer
-- Independent range sliders for every axis; USB and Wi-Fi output are mutually exclusive
-- Component and Montage events drive HAnime and participant switching; low-frequency polling is verification only
-- On stream loss, the last value is held for 250 ms and then eased back to `L05000` over 600 ms
+The Mod uses event-driven HAnime and participant switching with 50 Hz functional-bone capture. It does not repeatedly enumerate the complete skeleton, avoiding the stutter and physics resets seen in early prototypes.
 
-The multi-axis pipeline is ready for normal use, but six-axis support does not
-mean that every HAnime has been manually calibrated. Some Hand/Foot side and
-primary-bone choices, special actions, multiplayer scenes, and non-human scenes
-still need additional annotations. For an uncalibrated pose, inspect the axes in
-the viewer first and limit the physical range of each axis in Motion Bridge.
+## Installation
 
-## Data Flow
+1. Download the latest Mod ZIP from this repository's [Releases](https://github.com/Huarch/MotionBridge-FallenDoll/releases).
+2. Close the game.
+3. Extract the ZIP and run `Install-Mod.ps1` with the game directory, or copy everything inside `Game` to the matching `Paralogue/Binaries/Win64` directory.
+4. Download and start [Motion Bridge](https://github.com/Huarch/MotionBridge/releases).
+5. Enter an HAnime and confirm that Motion Bridge reports the game stream as **ONLINE**.
+6. Verify the motion in the 3D viewer before enabling physical-device output.
 
-```text
-Operation Lovecraft: Fallen Doll
-  → UE4SS Lua (exact HAnime recognition and compact functional-bone capture)
-  → ~/.f8/studio/games/fallen-doll/runtime/fd-skeleton.ndjson
-  → Motion Bridge Fallen Doll adapter
-  → contact geometry, six axes, safe centering and range mapping
-  → 3D SR6/OSR Viewer → TCode → USB, Wi-Fi or Intiface
+Example installer command:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\path\to\Operation Lovecraft Fallen Doll"
 ```
 
-The stream path remains compatible with existing installations, but F8Studio,
-`fd_source`, and `fd_pyengine` are not required for normal use.
-
-## Quick Start
-
-1. Close the game. Copy the contents of the release package's `Game` directory
-   into the matching version's `Paralogue/Binaries/Win64` directory, or run the
-   included `Install-Mod.ps1` script.
-2. Extract and start Motion Bridge. The Full release package already includes
-   a compatible portable build.
-3. Confirm that Motion Bridge reports the Fallen Doll stream as Online.
-4. Select USB, Wi-Fi, or Intiface. On first use, open the 3D viewer and verify
-   the motion before arming physical-device output.
-5. Start the game and enter an HAnime. Leaving the action or losing the stream
-   automatically returns the output to its safe center.
-
-Detailed setup and troubleshooting:
-
-- [Chinese user guide](docs/user-guide-zh.md)
-- [English user guide](docs/user-guide-en.md)
-- [Chinese startup and troubleshooting guide](docs/startup-and-troubleshooting-zh.md)
-- [English startup and troubleshooting guide](docs/startup-and-troubleshooting-en.md)
+The release includes the compatible UE4SS runtime. Motion Bridge is downloaded separately so both projects can be updated independently.
 
 ## Hotkeys
 
 - `F6`: toggle low-frequency diagnostics
 - `F8`: export the current pose list once
-- `F10`: safely hot-reload the Lua mod
+- `F10`: safely hot-reload the Lua Mod
 
-Real-time recognition and skeleton streaming are armed automatically; there is
-no detection start/stop hotkey. The Lua Mod does not create an in-game UI; the
-Motion Bridge viewer runs as a separate desktop window.
+Real-time recognition and streaming are enabled automatically. There is no detection start/stop hotkey and no in-game overlay.
 
-## Repository Layout
+## Repository layout
 
-- `fd_tcode_probe/`: game-side UE4SS Lua mod
-- `fd_tcode_reloader/`: safe Lua hot-reload broker
-- `data/`: HAnime, pose, and skeleton indexes generated from unpacked data
-- `f8studio/`: optional legacy/development project exports and upstream patch
-- `tools/`: data generation, installation, startup, and release scripts
-- `docs/`: user documentation, release posts, and unpacking constraints
+- `fd_tcode_probe/`: HAnime recognition and functional-bone streaming Mod
+- `fd_tcode_reloader/`: safe Lua hot-reload helper
+- `tools/Install-FallenDollTCode.ps1`: validated installer for supported game layouts
+- `tools/build_release_package.ps1`: creates the UE4SS Mod release ZIP
 
-Unpacked data is consulted before runtime experiments. See
-[unpacked-data-first.md](docs/unpacked-data-first.md). The runtime no longer
-enumerates the entire skeleton repeatedly, avoiding game stutter and physics
-resets.
+## Reporting problems
 
-## Motion Bridge
+Use this repository for game recognition, missing poses, participant selection, functional-bone mapping, and Mod installation problems. Use the [Motion Bridge issue tracker](https://github.com/Huarch/MotionBridge/issues) for the desktop interface, 3D viewer, device connection, or output tuning.
 
-The native Motion Bridge application has moved to its own repository. It
-contains the Qt desktop UI, multi-game adapter protocol, motion engine, device
-outputs, SR6 preview, portable build, and F8Studio settings migration tool.
-This repository now owns only the Fallen Doll game integration and its
-F8Studio workflow.
+Game store pages: [Playtest](https://store.steampowered.com/app/1685960/) · [Demo](https://store.steampowered.com/app/1811180/)
 
-Source and standalone releases:
-[Huarch/MotionBridge](https://github.com/Huarch/MotionBridge)
-
-Fallen Doll remains Motion Bridge's first bundled adapter and continues to
-consume the same `fd-skeleton.ndjson` stream. Game releases provide a Full ZIP
-for new users and a smaller Mod-only ZIP for existing Motion Bridge users.
-
-## Optional F8Studio workflow
-
-F8Studio is no longer required to run the Mod. The existing `Fallen Doll
-Skeleton Preview v17` project remains available for graph editing, diagnostics,
-and comparison with the standalone motion engine.
-
-Fallen Doll Source upstream PR:
-[feel8-fun/f8studio#3](https://github.com/feel8-fun/f8studio/pull/3)
-
-Wi-Fi and USB nodes are disabled by default in the shared project, and the USB
-port is empty. The two outputs cannot be enabled at the same time. The default
-Wi-Fi target is `tcode.local:8000`; USB uses the device's serial port at 115200
-baud.
-
-This is an unofficial community project. The repository and release packages
-do not include game assets, F8Studio binaries, or device drivers.
+This is an unofficial community project. It does not include game assets or device drivers.

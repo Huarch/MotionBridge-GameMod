@@ -4,6 +4,8 @@
 
 local Playtest = require("fd_tcode.hanime_identity_data")
 local Demo = require("fd_tcode.demo_hanime_identity_data")
+local Ada = require("fd_tcode.ada_hanime_identity_data")
+local AugustUpdate = require("fd_tcode.update_2026_08_28_hanime_identity_data")
 
 local Catalog = {
     by_montage = {},
@@ -73,5 +75,7 @@ end
 
 merge(Playtest, "playtest")
 merge(Demo, "demo")
+merge(Ada, "playtest-ada-2026-08-28")
+merge(AugustUpdate, "playtest-update-2026-08-28")
 
 return Catalog

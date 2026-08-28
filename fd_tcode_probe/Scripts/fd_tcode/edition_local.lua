@@ -1,8 +1,8 @@
--- Installed-edition marker.  This repository default is deliberately blank:
--- static version-specific sidecars must not load until the installer writes a
--- recognized target edition into the copied Mod.
+-- Playtest development link marker.  The installed Playtest Mod's Scripts
+-- directory is a junction to this checkout, so it must declare its edition
+-- here; Demo copies carry their own local markers.
 return {
     schema_version = 1,
-    edition = "",
-    source = "repository-default-unconfigured",
+    edition = "playtest-ue5",
+    source = "workspace-sync:Playtest-junction",
 }

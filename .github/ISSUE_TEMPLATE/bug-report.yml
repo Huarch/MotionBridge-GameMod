@@ -1,5 +1,5 @@
-name: Bug report / 程序故障
-description: Report crashes, missing services, lost output, or other reproducible failures / 报告崩溃、服务或输出异常
+name: Bug report / Mod 故障
+description: Report game crashes, recognition failures, or missing motion streams / 报告游戏崩溃、识别失败或骨骼流中断
 title: "[Bug] "
 labels:
   - bug
@@ -7,9 +7,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve FallenDollTCode. Please reproduce the issue in **Live Preview with device output disabled first** when possible.
+        Thanks for helping improve the Fallen Doll UE4SS Mod. Disable physical-device output in Motion Bridge before reproducing a crash or motion problem.
 
-        感谢协助改进 FallenDollTCode。条件允许时，请先在**关闭实体设备输出**的情况下通过 Live Preview 复现。
+        感谢协助改进 Fallen Doll UE4SS Mod。复现崩溃或动作问题前，请先在 Motion Bridge 中关闭实体设备输出。
 
   - type: dropdown
     id: mod_version
@@ -29,6 +29,7 @@ body:
       label: Game build / 游戏版本
       options:
         - Playtest / Closed Beta
+        - Legacy 0.49
         - Steam Demo
         - Other / 其他
     validations:
@@ -49,7 +50,7 @@ body:
     id: problem
     attributes:
       label: What happened? / 问题描述
-      description: Include what you saw in the game, Live Preview, waveform, or service status. / 说明游戏画面、Live Preview、波形或服务状态。
+      description: Include what you saw in the game and the Motion Bridge stream status. / 说明游戏画面及 Motion Bridge 数据流状态。
       placeholder: Expected result / 预期结果：
 
         Actual result / 实际结果：
@@ -61,7 +62,7 @@ body:
     attributes:
       label: Reproduction steps / 复现步骤
       placeholder: |
-        1. Start F8Studio and Deploy the v17 project
+        1. Start Motion Bridge
         2. Start the game and enter ...
         3. Switch to ...
         4. Observe ...
@@ -87,24 +88,18 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: f8studio_revision
-    attributes:
-      label: F8Studio build or commit / F8Studio 版本或提交
-      description: Paste the commit hash or state where the build came from. / 填写提交哈希或构建来源。
-
   - type: textarea
     id: logs
     attributes:
       label: Logs and screenshots / 日志与截图
-      description: Drag relevant UE4SS/F8Studio logs or screenshots here. Remove API keys, passwords, private paths, and device identifiers first. / 可拖入相关日志或截图；请先移除 API Key、密码、隐私路径和设备标识。
+      description: Drag relevant UE4SS and Motion Bridge logs or screenshots here. Remove API keys, passwords, private paths, and device identifiers first. / 可拖入相关 UE4SS、Motion Bridge 日志或截图；请先移除 API Key、密码、隐私路径和设备标识。
 
   - type: checkboxes
     id: checks
     attributes:
       label: Checklist / 提交前检查
       options:
-        - label: I tested with USB and Wi-Fi not enabled at the same time. / 我没有同时启用 USB 和 Wi-Fi。
+        - label: I reproduced the problem with physical-device output disabled. / 我已在关闭实体设备输出时复现问题。
           required: true
         - label: I searched existing issues for the same problem. / 我已搜索是否存在相同 Issue。
           required: true

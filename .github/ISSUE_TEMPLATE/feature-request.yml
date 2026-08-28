@@ -1,5 +1,5 @@
 name: Feature request / 功能建议
-description: Suggest a focused improvement to the mod, project graph, or documentation / 提议 Mod、工程图或文档改进
+description: Suggest a focused improvement to the game-side Mod or documentation / 提议游戏侧 Mod 或文档改进
 title: "[Feature] "
 labels:
   - enhancement
@@ -27,9 +27,8 @@ body:
       options:
         - Game-side UE4SS Lua mod / 游戏侧 Lua Mod
         - HAnime recognition / 动作识别
-        - Multi-axis motion / 多轴运动
-        - F8Studio project or viewer / F8Studio 工程或 Viewer
-        - USB or Wi-Fi device output / 设备连接
+        - Participant or functional-bone mapping / 参与者或功能骨映射
+        - Game-specific multi-axis calibration / 游戏动作多轴校准
         - Installation or documentation / 安装或文档
         - Other / 其他
     validations:

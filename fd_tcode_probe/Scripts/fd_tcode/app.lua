@@ -44,7 +44,9 @@ local function register_hanime_events()
 end
 
 local function register_keys()
-    RegisterKeyBind(Config.keys.toggle_runtime, Runtime.toggle)
+    -- F6 is documented as diagnostics. Keep it as a one-shot game-thread
+    -- capture; a continuous monitor is neither needed nor desirable here.
+    RegisterKeyBind(Config.keys.toggle_runtime, Runtime.snapshot)
     RegisterKeyBind(Config.keys.export_pose_catalog, PoseCatalogProbe.export_visible)
 end
 
@@ -56,7 +58,7 @@ function App.start()
     PrecisionCapture.start()
     Log.info(string.format("version=%s loaded", Config.version))
     Log.info("SIMULATION ONLY / DEVICE DISABLED")
-    Log.info("F6 monitor on/off | F7 external F8Studio | F8 export current pose list | F10 full Lua reload via broker")
+    Log.info("F6 diagnostics | F7 reserved | F8 export current pose list | F10 full Lua reload via broker")
     Log.info(string.format(
         "automatic HAnime stream armed at %.1f Hz; bone output is active only for exact HAnime and idle otherwise",
         1000 / Config.skeleton_sample_interval_ms

@@ -35,7 +35,7 @@ local environment_edition = tostring(os.getenv("FD_TCODE_GAME_EDITION") or "")
 local game_edition = local_edition ~= "" and local_edition or environment_edition
 
 -- This recorder is intentionally opt-in.  It is independent from the ordinary
--- F8Studio stream and never changes its packet selection, device routing, or
+-- Motion Bridge stream and never changes its packet selection, device routing, or
 -- motion rules.  An empty/invalid edition is a hard refusal rather than a
 -- cross-build fallback.
 local precision_capture_enabled = os.getenv("FD_TCODE_PRECISION_CAPTURE") == "1"
@@ -58,9 +58,17 @@ return {
     },
     bone_probe_max_matches = 24,
     -- The realtime path reads only the compact functional contact set per
-    -- participant. F8Studio enables/disables candidates and chooses priority.
+    -- participant. The desktop bridge enables/disables candidates and chooses priority.
     -- Full-body debug skeletons are deliberately excluded from this loop.
     skeleton_sample_interval_ms = 20,
+    -- Temporary runtime calibration capture. Extra contract-declared chain
+    -- bones are serialized for inspection but never used for device output.
+    motion_debug_enabled = true,
+    motion_debug_max_bones = 32,
+    -- Nonhuman chains do not yet have a verified, per-skeleton rotation
+    -- reference frame. Keep R0/R1/R2 centered until their geometry is
+    -- calibrated; positional axes and debug sampling remain active.
+    nonhuman_rotation_axes_enabled = false,
     -- HAnime/Montage discovery reads only cached primary components and does
     -- not need to run on every motion frame.
     hanime_poll_interval_ms = 250,
@@ -88,7 +96,7 @@ return {
     precision_capture_interval_ms = 100,
     precision_capture_spool_path = runtime_dir .. "/fd-precision-capture.ndjson",
 
-    -- F7 is reserved for a future external F8Studio preview launcher and is
+    -- F7 is reserved for a future external preview launcher and is
     -- intentionally not registered by Lua. F8 performs a one-shot, read-only
     -- export of the current runtime-filtered pose list.
     keys = {
@@ -151,6 +159,7 @@ return {
         "CurrentMontage",
         "CurrentSection",
         "AnimSpeed",
+        "CurrAnimState",
         "AnimState",
         "CurrentState",
         "AutoSpeedChange",
