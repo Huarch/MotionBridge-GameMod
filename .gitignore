@@ -8,6 +8,7 @@ docs/
 f8studio/
 research/
 .analysis/
+.artifacts/
 aqtinstall.log
 
 # Local dependencies and tool runtimes

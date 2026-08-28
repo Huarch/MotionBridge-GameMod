@@ -35,6 +35,13 @@ The Mod package includes its matching UE4SS files. MotionBridge and the game Mod
 - `F8`: export the current pose list once
 - `F10`: safely reload the Lua Mod
 
+## Development layout
+
+- `fd_tcode_probe/` and `fd_tcode_reloader/` are the only deployable UE4SS Mod sources.
+- `tools/` contains the Playtest installer and release builder.
+- Generated exports, research data, local dependencies, build packages, and `.artifacts/` stay ignored and are not part of this branch.
+- Cross-game helpers and new-game templates belong in the repository's `master` branch. Keep Fallen Doll-specific runtime names, skeleton mappings, and package assets in this branch.
+
 ## Support
 
 Report game detection, missing poses, participant binding, functional-bone mapping, and Mod installation issues in this repository. Report MotionBridge UI, preview, device connection, or output-tuning issues in the [MotionBridge issue tracker](https://github.com/Huarch/MotionBridge/issues).

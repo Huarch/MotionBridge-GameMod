@@ -35,6 +35,13 @@ Mod 包包含匹配的 UE4SS 文件；MotionBridge 与游戏 Mod 独立下载、
 - `F8`：一次性导出当前姿势列表
 - `F10`：安全热重载 Lua Mod
 
+## 开发结构
+
+- `fd_tcode_probe/` 与 `fd_tcode_reloader/` 是唯一需要部署的 UE4SS Mod 源码。
+- `tools/` 保存 Playtest 的安装器与发布构建脚本。
+- 生成导出、研究数据、本地依赖、构建包和 `.artifacts/` 均保持忽略，不属于此分支源码。
+- 跨游戏工具与新游戏模板放在仓库 `master` 分支；Fallen Doll 专属的运行时名称、骨架映射和发布文件只保留在此分支。
+
 ## 问题反馈
 
 游戏识别、遗漏姿势、参与者绑定、功能骨映射和 Mod 安装问题，请在本仓库反馈。MotionBridge 的桌面界面、预览、设备连接或输出调节问题，请到 [MotionBridge Issues](https://github.com/Huarch/MotionBridge/issues) 反馈。
