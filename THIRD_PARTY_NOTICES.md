@@ -4,13 +4,6 @@ This repository and release package do not include Operation Lovecraft: Fallen
 Doll game assets, F8Studio binaries, firmware, or device drivers. The release
 package does include the compatible RE-UE4SS runtime described below.
 
-## F8Studio
-
-The optional patch in `f8studio/0001-feat-add-Fallen-Doll-skeleton-source-service.patch`
-targets [feel8-fun/f8studio](https://github.com/feel8-fun/f8studio), which is
-licensed under GNU Affero General Public License v3.0. The patch must be used
-and redistributed under the terms applicable to that upstream project.
-
 ## UE4SS
 
 The release package redistributes the official experimental RE-UE4SS build
