@@ -40,6 +40,7 @@ Mod 包包含匹配的 UE4SS 文件；MotionBridge 与游戏 Mod 独立下载、
 - `fd_tcode_probe/Scripts/fd_tcode/core/` 保存手写运行逻辑。
 - `fd_tcode_probe/Scripts/fd_tcode/data/` 保存生成数据与版本专属数据表。
 - `tools/` 保存 Playtest 的安装、验证与发布构建脚本；发布构建会先检查模块结构。
+- Release ZIP 使用运行文件白名单，不包含 UE4SS 调试符号、开发 Mod、附带文档和其他游戏模板。
 - 生成导出、研究数据、本地依赖、构建包和 `.artifacts/` 均保持忽略，不属于此分支源码。
 - 跨游戏工具与新游戏模板放在仓库 `master` 分支；Fallen Doll 专属的运行时名称、骨架映射和发布文件只保留在此分支。
 

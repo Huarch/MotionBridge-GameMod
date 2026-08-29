@@ -40,6 +40,7 @@ The Mod package includes its matching UE4SS files. MotionBridge and the game Mod
 - `fd_tcode_probe/Scripts/fd_tcode/core/` contains hand-written runtime logic.
 - `fd_tcode_probe/Scripts/fd_tcode/data/` contains generated and edition-specific tables.
 - `tools/` contains the Playtest installer, validation, and release builder; release builds run the module-layout check first.
+- Release ZIPs use a runtime allowlist and exclude UE4SS symbols, developer Mods, bundled documentation, and game templates.
 - Generated exports, research data, local dependencies, build packages, and `.artifacts/` stay ignored and are not part of this branch.
 - Cross-game helpers and new-game templates belong in the repository's `master` branch. Keep Fallen Doll-specific runtime names, skeleton mappings, and package assets in this branch.
 
