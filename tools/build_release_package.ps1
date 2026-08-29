@@ -15,6 +15,7 @@ $archivePath = [System.IO.Path]::GetFullPath((Join-Path $outputRoot "$packageNam
 
 $ue4ssAssetName = "zDEV-UE4SS_v3.0.1-1093-gba2efd55.zip"
 $ue4ssExpectedSha256 = "F4E2CEF8A8D5885FF3ADCD017154C9062E3EE2C8AB4D3FFECFB11B8C1C4CB69C"
+# Source: https://github.com/Huarch/RE-UE4SS/commit/d4534c72d47544087374fa79fd3407a5f3d0c8bd
 $patchedUE4SSExpectedSha256 = "8D97EFB5C57671DA817BD5DF8D39FFB91F14C8071285C7A829B0C167A96E16EB"
 if ([string]::IsNullOrWhiteSpace($UE4SSArchive)) {
     $UE4SSArchive = Join-Path $workspace ".deps/ue4ss-ba2efd55/$ue4ssAssetName"
