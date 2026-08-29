@@ -1,5 +1,5 @@
 param(
-    [string]$Version = "0.17.0",
+    [string]$Version = "0.17.2",
     [string]$UE4SSArchive = "",
     [string]$PatchedUE4SSDll = "",
     [string]$PatchedUE4SSPdb = ""

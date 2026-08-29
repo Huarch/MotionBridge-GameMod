@@ -47,7 +47,7 @@ local precision_capture_edition = local_edition ~= "" and local_edition
 
 return {
     name = "FD-TCode",
-    version = "0.17.0",
+    version = "0.17.2",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
