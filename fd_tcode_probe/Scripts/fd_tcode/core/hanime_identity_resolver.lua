@@ -4,10 +4,10 @@
 -- It never discovers Unreal objects and never reads bone transforms.
 
 local Config = require("fd_tcode.config")
-local IdentityData = require("fd_tcode.hanime_identity_catalog")
-local SkeletonCatalog = require("fd_tcode.skeleton_catalog")
+local IdentityData = require("fd_tcode.core.hanime_identity_catalog")
+local SkeletonCatalog = require("fd_tcode.core.skeleton_catalog")
 
-local table_rows_ok, DemoTableRows = pcall(require, "fd_tcode.demo_hanime_table_row_data")
+local table_rows_ok, DemoTableRows = pcall(require, "fd_tcode.data.demo_hanime_table_row_data")
 if not table_rows_ok or type(DemoTableRows) ~= "table" then
     DemoTableRows = {}
 end
@@ -265,6 +265,7 @@ function Resolver.assets_indicate_reentry(assets)
         local text = string.lower(tostring(asset or ""))
         if string.find(text, "exp_in_", 1, true)
             or string.find(text, "exp_sexing_", 1, true)
+            or string.find(text, "exp_touch_in_", 1, true)
         then
             return true
         end
@@ -276,6 +277,14 @@ function Resolver.assets_indicate_active_hanime(assets)
     for _, asset in ipairs(assets or {}) do
         local text = string.lower(tostring(asset or ""))
         if string.find(text, "exp_sexing_", 1, true)
+            or string.find(text, "exp_touch_in_", 1, true)
+            -- Ada's UE 5.7 HAnime keeps only facial-expression Montages
+            -- visible after the exact TableHAnim Montage has established the
+            -- scene. These markers may preserve an existing exact identity,
+            -- but assets_indicate_reentry() intentionally does not accept
+            -- them as standalone HAnime start signals.
+            or string.find(text, "exp_suffocate_", 1, true)
+            or string.find(text, "exp_ahegao_", 1, true)
             or string.find(text, "_spasm", 1, true)
         then
             return true

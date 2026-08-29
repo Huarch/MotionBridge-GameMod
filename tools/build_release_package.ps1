@@ -7,6 +7,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 $workspace = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
+& (Join-Path $PSScriptRoot "test_runtime_module_layout.ps1")
+& (Join-Path $PSScriptRoot "test_hanime_gate_contract.ps1")
 $outputRoot = [System.IO.Path]::GetFullPath((Join-Path $workspace "dist"))
 $packageName = "MotionBridge-FallenDoll-Playtest-Mod-$Version"
 $packageDir = [System.IO.Path]::GetFullPath((Join-Path $outputRoot $packageName))
@@ -133,7 +135,7 @@ SplitScreenMod : 0
 LineTraceMod : 0
 BPML_GenericFunctions : 0
 BPModLoaderMod : 0
-fd_tcode_reloader : 1
+fd_tcode_reloader : 0
 fd_tcode_probe : 1
 
 ; Built-in keybinds, do not move up!
@@ -150,7 +152,7 @@ $modsJson = @'
   {"mod_name":"LineTraceMod","mod_enabled":false},
   {"mod_name":"BPML_GenericFunctions","mod_enabled":false},
   {"mod_name":"BPModLoaderMod","mod_enabled":false},
-  {"mod_name":"fd_tcode_reloader","mod_enabled":true},
+  {"mod_name":"fd_tcode_reloader","mod_enabled":false},
   {"mod_name":"fd_tcode_probe","mod_enabled":true},
   {"mod_name":"Keybinds","mod_enabled":true}
 ]

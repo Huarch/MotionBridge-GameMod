@@ -1,4 +1,4 @@
-local Log = require("fd_tcode.log")
+local Log = require("fd_tcode.core.log")
 local Config = require("fd_tcode.config")
 
 local ProfileStore = {
@@ -105,7 +105,9 @@ local function profile_path(file_name)
     if directory == nil then
         return nil, "cannot resolve profile_store.lua source directory"
     end
-    return directory .. tostring(file_name or "profile_data.lua")
+    -- Runtime logic lives in core/, while generated rule tables live in the
+    -- adjacent data/ layer. Keep loadfile sandboxing without flattening them.
+    return directory .. "../data/" .. tostring(file_name or "profile_data.lua")
 end
 
 local function load_data_file(path)

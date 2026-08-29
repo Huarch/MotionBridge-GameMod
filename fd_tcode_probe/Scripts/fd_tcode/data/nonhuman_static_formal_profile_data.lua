@@ -16014,7 +16014,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -16114,7 +16114,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -18342,7 +18342,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -18848,7 +18848,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -18959,7 +18959,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -19062,7 +19062,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -19165,7 +19165,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -21649,7 +21649,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -21749,7 +21749,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -21849,7 +21849,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -21952,7 +21952,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -22055,7 +22055,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -22158,7 +22158,7 @@ return {
                 {
                     ["monsterDirectory"] = "Ghoul",
                     ["originBone"] = "JJ_joint",
-                    ["directionBone"] = "JJ_join_Skin02",
+                    ["directionBone"] = "JJ_join_Skin2",
                     ["extendedTipBone"] = "JJ_join_Skin14",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",

@@ -7059,7 +7059,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -7104,7 +7104,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -8094,7 +8094,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -8319,7 +8319,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -8364,7 +8364,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -8409,7 +8409,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -8454,7 +8454,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -9541,7 +9541,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -9586,7 +9586,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -9631,7 +9631,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -9676,7 +9676,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -9721,7 +9721,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },
@@ -9766,7 +9766,7 @@ return {
                     {
                         ["monsterDirectory"] = "Ghoul",
                         ["originBone"] = "JJ_joint",
-                        ["directionBone"] = "JJ_join_Skin02",
+                        ["directionBone"] = "JJ_join_Skin2",
                         ["tipBone"] = "JJ_join_Skin14",
                         ["supportBone"] = "JJ_joint",
                     },

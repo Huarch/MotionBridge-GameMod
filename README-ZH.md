@@ -31,14 +31,15 @@ Mod 包包含匹配的 UE4SS 文件；MotionBridge 与游戏 Mod 独立下载、
 
 ## 快捷键
 
-- `F6`：开关低频诊断
-- `F8`：一次性导出当前姿势列表
-- `F10`：安全热重载 Lua Mod
+- `F6`：采集一次诊断快照
+- `F10`：只热重载 HAnime 检测逻辑，已注册的 UE4SS 回调不会重建
 
 ## 开发结构
 
-- `fd_tcode_probe/` 与 `fd_tcode_reloader/` 是唯一需要部署的 UE4SS Mod 源码。
-- `tools/` 保存 Playtest 的安装器与发布构建脚本。
+- `fd_tcode_probe/` 是当前启用的 UE4SS Mod；`fd_tcode_reloader/` 仅为旧版本保留，默认禁用。
+- `fd_tcode_probe/Scripts/fd_tcode/core/` 保存手写运行逻辑。
+- `fd_tcode_probe/Scripts/fd_tcode/data/` 保存生成数据与版本专属数据表。
+- `tools/` 保存 Playtest 的安装、验证与发布构建脚本；发布构建会先检查模块结构。
 - 生成导出、研究数据、本地依赖、构建包和 `.artifacts/` 均保持忽略，不属于此分支源码。
 - 跨游戏工具与新游戏模板放在仓库 `master` 分支；Fallen Doll 专属的运行时名称、骨架映射和发布文件只保留在此分支。
 

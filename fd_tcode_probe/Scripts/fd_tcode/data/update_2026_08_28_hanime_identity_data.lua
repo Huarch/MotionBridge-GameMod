@@ -107,4 +107,37 @@ add_family("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", { "Yanshi_01", "Do
     "YanshiDoubledildoA_Vaginal20260330_X_DoubleDildo_A_01_Montage",
 })
 
+-- Keep the complete owner set for the new Galatea and Yanshi families.
+-- The original incremental list recorded the scene rigs only, which let a
+-- gate identify the family but dropped the playable participant's exact
+-- Montage alias.  These are still the same TableHAnim rows; no name-based
+-- broadening is involved.
+local function add_participant_montages(hanime_id, category, owners)
+    for _, owner in ipairs(owners) do
+        local participant_tag, montage = owner[1], owner[2]
+        add_asset(hanime_id, category, participant_tag, montage, "normal")
+        add_asset(hanime_id, category, participant_tag, montage .. "_MAX", "max")
+        add_asset(hanime_id, category, participant_tag, montage .. "_MIN", "min")
+    end
+end
+
+add_participant_montages("AM_GalaTalon_Mouth20251009_00", "mouth", {
+    { "Galatea_01", "AM_GalaTalon_Mouth20251009_00_Gala_01_Montage" },
+    { "Talon_01", "AM_GalaTalon_Mouth20251009_00_Talon_01_Montage" },
+    { "scene_rig", "AM_GalaTalon_Mouth20251009_00_ClubPillow_01_Montage" },
+})
+add_participant_montages("GalaShantak_Vaginal20260312_tango", "vaginal", {
+    { "Galatea_01", "GalaShantak_Vaginal20260312_tango_Gala_01_Montage" },
+    { "Shantak_01", "GalaShantak_Vaginal20260312_tango_Shantak_01_Montage" },
+})
+add_participant_montages("GalaSylph_Vaginal20260318_Tango", "vaginal", {
+    { "Galatea_01", "GalaSylph_Vaginal20260318_Tango_Gala_01_Montage" },
+    { "scene_rig", "GalaSylph_Vaginal20260318_Tango_SylphVibrator_01_Montage" },
+    { "scene_rig", "GalaSylph_Vaginal20260318_Tango_WorkshopCrate_01_Montage" },
+})
+add_participant_montages("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", {
+    { "Yanshi_01", "YanshiDoubledildoA_Vaginal20260330_X_Yanshi_01_Montage" },
+    { "DoubleDildo_A_01", "YanshiDoubledildoA_Vaginal20260330_X_DoubleDildo_A_01_Montage" },
+})
+
 return Catalog

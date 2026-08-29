@@ -1,5 +1,5 @@
 local Config = require("fd_tcode.config")
-local Safe = require("fd_tcode.safe")
+local Safe = require("fd_tcode.core.safe")
 
 local HScene = {}
 

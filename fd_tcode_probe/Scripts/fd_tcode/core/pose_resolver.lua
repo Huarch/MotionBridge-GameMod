@@ -1,6 +1,6 @@
-local ProfileStore = require("fd_tcode.profile_store")
-local Safe = require("fd_tcode.safe")
-local SkeletonCatalog = require("fd_tcode.skeleton_catalog")
+local ProfileStore = require("fd_tcode.core.profile_store")
+local Safe = require("fd_tcode.core.safe")
+local SkeletonCatalog = require("fd_tcode.core.skeleton_catalog")
 
 local PoseResolver = {}
 

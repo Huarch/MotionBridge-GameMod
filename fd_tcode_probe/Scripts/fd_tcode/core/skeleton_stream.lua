@@ -1,7 +1,7 @@
 local Config = require("fd_tcode.config")
-local GenericHAnimeProbe = require("fd_tcode.generic_hanime_probe")
-local HAnimeDetector = require("fd_tcode.hanime_detector")
-local Log = require("fd_tcode.log")
+local GenericHAnimeProbe = require("fd_tcode.core.generic_hanime_probe")
+local HAnimeDetector = require("fd_tcode.core.hanime_detector")
+local Log = require("fd_tcode.core.log")
 
 local SkeletonStream = {
     running = false,
@@ -17,6 +17,9 @@ local SkeletonStream = {
     samples_until_hanime_poll = 0,
     samples_until_spool_retry = 0,
     spool_retry_count = 0,
+    samples_since_flush = 0,
+    generation = 0,
+    flush_interval_supported = true,
 }
 
 local exporter_version = "fd-tcode-lua-" .. tostring(Config.version)
@@ -52,6 +55,24 @@ local function bone_json(name, bone)
         q[2],
         q[3]
     )
+end
+
+local function contact_pairs_json(values)
+    local entries = {}
+    for _, pair in ipairs(values or {}) do
+        local reference = pair.reference or {}
+        local target = pair.target or {}
+        table.insert(entries, string.format(
+            '{"id":"%s","reference":{"participantSlot":"%s"},"target":{"participantTag":"%s","catalogId":"%s","semantic":"%s","bone":"%s"}}',
+            json_escape(pair.id),
+            json_escape(reference.participantSlot),
+            json_escape(target.participantTag),
+            json_escape(target.catalogId),
+            json_escape(target.semantic),
+            json_escape(target.bone)
+        ))
+    end
+    return "[" .. table.concat(entries, ",") .. "]"
 end
 
 local function direct_geometry_json(geometry)
@@ -98,7 +119,7 @@ end
 local function trailer_json(participant, sample)
     local identity = sample.hanime_identity or {}
     return string.format(
-        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","componentMatchMethod":"%s","preferredBones":%s,"contactBones":%s,"motionContractKind":"%s","motionContractSource":"%s","directGeometry":%s,"streamMode":"functional-contact-bones","exporterVersion":"%s"}',
+        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","componentMatchMethod":"%s","preferredBones":%s,"contactBones":%s,"contactPairs":%s,"motionContractKind":"%s","motionContractSource":"%s","directGeometry":%s,"streamMode":"functional-contact-bones","exporterVersion":"%s"}',
         json_escape(sample.matched_pose or ""),
         json_escape(sample.matched_pose_status or "unmapped"),
         json_escape(identity.hanime_id or ""),
@@ -119,6 +140,7 @@ local function trailer_json(participant, sample)
         json_escape(participant.component_match_method),
         string_array_json(participant.preferred_bone_names),
         string_array_json(participant.contact_bone_names),
+        contact_pairs_json(participant.contact_pairs),
         json_escape(participant.motion_contract_kind),
         json_escape(participant.motion_contract_source),
         direct_geometry_json(participant.direct_geometry),
@@ -173,6 +195,7 @@ local function open_spool()
         return false, spool_error
     end
     SkeletonStream.spool = spool
+    SkeletonStream.samples_since_flush = 0
     SkeletonStream.spool_retry_count = 0
     SkeletonStream.samples_until_spool_retry = 0
     Log.info(string.format(
@@ -196,13 +219,14 @@ end
 local function close_spool()
     if SkeletonStream.spool ~= nil then
         pcall(function()
+            SkeletonStream.spool:flush()
             SkeletonStream.spool:close()
         end)
         SkeletonStream.spool = nil
     end
 end
 
-local function stop_internal(reason)
+local function stop_internal(reason, preserve_detector_cache)
     if not SkeletonStream.running then
         return
     end
@@ -213,7 +237,9 @@ local function stop_internal(reason)
     SkeletonStream.loop_handle = nil
     close_spool()
     GenericHAnimeProbe.clear_cache()
-    HAnimeDetector.clear_cache()
+    if preserve_detector_cache ~= true then
+        HAnimeDetector.clear_cache()
+    end
     Log.info(string.format(
         "skeleton sampling stopped reason=%s samples=%d packets=%d",
         tostring(reason or "manual"),
@@ -223,6 +249,10 @@ local function stop_internal(reason)
 end
 
 local function sample_once()
+    if tonumber(_G.FD_TCODE_STREAM_GENERATION or 0) ~= SkeletonStream.generation then
+        stop_internal("superseded-by-hot-reload")
+        return
+    end
     if not SkeletonStream.running then
         return
     end
@@ -263,6 +293,9 @@ local function sample_once()
         tostring(hanime.montage_count or 0),
         tostring(hanime.matched_montage_count or 0),
         tostring(hanime.unknown_montage_count or 0),
+        tostring(hanime.hanime_anim_blueprint_count or 0),
+        tostring(hanime.visible_anim_blueprint_count or 0),
+        table.concat(hanime.visible_anim_blueprint_labels or {}, ","),
         table.concat(hanime.unknown_assets or {}, ","),
         tostring(scene_state.anim_id or "<none>"),
         tostring(scene_state.current_state or "<none>"),
@@ -270,7 +303,7 @@ local function sample_once()
     if state_key ~= SkeletonStream.last_hanime_state_key then
         SkeletonStream.last_hanime_state_key = state_key
         Log.info(string.format(
-            "HAnime gate state=%s active=%s id=%s hAnimId=%s hState=%s matchedMontages=%d unknownMontages=%d unknownAssets=%s reason=%s",
+            "HAnime gate state=%s active=%s id=%s hAnimId=%s hState=%s matchedMontages=%d unknownMontages=%d hAnimBlueprints=%d visibleAnimBlueprints=%d visibleClasses=%s unknownAssets=%s reason=%s",
             tostring(hanime.state),
             tostring(hanime.active),
             tostring(identity.hanime_id or "<none>"),
@@ -278,6 +311,9 @@ local function sample_once()
             tostring(scene_state.current_state or "<none>"),
             tonumber(hanime.matched_montage_count or 0),
             tonumber(hanime.unknown_montage_count or 0),
+            tonumber(hanime.hanime_anim_blueprint_count or 0),
+            tonumber(hanime.visible_anim_blueprint_count or 0),
+            table.concat(hanime.visible_anim_blueprint_labels or {}, ","),
             table.concat(hanime.unknown_assets or {}, ","),
             tostring(hanime.reason or "<none>")
         ))
@@ -287,6 +323,9 @@ local function sample_once()
             GenericHAnimeProbe.clear_cache()
         end
         SkeletonStream.was_hanime_active = false
+        if SkeletonStream.stop_when_inactive then
+            stop_internal("hanime-inactive", true)
+        end
         return
     end
     SkeletonStream.was_hanime_active = true
@@ -316,14 +355,23 @@ local function sample_once()
         end
         SkeletonStream.sequence = SkeletonStream.sequence + 1
     end
-    if not flush_packets() then
-        Log.warn("skeleton spool flush failed; reopening automatically")
-        close_spool()
-        SkeletonStream.samples_until_spool_retry = 0
-        return
+    SkeletonStream.samples_since_flush = SkeletonStream.samples_since_flush + 1
+    local flush_interval = math.max(
+        1,
+        tonumber(Config.skeleton_spool_flush_interval_frames or 2)
+    )
+    if SkeletonStream.samples_since_flush >= flush_interval then
+        if not flush_packets() then
+            Log.warn("skeleton spool flush failed; reopening automatically")
+            close_spool()
+            SkeletonStream.samples_until_spool_retry = 0
+            return
+        end
+        SkeletonStream.samples_since_flush = 0
     end
 
-    if SkeletonStream.sample_count == 1 or SkeletonStream.sample_count % 20 == 0 then
+    local log_interval = math.max(1, tonumber(Config.skeleton_log_interval_frames or 500))
+    if SkeletonStream.sample_count == 1 or SkeletonStream.sample_count % log_interval == 0 then
         Log.info(string.format(
             "skeleton sample=%d mode=generic-hanime id=%s binding=%d participants=%d packets=%d",
             SkeletonStream.sample_count,
@@ -339,14 +387,17 @@ local function sample_once()
     end
 end
 
-function SkeletonStream.start()
+function SkeletonStream.start(options)
     if SkeletonStream.running then
         return
     end
+    options = type(options) == "table" and options or {}
     if type(LoopInGameThreadWithDelay) ~= "function" then
         Log.error("LoopInGameThreadWithDelay is unavailable in this UE4SS build")
         return
     end
+    _G.FD_TCODE_STREAM_GENERATION = tonumber(_G.FD_TCODE_STREAM_GENERATION or 0) + 1
+    SkeletonStream.generation = _G.FD_TCODE_STREAM_GENERATION
     SkeletonStream.running = true
     SkeletonStream.sequence = 0
     SkeletonStream.sample_count = 0
@@ -354,12 +405,18 @@ function SkeletonStream.start()
     SkeletonStream.timestamp_base_ms = os.time() * 1000
     SkeletonStream.last_hanime_state_key = nil
     SkeletonStream.was_hanime_active = false
-    SkeletonStream.cached_hanime = nil
-    SkeletonStream.samples_until_hanime_poll = 0
+    SkeletonStream.cached_hanime = options.initial_hanime
+    SkeletonStream.samples_until_hanime_poll = options.initial_hanime ~= nil
+        and math.max(1, math.floor(Config.hanime_poll_interval_ms / Config.skeleton_sample_interval_ms))
+        or 0
     SkeletonStream.samples_until_spool_retry = 0
     SkeletonStream.spool_retry_count = 0
+    SkeletonStream.samples_since_flush = 0
+    SkeletonStream.stop_when_inactive = options.stop_when_inactive == true
     GenericHAnimeProbe.clear_cache()
-    HAnimeDetector.clear_cache()
+    if options.preserve_detector_cache ~= true then
+        HAnimeDetector.clear_cache()
+    end
     local opened, spool_error = open_spool()
     if not opened then
         Log.warn("skeleton spool unavailable at startup; retrying automatically: " .. tostring(spool_error))
@@ -370,11 +427,15 @@ function SkeletonStream.start()
         )
     end
     SkeletonStream.loop_handle = LoopInGameThreadWithDelay(Config.skeleton_sample_interval_ms, sample_once)
-    ExecuteInGameThread(sample_once)
+    -- The loop already executes on the game thread. Do not enqueue a second
+    -- immediate action from an object/event callback; overlapping delayed
+    -- actions are a known UE4SS crash path and the component may still be
+    -- inside construction at this point.
 end
 
-function SkeletonStream.stop()
-    stop_internal("manual")
+function SkeletonStream.stop(options)
+    options = type(options) == "table" and options or {}
+    stop_internal(options.reason or "manual", options.preserve_detector_cache == true)
 end
 
 function SkeletonStream.toggle()
@@ -389,6 +450,20 @@ function SkeletonStream.notify_hanime_event()
     -- Event hooks run on the game thread and only request an immediate
     -- identity sample. UObject reads remain centralized in sample_once.
     SkeletonStream.samples_until_hanime_poll = 0
+end
+
+function SkeletonStream.set_detector(detector)
+    if type(detector) == "table" and type(detector.sample) == "function" then
+        HAnimeDetector = detector
+        SkeletonStream.cached_hanime = nil
+        SkeletonStream.samples_until_hanime_poll = 0
+        return true
+    end
+    return false
+end
+
+function SkeletonStream.is_running()
+    return SkeletonStream.running == true
 end
 
 return SkeletonStream

@@ -4,13 +4,35 @@
 -- touch a few properties on cached objects and never perform a global scan.
 
 local Config = require("fd_tcode.config")
-local HScene = require("fd_tcode.hscene")
-local Safe = require("fd_tcode.safe")
+local HScene = require("fd_tcode.core.hscene")
+local Safe = require("fd_tcode.core.safe")
 
 local State = {
     manager = nil,
     anim_manager = nil,
 }
+
+function State.observe(object)
+    if not Safe.is_object(object) then
+        return false
+    end
+    local class_name = Safe.class_name(object) or ""
+    if string.find(class_name, "HAnimManager", 1, true) then
+        State.anim_manager = object
+        if not Safe.is_object(State.manager) then
+            State.manager = object
+        end
+        return true
+    end
+    if string.find(class_name, "HSceneManager", 1, true)
+        or class_name == "HManager_C"
+        or class_name == "HManager"
+    then
+        State.manager = object
+        return true
+    end
+    return false
+end
 
 local function bind_objects()
     if Safe.is_object(State.manager) then

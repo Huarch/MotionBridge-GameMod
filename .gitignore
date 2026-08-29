@@ -4,6 +4,8 @@ dist/
 analysis-assets/
 UmodelSaved/
 data/
+!fd_tcode_probe/Scripts/fd_tcode/data/
+!fd_tcode_probe/Scripts/fd_tcode/data/*.lua
 docs/
 f8studio/
 research/

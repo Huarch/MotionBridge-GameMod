@@ -1,16 +1,16 @@
 -- Opt-in evidence recorder for strict precision queues.  This module is
--- intentionally separate from SkeletonStream: it never emits F8Studio packets,
+-- intentionally separate from SkeletonStream: it never emits MotionBridge frames,
 -- does not load runtime rules, and is inert unless the explicit environment
 -- switch is present before the game starts.
 
 local Config = require("fd_tcode.config")
 local IdentitySources = {
-    ["demo-ue4.25"] = require("fd_tcode.demo_hanime_identity_data"),
-    ["playtest-ue5"] = require("fd_tcode.hanime_identity_data"),
+    ["demo-ue4.25"] = require("fd_tcode.data.demo_hanime_identity_data"),
+    ["playtest-ue5"] = require("fd_tcode.data.hanime_identity_data"),
 }
-local Log = require("fd_tcode.log")
-local Safe = require("fd_tcode.safe")
-local CaptureData = require("fd_tcode.precision_capture_data")
+local Log = require("fd_tcode.core.log")
+local Safe = require("fd_tcode.core.safe")
+local CaptureData = require("fd_tcode.data.precision_capture_data")
 
 local PrecisionCapture = {
     running = false,

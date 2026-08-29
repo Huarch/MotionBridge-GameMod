@@ -3,13 +3,13 @@
 -- matches these known assets/components; it does not guess a skeleton by
 -- repeatedly probing arbitrary socket names.
 
-local Safe = require("fd_tcode.safe")
+local Safe = require("fd_tcode.core.safe")
 local Config = require("fd_tcode.config")
-local direct_profiles_ok, DirectProfiles = pcall(require, "fd_tcode.nonhuman_direct_output_profile_data")
+local direct_profiles_ok, DirectProfiles = pcall(require, "fd_tcode.data.nonhuman_direct_output_profile_data")
 if not direct_profiles_ok or type(DirectProfiles) ~= "table" then
     DirectProfiles = {}
 end
-local component_bindings_ok, NonhumanComponentBindings = pcall(require, "fd_tcode.nonhuman_component_binding_data")
+local component_bindings_ok, NonhumanComponentBindings = pcall(require, "fd_tcode.data.nonhuman_component_binding_data")
 if not component_bindings_ok or type(NonhumanComponentBindings) ~= "table" then
     NonhumanComponentBindings = {}
 end
@@ -17,7 +17,7 @@ end
 local Catalog = {}
 
 -- These 22 motion bones are present in every currently exported playable
--- skeleton. They form a useful full-body stream for F8Studio without sending
+-- skeleton. They form a useful full-body stream for MotionBridge without sending
 -- hundreds of deformation/helper bones per character.
 local humanoid_motion_bones = {
     "Master", "M_Hips",
@@ -56,6 +56,11 @@ Catalog.entries = {
         reference_bone_count = 396,
         compatible_reference_bone_counts = { 396, 443 },
         component_markers = {
+            -- UE 5.7 Playtest spawns the native actor as A_CharacterAlet
+            -- instead of the older generated CharacterAlet_C class.  F6
+            -- runtime inventory verifies that Mesh_Main remains the primary
+            -- animated body component.
+            { "A_CharacterAlet_", ".Mesh_Main" },
             { "CharacterAlet_C_", ".Mesh_Main" },
             -- Demo (UE 4.25) uses the blueprint variable name directly.
             { "CharacterAlet_C_", ".Mesh_Alet" },
@@ -76,6 +81,54 @@ Catalog.entries = {
             anal_origin = "M_AnusInside",
             right_breast_contact = "R_Breast_Nipple",
             left_breast_contact = "L_Breast_Nipple",
+        },
+    },
+    ada = {
+        -- Ada is a Playtest-only body with an Unreal mannequin-style lower
+        -- body, not the M_Gen/M_Hips hierarchy used by Alet and the legacy
+        -- women.  Every functional name below is present in the unpacked
+        -- MESH_ADA_Body REFSKELT; runtime binding is restricted to her native
+        -- actor and primary body component.
+        id = "ada-humanoid",
+        role = "ada",
+        motion_role = "female",
+        participant_tags = { "ada" },
+        asset_path = "/Paralogue/Content/Characters/ADA/Body/MESH_ADA_Body",
+        asset_names = { "MESH_ADA_Body" },
+        skeleton_name = "MESH_ADA_Body_Skeleton",
+        reference_bone_count = 1608,
+        component_markers = {
+            { "A_CharacterADA_", ".Mesh_Main" },
+        },
+        primary_component_names = { "Mesh_Main" },
+        stream_bones = {
+            "pelvis", "spine_01", "spine_02", "spine_03", "spine_04", "spine_05",
+            "neck_01", "neck_02", "head",
+            "clavicle_l", "upperarm_l", "lowerarm_l", "hand_l",
+            "clavicle_r", "upperarm_r", "lowerarm_r", "hand_r",
+            "thigh_l", "calf_l", "foot_l", "ball_l",
+            "thigh_r", "calf_r", "foot_r", "ball_r",
+            "gen", "rectum", "FACIAL_C_Jaw", "FACIAL_C_Tongue1", "nipple_l", "nipple_r",
+        },
+        functional = {
+            right_hand = "hand_r",
+            left_hand = "hand_l",
+            right_foot = "foot_r",
+            left_foot = "foot_l",
+            mouth_origin = "FACIAL_C_Jaw",
+            tongue_origin = "FACIAL_C_Tongue1",
+            -- UE 5.7 USMAP decoding confirms that gen is ADA's real reference
+            -- bone directly below pelvis, matching the M_Gen -> M_Hips
+            -- relationship used by the legacy women. PussySocket and
+            -- M_GenSocket are fixed offsets on this same bone; labia-minora
+            -- bones are local deformation children and are not stable targets.
+            vaginal_origin = "gen",
+            -- rectum is the stable inner landmark directly below gen. Its
+            -- reference offset closely matches M_AnusInside below M_Gen on
+            -- Alet; M_Anus_1 is the deforming surface ring instead.
+            anal_origin = "rectum",
+            right_breast_contact = "nipple_r",
+            left_breast_contact = "nipple_l",
         },
     },
     male = {
@@ -149,6 +202,11 @@ Catalog.entries = {
         skeleton_name = "Mesh_Galatea_Skeleton",
         reference_bone_count = 511,
         component_markers = {
+            -- UE 5.7 Playtest spawns Galatea through A_CharacterGala. Keep the
+            -- older CharacterGalatea marker for compatibility with extracted
+            -- assets and earlier builds.
+            { "A_CharacterGala_", ".Mesh_Main" },
+            { "CharacterGala", ".Mesh_Main" },
             { "CharacterGalatea", ".Mesh" },
         },
         primary_component_names = { "Mesh", "Mesh_Main" },
@@ -167,6 +225,98 @@ Catalog.entries = {
             anal_origin = "M_Anus_Inside1",
             right_breast_contact = "R_Breast_Nipple",
             left_breast_contact = "L_Breast_Nipple",
+        },
+    },
+    talon = {
+        id = "talon-humanoid",
+        role = "talon",
+        motion_role = "female",
+        participant_tags = { "talon" },
+        asset_path = "/Paralogue/Content/Characters/Talon/Body/Meshes/mesh_talon",
+        asset_names = { "mesh_talon", "Mesh_Talon_Copy" },
+        skeleton_name = "mesh_talon_Skeleton",
+        component_markers = {
+            { "A_CharacterTalon_", ".Mesh_Main" },
+            { "CharacterTalon", ".Mesh_Main" },
+        },
+        primary_component_names = { "Mesh_Main" },
+        stream_bones = motion_bones(
+            "M_Gen", "M_Anus_1_SRT", "Jaw_master", "M_TongueRoot",
+            "R_Breast_nipple", "L_Breast_nipple"
+        ),
+        functional = {
+            right_hand = "R_Hand",
+            left_hand = "L_Hand",
+            right_foot = "R_Foot",
+            left_foot = "L_Foot",
+            mouth_origin = "Jaw_master",
+            tongue_origin = "M_TongueRoot",
+            vaginal_origin = "M_Gen",
+            -- The UE 5.7 Talon skeleton has no M_Anus_Inside bone. The exact
+            -- unpacked central ring landmark is M_Anus_1_SRT.
+            anal_origin = "M_Anus_1_SRT",
+            right_breast_contact = "R_Breast_nipple",
+            left_breast_contact = "L_Breast_nipple",
+        },
+    },
+    celia = {
+        id = "celia-humanoid",
+        role = "celia",
+        motion_role = "female",
+        participant_tags = { "celia", "ceila" },
+        asset_path = "/Paralogue/Content/Characters/Celia/Body/MeshCelia",
+        asset_names = { "MeshCelia" },
+        skeleton_name = "MeshCelia_Skeleton_VB",
+        component_markers = {
+            { "A_CharacterCelia_", ".Mesh_Main" },
+            { "CharacterCelia", ".Mesh_Main" },
+        },
+        primary_component_names = { "Mesh_Main" },
+        stream_bones = motion_bones(
+            "M_Gen", "M_Anus_Inside", "Jaw_master", "M_TongueRoot",
+            "R_Breast_nipple", "L_Breast_nipple"
+        ),
+        functional = {
+            right_hand = "R_Hand",
+            left_hand = "L_Hand",
+            right_foot = "R_Foot",
+            left_foot = "L_Foot",
+            mouth_origin = "Jaw_master",
+            tongue_origin = "M_TongueRoot",
+            vaginal_origin = "M_Gen",
+            anal_origin = "M_Anus_Inside",
+            right_breast_contact = "R_Breast_nipple",
+            left_breast_contact = "L_Breast_nipple",
+        },
+    },
+    elizabeth = {
+        id = "elizabeth-humanoid",
+        role = "elizabeth",
+        motion_role = "female",
+        participant_tags = { "elizabeth" },
+        asset_path = "/Paralogue/Content/Characters/elizabeth/Body/Meshes/Mesh_Elizabeth",
+        asset_names = { "Mesh_Elizabeth" },
+        skeleton_name = "Mesh_Elizabeth_Skeleton_VBFix",
+        component_markers = {
+            { "A_CharacterElizabeth_", ".Mesh_Main" },
+            { "CharacterElizabeth", ".Mesh_Main" },
+        },
+        primary_component_names = { "Mesh_Main" },
+        stream_bones = motion_bones(
+            "M_Gen", "M_Anus_Inside", "Jaw_master", "M_TongueRoot",
+            "R_Breast_nipple", "L_Breast_nipple"
+        ),
+        functional = {
+            right_hand = "R_Hand",
+            left_hand = "L_Hand",
+            right_foot = "R_Foot",
+            left_foot = "L_Foot",
+            mouth_origin = "Jaw_master",
+            tongue_origin = "M_TongueRoot",
+            vaginal_origin = "M_Gen",
+            anal_origin = "M_Anus_Inside",
+            right_breast_contact = "R_Breast_nipple",
+            left_breast_contact = "L_Breast_nipple",
         },
     },
     juzi = {
@@ -272,18 +422,28 @@ Catalog.entries = {
 -- bone SR6 path, while catalog IDs remain species-specific for binding and
 -- diagnostics.  Unlike modular humanoids, these meshes are their actor's
 -- only animated body component, so a verified asset match is primary.
+local nonhuman_primary_component_names = {
+    ["playtest-ue5"] = {
+        -- Runtime evidence from the UE 5.7 Ghoul actor shows DickCap and
+        -- Mesh_Ghoul_opacity sharing the body SkinnedAsset. Only Mesh_Ghoul
+        -- owns the stable reference skeleton used by the motion contract.
+        Ghoul = { "Mesh_Ghoul" },
+    },
+}
 for _, source in ipairs(DirectProfiles.catalogEntries or {}) do
     if tostring(source.edition or "") == tostring(Config.game_edition or "") then
         local role_key = tostring(source.roleKey or "")
         if role_key ~= "" and Catalog.entries[role_key] == nil then
+            local edition_primary_names = nonhuman_primary_component_names[tostring(source.edition or "")] or {}
+            local primary_names = edition_primary_names[tostring(source.monsterDirectory or "")] or {}
             Catalog.entries[role_key] = {
                 id = tostring(source.id or role_key),
                 role = role_key,
                 motion_role = "male",
                 participant_tags = source.participantTags or {},
                 asset_names = source.assetNames or {},
-                primary_component_names = {},
-                allow_asset_primary = true,
+                primary_component_names = primary_names,
+                allow_asset_primary = #primary_names == 0,
                 nonhuman_direct = true,
                 monster_directory = tostring(source.monsterDirectory or ""),
                 functional = {},
@@ -377,6 +537,27 @@ local function component_name_matches(entry, component_name)
         end
     end
     return false
+end
+
+function Catalog.role_for_actor(actor)
+    local actor_name = Safe.object_name(actor) or ""
+    if actor_name == "" then
+        return nil
+    end
+    for role, entry in pairs(Catalog.entries) do
+        for _, marker in ipairs(entry.component_markers or {}) do
+            if string.find(actor_name, tostring(marker[1] or ""), 1, true) then
+                return role
+            end
+        end
+        if entry.nonhuman_direct == true then
+            local actor_token = normalized_tag("Character" .. tostring(entry.monster_directory or ""))
+            if actor_token ~= "" and string.find(normalized_tag(actor_name), actor_token, 1, true) then
+                return role
+            end
+        end
+    end
+    return nil
 end
 
 local function exact_nonhuman_component_name_matches(entry, component_name)
@@ -590,6 +771,118 @@ function Catalog.is_primary_component(component, entry)
         end
     end
     return false
+end
+
+local function find_owned_component_by_path(owner_name, component_leaf)
+    if type(StaticFindObject) ~= "function" then
+        return nil
+    end
+    local owner_path = string.match(tostring(owner_name or ""), "([^%s]+)$")
+    if owner_path == nil or owner_path == "" then
+        return nil
+    end
+    local candidate_path = owner_path .. "." .. tostring(component_leaf or "")
+    for _, lookup_name in ipairs({ candidate_path, "SkeletalMeshComponent " .. candidate_path }) do
+        local lookup_ok, candidate = pcall(StaticFindObject, lookup_name)
+        if lookup_ok and Safe.is_object(candidate) then
+            return candidate
+        end
+    end
+    return nil
+end
+
+-- Find the authoritative body mesh next to a helper/POV component.  The
+-- property names and owner markers are extracted static facts from the
+-- character Blueprints; this does not enumerate components or probe bones.
+function Catalog.primary_components_from_actor(actor)
+    if not Safe.is_object(actor) then
+        return {}
+    end
+
+    local actor_name = Safe.object_name(actor) or ""
+    local result = {}
+    local seen = {}
+    for role, entry in pairs(Catalog.entries) do
+        local owner_matches = false
+        for _, marker in ipairs(entry.component_markers or {}) do
+            if string.find(actor_name, tostring(marker[1] or ""), 1, true) then
+                owner_matches = true
+                break
+            end
+        end
+        if owner_matches then
+            for _, property_name in ipairs(entry.primary_component_names or {}) do
+                local property_ok, component = Safe.read(actor, property_name)
+                if not property_ok or not Safe.is_object(component) then
+                    component = find_owned_component_by_path(actor_name, property_name)
+                    property_ok = Safe.is_object(component)
+                end
+                if property_ok
+                    and Safe.is_object(component)
+                    and Catalog.is_primary_component(component, entry)
+                then
+                    local component_name = Safe.object_name(component)
+                    if component_name ~= nil and not seen[component_name] then
+                        seen[component_name] = true
+                        table.insert(result, {
+                            component = component,
+                            role = role,
+                            entry = entry,
+                            property_name = property_name,
+                        })
+                    end
+                end
+            end
+        end
+    end
+    return result
+end
+
+function Catalog.resolve_primary_sibling(component)
+    if not Safe.is_object(component) then
+        return nil, nil, nil
+    end
+
+    local current_role, current_entry = Catalog.match_component(component)
+    if current_entry ~= nil and Catalog.is_primary_component(component, current_entry) then
+        return component, current_role, current_entry
+    end
+
+    local owner = Safe.outer(component)
+    local owner_name = Safe.object_name(owner) or ""
+    if owner_name == "" then
+        return component, current_role, current_entry
+    end
+
+    for role, entry in pairs(Catalog.entries) do
+        local owner_matches = false
+        for _, marker in ipairs(entry.component_markers or {}) do
+            if string.find(owner_name, tostring(marker[1] or ""), 1, true) then
+                owner_matches = true
+                break
+            end
+        end
+        if owner_matches then
+            for _, property_name in ipairs(entry.primary_component_names or {}) do
+                local property_ok, candidate = Safe.read(owner, property_name)
+                if not property_ok or not Safe.is_object(candidate) then
+                    candidate = find_owned_component_by_path(owner_name, property_name)
+                    property_ok = Safe.is_object(candidate)
+                end
+                if property_ok
+                    and Safe.is_object(candidate)
+                    and Catalog.is_primary_component(candidate, entry)
+                then
+                    local matched_role, matched_entry = Catalog.match_component(candidate)
+                    if matched_entry == entry then
+                        return candidate, matched_role or role, entry
+                    end
+                end
+            end
+        end
+    end
+
+    return component, current_role, current_entry
 end
 
 return Catalog

@@ -1,8 +1,8 @@
 local Config = require("fd_tcode.config")
-local Diagnostics = require("fd_tcode.diagnostics")
-local HScene = require("fd_tcode.hscene")
-local Log = require("fd_tcode.log")
-local PoseResolver = require("fd_tcode.pose_resolver")
+local Diagnostics = require("fd_tcode.core.diagnostics")
+local HScene = require("fd_tcode.core.hscene")
+local Log = require("fd_tcode.core.log")
+local PoseResolver = require("fd_tcode.core.pose_resolver")
 
 local Runtime = {
     monitoring = false,
@@ -71,8 +71,11 @@ end
 
 function Runtime.snapshot()
     ExecuteInGameThread(function()
-        Diagnostics.snapshot(true)
-        Diagnostics.skeletal_mesh_inventory()
+        -- UE 5.7 returns misaligned reflected fields for several
+        -- SkeletalMeshComponent animation properties. Keep F6 non-invasive;
+        -- animation-path work must use unpacked assets or a corrected native
+        -- reflection layer, never runtime property enumeration.
+        Log.warn("F6 runtime reflection diagnostics are disabled on UE 5.7")
     end)
 end
 

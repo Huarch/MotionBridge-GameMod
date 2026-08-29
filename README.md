@@ -31,14 +31,15 @@ The Mod package includes its matching UE4SS files. MotionBridge and the game Mod
 
 ## Shortcuts
 
-- `F6`: toggle low-frequency diagnostics
-- `F8`: export the current pose list once
-- `F10`: safely reload the Lua Mod
+- `F6`: capture one diagnostic snapshot
+- `F10`: hot-reload only the HAnime detector logic; UE4SS callbacks stay registered
 
 ## Development layout
 
-- `fd_tcode_probe/` and `fd_tcode_reloader/` are the only deployable UE4SS Mod sources.
-- `tools/` contains the Playtest installer and release builder.
+- `fd_tcode_probe/` is the enabled UE4SS Mod. `fd_tcode_reloader/` is retained only as a disabled legacy helper for older builds.
+- `fd_tcode_probe/Scripts/fd_tcode/core/` contains hand-written runtime logic.
+- `fd_tcode_probe/Scripts/fd_tcode/data/` contains generated and edition-specific tables.
+- `tools/` contains the Playtest installer, validation, and release builder; release builds run the module-layout check first.
 - Generated exports, research data, local dependencies, build packages, and `.artifacts/` stay ignored and are not part of this branch.
 - Cross-game helpers and new-game templates belong in the repository's `master` branch. Keep Fallen Doll-specific runtime names, skeleton mappings, and package assets in this branch.
 
