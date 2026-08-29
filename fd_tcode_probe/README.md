@@ -35,6 +35,6 @@ All Unreal object access stays on the game thread. World/character lifecycle sig
 
 ## Hot reload
 
-`F10` reloads only the synchronous HAnime event probe/detector modules inside the existing Lua state. UE4SS callbacks are not registered again. The UE 5.7 development probe never retains callback UObjects for a later EngineTick. The separate `fd_tcode_reloader`/`RestartMod` path remains disabled because restarting the complete Mod can invalidate delayed UObject wrappers. `F6` runs one diagnostic snapshot; MotionBridge chooses the active participant from the live skeleton stream.
+`F10` reloads only the synchronous HAnime event probe/detector modules inside the existing Lua state. UE4SS callbacks are not registered again. The UE 5.7 development probe never retains callback UObjects for a later EngineTick. The separate `fd_tcode_reloader`/`RestartMod` path remains disabled because restarting the complete Mod can invalidate delayed UObject wrappers. `F6` only reports that unsafe UE 5.7 reflection diagnostics are disabled; MotionBridge chooses the active participant from the live skeleton stream.
 
 Generated profile files are committed with the Mod so players do not need unpacked assets, Python tools, or analysis datasets.

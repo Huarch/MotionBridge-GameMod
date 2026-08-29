@@ -94,9 +94,7 @@ $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 $ue4ssRequired = @(
     (Join-Path $officialGameDir "dwmapi.dll"),
     (Join-Path $officialUE4SSDir "UE4SS-settings.ini"),
-    (Join-Path $officialUE4SSDir "LICENSE"),
-    (Join-Path $officialUE4SSDir "Mods/Keybinds"),
-    (Join-Path $officialUE4SSDir "Mods/shared")
+    (Join-Path $officialUE4SSDir "LICENSE")
 )
 foreach ($path in $ue4ssRequired) {
     if (-not (Test-Path -LiteralPath $path)) {
@@ -112,8 +110,6 @@ New-Item -ItemType Directory -Path $ue4ssSignaturesDir -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $officialGameDir "dwmapi.dll") -Destination $gameDir
 Copy-Item -LiteralPath (Join-Path $officialUE4SSDir "UE4SS-settings.ini") -Destination $ue4ssDir
 Copy-Item -LiteralPath (Join-Path $officialUE4SSDir "LICENSE") -Destination $ue4ssDir
-Copy-Item -LiteralPath (Join-Path $officialUE4SSDir "Mods/Keybinds") -Destination $modsDir -Recurse
-Copy-Item -LiteralPath (Join-Path $officialUE4SSDir "Mods/shared") -Destination $modsDir -Recurse
 
 # Replace the experimental baseline with the locally built UE 5.7 safety fix.
 # Debug symbols stay in the build artifacts and are intentionally not shipped.
@@ -133,21 +129,76 @@ $ue4ssSettings = $ue4ssSettings -replace '(?m)^EnableDumping\s*=.*$', 'EnableDum
 Copy-Item -LiteralPath (Join-Path $workspace "packaging/ue4ss/FName_Constructor.lua") -Destination (Join-Path $ue4ssSignaturesDir "FName_Constructor.lua") -Force
 
 $probeDir = Join-Path $modsDir "fd_tcode_probe"
-New-Item -ItemType Directory -Path $probeDir | Out-Null
-Copy-Item -LiteralPath (Join-Path $workspace "fd_tcode_probe/Scripts") -Destination $probeDir -Recurse
+$probeRuntimeFiles = @(
+    "Scripts/main.lua",
+    "Scripts/fd_tcode/app.lua",
+    "Scripts/fd_tcode/config.lua",
+    "Scripts/fd_tcode/edition_local.lua",
+    "Scripts/fd_tcode/core/generic_hanime_probe.lua",
+    "Scripts/fd_tcode/core/hanime_component_registry.lua",
+    "Scripts/fd_tcode/core/hanime_detector.lua",
+    "Scripts/fd_tcode/core/hanime_hsystem_state.lua",
+    "Scripts/fd_tcode/core/hanime_identity_catalog.lua",
+    "Scripts/fd_tcode/core/hanime_identity_resolver.lua",
+    "Scripts/fd_tcode/core/hanime_manager_event_probe.lua",
+    "Scripts/fd_tcode/core/hanime_motion_contract.lua",
+    "Scripts/fd_tcode/core/hanime_runtime.lua",
+    "Scripts/fd_tcode/core/hscene.lua",
+    "Scripts/fd_tcode/core/log.lua",
+    "Scripts/fd_tcode/core/profile_store.lua",
+    "Scripts/fd_tcode/core/safe.lua",
+    "Scripts/fd_tcode/core/skeleton_catalog.lua",
+    "Scripts/fd_tcode/core/skeleton_stream.lua",
+    "Scripts/fd_tcode/data/ada_hanime_identity_data.lua",
+    "Scripts/fd_tcode/data/body_plane_catalog.lua",
+    "Scripts/fd_tcode/data/female_female_direct_l0_profile_data.lua",
+    "Scripts/fd_tcode/data/female_female_provisional_profile_data.lua",
+    "Scripts/fd_tcode/data/hanime_identity_data.lua",
+    "Scripts/fd_tcode/data/nonhuman_component_binding_data.lua",
+    "Scripts/fd_tcode/data/nonhuman_direct_output_profile_data.lua",
+    "Scripts/fd_tcode/data/nonhuman_static_formal_profile_data.lua",
+    "Scripts/fd_tcode/data/playtest_anim_blueprint_class_data.lua",
+    "Scripts/fd_tcode/data/playtest_ue57_playable_hanime_identity_data.lua",
+    "Scripts/fd_tcode/data/profile_data.lua",
+    "Scripts/fd_tcode/data/sylph_direct_l0_profile_data.lua",
+    "Scripts/fd_tcode/data/update_2026_08_28_hanime_identity_data.lua"
+)
+foreach ($relativePath in $probeRuntimeFiles) {
+    $source = Join-Path $workspace "fd_tcode_probe/$relativePath"
+    if (-not (Test-Path -LiteralPath $source -PathType Leaf)) {
+        throw "Required Playtest runtime file is missing: $source"
+    }
+    $destination = Join-Path $probeDir $relativePath
+    New-Item -ItemType Directory -Path (Split-Path -Parent $destination) -Force | Out-Null
+    Copy-Item -LiteralPath $source -Destination $destination
+}
+
+$optionalReleaseModules = @("fd_tcode.core.precision_capture")
+$missingReleaseModules = @()
+$releaseRequirePattern = 'require\(\s*["''](fd_tcode\.[^"'']+)["'']\s*\)'
+foreach ($source in Get-ChildItem -LiteralPath (Join-Path $probeDir "Scripts") -Recurse -File -Filter "*.lua") {
+    $sourceText = Get-Content -Raw -LiteralPath $source.FullName
+    foreach ($match in [regex]::Matches($sourceText, $releaseRequirePattern)) {
+        $moduleName = $match.Groups[1].Value
+        $relativeModule = ($moduleName -replace '\.', '\') + ".lua"
+        $target = Join-Path (Join-Path $probeDir "Scripts") $relativeModule
+        if (-not (Test-Path -LiteralPath $target -PathType Leaf) -and $moduleName -notin $optionalReleaseModules) {
+            $missingReleaseModules += "$($source.FullName): $moduleName"
+        }
+    }
+}
+if ($missingReleaseModules.Count -gt 0) {
+    throw "Unresolved modules in minimal release:`n$($missingReleaseModules -join "`n")"
+}
 
 $modsText = @'
 fd_tcode_probe : 1
-
-; Built-in keybinds, do not move up!
-Keybinds : 1
 '@
 [System.IO.File]::WriteAllText((Join-Path $modsDir "mods.txt"), $modsText, $utf8NoBom)
 
 $modsJson = @'
 [
-  {"mod_name":"fd_tcode_probe","mod_enabled":true},
-  {"mod_name":"Keybinds","mod_enabled":true}
+  {"mod_name":"fd_tcode_probe","mod_enabled":true}
 ]
 '@
 [System.IO.File]::WriteAllText((Join-Path $modsDir "mods.json"), $modsJson, $utf8NoBom)
@@ -173,7 +224,7 @@ if ($unexpectedUE4SSEntries.Count -gt 0) {
     throw "Unexpected UE4SS release entries: $($unexpectedUE4SSEntries -join ', ')"
 }
 
-$allowedModEntries = @("fd_tcode_probe", "Keybinds", "shared", "mods.json", "mods.txt")
+$allowedModEntries = @("fd_tcode_probe", "mods.json", "mods.txt")
 $unexpectedModEntries = @(
     Get-ChildItem -LiteralPath $modsDir -Force |
         Where-Object { $_.Name -notin $allowedModEntries } |

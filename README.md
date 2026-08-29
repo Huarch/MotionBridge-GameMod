@@ -31,7 +31,7 @@ The Mod package includes its matching UE4SS files. MotionBridge and the game Mod
 
 ## Shortcuts
 
-- `F6`: capture one diagnostic snapshot
+- `F6`: report that unsafe UE 5.7 runtime diagnostics are disabled
 - `F10`: hot-reload only the HAnime detector logic; UE4SS callbacks stay registered
 
 ## Development layout

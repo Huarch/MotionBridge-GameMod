@@ -3,7 +3,6 @@
 -- identify the same HAnime family.
 
 local Playtest = require("fd_tcode.data.hanime_identity_data")
-local Demo = require("fd_tcode.data.demo_hanime_identity_data")
 local Ada = require("fd_tcode.data.ada_hanime_identity_data")
 local AugustUpdate = require("fd_tcode.data.update_2026_08_28_hanime_identity_data")
 local UE57Playable = require("fd_tcode.data.playtest_ue57_playable_hanime_identity_data")
@@ -75,7 +74,6 @@ local function merge(source, edition)
 end
 
 merge(Playtest, "playtest")
-merge(Demo, "demo")
 merge(Ada, "playtest-ada-2026-08-28")
 merge(AugustUpdate, "playtest-update-2026-08-28")
 merge(UE57Playable, "playtest-ue57-playable-characters")
