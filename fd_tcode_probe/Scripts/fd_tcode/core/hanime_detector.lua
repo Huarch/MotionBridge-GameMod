@@ -44,6 +44,10 @@ then
     hot_swap_table_module("fd_tcode.data.update_2026_08_28_hanime_identity_data")
     hot_swap_table_module("fd_tcode.data.playtest_ue57_playable_hanime_identity_data")
     hot_swap_table_module("fd_tcode.data.nonhuman_direct_output_profile_data")
+    -- Target frames are data rather than detector code. Reload them before
+    -- rebuilding the motion contract so F10 picks up corrected static-rig or
+    -- ADA generated-rig bone names without restarting the game.
+    hot_swap_table_module("fd_tcode.data.target_frame_catalog")
     hot_swap_table_module("fd_tcode.core.hanime_identity_catalog")
     hot_swap_table_module("fd_tcode.core.skeleton_catalog")
     -- Registry metadata contains catalog role decisions made during component
@@ -129,6 +133,9 @@ local HAnimeDetector = {
     -- game-thread acquisition pair so the low-frequency detector can use the
     -- verified class without another object search.
     discovered_anim_instances = {},
+    -- Monotonic BeginPlay generation used only to rank otherwise equivalent
+    -- body components during a transition. It is never polled in Active.
+    actor_component_generation = 0,
 }
 
 local RECOVERY_ANIM_CLASS_PRIORITY = {
@@ -541,7 +548,7 @@ local function append_motion_contract_references(selected, participant_component
         end
     end
     local function bind_from_cache()
-        for _, component in ipairs(ComponentRegistry.items()) do
+        for _, component in ipairs(ComponentRegistry.binding_items()) do
             for _, directory in ipairs(directories) do
                 if not bound[directory] then
                     local did_bind
@@ -813,14 +820,14 @@ local function observe(allow_recovery)
             end
         end
     elseif HAnimeDetector.active ~= nil
-        and IdentityResolver.assets_indicate_confirmed_touch_phase(unknown_assets)
+        and IdentityResolver.assets_indicate_confirmed_session_phase(unknown_assets)
     then
         -- A confirmed humanoid HAnime can replace all preview Actors when the
         -- playable phase starts.  Keep its exact identity and rebuild only the
         -- participant bindings from the BeginPlay-queued components.  Generic
-        -- Touch expressions can never reach this path without an active exact
-        -- TableHAnim session, so room/UI animations cannot open the gate.
-        selected = inherit_active_identity("table_hanim_exact_confirmed_touch_phase")
+        -- Generic Touch/Sex states can never reach this path without an active
+        -- exact TableHAnim session, so room/UI animations cannot open the gate.
+        selected = inherit_active_identity("table_hanim_exact_confirmed_session_phase")
     elseif IdentityResolver.assets_indicate_active_hanime(unknown_assets) then
         current_scene_state = HSystemState.read(true)
         selected = IdentityResolver.hsystem_identity(current_scene_state)
@@ -905,7 +912,7 @@ local function observe(allow_recovery)
                 end
             end
         end
-        for _, component in ipairs(ComponentRegistry.items()) do
+        for _, component in ipairs(ComponentRegistry.binding_items()) do
             local metadata = ComponentRegistry.info(component)
             local name = metadata and metadata.name or Safe.object_name(component)
             local role = metadata and metadata.role or nil
@@ -1102,6 +1109,7 @@ function HAnimeDetector.clear_cache()
     HAnimeDetector.component_discovery_classes = {}
     HAnimeDetector.direct_actor_queue_succeeded = false
     HAnimeDetector.discovered_anim_instances = {}
+    HAnimeDetector.actor_component_generation = 0
     HSystemState.clear()
 end
 
@@ -1155,8 +1163,13 @@ function HAnimeDetector.queue_actor_components(actor)
         HAnimeDetector.contract_reference_rescan_attempts = {}
     end
     local items = SkeletonCatalog.primary_components_from_actor(actor)
+    HAnimeDetector.actor_component_generation = HAnimeDetector.actor_component_generation + 1
+    local actor_generation = HAnimeDetector.actor_component_generation
     for _, item in ipairs(items) do
-        ComponentRegistry.queue(item.component)
+        ComponentRegistry.queue(item.component, {
+            actor_generation = actor_generation,
+            queued_by = "actor_begin_play",
+        })
     end
     HAnimeDetector.direct_actor_queue_succeeded = #items > 0
     if #items > 0 then

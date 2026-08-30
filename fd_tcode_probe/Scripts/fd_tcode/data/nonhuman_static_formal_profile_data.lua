@@ -17397,7 +17397,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["GalaTchotcho_Anal01"] = {
+            ["GalaTchotcho_Anal01"] = {
             ["id"] = "GalaTchotcho_Anal01",
             ["exactHanimeId"] = "GalaTchotcho_Anal01",
             ["edition"] = "playtest-ue5",
@@ -17429,7 +17429,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -17500,7 +17500,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["GalaTchotcho_HandMouth01"] = {
+            ["GalaTchotcho_HandMouth01"] = {
             ["id"] = "GalaTchotcho_HandMouth01",
             ["exactHanimeId"] = "GalaTchotcho_HandMouth01",
             ["edition"] = "playtest-ue5",
@@ -17532,7 +17532,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -20704,7 +20704,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["JuziTchotcho_Anal01"] = {
+            ["JuziTchotcho_Anal01"] = {
             ["id"] = "JuziTchotcho_Anal01",
             ["exactHanimeId"] = "JuziTchotcho_Anal01",
             ["edition"] = "playtest-ue5",
@@ -20736,7 +20736,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -20806,7 +20806,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["JuziTchotcho_Vaginal01"] = {
+            ["JuziTchotcho_Vaginal01"] = {
             ["id"] = "JuziTchotcho_Vaginal01",
             ["exactHanimeId"] = "JuziTchotcho_Vaginal01",
             ["edition"] = "playtest-ue5",
@@ -20838,7 +20838,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -20908,7 +20908,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["JuziTchoTchoABChair_Breast01"] = {
+            ["JuziTchoTchoABChair_Breast01"] = {
             ["id"] = "JuziTchoTchoABChair_Breast01",
             ["exactHanimeId"] = "JuziTchoTchoABChair_Breast01",
             ["edition"] = "playtest-ue5",
@@ -20940,7 +20940,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -22933,7 +22933,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["YanshiTchoTcho_Foot20251221_QingChen"] = {
+            ["YanshiTchoTcho_Foot20251221_QingChen"] = {
             ["id"] = "YanshiTchoTcho_Foot20251221_QingChen",
             ["exactHanimeId"] = "YanshiTchoTcho_Foot20251221_QingChen",
             ["edition"] = "playtest-ue5",
@@ -22965,7 +22965,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -23035,7 +23035,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["YanshiTchotcho_Vaginal20251029_BetaRob"] = {
+            ["YanshiTchotcho_Vaginal20251029_BetaRob"] = {
             ["id"] = "YanshiTchotcho_Vaginal20251029_BetaRob",
             ["exactHanimeId"] = "YanshiTchotcho_Vaginal20251029_BetaRob",
             ["edition"] = "playtest-ue5",
@@ -23067,7 +23067,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",
@@ -23137,7 +23137,7 @@ return {
                 "Viewer/runtime contact confirmation",
             },
         },
-        ["YanshiTchotchoYith_VaginalAnal20260213_X"] = {
+            ["YanshiTchotchoYith_VaginalAnal20260213_X"] = {
             ["id"] = "YanshiTchotchoYith_VaginalAnal20260213_X",
             ["exactHanimeId"] = "YanshiTchotchoYith_VaginalAnal20260213_X",
             ["edition"] = "playtest-ue5",
@@ -23170,7 +23170,7 @@ return {
                 {
                     ["monsterDirectory"] = "TchoTcho",
                     ["originBone"] = "JJ_skin1splineIkBnA",
-                    ["directionBone"] = "JJ_skin1splineIkBnB",
+                    ["directionBone"] = "JJ_skin1splineIkBn1",
                     ["extendedTipBone"] = "JJ_skin1splineIkBn20",
                     ["supportBone"] = nil,
                     ["structure"] = "continuous_chain",

@@ -12,6 +12,7 @@ local Registry = {
     components = {},
     metadata = {},
     pending = {},
+    pending_hints = {},
     discovery_completed = false,
     montage_events = {},
 }
@@ -31,6 +32,36 @@ function Registry.is_live(component)
     return Safe.is_object(component)
 end
 
+local function current_anim_class(component)
+    if not Registry.is_live(component) then
+        return nil
+    end
+    local anim_ok, anim_instance = pcall(function()
+        return component:GetAnimInstance()
+    end)
+    if not anim_ok or not Safe.is_object(anim_instance) then
+        return nil
+    end
+    return Safe.class_name(anim_instance)
+end
+
+local function component_metadata(component, role, entry, evidence, previous, hint)
+    local owner = Safe.outer(component)
+    local metadata = {
+        role = role,
+        entry = entry,
+        name = Safe.object_name(component),
+        evidence = evidence,
+        owner_name = Safe.object_name(owner),
+        anim_class = current_anim_class(component),
+        actor_generation = tonumber((hint or {}).actor_generation)
+            or tonumber((previous or {}).actor_generation)
+            or 0,
+        queued_by = tostring((hint or {}).queued_by or (previous or {}).queued_by or "discovery"),
+    }
+    return metadata
+end
+
 function Registry.discover()
     Registry.discovery_completed = true
     local ok, values = pcall(FindAllOf, "SkeletalMeshComponent")
@@ -46,12 +77,9 @@ function Registry.discover()
             local role, entry, evidence = SkeletonCatalog.match_component(component)
             if entry ~= nil and SkeletonCatalog.is_primary_component(component, entry) then
                 table.insert(components, component)
-                metadata[component] = {
-                    role = role,
-                    entry = entry,
-                    name = Safe.object_name(component),
-                    evidence = evidence,
-                }
+                metadata[component] = component_metadata(
+                    component, role, entry, evidence, nil, nil
+                )
             end
         end
     end
@@ -68,29 +96,39 @@ local function merge_pending()
     local pending = Registry.pending
     Registry.pending = {}
     local seen = {}
+    local components_by_name = {}
     for _, component in ipairs(Registry.components) do
         local name = Safe.object_name(component)
         if name ~= nil then
             seen[name] = true
+            components_by_name[name] = component
         end
     end
     for _, component in ipairs(pending) do
+        local hint = Registry.pending_hints[component]
+        Registry.pending_hints[component] = nil
         if Registry.is_live(component) then
             local role, entry, evidence = SkeletonCatalog.match_component(component)
             local name = Safe.object_name(component)
-            if entry ~= nil
-                and name ~= nil
-                and not seen[name]
-                and SkeletonCatalog.is_primary_component(component, entry)
-            then
-                seen[name] = true
-                table.insert(Registry.components, component)
-                Registry.metadata[component] = {
-                    role = role,
-                    entry = entry,
-                    name = name,
-                    evidence = evidence,
-                }
+            if entry ~= nil and name ~= nil and SkeletonCatalog.is_primary_component(component, entry) then
+                local existing = components_by_name[name]
+                if existing ~= nil then
+                    Registry.metadata[existing] = component_metadata(
+                        existing,
+                        role,
+                        entry,
+                        evidence,
+                        Registry.metadata[existing],
+                        hint
+                    )
+                elseif not seen[name] then
+                    seen[name] = true
+                    components_by_name[name] = component
+                    table.insert(Registry.components, component)
+                    Registry.metadata[component] = component_metadata(
+                        component, role, entry, evidence, nil, hint
+                    )
+                end
             end
         end
     end
@@ -298,12 +336,9 @@ function Registry.rescan_directories(directories)
                     if entry ~= nil and SkeletonCatalog.is_primary_component(component, entry) then
                         known[name] = true
                         table.insert(Registry.components, component)
-                        Registry.metadata[component] = {
-                            role = role,
-                            entry = entry,
-                            name = name,
-                            evidence = evidence,
-                        }
+                        Registry.metadata[component] = component_metadata(
+                            component, role, entry, evidence, nil, nil
+                        )
                         added = added + 1
                         break
                     end
@@ -317,6 +352,70 @@ end
 
 function Registry.items()
     return Registry.components
+end
+
+local function preferred_anim_class(metadata)
+    local class_name = tostring((metadata or {}).anim_class or "")
+    if class_name == "" then
+        return false
+    end
+    for _, preferred in ipairs((((metadata or {}).entry or {}).preferred_anim_blueprint_classes) or {}) do
+        if class_name == tostring(preferred) then
+            return true
+        end
+    end
+    return false
+end
+
+local function has_exact_montage_event(component, metadata)
+    local name = (metadata or {}).name or Safe.object_name(component)
+    local event = name and Registry.montage_events[name] or nil
+    return event ~= nil
+        and Safe.is_object(event.component)
+        and Safe.is_object(event.anim_instance)
+        and Safe.is_object(event.montage)
+end
+
+-- Return a transition-time binding order without changing the stable registry
+-- order. Exact Montage ownership wins, then the component currently carrying
+-- the catalog's expected AnimBP, then the newest actor generation. This lets
+-- display-mode swaps choose Mesh_TchoTcho or Mesh_TchoTcho_opacity correctly
+-- without visibility tests or a continuous skeleton scan.
+function Registry.binding_items()
+    merge_pending()
+    local result = {}
+    for _, component in ipairs(Registry.components) do
+        if Registry.is_live(component) then
+            local metadata = Registry.metadata[component]
+            if metadata ~= nil then
+                metadata.anim_class = current_anim_class(component) or metadata.anim_class
+                metadata.owner_name = Safe.object_name(Safe.outer(component)) or metadata.owner_name
+            end
+            table.insert(result, component)
+        end
+    end
+    table.sort(result, function(a, b)
+        local a_metadata = Registry.metadata[a] or {}
+        local b_metadata = Registry.metadata[b] or {}
+        local a_montage = has_exact_montage_event(a, a_metadata)
+        local b_montage = has_exact_montage_event(b, b_metadata)
+        if a_montage ~= b_montage then
+            return a_montage
+        end
+        local a_anim = preferred_anim_class(a_metadata)
+        local b_anim = preferred_anim_class(b_metadata)
+        if a_anim ~= b_anim then
+            return a_anim
+        end
+        local a_generation = tonumber(a_metadata.actor_generation or 0)
+        local b_generation = tonumber(b_metadata.actor_generation or 0)
+        if a_generation ~= b_generation then
+            return a_generation > b_generation
+        end
+        return tostring(a_metadata.name or Safe.object_name(a) or "")
+            < tostring(b_metadata.name or Safe.object_name(b) or "")
+    end)
+    return result
 end
 
 function Registry.info(component)
@@ -347,12 +446,41 @@ function Registry.drop_role(role)
         end
     end
     Registry.components = kept
+
+    -- A UE 5.7 action can spawn the playable actor while an earlier
+    -- AnimBP-recovery pass still has the preview actor queued. Purging only
+    -- the merged registry lets that stale pending wrapper be re-added on the
+    -- next ensure(), and the stream then binds the preview skeleton after the
+    -- game has replaced it. Apply the same single-role boundary to pending
+    -- components; multi-participant roles call this function only when their
+    -- exact family count is one.
+    local kept_pending = {}
+    for _, component in ipairs(Registry.pending) do
+        local pending_role = nil
+        if Registry.is_live(component) then
+            pending_role = select(1, SkeletonCatalog.match_component(component))
+        end
+        if pending_role == role then
+            Registry.pending_hints[component] = nil
+            local name = Safe.object_name(component)
+            if name ~= nil then
+                Registry.montage_events[name] = nil
+            end
+            removed = removed + 1
+        else
+            table.insert(kept_pending, component)
+        end
+    end
+    Registry.pending = kept_pending
     return removed
 end
 
-function Registry.queue(component)
+function Registry.queue(component, hint)
     if Safe.is_object(component) then
         table.insert(Registry.pending, component)
+        if type(hint) == "table" then
+            Registry.pending_hints[component] = hint
+        end
     end
 end
 
@@ -360,6 +488,7 @@ function Registry.clear()
     Registry.components = {}
     Registry.metadata = {}
     Registry.pending = {}
+    Registry.pending_hints = {}
     Registry.discovery_completed = false
     Registry.montage_events = {}
 end

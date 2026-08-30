@@ -7689,7 +7689,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },
@@ -7734,7 +7734,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },
@@ -9136,7 +9136,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },
@@ -9181,7 +9181,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },
@@ -9226,7 +9226,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },
@@ -10126,7 +10126,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },
@@ -10171,7 +10171,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },
@@ -10216,7 +10216,7 @@ return {
                     {
                         ["monsterDirectory"] = "TchoTcho",
                         ["originBone"] = "JJ_skin1splineIkBnA",
-                        ["directionBone"] = "JJ_skin1splineIkBnB",
+                        ["directionBone"] = "JJ_skin1splineIkBn1",
                         ["tipBone"] = "JJ_skin1splineIkBn20",
                         ["supportBone"] = "JJ_skin1splineIkBnA",
                     },

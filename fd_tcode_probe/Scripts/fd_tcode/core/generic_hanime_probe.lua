@@ -353,6 +353,7 @@ local function read_component(binding, identity)
         -- skeleton catalog.  Export it explicitly so the bridge never has to
         -- infer a genital/anal/mouth socket from a generic bone-name list.
         contact_bone_names = contract.kind == "target" and (contract.preferred_bone_names or {}) or {},
+        target_frames = contract.target_frames or {},
         contact_pairs = contact_pairs,
         participant_tag = binding.participant_tag,
         participant_slot = binding.participant_slot,

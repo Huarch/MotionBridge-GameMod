@@ -162,6 +162,7 @@ $probeRuntimeFiles = @(
     "Scripts/fd_tcode/data/playtest_ue57_playable_hanime_identity_data.lua",
     "Scripts/fd_tcode/data/profile_data.lua",
     "Scripts/fd_tcode/data/sylph_direct_l0_profile_data.lua",
+    "Scripts/fd_tcode/data/target_frame_catalog.lua",
     "Scripts/fd_tcode/data/update_2026_08_28_hanime_identity_data.lua"
 )
 foreach ($relativePath in $probeRuntimeFiles) {

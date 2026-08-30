@@ -6,12 +6,14 @@ $configPath = Join-Path $moduleRoot "config.lua"
 $detectorPath = Join-Path $moduleRoot "core\hanime_detector.lua"
 $resolverPath = Join-Path $moduleRoot "core\hanime_identity_resolver.lua"
 $catalogPath = Join-Path $moduleRoot "core\skeleton_catalog.lua"
+$registryPath = Join-Path $moduleRoot "core\hanime_component_registry.lua"
 $runtimePath = Join-Path $moduleRoot "core\hanime_runtime.lua"
 
 $config = Get-Content -Raw -LiteralPath $configPath
 $detector = Get-Content -Raw -LiteralPath $detectorPath
 $resolver = Get-Content -Raw -LiteralPath $resolverPath
 $catalog = Get-Content -Raw -LiteralPath $catalogPath
+$registry = Get-Content -Raw -LiteralPath $registryPath
 $runtime = Get-Content -Raw -LiteralPath $runtimePath
 
 function Assert-Matches([string]$Text, [string]$Pattern, [string]$Message) {
@@ -42,10 +44,10 @@ Assert-Matches $resolver 'assets_indicate_active_hanime\(assets\)[\s\S]*?exp_suf
     "Ada active facial expressions must preserve an already exact HAnime identity"
 Assert-NotMatches ([regex]::Match($resolver, '(?s)function Resolver\.assets_indicate_reentry\(assets\).*?end\s*function Resolver\.assets_indicate_active_hanime').Value) 'exp_suffocate_|exp_ahegao_' `
     "Ada facial expressions must not start HAnime without an exact TableHAnim observation"
-Assert-Matches $resolver 'assets_indicate_confirmed_touch_phase\(assets\)[\s\S]*?exp_idle_touch_[\s\S]*?exp_inout_touch_[\s\S]*?exp_ing_touch_' `
-    "UE 5.7 playable Touch phases must be recognized as confirmed-session continuations"
-Assert-Matches $detector 'HAnimeDetector\.active ~= nil[\s\S]*?assets_indicate_confirmed_touch_phase\(unknown_assets\)[\s\S]*?table_hanim_exact_confirmed_touch_phase' `
-    "Generic Touch phases must inherit only an already confirmed TableHAnim identity"
+Assert-Matches $resolver 'assets_indicate_confirmed_session_phase\(assets\)[\s\S]*?exp_idle_touch_[\s\S]*?exp_inout_touch_[\s\S]*?exp_ing_touch_[\s\S]*?exp_idle_sex_[\s\S]*?exp_inout_sex_[\s\S]*?exp_ing_sex_' `
+    "UE 5.7 playable Touch and Sex phases must be recognized as confirmed-session continuations"
+Assert-Matches $detector 'HAnimeDetector\.active ~= nil[\s\S]*?assets_indicate_confirmed_session_phase\(unknown_assets\)[\s\S]*?table_hanim_exact_confirmed_session_phase' `
+    "Generic Touch and Sex phases must inherit only an already confirmed TableHAnim identity"
 Assert-Matches $detector 'local function identity_bindings_are_complete\(identity\)[\s\S]*?expected_catalog_roles[\s\S]*?actual\[role\]' `
     "Fallback discovery must verify every expected participant role"
 Assert-Matches $detector 'finish_component_discovery_if_bound\(identity\)[\s\S]*?identity_bindings_are_complete\(identity\)' `
@@ -54,8 +56,24 @@ Assert-Matches $catalog 'A_CharacterGala_' `
     "UE 5.7 Galatea Actor marker is missing"
 Assert-Matches $catalog 'Ghoul\s*=\s*\{\s*"Mesh_Ghoul"\s*\}' `
     "UE 5.7 Ghoul must reject DickCap and opacity helper components"
+Assert-Matches $catalog 'TchoTcho\s*=\s*\{\s*"Mesh_TchoTcho"\s*,\s*"Mesh_TchoTcho_opacity"\s*\}' `
+    "UE 5.7 TchoTcho must support ordinary and hidden-model body components"
+Assert-Matches $catalog 'TchoTcho\s*=\s*\{\s*"AMBP_TchoTcho_C"\s*\}' `
+    "UE 5.7 TchoTcho must identify the body component currently carrying its AnimBP"
+Assert-NotMatches ([regex]::Match($catalog, 'TchoTcho\s*=\s*\{\s*"Mesh_TchoTcho"\s*,\s*"Mesh_TchoTcho_opacity"\s*\}').Value) 'DickCap' `
+    "UE 5.7 TchoTcho DickCap helper must never become a body candidate"
+Assert-Matches $registry 'function Registry\.binding_items\(\)[\s\S]*?has_exact_montage_event[\s\S]*?preferred_anim_class[\s\S]*?actor_generation' `
+    "Display-mode body selection must prefer Montage, current AnimBP, then newest actor generation"
+Assert-Matches $detector 'ComponentRegistry\.binding_items\(\)' `
+    "Participant completion must consume the ranked display-mode body candidates"
+Assert-Matches $registry 'function Registry\.drop_role[\s\S]*?Registry\.pending = kept_pending' `
+    "single-role actor replacement must purge stale pending preview components"
 Assert-Matches $catalog 'find_owned_component_by_path[\s\S]*?StaticFindObject' `
     "UE 5.7 primary nonhuman meshes need a targeted path lookup before any global scan"
+Assert-Matches $catalog 'local function actor_matches_entry[\s\S]*?entry\.nonhuman_direct == true[\s\S]*?monster_directory' `
+    "direct BeginPlay lookup must recognize nonhuman actors by their exact static directory"
+Assert-Matches $catalog 'function Catalog\.primary_components_from_actor[\s\S]*?actor_matches_entry\(actor_name, entry\)' `
+    "nonhuman BeginPlay must use the same exact actor matcher as humanoid entries"
 Assert-Matches $detector 'table_hanim_exact_active_expression_refresh' `
     "An active expression transition must rebuild bindings after UE 5.7 replaces participant Actors"
 Assert-Matches $detector 'expected_count == 1[\s\S]*?ComponentRegistry\.drop_role\(actor_role\)' `
@@ -113,5 +131,7 @@ Assert-Matches $sample 'finish_component_discovery_if_bound\(observed\)' `
     "Every successful HAnime observation must retire stale discovery work"
 Assert-Matches $runtime 'Runtime\.detector\.clear_cache\(\)' `
     "World changes must invalidate active participant bindings"
+Assert-Matches $detector '(?s)hot_swap_table_module\("fd_tcode\.data\.target_frame_catalog"\).*?hot_swap_table_module\("fd_tcode\.core\.hanime_motion_contract"\)' `
+    "F10 must reload target contact frames before rebuilding the motion contract"
 
 Write-Output "HAnime gate contract verified: no periodic active review; direct BeginPlay binding avoids redundant discovery"

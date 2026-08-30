@@ -16,6 +16,7 @@ local DemoNonhumanCalibration = optional_table("fd_tcode.data.demo_nonhuman_cali
 local SylphL0Profiles = optional_table("fd_tcode.data.sylph_direct_l0_profile_data")
 local DirectFFProfiles = optional_table("fd_tcode.data.female_female_direct_l0_profile_data")
 local BodyPlanes = optional_table("fd_tcode.data.body_plane_catalog")
+local TargetFrames = optional_table("fd_tcode.data.target_frame_catalog")
 
 local Contract = {}
 
@@ -171,6 +172,22 @@ local nonhuman_profile_aliases = {
     ["AdaTchotcho_Vaginal20260406_Kiana"] = "JuziTchotcho_Vaginal01",
 }
 
+-- Runtime motion evidence can refine an exact action without changing every
+-- action which shares the same species profile.  TchoTcho's shaft is a curved
+-- spline: for this Ada action the root tangent (A -> Bn1) splits the same
+-- stroke almost equally across L0 and L1.  The root-to-tip chord keeps the
+-- penetration stroke on the longitudinal axis while retaining the full chain
+-- length and the independently verified humanoid pelvis plane.
+local nonhuman_reference_overrides = {
+    ["AdaTchotcho_Vaginal20260406_Kiana"] = {
+        monsterDirectory = "TchoTcho",
+        originBone = "JJ_skin1splineIkBnA",
+        directionBone = "JJ_skin1splineIkBn20",
+        tipBone = "JJ_skin1splineIkBn20",
+        supportBone = "JJ_skin1splineIkBnA",
+    },
+}
+
 local function nonhuman_profile(hanime_id)
     -- The small Sylph table is an authoritative L0-only correction to the
     -- older generated SR6 sidecar and therefore has precedence.
@@ -285,11 +302,54 @@ local function single_target_bone(entry, identity)
     return {}
 end
 
+
+local function target_frames_for_bones(entry, bone_names)
+    if tostring(TargetFrames.edition or "") ~= edition() then return {} end
+    local allowed = {}
+    for _, bone_name in ipairs(bone_names or {}) do allowed[bone_name] = true end
+    local result = {}
+    for _, frame in ipairs((TargetFrames.catalogs or {})[tostring(entry.id or "")] or {}) do
+        if type(frame) == "table" and allowed[tostring(frame.sourceBone or "")] then
+            table.insert(result, frame)
+        end
+    end
+    return result
+end
+
+
+local function with_target_frame_bones(bone_names, target_frames)
+    local result, seen = {}, {}
+    for _, bone_name in ipairs(bone_names or {}) do
+        if type(bone_name) == "string" and bone_name ~= "" and not seen[bone_name] then
+            seen[bone_name] = true
+            table.insert(result, bone_name)
+        end
+    end
+    for _, frame in ipairs(target_frames or {}) do
+        for _, field in ipairs({ "originBone", "forwardBone", "leftBone", "rightBone" }) do
+            local bone_name = frame[field]
+            if type(bone_name) == "string" and bone_name ~= "" and not seen[bone_name] then
+                seen[bone_name] = true
+                table.insert(result, bone_name)
+            end
+        end
+    end
+    return result
+end
+
 function Contract.contact_pairs(identity)
     return contact_pairs_by_hanime_id[tostring((identity or {}).hanime_id or "")] or {}
 end
 
 local function nonhuman_candidate(profile, entry, hanime_id)
+    if edition() == "playtest-ue5" then
+        local calibrated = nonhuman_reference_overrides[tostring(hanime_id or "")]
+        if type(calibrated) == "table"
+            and tostring(calibrated.monsterDirectory or "") == tostring(entry.monster_directory or "")
+        then
+            return calibrated
+        end
+    end
     if edition() == "demo-ue4.25" then
         local calibrated = (DemoNonhumanCalibration.profiles or {})[tostring(hanime_id or "")]
         if type(calibrated) == "table"
@@ -477,12 +537,15 @@ local function female_female_contract(entry, profile)
         }
     end
     if tostring(entry.id or "") == tostring(profile.targetCatalog or "") then
+        local target_bone = profile.targetBone or "M_Gen"
+        local target_frames = target_frames_for_bones(entry, { target_bone })
         return {
             kind = "target",
             source = "female-female-direct-l0-v1",
             role = entry.motion_role or entry.role,
-            bone_names = { profile.targetBone or "M_Gen" },
-            preferred_bone_names = { profile.targetBone or "M_Gen" },
+            bone_names = with_target_frame_bones({ target_bone }, target_frames),
+            preferred_bone_names = { target_bone },
+            target_frames = target_frames,
             source_bones = {},
         }
     end
@@ -498,12 +561,14 @@ local function sylph_target_contract(entry, identity)
     then
         return nil
     end
+    local target_frames = target_frames_for_bones(entry, { profile.targetBone })
     return {
         kind = "target",
         source = "sylph-direct-l0-override-v1",
         role = entry.motion_role or entry.role,
-        bone_names = { profile.targetBone },
+        bone_names = with_target_frame_bones({ profile.targetBone }, target_frames),
         preferred_bone_names = { profile.targetBone },
+        target_frames = target_frames,
         source_bones = {},
     }
 end
@@ -560,8 +625,12 @@ function Contract.resolve(entry, identity)
             unique_functional_bones(entry, default_function_names(entry, identity, false))
         )
         or single_target_bone(entry, identity)
+    local target_frames = kind == "target" and target_frames_for_bones(entry, stream_bones) or {}
     if kind == "target" then
-        preferred_bones = stream_bones
+        stream_bones = with_target_frame_bones(stream_bones, target_frames)
+    end
+    if kind == "target" then
+        preferred_bones = single_target_bone(entry, identity)
     end
 
     return {
@@ -570,6 +639,7 @@ function Contract.resolve(entry, identity)
         role = entry.motion_role or entry.role,
         bone_names = stream_bones,
         preferred_bone_names = preferred_bones,
+        target_frames = target_frames,
         source_bones = {},
     }, nil
 end

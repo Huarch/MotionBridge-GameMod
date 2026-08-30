@@ -212,7 +212,7 @@ Catalog.entries = {
         primary_component_names = { "Mesh", "Mesh_Main" },
         stream_bones = motion_bones(
             "M_Gen", "M_Anus_Inside1", "M_Jaw_master", "M_TongueRoot",
-            "R_Breast_Nipple", "L_Breast_Nipple"
+            "R_Breast_nipple", "L_Breast_nipple"
         ),
         functional = {
             right_hand = "R_Hand",
@@ -223,8 +223,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_Anus_Inside1",
-            right_breast_contact = "R_Breast_Nipple",
-            left_breast_contact = "L_Breast_Nipple",
+            right_breast_contact = "R_Breast_nipple",
+            left_breast_contact = "L_Breast_nipple",
         },
     },
     talon = {
@@ -335,7 +335,7 @@ Catalog.entries = {
         primary_component_names = { "Mesh", "Mesh_Main" },
         stream_bones = motion_bones(
             "M_Gen", "M_Anus_Inside", "Jaw_master", "M_TongueRoot",
-            "R_Breast_Nipple", "L_Breast_Nipple"
+            "R_Breast_nipple", "L_Breast_nipple"
         ),
         functional = {
             right_hand = "R_Hand",
@@ -346,8 +346,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_Anus_Inside",
-            right_breast_contact = "R_Breast_Nipple",
-            left_breast_contact = "L_Breast_Nipple",
+            right_breast_contact = "R_Breast_nipple",
+            left_breast_contact = "L_Breast_nipple",
         },
     },
     yanshi = {
@@ -369,7 +369,7 @@ Catalog.entries = {
         primary_component_names = { "Mesh_Main" },
         stream_bones = motion_bones(
             "M_Gen", "M_Anus_Inside1", "M_Jaw_master", "M_TongueRoot",
-            "R_Breast_Nipple", "L_Breast_Nipple"
+            "R_Breast_nipple", "L_Breast_nipple"
         ),
         functional = {
             right_hand = "R_Hand",
@@ -380,8 +380,8 @@ Catalog.entries = {
             tongue_origin = "M_TongueRoot",
             vaginal_origin = "M_Gen",
             anal_origin = "M_Anus_Inside1",
-            right_breast_contact = "R_Breast_Nipple",
-            left_breast_contact = "L_Breast_Nipple",
+            right_breast_contact = "R_Breast_nipple",
+            left_breast_contact = "L_Breast_nipple",
         },
     },
     anya = {
@@ -428,6 +428,19 @@ local nonhuman_primary_component_names = {
         -- Mesh_Ghoul_opacity sharing the body SkinnedAsset. Only Mesh_Ghoul
         -- owns the stable reference skeleton used by the motion contract.
         Ghoul = { "Mesh_Ghoul" },
+        -- TchoTcho switches body components with the game's character-display
+        -- mode. The ordinary model animates Mesh_TchoTcho; hide/opacity mode
+        -- regenerates the actor and animates Mesh_TchoTcho_opacity instead.
+        -- Both are legitimate body meshes. DickCap remains excluded.
+        TchoTcho = { "Mesh_TchoTcho", "Mesh_TchoTcho_opacity" },
+    },
+}
+local nonhuman_primary_anim_blueprint_classes = {
+    ["playtest-ue5"] = {
+        -- When both TchoTcho body components exist on an actor, the one which
+        -- currently owns this AnimBP is the live motion source. This is a
+        -- transition-time binding hint, not a visibility test or bone scan.
+        TchoTcho = { "AMBP_TchoTcho_C" },
     },
 }
 for _, source in ipairs(DirectProfiles.catalogEntries or {}) do
@@ -436,6 +449,9 @@ for _, source in ipairs(DirectProfiles.catalogEntries or {}) do
         if role_key ~= "" and Catalog.entries[role_key] == nil then
             local edition_primary_names = nonhuman_primary_component_names[tostring(source.edition or "")] or {}
             local primary_names = edition_primary_names[tostring(source.monsterDirectory or "")] or {}
+            local edition_primary_anim_classes = nonhuman_primary_anim_blueprint_classes[
+                tostring(source.edition or "")
+            ] or {}
             Catalog.entries[role_key] = {
                 id = tostring(source.id or role_key),
                 role = role_key,
@@ -443,6 +459,9 @@ for _, source in ipairs(DirectProfiles.catalogEntries or {}) do
                 participant_tags = source.participantTags or {},
                 asset_names = source.assetNames or {},
                 primary_component_names = primary_names,
+                preferred_anim_blueprint_classes = edition_primary_anim_classes[
+                    tostring(source.monsterDirectory or "")
+                ] or {},
                 allow_asset_primary = #primary_names == 0,
                 nonhuman_direct = true,
                 monster_directory = tostring(source.monsterDirectory or ""),
@@ -791,6 +810,20 @@ local function find_owned_component_by_path(owner_name, component_leaf)
     return nil
 end
 
+local function actor_matches_entry(actor_name, entry)
+    for _, marker in ipairs(entry.component_markers or {}) do
+        if string.find(actor_name, tostring(marker[1] or ""), 1, true) then
+            return true
+        end
+    end
+    if entry.nonhuman_direct == true then
+        local actor_token = normalized_tag("Character" .. tostring(entry.monster_directory or ""))
+        return actor_token ~= ""
+            and string.find(normalized_tag(actor_name), actor_token, 1, true) ~= nil
+    end
+    return false
+end
+
 -- Find the authoritative body mesh next to a helper/POV component.  The
 -- property names and owner markers are extracted static facts from the
 -- character Blueprints; this does not enumerate components or probe bones.
@@ -803,13 +836,7 @@ function Catalog.primary_components_from_actor(actor)
     local result = {}
     local seen = {}
     for role, entry in pairs(Catalog.entries) do
-        local owner_matches = false
-        for _, marker in ipairs(entry.component_markers or {}) do
-            if string.find(actor_name, tostring(marker[1] or ""), 1, true) then
-                owner_matches = true
-                break
-            end
-        end
+        local owner_matches = actor_matches_entry(actor_name, entry)
         if owner_matches then
             for _, property_name in ipairs(entry.primary_component_names or {}) do
                 local property_ok, component = Safe.read(actor, property_name)
@@ -855,13 +882,7 @@ function Catalog.resolve_primary_sibling(component)
     end
 
     for role, entry in pairs(Catalog.entries) do
-        local owner_matches = false
-        for _, marker in ipairs(entry.component_markers or {}) do
-            if string.find(owner_name, tostring(marker[1] or ""), 1, true) then
-                owner_matches = true
-                break
-            end
-        end
+        local owner_matches = actor_matches_entry(owner_name, entry)
         if owner_matches then
             for _, property_name in ipairs(entry.primary_component_names or {}) do
                 local property_ok, candidate = Safe.read(owner, property_name)

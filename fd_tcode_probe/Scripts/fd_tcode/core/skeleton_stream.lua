@@ -57,6 +57,18 @@ local function bone_json(name, bone)
     )
 end
 
+local function target_frames_json(frames)
+    local entries = {}
+    for _, frame in ipairs(frames or {}) do
+        table.insert(entries, string.format(
+            '{"mode":"%s","sourceBone":"%s","originBone":"%s","forwardBone":"%s","leftBone":"%s","rightBone":"%s"}',
+            json_escape(frame.mode), json_escape(frame.sourceBone), json_escape(frame.originBone),
+            json_escape(frame.forwardBone), json_escape(frame.leftBone), json_escape(frame.rightBone)
+        ))
+    end
+    return "[" .. table.concat(entries, ",") .. "]"
+end
+
 local function contact_pairs_json(values)
     local entries = {}
     for _, pair in ipairs(values or {}) do
@@ -119,7 +131,7 @@ end
 local function trailer_json(participant, sample)
     local identity = sample.hanime_identity or {}
     return string.format(
-        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","componentMatchMethod":"%s","preferredBones":%s,"contactBones":%s,"contactPairs":%s,"motionContractKind":"%s","motionContractSource":"%s","directGeometry":%s,"streamMode":"functional-contact-bones","exporterVersion":"%s"}',
+        '{"profileId":"fallen-doll","poseId":"%s","poseStatus":"%s","hanimeActive":true,"hanimeId":"%s","hanimeAsset":"%s","hanimeCategory":"%s","hanimePhase":"%s","hanimeState":"%s","recognitionSource":"%s","bindingGeneration":%d,"role":"%s","roleIndex":%d,"characterRole":"%s","catalogId":"%s","participantTag":"%s","participantSlot":"%s","participantPriority":%d,"component":"%s","componentMatchMethod":"%s","preferredBones":%s,"contactBones":%s,"contactPairs":%s,"targetFrames":%s,"motionContractKind":"%s","motionContractSource":"%s","directGeometry":%s,"streamMode":"functional-contact-bones","exporterVersion":"%s"}',
         json_escape(sample.matched_pose or ""),
         json_escape(sample.matched_pose_status or "unmapped"),
         json_escape(identity.hanime_id or ""),
@@ -141,6 +153,7 @@ local function trailer_json(participant, sample)
         string_array_json(participant.preferred_bone_names),
         string_array_json(participant.contact_bone_names),
         contact_pairs_json(participant.contact_pairs),
+        target_frames_json(participant.target_frames),
         json_escape(participant.motion_contract_kind),
         json_escape(participant.motion_contract_source),
         direct_geometry_json(participant.direct_geometry),
