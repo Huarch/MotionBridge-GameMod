@@ -42,6 +42,10 @@ Assert-Matches $resolver 'assets_indicate_active_hanime\(assets\)[\s\S]*?exp_suf
     "Ada active facial expressions must preserve an already exact HAnime identity"
 Assert-NotMatches ([regex]::Match($resolver, '(?s)function Resolver\.assets_indicate_reentry\(assets\).*?end\s*function Resolver\.assets_indicate_active_hanime').Value) 'exp_suffocate_|exp_ahegao_' `
     "Ada facial expressions must not start HAnime without an exact TableHAnim observation"
+Assert-Matches $resolver 'assets_indicate_confirmed_touch_phase\(assets\)[\s\S]*?exp_idle_touch_[\s\S]*?exp_inout_touch_[\s\S]*?exp_ing_touch_' `
+    "UE 5.7 playable Touch phases must be recognized as confirmed-session continuations"
+Assert-Matches $detector 'HAnimeDetector\.active ~= nil[\s\S]*?assets_indicate_confirmed_touch_phase\(unknown_assets\)[\s\S]*?table_hanim_exact_confirmed_touch_phase' `
+    "Generic Touch phases must inherit only an already confirmed TableHAnim identity"
 Assert-Matches $detector 'local function identity_bindings_are_complete\(identity\)[\s\S]*?expected_catalog_roles[\s\S]*?actual\[role\]' `
     "Fallback discovery must verify every expected participant role"
 Assert-Matches $detector 'finish_component_discovery_if_bound\(identity\)[\s\S]*?identity_bindings_are_complete\(identity\)' `

@@ -44,12 +44,21 @@ foreach ($path in $tableFiles) {
 }
 $montages = @($strings | Where-Object { $_ -match '(?i)_Montage' } | Sort-Object)
 
-# Each row has at least one playable-participant Montage. Its suffix gives the
-# exact TableHAnim family boundary without deserializing unversioned properties.
+# Each row has at least one playable humanoid-participant Montage.  Keep this
+# list in sync with the roles supported by the Playtest probe, including the
+# spelling aliases emitted by different TableHAnim revisions.  Its suffix gives
+# the exact family boundary without deserializing unversioned properties.
+$playableHumanoidOwners = @(
+    'Ada', 'Alet', 'Anya', 'Erika',
+    'Gala', 'Galatea',
+    'Talon', 'Celia', 'Ceila', 'Elizabeth',
+    'Juzi', 'Juzhi', 'Yanshi'
+)
+$playableOwnerPattern = '(?i)_(' + (($playableHumanoidOwners | ForEach-Object { [regex]::Escape($_) }) -join '|') + ')_01$'
 $families = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
 foreach ($asset in $montages) {
     $stem = $asset -replace '(?i)_Montage.*$', ''
-    if ($stem -match '(?i)_(Talon|Celia|Elizabeth)_01$') {
+    if ($stem -match $playableOwnerPattern) {
         [void]$families.Add($stem.Substring(0, $stem.Length - $matches[0].Length))
     }
 }
@@ -113,7 +122,6 @@ foreach ($family in ($families | Sort-Object)) {
     $lines.Add('')
 }
 $lines.Add('return Catalog')
-$lines.Add('')
 
 $parent = Split-Path -Parent $OutputPath
 [System.IO.Directory]::CreateDirectory($parent) | Out-Null

@@ -19,6 +19,145 @@ local function add_asset(family, category, participant_tag, asset)
     }
 end
 
+Catalog.by_family["Ada_MasturbateClub20270801_Tango"] = {
+    hanime_id = "Ada_MasturbateClub20270801_Tango", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+    },
+}
+add_asset("Ada_MasturbateClub20270801_Tango", "other", "Ada_01", "Ada_MasturbateClub20270801_Tango_Ada_01_Montage")
+add_asset("Ada_MasturbateClub20270801_Tango", "other", "Ada_01", "Ada_MasturbateClub20270801_Tango_Ada_01_Montage_MAX")
+add_asset("Ada_MasturbateClub20270801_Tango", "other", "Ada_01", "Ada_MasturbateClub20270801_Tango_Ada_01_Montage_MIN")
+
+Catalog.by_family["AdaDreamer_Foot20260601_Wumiao"] = {
+    hanime_id = "AdaDreamer_Foot20260601_Wumiao", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Dreamer_A_01",
+    },
+}
+add_asset("AdaDreamer_Foot20260601_Wumiao", "foot", "Ada_01", "AdaDreamer_Foot20260601_Wumiao_Ada_01_Montage")
+add_asset("AdaDreamer_Foot20260601_Wumiao", "foot", "Ada_01", "AdaDreamer_Foot20260601_Wumiao_Ada_01_Montage_MAX")
+add_asset("AdaDreamer_Foot20260601_Wumiao", "foot", "Ada_01", "AdaDreamer_Foot20260601_Wumiao_Ada_01_Montage_MIN")
+add_asset("AdaDreamer_Foot20260601_Wumiao", "foot", "Dreamer_A_01", "AdaDreamer_Foot20260601_Wumiao_Dreamer_A_01_Montage")
+add_asset("AdaDreamer_Foot20260601_Wumiao", "foot", "Dreamer_A_01", "AdaDreamer_Foot20260601_Wumiao_Dreamer_A_01_Montage_MAX")
+add_asset("AdaDreamer_Foot20260601_Wumiao", "foot", "Dreamer_A_01", "AdaDreamer_Foot20260601_Wumiao_Dreamer_A_01_Montage_MIN")
+
+Catalog.by_family["AdaDreamer_Vaginal20260516_Slime"] = {
+    hanime_id = "AdaDreamer_Vaginal20260516_Slime", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Dreamer_A_01",
+    },
+}
+add_asset("AdaDreamer_Vaginal20260516_Slime", "vaginal", "Ada_01", "AdaDreamer_Vaginal20260516_Slime_Ada_01_Montage")
+add_asset("AdaDreamer_Vaginal20260516_Slime", "vaginal", "Ada_01", "AdaDreamer_Vaginal20260516_Slime_Ada_01_Montage_MAX")
+add_asset("AdaDreamer_Vaginal20260516_Slime", "vaginal", "Ada_01", "AdaDreamer_Vaginal20260516_Slime_Ada_01_Montage_MIN")
+add_asset("AdaDreamer_Vaginal20260516_Slime", "vaginal", "Dreamer_A_01", "AdaDreamer_Vaginal20260516_Slime_Dreamer_A_01_Montage")
+add_asset("AdaDreamer_Vaginal20260516_Slime", "vaginal", "Dreamer_A_01", "AdaDreamer_Vaginal20260516_Slime_Dreamer_A_01_Montage_MAX")
+add_asset("AdaDreamer_Vaginal20260516_Slime", "vaginal", "Dreamer_A_01", "AdaDreamer_Vaginal20260516_Slime_Dreamer_A_01_Montage_MIN")
+
+Catalog.by_family["AdaDreamer_Vaginal20260613_00"] = {
+    hanime_id = "AdaDreamer_Vaginal20260613_00", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Dreamer_A_01",
+    },
+}
+add_asset("AdaDreamer_Vaginal20260613_00", "vaginal", "Ada_01", "AdaDreamer_Vaginal20260613_00_Ada_01_Montage")
+add_asset("AdaDreamer_Vaginal20260613_00", "vaginal", "Ada_01", "AdaDreamer_Vaginal20260613_00_Ada_01_Montage_max")
+add_asset("AdaDreamer_Vaginal20260613_00", "vaginal", "Ada_01", "AdaDreamer_Vaginal20260613_00_Ada_01_Montage_min")
+add_asset("AdaDreamer_Vaginal20260613_00", "vaginal", "Dreamer_A_01", "AdaDreamer_Vaginal20260613_00_Dreamer_A_01_Montage")
+add_asset("AdaDreamer_Vaginal20260613_00", "vaginal", "Dreamer_A_01", "AdaDreamer_Vaginal20260613_00_Dreamer_A_01_Montage_MAX")
+add_asset("AdaDreamer_Vaginal20260613_00", "vaginal", "Dreamer_A_01", "AdaDreamer_Vaginal20260613_00_Dreamer_A_01_Montage_MIN")
+
+Catalog.by_family["AdaGhast_Hand20260702_QingChen"] = {
+    hanime_id = "AdaGhast_Hand20260702_QingChen", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Ghast_01",
+    },
+}
+add_asset("AdaGhast_Hand20260702_QingChen", "hand", "Ada_01", "AdaGhast_Hand20260702_QingChen_Ada_01_Montage")
+add_asset("AdaGhast_Hand20260702_QingChen", "hand", "Ada_01", "AdaGhast_Hand20260702_QingChen_Ada_01_Montage_MAX")
+add_asset("AdaGhast_Hand20260702_QingChen", "hand", "Ada_01", "AdaGhast_Hand20260702_QingChen_Ada_01_Montage_min")
+add_asset("AdaGhast_Hand20260702_QingChen", "hand", "Ghast_01", "AdaGhast_Hand20260702_QingChen_Ghast_01_Montage")
+add_asset("AdaGhast_Hand20260702_QingChen", "hand", "Ghast_01", "AdaGhast_Hand20260702_QingChen_Ghast_01_Montage_MAX")
+add_asset("AdaGhast_Hand20260702_QingChen", "hand", "Ghast_01", "AdaGhast_Hand20260702_QingChen_Ghast_01_Montage_MIN")
+
+Catalog.by_family["AdaGhoul_Anal20260520_Prince"] = {
+    hanime_id = "AdaGhoul_Anal20260520_Prince", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Ghoul_A_01",
+    },
+}
+add_asset("AdaGhoul_Anal20260520_Prince", "anal", "Ada_01", "AdaGhoul_Anal20260520_Prince_Ada_01_Montage")
+add_asset("AdaGhoul_Anal20260520_Prince", "anal", "Ada_01", "AdaGhoul_Anal20260520_Prince_Ada_01_Montage_MAX")
+add_asset("AdaGhoul_Anal20260520_Prince", "anal", "Ada_01", "AdaGhoul_Anal20260520_Prince_Ada_01_Montage_MIN")
+add_asset("AdaGhoul_Anal20260520_Prince", "anal", "Ghoul_A_01", "AdaGhoul_Anal20260520_Prince_Ghoul_A_01_Montage")
+add_asset("AdaGhoul_Anal20260520_Prince", "anal", "Ghoul_A_01", "AdaGhoul_Anal20260520_Prince_Ghoul_A_01_Montage_MAX")
+add_asset("AdaGhoul_Anal20260520_Prince", "anal", "Ghoul_A_01", "AdaGhoul_Anal20260520_Prince_Ghoul_A_01_Montage_MIN")
+
+Catalog.by_family["AdaHippocamp_Anal20260424_X"] = {
+    hanime_id = "AdaHippocamp_Anal20260424_X", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Hippocamp_01",
+        "WorkshopCrate2_01",
+    },
+}
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "Ada_01", "AdaHippocamp_Anal20260424_X_Ada_01_Montage")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "Ada_01", "AdaHippocamp_Anal20260424_X_Ada_01_Montage_MAX")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "Ada_01", "AdaHippocamp_Anal20260424_X_Ada_01_Montage_MIN")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "Hippocamp_01", "AdaHippocamp_Anal20260424_X_Hippocamp_01_Montage")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "Hippocamp_01", "AdaHippocamp_Anal20260424_X_Hippocamp_01_Montage_MAX")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "Hippocamp_01", "AdaHippocamp_Anal20260424_X_Hippocamp_01_Montage_MIN")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "WorkshopCrate2_01", "AdaHippocamp_Anal20260424_X_WorkshopCrate2_01_Montage")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "WorkshopCrate2_01", "AdaHippocamp_Anal20260424_X_WorkshopCrate2_01_Montage_MAX")
+add_asset("AdaHippocamp_Anal20260424_X", "anal", "WorkshopCrate2_01", "AdaHippocamp_Anal20260424_X_WorkshopCrate2_01_Montage_MIN")
+
+Catalog.by_family["AdaNightgaunt_Vaginal20260601_Wumiao"] = {
+    hanime_id = "AdaNightgaunt_Vaginal20260601_Wumiao", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Chair_Zaha_04MIN",
+        "Nightgaunt_01",
+    },
+}
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Ada_01", "AdaNightgaunt_Vaginal20260601_Wumiao_Ada_01_Montage")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Ada_01", "AdaNightgaunt_Vaginal20260601_Wumiao_Ada_01_Montage_MAX")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Ada_01", "AdaNightgaunt_Vaginal20260601_Wumiao_Ada_01_Montage_MIN")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Chair_Zaha_04MIN", "AdaNightgaunt_Vaginal20260601_Wumiao_Chair_Zaha_04MIN_Montage")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Chair_Zaha_04MIN", "AdaNightgaunt_Vaginal20260601_Wumiao_Chair_Zaha_04MIN_Montage_MAX")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Chair_Zaha_04MIN", "AdaNightgaunt_Vaginal20260601_Wumiao_Chair_Zaha_04MIN_Montage_MIN")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Nightgaunt_01", "AdaNightgaunt_Vaginal20260601_Wumiao_Nightgaunt_01_Montage")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Nightgaunt_01", "AdaNightgaunt_Vaginal20260601_Wumiao_Nightgaunt_01_Montage_MAX")
+add_asset("AdaNightgaunt_Vaginal20260601_Wumiao", "vaginal", "Nightgaunt_01", "AdaNightgaunt_Vaginal20260601_Wumiao_Nightgaunt_01_Montage_MIN")
+
+Catalog.by_family["AdaShaggai_Vaginal20260530_QingChen"] = {
+    hanime_id = "AdaShaggai_Vaginal20260530_QingChen", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Shaggai_A_01",
+    },
+}
+add_asset("AdaShaggai_Vaginal20260530_QingChen", "vaginal", "Ada_01", "AdaShaggai_Vaginal20260530_QingChen_Ada_01_Montage")
+add_asset("AdaShaggai_Vaginal20260530_QingChen", "vaginal", "Ada_01", "AdaShaggai_Vaginal20260530_QingChen_Ada_01_Montage_MAX")
+add_asset("AdaShaggai_Vaginal20260530_QingChen", "vaginal", "Ada_01", "AdaShaggai_Vaginal20260530_QingChen_Ada_01_Montage_MIN")
+add_asset("AdaShaggai_Vaginal20260530_QingChen", "vaginal", "Shaggai_A_01", "AdaShaggai_Vaginal20260530_QingChen_Shaggai_A_01_Montage")
+add_asset("AdaShaggai_Vaginal20260530_QingChen", "vaginal", "Shaggai_A_01", "AdaShaggai_Vaginal20260530_QingChen_Shaggai_A_01_Montage_MAX")
+add_asset("AdaShaggai_Vaginal20260530_QingChen", "vaginal", "Shaggai_A_01", "AdaShaggai_Vaginal20260530_QingChen_Shaggai_A_01_Montage_MIN")
+
 Catalog.by_family["AdaTalon_Vaginal20260605_QingChen"] = {
     hanime_id = "AdaTalon_Vaginal20260605_QingChen", category = "vaginal",
     catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
@@ -38,6 +177,641 @@ add_asset("AdaTalon_Vaginal20260605_QingChen", "vaginal", "Talon_01", "AdaTalon_
 add_asset("AdaTalon_Vaginal20260605_QingChen", "vaginal", "Talon_01", "AdaTalon_Vaginal20260605_QingChen_Talon_01_Montage_MAX")
 add_asset("AdaTalon_Vaginal20260605_QingChen", "vaginal", "Talon_01", "AdaTalon_Vaginal20260605_QingChen_Talon_01_Montage_MIN")
 
+Catalog.by_family["AdaTchotcho_Anal20260420_X"] = {
+    hanime_id = "AdaTchotcho_Anal20260420_X", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("AdaTchotcho_Anal20260420_X", "anal", "Ada_01", "AdaTchotcho_Anal20260420_X_Ada_01_Montage")
+add_asset("AdaTchotcho_Anal20260420_X", "anal", "Ada_01", "AdaTchotcho_Anal20260420_X_Ada_01_Montage_MAX")
+add_asset("AdaTchotcho_Anal20260420_X", "anal", "Ada_01", "AdaTchotcho_Anal20260420_X_Ada_01_Montage_MIN")
+add_asset("AdaTchotcho_Anal20260420_X", "anal", "TchoTcho_01", "AdaTchotcho_Anal20260420_X_TchoTcho_01_Montage")
+add_asset("AdaTchotcho_Anal20260420_X", "anal", "TchoTcho_01", "AdaTchotcho_Anal20260420_X_TchoTcho_01_Montage_MAX")
+add_asset("AdaTchotcho_Anal20260420_X", "anal", "TchoTcho_01", "AdaTchotcho_Anal20260420_X_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["AdaTchotcho_Anal20260704_Slime"] = {
+    hanime_id = "AdaTchotcho_Anal20260704_Slime", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("AdaTchotcho_Anal20260704_Slime", "anal", "Ada_01", "AdaTchotcho_Anal20260704_Slime_Ada_01_Montage")
+add_asset("AdaTchotcho_Anal20260704_Slime", "anal", "Ada_01", "AdaTchotcho_Anal20260704_Slime_Ada_01_Montage_MAX")
+add_asset("AdaTchotcho_Anal20260704_Slime", "anal", "Ada_01", "AdaTchotcho_Anal20260704_Slime_Ada_01_Montage_MIN")
+add_asset("AdaTchotcho_Anal20260704_Slime", "anal", "TchoTcho_01", "AdaTchotcho_Anal20260704_Slime_TchoTcho_01_Montage")
+add_asset("AdaTchotcho_Anal20260704_Slime", "anal", "TchoTcho_01", "AdaTchotcho_Anal20260704_Slime_TchoTcho_01_Montage_MAX")
+add_asset("AdaTchotcho_Anal20260704_Slime", "anal", "TchoTcho_01", "AdaTchotcho_Anal20260704_Slime_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["AdaTchotcho_Vaginal20260406_Kiana"] = {
+    hanime_id = "AdaTchotcho_Vaginal20260406_Kiana", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("AdaTchotcho_Vaginal20260406_Kiana", "vaginal", "Ada_01", "AdaTchotcho_Vaginal20260406_Kiana_Ada_01_Montage")
+add_asset("AdaTchotcho_Vaginal20260406_Kiana", "vaginal", "Ada_01", "AdaTchotcho_Vaginal20260406_Kiana_Ada_01_Montage_MAX")
+add_asset("AdaTchotcho_Vaginal20260406_Kiana", "vaginal", "Ada_01", "AdaTchotcho_Vaginal20260406_Kiana_Ada_01_Montage_MIN")
+add_asset("AdaTchotcho_Vaginal20260406_Kiana", "vaginal", "TchoTcho_01", "AdaTchotcho_Vaginal20260406_Kiana_TchoTcho_01_Montage")
+add_asset("AdaTchotcho_Vaginal20260406_Kiana", "vaginal", "TchoTcho_01", "AdaTchotcho_Vaginal20260406_Kiana_TchoTcho_01_Montage_MAX")
+add_asset("AdaTchotcho_Vaginal20260406_Kiana", "vaginal", "TchoTcho_01", "AdaTchotcho_Vaginal20260406_Kiana_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["AletByakhee_Foot01"] = {
+    hanime_id = "AletByakhee_Foot01", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Byakhee_01",
+    },
+}
+add_asset("AletByakhee_Foot01", "foot", "Alet_01", "AletByakhee_Foot01_Alet_01_Montage")
+add_asset("AletByakhee_Foot01", "foot", "Alet_01", "AletByakhee_Foot01_Alet_01_Montage_Max")
+add_asset("AletByakhee_Foot01", "foot", "Alet_01", "AletByakhee_Foot01_Alet_01_Montage_Min")
+add_asset("AletByakhee_Foot01", "foot", "Byakhee_01", "AletByakhee_Foot01_Byakhee_01_Montage")
+add_asset("AletByakhee_Foot01", "foot", "Byakhee_01", "AletByakhee_Foot01_Byakhee_01_Montage_Max")
+add_asset("AletByakhee_Foot01", "foot", "Byakhee_01", "AletByakhee_Foot01_Byakhee_01_Montage_Min")
+
+Catalog.by_family["AletDeepOne_Hand01"] = {
+    hanime_id = "AletDeepOne_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "DeepOne_01",
+    },
+}
+add_asset("AletDeepOne_Hand01", "hand", "Alet_01", "AletDeepOne_Hand01_Alet_01_Montage")
+add_asset("AletDeepOne_Hand01", "hand", "Alet_01", "AletDeepOne_Hand01_Alet_01_Montage_MAX")
+add_asset("AletDeepOne_Hand01", "hand", "Alet_01", "AletDeepOne_Hand01_Alet_01_Montage_MIN")
+add_asset("AletDeepOne_Hand01", "hand", "DeepOne_01", "AletDeepOne_Hand01_DeepOne_01_Montage")
+add_asset("AletDeepOne_Hand01", "hand", "DeepOne_01", "AletDeepOne_Hand01_DeepOne_01_Montage_MAX")
+add_asset("AletDeepOne_Hand01", "hand", "DeepOne_01", "AletDeepOne_Hand01_DeepOne_01_Montage_MIN")
+
+Catalog.by_family["AletDeepone_Vagina06"] = {
+    hanime_id = "AletDeepone_Vagina06", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "DeepOne_01",
+        "Feetcuffs_A_01",
+    },
+}
+add_asset("AletDeepone_Vagina06", "vaginal", "Alet_01", "AletDeepone_Vagina06_Alet_01_Montage")
+add_asset("AletDeepone_Vagina06", "vaginal", "Alet_01", "AletDeepone_Vagina06_Alet_01_Montage_Max")
+add_asset("AletDeepone_Vagina06", "vaginal", "Alet_01", "AletDeepone_Vagina06_Alet_01_Montage_Min")
+add_asset("AletDeepone_Vagina06", "vaginal", "DeepOne_01", "AletDeepone_Vagina06_DeepOne_01_Montage")
+add_asset("AletDeepone_Vagina06", "vaginal", "DeepOne_01", "AletDeepone_Vagina06_DeepOne_01_Montage_Max")
+add_asset("AletDeepone_Vagina06", "vaginal", "DeepOne_01", "AletDeepone_Vagina06_DeepOne_01_Montage_Min")
+add_asset("AletDeepone_Vagina06", "vaginal", "Feetcuffs_A_01", "AletDeepone_Vagina06_Feetcuffs_A_01_Montage")
+add_asset("AletDeepone_Vagina06", "vaginal", "Feetcuffs_A_01", "AletDeepone_Vagina06_Feetcuffs_A_01_Montage_MAX")
+add_asset("AletDeepone_Vagina06", "vaginal", "Feetcuffs_A_01", "AletDeepone_Vagina06_Feetcuffs_A_01_Montage_MIN")
+
+Catalog.by_family["AletDreamer_Vaginal18"] = {
+    hanime_id = "AletDreamer_Vaginal18", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Dreamer_A_01",
+    },
+}
+add_asset("AletDreamer_Vaginal18", "vaginal", "Alet_01", "AletDreamer_Vaginal18_Alet_01_Montage")
+add_asset("AletDreamer_Vaginal18", "vaginal", "Alet_01", "AletDreamer_Vaginal18_Alet_01_Montage_MAX")
+add_asset("AletDreamer_Vaginal18", "vaginal", "Alet_01", "AletDreamer_Vaginal18_Alet_01_Montage_MIN")
+add_asset("AletDreamer_Vaginal18", "vaginal", "Dreamer_A_01", "AletDreamer_Vaginal18_Dreamer_A_01_Montage")
+add_asset("AletDreamer_Vaginal18", "vaginal", "Dreamer_A_01", "AletDreamer_Vaginal18_Dreamer_A_01_Montage_Max")
+add_asset("AletDreamer_Vaginal18", "vaginal", "Dreamer_A_01", "AletDreamer_Vaginal18_Dreamer_A_01_Montage_MIN")
+
+Catalog.by_family["AletErika_Lesbian_Sex04"] = {
+    hanime_id = "AletErika_Lesbian_Sex04", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Erika_01",
+    },
+}
+add_asset("AletErika_Lesbian_Sex04", "sex", "Alet_01", "AletErika_Lesbian_Sex04_Alet_01_Montage")
+add_asset("AletErika_Lesbian_Sex04", "sex", "Alet_01", "AletErika_Lesbian_Sex04_Alet_01_Montage_MAX")
+add_asset("AletErika_Lesbian_Sex04", "sex", "Alet_01", "AletErika_Lesbian_Sex04_Alet_01_Montage_MIN")
+add_asset("AletErika_Lesbian_Sex04", "sex", "Erika_01", "AletErika_Lesbian_Sex04_Erika_01_Montage")
+add_asset("AletErika_Lesbian_Sex04", "sex", "Erika_01", "AletErika_Lesbian_Sex04_Erika_01_Montage_MAX")
+add_asset("AletErika_Lesbian_Sex04", "sex", "Erika_01", "AletErika_Lesbian_Sex04_Erika_01_Montage_MIN")
+
+Catalog.by_family["AletErikaDoubleDildo_JMLesbian03"] = {
+    hanime_id = "AletErikaDoubleDildo_JMLesbian03", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "DoubleDildo_01",
+        "Erika_01",
+    },
+}
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "Alet_01", "AletErikaDoubleDildo_JMLesbian03_Alet_01_Montage")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "Alet_01", "AletErikaDoubleDildo_JMLesbian03_Alet_01_Montage_MAX")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "Alet_01", "AletErikaDoubleDildo_JMLesbian03_Alet_01_Montage_MIN")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "DoubleDildo_01", "AletErikaDoubleDildo_JMLesbian03_DoubleDildo_01_Montage")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "DoubleDildo_01", "AletErikaDoubleDildo_JMLesbian03_DoubleDildo_01_Montage_MAX")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "DoubleDildo_01", "AletErikaDoubleDildo_JMLesbian03_DoubleDildo_01_Montage_MIN")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "Erika_01", "AletErikaDoubleDildo_JMLesbian03_Erika_01_Montage")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "Erika_01", "AletErikaDoubleDildo_JMLesbian03_Erika_01_Montage_MAX")
+add_asset("AletErikaDoubleDildo_JMLesbian03", "sex", "Erika_01", "AletErikaDoubleDildo_JMLesbian03_Erika_01_Montage_MIN")
+
+Catalog.by_family["AletGhast_Hand01"] = {
+    hanime_id = "AletGhast_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Ghast_01",
+    },
+}
+add_asset("AletGhast_Hand01", "hand", "Alet_01", "AletGhast_Hand01_Alet_01_Montage")
+add_asset("AletGhast_Hand01", "hand", "Alet_01", "AletGhast_Hand01_Alet_01_Montage_Max")
+add_asset("AletGhast_Hand01", "hand", "Alet_01", "AletGhast_Hand01_Alet_01_Montage_Min")
+add_asset("AletGhast_Hand01", "hand", "Ghast_01", "AletGhast_Hand01_Ghast_01_Montage")
+add_asset("AletGhast_Hand01", "hand", "Ghast_01", "AletGhast_Hand01_Ghast_01_Montage_Max")
+add_asset("AletGhast_Hand01", "hand", "Ghast_01", "AletGhast_Hand01_Ghast_01_Montage_Min")
+
+Catalog.by_family["AletHound_Hand01"] = {
+    hanime_id = "AletHound_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("AletHound_Hand01", "hand", "Alet_01", "AletHound_Hand01_Alet_01_Montage")
+add_asset("AletHound_Hand01", "hand", "Alet_01", "AletHound_Hand01_Alet_01_Montage_Max")
+add_asset("AletHound_Hand01", "hand", "Alet_01", "AletHound_Hand01_Alet_01_Montage_Min")
+add_asset("AletHound_Hand01", "hand", "HoundOfTindalos_01", "AletHound_Hand01_HoundOfTindalos_01_Montage")
+add_asset("AletHound_Hand01", "hand", "HoundOfTindalos_01", "AletHound_Hand01_HoundOfTindalos_01_Montage_Max")
+add_asset("AletHound_Hand01", "hand", "HoundOfTindalos_01", "AletHound_Hand01_HoundOfTindalos_01_Montage_Min")
+
+Catalog.by_family["AletMale_A_Foot04"] = {
+    hanime_id = "AletMale_A_Foot04", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_A_Foot04", "foot", "Alet_01", "AletMale_A_Foot04_Alet_01_Montage")
+add_asset("AletMale_A_Foot04", "foot", "Alet_01", "AletMale_A_Foot04_Alet_01_Montage_MIN")
+add_asset("AletMale_A_Foot04", "foot", "Alet_01", "AletMale_A_Foot04_Alet_01_Montage_MIN_MAX")
+add_asset("AletMale_A_Foot04", "foot", "Male_A_01", "AletMale_A_Foot04_Male_A_01_Montage")
+add_asset("AletMale_A_Foot04", "foot", "Male_A_01", "AletMale_A_Foot04_Male_A_01_Montage_MAX")
+add_asset("AletMale_A_Foot04", "foot", "Male_A_01", "AletMale_A_Foot04_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AletMale_A_Foot05"] = {
+    hanime_id = "AletMale_A_Foot05", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_A_Foot05", "foot", "Alet_01", "AletMale_A_Foot05_Alet_01_Montage")
+add_asset("AletMale_A_Foot05", "foot", "Alet_01", "AletMale_A_Foot05_Alet_01_Montage_MAX")
+add_asset("AletMale_A_Foot05", "foot", "Alet_01", "AletMale_A_Foot05_Alet_01_Montage_MIN")
+add_asset("AletMale_A_Foot05", "foot", "Male_A_01", "AletMale_A_Foot05_Male_A_01_Montage")
+add_asset("AletMale_A_Foot05", "foot", "Male_A_01", "AletMale_A_Foot05_Male_A_01_Montage_MAX")
+add_asset("AletMale_A_Foot05", "foot", "Male_A_01", "AletMale_A_Foot05_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AletMale_A_Foot06"] = {
+    hanime_id = "AletMale_A_Foot06", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_A_Foot06", "foot", "Alet_01", "AletMale_A_Foot06_Alet_01_Montage")
+add_asset("AletMale_A_Foot06", "foot", "Alet_01", "AletMale_A_Foot06_Alet_01_Montage_Max")
+add_asset("AletMale_A_Foot06", "foot", "Alet_01", "AletMale_A_Foot06_Alet_01_Montage_Min")
+add_asset("AletMale_A_Foot06", "foot", "Male_A_01", "AletMale_A_Foot06_Male_A_01_Montage")
+add_asset("AletMale_A_Foot06", "foot", "Male_A_01", "AletMale_A_Foot06_Male_A_01_Montage_Max")
+add_asset("AletMale_A_Foot06", "foot", "Male_A_01", "AletMale_A_Foot06_Male_A_01_Montage_Min")
+
+Catalog.by_family["AletMale_Anal04"] = {
+    hanime_id = "AletMale_Anal04", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Anal04", "anal", "Alet_01", "AletMale_Anal04_Alet_01_Montage")
+add_asset("AletMale_Anal04", "anal", "Alet_01", "AletMale_Anal04_Alet_01_Montage_MAX")
+add_asset("AletMale_Anal04", "anal", "Alet_01", "AletMale_Anal04_Alet_01_Montage_MIN")
+add_asset("AletMale_Anal04", "anal", "Male_A_01", "AletMale_Anal04_Male_A_01_Montage")
+add_asset("AletMale_Anal04", "anal", "Male_A_01", "AletMale_Anal04_Male_A_01_Montage_MAX")
+add_asset("AletMale_Anal04", "anal", "Male_A_01", "AletMale_Anal04_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AletMale_Anal07"] = {
+    hanime_id = "AletMale_Anal07", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Anal07", "anal", "Alet_01", "AletMale_Anal07_Alet_01_Montage")
+add_asset("AletMale_Anal07", "anal", "Alet_01", "AletMale_Anal07_Alet_01_Montage_Max")
+add_asset("AletMale_Anal07", "anal", "Alet_01", "AletMale_Anal07_Alet_01_Montage_Min")
+add_asset("AletMale_Anal07", "anal", "Male_A_01", "AletMale_Anal07_Male_A_01_Montage")
+add_asset("AletMale_Anal07", "anal", "Male_A_01", "AletMale_Anal07_Male_A_01_Montage_Max")
+add_asset("AletMale_Anal07", "anal", "Male_A_01", "AletMale_Anal07_Male_A_01_Montage_Min")
+
+Catalog.by_family["AletMale_Anus01"] = {
+    hanime_id = "AletMale_Anus01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Anus01", "anal", "Alet_01", "AletMale_Anus01_Alet_01_Montage")
+add_asset("AletMale_Anus01", "anal", "Alet_01", "AletMale_Anus01_Alet_01_Montage_MAX")
+add_asset("AletMale_Anus01", "anal", "Alet_01", "AletMale_Anus01_Alet_01_Montage_MIN")
+add_asset("AletMale_Anus01", "anal", "Male_A_01", "AletMale_Anus01_Male_A_01_Montage")
+add_asset("AletMale_Anus01", "anal", "Male_A_01", "AletMale_Anus01_Male_A_01_Montage_MAX")
+add_asset("AletMale_Anus01", "anal", "Male_A_01", "AletMale_Anus01_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AletMale_Foot03"] = {
+    hanime_id = "AletMale_Foot03", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Handcuffs_mesh_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Foot03", "foot", "Alet_01", "AletMale_Foot03_Alet_01_Montage")
+add_asset("AletMale_Foot03", "foot", "Alet_01", "AletMale_Foot03_Alet_01_Montage_Max")
+add_asset("AletMale_Foot03", "foot", "Alet_01", "AletMale_Foot03_Alet_01_Montage_Min")
+add_asset("AletMale_Foot03", "foot", "Handcuffs_mesh_01", "AletMale_Foot03_Handcuffs_mesh_01_Montage")
+add_asset("AletMale_Foot03", "foot", "Handcuffs_mesh_01", "AletMale_Foot03_Handcuffs_mesh_01_Montage_Max")
+add_asset("AletMale_Foot03", "foot", "Handcuffs_mesh_01", "AletMale_Foot03_Handcuffs_mesh_01_Montage_Min")
+add_asset("AletMale_Foot03", "foot", "Male_A_01", "AletMale_Foot03_Male_A_01_Montage")
+add_asset("AletMale_Foot03", "foot", "Male_A_01", "AletMale_Foot03_Male_A_01_Montage_Max")
+add_asset("AletMale_Foot03", "foot", "Male_A_01", "AletMale_Foot03_Male_A_01_Montage_Min")
+
+Catalog.by_family["AletMale_Hand01"] = {
+    hanime_id = "AletMale_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Hand01", "hand", "Alet_01", "AletMale_Hand01_Alet_01_Montage")
+add_asset("AletMale_Hand01", "hand", "Alet_01", "AletMale_Hand01_Alet_01_Montage_Max")
+add_asset("AletMale_Hand01", "hand", "Alet_01", "AletMale_Hand01_Alet_01_Montage_Min")
+add_asset("AletMale_Hand01", "hand", "Male_A_01", "AletMale_Hand01_Male_A_01_Montage")
+add_asset("AletMale_Hand01", "hand", "Male_A_01", "AletMale_Hand01_Male_A_01_Montage_Max")
+add_asset("AletMale_Hand01", "hand", "Male_A_01", "AletMale_Hand01_Male_A_01_Montage_Min")
+
+Catalog.by_family["AletMale_Hand02"] = {
+    hanime_id = "AletMale_Hand02", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Hand02", "hand", "Alet_01", "AletMale_Hand02_Alet_01_Montage")
+add_asset("AletMale_Hand02", "hand", "Alet_01", "AletMale_Hand02_Alet_01_Montage_Max")
+add_asset("AletMale_Hand02", "hand", "Alet_01", "AletMale_Hand02_Alet_01_Montage_Min")
+add_asset("AletMale_Hand02", "hand", "Male_A_01", "AletMale_Hand02_Male_A_01_Montage")
+add_asset("AletMale_Hand02", "hand", "Male_A_01", "AletMale_Hand02_Male_A_01_Montage_Max")
+add_asset("AletMale_Hand02", "hand", "Male_A_01", "AletMale_Hand02_Male_A_01_Montage_Min")
+add_asset("AletMale_Hand02", "hand", "Male", "AletMale_Hand02_Male_Montage")
+add_asset("AletMale_Hand02", "hand", "Male", "AletMale_Hand02_Male_Montage_MAX")
+add_asset("AletMale_Hand02", "hand", "Male", "AletMale_Hand02_Male_Montage_MIN")
+
+Catalog.by_family["AletMale_Hand03"] = {
+    hanime_id = "AletMale_Hand03", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Chair_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Hand03", "hand", "Alet_01", "AletMale_Hand03_Alet_01_Montage")
+add_asset("AletMale_Hand03", "hand", "Alet_01", "AletMale_Hand03_Alet_01_Montage_Max")
+add_asset("AletMale_Hand03", "hand", "Alet_01", "AletMale_Hand03_Alet_01_Montage_Min")
+add_asset("AletMale_Hand03", "hand", "Chair_01", "AletMale_Hand03_Chair_01_Montage")
+add_asset("AletMale_Hand03", "hand", "Chair_01", "AletMale_Hand03_Chair_01_Montage_Max")
+add_asset("AletMale_Hand03", "hand", "Chair_01", "AletMale_Hand03_Chair_01_Montage_Min")
+add_asset("AletMale_Hand03", "hand", "Male_A_01", "AletMale_Hand03_Male_A_01_Montage")
+add_asset("AletMale_Hand03", "hand", "Male_A_01", "AletMale_Hand03_Male_A_01_Montage_Max")
+
+Catalog.by_family["AletMale_Mouth02"] = {
+    hanime_id = "AletMale_Mouth02", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Handcuffs_mesh_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Mouth02", "mouth", "Alet_01", "AletMale_Mouth02_Alet_01_Montage")
+add_asset("AletMale_Mouth02", "mouth", "Alet_01", "AletMale_Mouth02_Alet_01_Montage_MAX")
+add_asset("AletMale_Mouth02", "mouth", "Alet_01", "AletMale_Mouth02_Alet_01_Montage_MIN")
+add_asset("AletMale_Mouth02", "mouth", "Handcuffs_mesh_01", "AletMale_Mouth02_Handcuffs_mesh_01_Montage")
+add_asset("AletMale_Mouth02", "mouth", "Handcuffs_mesh_01", "AletMale_Mouth02_Handcuffs_mesh_01_Montage_MAX")
+add_asset("AletMale_Mouth02", "mouth", "Handcuffs_mesh_01", "AletMale_Mouth02_Handcuffs_mesh_01_Montage_MIN")
+add_asset("AletMale_Mouth02", "mouth", "Male_A_01", "AletMale_Mouth02_Male_A_01_Montage")
+add_asset("AletMale_Mouth02", "mouth", "Male_A_01", "AletMale_Mouth02_Male_A_01_Montage_MAX")
+add_asset("AletMale_Mouth02", "mouth", "Male_A_01", "AletMale_Mouth02_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AletMale_Vagina12"] = {
+    hanime_id = "AletMale_Vagina12", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Vagina12", "vaginal", "Alet_01", "AletMale_Vagina12_Alet_01_Montage")
+add_asset("AletMale_Vagina12", "vaginal", "Alet_01", "AletMale_Vagina12_Alet_01_Montage_MAX")
+add_asset("AletMale_Vagina12", "vaginal", "Alet_01", "AletMale_Vagina12_Alet_01_Montage_MIN")
+add_asset("AletMale_Vagina12", "vaginal", "Male_A_01", "AletMale_Vagina12_Male_A_01_Montage")
+add_asset("AletMale_Vagina12", "vaginal", "Male_A_01", "AletMale_Vagina12_Male_A_01_Montage_MAX")
+add_asset("AletMale_Vagina12", "vaginal", "Male_A_01", "AletMale_Vagina12_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AletMale_Vaginal07"] = {
+    hanime_id = "AletMale_Vaginal07", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Vaginal07", "vaginal", "Alet_01", "AletMale_Vaginal07_Alet_01_Montage")
+add_asset("AletMale_Vaginal07", "vaginal", "Alet_01", "AletMale_Vaginal07_Alet_01_Montage_MAX")
+add_asset("AletMale_Vaginal07", "vaginal", "Alet_01", "AletMale_Vaginal07_Alet_01_Montage_min")
+add_asset("AletMale_Vaginal07", "vaginal", "Male_A_01", "AletMale_Vaginal07_Male_A_01_Montage")
+add_asset("AletMale_Vaginal07", "vaginal", "Male_A_01", "AletMale_Vaginal07_Male_A_01_Montage_MAX")
+add_asset("AletMale_Vaginal07", "vaginal", "Male_A_01", "AletMale_Vaginal07_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AletMale_Vaginal11"] = {
+    hanime_id = "AletMale_Vaginal11", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Vaginal11", "vaginal", "Alet_01", "AletMale_Vaginal11_Alet_01_Montage")
+add_asset("AletMale_Vaginal11", "vaginal", "Alet_01", "AletMale_Vaginal11_Alet_01_Montage_MAX")
+add_asset("AletMale_Vaginal11", "vaginal", "Alet_01", "AletMale_Vaginal11_Alet_01_Montage_MIN")
+add_asset("AletMale_Vaginal11", "vaginal", "Male_A_01", "AletMale_Vaginal11_Male_A_01_Montage")
+add_asset("AletMale_Vaginal11", "vaginal", "Male_A_01", "AletMale_Vaginal11_Male_A_01_Montage_max")
+add_asset("AletMale_Vaginal11", "vaginal", "Male_A_01", "AletMale_Vaginal11_Male_A_01_Montage_min")
+
+Catalog.by_family["AletMale_Vaginal17"] = {
+    hanime_id = "AletMale_Vaginal17", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Feetcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("AletMale_Vaginal17", "vaginal", "Alet_01", "AletMale_Vaginal17_Alet_01_Montage")
+add_asset("AletMale_Vaginal17", "vaginal", "Alet_01", "AletMale_Vaginal17_Alet_01_Montage_Max")
+add_asset("AletMale_Vaginal17", "vaginal", "Alet_01", "AletMale_Vaginal17_Alet_01_Montage_Min")
+add_asset("AletMale_Vaginal17", "vaginal", "Feetcuffs_A_01", "AletMale_Vaginal17_Feetcuffs_A_01_Montage")
+add_asset("AletMale_Vaginal17", "vaginal", "Feetcuffs_A_01", "AletMale_Vaginal17_Feetcuffs_A_01_Montage_MAX")
+add_asset("AletMale_Vaginal17", "vaginal", "Feetcuffs_A_01", "AletMale_Vaginal17_Feetcuffs_A_01_Montage_MIN")
+add_asset("AletMale_Vaginal17", "vaginal", "Male_A_01", "AletMale_Vaginal17_Male_A_01_Montage")
+add_asset("AletMale_Vaginal17", "vaginal", "Male_A_01", "AletMale_Vaginal17_Male_A_01_Montage_Max")
+add_asset("AletMale_Vaginal17", "vaginal", "Male_A_01", "AletMale_Vaginal17_Male_A_01_Montage_Min")
+
+Catalog.by_family["AletMaleAB_VaginalMouth02"] = {
+    hanime_id = "AletMaleAB_VaginalMouth02", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Chair_01",
+        "Male_A_01",
+        "Male_B_01",
+    },
+}
+add_asset("AletMaleAB_VaginalMouth02", "other", "Alet_01", "AletMaleAB_VaginalMouth02_Alet_01_Montage")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Alet_01", "AletMaleAB_VaginalMouth02_Alet_01_Montage_Max")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Alet_01", "AletMaleAB_VaginalMouth02_Alet_01_Montage_Min")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Chair_01", "AletMaleAB_VaginalMouth02_Chair_01_Montage")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Chair_01", "AletMaleAB_VaginalMouth02_Chair_01_Montage_Max")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Chair_01", "AletMaleAB_VaginalMouth02_Chair_01_Montage_Min")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Male_A_01", "AletMaleAB_VaginalMouth02_Male_A_01_Montage")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Male_A_01", "AletMaleAB_VaginalMouth02_Male_A_01_Montage_Max")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Male_A_01", "AletMaleAB_VaginalMouth02_Male_A_01_Montage_Min")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Male_B_01", "AletMaleAB_VaginalMouth02_Male_B_01_Montage")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Male_B_01", "AletMaleAB_VaginalMouth02_Male_B_01_Montage_Max")
+add_asset("AletMaleAB_VaginalMouth02", "other", "Male_B_01", "AletMaleAB_VaginalMouth02_Male_B_01_Montage_Min")
+
+Catalog.by_family["AletMiGoNymph_Arse01"] = {
+    hanime_id = "AletMiGoNymph_Arse01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "MiGoNymph_01",
+    },
+}
+add_asset("AletMiGoNymph_Arse01", "other", "Alet_01", "AletMiGoNymph_Arse01_Alet_01_Montage")
+add_asset("AletMiGoNymph_Arse01", "other", "Alet_01", "AletMiGoNymph_Arse01_Alet_01_Montage_MAX")
+add_asset("AletMiGoNymph_Arse01", "other", "Alet_01", "AletMiGoNymph_Arse01_Alet_01_Montage_MIN")
+add_asset("AletMiGoNymph_Arse01", "other", "MiGoNymph_01", "AletMiGoNymph_Arse01_MiGoNymph_01_Montage")
+add_asset("AletMiGoNymph_Arse01", "other", "MiGoNymph_01", "AletMiGoNymph_Arse01_MiGoNymph_01_Montage_MAX")
+add_asset("AletMiGoNymph_Arse01", "other", "MiGoNymph_01", "AletMiGoNymph_Arse01_MiGoNymph_01_Montage_MIN")
+
+Catalog.by_family["AletScorpioMale_VaginalMouth01"] = {
+    hanime_id = "AletScorpioMale_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Male_A_01",
+        "SpawnOfBasatan_01",
+    },
+}
+add_asset("AletScorpioMale_VaginalMouth01", "other", "Alet_01", "AletScorpioMale_VaginalMouth01_Alet_01_Montage")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "Alet_01", "AletScorpioMale_VaginalMouth01_Alet_01_Montage_Max")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "Alet_01", "AletScorpioMale_VaginalMouth01_Alet_01_Montage_Min")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "Male_A_01", "AletScorpioMale_VaginalMouth01_Male_A_01_Montage")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "Male_A_01", "AletScorpioMale_VaginalMouth01_Male_A_01_Montage_Max")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "Male_A_01", "AletScorpioMale_VaginalMouth01_Male_A_01_Montage_Min")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "SpawnOfBasatan_01", "AletScorpioMale_VaginalMouth01_SpawnOfBasatan_01_Montage")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "SpawnOfBasatan_01", "AletScorpioMale_VaginalMouth01_SpawnOfBasatan_01_Montage_Max")
+add_asset("AletScorpioMale_VaginalMouth01", "other", "SpawnOfBasatan_01", "AletScorpioMale_VaginalMouth01_SpawnOfBasatan_01_Montage_Min")
+
+Catalog.by_family["AletTentacle_Anal02"] = {
+    hanime_id = "AletTentacle_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+    },
+}
+add_asset("AletTentacle_Anal02", "anal", "Alet_01", "AletTentacle_Anal02_Alet_01_Montage")
+add_asset("AletTentacle_Anal02", "anal", "Alet_01", "AletTentacle_Anal02_Alet_01_Montage_MAX")
+add_asset("AletTentacle_Anal02", "anal", "Alet_01", "AletTentacle_Anal02_Alet_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaDoubledildoA_Vaginal20260708_X"] = {
+    hanime_id = "AM_AdaDoubledildoA_Vaginal20260708_X", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "DoubleDildo_A_01",
+    },
+}
+add_asset("AM_AdaDoubledildoA_Vaginal20260708_X", "vaginal", "Ada_01", "AM_AdaDoubledildoA_Vaginal20260708_X_Ada_01_Montage")
+add_asset("AM_AdaDoubledildoA_Vaginal20260708_X", "vaginal", "Ada_01", "AM_AdaDoubledildoA_Vaginal20260708_X_Ada_01_Montage_MAX")
+add_asset("AM_AdaDoubledildoA_Vaginal20260708_X", "vaginal", "Ada_01", "AM_AdaDoubledildoA_Vaginal20260708_X_Ada_01_Montage_MIN")
+add_asset("AM_AdaDoubledildoA_Vaginal20260708_X", "vaginal", "DoubleDildo_A_01", "AM_AdaDoubledildoA_Vaginal20260708_X_DoubleDildo_A_01_Montage")
+add_asset("AM_AdaDoubledildoA_Vaginal20260708_X", "vaginal", "DoubleDildo_A_01", "AM_AdaDoubledildoA_Vaginal20260708_X_DoubleDildo_A_01_Montage_MAX")
+add_asset("AM_AdaDoubledildoA_Vaginal20260708_X", "vaginal", "DoubleDildo_A_01", "AM_AdaDoubledildoA_Vaginal20260708_X_DoubleDildo_A_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaDramer_FaceVaginal20260616_Kiana"] = {
+    hanime_id = "AM_AdaDramer_FaceVaginal20260616_Kiana", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Dreamer_A_01",
+    },
+}
+add_asset("AM_AdaDramer_FaceVaginal20260616_Kiana", "vaginal", "Ada_01", "AM_AdaDramer_FaceVaginal20260616_Kiana_Ada_01_Montage")
+add_asset("AM_AdaDramer_FaceVaginal20260616_Kiana", "vaginal", "Ada_01", "AM_AdaDramer_FaceVaginal20260616_Kiana_Ada_01_Montage_MAX")
+add_asset("AM_AdaDramer_FaceVaginal20260616_Kiana", "vaginal", "Ada_01", "AM_AdaDramer_FaceVaginal20260616_Kiana_Ada_01_Montage_MIN")
+add_asset("AM_AdaDramer_FaceVaginal20260616_Kiana", "vaginal", "Dreamer_A_01", "AM_AdaDramer_FaceVaginal20260616_Kiana_Dreamer_A_01_Montage")
+add_asset("AM_AdaDramer_FaceVaginal20260616_Kiana", "vaginal", "Dreamer_A_01", "AM_AdaDramer_FaceVaginal20260616_Kiana_Dreamer_A_01_Montage_MAX")
+add_asset("AM_AdaDramer_FaceVaginal20260616_Kiana", "vaginal", "Dreamer_A_01", "AM_AdaDramer_FaceVaginal20260616_Kiana_Dreamer_A_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaDreamer_Boob20260706_Slime"] = {
+    hanime_id = "AM_AdaDreamer_Boob20260706_Slime", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+    },
+}
+add_asset("AM_AdaDreamer_Boob20260706_Slime", "other", "Ada_01", "AM_AdaDreamer_Boob20260706_Slime_Ada_01_Montage")
+add_asset("AM_AdaDreamer_Boob20260706_Slime", "other", "Ada_01", "AM_AdaDreamer_Boob20260706_Slime_Ada_01_Montage_MAX")
+add_asset("AM_AdaDreamer_Boob20260706_Slime", "other", "Ada_01", "AM_AdaDreamer_Boob20260706_Slime_Ada_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaDreamer_Vaginal20260701_Kame"] = {
+    hanime_id = "AM_AdaDreamer_Vaginal20260701_Kame", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Dreamer_A_01",
+    },
+}
+add_asset("AM_AdaDreamer_Vaginal20260701_Kame", "vaginal", "Ada_01", "AM_AdaDreamer_Vaginal20260701_Kame_Ada_01_Montage")
+add_asset("AM_AdaDreamer_Vaginal20260701_Kame", "vaginal", "Ada_01", "AM_AdaDreamer_Vaginal20260701_Kame_Ada_01_Montage_MAX")
+add_asset("AM_AdaDreamer_Vaginal20260701_Kame", "vaginal", "Ada_01", "AM_AdaDreamer_Vaginal20260701_Kame_Ada_01_Montage_MIN")
+add_asset("AM_AdaDreamer_Vaginal20260701_Kame", "vaginal", "Dreamer_A_01", "AM_AdaDreamer_Vaginal20260701_Kame_Dreamer_A_01_Montage")
+add_asset("AM_AdaDreamer_Vaginal20260701_Kame", "vaginal", "Dreamer_A_01", "AM_AdaDreamer_Vaginal20260701_Kame_Dreamer_A_01_Montage_MAX")
+add_asset("AM_AdaDreamer_Vaginal20260701_Kame", "vaginal", "Dreamer_A_01", "AM_AdaDreamer_Vaginal20260701_Kame_Dreamer_A_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaElderthing_Anal20260522_X"] = {
+    hanime_id = "AM_AdaElderthing_Anal20260522_X", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "ElderThing_01",
+    },
+}
+add_asset("AM_AdaElderthing_Anal20260522_X", "anal", "Ada_01", "AM_AdaElderthing_Anal20260522_X_Ada_01_Montage")
+add_asset("AM_AdaElderthing_Anal20260522_X", "anal", "Ada_01", "AM_AdaElderthing_Anal20260522_X_Ada_01_Montage_MAX")
+add_asset("AM_AdaElderthing_Anal20260522_X", "anal", "Ada_01", "AM_AdaElderthing_Anal20260522_X_Ada_01_Montage_MIN")
+add_asset("AM_AdaElderthing_Anal20260522_X", "anal", "ElderThing_01", "AM_AdaElderthing_Anal20260522_X_ElderThing_01_Montage")
+add_asset("AM_AdaElderthing_Anal20260522_X", "anal", "ElderThing_01", "AM_AdaElderthing_Anal20260522_X_ElderThing_01_Montage_MAX")
+add_asset("AM_AdaElderthing_Anal20260522_X", "anal", "ElderThing_01", "AM_AdaElderthing_Anal20260522_X_ElderThing_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaGhastTchotcho_Vaginal20250512_BETAROB"] = {
+    hanime_id = "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Ghast_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "Ada_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_Ada_01_Montage")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "Ada_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_Ada_01_Montage_MAX")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "Ada_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_Ada_01_Montage_MIN")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "Ghast_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_Ghast_01_Montage")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "Ghast_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_Ghast_01_Montage_MAX")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "Ghast_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_Ghast_01_Montage_MIN")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "TchoTcho_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_TchoTcho_01_Montage")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "TchoTcho_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_TchoTcho_01_Montage_MAX")
+add_asset("AM_AdaGhastTchotcho_Vaginal20250512_BETAROB", "vaginal", "TchoTcho_01", "AM_AdaGhastTchotcho_Vaginal20250512_BETAROB_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaGhoul_Anal20260630_Prince"] = {
+    hanime_id = "AM_AdaGhoul_Anal20260630_Prince", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Ghoul_A_01",
+    },
+}
+add_asset("AM_AdaGhoul_Anal20260630_Prince", "anal", "Ada_01", "AM_AdaGhoul_Anal20260630_Prince_Ada_01_Montage")
+add_asset("AM_AdaGhoul_Anal20260630_Prince", "anal", "Ada_01", "AM_AdaGhoul_Anal20260630_Prince_Ada_01_Montage_MAX")
+add_asset("AM_AdaGhoul_Anal20260630_Prince", "anal", "Ada_01", "AM_AdaGhoul_Anal20260630_Prince_Ada_01_Montage_MIN")
+add_asset("AM_AdaGhoul_Anal20260630_Prince", "anal", "Ghoul_A_01", "AM_AdaGhoul_Anal20260630_Prince_Ghoul_A_01_Montage")
+add_asset("AM_AdaGhoul_Anal20260630_Prince", "anal", "Ghoul_A_01", "AM_AdaGhoul_Anal20260630_Prince_Ghoul_A_01_Montage_MAX")
+add_asset("AM_AdaGhoul_Anal20260630_Prince", "anal", "Ghoul_A_01", "AM_AdaGhoul_Anal20260630_Prince_Ghoul_A_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaHippocamp_Vaginal20260527_QingChen"] = {
+    hanime_id = "AM_AdaHippocamp_Vaginal20260527_QingChen", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "Hippocamp_01",
+    },
+}
+add_asset("AM_AdaHippocamp_Vaginal20260527_QingChen", "vaginal", "Ada_01", "AM_AdaHippocamp_Vaginal20260527_QingChen_Ada_01_Montage")
+add_asset("AM_AdaHippocamp_Vaginal20260527_QingChen", "vaginal", "Ada_01", "AM_AdaHippocamp_Vaginal20260527_QingChen_Ada_01_Montage_MAX")
+add_asset("AM_AdaHippocamp_Vaginal20260527_QingChen", "vaginal", "Ada_01", "AM_AdaHippocamp_Vaginal20260527_QingChen_Ada_01_Montage_MIN")
+add_asset("AM_AdaHippocamp_Vaginal20260527_QingChen", "vaginal", "Hippocamp_01", "AM_AdaHippocamp_Vaginal20260527_QingChen_Hippocamp_01_Montage")
+add_asset("AM_AdaHippocamp_Vaginal20260527_QingChen", "vaginal", "Hippocamp_01", "AM_AdaHippocamp_Vaginal20260527_QingChen_Hippocamp_01_Montage_MAX")
+add_asset("AM_AdaHippocamp_Vaginal20260527_QingChen", "vaginal", "Hippocamp_01", "AM_AdaHippocamp_Vaginal20260527_QingChen_Hippocamp_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaTchotcho_Anal20260613_Tango"] = {
+    hanime_id = "AM_AdaTchotcho_Anal20260613_Tango", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("AM_AdaTchotcho_Anal20260613_Tango", "anal", "Ada_01", "AM_AdaTchotcho_Anal20260613_Tango_Ada_01_Montage")
+add_asset("AM_AdaTchotcho_Anal20260613_Tango", "anal", "Ada_01", "AM_AdaTchotcho_Anal20260613_Tango_Ada_01_Montage_MAX")
+add_asset("AM_AdaTchotcho_Anal20260613_Tango", "anal", "Ada_01", "AM_AdaTchotcho_Anal20260613_Tango_Ada_01_Montage_MIN")
+add_asset("AM_AdaTchotcho_Anal20260613_Tango", "anal", "TchoTcho_01", "AM_AdaTchotcho_Anal20260613_Tango_TchoTcho_01_Montage")
+add_asset("AM_AdaTchotcho_Anal20260613_Tango", "anal", "TchoTcho_01", "AM_AdaTchotcho_Anal20260613_Tango_TchoTcho_01_Montage_MAX")
+add_asset("AM_AdaTchotcho_Anal20260613_Tango", "anal", "TchoTcho_01", "AM_AdaTchotcho_Anal20260613_Tango_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["AM_AdaTchotcho_Foot20260629_Wumiao"] = {
+    hanime_id = "AM_AdaTchotcho_Foot20260629_Wumiao", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ada_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("AM_AdaTchotcho_Foot20260629_Wumiao", "foot", "Ada_01", "AM_AdaTchotcho_Foot20260629_Wumiao_Ada_01_Montage")
+add_asset("AM_AdaTchotcho_Foot20260629_Wumiao", "foot", "Ada_01", "AM_AdaTchotcho_Foot20260629_Wumiao_Ada_01_Montage_MAX")
+add_asset("AM_AdaTchotcho_Foot20260629_Wumiao", "foot", "Ada_01", "AM_AdaTchotcho_Foot20260629_Wumiao_Ada_01_Montage_MIN")
+add_asset("AM_AdaTchotcho_Foot20260629_Wumiao", "foot", "TchoTcho_01", "AM_AdaTchotcho_Foot20260629_Wumiao_TchoTcho_01_Montage")
+add_asset("AM_AdaTchotcho_Foot20260629_Wumiao", "foot", "TchoTcho_01", "AM_AdaTchotcho_Foot20260629_Wumiao_TchoTcho_01_Montage_MAX")
+add_asset("AM_AdaTchotcho_Foot20260629_Wumiao", "foot", "TchoTcho_01", "AM_AdaTchotcho_Foot20260629_Wumiao_TchoTcho_01_Montage_MIN")
+
 Catalog.by_family["AM_GalaTalon_Mouth20251009_00"] = {
     hanime_id = "AM_GalaTalon_Mouth20251009_00", category = "mouth",
     catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
@@ -56,6 +830,1099 @@ add_asset("AM_GalaTalon_Mouth20251009_00", "mouth", "Gala_01", "AM_GalaTalon_Mou
 add_asset("AM_GalaTalon_Mouth20251009_00", "mouth", "Talon_01", "AM_GalaTalon_Mouth20251009_00_Talon_01_Montage")
 add_asset("AM_GalaTalon_Mouth20251009_00", "mouth", "Talon_01", "AM_GalaTalon_Mouth20251009_00_Talon_01_Montage_MAX")
 add_asset("AM_GalaTalon_Mouth20251009_00", "mouth", "Talon_01", "AM_GalaTalon_Mouth20251009_00_Talon_01_Montage_MIN")
+
+Catalog.by_family["AnyaByakhee_Anal02"] = {
+    hanime_id = "AnyaByakhee_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Byakhee_01",
+    },
+}
+add_asset("AnyaByakhee_Anal02", "anal", "Anya_01", "AnyaByakhee_Anal02_Anya_01_Montage")
+add_asset("AnyaByakhee_Anal02", "anal", "Anya_01", "AnyaByakhee_Anal02_Anya_01_Montage_MAX")
+add_asset("AnyaByakhee_Anal02", "anal", "Anya_01", "AnyaByakhee_Anal02_Anya_01_Montage_MIN")
+add_asset("AnyaByakhee_Anal02", "anal", "Byakhee_01", "AnyaByakhee_Anal02_Byakhee_01_Montage")
+add_asset("AnyaByakhee_Anal02", "anal", "Byakhee_01", "AnyaByakhee_Anal02_Byakhee_01_Montage_MAX")
+add_asset("AnyaByakhee_Anal02", "anal", "Byakhee_01", "AnyaByakhee_Anal02_Byakhee_01_Montage_MIN")
+
+Catalog.by_family["AnyaByakhee_Anal20200724_00"] = {
+    hanime_id = "AnyaByakhee_Anal20200724_00", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Byakhee_01",
+    },
+}
+add_asset("AnyaByakhee_Anal20200724_00", "anal", "Anya_01", "AnyaByakhee_Anal20200724_00_Anya_01_Montage")
+add_asset("AnyaByakhee_Anal20200724_00", "anal", "Anya_01", "AnyaByakhee_Anal20200724_00_Anya_01_Montage_MAX")
+add_asset("AnyaByakhee_Anal20200724_00", "anal", "Anya_01", "AnyaByakhee_Anal20200724_00_Anya_01_Montage_MIN")
+add_asset("AnyaByakhee_Anal20200724_00", "anal", "Byakhee_01", "AnyaByakhee_Anal20200724_00_Byakhee_01_Montage")
+add_asset("AnyaByakhee_Anal20200724_00", "anal", "Byakhee_01", "AnyaByakhee_Anal20200724_00_Byakhee_01_Montage_MAX")
+add_asset("AnyaByakhee_Anal20200724_00", "anal", "Byakhee_01", "AnyaByakhee_Anal20200724_00_Byakhee_01_Montage_MIN")
+
+Catalog.by_family["AnyaByakhee_Vagina_"] = {
+    hanime_id = "AnyaByakhee_Vagina_", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Byakhee_01",
+    },
+}
+add_asset("AnyaByakhee_Vagina_", "vaginal", "Anya_01", "AnyaByakhee_Vagina__Anya_01_Montage")
+add_asset("AnyaByakhee_Vagina_", "vaginal", "Anya_01", "AnyaByakhee_Vagina__Anya_01_Montage_Max")
+add_asset("AnyaByakhee_Vagina_", "vaginal", "Anya_01", "AnyaByakhee_Vagina__Anya_01_Montage_Min")
+add_asset("AnyaByakhee_Vagina_", "vaginal", "Byakhee_01", "AnyaByakhee_Vagina__Byakhee_01_Montage")
+add_asset("AnyaByakhee_Vagina_", "vaginal", "Byakhee_01", "AnyaByakhee_Vagina__Byakhee_01_Montage_Max")
+add_asset("AnyaByakhee_Vagina_", "vaginal", "Byakhee_01", "AnyaByakhee_Vagina__Byakhee_01_Montage_Min")
+
+Catalog.by_family["AnyaDeepOne_Anal03"] = {
+    hanime_id = "AnyaDeepOne_Anal03", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DeepOne_01",
+    },
+}
+add_asset("AnyaDeepOne_Anal03", "anal", "Anya_01", "AnyaDeepOne_Anal03_Anya_01_Montage")
+add_asset("AnyaDeepOne_Anal03", "anal", "Anya_01", "AnyaDeepOne_Anal03_Anya_01_Montage_Max")
+add_asset("AnyaDeepOne_Anal03", "anal", "Anya_01", "AnyaDeepOne_Anal03_Anya_01_Montage_Min")
+add_asset("AnyaDeepOne_Anal03", "anal", "DeepOne_01", "AnyaDeepOne_Anal03_DeepOne_01_Montage")
+add_asset("AnyaDeepOne_Anal03", "anal", "DeepOne_01", "AnyaDeepOne_Anal03_DeepOne_01_Montage_Max")
+add_asset("AnyaDeepOne_Anal03", "anal", "DeepOne_01", "AnyaDeepOne_Anal03_DeepOne_01_Montage_Min")
+
+Catalog.by_family["AnyaDeepOneAB_AnalMouth01"] = {
+    hanime_id = "AnyaDeepOneAB_AnalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DeepOne_A_01",
+        "DeepOne_B_01",
+    },
+}
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "Anya_01", "AnyaDeepOneAB_AnalMouth01_Anya_01_Montage")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "Anya_01", "AnyaDeepOneAB_AnalMouth01_Anya_01_Montage_MAX")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "Anya_01", "AnyaDeepOneAB_AnalMouth01_Anya_01_Montage_MIN")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "DeepOne_A_01", "AnyaDeepOneAB_AnalMouth01_DeepOne_A_01_Montage")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "DeepOne_A_01", "AnyaDeepOneAB_AnalMouth01_DeepOne_A_01_Montage_MAX")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "DeepOne_A_01", "AnyaDeepOneAB_AnalMouth01_DeepOne_A_01_Montage_MIN")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "DeepOne_B_01", "AnyaDeepOneAB_AnalMouth01_DeepOne_B_01_Montage")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "DeepOne_B_01", "AnyaDeepOneAB_AnalMouth01_DeepOne_B_01_Montage_MAX")
+add_asset("AnyaDeepOneAB_AnalMouth01", "other", "DeepOne_B_01", "AnyaDeepOneAB_AnalMouth01_DeepOne_B_01_Montage_MIN")
+
+Catalog.by_family["AnyaDeepOneAB_PrinceVaginalAnal01"] = {
+    hanime_id = "AnyaDeepOneAB_PrinceVaginalAnal01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+    },
+}
+add_asset("AnyaDeepOneAB_PrinceVaginalAnal01", "other", "Anya_01", "AnyaDeepOneAB_PrinceVaginalAnal01_Anya_01_Montage")
+add_asset("AnyaDeepOneAB_PrinceVaginalAnal01", "other", "Anya_01", "AnyaDeepOneAB_PrinceVaginalAnal01_Anya_01_Montage_Max")
+add_asset("AnyaDeepOneAB_PrinceVaginalAnal01", "other", "Anya_01", "AnyaDeepOneAB_PrinceVaginalAnal01_Anya_01_Montage_Min")
+
+Catalog.by_family["AnyaDeepOneAB_VaginalMouth01"] = {
+    hanime_id = "AnyaDeepOneAB_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DeepOne_A_01",
+        "DeepOne_B_01",
+    },
+}
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "Anya_01", "AnyaDeepOneAB_VaginalMouth01_Anya_01_Montage")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "Anya_01", "AnyaDeepOneAB_VaginalMouth01_Anya_01_Montage_Max")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "Anya_01", "AnyaDeepOneAB_VaginalMouth01_Anya_01_Montage_Min")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "DeepOne_A_01", "AnyaDeepOneAB_VaginalMouth01_DeepOne_A_01_Montage")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "DeepOne_A_01", "AnyaDeepOneAB_VaginalMouth01_DeepOne_A_01_Montage_Max")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "DeepOne_A_01", "AnyaDeepOneAB_VaginalMouth01_DeepOne_A_01_Montage_Min")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "DeepOne_B_01", "AnyaDeepOneAB_VaginalMouth01_DeepOne_B_01_Montage")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "DeepOne_B_01", "AnyaDeepOneAB_VaginalMouth01_DeepOne_B_01_Montage_Max")
+add_asset("AnyaDeepOneAB_VaginalMouth01", "other", "DeepOne_B_01", "AnyaDeepOneAB_VaginalMouth01_DeepOne_B_01_Montage_Min")
+
+Catalog.by_family["AnyaDeepOneGhast_VaginalMouth01"] = {
+    hanime_id = "AnyaDeepOneGhast_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DeepOne_01",
+        "Ghast_01",
+    },
+}
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "Anya_01", "AnyaDeepOneGhast_VaginalMouth01_Anya_01_Montage")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "Anya_01", "AnyaDeepOneGhast_VaginalMouth01_Anya_01_Montage_Max")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "Anya_01", "AnyaDeepOneGhast_VaginalMouth01_Anya_01_Montage_Min")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "DeepOne_01", "AnyaDeepOneGhast_VaginalMouth01_DeepOne_01_Montage")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "DeepOne_01", "AnyaDeepOneGhast_VaginalMouth01_DeepOne_01_Montage_Max")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "DeepOne_01", "AnyaDeepOneGhast_VaginalMouth01_DeepOne_01_Montage_Min")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "Ghast_01", "AnyaDeepOneGhast_VaginalMouth01_Ghast_01_Montage")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "Ghast_01", "AnyaDeepOneGhast_VaginalMouth01_Ghast_01_Montage_Max")
+add_asset("AnyaDeepOneGhast_VaginalMouth01", "other", "Ghast_01", "AnyaDeepOneGhast_VaginalMouth01_Ghast_01_Montage_Min")
+
+Catalog.by_family["AnyaErika_DoubleDildo_08"] = {
+    hanime_id = "AnyaErika_DoubleDildo_08", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DoubleDildo_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_DoubleDildo_08", "sex", "Anya_01", "AnyaErika_DoubleDildo_08_Anya_01_Montage")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "Anya_01", "AnyaErika_DoubleDildo_08_Anya_01_Montage_Max")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "Anya_01", "AnyaErika_DoubleDildo_08_Anya_01_Montage_Min")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "DoubleDildo_01", "AnyaErika_DoubleDildo_08_DoubleDildo_01_Montage")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "DoubleDildo_01", "AnyaErika_DoubleDildo_08_DoubleDildo_01_Montage_Max")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "DoubleDildo_01", "AnyaErika_DoubleDildo_08_DoubleDildo_01_Montage_Min")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "Erika_01", "AnyaErika_DoubleDildo_08_Erika_01_Montage")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "Erika_01", "AnyaErika_DoubleDildo_08_Erika_01_Montage_Max")
+add_asset("AnyaErika_DoubleDildo_08", "sex", "Erika_01", "AnyaErika_DoubleDildo_08_Erika_01_Montage_Min")
+
+Catalog.by_family["AnyaErika_DoubleDildo05"] = {
+    hanime_id = "AnyaErika_DoubleDildo05", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DoubleDildo_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_DoubleDildo05", "sex", "Anya_01", "AnyaErika_DoubleDildo05_Anya_01_Montage")
+add_asset("AnyaErika_DoubleDildo05", "sex", "Anya_01", "AnyaErika_DoubleDildo05_Anya_01_Montage_Max")
+add_asset("AnyaErika_DoubleDildo05", "sex", "Anya_01", "AnyaErika_DoubleDildo05_Anya_01_Montage_Min")
+add_asset("AnyaErika_DoubleDildo05", "sex", "DoubleDildo_01", "AnyaErika_DoubleDildo05_DoubleDildo_01_Montage")
+add_asset("AnyaErika_DoubleDildo05", "sex", "DoubleDildo_01", "AnyaErika_DoubleDildo05_DoubleDildo_01_Montage_Min")
+add_asset("AnyaErika_DoubleDildo05", "sex", "Erika_01", "AnyaErika_DoubleDildo05_Erika_01_Montage")
+add_asset("AnyaErika_DoubleDildo05", "sex", "Erika_01", "AnyaErika_DoubleDildo05_Erika_01_Montage_Max")
+add_asset("AnyaErika_DoubleDildo05", "sex", "Erika_01", "AnyaErika_DoubleDildo05_Erika_01_Montage_Min")
+
+Catalog.by_family["AnyaErika_Doubledildo10"] = {
+    hanime_id = "AnyaErika_Doubledildo10", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "A_01",
+        "Anya_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_Doubledildo10", "sex", "A_01", "AnyaErika_DoubleDildo10_A_01_Montage")
+add_asset("AnyaErika_Doubledildo10", "sex", "A_01", "AnyaErika_DoubleDildo10_A_01_Montage_MAX")
+add_asset("AnyaErika_Doubledildo10", "sex", "A_01", "AnyaErika_DoubleDildo10_A_01_Montage_MIN")
+add_asset("AnyaErika_Doubledildo10", "sex", "Anya_01", "AnyaErika_Doubledildo10_Anya_01_Montage")
+add_asset("AnyaErika_Doubledildo10", "sex", "Anya_01", "AnyaErika_Doubledildo10_Anya_01_Montage_MAX")
+add_asset("AnyaErika_Doubledildo10", "sex", "Anya_01", "AnyaErika_Doubledildo10_Anya_01_Montage_MIN")
+add_asset("AnyaErika_Doubledildo10", "sex", "Erika_01", "AnyaErika_Doubledildo10_Erika_01_Montage")
+add_asset("AnyaErika_Doubledildo10", "sex", "Erika_01", "AnyaErika_Doubledildo10_Erika_01_Montage_MAX")
+add_asset("AnyaErika_Doubledildo10", "sex", "Erika_01", "AnyaErika_Doubledildo10_Erika_01_Montage_MIN")
+
+Catalog.by_family["AnyaErika_Hand01"] = {
+    hanime_id = "AnyaErika_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_Hand01", "hand", "Anya_01", "AnyaErika_Hand01_Anya_01_Montage")
+add_asset("AnyaErika_Hand01", "hand", "Anya_01", "AnyaErika_Hand01_Anya_01_Montage_Max")
+add_asset("AnyaErika_Hand01", "hand", "Anya_01", "AnyaErika_Hand01_Anya_01_Montage_Min")
+add_asset("AnyaErika_Hand01", "hand", "Erika_01", "AnyaErika_Hand01_Erika_01_Montage")
+add_asset("AnyaErika_Hand01", "hand", "Erika_01", "AnyaErika_Hand01_Erika_01_Montage_Max")
+add_asset("AnyaErika_Hand01", "hand", "Erika_01", "AnyaErika_Hand01_Erika_01_Montage_Min")
+
+Catalog.by_family["AnyaErika_Lesbian06"] = {
+    hanime_id = "AnyaErika_Lesbian06", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DoubleDildo_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_Lesbian06", "other", "Anya_01", "AnyaErika_Lesbian06_Anya_01_Montage")
+add_asset("AnyaErika_Lesbian06", "other", "Anya_01", "AnyaErika_Lesbian06_Anya_01_Montage_MAX")
+add_asset("AnyaErika_Lesbian06", "other", "Anya_01", "AnyaErika_Lesbian06_Anya_01_Montage_MIN")
+add_asset("AnyaErika_Lesbian06", "other", "DoubleDildo_01", "AnyaErika_Lesbian06_DoubleDildo_01_Montage")
+add_asset("AnyaErika_Lesbian06", "other", "DoubleDildo_01", "AnyaErika_Lesbian06_DoubleDildo_01_Montage_MAX")
+add_asset("AnyaErika_Lesbian06", "other", "Erika_01", "AnyaErika_Lesbian06_Erika_01_Montage")
+add_asset("AnyaErika_Lesbian06", "other", "Erika_01", "AnyaErika_Lesbian06_Erika_01_Montage_MAX")
+add_asset("AnyaErika_Lesbian06", "other", "Erika_01", "AnyaErika_Lesbian06_Erika_01_Montage_MIN")
+
+Catalog.by_family["AnyaErika_Lesbian07"] = {
+    hanime_id = "AnyaErika_Lesbian07", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DoubleDildo_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_Lesbian07", "other", "Anya_01", "AnyaErika_Lesbian07_Anya_01_Montage")
+add_asset("AnyaErika_Lesbian07", "other", "Anya_01", "AnyaErika_Lesbian07_Anya_01_Montage_MIN")
+add_asset("AnyaErika_Lesbian07", "other", "DoubleDildo_01", "AnyaErika_Lesbian07_DoubleDildo_01_Montage")
+add_asset("AnyaErika_Lesbian07", "other", "DoubleDildo_01", "AnyaErika_Lesbian07_DoubleDildo_01_Montage_MAX")
+add_asset("AnyaErika_Lesbian07", "other", "DoubleDildo_01", "AnyaErika_Lesbian07_DoubleDildo_01_Montage_MIN")
+add_asset("AnyaErika_Lesbian07", "other", "Erika_01", "AnyaErika_Lesbian07_Erika_01_Montage")
+add_asset("AnyaErika_Lesbian07", "other", "Erika_01", "AnyaErika_Lesbian07_Erika_01_Montage_MAX")
+add_asset("AnyaErika_Lesbian07", "other", "Erika_01", "AnyaErika_Lesbian07_Erika_01_Montage_MIN")
+
+Catalog.by_family["AnyaErika_Mouth01"] = {
+    hanime_id = "AnyaErika_Mouth01", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_Mouth01", "mouth", "Anya_01", "AnyaErika_Mouth01_Anya_01_Montage")
+add_asset("AnyaErika_Mouth01", "mouth", "Anya_01", "AnyaErika_Mouth01_Anya_01_Montage_MAX")
+add_asset("AnyaErika_Mouth01", "mouth", "Anya_01", "AnyaErika_Mouth01_Anya_01_Montage1_MIN")
+add_asset("AnyaErika_Mouth01", "mouth", "Erika_01", "AnyaErika_Mouth01_Erika_01_Montage")
+add_asset("AnyaErika_Mouth01", "mouth", "Erika_01", "AnyaErika_Mouth01_Erika_01_Montage_MAX")
+add_asset("AnyaErika_Mouth01", "mouth", "Erika_01", "AnyaErika_Mouth01_Erika_01_Montage_MIN")
+
+Catalog.by_family["AnyaErika_Sex03"] = {
+    hanime_id = "AnyaErika_Sex03", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErika_Sex03", "sex", "Anya_01", "AnyaErika_Sex03_Anya_01_Montage")
+add_asset("AnyaErika_Sex03", "sex", "Anya_01", "AnyaErika_Sex03_Anya_01_Montage_Max")
+add_asset("AnyaErika_Sex03", "sex", "Anya_01", "AnyaErika_Sex03_Anya_01_Montage_Min")
+add_asset("AnyaErika_Sex03", "sex", "Erika_01", "AnyaErika_Sex03_Erika_01_Montage")
+add_asset("AnyaErika_Sex03", "sex", "Erika_01", "AnyaErika_Sex03_Erika_01_Montage_Max")
+add_asset("AnyaErika_Sex03", "sex", "Erika_01", "AnyaErika_Sex03_Erika_01_Montage_Min")
+
+Catalog.by_family["AnyaErikaDoubleDildo09"] = {
+    hanime_id = "AnyaErikaDoubleDildo09", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DoubleDildo_01",
+        "Erika_01",
+    },
+}
+add_asset("AnyaErikaDoubleDildo09", "sex", "Anya_01", "AnyaErikaDoubleDildo09_Anya_01_Montage")
+add_asset("AnyaErikaDoubleDildo09", "sex", "Anya_01", "AnyaErikaDoubleDildo09_Anya_01_Montage_MAX")
+add_asset("AnyaErikaDoubleDildo09", "sex", "Anya_01", "AnyaErikaDoubleDildo09_Anya_01_Montage_MIN")
+add_asset("AnyaErikaDoubleDildo09", "sex", "DoubleDildo_01", "AnyaErikaDoubleDildo09_DoubleDildo_01_Montage")
+add_asset("AnyaErikaDoubleDildo09", "sex", "DoubleDildo_01", "AnyaErikaDoubleDildo09_DoubleDildo_01_Montage_MAX")
+add_asset("AnyaErikaDoubleDildo09", "sex", "DoubleDildo_01", "AnyaErikaDoubleDildo09_DoubleDildo_01_Montage_MIN")
+add_asset("AnyaErikaDoubleDildo09", "sex", "Erika_01", "AnyaErikaDoubleDildo09_Erika_01_Montage")
+add_asset("AnyaErikaDoubleDildo09", "sex", "Erika_01", "AnyaErikaDoubleDildo09_Erika_01_Montage_MAX")
+add_asset("AnyaErikaDoubleDildo09", "sex", "Erika_01", "AnyaErikaDoubleDildo09_Erika_01_Montage1_MIN")
+
+Catalog.by_family["AnyaGhast_Anal02"] = {
+    hanime_id = "AnyaGhast_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast_01",
+    },
+}
+add_asset("AnyaGhast_Anal02", "anal", "Anya_01", "AnyaGhast_Anal02_Anya_01_Montage")
+add_asset("AnyaGhast_Anal02", "anal", "Anya_01", "AnyaGhast_Anal02_Anya_01_Montage_MAX")
+add_asset("AnyaGhast_Anal02", "anal", "Anya_01", "AnyaGhast_Anal02_Anya_01_Montage_MIN")
+add_asset("AnyaGhast_Anal02", "anal", "Ghast_01", "AnyaGhast_Anal02_Ghast_01_Montage")
+add_asset("AnyaGhast_Anal02", "anal", "Ghast_01", "AnyaGhast_Anal02_Ghast_01_Montage_MAX")
+add_asset("AnyaGhast_Anal02", "anal", "Ghast_01", "AnyaGhast_Anal02_Ghast_01_Montage_MIN")
+
+Catalog.by_family["AnyaGhast_Foot01"] = {
+    hanime_id = "AnyaGhast_Foot01", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast_01",
+    },
+}
+add_asset("AnyaGhast_Foot01", "foot", "Anya_01", "AnyaGhast_Foot01_Anya_01_Montage")
+add_asset("AnyaGhast_Foot01", "foot", "Anya_01", "AnyaGhast_Foot01_Anya_01_Montage_Max")
+add_asset("AnyaGhast_Foot01", "foot", "Anya_01", "AnyaGhast_Foot01_Anya_01_Montage_Min")
+add_asset("AnyaGhast_Foot01", "foot", "Ghast_01", "AnyaGhast_Foot01_Ghast_01_Montage")
+add_asset("AnyaGhast_Foot01", "foot", "Ghast_01", "AnyaGhast_Foot01_Ghast_01_Montage_Max")
+add_asset("AnyaGhast_Foot01", "foot", "Ghast_01", "AnyaGhast_Foot01_Ghast_01_Montage_Min")
+
+Catalog.by_family["AnyaGhast_Foot02"] = {
+    hanime_id = "AnyaGhast_Foot02", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast_01",
+    },
+}
+add_asset("AnyaGhast_Foot02", "foot", "Anya_01", "AnyaGhast_Foot02_Anya_01_Montage")
+add_asset("AnyaGhast_Foot02", "foot", "Anya_01", "AnyaGhast_Foot02_Anya_01_Montage_Max")
+add_asset("AnyaGhast_Foot02", "foot", "Anya_01", "AnyaGhast_Foot02_Anya_01_Montage_Min")
+add_asset("AnyaGhast_Foot02", "foot", "Ghast_01", "AnyaGhast_Foot02_Ghast_01_Montage")
+add_asset("AnyaGhast_Foot02", "foot", "Ghast_01", "AnyaGhast_Foot02_Ghast_01_Montage_Max")
+add_asset("AnyaGhast_Foot02", "foot", "Ghast_01", "AnyaGhast_Foot02_Ghast_01_Montage_Min")
+
+Catalog.by_family["AnyaGhast_Hand01"] = {
+    hanime_id = "AnyaGhast_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast_01",
+    },
+}
+add_asset("AnyaGhast_Hand01", "hand", "Anya_01", "AnyaGhast_Hand01_Anya_01_Montage")
+add_asset("AnyaGhast_Hand01", "hand", "Anya_01", "AnyaGhast_Hand01_Anya_01_Montage_MAX")
+add_asset("AnyaGhast_Hand01", "hand", "Anya_01", "AnyaGhast_Hand01_Anya_01_Montage_MIN")
+add_asset("AnyaGhast_Hand01", "hand", "Ghast_01", "AnyaGhast_Hand01_Ghast_01_Montage")
+add_asset("AnyaGhast_Hand01", "hand", "Ghast_01", "AnyaGhast_Hand01_Ghast_01_Montage_MAX")
+add_asset("AnyaGhast_Hand01", "hand", "Ghast_01", "AnyaGhast_Hand01_Ghast_01_Montage_MIN")
+
+Catalog.by_family["AnyaGhast_Vaginal02"] = {
+    hanime_id = "AnyaGhast_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast",
+        "Ghast_01",
+    },
+}
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Anya_01", "AnyaGhast_Vaginal02_Anya_01_Montage")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Anya_01", "AnyaGhast_Vaginal02_Anya_01_Montage_Max")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Anya_01", "AnyaGhast_Vaginal02_Anya_01_Montage_Min")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Ghast_01", "AnyaGhast_Vaginal02_Ghast_01_Montage")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Ghast_01", "AnyaGhast_Vaginal02_Ghast_01_Montage_Max")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Ghast_01", "AnyaGhast_Vaginal02_Ghast_01_Montage_Min")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Ghast", "AnyaGhast_Vaginal02_Ghast_Montage")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Ghast", "AnyaGhast_Vaginal02_Ghast_Montage_MAX")
+add_asset("AnyaGhast_Vaginal02", "vaginal", "Ghast", "AnyaGhast_Vaginal02_Ghast_Montage_MIN")
+
+Catalog.by_family["AnyaGhast_Vaginal03"] = {
+    hanime_id = "AnyaGhast_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast",
+        "Ghast_01",
+    },
+}
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Anya_01", "AnyaGhast_Vaginal03_Anya_01_Montage")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Anya_01", "AnyaGhast_Vaginal03_Anya_01_Montage_MAX")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Anya_01", "AnyaGhast_Vaginal03_Anya_01_Montage_MIN")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Ghast_01", "AnyaGhast_Vaginal03_Ghast_01_Montage")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Ghast_01", "AnyaGhast_Vaginal03_Ghast_01_Montage_MAX")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Ghast_01", "AnyaGhast_Vaginal03_Ghast_01_Montage_MIN")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Ghast", "AnyaGhast_Vaginal03_Ghast_Montage")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Ghast", "AnyaGhast_Vaginal03_Ghast_Montage_MAX")
+add_asset("AnyaGhast_Vaginal03", "vaginal", "Ghast", "AnyaGhast_Vaginal03_Ghast_Montage_MIN")
+
+Catalog.by_family["AnyaGhastSpawn_Vaginal01"] = {
+    hanime_id = "AnyaGhastSpawn_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast_01",
+        "SpawnOfBasatan_01",
+    },
+}
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "Anya_01", "AnyaGhastSpawn_Vaginal01_Anya_01_Montage")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "Anya_01", "AnyaGhastSpawn_Vaginal01_Anya_01_Montage_Max")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "Anya_01", "AnyaGhastSpawn_Vaginal01_Anya_01_Montage_Min")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "Ghast_01", "AnyaGhastSpawn_Vaginal01_Ghast_01_Montage")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "Ghast_01", "AnyaGhastSpawn_Vaginal01_Ghast_01_Montage_Max")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "Ghast_01", "AnyaGhastSpawn_Vaginal01_Ghast_01_Montage_Min")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "SpawnOfBasatan_01", "AnyaGhastSpawn_Vaginal01_SpawnOfBasatan_01_Montage")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "SpawnOfBasatan_01", "AnyaGhastSpawn_Vaginal01_SpawnOfBasatan_01_Montage_Max")
+add_asset("AnyaGhastSpawn_Vaginal01", "vaginal", "SpawnOfBasatan_01", "AnyaGhastSpawn_Vaginal01_SpawnOfBasatan_01_Montage_Min")
+
+Catalog.by_family["AnyaHound_Anal01"] = {
+    hanime_id = "AnyaHound_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("AnyaHound_Anal01", "anal", "Anya_01", "AnyaHound_Anal01_Anya_01_Montage")
+add_asset("AnyaHound_Anal01", "anal", "Anya_01", "AnyaHound_Anal01_Anya_01_Montage_Max")
+add_asset("AnyaHound_Anal01", "anal", "Anya_01", "AnyaHound_Anal01_Anya_01_Montage_Min")
+add_asset("AnyaHound_Anal01", "anal", "HoundOfTindalos_01", "AnyaHound_Anal01_HoundOfTindalos_01_Montage")
+add_asset("AnyaHound_Anal01", "anal", "HoundOfTindalos_01", "AnyaHound_Anal01_HoundOfTindalos_01_Montage_Max")
+add_asset("AnyaHound_Anal01", "anal", "HoundOfTindalos_01", "AnyaHound_Anal01_HoundOfTindalos_01_Montage_Min")
+
+Catalog.by_family["AnyaHound_Anal02"] = {
+    hanime_id = "AnyaHound_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("AnyaHound_Anal02", "anal", "Anya_01", "AnyaHound_Anal02_Anya_01_Montage")
+add_asset("AnyaHound_Anal02", "anal", "Anya_01", "AnyaHound_Anal02_Anya_01_Montage_MAX")
+add_asset("AnyaHound_Anal02", "anal", "Anya_01", "AnyaHound_Anal02_Anya_01_Montage_MIN")
+add_asset("AnyaHound_Anal02", "anal", "HoundOfTindalos_01", "AnyaHound_Anal02_HoundOfTindalos_01_Montage")
+add_asset("AnyaHound_Anal02", "anal", "HoundOfTindalos_01", "AnyaHound_Anal02_HoundOfTindalos_01_Montage_MAX")
+add_asset("AnyaHound_Anal02", "anal", "HoundOfTindalos_01", "AnyaHound_Anal02_HoundOfTindalos_01_Montage_MIN")
+
+Catalog.by_family["AnyaHound_Vagina03"] = {
+    hanime_id = "AnyaHound_Vagina03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("AnyaHound_Vagina03", "vaginal", "Anya_01", "AnyaHound_Vagina03_Anya_01_Montage")
+add_asset("AnyaHound_Vagina03", "vaginal", "Anya_01", "AnyaHound_Vagina03_Anya_01_Montage_Max")
+add_asset("AnyaHound_Vagina03", "vaginal", "Anya_01", "AnyaHound_Vagina03_Anya_01_Montage_Min")
+add_asset("AnyaHound_Vagina03", "vaginal", "HoundOfTindalos_01", "AnyaHound_Vagina03_HoundOfTindalos_01_Montage")
+add_asset("AnyaHound_Vagina03", "vaginal", "HoundOfTindalos_01", "AnyaHound_Vagina03_HoundOfTindalos_01_Montage_Max")
+add_asset("AnyaHound_Vagina03", "vaginal", "HoundOfTindalos_01", "AnyaHound_Vagina03_HoundOfTindalos_01_Montage_Min")
+
+Catalog.by_family["AnyaHound_Vagina04"] = {
+    hanime_id = "AnyaHound_Vagina04", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("AnyaHound_Vagina04", "vaginal", "Anya_01", "AnyaHound_Vagina04_Anya_01_Montage")
+add_asset("AnyaHound_Vagina04", "vaginal", "Anya_01", "AnyaHound_Vagina04_Anya_01_Montage_Max")
+add_asset("AnyaHound_Vagina04", "vaginal", "Anya_01", "AnyaHound_Vagina04_Anya_01_Montage_Min")
+add_asset("AnyaHound_Vagina04", "vaginal", "HoundOfTindalos_01", "AnyaHound_Vagina04_HoundOfTindalos_01_Montage")
+add_asset("AnyaHound_Vagina04", "vaginal", "HoundOfTindalos_01", "AnyaHound_Vagina04_HoundOfTindalos_01_Montage_Max")
+add_asset("AnyaHound_Vagina04", "vaginal", "HoundOfTindalos_01", "AnyaHound_Vagina04_HoundOfTindalos_01_Montage_Min")
+
+Catalog.by_family["AnyaLloigor_Breast01"] = {
+    hanime_id = "AnyaLloigor_Breast01", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Lloigor_01",
+    },
+}
+add_asset("AnyaLloigor_Breast01", "breast", "Anya_01", "AnyaLloigor_Breast01_Anya_01_Montage")
+add_asset("AnyaLloigor_Breast01", "breast", "Anya_01", "AnyaLloigor_Breast01_Anya_01_Montage_MAX")
+add_asset("AnyaLloigor_Breast01", "breast", "Anya_01", "AnyaLloigor_Breast01_Anya_01_Montage_MIN")
+add_asset("AnyaLloigor_Breast01", "breast", "Lloigor_01", "AnyaLloigor_Breast01_Lloigor_01_Montage")
+add_asset("AnyaLloigor_Breast01", "breast", "Lloigor_01", "AnyaLloigor_Breast01_Lloigor_01_Montage_MAX")
+add_asset("AnyaLloigor_Breast01", "breast", "Lloigor_01", "AnyaLloigor_Breast01_Lloigor_01_Montage_MIN")
+
+Catalog.by_family["AnyaLloigor_Vagina01"] = {
+    hanime_id = "AnyaLloigor_Vagina01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Lloigor_01",
+    },
+}
+add_asset("AnyaLloigor_Vagina01", "vaginal", "Anya_01", "AnyaLloigor_Vagina01_Anya_01_Montage")
+add_asset("AnyaLloigor_Vagina01", "vaginal", "Anya_01", "AnyaLloigor_Vagina01_Anya_01_Montage_MAX")
+add_asset("AnyaLloigor_Vagina01", "vaginal", "Anya_01", "AnyaLloigor_Vagina01_Anya_01_Montage_MIN")
+add_asset("AnyaLloigor_Vagina01", "vaginal", "Lloigor_01", "AnyaLloigor_Vagina01_Lloigor_01_Montage")
+add_asset("AnyaLloigor_Vagina01", "vaginal", "Lloigor_01", "AnyaLloigor_Vagina01_Lloigor_01_Montage_MAX")
+add_asset("AnyaLloigor_Vagina01", "vaginal", "Lloigor_01", "AnyaLloigor_Vagina01_Lloigor_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_A_Anal06"] = {
+    hanime_id = "AnyaMale_A_Anal06", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_A_Anal06", "anal", "Anya_01", "AnyaMale_A_Anal06_Anya_01_Montage")
+add_asset("AnyaMale_A_Anal06", "anal", "Anya_01", "AnyaMale_A_Anal06_Anya_01_Montage_MAX")
+add_asset("AnyaMale_A_Anal06", "anal", "Anya_01", "AnyaMale_A_Anal06_Anya_01_Montage_MIN")
+add_asset("AnyaMale_A_Anal06", "anal", "Handcuffs_A_01", "AnyaMale_A_Anal06_Handcuffs_A_01_Montage")
+add_asset("AnyaMale_A_Anal06", "anal", "Handcuffs_A_01", "AnyaMale_A_Anal06_Handcuffs_A_01_Montage_MAX")
+add_asset("AnyaMale_A_Anal06", "anal", "Handcuffs_A_01", "AnyaMale_A_Anal06_Handcuffs_A_01_Montage_MIN")
+add_asset("AnyaMale_A_Anal06", "anal", "Male_A_01", "AnyaMale_A_Anal06_Male_A_01_Montage")
+add_asset("AnyaMale_A_Anal06", "anal", "Male_A_01", "AnyaMale_A_Anal06_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_A_Anal06", "anal", "Male_A_01", "AnyaMale_A_Anal06_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_A_Mouth02"] = {
+    hanime_id = "AnyaMale_A_Mouth02", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_A_Mouth02", "mouth", "Anya_01", "AnyaMale_A_Mouth02_Anya_01_Montage")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Anya_01", "AnyaMale_A_Mouth02_Anya_01_Montage_Max")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Anya_01", "AnyaMale_A_Mouth02_Anya_01_Montage_Min")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Handcuffs_A_01", "AnyaMale_A_Mouth02_Handcuffs_A_01_Montage")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Handcuffs_A_01", "AnyaMale_A_Mouth02_Handcuffs_A_01_Montage_Max")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Handcuffs_A_01", "AnyaMale_A_Mouth02_Handcuffs_A_01_Montage_Min")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Male_A_01", "AnyaMale_A_Mouth02_Male_A_01_Montage")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Male_A_01", "AnyaMale_A_Mouth02_Male_A_01_Montage_Max")
+add_asset("AnyaMale_A_Mouth02", "mouth", "Male_A_01", "AnyaMale_A_Mouth02_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_AB_VagialAnal01"] = {
+    hanime_id = "AnyaMale_AB_VagialAnal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+        "Male_B_01",
+    },
+}
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Anya_01", "AnyaMale_AB_VagialAnal01_Anya_01_Montage")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Anya_01", "AnyaMale_AB_VagialAnal01_Anya_01_Montage_MAX")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Anya_01", "AnyaMale_AB_VagialAnal01_Anya_01_Montage_MIN")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Male_A_01", "AnyaMale_AB_VagialAnal01_Male_A_01_Montage")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Male_A_01", "AnyaMale_AB_VagialAnal01_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Male_A_01", "AnyaMale_AB_VagialAnal01_Male_A_01_Montage_MIN")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Male_B_01", "AnyaMale_AB_VagialAnal01_Male_B_01_Montage")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Male_B_01", "AnyaMale_AB_VagialAnal01_Male_B_01_Montage_MAX")
+add_asset("AnyaMale_AB_VagialAnal01", "anal", "Male_B_01", "AnyaMale_AB_VagialAnal01_Male_B_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Anal02"] = {
+    hanime_id = "AnyaMale_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Anal02", "anal", "Anya_01", "AnyaMale_Anal02_Anya_01_Montage")
+add_asset("AnyaMale_Anal02", "anal", "Anya_01", "AnyaMale_Anal02_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Anal02", "anal", "Anya_01", "AnyaMale_Anal02_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Anal02", "anal", "Male_A_01", "AnyaMale_Anal02_Male_A_01_Montage")
+add_asset("AnyaMale_Anal02", "anal", "Male_A_01", "AnyaMale_Anal02_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Anal02", "anal", "Male_A_01", "AnyaMale_Anal02_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Anal05"] = {
+    hanime_id = "AnyaMale_Anal05", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Anal05", "anal", "Anya_01", "AnyaMale_Anal05_Anya_01_Montage")
+add_asset("AnyaMale_Anal05", "anal", "Anya_01", "AnyaMale_Anal05_Anya_01_Montage_Max")
+add_asset("AnyaMale_Anal05", "anal", "Anya_01", "AnyaMale_Anal05_Anya_01_Montage_Min")
+add_asset("AnyaMale_Anal05", "anal", "Male_A_01", "AnyaMale_Anal05_Male_A_01_Montage")
+add_asset("AnyaMale_Anal05", "anal", "Male_A_01", "AnyaMale_Anal05_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Anal05", "anal", "Male_A_01", "AnyaMale_Anal05_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Anal07"] = {
+    hanime_id = "AnyaMale_Anal07", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Anal07", "anal", "Anya_01", "AnyaMale_Anal07_Anya_01_Montage")
+add_asset("AnyaMale_Anal07", "anal", "Anya_01", "AnyaMale_Anal07_Anya_01_Montage_Max")
+add_asset("AnyaMale_Anal07", "anal", "Anya_01", "AnyaMale_Anal07_Anya_01_Montage_Min")
+add_asset("AnyaMale_Anal07", "anal", "Male_A_01", "AnyaMale_Anal07_Male_A_01_Montage")
+add_asset("AnyaMale_Anal07", "anal", "Male_A_01", "AnyaMale_Anal07_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Anal07", "anal", "Male_A_01", "AnyaMale_Anal07_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Anal08"] = {
+    hanime_id = "AnyaMale_Anal08", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Anal08", "anal", "Anya_01", "AnyaMale_Anal08_Anya_01_Montage")
+add_asset("AnyaMale_Anal08", "anal", "Anya_01", "AnyaMale_Anal08_Anya_01_Montage_Max")
+add_asset("AnyaMale_Anal08", "anal", "Anya_01", "AnyaMale_Anal08_Anya_01_Montage_Min")
+add_asset("AnyaMale_Anal08", "anal", "Male_A_01", "AnyaMale_Anal08_Male_A_01_Montage")
+add_asset("AnyaMale_Anal08", "anal", "Male_A_01", "AnyaMale_Anal08_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Anal08", "anal", "Male_A_01", "AnyaMale_Anal08_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Anal09"] = {
+    hanime_id = "AnyaMale_Anal09", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Container_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Anal09", "anal", "Anya_01", "AnyaMale_Anal09_Anya_01_Montage")
+add_asset("AnyaMale_Anal09", "anal", "Anya_01", "AnyaMale_Anal09_Anya_01_Montage_Max")
+add_asset("AnyaMale_Anal09", "anal", "Anya_01", "AnyaMale_Anal09_Anya_01_Montage_Min")
+add_asset("AnyaMale_Anal09", "anal", "Container_01", "AnyaMale_Anal09_Container_01_Montage")
+add_asset("AnyaMale_Anal09", "anal", "Container_01", "AnyaMale_Anal09_Container_01_Montage_Max")
+add_asset("AnyaMale_Anal09", "anal", "Container_01", "AnyaMale_Anal09_Container_01_Montage_Min")
+add_asset("AnyaMale_Anal09", "anal", "Handcuffs_A_01", "AnyaMale_Anal09_Handcuffs_A_01_Montage")
+add_asset("AnyaMale_Anal09", "anal", "Handcuffs_A_01", "AnyaMale_Anal09_Handcuffs_A_01_Montage_Max")
+add_asset("AnyaMale_Anal09", "anal", "Handcuffs_A_01", "AnyaMale_Anal09_Handcuffs_A_01_Montage_Min")
+add_asset("AnyaMale_Anal09", "anal", "Male_A_01", "AnyaMale_Anal09_Male_A_01_Montage")
+add_asset("AnyaMale_Anal09", "anal", "Male_A_01", "AnyaMale_Anal09_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Anal09", "anal", "Male_A_01", "AnyaMale_Anal09_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Anal10"] = {
+    hanime_id = "AnyaMale_Anal10", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Anal10", "anal", "Anya_01", "AnyaMale_Anal10_Anya_01_Montage")
+add_asset("AnyaMale_Anal10", "anal", "Anya_01", "AnyaMale_Anal10_Anya_01_Montage_Max")
+add_asset("AnyaMale_Anal10", "anal", "Anya_01", "AnyaMale_Anal10_Anya_01_Montage_Min")
+add_asset("AnyaMale_Anal10", "anal", "Handcuffs_A_01", "AnyaMale_Anal10_Handcuffs_A_01_Montage")
+add_asset("AnyaMale_Anal10", "anal", "Handcuffs_A_01", "AnyaMale_Anal10_Handcuffs_A_01_Montage_Max")
+add_asset("AnyaMale_Anal10", "anal", "Handcuffs_A_01", "AnyaMale_Anal10_Handcuffs_A_01_Montage_Min")
+add_asset("AnyaMale_Anal10", "anal", "Male_A_01", "AnyaMale_Anal10_Male_A_01_Montage")
+add_asset("AnyaMale_Anal10", "anal", "Male_A_01", "AnyaMale_Anal10_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Anal10", "anal", "Male_A_01", "AnyaMale_Anal10_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Anal11"] = {
+    hanime_id = "AnyaMale_Anal11", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Anal11", "anal", "Anya_01", "AnyaMale_Anal11_Anya_01_Montage")
+add_asset("AnyaMale_Anal11", "anal", "Anya_01", "AnyaMale_Anal11_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Anal11", "anal", "Anya_01", "AnyaMale_Anal11_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Anal11", "anal", "Male_A_01", "AnyaMale_Anal11_Male_A_01_Montage")
+add_asset("AnyaMale_Anal11", "anal", "Male_A_01", "AnyaMale_Anal11_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Anal11", "anal", "Male_A_01", "AnyaMale_Anal11_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Breast02"] = {
+    hanime_id = "AnyaMale_Breast02", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Breast02", "breast", "Anya_01", "AnyaMale_Breast02_Anya_01_Montage")
+add_asset("AnyaMale_Breast02", "breast", "Anya_01", "AnyaMale_Breast02_Anya_01_Montage_Max")
+add_asset("AnyaMale_Breast02", "breast", "Anya_01", "AnyaMale_Breast02_Anya_01_Montage_Min")
+add_asset("AnyaMale_Breast02", "breast", "Male_A_01", "AnyaMale_Breast02_Male_A_01_Montage")
+add_asset("AnyaMale_Breast02", "breast", "Male_A_01", "AnyaMale_Breast02_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Breast02", "breast", "Male_A_01", "AnyaMale_Breast02_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Foot02"] = {
+    hanime_id = "AnyaMale_Foot02", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Foot02", "foot", "Anya_01", "AnyaMale_Foot02_Anya_01_Montage")
+add_asset("AnyaMale_Foot02", "foot", "Anya_01", "AnyaMale_Foot02_Anya_01_Montage_Max")
+add_asset("AnyaMale_Foot02", "foot", "Anya_01", "AnyaMale_Foot02_Anya_01_Montage_Min")
+add_asset("AnyaMale_Foot02", "foot", "Male_A_01", "AnyaMale_Foot02_Male_A_01_Montage")
+add_asset("AnyaMale_Foot02", "foot", "Male_A_01", "AnyaMale_Foot02_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Foot02", "foot", "Male_A_01", "AnyaMale_Foot02_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Hand03"] = {
+    hanime_id = "AnyaMale_Hand03", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DoubleDildo_A_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Hand03", "hand", "Anya_01", "AnyaMale_Hand03_Anya_01_Montage")
+add_asset("AnyaMale_Hand03", "hand", "Anya_01", "AnyaMale_Hand03_Anya_01_Montage_Max")
+add_asset("AnyaMale_Hand03", "hand", "Anya_01", "AnyaMale_Hand03_Anya_01_Montage_Min")
+add_asset("AnyaMale_Hand03", "hand", "DoubleDildo_A_01", "AnyaMale_Hand03_DoubleDildo_A_01_Montage")
+add_asset("AnyaMale_Hand03", "hand", "DoubleDildo_A_01", "AnyaMale_Hand03_DoubleDildo_A_01_Montage_Max")
+add_asset("AnyaMale_Hand03", "hand", "DoubleDildo_A_01", "AnyaMale_Hand03_DoubleDildo_A_01_Montage_Min")
+add_asset("AnyaMale_Hand03", "hand", "Handcuffs_A_01", "AnyaMale_Hand03_Handcuffs_A_01_Montage")
+add_asset("AnyaMale_Hand03", "hand", "Handcuffs_A_01", "AnyaMale_Hand03_Handcuffs_A_01_Montage_Max")
+add_asset("AnyaMale_Hand03", "hand", "Handcuffs_A_01", "AnyaMale_Hand03_Handcuffs_A_01_Montage_Min")
+add_asset("AnyaMale_Hand03", "hand", "Male_A_01", "AnyaMale_Hand03_Male_A_01_Montage")
+add_asset("AnyaMale_Hand03", "hand", "Male_A_01", "AnyaMale_Hand03_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Hand03", "hand", "Male_A_01", "AnyaMale_Hand03_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Mouth01"] = {
+    hanime_id = "AnyaMale_Mouth01", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Mouth01", "mouth", "Anya_01", "AnyaMale_Mouth01_Anya_01_Montage")
+add_asset("AnyaMale_Mouth01", "mouth", "Anya_01", "AnyaMale_Mouth01_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Mouth01", "mouth", "Anya_01", "AnyaMale_Mouth01_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Mouth01", "mouth", "Male_A_01", "AnyaMale_Mouth01_Male_A_01_Montage")
+add_asset("AnyaMale_Mouth01", "mouth", "Male_A_01", "AnyaMale_Mouth01_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Mouth01", "mouth", "Male_A_01", "AnyaMale_Mouth01_Male_A_01_Montage_MIN")
+
+Catalog.by_family["anyamale_sleep01"] = {
+    hanime_id = "anyamale_sleep01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("anyamale_sleep01", "other", "Anya_01", "anyamale_sleep01_Anya_01_Montage")
+add_asset("anyamale_sleep01", "other", "Anya_01", "anyamale_sleep01_Anya_01_Montage_MAX")
+add_asset("anyamale_sleep01", "other", "Anya_01", "anyamale_sleep01_Anya_01_Montage_MIN")
+add_asset("anyamale_sleep01", "other", "Male_A_01", "anyamale_sleep01_Male_A_01_Montage")
+add_asset("anyamale_sleep01", "other", "Male_A_01", "anyamale_sleep01_Male_A_01_Montage_MAX")
+add_asset("anyamale_sleep01", "other", "Male_A_01", "anyamale_sleep01_Male_A_01_Montage_MIN")
+
+Catalog.by_family["anyamale_sleep03"] = {
+    hanime_id = "anyamale_sleep03", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("anyamale_sleep03", "other", "Anya_01", "anyamale_sleep03_Anya_01_Montage")
+add_asset("anyamale_sleep03", "other", "Anya_01", "anyamale_sleep03_Anya_01_Montage_MAX")
+add_asset("anyamale_sleep03", "other", "Anya_01", "anyamale_sleep03_Anya_01_Montage_MIN")
+add_asset("anyamale_sleep03", "other", "Male_A_01", "anyamale_sleep03_Male_A_01_Montage")
+add_asset("anyamale_sleep03", "other", "Male_A_01", "anyamale_sleep03_Male_A_01_Montage_MAX")
+add_asset("anyamale_sleep03", "other", "Male_A_01", "anyamale_sleep03_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Vaginal07"] = {
+    hanime_id = "AnyaMale_Vaginal07", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Vaginal07", "vaginal", "Anya_01", "AnyaMale_Vaginal07_Anya_01_Montage")
+add_asset("AnyaMale_Vaginal07", "vaginal", "Anya_01", "AnyaMale_Vaginal07_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal07", "vaginal", "Anya_01", "AnyaMale_Vaginal07_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal07", "vaginal", "Male_A_01", "AnyaMale_Vaginal07_Male_A_01_Montage")
+add_asset("AnyaMale_Vaginal07", "vaginal", "Male_A_01", "AnyaMale_Vaginal07_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal07", "vaginal", "Male_A_01", "AnyaMale_Vaginal07_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Vaginal12"] = {
+    hanime_id = "AnyaMale_Vaginal12", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Vaginal12", "vaginal", "Anya_01", "AnyaMale_Vaginal12_Anya_01_Montage")
+add_asset("AnyaMale_Vaginal12", "vaginal", "Anya_01", "AnyaMale_Vaginal12_Anya_01_Montage_Max")
+add_asset("AnyaMale_Vaginal12", "vaginal", "Anya_01", "AnyaMale_Vaginal12_Anya_01_Montage_Min")
+add_asset("AnyaMale_Vaginal12", "vaginal", "Male_A_01", "AnyaMale_Vaginal12_Male_A_01_Montage")
+add_asset("AnyaMale_Vaginal12", "vaginal", "Male_A_01", "AnyaMale_Vaginal12_Male_A_01_Montage_Max")
+add_asset("AnyaMale_Vaginal12", "vaginal", "Male_A_01", "AnyaMale_Vaginal12_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMale_Vaginal13"] = {
+    hanime_id = "AnyaMale_Vaginal13", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Vaginal13", "vaginal", "Anya_01", "AnyaMale_Vaginal13_Anya_01_Montage")
+add_asset("AnyaMale_Vaginal13", "vaginal", "Anya_01", "AnyaMale_Vaginal13_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal13", "vaginal", "Anya_01", "AnyaMale_Vaginal13_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal13", "vaginal", "Male_A_01", "AnyaMale_Vaginal13_Male_A_01_Montage")
+add_asset("AnyaMale_Vaginal13", "vaginal", "Male_A_01", "AnyaMale_Vaginal13_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal13", "vaginal", "Male_A_01", "AnyaMale_Vaginal13_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Vaginal14"] = {
+    hanime_id = "AnyaMale_Vaginal14", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Container_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Vaginal14", "vaginal", "Anya_01", "AnyaMale_Vaginal14_Anya_01_Montage")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Anya_01", "AnyaMale_Vaginal14_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Anya_01", "AnyaMale_Vaginal14_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Container_01", "AnyaMale_Vaginal14_Container_01_Montage")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Container_01", "AnyaMale_Vaginal14_Container_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Container_01", "AnyaMale_Vaginal14_Container_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Handcuffs_A_01", "AnyaMale_Vaginal14_Handcuffs_A_01_Montage")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Handcuffs_A_01", "AnyaMale_Vaginal14_Handcuffs_A_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Handcuffs_A_01", "AnyaMale_Vaginal14_Handcuffs_A_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Male_A_01", "AnyaMale_Vaginal14_Male_A_01_Montage")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Male_A_01", "AnyaMale_Vaginal14_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal14", "vaginal", "Male_A_01", "AnyaMale_Vaginal14_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Vaginal15"] = {
+    hanime_id = "AnyaMale_Vaginal15", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Vaginal15", "vaginal", "Anya_01", "AnyaMale_Vaginal15_Anya_01_Montage")
+add_asset("AnyaMale_Vaginal15", "vaginal", "Anya_01", "AnyaMale_Vaginal15_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal15", "vaginal", "Anya_01", "AnyaMale_Vaginal15_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal15", "vaginal", "Male_A_01", "AnyaMale_Vaginal15_Male_A_01_Montage")
+add_asset("AnyaMale_Vaginal15", "vaginal", "Male_A_01", "AnyaMale_Vaginal15_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal15", "vaginal", "Male_A_01", "AnyaMale_Vaginal15_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Vaginal16"] = {
+    hanime_id = "AnyaMale_Vaginal16", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Vaginal16", "vaginal", "Anya_01", "AnyaMale_Vaginal16_Anya_01_Montage")
+add_asset("AnyaMale_Vaginal16", "vaginal", "Anya_01", "AnyaMale_Vaginal16_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal16", "vaginal", "Anya_01", "AnyaMale_Vaginal16_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal16", "vaginal", "Male_A_01", "AnyaMale_Vaginal16_Male_A_01_Montage")
+add_asset("AnyaMale_Vaginal16", "vaginal", "Male_A_01", "AnyaMale_Vaginal16_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal16", "vaginal", "Male_A_01", "AnyaMale_Vaginal16_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMale_Vaginal17"] = {
+    hanime_id = "AnyaMale_Vaginal17", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMale_Vaginal17", "vaginal", "Anya_01", "AnyaMale_Vaginal17_Anya_01_Montage")
+add_asset("AnyaMale_Vaginal17", "vaginal", "Anya_01", "AnyaMale_Vaginal17_Anya_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal17", "vaginal", "Anya_01", "AnyaMale_Vaginal17_Anya_01_Montage_MIN")
+add_asset("AnyaMale_Vaginal17", "vaginal", "Male_A_01", "AnyaMale_Vaginal17_Male_A_01_Montage")
+add_asset("AnyaMale_Vaginal17", "vaginal", "Male_A_01", "AnyaMale_Vaginal17_Male_A_01_Montage_MAX")
+add_asset("AnyaMale_Vaginal17", "vaginal", "Male_A_01", "AnyaMale_Vaginal17_Male_A_01_Montage_MIN")
+
+Catalog.by_family["AnyaMaleAB_VaginalMouth01"] = {
+    hanime_id = "AnyaMaleAB_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+        "Male_B_01",
+    },
+}
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Anya_01", "AnyaMaleAB_VaginalMouth01_Anya_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Anya_01", "AnyaMaleAB_VaginalMouth01_Anya_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Anya_01", "AnyaMaleAB_VaginalMouth01_Anya_01_Montage_Min")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Handcuffs_A_01", "AnyaMaleAB_VaginalMouth01_Handcuffs_A_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Handcuffs_A_01", "AnyaMaleAB_VaginalMouth01_Handcuffs_A_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Handcuffs_A_01", "AnyaMaleAB_VaginalMouth01_Handcuffs_A_01_Montage_Min")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Male_A_01", "AnyaMaleAB_VaginalMouth01_Male_A_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Male_A_01", "AnyaMaleAB_VaginalMouth01_Male_A_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Male_A_01", "AnyaMaleAB_VaginalMouth01_Male_A_01_Montage_Min")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Male_B_01", "AnyaMaleAB_VaginalMouth01_Male_B_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Male_B_01", "AnyaMaleAB_VaginalMouth01_Male_B_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth01", "other", "Male_B_01", "AnyaMaleAB_VaginalMouth01_Male_B_01_Montage_Min")
+
+Catalog.by_family["AnyaMaleAB_VaginalMouth02"] = {
+    hanime_id = "AnyaMaleAB_VaginalMouth02", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Chair_01",
+        "Male_A_01",
+        "Male_B_01",
+    },
+}
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Anya_01", "AnyaMaleAB_VaginalMouth02_Anya_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Anya_01", "AnyaMaleAB_VaginalMouth02_Anya_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Anya_01", "AnyaMaleAB_VaginalMouth02_Anya_01_Montage_Min")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Chair_01", "AnyaMaleAB_VaginalMouth02_Chair_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Chair_01", "AnyaMaleAB_VaginalMouth02_Chair_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Chair_01", "AnyaMaleAB_VaginalMouth02_Chair_01_Montage_Min")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Male_A_01", "AnyaMaleAB_VaginalMouth02_Male_A_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Male_A_01", "AnyaMaleAB_VaginalMouth02_Male_A_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Male_A_01", "AnyaMaleAB_VaginalMouth02_Male_A_01_Montage_Min")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Male_B_01", "AnyaMaleAB_VaginalMouth02_Male_B_01_Montage")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Male_B_01", "AnyaMaleAB_VaginalMouth02_Male_B_01_Montage_Max")
+add_asset("AnyaMaleAB_VaginalMouth02", "other", "Male_B_01", "AnyaMaleAB_VaginalMouth02_Male_B_01_Montage_Min")
+
+Catalog.by_family["AnyaMaleGhast_Vaginal01"] = {
+    hanime_id = "AnyaMaleGhast_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Anya_01", "AnyaMaleGhast_Vaginal01_Anya_01_Montage")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Anya_01", "AnyaMaleGhast_Vaginal01_Anya_01_Montage_Max")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Anya_01", "AnyaMaleGhast_Vaginal01_Anya_01_Montage_Min")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Ghast_01", "AnyaMaleGhast_Vaginal01_Ghast_01_Montage")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Ghast_01", "AnyaMaleGhast_Vaginal01_Ghast_01_Montage_Max")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Ghast_01", "AnyaMaleGhast_Vaginal01_Ghast_01_Montage_Min")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Male_A_01", "AnyaMaleGhast_Vaginal01_Male_A_01_Montage")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Male_A_01", "AnyaMaleGhast_Vaginal01_Male_A_01_Montage_Max")
+add_asset("AnyaMaleGhast_Vaginal01", "vaginal", "Male_A_01", "AnyaMaleGhast_Vaginal01_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMaleGhast_VaginalMouth01"] = {
+    hanime_id = "AnyaMaleGhast_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Ghast_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Anya_01", "AnyaMaleGhast_VaginalMouth01_Anya_01_Montage")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Anya_01", "AnyaMaleGhast_VaginalMouth01_Anya_01_Montage_Max")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Anya_01", "AnyaMaleGhast_VaginalMouth01_Anya_01_Montage_Min")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Ghast_01", "AnyaMaleGhast_VaginalMouth01_Ghast_01_Montage")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Ghast_01", "AnyaMaleGhast_VaginalMouth01_Ghast_01_Montage_Max")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Ghast_01", "AnyaMaleGhast_VaginalMouth01_Ghast_01_Montage_Min")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Male_A_01", "AnyaMaleGhast_VaginalMouth01_Male_A_01_Montage")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Male_A_01", "AnyaMaleGhast_VaginalMouth01_Male_A_01_Montage_Max")
+add_asset("AnyaMaleGhast_VaginalMouth01", "other", "Male_A_01", "AnyaMaleGhast_VaginalMouth01_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMaleHound_VaginalMouth01"] = {
+    hanime_id = "AnyaMaleHound_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Chair_01",
+        "HoundOfTindalos_01",
+        "Male_A_01",
+    },
+}
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Anya_01", "AnyaMaleHound_VaginalMouth01_Anya_01_Montage")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Anya_01", "AnyaMaleHound_VaginalMouth01_Anya_01_Montage_Max")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Anya_01", "AnyaMaleHound_VaginalMouth01_Anya_01_Montage_Min")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Chair_01", "AnyaMaleHound_VaginalMouth01_Chair_01_Montage")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Chair_01", "AnyaMaleHound_VaginalMouth01_Chair_01_Montage_Max")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Chair_01", "AnyaMaleHound_VaginalMouth01_Chair_01_Montage_Min")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "HoundOfTindalos_01", "AnyaMaleHound_VaginalMouth01_HoundOfTindalos_01_Montage")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "HoundOfTindalos_01", "AnyaMaleHound_VaginalMouth01_HoundOfTindalos_01_Montage_Max")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "HoundOfTindalos_01", "AnyaMaleHound_VaginalMouth01_HoundOfTindalos_01_Montage_Min")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Male_A_01", "AnyaMaleHound_VaginalMouth01_Male_A_01_Montage")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Male_A_01", "AnyaMaleHound_VaginalMouth01_Male_A_01_Montage_Max")
+add_asset("AnyaMaleHound_VaginalMouth01", "other", "Male_A_01", "AnyaMaleHound_VaginalMouth01_Male_A_01_Montage_Min")
+
+Catalog.by_family["AnyaMigo_Anal01"] = {
+    hanime_id = "AnyaMigo_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "MiGo_warrior_01",
+    },
+}
+add_asset("AnyaMigo_Anal01", "anal", "Anya_01", "AnyaMigo_Anal01_Anya_01_Montage")
+add_asset("AnyaMigo_Anal01", "anal", "Anya_01", "AnyaMigo_Anal01_Anya_01_Montage_MAX")
+add_asset("AnyaMigo_Anal01", "anal", "Anya_01", "AnyaMigo_Anal01_Anya_01_Montage_MIN")
+add_asset("AnyaMigo_Anal01", "anal", "MiGo_warrior_01", "AnyaMigo_Anal01_MiGo_warrior_01_Montage")
+add_asset("AnyaMigo_Anal01", "anal", "MiGo_warrior_01", "AnyaMigo_Anal01_MiGo_warrior_01_Montage_MAX")
+add_asset("AnyaMigo_Anal01", "anal", "MiGo_warrior_01", "AnyaMigo_Anal01_MiGo_warrior_01_Montage_MIN")
+
+Catalog.by_family["AnyaMiGoNympth_VaginalAnal01"] = {
+    hanime_id = "AnyaMiGoNympth_VaginalAnal01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "MiGoNymph_A_01",
+        "MiGoNymph_B_01",
+    },
+}
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "Anya_01", "AnyaMiGoNympth_VaginalAnal01_Anya_01_Montage")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "Anya_01", "AnyaMiGoNympth_VaginalAnal01_Anya_01_Montage_Max")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "Anya_01", "AnyaMiGoNympth_VaginalAnal01_Anya_01_Montage_Min")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "MiGoNymph_A_01", "AnyaMiGoNympth_VaginalAnal01_MiGoNymph_A_01_Montage")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "MiGoNymph_A_01", "AnyaMiGoNympth_VaginalAnal01_MiGoNymph_A_01_Montage_Max")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "MiGoNymph_A_01", "AnyaMiGoNympth_VaginalAnal01_MiGoNymph_A_01_Montage_Min")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "MiGoNymph_B_01", "AnyaMiGoNympth_VaginalAnal01_MiGoNymph_B_01_Montage")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "MiGoNymph_B_01", "AnyaMiGoNympth_VaginalAnal01_MiGoNymph_B_01_Montage_Max")
+add_asset("AnyaMiGoNympth_VaginalAnal01", "other", "MiGoNymph_B_01", "AnyaMiGoNympth_VaginalAnal01_MiGoNymph_B_01_Montage_Min")
+
+Catalog.by_family["AnyaMiGoNympth_VaginalAnal02"] = {
+    hanime_id = "AnyaMiGoNympth_VaginalAnal02", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "feetcuff_01",
+        "MiGoNymph_A_01",
+        "MiGoNymph_B_01",
+    },
+}
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "Anya_01", "AnyaMiGoNympth_VaginalAnal02_Anya_01_Montage")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "Anya_01", "AnyaMiGoNympth_VaginalAnal02_Anya_01_Montage_Max")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "Anya_01", "AnyaMiGoNympth_VaginalAnal02_Anya_01_Montage_Min")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "feetcuff_01", "AnyaMiGoNympth_VaginalAnal02_feetcuff_01_Montage")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "feetcuff_01", "AnyaMiGoNympth_VaginalAnal02_feetcuff_01_Montage_Max")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "feetcuff_01", "AnyaMiGoNympth_VaginalAnal02_feetcuff_01_Montage_Min")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "MiGoNymph_A_01", "AnyaMiGoNympth_VaginalAnal02_MiGoNymph_A_01_Montage")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "MiGoNymph_A_01", "AnyaMiGoNympth_VaginalAnal02_MiGoNymph_A_01_Montage_Max")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "MiGoNymph_A_01", "AnyaMiGoNympth_VaginalAnal02_MiGoNymph_A_01_Montage_Min")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "MiGoNymph_B_01", "AnyaMiGoNympth_VaginalAnal02_MiGoNymph_B_01_Montage")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "MiGoNymph_B_01", "AnyaMiGoNympth_VaginalAnal02_MiGoNymph_B_01_Montage_Max")
+add_asset("AnyaMiGoNympth_VaginalAnal02", "other", "MiGoNymph_B_01", "AnyaMiGoNympth_VaginalAnal02_MiGoNymph_B_01_Montage_Min")
+
+Catalog.by_family["AnyaSaaitii_Vaginal20250730_Alice"] = {
+    hanime_id = "AnyaSaaitii_Vaginal20250730_Alice", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Saaitii_01",
+    },
+}
+add_asset("AnyaSaaitii_Vaginal20250730_Alice", "vaginal", "Anya_01", "AnyaSaaitii_Vaginal20250730_Alice_Anya_01_Montage")
+add_asset("AnyaSaaitii_Vaginal20250730_Alice", "vaginal", "Anya_01", "AnyaSaaitii_Vaginal20250730_Alice_Anya_01_Montage_MAX")
+add_asset("AnyaSaaitii_Vaginal20250730_Alice", "vaginal", "Anya_01", "AnyaSaaitii_Vaginal20250730_Alice_Anya_01_Montage_MIN")
+add_asset("AnyaSaaitii_Vaginal20250730_Alice", "vaginal", "Saaitii_01", "AnyaSaaitii_Vaginal20250730_Alice_Saaitii_01_Montage")
+add_asset("AnyaSaaitii_Vaginal20250730_Alice", "vaginal", "Saaitii_01", "AnyaSaaitii_Vaginal20250730_Alice_Saaitii_01_Montage_MAX")
+add_asset("AnyaSaaitii_Vaginal20250730_Alice", "vaginal", "Saaitii_01", "AnyaSaaitii_Vaginal20250730_Alice_Saaitii_01_Montage_MIN")
+
+Catalog.by_family["AnyaSkorpio_Vaginal02"] = {
+    hanime_id = "AnyaSkorpio_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "feetcuff_01",
+        "SpawnOfBasatan_01",
+    },
+}
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "Anya_01", "AnyaSkorpio_Vaginal02_Anya_01_Montage")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "Anya_01", "AnyaSkorpio_Vaginal02_Anya_01_Montage_MAX")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "Anya_01", "AnyaSkorpio_Vaginal02_Anya_01_Montage_MIN")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "feetcuff_01", "AnyaSkorpio_Vaginal02_feetcuff_01_Montage")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "feetcuff_01", "AnyaSkorpio_Vaginal02_feetcuff_01_Montage_MAX")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "feetcuff_01", "AnyaSkorpio_Vaginal02_feetcuff_01_Montage_MIN")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "SpawnOfBasatan_01", "AnyaSkorpio_Vaginal02_SpawnOfBasatan_01_Montage")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "SpawnOfBasatan_01", "AnyaSkorpio_Vaginal02_SpawnOfBasatan_01_Montage_MAX")
+add_asset("AnyaSkorpio_Vaginal02", "vaginal", "SpawnOfBasatan_01", "AnyaSkorpio_Vaginal02_SpawnOfBasatan_01_Montage_MIN")
+
+Catalog.by_family["AnyaSkorpio_Vaginal03"] = {
+    hanime_id = "AnyaSkorpio_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "Handcuffs_mesh_01",
+        "SpawnOfBasatan_01",
+    },
+}
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "Anya_01", "AnyaSkorpio_Vaginal03_Anya_01_Montage")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "Anya_01", "AnyaSkorpio_Vaginal03_Anya_01_Montage_MAX")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "Anya_01", "AnyaSkorpio_Vaginal03_Anya_01_Montage_MIN")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "Handcuffs_mesh_01", "AnyaSkorpio_Vaginal03_Handcuffs_mesh_01_Montage")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "Handcuffs_mesh_01", "AnyaSkorpio_Vaginal03_Handcuffs_mesh_01_Montage_MAX")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "Handcuffs_mesh_01", "AnyaSkorpio_Vaginal03_Handcuffs_mesh_01_Montage_MIN")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "SpawnOfBasatan_01", "AnyaSkorpio_Vaginal03_SpawnOfBasatan_01_Montage")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "SpawnOfBasatan_01", "AnyaSkorpio_Vaginal03_SpawnOfBasatan_01_Montage_MAX")
+add_asset("AnyaSkorpio_Vaginal03", "vaginal", "SpawnOfBasatan_01", "AnyaSkorpio_Vaginal03_SpawnOfBasatan_01_Montage_MIN")
 
 Catalog.by_family["CeilaMiGoAB_VaginalAnal01"] = {
     hanime_id = "CeilaMiGoAB_VaginalAnal01", category = "other",
@@ -1821,6 +3688,816 @@ add_asset("ElizabethYithScorpio_MouthVaginal01", "other", "Yith_01", "ElizabethY
 add_asset("ElizabethYithScorpio_MouthVaginal01", "other", "Yith_01", "ElizabethYithScorpio_MouthVaginal01_Yith_01_Montage_MAX")
 add_asset("ElizabethYithScorpio_MouthVaginal01", "other", "Yith_01", "ElizabethYithScorpio_MouthVaginal01_Yith_01_Montage_MIN")
 
+Catalog.by_family["ErikaAnyaDoubledildo04"] = {
+    hanime_id = "ErikaAnyaDoubledildo04", category = "sex",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Anya_01",
+        "DoubleDildo_soft_01",
+        "Erika_01",
+    },
+}
+add_asset("ErikaAnyaDoubledildo04", "sex", "Anya_01", "ErikaAnyaDoubledildo04_Anya_01_Montage")
+add_asset("ErikaAnyaDoubledildo04", "sex", "Anya_01", "ErikaAnyaDoubledildo04_Anya_01_Montage_MAX")
+add_asset("ErikaAnyaDoubledildo04", "sex", "Anya_01", "ErikaAnyaDoubledildo04_Anya_01_Montage_MIN")
+add_asset("ErikaAnyaDoubledildo04", "sex", "DoubleDildo_soft_01", "ErikaAnyaDoubledildo04_DoubleDildo_soft_01_Montage")
+add_asset("ErikaAnyaDoubledildo04", "sex", "DoubleDildo_soft_01", "ErikaAnyaDoubledildo04_DoubleDildo_soft_01_Montage_MAX")
+add_asset("ErikaAnyaDoubledildo04", "sex", "DoubleDildo_soft_01", "ErikaAnyaDoubledildo04_DoubleDildo_soft_01_Montage_MIN")
+add_asset("ErikaAnyaDoubledildo04", "sex", "Erika_01", "ErikaAnyaDoubledildo04_Erika_01_Montage")
+add_asset("ErikaAnyaDoubledildo04", "sex", "Erika_01", "ErikaAnyaDoubledildo04_Erika_01_Montage_MAX")
+add_asset("ErikaAnyaDoubledildo04", "sex", "Erika_01", "ErikaAnyaDoubledildo04_Erika_01_Montage_MIN")
+
+Catalog.by_family["ErikaBasatan_Anal02"] = {
+    hanime_id = "ErikaBasatan_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaBasatan_Anal02", "anal", "Erika_01", "ErikaBasatan_Anal02_Erika_01_Montage")
+add_asset("ErikaBasatan_Anal02", "anal", "Erika_01", "ErikaBasatan_Anal02_Erika_01_Montage_MAX")
+add_asset("ErikaBasatan_Anal02", "anal", "Erika_01", "ErikaBasatan_Anal02_Erika_01_Montage_MIN")
+
+Catalog.by_family["ErikaByakhee_Anal02"] = {
+    hanime_id = "ErikaByakhee_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Byakhee_01",
+        "Erika_01",
+    },
+}
+add_asset("ErikaByakhee_Anal02", "anal", "Byakhee_01", "ErikaByakhee_Anal02_Byakhee_01_Montage")
+add_asset("ErikaByakhee_Anal02", "anal", "Byakhee_01", "ErikaByakhee_Anal02_Byakhee_01_Montage_Max")
+add_asset("ErikaByakhee_Anal02", "anal", "Byakhee_01", "ErikaByakhee_Anal02_Byakhee_01_Montage_Min")
+add_asset("ErikaByakhee_Anal02", "anal", "Erika_01", "ErikaByakhee_Anal02_Erika_01_Montage")
+add_asset("ErikaByakhee_Anal02", "anal", "Erika_01", "ErikaByakhee_Anal02_Erika_01_Montage_Max")
+add_asset("ErikaByakhee_Anal02", "anal", "Erika_01", "ErikaByakhee_Anal02_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaByakheeScorpio_VaginaMouth01"] = {
+    hanime_id = "ErikaByakheeScorpio_VaginaMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Byakhee_01",
+        "Erika_01",
+        "SpawnOfBasatan_01",
+    },
+}
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "Byakhee_01", "ErikaByakheeScorpio_VaginaMouth01_Byakhee_01_Montage")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "Byakhee_01", "ErikaByakheeScorpio_VaginaMouth01_Byakhee_01_Montage_Max")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "Byakhee_01", "ErikaByakheeScorpio_VaginaMouth01_Byakhee_01_Montage_Min")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "Erika_01", "ErikaByakheeScorpio_VaginaMouth01_Erika_01_Montage")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "Erika_01", "ErikaByakheeScorpio_VaginaMouth01_Erika_01_Montage_Max")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "Erika_01", "ErikaByakheeScorpio_VaginaMouth01_Erika_01_Montage_Min")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "SpawnOfBasatan_01", "ErikaByakheeScorpio_VaginaMouth01_SpawnOfBasatan_01_Montage")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "SpawnOfBasatan_01", "ErikaByakheeScorpio_VaginaMouth01_SpawnOfBasatan_01_Montage_Max")
+add_asset("ErikaByakheeScorpio_VaginaMouth01", "other", "SpawnOfBasatan_01", "ErikaByakheeScorpio_VaginaMouth01_SpawnOfBasatan_01_Montage_Min")
+
+Catalog.by_family["ErikaDeepone_Anal07"] = {
+    hanime_id = "ErikaDeepone_Anal07", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Container_01",
+        "DeepOne_01",
+        "Erika_01",
+    },
+}
+add_asset("ErikaDeepone_Anal07", "anal", "Container_01", "ErikaDeepone_Anal07_Container_01_Montage")
+add_asset("ErikaDeepone_Anal07", "anal", "Container_01", "ErikaDeepone_Anal07_Container_01_Montage_MAX")
+add_asset("ErikaDeepone_Anal07", "anal", "Container_01", "ErikaDeepone_Anal07_Container_01_Montage_MIN")
+add_asset("ErikaDeepone_Anal07", "anal", "DeepOne_01", "ErikaDeepone_Anal07_DeepOne_01_Montage")
+add_asset("ErikaDeepone_Anal07", "anal", "DeepOne_01", "ErikaDeepone_Anal07_DeepOne_01_Montage_MAX")
+add_asset("ErikaDeepone_Anal07", "anal", "DeepOne_01", "ErikaDeepone_Anal07_DeepOne_01_Montage_MIN")
+add_asset("ErikaDeepone_Anal07", "anal", "Erika_01", "ErikaDeepone_Anal07_Erika_01_Montage")
+add_asset("ErikaDeepone_Anal07", "anal", "Erika_01", "ErikaDeepone_Anal07_Erika_01_Montage_MAX")
+add_asset("ErikaDeepone_Anal07", "anal", "Erika_01", "ErikaDeepone_Anal07_Erika_01_Montage_MIN")
+
+Catalog.by_family["ErikaDeepOne_Vagina04"] = {
+    hanime_id = "ErikaDeepOne_Vagina04", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Erika_01",
+    },
+}
+add_asset("ErikaDeepOne_Vagina04", "vaginal", "DeepOne_01", "ErikaDeepOne_Vagina04_DeepOne_01_Montage")
+add_asset("ErikaDeepOne_Vagina04", "vaginal", "DeepOne_01", "ErikaDeepOne_Vagina04_DeepOne_01_Montage_Max")
+add_asset("ErikaDeepOne_Vagina04", "vaginal", "DeepOne_01", "ErikaDeepOne_Vagina04_DeepOne_01_Montage_Min")
+add_asset("ErikaDeepOne_Vagina04", "vaginal", "Erika_01", "ErikaDeepOne_Vagina04_Erika_01_Montage")
+add_asset("ErikaDeepOne_Vagina04", "vaginal", "Erika_01", "ErikaDeepOne_Vagina04_Erika_01_Montage_Max")
+add_asset("ErikaDeepOne_Vagina04", "vaginal", "Erika_01", "ErikaDeepOne_Vagina04_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaDeepOne_Vaginal03"] = {
+    hanime_id = "ErikaDeepOne_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Erika_01",
+    },
+}
+add_asset("ErikaDeepOne_Vaginal03", "vaginal", "DeepOne_01", "ErikaDeepOne_Vaginal03_DeepOne_01_Montage")
+add_asset("ErikaDeepOne_Vaginal03", "vaginal", "DeepOne_01", "ErikaDeepOne_Vaginal03_DeepOne_01_Montage_Max")
+add_asset("ErikaDeepOne_Vaginal03", "vaginal", "DeepOne_01", "ErikaDeepOne_Vaginal03_DeepOne_01_Montage_Min")
+add_asset("ErikaDeepOne_Vaginal03", "vaginal", "Erika_01", "ErikaDeepOne_Vaginal03_Erika_01_Montage")
+add_asset("ErikaDeepOne_Vaginal03", "vaginal", "Erika_01", "ErikaDeepOne_Vaginal03_Erika_01_Montage_Max")
+add_asset("ErikaDeepOne_Vaginal03", "vaginal", "Erika_01", "ErikaDeepOne_Vaginal03_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaGhast_Anal03"] = {
+    hanime_id = "ErikaGhast_Anal03", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Ghast_01",
+    },
+}
+add_asset("ErikaGhast_Anal03", "anal", "Erika_01", "ErikaGhast_Anal03_Erika_01_Montage")
+add_asset("ErikaGhast_Anal03", "anal", "Erika_01", "ErikaGhast_Anal03_Erika_01_Montage_Max")
+add_asset("ErikaGhast_Anal03", "anal", "Erika_01", "ErikaGhast_Anal03_Erika_01_Montage_Min")
+add_asset("ErikaGhast_Anal03", "anal", "Ghast_01", "ErikaGhast_Anal03_Ghast_01_Montage")
+add_asset("ErikaGhast_Anal03", "anal", "Ghast_01", "ErikaGhast_Anal03_Ghast_01_Montage_Max")
+add_asset("ErikaGhast_Anal03", "anal", "Ghast_01", "ErikaGhast_Anal03_Ghast_01_Montage_Min")
+
+Catalog.by_family["ErikaGhast_Anal04"] = {
+    hanime_id = "ErikaGhast_Anal04", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Ghast_01",
+    },
+}
+add_asset("ErikaGhast_Anal04", "anal", "Erika_01", "ErikaGhast_Anal04_Erika_01_Montage")
+add_asset("ErikaGhast_Anal04", "anal", "Erika_01", "ErikaGhast_Anal04_Erika_01_Montage_MAX")
+add_asset("ErikaGhast_Anal04", "anal", "Erika_01", "ErikaGhast_Anal04_Erika_01_Montage_MIN")
+add_asset("ErikaGhast_Anal04", "anal", "Ghast_01", "ErikaGhast_Anal04_Ghast_01_Montage")
+add_asset("ErikaGhast_Anal04", "anal", "Ghast_01", "ErikaGhast_Anal04_Ghast_01_Montage_MAX")
+add_asset("ErikaGhast_Anal04", "anal", "Ghast_01", "ErikaGhast_Anal04_Ghast_01_Montage_MIN")
+
+Catalog.by_family["ErikaGug_Vaginal01"] = {
+    hanime_id = "ErikaGug_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Gug_01",
+    },
+}
+add_asset("ErikaGug_Vaginal01", "vaginal", "Erika_01", "ErikaGug_Vaginal01_Erika_01_Montage")
+add_asset("ErikaGug_Vaginal01", "vaginal", "Erika_01", "ErikaGug_Vaginal01_Erika_01_Montage_MAX")
+add_asset("ErikaGug_Vaginal01", "vaginal", "Erika_01", "ErikaGug_Vaginal01_Erika_01_Montage_MIN")
+add_asset("ErikaGug_Vaginal01", "vaginal", "Gug_01", "ErikaGug_Vaginal01_Gug_01_Montage")
+add_asset("ErikaGug_Vaginal01", "vaginal", "Gug_01", "ErikaGug_Vaginal01_Gug_01_Montage_MAX")
+add_asset("ErikaGug_Vaginal01", "vaginal", "Gug_01", "ErikaGug_Vaginal01_Gug_01_Montage_MIN")
+
+Catalog.by_family["ErikaHound_Foot02"] = {
+    hanime_id = "ErikaHound_Foot02", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Chair_01",
+        "Erika_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("ErikaHound_Foot02", "foot", "Chair_01", "ErikaHound_Foot02_Chair_01_Montage")
+add_asset("ErikaHound_Foot02", "foot", "Chair_01", "ErikaHound_Foot02_Chair_01_Montage_MAX")
+add_asset("ErikaHound_Foot02", "foot", "Chair_01", "ErikaHound_Foot02_Chair_01_Montage_MIN")
+add_asset("ErikaHound_Foot02", "foot", "Erika_01", "ErikaHound_Foot02_Erika_01_Montage")
+add_asset("ErikaHound_Foot02", "foot", "Erika_01", "ErikaHound_Foot02_Erika_01_Montage_MAX")
+add_asset("ErikaHound_Foot02", "foot", "Erika_01", "ErikaHound_Foot02_Erika_01_Montage_MIN")
+add_asset("ErikaHound_Foot02", "foot", "HoundOfTindalos_01", "ErikaHound_Foot02_HoundOfTindalos_01_Montage")
+add_asset("ErikaHound_Foot02", "foot", "HoundOfTindalos_01", "ErikaHound_Foot02_HoundOfTindalos_01_Montage_MAX")
+add_asset("ErikaHound_Foot02", "foot", "HoundOfTindalos_01", "ErikaHound_Foot02_HoundOfTindalos_01_Montage_MIN")
+
+Catalog.by_family["ErikaHound_Hand02"] = {
+    hanime_id = "ErikaHound_Hand02", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("ErikaHound_Hand02", "hand", "Erika_01", "ErikaHound_Hand02_Erika_01_Montage")
+add_asset("ErikaHound_Hand02", "hand", "Erika_01", "ErikaHound_Hand02_Erika_01_Montage_Max")
+add_asset("ErikaHound_Hand02", "hand", "Erika_01", "ErikaHound_Hand02_Erika_01_Montage_Min")
+add_asset("ErikaHound_Hand02", "hand", "HoundOfTindalos_01", "ErikaHound_Hand02_HoundOfTindalos_01_Montage")
+add_asset("ErikaHound_Hand02", "hand", "HoundOfTindalos_01", "ErikaHound_Hand02_HoundOfTindalos_01_Montage_Max")
+add_asset("ErikaHound_Hand02", "hand", "HoundOfTindalos_01", "ErikaHound_Hand02_HoundOfTindalos_01_Montage_Min")
+
+Catalog.by_family["ErikaHound_Hand03"] = {
+    hanime_id = "ErikaHound_Hand03", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("ErikaHound_Hand03", "hand", "Erika_01", "ErikaHound_Hand03_Erika_01_Montage")
+add_asset("ErikaHound_Hand03", "hand", "Erika_01", "ErikaHound_Hand03_Erika_01_Montage_MAX")
+add_asset("ErikaHound_Hand03", "hand", "Erika_01", "ErikaHound_Hand03_Erika_01_Montage_MIN")
+add_asset("ErikaHound_Hand03", "hand", "HoundOfTindalos_01", "ErikaHound_Hand03_HoundOfTindalos_01_Montage")
+add_asset("ErikaHound_Hand03", "hand", "HoundOfTindalos_01", "ErikaHound_Hand03_HoundOfTindalos_01_Montage_MAX")
+add_asset("ErikaHound_Hand03", "hand", "HoundOfTindalos_01", "ErikaHound_Hand03_HoundOfTindalos_01_Montage_MIN")
+
+Catalog.by_family["ErikaHound_Sleep01"] = {
+    hanime_id = "ErikaHound_Sleep01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("ErikaHound_Sleep01", "other", "Erika_01", "ErikaHound_Sleep01_Erika_01_Montage")
+add_asset("ErikaHound_Sleep01", "other", "Erika_01", "ErikaHound_Sleep01_Erika_01_Montage_MAX")
+add_asset("ErikaHound_Sleep01", "other", "Erika_01", "ErikaHound_Sleep01_Erika_01_Montage_MIN")
+add_asset("ErikaHound_Sleep01", "other", "HoundOfTindalos_01", "ErikaHound_Sleep01_HoundOfTindalos_01_Montage")
+add_asset("ErikaHound_Sleep01", "other", "HoundOfTindalos_01", "ErikaHound_Sleep01_HoundOfTindalos_01_Montage_MAX")
+add_asset("ErikaHound_Sleep01", "other", "HoundOfTindalos_01", "ErikaHound_Sleep01_HoundOfTindalos_01_Montage_MIN")
+
+Catalog.by_family["ErikaHound_Vagina01"] = {
+    hanime_id = "ErikaHound_Vagina01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaHound_Vagina01", "vaginal", "Erika_01", "ErikaHound_Vagina01_Erika_01_Montage")
+add_asset("ErikaHound_Vagina01", "vaginal", "Erika_01", "ErikaHound_Vagina01_Erika_01_Montage_Max")
+add_asset("ErikaHound_Vagina01", "vaginal", "Erika_01", "ErikaHound_Vagina01_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaHound_Vagina02"] = {
+    hanime_id = "ErikaHound_Vagina02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaHound_Vagina02", "vaginal", "Erika_01", "ErikaHound_Vagina02_Erika_01_Montage")
+add_asset("ErikaHound_Vagina02", "vaginal", "Erika_01", "ErikaHound_Vagina02_Erika_01_Montage_Max")
+add_asset("ErikaHound_Vagina02", "vaginal", "Erika_01", "ErikaHound_Vagina02_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaHound_Vagina03"] = {
+    hanime_id = "ErikaHound_Vagina03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaHound_Vagina03", "vaginal", "Erika_01", "ErikaHound_Vagina03_Erika_01_Montage")
+add_asset("ErikaHound_Vagina03", "vaginal", "Erika_01", "ErikaHound_Vagina03_Erika_01_Montage_Max")
+add_asset("ErikaHound_Vagina03", "vaginal", "Erika_01", "ErikaHound_Vagina03_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaHound_Vaginal06"] = {
+    hanime_id = "ErikaHound_Vaginal06", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("ErikaHound_Vaginal06", "vaginal", "Erika_01", "ErikaHound_Vaginal06_Erika_01_Montage")
+add_asset("ErikaHound_Vaginal06", "vaginal", "Erika_01", "ErikaHound_Vaginal06_Erika_01_Montage_MAX")
+add_asset("ErikaHound_Vaginal06", "vaginal", "Erika_01", "ErikaHound_Vaginal06_Erika_01_Montage_MIN")
+add_asset("ErikaHound_Vaginal06", "vaginal", "HoundOfTindalos_01", "ErikaHound_Vaginal06_HoundOfTindalos_01_Montage")
+add_asset("ErikaHound_Vaginal06", "vaginal", "HoundOfTindalos_01", "ErikaHound_Vaginal06_HoundOfTindalos_01_Montage_MAX")
+add_asset("ErikaHound_Vaginal06", "vaginal", "HoundOfTindalos_01", "ErikaHound_Vaginal06_HoundOfTindalos_01_Montage_MIN")
+
+Catalog.by_family["ErikaHound_Vaginal08"] = {
+    hanime_id = "ErikaHound_Vaginal08", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "HoundOfTindalos_01",
+    },
+}
+add_asset("ErikaHound_Vaginal08", "vaginal", "Erika_01", "ErikaHound_Vaginal08_Erika_01_Montage")
+add_asset("ErikaHound_Vaginal08", "vaginal", "Erika_01", "ErikaHound_Vaginal08_Erika_01_Montage_MAX")
+add_asset("ErikaHound_Vaginal08", "vaginal", "Erika_01", "ErikaHound_Vaginal08_Erika_01_Montage_MIN")
+add_asset("ErikaHound_Vaginal08", "vaginal", "HoundOfTindalos_01", "ErikaHound_Vaginal08_HoundOfTindalos_01_Montage")
+add_asset("ErikaHound_Vaginal08", "vaginal", "HoundOfTindalos_01", "ErikaHound_Vaginal08_HoundOfTindalos_01_Montage_MAX")
+add_asset("ErikaHound_Vaginal08", "vaginal", "HoundOfTindalos_01", "ErikaHound_Vaginal08_HoundOfTindalos_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_A_Breast02"] = {
+    hanime_id = "ErikaMale_A_Breast02", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Handcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_A_Breast02", "breast", "Erika_01", "ErikaMale_A_Breast02_Erika_01_Montage")
+add_asset("ErikaMale_A_Breast02", "breast", "Erika_01", "ErikaMale_A_Breast02_Erika_01_Montage_MAX")
+add_asset("ErikaMale_A_Breast02", "breast", "Erika_01", "ErikaMale_A_Breast02_Erika_01_Montage_MIN")
+add_asset("ErikaMale_A_Breast02", "breast", "Handcuffs_A_01", "ErikaMale_A_Breast02_Handcuffs_A_01_Montage")
+add_asset("ErikaMale_A_Breast02", "breast", "Handcuffs_A_01", "ErikaMale_A_Breast02_Handcuffs_A_01_Montage_MAX")
+add_asset("ErikaMale_A_Breast02", "breast", "Handcuffs_A_01", "ErikaMale_A_Breast02_Handcuffs_A_01_Montage_MIN")
+add_asset("ErikaMale_A_Breast02", "breast", "Male_A_01", "ErikaMale_A_Breast02_Male_A_01_Montage")
+add_asset("ErikaMale_A_Breast02", "breast", "Male_A_01", "ErikaMale_A_Breast02_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_A_Breast02", "breast", "Male_A_01", "ErikaMale_A_Breast02_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Anal01"] = {
+    hanime_id = "ErikaMale_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male",
+    },
+}
+add_asset("ErikaMale_Anal01", "anal", "Erika_01", "ErikaMale_Anal01_Erika_01_Montage")
+add_asset("ErikaMale_Anal01", "anal", "Erika_01", "ErikaMale_Anal01_Erika_01_Montage_Max")
+add_asset("ErikaMale_Anal01", "anal", "Erika_01", "ErikaMale_Anal01_Erika_01_Montage_Min")
+add_asset("ErikaMale_Anal01", "anal", "Male", "ErikaMale_Anal01_Male_Montage")
+add_asset("ErikaMale_Anal01", "anal", "Male", "ErikaMale_Anal01_Male_Montage_Max")
+add_asset("ErikaMale_Anal01", "anal", "Male", "ErikaMale_Anal01_Male_Montage_Min")
+
+Catalog.by_family["ErikaMale_Anal06"] = {
+    hanime_id = "ErikaMale_Anal06", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Anal06", "anal", "Erika_01", "ErikaMale_Anal06_Erika_01_Montage")
+add_asset("ErikaMale_Anal06", "anal", "Erika_01", "ErikaMale_Anal06_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Anal06", "anal", "Erika_01", "ErikaMale_Anal06_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Anal06", "anal", "Male_A_01", "ErikaMale_Anal06_Male_A_01_Montage")
+add_asset("ErikaMale_Anal06", "anal", "Male_A_01", "ErikaMale_Anal06_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Anal06", "anal", "Male_A_01", "ErikaMale_Anal06_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Anal08"] = {
+    hanime_id = "ErikaMale_Anal08", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Handcuffs_mesh_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Anal08", "anal", "Erika_01", "ErikaMale_Anal08_Erika_01_Montage")
+add_asset("ErikaMale_Anal08", "anal", "Erika_01", "ErikaMale_Anal08_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Anal08", "anal", "Erika_01", "ErikaMale_Anal08_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Anal08", "anal", "Handcuffs_mesh_01", "ErikaMale_Anal08_Handcuffs_mesh_01_Montage")
+add_asset("ErikaMale_Anal08", "anal", "Handcuffs_mesh_01", "ErikaMale_Anal08_Handcuffs_mesh_01_Montage_MAX")
+add_asset("ErikaMale_Anal08", "anal", "Handcuffs_mesh_01", "ErikaMale_Anal08_Handcuffs_mesh_01_Montage_MIN")
+add_asset("ErikaMale_Anal08", "anal", "Male_A_01", "ErikaMale_Anal08_Male_A_01_Montage")
+add_asset("ErikaMale_Anal08", "anal", "Male_A_01", "ErikaMale_Anal08_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Anal08", "anal", "Male_A_01", "ErikaMale_Anal08_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Anus05"] = {
+    hanime_id = "ErikaMale_Anus05", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Anus05", "anal", "Erika_01", "ErikaMale_Anus05_Erika_01_Montage")
+add_asset("ErikaMale_Anus05", "anal", "Erika_01", "ErikaMale_Anus05_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Anus05", "anal", "Erika_01", "ErikaMale_Anus05_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Anus05", "anal", "Male_A_01", "ErikaMale_Anus05_Male_A_01_Montage")
+add_asset("ErikaMale_Anus05", "anal", "Male_A_01", "ErikaMale_Anus05_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Anus05", "anal", "Male_A_01", "ErikaMale_Anus05_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Anus07"] = {
+    hanime_id = "ErikaMale_Anus07", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Anus07", "anal", "Erika_01", "ErikaMale_Anus07_Erika_01_Montage")
+add_asset("ErikaMale_Anus07", "anal", "Erika_01", "ErikaMale_Anus07_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Anus07", "anal", "Erika_01", "ErikaMale_Anus07_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Anus07", "anal", "Male_A_01", "ErikaMale_Anus07_Male_A_01_Montage")
+add_asset("ErikaMale_Anus07", "anal", "Male_A_01", "ErikaMale_Anus07_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Anus07", "anal", "Male_A_01", "ErikaMale_Anus07_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Breast01"] = {
+    hanime_id = "ErikaMale_Breast01", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male",
+    },
+}
+add_asset("ErikaMale_Breast01", "breast", "Erika_01", "ErikaMale_Breast01_Erika_01_Montage")
+add_asset("ErikaMale_Breast01", "breast", "Erika_01", "ErikaMale_Breast01_Erika_01_Montage_Max")
+add_asset("ErikaMale_Breast01", "breast", "Erika_01", "ErikaMale_Breast01_Erika_01_Montage_Min")
+add_asset("ErikaMale_Breast01", "breast", "Male", "ErikaMale_Breast01_Male_Montage")
+add_asset("ErikaMale_Breast01", "breast", "Male", "ErikaMale_Breast01_Male_Montage_Max")
+add_asset("ErikaMale_Breast01", "breast", "Male", "ErikaMale_Breast01_Male_Montage_Min")
+
+Catalog.by_family["ErikaMale_Breast03"] = {
+    hanime_id = "ErikaMale_Breast03", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_01",
+    },
+}
+add_asset("ErikaMale_Breast03", "breast", "Erika_01", "ErikaMale_Breast03_Erika_01_Montage")
+add_asset("ErikaMale_Breast03", "breast", "Erika_01", "ErikaMale_Breast03_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Breast03", "breast", "Erika_01", "ErikaMale_Breast03_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Breast03", "breast", "Male_01", "ErikaMale_Breast03_Male_01_Montage")
+add_asset("ErikaMale_Breast03", "breast", "Male_01", "ErikaMale_Breast03_Male_01_Montage_MAX")
+add_asset("ErikaMale_Breast03", "breast", "Male_01", "ErikaMale_Breast03_Male_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Foot01"] = {
+    hanime_id = "ErikaMale_Foot01", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male",
+    },
+}
+add_asset("ErikaMale_Foot01", "foot", "Erika_01", "ErikaMale_Foot01_Erika_01_Montage")
+add_asset("ErikaMale_Foot01", "foot", "Erika_01", "ErikaMale_Foot01_Erika_01_Montage_Max")
+add_asset("ErikaMale_Foot01", "foot", "Erika_01", "ErikaMale_Foot01_Erika_01_Montage_Min")
+add_asset("ErikaMale_Foot01", "foot", "Male", "ErikaMale_Foot01_Male_Montage")
+add_asset("ErikaMale_Foot01", "foot", "Male", "ErikaMale_Foot01_Male_Montage_Max")
+add_asset("ErikaMale_Foot01", "foot", "Male", "ErikaMale_Foot01_Male_Montage_Min")
+
+Catalog.by_family["ErikaMale_Foot03"] = {
+    hanime_id = "ErikaMale_Foot03", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Foot03", "foot", "Erika_01", "ErikaMale_Foot03_Erika_01_Montage")
+add_asset("ErikaMale_Foot03", "foot", "Erika_01", "ErikaMale_Foot03_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Foot03", "foot", "Erika_01", "ErikaMale_Foot03_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Foot03", "foot", "Male_A_01", "ErikaMale_Foot03_Male_A_01_Montage")
+add_asset("ErikaMale_Foot03", "foot", "Male_A_01", "ErikaMale_Foot03_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Foot03", "foot", "Male_A_01", "ErikaMale_Foot03_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_hand"] = {
+    hanime_id = "ErikaMale_hand", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_hand", "hand", "Erika_01", "ErikaMale_hand_Erika_01_Montage")
+add_asset("ErikaMale_hand", "hand", "Erika_01", "ErikaMale_hand_Erika_01_Montage_MAX")
+add_asset("ErikaMale_hand", "hand", "Erika_01", "ErikaMale_hand_Erika_01_Montage_MIN")
+add_asset("ErikaMale_hand", "hand", "Male_A_01", "ErikaMale_hand_Male_A_01_Montage")
+add_asset("ErikaMale_hand", "hand", "Male_A_01", "ErikaMale_hand_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_hand", "hand", "Male_A_01", "ErikaMale_hand_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Hand03"] = {
+    hanime_id = "ErikaMale_Hand03", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Hand03", "hand", "Erika_01", "ErikaMale_Hand03_Erika_01_Montage")
+add_asset("ErikaMale_Hand03", "hand", "Erika_01", "ErikaMale_Hand03_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Hand03", "hand", "Erika_01", "ErikaMale_Hand03_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Hand03", "hand", "Male_A_01", "ErikaMale_Hand03_Male_A_01_Montage")
+add_asset("ErikaMale_Hand03", "hand", "Male_A_01", "ErikaMale_Hand03_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Hand03", "hand", "Male_A_01", "ErikaMale_Hand03_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Hand04"] = {
+    hanime_id = "ErikaMale_Hand04", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Hand04", "hand", "Erika_01", "ErikaMale_Hand04_Erika_01_Montage")
+add_asset("ErikaMale_Hand04", "hand", "Erika_01", "ErikaMale_Hand04_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Hand04", "hand", "Erika_01", "ErikaMale_Hand04_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Hand04", "hand", "Male_A_01", "ErikaMale_Hand04_Male_A_01_Montage")
+add_asset("ErikaMale_Hand04", "hand", "Male_A_01", "ErikaMale_Hand04_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Hand04", "hand", "Male_A_01", "ErikaMale_Hand04_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Mouth01"] = {
+    hanime_id = "ErikaMale_Mouth01", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male",
+    },
+}
+add_asset("ErikaMale_Mouth01", "mouth", "Erika_01", "ErikaMale_Mouth01_Erika_01_Montage")
+add_asset("ErikaMale_Mouth01", "mouth", "Erika_01", "ErikaMale_Mouth01_Erika_01_Montage_Max")
+add_asset("ErikaMale_Mouth01", "mouth", "Erika_01", "ErikaMale_Mouth01_Erika_01_Montage_Min")
+add_asset("ErikaMale_Mouth01", "mouth", "Male", "ErikaMale_Mouth01_Male_Montage")
+add_asset("ErikaMale_Mouth01", "mouth", "Male", "ErikaMale_Mouth01_Male_Montage_Max")
+add_asset("ErikaMale_Mouth01", "mouth", "Male", "ErikaMale_Mouth01_Male_Montage_Min")
+
+Catalog.by_family["ErikaMale_Mouth02"] = {
+    hanime_id = "ErikaMale_Mouth02", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male",
+    },
+}
+add_asset("ErikaMale_Mouth02", "mouth", "Erika_01", "ErikaMale_Mouth02_Erika_01_Montage")
+add_asset("ErikaMale_Mouth02", "mouth", "Erika_01", "ErikaMale_Mouth02_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Mouth02", "mouth", "Erika_01", "ErikaMale_Mouth02_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Mouth02", "mouth", "Male", "ErikaMale_Mouth02_Male_Montage")
+add_asset("ErikaMale_Mouth02", "mouth", "Male", "ErikaMale_Mouth02_Male_Montage_MAX")
+add_asset("ErikaMale_Mouth02", "mouth", "Male", "ErikaMale_Mouth02_Male_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Sleep01"] = {
+    hanime_id = "ErikaMale_Sleep01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Sleep01", "other", "Erika_01", "ErikaMale_Sleep01_Erika_01_Montage")
+add_asset("ErikaMale_Sleep01", "other", "Erika_01", "ErikaMale_Sleep01_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Sleep01", "other", "Erika_01", "ErikaMale_Sleep01_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Sleep01", "other", "Male_A_01", "ErikaMale_Sleep01_Male_A_01_Montage")
+add_asset("ErikaMale_Sleep01", "other", "Male_A_01", "ErikaMale_Sleep01_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Sleep01", "other", "Male_A_01", "ErikaMale_Sleep01_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Vagina01"] = {
+    hanime_id = "ErikaMale_Vagina01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina01", "vaginal", "Erika_01", "ErikaMale_Vagina01_Erika_01_Montage")
+add_asset("ErikaMale_Vagina01", "vaginal", "Erika_01", "ErikaMale_Vagina01_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vagina01", "vaginal", "Erika_01", "ErikaMale_Vagina01_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vagina02"] = {
+    hanime_id = "ErikaMale_Vagina02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina02", "vaginal", "Erika_01", "ErikaMale_Vagina02_Erika_01_Montage")
+add_asset("ErikaMale_Vagina02", "vaginal", "Erika_01", "ErikaMale_Vagina02_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vagina02", "vaginal", "Erika_01", "ErikaMale_Vagina02_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vagina03"] = {
+    hanime_id = "ErikaMale_Vagina03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina03", "vaginal", "Erika_01", "ErikaMale_Vagina03_Erika_01_Montage")
+add_asset("ErikaMale_Vagina03", "vaginal", "Erika_01", "ErikaMale_Vagina03_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vagina03", "vaginal", "Erika_01", "ErikaMale_Vagina03_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vagina04"] = {
+    hanime_id = "ErikaMale_Vagina04", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina04", "vaginal", "Erika_01", "ErikaMale_Vagina04_Erika_01_Montage")
+add_asset("ErikaMale_Vagina04", "vaginal", "Erika_01", "ErikaMale_Vagina04_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vagina04", "vaginal", "Erika_01", "ErikaMale_Vagina04_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vagina05"] = {
+    hanime_id = "ErikaMale_Vagina05", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina05", "vaginal", "Erika_01", "ErikaMale_Vagina05_Erika_01_Montage")
+add_asset("ErikaMale_Vagina05", "vaginal", "Erika_01", "ErikaMale_Vagina05_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Vagina05", "vaginal", "Erika_01", "ErikaMale_Vagina05_Erika_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Vagina06"] = {
+    hanime_id = "ErikaMale_Vagina06", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina06", "vaginal", "Erika_01", "ErikaMale_Vagina06_Erika_01_Montage")
+add_asset("ErikaMale_Vagina06", "vaginal", "Erika_01", "ErikaMale_Vagina06_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vagina06", "vaginal", "Erika_01", "ErikaMale_Vagina06_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vagina07"] = {
+    hanime_id = "ErikaMale_Vagina07", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina07", "vaginal", "Erika_01", "ErikaMale_Vagina07_Erika_01_Montage")
+add_asset("ErikaMale_Vagina07", "vaginal", "Erika_01", "ErikaMale_Vagina07_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vagina07", "vaginal", "Erika_01", "ErikaMale_Vagina07_Erika_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vagina10"] = {
+    hanime_id = "ErikaMale_Vagina10", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("ErikaMale_Vagina10", "vaginal", "Erika_01", "ErikaMale_Vagina10_Erika_01_Montage")
+add_asset("ErikaMale_Vagina10", "vaginal", "Erika_01", "ErikaMale_Vagina10_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Vagina10", "vaginal", "Erika_01", "ErikaMale_Vagina10_Erika_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Vagina14"] = {
+    hanime_id = "ErikaMale_Vagina14", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Vagina14", "vaginal", "Erika_01", "ErikaMale_Vagina14_Erika_01_Montage")
+add_asset("ErikaMale_Vagina14", "vaginal", "Erika_01", "ErikaMale_Vagina14_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vagina14", "vaginal", "Erika_01", "ErikaMale_Vagina14_Erika_01_Montage_Min")
+add_asset("ErikaMale_Vagina14", "vaginal", "Male_A_01", "ErikaMale_Vagina14_Male_A_01_Montage")
+add_asset("ErikaMale_Vagina14", "vaginal", "Male_A_01", "ErikaMale_Vagina14_Male_A_01_Montage_Max")
+add_asset("ErikaMale_Vagina14", "vaginal", "Male_A_01", "ErikaMale_Vagina14_Male_A_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vagina16"] = {
+    hanime_id = "ErikaMale_Vagina16", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Vagina16", "vaginal", "Erika_01", "ErikaMale_Vagina16_Erika_01_Montage")
+add_asset("ErikaMale_Vagina16", "vaginal", "Erika_01", "ErikaMale_Vagina16_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Vagina16", "vaginal", "Erika_01", "ErikaMale_Vagina16_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Vagina16", "vaginal", "Male_A_01", "ErikaMale_Vagina16_Male_A_01_Montage")
+add_asset("ErikaMale_Vagina16", "vaginal", "Male_A_01", "ErikaMale_Vagina16_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Vagina16", "vaginal", "Male_A_01", "ErikaMale_Vagina16_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMale_Vaginal15"] = {
+    hanime_id = "ErikaMale_Vaginal15", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Vaginal15", "vaginal", "Erika_01", "ErikaMale_Vaginal15_Erika_01_Montage")
+add_asset("ErikaMale_Vaginal15", "vaginal", "Erika_01", "ErikaMale_Vaginal15_Erika_01_Montage_Max")
+add_asset("ErikaMale_Vaginal15", "vaginal", "Erika_01", "ErikaMale_Vaginal15_Erika_01_Montage_Min")
+add_asset("ErikaMale_Vaginal15", "vaginal", "Male_A_01", "ErikaMale_Vaginal15_Male_A_01_Montage")
+add_asset("ErikaMale_Vaginal15", "vaginal", "Male_A_01", "ErikaMale_Vaginal15_Male_A_01_Montage_Max")
+add_asset("ErikaMale_Vaginal15", "vaginal", "Male_A_01", "ErikaMale_Vaginal15_Male_A_01_Montage_Min")
+
+Catalog.by_family["ErikaMale_Vaginal18"] = {
+    hanime_id = "ErikaMale_Vaginal18", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Feetcuffs_A_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMale_Vaginal18", "vaginal", "Erika_01", "ErikaMale_Vaginal18_Erika_01_Montage")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Erika_01", "ErikaMale_Vaginal18_Erika_01_Montage_MAX")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Erika_01", "ErikaMale_Vaginal18_Erika_01_Montage_MIN")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Feetcuffs_A_01", "ErikaMale_Vaginal18_Feetcuffs_A_01_Montage")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Feetcuffs_A_01", "ErikaMale_Vaginal18_Feetcuffs_A_01_Montage_MAX")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Feetcuffs_A_01", "ErikaMale_Vaginal18_Feetcuffs_A_01_Montage_MIN")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Male_A_01", "ErikaMale_Vaginal18_Male_A_01_Montage")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Male_A_01", "ErikaMale_Vaginal18_Male_A_01_Montage_MAX")
+add_asset("ErikaMale_Vaginal18", "vaginal", "Male_A_01", "ErikaMale_Vaginal18_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMaleAB_Vagina_Mouth03"] = {
+    hanime_id = "ErikaMaleAB_Vagina_Mouth03", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A_01",
+        "Male_B_01",
+    },
+}
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Erika_01", "ErikaMaleAB_Vagina_Mouth03_Erika_01_Montage")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Erika_01", "ErikaMaleAB_Vagina_Mouth03_Erika_01_Montage_MAX")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Erika_01", "ErikaMaleAB_Vagina_Mouth03_Erika_01_Montage_MIN")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Male_A_01", "ErikaMaleAB_Vagina_Mouth03_Male_A_01_Montage")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Male_A_01", "ErikaMaleAB_Vagina_Mouth03_Male_A_01_Montage_MAX")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Male_A_01", "ErikaMaleAB_Vagina_Mouth03_Male_A_01_Montage_MIN")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Male_B_01", "ErikaMaleAB_Vagina_Mouth03_Male_B_01_Montage")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Male_B_01", "ErikaMaleAB_Vagina_Mouth03_Male_B_01_Montage_MAX")
+add_asset("ErikaMaleAB_Vagina_Mouth03", "other", "Male_B_01", "ErikaMaleAB_Vagina_Mouth03_Male_B_01_Montage_MIN")
+
+Catalog.by_family["ErikaMaleAB_VaginalMouth01"] = {
+    hanime_id = "ErikaMaleAB_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A",
+        "Male_B",
+    },
+}
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Erika_01", "ErikaMaleAB_VaginalMouth01_Erika_01_Montage")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Erika_01", "ErikaMaleAB_VaginalMouth01_Erika_01_Montage_MAX")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Erika_01", "ErikaMaleAB_VaginalMouth01_Erika_01_Montage_MIN")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Male_A", "ErikaMaleAB_VaginalMouth01_Male_A_Montage")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Male_A", "ErikaMaleAB_VaginalMouth01_Male_A_Montage_MAX")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Male_A", "ErikaMaleAB_VaginalMouth01_Male_A_Montage_MIN")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Male_B", "ErikaMaleAB_VaginalMouth01_Male_B_Montage")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Male_B", "ErikaMaleAB_VaginalMouth01_Male_B_Montage_MAX")
+add_asset("ErikaMaleAB_VaginalMouth01", "other", "Male_B", "ErikaMaleAB_VaginalMouth01_Male_B_Montage_MIN")
+
+Catalog.by_family["ErikaMaleAB_VaginalMouth02"] = {
+    hanime_id = "ErikaMaleAB_VaginalMouth02", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Male_A",
+        "Male_B",
+    },
+}
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Erika_01", "ErikaMaleAB_VaginalMouth02_Erika_01_Montage")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Erika_01", "ErikaMaleAB_VaginalMouth02_Erika_01_Montage_MAX")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Erika_01", "ErikaMaleAB_VaginalMouth02_Erika_01_Montage_MIN")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Male_A", "ErikaMaleAB_VaginalMouth02_Male_A_Montage")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Male_A", "ErikaMaleAB_VaginalMouth02_Male_A_Montage_MAX")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Male_A", "ErikaMaleAB_VaginalMouth02_Male_A_Montage_MIN")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Male_B", "ErikaMaleAB_VaginalMouth02_Male_B_Montage")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Male_B", "ErikaMaleAB_VaginalMouth02_Male_B_Montage_MAX")
+add_asset("ErikaMaleAB_VaginalMouth02", "other", "Male_B", "ErikaMaleAB_VaginalMouth02_Male_B_Montage_MIN")
+
+Catalog.by_family["ErikaMaleDoubleDildo_Vagina17"] = {
+    hanime_id = "ErikaMaleDoubleDildo_Vagina17", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DoubleDildo_01",
+        "Erika_01",
+        "Male_A_01",
+    },
+}
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "DoubleDildo_01", "ErikaMaleDoubleDildo_Vagina17_DoubleDildo_01_Montage")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "DoubleDildo_01", "ErikaMaleDoubleDildo_Vagina17_DoubleDildo_01_Montage_MAX")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "DoubleDildo_01", "ErikaMaleDoubleDildo_Vagina17_DoubleDildo_01_Montage_MIN")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "Erika_01", "ErikaMaleDoubleDildo_Vagina17_Erika_01_Montage")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "Erika_01", "ErikaMaleDoubleDildo_Vagina17_Erika_01_Montage_MAX")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "Erika_01", "ErikaMaleDoubleDildo_Vagina17_Erika_01_Montage_MIN")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "Male_A_01", "ErikaMaleDoubleDildo_Vagina17_Male_A_01_Montage")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "Male_A_01", "ErikaMaleDoubleDildo_Vagina17_Male_A_01_Montage_MAX")
+add_asset("ErikaMaleDoubleDildo_Vagina17", "vaginal", "Male_A_01", "ErikaMaleDoubleDildo_Vagina17_Male_A_01_Montage_MIN")
+
+Catalog.by_family["ErikaMiGoNymph_AnusMouth01"] = {
+    hanime_id = "ErikaMiGoNymph_AnusMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "MiGoNymph_A_01",
+        "MiGoNymph_B_01",
+    },
+}
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "Erika_01", "ErikaMiGoNymph_AnusMouth01_Erika_01_Montage")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "Erika_01", "ErikaMiGoNymph_AnusMouth01_Erika_01_Montage_MAX")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "Erika_01", "ErikaMiGoNymph_AnusMouth01_Erika_01_Montage_MIN")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "MiGoNymph_A_01", "ErikaMiGoNymph_AnusMouth01_MiGoNymph_A_01_Montage")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "MiGoNymph_A_01", "ErikaMiGoNymph_AnusMouth01_MiGoNymph_A_01_Montage_MAX")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "MiGoNymph_A_01", "ErikaMiGoNymph_AnusMouth01_MiGoNymph_A_01_Montage_MIN")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "MiGoNymph_B_01", "ErikaMiGoNymph_AnusMouth01_MiGoNymph_B_01_Montage")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "MiGoNymph_B_01", "ErikaMiGoNymph_AnusMouth01_MiGoNymph_B_01_Montage_MAX")
+add_asset("ErikaMiGoNymph_AnusMouth01", "other", "MiGoNymph_B_01", "ErikaMiGoNymph_AnusMouth01_MiGoNymph_B_01_Montage_MIN")
+
+Catalog.by_family["ErikaSpawn_Vaginal03"] = {
+    hanime_id = "ErikaSpawn_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "SpawnOfBasatan_01",
+    },
+}
+add_asset("ErikaSpawn_Vaginal03", "vaginal", "Erika_01", "ErikaSpawn_Vaginal03_Erika_01_Montage")
+add_asset("ErikaSpawn_Vaginal03", "vaginal", "Erika_01", "ErikaSpawn_Vaginal03_Erika_01_Montage_MAX")
+add_asset("ErikaSpawn_Vaginal03", "vaginal", "Erika_01", "ErikaSpawn_Vaginal03_Erika_01_Montage_MIN")
+add_asset("ErikaSpawn_Vaginal03", "vaginal", "SpawnOfBasatan_01", "ErikaSpawn_Vaginal03_SpawnOfBasatan_01_Montage")
+add_asset("ErikaSpawn_Vaginal03", "vaginal", "SpawnOfBasatan_01", "ErikaSpawn_Vaginal03_SpawnOfBasatan_01_Montage_MAX")
+add_asset("ErikaSpawn_Vaginal03", "vaginal", "SpawnOfBasatan_01", "ErikaSpawn_Vaginal03_SpawnOfBasatan_01_Montage_MIN")
+
+Catalog.by_family["ErikaYith_Mouth01"] = {
+    hanime_id = "ErikaYith_Mouth01", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+        "Yith_01",
+    },
+}
+add_asset("ErikaYith_Mouth01", "mouth", "Erika_01", "ErikaYith_Mouth01_Erika_01_Montage")
+add_asset("ErikaYith_Mouth01", "mouth", "Erika_01", "ErikaYith_Mouth01_Erika_01_Montage_MAX")
+add_asset("ErikaYith_Mouth01", "mouth", "Erika_01", "ErikaYith_Mouth01_Erika_01_Montage_MIN")
+add_asset("ErikaYith_Mouth01", "mouth", "Yith_01", "ErikaYith_Mouth01_Yith_01_Montage")
+add_asset("ErikaYith_Mouth01", "mouth", "Yith_01", "ErikaYith_Mouth01_Yith_01_Montage_MAX")
+add_asset("ErikaYith_Mouth01", "mouth", "Yith_01", "ErikaYith_Mouth01_Yith_01_Montage_MIN")
+
 Catalog.by_family["GalaCelia_HandMouth01"] = {
     hanime_id = "GalaCelia_HandMouth01", category = "other",
     catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
@@ -1836,6 +4513,744 @@ add_asset("GalaCelia_HandMouth01", "other", "Gala_01", "GalaCelia_HandMouth01_Ga
 add_asset("GalaCelia_HandMouth01", "other", "Gala_01", "GalaCelia_HandMouth01_Gala_01_Montage_MAX")
 add_asset("GalaCelia_HandMouth01", "other", "Gala_01", "GalaCelia_HandMouth01_Gala_01_Montage_MIN")
 
+Catalog.by_family["GalaDeepone_Vaginal01"] = {
+    hanime_id = "GalaDeepone_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDeepone_Vaginal01", "vaginal", "DeepOne_01", "GalaDeepone_Vaginal01_DeepOne_01_Montage")
+add_asset("GalaDeepone_Vaginal01", "vaginal", "DeepOne_01", "GalaDeepone_Vaginal01_DeepOne_01_Montage_MAX")
+add_asset("GalaDeepone_Vaginal01", "vaginal", "DeepOne_01", "GalaDeepone_Vaginal01_DeepOne_01_Montage_MIN")
+add_asset("GalaDeepone_Vaginal01", "vaginal", "Gala_01", "GalaDeepone_Vaginal01_Gala_01_Montage")
+add_asset("GalaDeepone_Vaginal01", "vaginal", "Gala_01", "GalaDeepone_Vaginal01_Gala_01_Montage_MAX")
+add_asset("GalaDeepone_Vaginal01", "vaginal", "Gala_01", "GalaDeepone_Vaginal01_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDeepone_Vaginal02"] = {
+    hanime_id = "GalaDeepone_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDeepone_Vaginal02", "vaginal", "DeepOne_01", "GalaDeepone_Vaginal02_DeepOne_01_Montage")
+add_asset("GalaDeepone_Vaginal02", "vaginal", "DeepOne_01", "GalaDeepone_Vaginal02_DeepOne_01_Montage_MAX")
+add_asset("GalaDeepone_Vaginal02", "vaginal", "DeepOne_01", "GalaDeepone_Vaginal02_DeepOne_01_Montage_MIN")
+add_asset("GalaDeepone_Vaginal02", "vaginal", "Gala_01", "GalaDeepone_Vaginal02_Gala_01_Montage")
+add_asset("GalaDeepone_Vaginal02", "vaginal", "Gala_01", "GalaDeepone_Vaginal02_Gala_01_Montage_MAX")
+add_asset("GalaDeepone_Vaginal02", "vaginal", "Gala_01", "GalaDeepone_Vaginal02_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Anal01"] = {
+    hanime_id = "GalaDreamer_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Anal01", "anal", "Dreamer_A_01", "GalaDreamer_Anal01_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Anal01", "anal", "Dreamer_A_01", "GalaDreamer_Anal01_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Anal01", "anal", "Dreamer_A_01", "GalaDreamer_Anal01_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Anal01", "anal", "Gala_01", "GalaDreamer_Anal01_Gala_01_Montage")
+add_asset("GalaDreamer_Anal01", "anal", "Gala_01", "GalaDreamer_Anal01_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Anal01", "anal", "Gala_01", "GalaDreamer_Anal01_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Anal03"] = {
+    hanime_id = "GalaDreamer_Anal03", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Anal03", "anal", "Dreamer_A_01", "GalaDreamer_Anal03_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Anal03", "anal", "Dreamer_A_01", "GalaDreamer_Anal03_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Anal03", "anal", "Dreamer_A_01", "GalaDreamer_Anal03_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Anal03", "anal", "Gala_01", "GalaDreamer_Anal03_Gala_01_Montage")
+add_asset("GalaDreamer_Anal03", "anal", "Gala_01", "GalaDreamer_Anal03_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Anal03", "anal", "Gala_01", "GalaDreamer_Anal03_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Anal04"] = {
+    hanime_id = "GalaDreamer_Anal04", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Anal04", "anal", "Dreamer_A_01", "GalaDreamer_Anal04_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Anal04", "anal", "Dreamer_A_01", "GalaDreamer_Anal04_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Anal04", "anal", "Dreamer_A_01", "GalaDreamer_Anal04_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Anal04", "anal", "Gala_01", "GalaDreamer_Anal04_Gala_01_Montage")
+add_asset("GalaDreamer_Anal04", "anal", "Gala_01", "GalaDreamer_Anal04_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Anal04", "anal", "Gala_01", "GalaDreamer_Anal04_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Foot02"] = {
+    hanime_id = "GalaDreamer_Foot02", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Foot02", "foot", "Dreamer_A_01", "GalaDreamer_Foot02_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Foot02", "foot", "Dreamer_A_01", "GalaDreamer_Foot02_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Foot02", "foot", "Dreamer_A_01", "GalaDreamer_Foot02_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Foot02", "foot", "Gala_01", "GalaDreamer_Foot02_Gala_01_Montage")
+add_asset("GalaDreamer_Foot02", "foot", "Gala_01", "GalaDreamer_Foot02_Gala_01_Montage_Max")
+add_asset("GalaDreamer_Foot02", "foot", "Gala_01", "GalaDreamer_Foot02_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_FootVaginal01"] = {
+    hanime_id = "GalaDreamer_FootVaginal01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "ClubPillow_01",
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_FootVaginal01", "other", "ClubPillow_01", "GalaDreamer_FootVaginal01_ClubPillow_01_Montage")
+add_asset("GalaDreamer_FootVaginal01", "other", "ClubPillow_01", "GalaDreamer_FootVaginal01_ClubPillow_01_Montage_MAX")
+add_asset("GalaDreamer_FootVaginal01", "other", "ClubPillow_01", "GalaDreamer_FootVaginal01_ClubPillow_01_Montage_MIN")
+add_asset("GalaDreamer_FootVaginal01", "other", "Dreamer_A_01", "GalaDreamer_FootVaginal01_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_FootVaginal01", "other", "Dreamer_A_01", "GalaDreamer_FootVaginal01_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_FootVaginal01", "other", "Dreamer_A_01", "GalaDreamer_FootVaginal01_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_FootVaginal01", "other", "Gala_01", "GalaDreamer_FootVaginal01_Gala_01_Montage")
+add_asset("GalaDreamer_FootVaginal01", "other", "Gala_01", "GalaDreamer_FootVaginal01_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_FootVaginal01", "other", "Gala_01", "GalaDreamer_FootVaginal01_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Mouth01"] = {
+    hanime_id = "GalaDreamer_Mouth01", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+        "Handcuffs_A_01",
+    },
+}
+add_asset("GalaDreamer_Mouth01", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth01_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Mouth01", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth01_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Mouth01", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth01_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Mouth01", "mouth", "Gala_01", "GalaDreamer_Mouth01_Gala_01_Montage")
+add_asset("GalaDreamer_Mouth01", "mouth", "Gala_01", "GalaDreamer_Mouth01_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Mouth01", "mouth", "Gala_01", "GalaDreamer_Mouth01_Gala_01_Montage_MIN")
+add_asset("GalaDreamer_Mouth01", "mouth", "Handcuffs_A_01", "GalaDreamer_Mouth01_Handcuffs_A_01_Montage")
+add_asset("GalaDreamer_Mouth01", "mouth", "Handcuffs_A_01", "GalaDreamer_Mouth01_Handcuffs_A_01_Montage_MAX")
+add_asset("GalaDreamer_Mouth01", "mouth", "Handcuffs_A_01", "GalaDreamer_Mouth01_Handcuffs_A_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Mouth02"] = {
+    hanime_id = "GalaDreamer_Mouth02", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Mouth02", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth02_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Mouth02", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth02_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Mouth02", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth02_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Mouth02", "mouth", "Gala_01", "GalaDreamer_Mouth02_Gala_01_Montage")
+add_asset("GalaDreamer_Mouth02", "mouth", "Gala_01", "GalaDreamer_Mouth02_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Mouth02", "mouth", "Gala_01", "GalaDreamer_Mouth02_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Mouth20250929_TT"] = {
+    hanime_id = "GalaDreamer_Mouth20250929_TT", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Mouth20250929_TT", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth20250929_TT_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Mouth20250929_TT", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth20250929_TT_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Mouth20250929_TT", "mouth", "Dreamer_A_01", "GalaDreamer_Mouth20250929_TT_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Mouth20250929_TT", "mouth", "Gala_01", "GalaDreamer_Mouth20250929_TT_Gala_01_Montage")
+add_asset("GalaDreamer_Mouth20250929_TT", "mouth", "Gala_01", "GalaDreamer_Mouth20250929_TT_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Mouth20250929_TT", "mouth", "Gala_01", "GalaDreamer_Mouth20250929_TT_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Vaginal01"] = {
+    hanime_id = "GalaDreamer_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal01_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal01_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal01_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal01", "vaginal", "Gala_01", "GalaDreamer_Vaginal01_Gala_01_Montage")
+add_asset("GalaDreamer_Vaginal01", "vaginal", "Gala_01", "GalaDreamer_Vaginal01_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal01", "vaginal", "Gala_01", "GalaDreamer_Vaginal01_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Vaginal02"] = {
+    hanime_id = "GalaDreamer_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Vaginal02", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal02_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Vaginal02", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal02_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal02", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal02_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal02", "vaginal", "Gala_01", "GalaDreamer_Vaginal02_Gala_01_Montage")
+add_asset("GalaDreamer_Vaginal02", "vaginal", "Gala_01", "GalaDreamer_Vaginal02_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal02", "vaginal", "Gala_01", "GalaDreamer_Vaginal02_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Vaginal03"] = {
+    hanime_id = "GalaDreamer_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Vaginal03", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal03_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Vaginal03", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal03_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal03", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal03_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal03", "vaginal", "Gala_01", "GalaDreamer_Vaginal03_Gala_01_Montage")
+add_asset("GalaDreamer_Vaginal03", "vaginal", "Gala_01", "GalaDreamer_Vaginal03_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal03", "vaginal", "Gala_01", "GalaDreamer_Vaginal03_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Vaginal05"] = {
+    hanime_id = "GalaDreamer_Vaginal05", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "ClubPillow_01",
+        "Dreamer_A_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaDreamer_Vaginal05", "vaginal", "ClubPillow_01", "GalaDreamer_Vaginal05_ClubPillow_01_Montage")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "ClubPillow_01", "GalaDreamer_Vaginal05_ClubPillow_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "ClubPillow_01", "GalaDreamer_Vaginal05_ClubPillow_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal05_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal05_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal05_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "Gala_01", "GalaDreamer_Vaginal05_Gala_01_Montage")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "Gala_01", "GalaDreamer_Vaginal05_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal05", "vaginal", "Gala_01", "GalaDreamer_Vaginal05_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Vaginal06"] = {
+    hanime_id = "GalaDreamer_Vaginal06", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "gala_01",
+        "Handcuffs_A_01",
+    },
+}
+add_asset("GalaDreamer_Vaginal06", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal06_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal06_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal06_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "gala_01", "GalaDreamer_Vaginal06_gala_01_Montage")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "gala_01", "GalaDreamer_Vaginal06_gala_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "gala_01", "GalaDreamer_Vaginal06_gala_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "Handcuffs_A_01", "GalaDreamer_Vaginal06_Handcuffs_A_01_Montage")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "Handcuffs_A_01", "GalaDreamer_Vaginal06_Handcuffs_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal06", "vaginal", "Handcuffs_A_01", "GalaDreamer_Vaginal06_Handcuffs_A_01_Montage_MIN")
+
+Catalog.by_family["GalaDreamer_Vaginal07"] = {
+    hanime_id = "GalaDreamer_Vaginal07", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Gala_01",
+        "Handcuffs_A_01",
+    },
+}
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal07_Dreamer_A_01_Montage")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal07_Dreamer_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Dreamer_A_01", "GalaDreamer_Vaginal07_Dreamer_A_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Gala_01", "GalaDreamer_Vaginal07_Gala_01_Montage")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Gala_01", "GalaDreamer_Vaginal07_Gala_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Gala_01", "GalaDreamer_Vaginal07_Gala_01_Montage_MIN")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Handcuffs_A_01", "GalaDreamer_Vaginal07_Handcuffs_A_01_Montage")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Handcuffs_A_01", "GalaDreamer_Vaginal07_Handcuffs_A_01_Montage_MAX")
+add_asset("GalaDreamer_Vaginal07", "vaginal", "Handcuffs_A_01", "GalaDreamer_Vaginal07_Handcuffs_A_01_Montage_MIN")
+
+Catalog.by_family["GalaElderthing_Anal01"] = {
+    hanime_id = "GalaElderthing_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "ElderThing_01",
+        "Gala_01",
+        "Handcuffs_A_01",
+        "Handcuffs_B_01",
+    },
+}
+add_asset("GalaElderthing_Anal01", "anal", "ElderThing_01", "GalaElderthing_Anal01_ElderThing_01_Montage")
+add_asset("GalaElderthing_Anal01", "anal", "ElderThing_01", "GalaElderthing_Anal01_ElderThing_01_Montage_MAX")
+add_asset("GalaElderthing_Anal01", "anal", "ElderThing_01", "GalaElderthing_Anal01_ElderThing_01_Montage_MIN")
+add_asset("GalaElderthing_Anal01", "anal", "Gala_01", "GalaElderthing_Anal01_Gala_01_Montage")
+add_asset("GalaElderthing_Anal01", "anal", "Gala_01", "GalaElderthing_Anal01_Gala_01_Montage_MAX")
+add_asset("GalaElderthing_Anal01", "anal", "Gala_01", "GalaElderthing_Anal01_Gala_01_Montage_MIN")
+add_asset("GalaElderthing_Anal01", "anal", "Handcuffs_A_01", "GalaElderthing_Anal01_Handcuffs_A_01_Montage")
+add_asset("GalaElderthing_Anal01", "anal", "Handcuffs_A_01", "GalaElderthing_Anal01_Handcuffs_A_01_Montage_MAX")
+add_asset("GalaElderthing_Anal01", "anal", "Handcuffs_A_01", "GalaElderthing_Anal01_Handcuffs_A_01_Montage_MIN")
+add_asset("GalaElderthing_Anal01", "anal", "Handcuffs_B_01", "GalaElderthing_Anal01_Handcuffs_B_01_Montage")
+add_asset("GalaElderthing_Anal01", "anal", "Handcuffs_B_01", "GalaElderthing_Anal01_Handcuffs_B_01_Montage_MAX")
+add_asset("GalaElderthing_Anal01", "anal", "Handcuffs_B_01", "GalaElderthing_Anal01_Handcuffs_B_01_Montage_MIN")
+
+Catalog.by_family["GalaElderthing_MouthAnal01"] = {
+    hanime_id = "GalaElderthing_MouthAnal01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "ClubPiStool__01",
+        "ElderThing_01",
+        "Gala_01",
+    },
+}
+add_asset("GalaElderthing_MouthAnal01", "other", "ClubPiStool__01", "GalaElderthing_MouthAnal01_ClubPiStool__01_Montage")
+add_asset("GalaElderthing_MouthAnal01", "other", "ClubPiStool__01", "GalaElderthing_MouthAnal01_ClubPiStool__01_Montage_MAX")
+add_asset("GalaElderthing_MouthAnal01", "other", "ClubPiStool__01", "GalaElderthing_MouthAnal01_ClubPiStool__01_Montage_MIN")
+add_asset("GalaElderthing_MouthAnal01", "other", "ElderThing_01", "GalaElderthing_MouthAnal01_ElderThing_01_Montage")
+add_asset("GalaElderthing_MouthAnal01", "other", "ElderThing_01", "GalaElderthing_MouthAnal01_ElderThing_01_Montage_MAX")
+add_asset("GalaElderthing_MouthAnal01", "other", "ElderThing_01", "GalaElderthing_MouthAnal01_ElderThing_01_Montage_MIN")
+add_asset("GalaElderthing_MouthAnal01", "other", "Gala_01", "GalaElderthing_MouthAnal01_Gala_01_Montage")
+add_asset("GalaElderthing_MouthAnal01", "other", "Gala_01", "GalaElderthing_MouthAnal01_Gala_01_Montage_MAX")
+add_asset("GalaElderthing_MouthAnal01", "other", "Gala_01", "GalaElderthing_MouthAnal01_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaGhast_Vaginal01"] = {
+    hanime_id = "GalaGhast_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Ghast_01",
+    },
+}
+add_asset("GalaGhast_Vaginal01", "vaginal", "Gala_01", "GalaGhast_Vaginal01_Gala_01_Montage")
+add_asset("GalaGhast_Vaginal01", "vaginal", "Gala_01", "GalaGhast_Vaginal01_Gala_01_Montage_MAX")
+add_asset("GalaGhast_Vaginal01", "vaginal", "Gala_01", "GalaGhast_Vaginal01_Gala_01_Montage_MIN")
+add_asset("GalaGhast_Vaginal01", "vaginal", "Ghast_01", "GalaGhast_Vaginal01_Ghast_01_Montage")
+add_asset("GalaGhast_Vaginal01", "vaginal", "Ghast_01", "GalaGhast_Vaginal01_Ghast_01_Montage_MAX")
+add_asset("GalaGhast_Vaginal01", "vaginal", "Ghast_01", "GalaGhast_Vaginal01_Ghast_01_Montage_MIN")
+
+Catalog.by_family["GalaGhast_Vaginal02"] = {
+    hanime_id = "GalaGhast_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Ghast_01",
+    },
+}
+add_asset("GalaGhast_Vaginal02", "vaginal", "Gala_01", "GalaGhast_Vaginal02_Gala_01_Montage")
+add_asset("GalaGhast_Vaginal02", "vaginal", "Gala_01", "GalaGhast_Vaginal02_Gala_01_Montage_MAX")
+add_asset("GalaGhast_Vaginal02", "vaginal", "Gala_01", "GalaGhast_Vaginal02_Gala_01_Montage_MIN")
+add_asset("GalaGhast_Vaginal02", "vaginal", "Ghast_01", "GalaGhast_Vaginal02_Ghast_01_Montage")
+add_asset("GalaGhast_Vaginal02", "vaginal", "Ghast_01", "GalaGhast_Vaginal02_Ghast_01_Montage_MAX")
+add_asset("GalaGhast_Vaginal02", "vaginal", "Ghast_01", "GalaGhast_Vaginal02_Ghast_01_Montage_MIN")
+
+Catalog.by_family["GalaGhoul_Anal01"] = {
+    hanime_id = "GalaGhoul_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Ghoul_A_01",
+    },
+}
+add_asset("GalaGhoul_Anal01", "anal", "Gala_01", "GalaGhoul_Anal01_Gala_01_Montage")
+add_asset("GalaGhoul_Anal01", "anal", "Gala_01", "GalaGhoul_Anal01_Gala_01_Montage_MAX")
+add_asset("GalaGhoul_Anal01", "anal", "Gala_01", "GalaGhoul_Anal01_Gala_01_Montage_MIN")
+add_asset("GalaGhoul_Anal01", "anal", "Ghoul_A_01", "GalaGhoul_Anal01_Ghoul_A_01_Montage")
+add_asset("GalaGhoul_Anal01", "anal", "Ghoul_A_01", "GalaGhoul_Anal01_Ghoul_A_01_Montage_MAX")
+add_asset("GalaGhoul_Anal01", "anal", "Ghoul_A_01", "GalaGhoul_Anal01_Ghoul_A_01_Montage_MIN")
+
+Catalog.by_family["GalaGhoul_Verginal20260304_Kiana"] = {
+    hanime_id = "GalaGhoul_Verginal20260304_Kiana", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Ghoul_A_01",
+    },
+}
+add_asset("GalaGhoul_Verginal20260304_Kiana", "other", "Gala_01", "GalaGhoul_Verginal20260304_Kiana_Gala_01_Montage")
+add_asset("GalaGhoul_Verginal20260304_Kiana", "other", "Gala_01", "GalaGhoul_Verginal20260304_Kiana_Gala_01_Montage_max")
+add_asset("GalaGhoul_Verginal20260304_Kiana", "other", "Gala_01", "GalaGhoul_Verginal20260304_Kiana_Gala_01_Montage_min")
+add_asset("GalaGhoul_Verginal20260304_Kiana", "other", "Ghoul_A_01", "GalaGhoul_Verginal20260304_Kiana_Ghoul_A_01_Montage")
+add_asset("GalaGhoul_Verginal20260304_Kiana", "other", "Ghoul_A_01", "GalaGhoul_Verginal20260304_Kiana_Ghoul_A_01_Montage_MAX")
+add_asset("GalaGhoul_Verginal20260304_Kiana", "other", "Ghoul_A_01", "GalaGhoul_Verginal20260304_Kiana_Ghoul_A_01_Montage_MIN")
+
+Catalog.by_family["GalaGug_Anal01"] = {
+    hanime_id = "GalaGug_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Gug_01",
+    },
+}
+add_asset("GalaGug_Anal01", "anal", "Gala_01", "GalaGug_Anal01_Gala_01_Montage")
+add_asset("GalaGug_Anal01", "anal", "Gala_01", "GalaGug_Anal01_Gala_01_Montage_MAX")
+add_asset("GalaGug_Anal01", "anal", "Gala_01", "GalaGug_Anal01_Gala_01_Montage_MIN")
+add_asset("GalaGug_Anal01", "anal", "Gug_01", "GalaGug_Anal01_Gug_01_Montage")
+add_asset("GalaGug_Anal01", "anal", "Gug_01", "GalaGug_Anal01_Gug_01_Montage_MAX")
+add_asset("GalaGug_Anal01", "anal", "Gug_01", "GalaGug_Anal01_Gug_01_Montage_MIN")
+
+Catalog.by_family["GalaGug_Anal02"] = {
+    hanime_id = "GalaGug_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Gug_01",
+    },
+}
+add_asset("GalaGug_Anal02", "anal", "Gala_01", "GalaGug_Anal02_Gala_01_Montage")
+add_asset("GalaGug_Anal02", "anal", "Gala_01", "GalaGug_Anal02_Gala_01_Montage_MAX")
+add_asset("GalaGug_Anal02", "anal", "Gala_01", "GalaGug_Anal02_Gala_01_Montage_MIN")
+add_asset("GalaGug_Anal02", "anal", "Gug_01", "GalaGug_Anal02_Gug_01_Montage")
+add_asset("GalaGug_Anal02", "anal", "Gug_01", "GalaGug_Anal02_Gug_01_Montage_MAX")
+add_asset("GalaGug_Anal02", "anal", "Gug_01", "GalaGug_Anal02_Gug_01_Montage_MIN")
+
+Catalog.by_family["GalaGUG_Foot01"] = {
+    hanime_id = "GalaGUG_Foot01", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "gala_01",
+        "Gug_01",
+    },
+}
+add_asset("GalaGUG_Foot01", "foot", "gala_01", "GalaGUG_Foot01_gala_01_Montage")
+add_asset("GalaGUG_Foot01", "foot", "gala_01", "GalaGUG_Foot01_gala_01_Montage_MAX")
+add_asset("GalaGUG_Foot01", "foot", "gala_01", "GalaGUG_Foot01_gala_01_Montage_MIN")
+add_asset("GalaGUG_Foot01", "foot", "Gug_01", "GalaGUG_Foot01_Gug_01_Montage")
+add_asset("GalaGUG_Foot01", "foot", "Gug_01", "GalaGUG_Foot01_Gug_01_Montage_MAX")
+add_asset("GalaGUG_Foot01", "foot", "Gug_01", "GalaGUG_Foot01_Gug_01_Montage_MIN")
+
+Catalog.by_family["GalaHippocamp_Anal01"] = {
+    hanime_id = "GalaHippocamp_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Hippocamp_01",
+    },
+}
+add_asset("GalaHippocamp_Anal01", "anal", "Gala_01", "GalaHippocamp_Anal01_Gala_01_Montage")
+add_asset("GalaHippocamp_Anal01", "anal", "Gala_01", "GalaHippocamp_Anal01_Gala_01_Montage_MAX")
+add_asset("GalaHippocamp_Anal01", "anal", "Gala_01", "GalaHippocamp_Anal01_Gala_01_Montage_MIN")
+add_asset("GalaHippocamp_Anal01", "anal", "Hippocamp_01", "GalaHippocamp_Anal01_Hippocamp_01_Montage")
+add_asset("GalaHippocamp_Anal01", "anal", "Hippocamp_01", "GalaHippocamp_Anal01_Hippocamp_01_Montage_MAX")
+add_asset("GalaHippocamp_Anal01", "anal", "Hippocamp_01", "GalaHippocamp_Anal01_Hippocamp_01_Montage_MIN")
+
+Catalog.by_family["GalaHippocamp_Vaginal01"] = {
+    hanime_id = "GalaHippocamp_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Hippocamp_01",
+    },
+}
+add_asset("GalaHippocamp_Vaginal01", "vaginal", "Gala_01", "GalaHippocamp_Vaginal01_Gala_01_Montage")
+add_asset("GalaHippocamp_Vaginal01", "vaginal", "Gala_01", "GalaHippocamp_Vaginal01_Gala_01_Montage_MAX")
+add_asset("GalaHippocamp_Vaginal01", "vaginal", "Gala_01", "GalaHippocamp_Vaginal01_Gala_01_Montage_MIN")
+add_asset("GalaHippocamp_Vaginal01", "vaginal", "Hippocamp_01", "GalaHippocamp_Vaginal01_Hippocamp_01_Montage")
+add_asset("GalaHippocamp_Vaginal01", "vaginal", "Hippocamp_01", "GalaHippocamp_Vaginal01_Hippocamp_01_Montage_MAX")
+add_asset("GalaHippocamp_Vaginal01", "vaginal", "Hippocamp_01", "GalaHippocamp_Vaginal01_Hippocamp_01_Montage_MIN")
+
+Catalog.by_family["GalaHound_Sleep01"] = {
+    hanime_id = "GalaHound_Sleep01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "gala_01",
+        "Handcuffs_A_01",
+        "Hound_A_01",
+    },
+}
+add_asset("GalaHound_Sleep01", "other", "gala_01", "GalaHound_Sleep01_gala_01_Montage")
+add_asset("GalaHound_Sleep01", "other", "gala_01", "GalaHound_Sleep01_gala_01_Montage_MAX")
+add_asset("GalaHound_Sleep01", "other", "gala_01", "GalaHound_Sleep01_gala_01_Montage_MIN")
+add_asset("GalaHound_Sleep01", "other", "Handcuffs_A_01", "GalaHound_Sleep01_Handcuffs_A_01_Montage")
+add_asset("GalaHound_Sleep01", "other", "Handcuffs_A_01", "GalaHound_Sleep01_Handcuffs_A_01_Montage_MAX")
+add_asset("GalaHound_Sleep01", "other", "Handcuffs_A_01", "GalaHound_Sleep01_Handcuffs_A_01_Montage_MIN")
+add_asset("GalaHound_Sleep01", "other", "Hound_A_01", "GalaHound_Sleep01_Hound_A_01_Montage")
+add_asset("GalaHound_Sleep01", "other", "Hound_A_01", "GalaHound_Sleep01_Hound_A_01_Montage_MAX")
+add_asset("GalaHound_Sleep01", "other", "Hound_A_01", "GalaHound_Sleep01_Hound_A_01_Montage_MIN")
+
+Catalog.by_family["GalaMigowarrior_Vaginal01"] = {
+    hanime_id = "GalaMigowarrior_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "gala_01",
+        "MigoWarrior_01",
+    },
+}
+add_asset("GalaMigowarrior_Vaginal01", "vaginal", "gala_01", "GalaMigowarrior_Vaginal01_gala_01_Montage")
+add_asset("GalaMigowarrior_Vaginal01", "vaginal", "gala_01", "GalaMigowarrior_Vaginal01_gala_01_Montage_MAX")
+add_asset("GalaMigowarrior_Vaginal01", "vaginal", "gala_01", "GalaMigowarrior_Vaginal01_gala_01_Montage_MIN")
+add_asset("GalaMigowarrior_Vaginal01", "vaginal", "MigoWarrior_01", "GalaMigowarrior_Vaginal01_MigoWarrior_01_Montage")
+add_asset("GalaMigowarrior_Vaginal01", "vaginal", "MigoWarrior_01", "GalaMigowarrior_Vaginal01_MigoWarrior_01_Montage_MAX")
+add_asset("GalaMigowarrior_Vaginal01", "vaginal", "MigoWarrior_01", "GalaMigowarrior_Vaginal01_MigoWarrior_01_Montage_MIN")
+
+Catalog.by_family["GalaNightgaunt_Vaginal01"] = {
+    hanime_id = "GalaNightgaunt_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Nightgaunt_01",
+    },
+}
+add_asset("GalaNightgaunt_Vaginal01", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal01_Gala_01_Montage")
+add_asset("GalaNightgaunt_Vaginal01", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal01_Gala_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal01", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal01_Gala_01_Montage_MIN")
+add_asset("GalaNightgaunt_Vaginal01", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal01_Nightgaunt_01_Montage")
+add_asset("GalaNightgaunt_Vaginal01", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal01_Nightgaunt_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal01", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal01_Nightgaunt_01_Montage_MIN")
+
+Catalog.by_family["GalaNightgaunt_Vaginal02"] = {
+    hanime_id = "GalaNightgaunt_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Nightgaunt_01",
+    },
+}
+add_asset("GalaNightgaunt_Vaginal02", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal02_Gala_01_Montage")
+add_asset("GalaNightgaunt_Vaginal02", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal02_Gala_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal02", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal02_Gala_01_Montage_MIN")
+add_asset("GalaNightgaunt_Vaginal02", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal02_Nightgaunt_01_Montage")
+add_asset("GalaNightgaunt_Vaginal02", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal02_Nightgaunt_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal02", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal02_Nightgaunt_01_Montage_MIN")
+
+Catalog.by_family["GalaNightgaunt_Vaginal03"] = {
+    hanime_id = "GalaNightgaunt_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Nightgaunt_01",
+    },
+}
+add_asset("GalaNightgaunt_Vaginal03", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal03_Gala_01_Montage")
+add_asset("GalaNightgaunt_Vaginal03", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal03_Gala_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal03", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal03_Gala_01_Montage_MIN")
+add_asset("GalaNightgaunt_Vaginal03", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal03_Nightgaunt_01_Montage")
+add_asset("GalaNightgaunt_Vaginal03", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal03_Nightgaunt_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal03", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal03_Nightgaunt_01_Montage_MIN")
+
+Catalog.by_family["GalaNightgaunt_Vaginal04"] = {
+    hanime_id = "GalaNightgaunt_Vaginal04", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Nightgaunt_01",
+    },
+}
+add_asset("GalaNightgaunt_Vaginal04", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal04_Gala_01_Montage")
+add_asset("GalaNightgaunt_Vaginal04", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal04_Gala_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal04", "vaginal", "Gala_01", "GalaNightgaunt_Vaginal04_Gala_01_Montage_MIN")
+add_asset("GalaNightgaunt_Vaginal04", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal04_Nightgaunt_01_Montage")
+add_asset("GalaNightgaunt_Vaginal04", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal04_Nightgaunt_01_Montage_MAX")
+add_asset("GalaNightgaunt_Vaginal04", "vaginal", "Nightgaunt_01", "GalaNightgaunt_Vaginal04_Nightgaunt_01_Montage_MIN")
+
+Catalog.by_family["GalaShantak_Vaginal20260312_tango"] = {
+    hanime_id = "GalaShantak_Vaginal20260312_tango", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Shantak_01",
+    },
+}
+add_asset("GalaShantak_Vaginal20260312_tango", "vaginal", "Gala_01", "GalaShantak_Vaginal20260312_tango_Gala_01_Montage")
+add_asset("GalaShantak_Vaginal20260312_tango", "vaginal", "Gala_01", "GalaShantak_Vaginal20260312_tango_Gala_01_Montage_MAX")
+add_asset("GalaShantak_Vaginal20260312_tango", "vaginal", "Gala_01", "GalaShantak_Vaginal20260312_tango_Gala_01_Montage_MIN")
+add_asset("GalaShantak_Vaginal20260312_tango", "vaginal", "Shantak_01", "GalaShantak_Vaginal20260312_tango_Shantak_01_Montage")
+add_asset("GalaShantak_Vaginal20260312_tango", "vaginal", "Shantak_01", "GalaShantak_Vaginal20260312_tango_Shantak_01_Montage_MAX")
+add_asset("GalaShantak_Vaginal20260312_tango", "vaginal", "Shantak_01", "GalaShantak_Vaginal20260312_tango_Shantak_01_Montage_MIN")
+
+Catalog.by_family["GalaSolo_Hand01"] = {
+    hanime_id = "GalaSolo_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+    },
+}
+add_asset("GalaSolo_Hand01", "hand", "Gala_01", "GalaSolo_Hand01_Gala_01_Montage")
+add_asset("GalaSolo_Hand01", "hand", "Gala_01", "GalaSolo_Hand01_Gala_01_Montage_MAX")
+add_asset("GalaSolo_Hand01", "hand", "Gala_01", "GalaSolo_Hand01_Gala_01_Montage_MIN")
+
+Catalog.by_family["GalaSylph_Vaginal20260311_Jean"] = {
+    hanime_id = "GalaSylph_Vaginal20260311_Jean", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "ControlTable_01",
+        "Gala_01",
+        "Sylph_Rig_01",
+    },
+}
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "ControlTable_01", "GalaSylph_Vaginal20260311_Jean_ControlTable_01_Montage")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "ControlTable_01", "GalaSylph_Vaginal20260311_Jean_ControlTable_01_Montage_MAX")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "ControlTable_01", "GalaSylph_Vaginal20260311_Jean_ControlTable_01_Montage_MIN")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "Gala_01", "GalaSylph_Vaginal20260311_Jean_Gala_01_Montage")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "Gala_01", "GalaSylph_Vaginal20260311_Jean_Gala_01_Montage_MAX")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "Gala_01", "GalaSylph_Vaginal20260311_Jean_Gala_01_Montage_MIN")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "Sylph_Rig_01", "GalaSylph_Vaginal20260311_Jean_Sylph_Rig_01_Montage")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "Sylph_Rig_01", "GalaSylph_Vaginal20260311_Jean_Sylph_Rig_01_Montage_MAX")
+add_asset("GalaSylph_Vaginal20260311_Jean", "vaginal", "Sylph_Rig_01", "GalaSylph_Vaginal20260311_Jean_Sylph_Rig_01_Montage_MIN")
+
+Catalog.by_family["GalaSylph_Vaginal20260318_Tango"] = {
+    hanime_id = "GalaSylph_Vaginal20260318_Tango", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "SylphVibrator_01",
+        "WorkshopCrate_01",
+    },
+}
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "Gala_01", "GalaSylph_Vaginal20260318_Tango_Gala_01_Montage")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "Gala_01", "GalaSylph_Vaginal20260318_Tango_Gala_01_Montage_MAX")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "Gala_01", "GalaSylph_Vaginal20260318_Tango_Gala_01_Montage_MIN")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "SylphVibrator_01", "GalaSylph_Vaginal20260318_Tango_SylphVibrator_01_Montage")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "SylphVibrator_01", "GalaSylph_Vaginal20260318_Tango_SylphVibrator_01_Montage_MAX")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "SylphVibrator_01", "GalaSylph_Vaginal20260318_Tango_SylphVibrator_01_Montage_MIN")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "WorkshopCrate_01", "GalaSylph_Vaginal20260318_Tango_WorkshopCrate_01_Montage")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "WorkshopCrate_01", "GalaSylph_Vaginal20260318_Tango_WorkshopCrate_01_Montage_MAX")
+add_asset("GalaSylph_Vaginal20260318_Tango", "vaginal", "WorkshopCrate_01", "GalaSylph_Vaginal20260318_Tango_WorkshopCrate_01_Montage_MIN")
+
+Catalog.by_family["GalaTchotcho_Anal01"] = {
+    hanime_id = "GalaTchotcho_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DemoMapChair_01",
+        "gala_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("GalaTchotcho_Anal01", "anal", "DemoMapChair_01", "GalaTchotcho_Anal01_DemoMapChair_01_Montage")
+add_asset("GalaTchotcho_Anal01", "anal", "DemoMapChair_01", "GalaTchotcho_Anal01_DemoMapChair_01_Montage_MAX")
+add_asset("GalaTchotcho_Anal01", "anal", "DemoMapChair_01", "GalaTchotcho_Anal01_DemoMapChair_01_Montage_MIN")
+add_asset("GalaTchotcho_Anal01", "anal", "gala_01", "GalaTchotcho_Anal01_gala_01_Montage")
+add_asset("GalaTchotcho_Anal01", "anal", "gala_01", "GalaTchotcho_Anal01_gala_01_Montage_MAX")
+add_asset("GalaTchotcho_Anal01", "anal", "gala_01", "GalaTchotcho_Anal01_gala_01_Montage_MIN")
+add_asset("GalaTchotcho_Anal01", "anal", "TchoTcho_01", "GalaTchotcho_Anal01_TchoTcho_01_Montage")
+add_asset("GalaTchotcho_Anal01", "anal", "TchoTcho_01", "GalaTchotcho_Anal01_TchoTcho_01_Montage_MAX")
+add_asset("GalaTchotcho_Anal01", "anal", "TchoTcho_01", "GalaTchotcho_Anal01_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["GalaTchotcho_HandMouth01"] = {
+    hanime_id = "GalaTchotcho_HandMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("GalaTchotcho_HandMouth01", "other", "Gala_01", "GalaTchotcho_HandMouth01_Gala_01_Montage")
+add_asset("GalaTchotcho_HandMouth01", "other", "Gala_01", "GalaTchotcho_HandMouth01_Gala_01_Montage_MAX")
+add_asset("GalaTchotcho_HandMouth01", "other", "Gala_01", "GalaTchotcho_HandMouth01_Gala_01_Montage_MIN")
+add_asset("GalaTchotcho_HandMouth01", "other", "TchoTcho_01", "GalaTchotcho_HandMouth01_TchoTcho_01_Montage")
+add_asset("GalaTchotcho_HandMouth01", "other", "TchoTcho_01", "GalaTchotcho_HandMouth01_TchoTcho_01_Montage_MAX")
+add_asset("GalaTchotcho_HandMouth01", "other", "TchoTcho_01", "GalaTchotcho_HandMouth01_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["GalateaDreamer_A_Foot01"] = {
+    hanime_id = "GalateaDreamer_A_Foot01", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Galatea_01",
+    },
+}
+add_asset("GalateaDreamer_A_Foot01", "foot", "Dreamer_A_01", "GalateaDreamer_A_Foot01_Dreamer_A_01_Montage")
+add_asset("GalateaDreamer_A_Foot01", "foot", "Dreamer_A_01", "GalateaDreamer_A_Foot01_Dreamer_A_01_Montage_MAX")
+add_asset("GalateaDreamer_A_Foot01", "foot", "Dreamer_A_01", "GalateaDreamer_A_Foot01_Dreamer_A_01_Montage_MIN")
+add_asset("GalateaDreamer_A_Foot01", "foot", "Galatea_01", "GalateaDreamer_A_Foot01_Galatea_01_Montage")
+add_asset("GalateaDreamer_A_Foot01", "foot", "Galatea_01", "GalateaDreamer_A_Foot01_Galatea_01_Montage_MAX")
+add_asset("GalateaDreamer_A_Foot01", "foot", "Galatea_01", "GalateaDreamer_A_Foot01_Galatea_01_Montage_MIN")
+
+Catalog.by_family["GalateaDreamer_Vaginal01"] = {
+    hanime_id = "GalateaDreamer_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Galatea_01",
+    },
+}
+add_asset("GalateaDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "GalateaDreamer_Vaginal01_Dreamer_A_01_Montage")
+add_asset("GalateaDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "GalateaDreamer_Vaginal01_Dreamer_A_01_Montage_MAX")
+add_asset("GalateaDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "GalateaDreamer_Vaginal01_Dreamer_A_01_Montage_MIN")
+add_asset("GalateaDreamer_Vaginal01", "vaginal", "Galatea_01", "GalateaDreamer_Vaginal01_Galatea_01_Montage")
+add_asset("GalateaDreamer_Vaginal01", "vaginal", "Galatea_01", "GalateaDreamer_Vaginal01_Galatea_01_Montage_MAX")
+add_asset("GalateaDreamer_Vaginal01", "vaginal", "Galatea_01", "GalateaDreamer_Vaginal01_Galatea_01_Montage_MIN")
+
+Catalog.by_family["GalateaGhast_Mouth01"] = {
+    hanime_id = "GalateaGhast_Mouth01", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Galatea_01",
+        "Ghast_01",
+    },
+}
+add_asset("GalateaGhast_Mouth01", "mouth", "Galatea_01", "GalateaGhast_Mouth01_Galatea_01_Montage")
+add_asset("GalateaGhast_Mouth01", "mouth", "Galatea_01", "GalateaGhast_Mouth01_Galatea_01_Montage_MAX")
+add_asset("GalateaGhast_Mouth01", "mouth", "Galatea_01", "GalateaGhast_Mouth01_Galatea_01_Montage_MIN")
+add_asset("GalateaGhast_Mouth01", "mouth", "Ghast_01", "GalateaGhast_Mouth01_Ghast_01_Montage")
+add_asset("GalateaGhast_Mouth01", "mouth", "Ghast_01", "GalateaGhast_Mouth01_Ghast_01_Montage_MAX")
+add_asset("GalateaGhast_Mouth01", "mouth", "Ghast_01", "GalateaGhast_Mouth01_Ghast_01_Montage_MIN")
+
+Catalog.by_family["JuziAlet_Vaginal20231107_TimingX"] = {
+    hanime_id = "JuziAlet_Vaginal20231107_TimingX", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Alet_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziAlet_Vaginal20231107_TimingX", "vaginal", "Alet_01", "JuziAlet_Vaginal20231107_TimingX_Alet_01_Montage")
+add_asset("JuziAlet_Vaginal20231107_TimingX", "vaginal", "Alet_01", "JuziAlet_Vaginal20231107_TimingX_Alet_01_Montage_MAX")
+add_asset("JuziAlet_Vaginal20231107_TimingX", "vaginal", "Alet_01", "JuziAlet_Vaginal20231107_TimingX_Alet_01_Montage_MIN")
+add_asset("JuziAlet_Vaginal20231107_TimingX", "vaginal", "Juzi_01", "JuziAlet_Vaginal20231107_TimingX_Juzi_01_Montage")
+add_asset("JuziAlet_Vaginal20231107_TimingX", "vaginal", "Juzi_01", "JuziAlet_Vaginal20231107_TimingX_Juzi_01_Montage_MAX")
+add_asset("JuziAlet_Vaginal20231107_TimingX", "vaginal", "Juzi_01", "JuziAlet_Vaginal20231107_TimingX_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziByakhee_Vaginal01"] = {
+    hanime_id = "JuziByakhee_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Byakhee_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziByakhee_Vaginal01", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal01_Byakhee_01_Montage")
+add_asset("JuziByakhee_Vaginal01", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal01_Byakhee_01_Montage_MAX")
+add_asset("JuziByakhee_Vaginal01", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal01_Byakhee_01_Montage_MIN")
+add_asset("JuziByakhee_Vaginal01", "vaginal", "Juzi_01", "JuziByakhee_Vaginal01_Juzi_01_Montage")
+add_asset("JuziByakhee_Vaginal01", "vaginal", "Juzi_01", "JuziByakhee_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziByakhee_Vaginal01", "vaginal", "Juzi_01", "JuziByakhee_Vaginal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziByakhee_Vaginal02"] = {
+    hanime_id = "JuziByakhee_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "box_01",
+        "Byakhee_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziByakhee_Vaginal02", "vaginal", "box_01", "JuziByakhee_Vaginal02_box_01_Montage")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "box_01", "JuziByakhee_Vaginal02_box_01_Montage_MAX")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "box_01", "JuziByakhee_Vaginal02_box_01_Montage_MIN")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal02_Byakhee_01_Montage")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal02_Byakhee_01_Montage_MAX")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal02_Byakhee_01_Montage_MIN")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "Juzi_01", "JuziByakhee_Vaginal02_Juzi_01_Montage")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "Juzi_01", "JuziByakhee_Vaginal02_Juzi_01_Montage_MAX")
+add_asset("JuziByakhee_Vaginal02", "vaginal", "Juzi_01", "JuziByakhee_Vaginal02_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziByakhee_Vaginal03"] = {
+    hanime_id = "JuziByakhee_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Byakhee_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziByakhee_Vaginal03", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal03_Byakhee_01_Montage")
+add_asset("JuziByakhee_Vaginal03", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal03_Byakhee_01_Montage_MAX")
+add_asset("JuziByakhee_Vaginal03", "vaginal", "Byakhee_01", "JuziByakhee_Vaginal03_Byakhee_01_Montage_MIN")
+add_asset("JuziByakhee_Vaginal03", "vaginal", "Juzi_01", "JuziByakhee_Vaginal03_Juzi_01_Montage")
+add_asset("JuziByakhee_Vaginal03", "vaginal", "Juzi_01", "JuziByakhee_Vaginal03_Juzi_01_Montage_MAX")
+add_asset("JuziByakhee_Vaginal03", "vaginal", "Juzi_01", "JuziByakhee_Vaginal03_Juzi_01_Montage_MIN")
+
 Catalog.by_family["Juzicelia_Sexing01_00"] = {
     hanime_id = "Juzicelia_Sexing01_00", category = "sex",
     catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
@@ -1850,6 +5265,277 @@ add_asset("Juzicelia_Sexing01_00", "sex", "Celia_01", "Juzicelia_Sexing01_00_Cel
 add_asset("Juzicelia_Sexing01_00", "sex", "Juzi_01", "Juzicelia_Sexing01_00_Juzi_01_Montage")
 add_asset("Juzicelia_Sexing01_00", "sex", "Juzi_01", "Juzicelia_Sexing01_00_Juzi_01_Montage_MAX")
 add_asset("Juzicelia_Sexing01_00", "sex", "Juzi_01", "Juzicelia_Sexing01_00_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDeepone_Anal01"] = {
+    hanime_id = "JuziDeepone_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDeepone_Anal01", "anal", "DeepOne_01", "JuziDeepone_Anal01_DeepOne_01_Montage")
+add_asset("JuziDeepone_Anal01", "anal", "DeepOne_01", "JuziDeepone_Anal01_DeepOne_01_Montage_MAX")
+add_asset("JuziDeepone_Anal01", "anal", "DeepOne_01", "JuziDeepone_Anal01_DeepOne_01_Montage_MIN")
+add_asset("JuziDeepone_Anal01", "anal", "Juzi_01", "JuziDeepone_Anal01_Juzi_01_Montage")
+add_asset("JuziDeepone_Anal01", "anal", "Juzi_01", "JuziDeepone_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziDeepone_Anal01", "anal", "Juzi_01", "JuziDeepone_Anal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDeepone_Anal02"] = {
+    hanime_id = "JuziDeepone_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDeepone_Anal02", "anal", "DeepOne_01", "JuziDeepone_Anal02_DeepOne_01_Montage")
+add_asset("JuziDeepone_Anal02", "anal", "DeepOne_01", "JuziDeepone_Anal02_DeepOne_01_Montage_MAX")
+add_asset("JuziDeepone_Anal02", "anal", "DeepOne_01", "JuziDeepone_Anal02_DeepOne_01_Montage_MIN")
+add_asset("JuziDeepone_Anal02", "anal", "Juzi_01", "JuziDeepone_Anal02_Juzi_01_Montage")
+add_asset("JuziDeepone_Anal02", "anal", "Juzi_01", "JuziDeepone_Anal02_Juzi_01_Montage_MAX")
+add_asset("JuziDeepone_Anal02", "anal", "Juzi_01", "JuziDeepone_Anal02_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDeepone_Anal20230710_JM"] = {
+    hanime_id = "JuziDeepone_Anal20230710_JM", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDeepone_Anal20230710_JM", "anal", "DeepOne_01", "JuziDeepone_Anal20230710_JM_DeepOne_01_Montage")
+add_asset("JuziDeepone_Anal20230710_JM", "anal", "DeepOne_01", "JuziDeepone_Anal20230710_JM_DeepOne_01_Montage_MAX")
+add_asset("JuziDeepone_Anal20230710_JM", "anal", "DeepOne_01", "JuziDeepone_Anal20230710_JM_DeepOne_01_Montage_MIN")
+add_asset("JuziDeepone_Anal20230710_JM", "anal", "Juzi_01", "JuziDeepone_Anal20230710_JM_Juzi_01_Montage")
+add_asset("JuziDeepone_Anal20230710_JM", "anal", "Juzi_01", "JuziDeepone_Anal20230710_JM_Juzi_01_Montage_MAX")
+add_asset("JuziDeepone_Anal20230710_JM", "anal", "Juzi_01", "JuziDeepone_Anal20230710_JM_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_A_Ana01"] = {
+    hanime_id = "JuziDreamer_A_Ana01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_A_Ana01", "other", "Dreamer_A_01", "JuziDreamer_A_Ana01_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_A_Ana01", "other", "Dreamer_A_01", "JuziDreamer_A_Ana01_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_A_Ana01", "other", "Dreamer_A_01", "JuziDreamer_A_Ana01_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_A_Ana01", "other", "Juzi_01", "JuziDreamer_A_Ana01_Juzi_01_Montage")
+add_asset("JuziDreamer_A_Ana01", "other", "Juzi_01", "JuziDreamer_A_Ana01_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_A_Ana01", "other", "Juzi_01", "JuziDreamer_A_Ana01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_A_Sleep02"] = {
+    hanime_id = "JuziDreamer_A_Sleep02", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Container_01",
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_A_Sleep02", "other", "Container_01", "JuziDreamer_A_Sleep02_Container_01_Montage")
+add_asset("JuziDreamer_A_Sleep02", "other", "Container_01", "JuziDreamer_A_Sleep02_Container_01_Montage_MAX")
+add_asset("JuziDreamer_A_Sleep02", "other", "Container_01", "JuziDreamer_A_Sleep02_Container_01_Montage_MIN")
+add_asset("JuziDreamer_A_Sleep02", "other", "Dreamer_A_01", "JuziDreamer_A_Sleep02_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_A_Sleep02", "other", "Dreamer_A_01", "JuziDreamer_A_Sleep02_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_A_Sleep02", "other", "Dreamer_A_01", "JuziDreamer_A_Sleep02_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_A_Sleep02", "other", "Juzi_01", "JuziDreamer_A_Sleep02_Juzi_01_Montage")
+add_asset("JuziDreamer_A_Sleep02", "other", "Juzi_01", "JuziDreamer_A_Sleep02_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_A_Sleep02", "other", "Juzi_01", "JuziDreamer_A_Sleep02_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_A_Sleep03"] = {
+    hanime_id = "JuziDreamer_A_Sleep03", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_A_Sleep03", "other", "Dreamer_A_01", "JuziDreamer_A_Sleep03_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_A_Sleep03", "other", "Dreamer_A_01", "JuziDreamer_A_Sleep03_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_A_Sleep03", "other", "Dreamer_A_01", "JuziDreamer_A_Sleep03_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_A_Sleep03", "other", "Juzi_01", "JuziDreamer_A_Sleep03_Juzi_01_Montage")
+add_asset("JuziDreamer_A_Sleep03", "other", "Juzi_01", "JuziDreamer_A_Sleep03_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_A_Sleep03", "other", "Juzi_01", "JuziDreamer_A_Sleep03_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_A_Vaginal01"] = {
+    hanime_id = "JuziDreamer_A_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_A_Vaginal01", "vaginal", "Dreamer_A_01", "JuziDreamer_A_Vaginal01_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_A_Vaginal01", "vaginal", "Dreamer_A_01", "JuziDreamer_A_Vaginal01_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_A_Vaginal01", "vaginal", "Dreamer_A_01", "JuziDreamer_A_Vaginal01_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_A_Vaginal01", "vaginal", "Juzi_01", "JuziDreamer_A_Vaginal01_Juzi_01_Montage")
+add_asset("JuziDreamer_A_Vaginal01", "vaginal", "Juzi_01", "JuziDreamer_A_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_A_Vaginal01", "vaginal", "Juzi_01", "JuziDreamer_A_Vaginal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_A_Vaginal02"] = {
+    hanime_id = "JuziDreamer_A_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_A_Vaginal02", "vaginal", "Dreamer_A_01", "JuziDreamer_A_Vaginal02_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_A_Vaginal02", "vaginal", "Dreamer_A_01", "JuziDreamer_A_Vaginal02_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_A_Vaginal02", "vaginal", "Dreamer_A_01", "JuziDreamer_A_Vaginal02_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_A_Vaginal02", "vaginal", "Juzi_01", "JuziDreamer_A_Vaginal02_Juzi_01_Montage")
+add_asset("JuziDreamer_A_Vaginal02", "vaginal", "Juzi_01", "JuziDreamer_A_Vaginal02_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_A_Vaginal02", "vaginal", "Juzi_01", "JuziDreamer_A_Vaginal02_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_Anal01"] = {
+    hanime_id = "JuziDreamer_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_Anal01", "anal", "Dreamer_A_01", "JuziDreamer_Anal01_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_Anal01", "anal", "Dreamer_A_01", "JuziDreamer_Anal01_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_Anal01", "anal", "Dreamer_A_01", "JuziDreamer_Anal01_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_Anal01", "anal", "Juzi_01", "JuziDreamer_Anal01_Juzi_01_Montage")
+add_asset("JuziDreamer_Anal01", "anal", "Juzi_01", "JuziDreamer_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_Anal01", "anal", "Juzi_01", "JuziDreamer_Anal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_Foot01"] = {
+    hanime_id = "JuziDreamer_Foot01", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_Foot01", "foot", "Dreamer_A_01", "JuziDreamer_Foot01_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_Foot01", "foot", "Dreamer_A_01", "JuziDreamer_Foot01_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_Foot01", "foot", "Dreamer_A_01", "JuziDreamer_Foot01_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_Foot01", "foot", "Juzi_01", "JuziDreamer_Foot01_Juzi_01_Montage")
+add_asset("JuziDreamer_Foot01", "foot", "Juzi_01", "JuziDreamer_Foot01_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_Foot01", "foot", "Juzi_01", "JuziDreamer_Foot01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_Foot20240104_TimingX"] = {
+    hanime_id = "JuziDreamer_Foot20240104_TimingX", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_Foot20240104_TimingX", "foot", "Dreamer_A_01", "JuziDreamer_Foot20240104_TimingX_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_Foot20240104_TimingX", "foot", "Dreamer_A_01", "JuziDreamer_Foot20240104_TimingX_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_Foot20240104_TimingX", "foot", "Dreamer_A_01", "JuziDreamer_Foot20240104_TimingX_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_Foot20240104_TimingX", "foot", "Juzi_01", "JuziDreamer_Foot20240104_TimingX_Juzi_01_Montage")
+add_asset("JuziDreamer_Foot20240104_TimingX", "foot", "Juzi_01", "JuziDreamer_Foot20240104_TimingX_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_Foot20240104_TimingX", "foot", "Juzi_01", "JuziDreamer_Foot20240104_TimingX_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_Sleep01"] = {
+    hanime_id = "JuziDreamer_Sleep01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Feetcuffs_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_Sleep01", "other", "Dreamer_A_01", "JuziDreamer_Sleep01_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_Sleep01", "other", "Dreamer_A_01", "JuziDreamer_Sleep01_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_Sleep01", "other", "Dreamer_A_01", "JuziDreamer_Sleep01_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_Sleep01", "other", "Feetcuffs_A_01", "JuziDreamer_Sleep01_Feetcuffs_A_01_Montage")
+add_asset("JuziDreamer_Sleep01", "other", "Feetcuffs_A_01", "JuziDreamer_Sleep01_Feetcuffs_A_01_Montage_MAX")
+add_asset("JuziDreamer_Sleep01", "other", "Feetcuffs_A_01", "JuziDreamer_Sleep01_Feetcuffs_A_01_Montage_MIN")
+add_asset("JuziDreamer_Sleep01", "other", "Juzi_01", "JuziDreamer_Sleep01_Juzi_01_Montage")
+add_asset("JuziDreamer_Sleep01", "other", "Juzi_01", "JuziDreamer_Sleep01_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_Sleep01", "other", "Juzi_01", "JuziDreamer_Sleep01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_Vaginal03"] = {
+    hanime_id = "JuziDreamer_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_Vaginal03", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal03_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_Vaginal03", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal03_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_Vaginal03", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal03_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_Vaginal03", "vaginal", "Juzi_01", "JuziDreamer_Vaginal03_Juzi_01_Montage")
+add_asset("JuziDreamer_Vaginal03", "vaginal", "Juzi_01", "JuziDreamer_Vaginal03_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_Vaginal03", "vaginal", "Juzi_01", "JuziDreamer_Vaginal03_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_Vaginal05"] = {
+    hanime_id = "JuziDreamer_Vaginal05", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_Vaginal05", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal05_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_Vaginal05", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal05_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_Vaginal05", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal05_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_Vaginal05", "vaginal", "Juzi_01", "JuziDreamer_Vaginal05_Juzi_01_Montage")
+add_asset("JuziDreamer_Vaginal05", "vaginal", "Juzi_01", "JuziDreamer_Vaginal05_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_Vaginal05", "vaginal", "Juzi_01", "JuziDreamer_Vaginal05_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamer_Vaginal09"] = {
+    hanime_id = "JuziDreamer_Vaginal09", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamer_Vaginal09", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal09_Dreamer_A_01_Montage")
+add_asset("JuziDreamer_Vaginal09", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal09_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamer_Vaginal09", "vaginal", "Dreamer_A_01", "JuziDreamer_Vaginal09_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamer_Vaginal09", "vaginal", "Juzi_01", "JuziDreamer_Vaginal09_Juzi_01_Montage")
+add_asset("JuziDreamer_Vaginal09", "vaginal", "Juzi_01", "JuziDreamer_Vaginal09_Juzi_01_Montage_MAX")
+add_asset("JuziDreamer_Vaginal09", "vaginal", "Juzi_01", "JuziDreamer_Vaginal09_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziDreamerAB_Mouth_Anal01"] = {
+    hanime_id = "JuziDreamerAB_Mouth_Anal01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Dreamer_B_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Dreamer_A_01", "JuziDreamerAB_Mouth_Anal01_Dreamer_A_01_Montage")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Dreamer_A_01", "JuziDreamerAB_Mouth_Anal01_Dreamer_A_01_Montage_MAX")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Dreamer_A_01", "JuziDreamerAB_Mouth_Anal01_Dreamer_A_01_Montage_MIN")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Dreamer_B_01", "JuziDreamerAB_Mouth_Anal01_Dreamer_B_01_Montage")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Dreamer_B_01", "JuziDreamerAB_Mouth_Anal01_Dreamer_B_01_Montage_MAX")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Dreamer_B_01", "JuziDreamerAB_Mouth_Anal01_Dreamer_B_01_Montage_MIN")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Juzi_01", "JuziDreamerAB_Mouth_Anal01_Juzi_01_Montage")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Juzi_01", "JuziDreamerAB_Mouth_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziDreamerAB_Mouth_Anal01", "other", "Juzi_01", "JuziDreamerAB_Mouth_Anal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziElderthingGhoul_Vaginal01"] = {
+    hanime_id = "JuziElderthingGhoul_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "ElderThing_01",
+        "Ghoul_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "ElderThing_01", "JuziElderthingGhoul_Vaginal01_ElderThing_01_Montage")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "ElderThing_01", "JuziElderthingGhoul_Vaginal01_ElderThing_01_Montage_MAX")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "ElderThing_01", "JuziElderthingGhoul_Vaginal01_ElderThing_01_Montage_MIN")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "Ghoul_A_01", "JuziElderthingGhoul_Vaginal01_Ghoul_A_01_Montage")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "Ghoul_A_01", "JuziElderthingGhoul_Vaginal01_Ghoul_A_01_Montage_MAX")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "Ghoul_A_01", "JuziElderthingGhoul_Vaginal01_Ghoul_A_01_Montage_MIN")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "Juzi_01", "JuziElderthingGhoul_Vaginal01_Juzi_01_Montage")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "Juzi_01", "JuziElderthingGhoul_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziElderthingGhoul_Vaginal01", "vaginal", "Juzi_01", "JuziElderthingGhoul_Vaginal01_Juzi_01_Montage_MIN")
 
 Catalog.by_family["JuziElizabeth_Doubledildo01"] = {
     hanime_id = "JuziElizabeth_Doubledildo01", category = "sex",
@@ -1869,6 +5555,443 @@ add_asset("JuziElizabeth_Doubledildo01", "sex", "Elizabeth_01", "JuziElizabeth_D
 add_asset("JuziElizabeth_Doubledildo01", "sex", "Juzi_01", "JuziElizabeth_Doubledildo01_Juzi_01_Montage")
 add_asset("JuziElizabeth_Doubledildo01", "sex", "Juzi_01", "JuziElizabeth_Doubledildo01_Juzi_01_Montage_MAX")
 add_asset("JuziElizabeth_Doubledildo01", "sex", "Juzi_01", "JuziElizabeth_Doubledildo01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhast_Anal01"] = {
+    hanime_id = "JuziGhast_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghast_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhast_Anal01", "anal", "Ghast_01", "JuziGhast_Anal01_Ghast_01_Montage")
+add_asset("JuziGhast_Anal01", "anal", "Ghast_01", "JuziGhast_Anal01_Ghast_01_Montage_MAX")
+add_asset("JuziGhast_Anal01", "anal", "Ghast_01", "JuziGhast_Anal01_Ghast_01_Montage_MIN")
+add_asset("JuziGhast_Anal01", "anal", "Juzi_01", "JuziGhast_Anal01_Juzi_01_Montage")
+add_asset("JuziGhast_Anal01", "anal", "Juzi_01", "JuziGhast_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziGhast_Anal01", "anal", "Juzi_01", "JuziGhast_Anal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhast_Mouth01"] = {
+    hanime_id = "JuziGhast_Mouth01", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghast_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhast_Mouth01", "mouth", "Ghast_01", "JuziGhast_Mouth01_Ghast_01_Montage")
+add_asset("JuziGhast_Mouth01", "mouth", "Ghast_01", "JuziGhast_Mouth01_Ghast_01_Montage_MAX")
+add_asset("JuziGhast_Mouth01", "mouth", "Ghast_01", "JuziGhast_Mouth01_Ghast_01_Montage_MIN")
+add_asset("JuziGhast_Mouth01", "mouth", "Juzi_01", "JuziGhast_Mouth01_Juzi_01_Montage")
+add_asset("JuziGhast_Mouth01", "mouth", "Juzi_01", "JuziGhast_Mouth01_Juzi_01_Montage_MAX")
+add_asset("JuziGhast_Mouth01", "mouth", "Juzi_01", "JuziGhast_Mouth01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhast_Vaginal01_JM"] = {
+    hanime_id = "JuziGhast_Vaginal01_JM", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghast_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhast_Vaginal01_JM", "vaginal", "Ghast_01", "JuziGhast_Vaginal01_JM_Ghast_01_Montage")
+add_asset("JuziGhast_Vaginal01_JM", "vaginal", "Ghast_01", "JuziGhast_Vaginal01_JM_Ghast_01_Montage_MAX")
+add_asset("JuziGhast_Vaginal01_JM", "vaginal", "Ghast_01", "JuziGhast_Vaginal01_JM_Ghast_01_Montage_MIN")
+add_asset("JuziGhast_Vaginal01_JM", "vaginal", "Juzi_01", "JuziGhast_Vaginal01_JM_Juzi_01_Montage")
+add_asset("JuziGhast_Vaginal01_JM", "vaginal", "Juzi_01", "JuziGhast_Vaginal01_JM_Juzi_01_Montage_MAX")
+add_asset("JuziGhast_Vaginal01_JM", "vaginal", "Juzi_01", "JuziGhast_Vaginal01_JM_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhast_Vaginal20230511_JM"] = {
+    hanime_id = "JuziGhast_Vaginal20230511_JM", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghast_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhast_Vaginal20230511_JM", "vaginal", "Ghast_01", "JuziGhast_Vaginal20230511_JM_Ghast_01_Montage")
+add_asset("JuziGhast_Vaginal20230511_JM", "vaginal", "Ghast_01", "JuziGhast_Vaginal20230511_JM_Ghast_01_Montage_MAX")
+add_asset("JuziGhast_Vaginal20230511_JM", "vaginal", "Ghast_01", "JuziGhast_Vaginal20230511_JM_Ghast_01_Montage_MIN")
+add_asset("JuziGhast_Vaginal20230511_JM", "vaginal", "Juzi_01", "JuziGhast_Vaginal20230511_JM_Juzi_01_Montage")
+add_asset("JuziGhast_Vaginal20230511_JM", "vaginal", "Juzi_01", "JuziGhast_Vaginal20230511_JM_Juzi_01_Montage_MAX")
+add_asset("JuziGhast_Vaginal20230511_JM", "vaginal", "Juzi_01", "JuziGhast_Vaginal20230511_JM_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhoul_AB_HandFoot01"] = {
+    hanime_id = "JuziGhoul_AB_HandFoot01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Ghoul_B_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Ghoul_A_01", "JuziGhoul_AB_HandFoot01_Ghoul_A_01_Montage")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Ghoul_A_01", "JuziGhoul_AB_HandFoot01_Ghoul_A_01_Montage_MAX")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Ghoul_A_01", "JuziGhoul_AB_HandFoot01_Ghoul_A_01_Montage_MIN")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Ghoul_B_01", "JuziGhoul_AB_HandFoot01_Ghoul_B_01_Montage")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Ghoul_B_01", "JuziGhoul_AB_HandFoot01_Ghoul_B_01_Montage_MAX")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Ghoul_B_01", "JuziGhoul_AB_HandFoot01_Ghoul_B_01_Montage_MIN")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Juzi_01", "JuziGhoul_AB_HandFoot01_Juzi_01_Montage")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Juzi_01", "JuziGhoul_AB_HandFoot01_Juzi_01_Montage_MAX")
+add_asset("JuziGhoul_AB_HandFoot01", "other", "Juzi_01", "JuziGhoul_AB_HandFoot01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhoul_Anal01"] = {
+    hanime_id = "JuziGhoul_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhoul_Anal01", "anal", "Ghoul_A_01", "JuziGhoul_Anal01_Ghoul_A_01_Montage")
+add_asset("JuziGhoul_Anal01", "anal", "Ghoul_A_01", "JuziGhoul_Anal01_Ghoul_A_01_Montage_MAX")
+add_asset("JuziGhoul_Anal01", "anal", "Ghoul_A_01", "JuziGhoul_Anal01_Ghoul_A_01_Montage_MIN")
+add_asset("JuziGhoul_Anal01", "anal", "Juzi_01", "JuziGhoul_Anal01_Juzi_01_Montage")
+add_asset("JuziGhoul_Anal01", "anal", "Juzi_01", "JuziGhoul_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziGhoul_Anal01", "anal", "Juzi_01", "JuziGhoul_Anal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhoul_Mouth_Jean"] = {
+    hanime_id = "JuziGhoul_Mouth_Jean", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhoul_Mouth_Jean", "mouth", "Ghoul_A_01", "JuziGhoul_Mouth_Jean_Ghoul_A_01_Montage")
+add_asset("JuziGhoul_Mouth_Jean", "mouth", "Ghoul_A_01", "JuziGhoul_Mouth_Jean_Ghoul_A_01_Montage_MAX")
+add_asset("JuziGhoul_Mouth_Jean", "mouth", "Ghoul_A_01", "JuziGhoul_Mouth_Jean_Ghoul_A_01_Montage_MIN")
+add_asset("JuziGhoul_Mouth_Jean", "mouth", "Juzi_01", "JuziGhoul_Mouth_Jean_Juzi_01_Montage")
+add_asset("JuziGhoul_Mouth_Jean", "mouth", "Juzi_01", "JuziGhoul_Mouth_Jean_Juzi_01_Montage_MAX")
+add_asset("JuziGhoul_Mouth_Jean", "mouth", "Juzi_01", "JuziGhoul_Mouth_Jean_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGhoul_MouthAnal01"] = {
+    hanime_id = "JuziGhoul_MouthAnal01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Ghoul_B_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGhoul_MouthAnal01", "other", "Ghoul_A_01", "JuziGhoul_MouthAnal01_Ghoul_A_01_Montage")
+add_asset("JuziGhoul_MouthAnal01", "other", "Ghoul_A_01", "JuziGhoul_MouthAnal01_Ghoul_A_01_Montage_MAX")
+add_asset("JuziGhoul_MouthAnal01", "other", "Ghoul_A_01", "JuziGhoul_MouthAnal01_Ghoul_A_01_Montage_MIN")
+add_asset("JuziGhoul_MouthAnal01", "other", "Ghoul_B_01", "JuziGhoul_MouthAnal01_Ghoul_B_01_Montage")
+add_asset("JuziGhoul_MouthAnal01", "other", "Ghoul_B_01", "JuziGhoul_MouthAnal01_Ghoul_B_01_Montage_MAX")
+add_asset("JuziGhoul_MouthAnal01", "other", "Ghoul_B_01", "JuziGhoul_MouthAnal01_Ghoul_B_01_Montage_MIN")
+add_asset("JuziGhoul_MouthAnal01", "other", "Juzi_01", "JuziGhoul_MouthAnal01_Juzi_01_Montage")
+add_asset("JuziGhoul_MouthAnal01", "other", "Juzi_01", "JuziGhoul_MouthAnal01_Juzi_01_Montage_MAX")
+add_asset("JuziGhoul_MouthAnal01", "other", "Juzi_01", "JuziGhoul_MouthAnal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGug_Anal_Jean"] = {
+    hanime_id = "JuziGug_Anal_Jean", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gug_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGug_Anal_Jean", "anal", "Gug_01", "JuziGug_Anal_Jean_Gug_01_Montage")
+add_asset("JuziGug_Anal_Jean", "anal", "Gug_01", "JuziGug_Anal_Jean_Gug_01_Montage_MAX")
+add_asset("JuziGug_Anal_Jean", "anal", "Gug_01", "JuziGug_Anal_Jean_Gug_01_Montage_MIN")
+add_asset("JuziGug_Anal_Jean", "anal", "Juzi_01", "JuziGug_Anal_Jean_Juzi_01_Montage")
+add_asset("JuziGug_Anal_Jean", "anal", "Juzi_01", "JuziGug_Anal_Jean_Juzi_01_Montage_MAX")
+add_asset("JuziGug_Anal_Jean", "anal", "Juzi_01", "JuziGug_Anal_Jean_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziGug_Anal02"] = {
+    hanime_id = "JuziGug_Anal02", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gug_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziGug_Anal02", "anal", "Gug_01", "JuziGug_Anal02_Gug_01_Montage")
+add_asset("JuziGug_Anal02", "anal", "Gug_01", "JuziGug_Anal02_Gug_01_Montage_MAX")
+add_asset("JuziGug_Anal02", "anal", "Gug_01", "JuziGug_Anal02_Gug_01_Montage_MIN")
+add_asset("JuziGug_Anal02", "anal", "Juzi_01", "JuziGug_Anal02_Juzi_01_Montage")
+add_asset("JuziGug_Anal02", "anal", "Juzi_01", "JuziGug_Anal02_Juzi_01_Montage_MAX")
+add_asset("JuziGug_Anal02", "anal", "Juzi_01", "JuziGug_Anal02_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziHound_A_Hand01"] = {
+    hanime_id = "JuziHound_A_Hand01", category = "hand",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Hound_A_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziHound_A_Hand01", "hand", "Hound_A_01", "JuziHound_A_Hand01_Hound_A_01_Montage")
+add_asset("JuziHound_A_Hand01", "hand", "Hound_A_01", "JuziHound_A_Hand01_Hound_A_01_Montage_MAX")
+add_asset("JuziHound_A_Hand01", "hand", "Hound_A_01", "JuziHound_A_Hand01_Hound_A_01_Montage_MIN")
+add_asset("JuziHound_A_Hand01", "hand", "Juzi_01", "JuziHound_A_Hand01_Juzi_01_Montage")
+add_asset("JuziHound_A_Hand01", "hand", "Juzi_01", "JuziHound_A_Hand01_Juzi_01_Montage_MAX")
+add_asset("JuziHound_A_Hand01", "hand", "Juzi_01", "JuziHound_A_Hand01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziHound_Vaginal01"] = {
+    hanime_id = "JuziHound_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Hound_01",
+        "Juzi_01",
+    },
+}
+add_asset("JuziHound_Vaginal01", "vaginal", "Hound_01", "JuziHound_Vaginal01_Hound_01_Montage")
+add_asset("JuziHound_Vaginal01", "vaginal", "Hound_01", "JuziHound_Vaginal01_Hound_01_Montage_MAX")
+add_asset("JuziHound_Vaginal01", "vaginal", "Hound_01", "JuziHound_Vaginal01_Hound_01_Montage_MIN")
+add_asset("JuziHound_Vaginal01", "vaginal", "Juzi_01", "JuziHound_Vaginal01_Juzi_01_Montage")
+add_asset("JuziHound_Vaginal01", "vaginal", "Juzi_01", "JuziHound_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziHound_Vaginal01", "vaginal", "Juzi_01", "JuziHound_Vaginal01_Juzi_01_Montage_MIN")
+
+Catalog.by_family["JuziLIoigor_Vaginal01"] = {
+    hanime_id = "JuziLIoigor_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Lloigor_01",
+    },
+}
+add_asset("JuziLIoigor_Vaginal01", "vaginal", "Juzi_01", "JuziLIoigor_Vaginal01_Juzi_01_Montage")
+add_asset("JuziLIoigor_Vaginal01", "vaginal", "Juzi_01", "JuziLIoigor_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziLIoigor_Vaginal01", "vaginal", "Juzi_01", "JuziLIoigor_Vaginal01_Juzi_01_Montage_MIN")
+add_asset("JuziLIoigor_Vaginal01", "vaginal", "Lloigor_01", "JuziLIoigor_Vaginal01_Lloigor_01_Montage")
+add_asset("JuziLIoigor_Vaginal01", "vaginal", "Lloigor_01", "JuziLIoigor_Vaginal01_Lloigor_01_Montage_MAX")
+add_asset("JuziLIoigor_Vaginal01", "vaginal", "Lloigor_01", "JuziLIoigor_Vaginal01_Lloigor_01_Montage_MIN")
+
+Catalog.by_family["JuziMigowarrior_Vaginal01"] = {
+    hanime_id = "JuziMigowarrior_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Migowarrior_01",
+    },
+}
+add_asset("JuziMigowarrior_Vaginal01", "vaginal", "Juzi_01", "JuziMigowarrior_Vaginal01_Juzi_01_Montage")
+add_asset("JuziMigowarrior_Vaginal01", "vaginal", "Juzi_01", "JuziMigowarrior_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziMigowarrior_Vaginal01", "vaginal", "Juzi_01", "JuziMigowarrior_Vaginal01_Juzi_01_Montage_MIN")
+add_asset("JuziMigowarrior_Vaginal01", "vaginal", "Migowarrior_01", "JuziMigowarrior_Vaginal01_Migowarrior_01_Montage")
+add_asset("JuziMigowarrior_Vaginal01", "vaginal", "Migowarrior_01", "JuziMigowarrior_Vaginal01_Migowarrior_01_Montage_MAX")
+add_asset("JuziMigowarrior_Vaginal01", "vaginal", "Migowarrior_01", "JuziMigowarrior_Vaginal01_Migowarrior_01_Montage_MIN")
+
+Catalog.by_family["JuziSaaitii_Anal01"] = {
+    hanime_id = "JuziSaaitii_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Saaitii_01",
+    },
+}
+add_asset("JuziSaaitii_Anal01", "anal", "Juzi_01", "JuziSaaitii_Anal01_Juzi_01_Montage")
+add_asset("JuziSaaitii_Anal01", "anal", "Juzi_01", "JuziSaaitii_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziSaaitii_Anal01", "anal", "Juzi_01", "JuziSaaitii_Anal01_Juzi_01_Montage_MIN")
+add_asset("JuziSaaitii_Anal01", "anal", "Saaitii_01", "JuziSaaitii_Anal01_Saaitii_01_Montage")
+add_asset("JuziSaaitii_Anal01", "anal", "Saaitii_01", "JuziSaaitii_Anal01_Saaitii_01_Montage_MAX")
+add_asset("JuziSaaitii_Anal01", "anal", "Saaitii_01", "JuziSaaitii_Anal01_Saaitii_01_Montage_MIN")
+
+Catalog.by_family["JuziSaaitii_Vaginal1"] = {
+    hanime_id = "JuziSaaitii_Vaginal1", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Saaitii_01",
+    },
+}
+add_asset("JuziSaaitii_Vaginal1", "vaginal", "Juzi_01", "JuziSaaitii_Vaginal1_Juzi_01_Montage")
+add_asset("JuziSaaitii_Vaginal1", "vaginal", "Juzi_01", "JuziSaaitii_Vaginal1_Juzi_01_Montage_MAX")
+add_asset("JuziSaaitii_Vaginal1", "vaginal", "Juzi_01", "JuziSaaitii_Vaginal1_Juzi_01_Montage_MIN")
+add_asset("JuziSaaitii_Vaginal1", "vaginal", "Saaitii_01", "JuziSaaitii_Vaginal1_Saaitii_01_Montage")
+add_asset("JuziSaaitii_Vaginal1", "vaginal", "Saaitii_01", "JuziSaaitii_Vaginal1_Saaitii_01_Montage_MAX")
+add_asset("JuziSaaitii_Vaginal1", "vaginal", "Saaitii_01", "JuziSaaitii_Vaginal1_Saaitii_01_Montage_MIN")
+
+Catalog.by_family["JuziScorpio_Anal01"] = {
+    hanime_id = "JuziScorpio_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Scorpio_01",
+    },
+}
+add_asset("JuziScorpio_Anal01", "anal", "Juzi_01", "JuziScorpio_Anal01_Juzi_01_Montage")
+add_asset("JuziScorpio_Anal01", "anal", "Juzi_01", "JuziScorpio_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziScorpio_Anal01", "anal", "Juzi_01", "JuziScorpio_Anal01_Juzi_01_Montage_MIN")
+add_asset("JuziScorpio_Anal01", "anal", "Scorpio_01", "JuziScorpio_Anal01_Scorpio_01_Montage")
+add_asset("JuziScorpio_Anal01", "anal", "Scorpio_01", "JuziScorpio_Anal01_Scorpio_01_Montage_MAX")
+add_asset("JuziScorpio_Anal01", "anal", "Scorpio_01", "JuziScorpio_Anal01_Scorpio_01_Montage_MIN")
+
+Catalog.by_family["JuziScorpio_Sleep01"] = {
+    hanime_id = "JuziScorpio_Sleep01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Chair_01",
+        "Juzi_01",
+        "Scorpio_01",
+    },
+}
+add_asset("JuziScorpio_Sleep01", "other", "Chair_01", "JuziScorpio_Sleep01_Chair_01_Montage")
+add_asset("JuziScorpio_Sleep01", "other", "Chair_01", "JuziScorpio_Sleep01_Chair_01_Montage_MAX")
+add_asset("JuziScorpio_Sleep01", "other", "Chair_01", "JuziScorpio_Sleep01_Chair_01_Montage_MIN")
+add_asset("JuziScorpio_Sleep01", "other", "Juzi_01", "JuziScorpio_Sleep01_Juzi_01_Montage")
+add_asset("JuziScorpio_Sleep01", "other", "Juzi_01", "JuziScorpio_Sleep01_Juzi_01_Montage_MAX")
+add_asset("JuziScorpio_Sleep01", "other", "Juzi_01", "JuziScorpio_Sleep01_Juzi_01_Montage_MIN")
+add_asset("JuziScorpio_Sleep01", "other", "Scorpio_01", "JuziScorpio_Sleep01_Scorpio_01_Montage")
+add_asset("JuziScorpio_Sleep01", "other", "Scorpio_01", "JuziScorpio_Sleep01_Scorpio_01_Montage_MAX")
+add_asset("JuziScorpio_Sleep01", "other", "Scorpio_01", "JuziScorpio_Sleep01_Scorpio_01_Montage_MIN")
+
+Catalog.by_family["JuziScorpio_Vaginal01"] = {
+    hanime_id = "JuziScorpio_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Scorpio_01",
+    },
+}
+add_asset("JuziScorpio_Vaginal01", "vaginal", "Juzi_01", "JuziScorpio_Vaginal01_Juzi_01_Montage")
+add_asset("JuziScorpio_Vaginal01", "vaginal", "Juzi_01", "JuziScorpio_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziScorpio_Vaginal01", "vaginal", "Juzi_01", "JuziScorpio_Vaginal01_Juzi_01_Montage_MIN")
+add_asset("JuziScorpio_Vaginal01", "vaginal", "Scorpio_01", "JuziScorpio_Vaginal01_Scorpio_01_Montage")
+add_asset("JuziScorpio_Vaginal01", "vaginal", "Scorpio_01", "JuziScorpio_Vaginal01_Scorpio_01_Montage_MAX")
+add_asset("JuziScorpio_Vaginal01", "vaginal", "Scorpio_01", "JuziScorpio_Vaginal01_Scorpio_01_Montage_MIN")
+
+Catalog.by_family["JuziScorpioAB_VaginalAnal01"] = {
+    hanime_id = "JuziScorpioAB_VaginalAnal01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Scorpio_A_01",
+        "Scorpio_B_01",
+    },
+}
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Juzi_01", "JuziScorpioAB_VaginalAnal01_Juzi_01_Montage")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Juzi_01", "JuziScorpioAB_VaginalAnal01_Juzi_01_Montage_MAX")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Juzi_01", "JuziScorpioAB_VaginalAnal01_Juzi_01_Montage_MIN")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Scorpio_A_01", "JuziScorpioAB_VaginalAnal01_Scorpio_A_01_Montage")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Scorpio_A_01", "JuziScorpioAB_VaginalAnal01_Scorpio_A_01_Montage_MAX")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Scorpio_A_01", "JuziScorpioAB_VaginalAnal01_Scorpio_A_01_Montage_MIN")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Scorpio_B_01", "JuziScorpioAB_VaginalAnal01_Scorpio_B_01_Montage")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Scorpio_B_01", "JuziScorpioAB_VaginalAnal01_Scorpio_B_01_Montage_MAX")
+add_asset("JuziScorpioAB_VaginalAnal01", "other", "Scorpio_B_01", "JuziScorpioAB_VaginalAnal01_Scorpio_B_01_Montage_MIN")
+
+Catalog.by_family["JuziShaggai_Anal01"] = {
+    hanime_id = "JuziShaggai_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Container_01",
+        "Juzi_01",
+        "Shaggai_A_01",
+    },
+}
+add_asset("JuziShaggai_Anal01", "anal", "Container_01", "JuziShaggai_Anal01_Container_01_Montage")
+add_asset("JuziShaggai_Anal01", "anal", "Container_01", "JuziShaggai_Anal01_Container_01_Montage_MAX")
+add_asset("JuziShaggai_Anal01", "anal", "Container_01", "JuziShaggai_Anal01_Container_01_Montage_MIN")
+add_asset("JuziShaggai_Anal01", "anal", "Juzi_01", "JuziShaggai_Anal01_Juzi_01_Montage")
+add_asset("JuziShaggai_Anal01", "anal", "Juzi_01", "JuziShaggai_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziShaggai_Anal01", "anal", "Juzi_01", "JuziShaggai_Anal01_Juzi_01_Montage_MIN")
+add_asset("JuziShaggai_Anal01", "anal", "Shaggai_A_01", "JuziShaggai_Anal01_Shaggai_A_01_Montage")
+add_asset("JuziShaggai_Anal01", "anal", "Shaggai_A_01", "JuziShaggai_Anal01_Shaggai_A_01_Montage_MAX")
+add_asset("JuziShaggai_Anal01", "anal", "Shaggai_A_01", "JuziShaggai_Anal01_Shaggai_A_01_Montage_MIN")
+
+Catalog.by_family["JuziShaggaiMigoWarrior_VaginalMouth01"] = {
+    hanime_id = "JuziShaggaiMigoWarrior_VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Handcuffs_A_01",
+        "Juzi_01",
+        "migo_warrior_01",
+        "Shaggai_A_01",
+    },
+}
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Handcuffs_A_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Handcuffs_A_01_Montage")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Handcuffs_A_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Handcuffs_A_01_Montage_MAX")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Handcuffs_A_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Handcuffs_A_01_Montage_MIN")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Juzi_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Juzi_01_Montage")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Juzi_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Juzi_01_Montage_MAX")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Juzi_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Juzi_01_Montage_MIN")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "migo_warrior_01", "JuziShaggaiMigoWarrior_VaginalMouth01_migo_warrior_01_Montage")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "migo_warrior_01", "JuziShaggaiMigoWarrior_VaginalMouth01_migo_warrior_01_Montage_MAX")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "migo_warrior_01", "JuziShaggaiMigoWarrior_VaginalMouth01_migo_warrior_01_Montage_MIN")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Shaggai_A_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Shaggai_A_01_Montage")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Shaggai_A_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Shaggai_A_01_Montage_MAX")
+add_asset("JuziShaggaiMigoWarrior_VaginalMouth01", "other", "Shaggai_A_01", "JuziShaggaiMigoWarrior_VaginalMouth01_Shaggai_A_01_Montage_MIN")
+
+Catalog.by_family["JuziTchotcho_Anal01"] = {
+    hanime_id = "JuziTchotcho_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "tchotcho_01",
+    },
+}
+add_asset("JuziTchotcho_Anal01", "anal", "Juzi_01", "JuziTchotcho_Anal01_Juzi_01_Montage")
+add_asset("JuziTchotcho_Anal01", "anal", "Juzi_01", "JuziTchotcho_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziTchotcho_Anal01", "anal", "Juzi_01", "JuziTchotcho_Anal01_Juzi_01_Montage_MIN")
+add_asset("JuziTchotcho_Anal01", "anal", "tchotcho_01", "JuziTchotcho_Anal01_tchotcho_01_Montage")
+add_asset("JuziTchotcho_Anal01", "anal", "tchotcho_01", "JuziTchotcho_Anal01_tchotcho_01_Montage_MAX")
+add_asset("JuziTchotcho_Anal01", "anal", "tchotcho_01", "JuziTchotcho_Anal01_tchotcho_01_Montage_MIN")
+
+Catalog.by_family["JuziTchotcho_Vaginal01"] = {
+    hanime_id = "JuziTchotcho_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "TchoTcho_01",
+    },
+}
+add_asset("JuziTchotcho_Vaginal01", "vaginal", "Juzi_01", "JuziTchotcho_Vaginal01_Juzi_01_Montage")
+add_asset("JuziTchotcho_Vaginal01", "vaginal", "Juzi_01", "JuziTchotcho_Vaginal01_Juzi_01_Montage_MAX")
+add_asset("JuziTchotcho_Vaginal01", "vaginal", "Juzi_01", "JuziTchotcho_Vaginal01_Juzi_01_Montage_MIN")
+add_asset("JuziTchotcho_Vaginal01", "vaginal", "TchoTcho_01", "JuziTchotcho_Vaginal01_TchoTcho_01_Montage")
+add_asset("JuziTchotcho_Vaginal01", "vaginal", "TchoTcho_01", "JuziTchotcho_Vaginal01_TchoTcho_01_Montage_MAX")
+add_asset("JuziTchotcho_Vaginal01", "vaginal", "TchoTcho_01", "JuziTchotcho_Vaginal01_TchoTcho_01_Montage_MIN")
+
+Catalog.by_family["JuziTchoTchoABChair_Breast01"] = {
+    hanime_id = "JuziTchoTchoABChair_Breast01", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "tchotchoA_01",
+        "tchotchoB_01",
+    },
+}
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "Juzi_01", "JuziTchoTchoABChair_Breast01_Juzi_01_Montage")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "Juzi_01", "JuziTchoTchoABChair_Breast01_Juzi_01_Montage_MAX")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "Juzi_01", "JuziTchoTchoABChair_Breast01_Juzi_01_Montage_MIN")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "tchotchoA_01", "JuziTchoTchoABChair_Breast01_tchotchoA_01_Montage")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "tchotchoA_01", "JuziTchoTchoABChair_Breast01_tchotchoA_01_Montage_MAX")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "tchotchoA_01", "JuziTchoTchoABChair_Breast01_tchotchoA_01_Montage_MIN")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "tchotchoB_01", "JuziTchoTchoABChair_Breast01_tchotchoB_01_Montage")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "tchotchoB_01", "JuziTchoTchoABChair_Breast01_tchotchoB_01_Montage_MAX")
+add_asset("JuziTchoTchoABChair_Breast01", "breast", "tchotchoB_01", "JuziTchoTchoABChair_Breast01_tchotchoB_01_Montage_MIN")
+
+Catalog.by_family["juziXShantak_Anal01"] = {
+    hanime_id = "juziXShantak_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Shantak_01",
+    },
+}
+add_asset("juziXShantak_Anal01", "anal", "Juzi_01", "juziXShantak_Anal01_Juzi_01_Montage")
+add_asset("juziXShantak_Anal01", "anal", "Juzi_01", "juziXShantak_Anal01_Juzi_01_Montage_MAX")
+add_asset("juziXShantak_Anal01", "anal", "Juzi_01", "juziXShantak_Anal01_Juzi_01_Montage_MIN")
+add_asset("juziXShantak_Anal01", "anal", "Shantak_01", "juziXShantak_Anal01_Shantak_01_Montage")
+add_asset("juziXShantak_Anal01", "anal", "Shantak_01", "juziXShantak_Anal01_Shantak_01_Montage_MAX")
+add_asset("juziXShantak_Anal01", "anal", "Shantak_01", "juziXShantak_Anal01_Shantak_01_Montage_MIN")
+
+Catalog.by_family["JuziYith_Anal01"] = {
+    hanime_id = "JuziYith_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Yith_01",
+    },
+}
+add_asset("JuziYith_Anal01", "anal", "Juzi_01", "JuziYith_Anal01_Juzi_01_Montage")
+add_asset("JuziYith_Anal01", "anal", "Juzi_01", "JuziYith_Anal01_Juzi_01_Montage_MAX")
+add_asset("JuziYith_Anal01", "anal", "Juzi_01", "JuziYith_Anal01_Juzi_01_Montage_MIN")
+add_asset("JuziYith_Anal01", "anal", "Yith_01", "JuziYith_Anal01_Yith_01_Montage")
+add_asset("JuziYith_Anal01", "anal", "Yith_01", "JuziYith_Anal01_Yith_01_Montage_MAX")
+add_asset("JuziYith_Anal01", "anal", "Yith_01", "JuziYith_Anal01_Yith_01_Montage_MIN")
 
 Catalog.by_family["TalonCelia_Sex01"] = {
     hanime_id = "TalonCelia_Sex01", category = "sex",
@@ -2723,6 +6846,32 @@ add_asset("TalonYith_VaginalAnal01", "other", "Yith_01", "TalonYith_VaginalAnal0
 add_asset("TalonYith_VaginalAnal01", "other", "Yith_01", "TalonYith_VaginalAnal01_Yith_01_Montage_MAX")
 add_asset("TalonYith_VaginalAnal01", "other", "Yith_01", "TalonYith_VaginalAnal01_Yith_01_Montage_MIN")
 
+Catalog.by_family["VaginalMouth01"] = {
+    hanime_id = "VaginalMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Erika_01",
+    },
+}
+add_asset("VaginalMouth01", "other", "Erika_01", "VaginalMouth01_Erika_01_Montage")
+add_asset("VaginalMouth01", "other", "Erika_01", "VaginalMouth01_Erika_01_Montage_MAX")
+add_asset("VaginalMouth01", "other", "Erika_01", "VaginalMouth01_Erika_01_Montage_MIN")
+
+Catalog.by_family["YanshiByakhee_Vaginal01"] = {
+    hanime_id = "YanshiByakhee_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Byakhee_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiByakhee_Vaginal01", "vaginal", "Byakhee_01", "YanshiByakhee_Vaginal01_Byakhee_01_Montage")
+add_asset("YanshiByakhee_Vaginal01", "vaginal", "Byakhee_01", "YanshiByakhee_Vaginal01_Byakhee_01_Montage_MAX")
+add_asset("YanshiByakhee_Vaginal01", "vaginal", "Byakhee_01", "YanshiByakhee_Vaginal01_Byakhee_01_Montage_MIN")
+add_asset("YanshiByakhee_Vaginal01", "vaginal", "Yanshi_01", "YanshiByakhee_Vaginal01_Yanshi_01_Montage")
+add_asset("YanshiByakhee_Vaginal01", "vaginal", "Yanshi_01", "YanshiByakhee_Vaginal01_Yanshi_01_Montage_MAX")
+add_asset("YanshiByakhee_Vaginal01", "vaginal", "Yanshi_01", "YanshiByakhee_Vaginal01_Yanshi_01_Montage_MIN")
+
 Catalog.by_family["YanshiCelia_Anal20260119_QingChen"] = {
     hanime_id = "YanshiCelia_Anal20260119_QingChen", category = "anal",
     catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
@@ -2741,5 +6890,660 @@ add_asset("YanshiCelia_Anal20260119_QingChen", "anal", "DoubleDildo_A_01", "Yans
 add_asset("YanshiCelia_Anal20260119_QingChen", "anal", "Yanshi_01", "YanshiCelia_Anal20260119_QingChen_Yanshi_01_Montage")
 add_asset("YanshiCelia_Anal20260119_QingChen", "anal", "Yanshi_01", "YanshiCelia_Anal20260119_QingChen_Yanshi_01_Montage_MAX")
 add_asset("YanshiCelia_Anal20260119_QingChen", "anal", "Yanshi_01", "YanshiCelia_Anal20260119_QingChen_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDeepone_Mouth20251031_X"] = {
+    hanime_id = "YanshiDeepone_Mouth20251031_X", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DeepOne_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDeepone_Mouth20251031_X", "mouth", "DeepOne_01", "YanshiDeepone_Mouth20251031_X_DeepOne_01_Montage")
+add_asset("YanshiDeepone_Mouth20251031_X", "mouth", "DeepOne_01", "YanshiDeepone_Mouth20251031_X_DeepOne_01_Montage_MAX")
+add_asset("YanshiDeepone_Mouth20251031_X", "mouth", "DeepOne_01", "YanshiDeepone_Mouth20251031_X_DeepOne_01_Montage_MIN")
+add_asset("YanshiDeepone_Mouth20251031_X", "mouth", "Yanshi_01", "YanshiDeepone_Mouth20251031_X_Yanshi_01_Montage")
+add_asset("YanshiDeepone_Mouth20251031_X", "mouth", "Yanshi_01", "YanshiDeepone_Mouth20251031_X_Yanshi_01_Montage_MAX")
+add_asset("YanshiDeepone_Mouth20251031_X", "mouth", "Yanshi_01", "YanshiDeepone_Mouth20251031_X_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDoubledildoA_Vaginal20260330_X"] = {
+    hanime_id = "YanshiDoubledildoA_Vaginal20260330_X", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DoubleDildo_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", "DoubleDildo_A_01", "YanshiDoubledildoA_Vaginal20260330_X_DoubleDildo_A_01_Montage")
+add_asset("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", "DoubleDildo_A_01", "YanshiDoubledildoA_Vaginal20260330_X_DoubleDildo_A_01_Montage_MAX")
+add_asset("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", "DoubleDildo_A_01", "YanshiDoubledildoA_Vaginal20260330_X_DoubleDildo_A_01_Montage_MIN")
+add_asset("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", "Yanshi_01", "YanshiDoubledildoA_Vaginal20260330_X_Yanshi_01_Montage")
+add_asset("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", "Yanshi_01", "YanshiDoubledildoA_Vaginal20260330_X_Yanshi_01_Montage_MAX")
+add_asset("YanshiDoubledildoA_Vaginal20260330_X", "vaginal", "Yanshi_01", "YanshiDoubledildoA_Vaginal20260330_X_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Anal20260213_QingChen"] = {
+    hanime_id = "YanshiDreamer_Anal20260213_QingChen", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Anal20260213_QingChen", "anal", "Dreamer_A_01", "YanshiDreamer_Anal20260213_QingChen_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Anal20260213_QingChen", "anal", "Dreamer_A_01", "YanshiDreamer_Anal20260213_QingChen_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Anal20260213_QingChen", "anal", "Dreamer_A_01", "YanshiDreamer_Anal20260213_QingChen_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Anal20260213_QingChen", "anal", "Yanshi_01", "YanshiDreamer_Anal20260213_QingChen_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Anal20260213_QingChen", "anal", "Yanshi_01", "YanshiDreamer_Anal20260213_QingChen_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Anal20260213_QingChen", "anal", "Yanshi_01", "YanshiDreamer_Anal20260213_QingChen_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Breast01"] = {
+    hanime_id = "YanshiDreamer_Breast01", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Breast01", "breast", "Dreamer_A_01", "YanshiDreamer_Breast01_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Breast01", "breast", "Dreamer_A_01", "YanshiDreamer_Breast01_Dreamer_A_01_Montage_max")
+add_asset("YanshiDreamer_Breast01", "breast", "Dreamer_A_01", "YanshiDreamer_Breast01_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Breast01", "breast", "Yanshi_01", "YanshiDreamer_Breast01_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Breast01", "breast", "Yanshi_01", "YanshiDreamer_Breast01_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Breast01", "breast", "Yanshi_01", "YanshiDreamer_Breast01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_breasts2026019_Wumiao"] = {
+    hanime_id = "YanshiDreamer_breasts2026019_Wumiao", category = "breast",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_breasts2026019_Wumiao", "breast", "Dreamer_A_01", "YanshiDreamer_breasts2026019_Wumiao_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_breasts2026019_Wumiao", "breast", "Dreamer_A_01", "YanshiDreamer_breasts2026019_Wumiao_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_breasts2026019_Wumiao", "breast", "Dreamer_A_01", "YanshiDreamer_breasts2026019_Wumiao_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_breasts2026019_Wumiao", "breast", "Yanshi_01", "YanshiDreamer_breasts2026019_Wumiao_Yanshi_01_Montage")
+add_asset("YanshiDreamer_breasts2026019_Wumiao", "breast", "Yanshi_01", "YanshiDreamer_breasts2026019_Wumiao_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_breasts2026019_Wumiao", "breast", "Yanshi_01", "YanshiDreamer_breasts2026019_Wumiao_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Foot20251220_Wumiao"] = {
+    hanime_id = "YanshiDreamer_Foot20251220_Wumiao", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DemoMapChair_01",
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "DemoMapChair_01", "YanshiDreamer_Foot20251220_Wumiao_DemoMapChair_01_Montage")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "DemoMapChair_01", "YanshiDreamer_Foot20251220_Wumiao_DemoMapChair_01_Montage_MAX")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "DemoMapChair_01", "YanshiDreamer_Foot20251220_Wumiao_DemoMapChair_01_Montage_MIN")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "Dreamer_A_01", "YanshiDreamer_Foot20251220_Wumiao_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "Dreamer_A_01", "YanshiDreamer_Foot20251220_Wumiao_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "Dreamer_A_01", "YanshiDreamer_Foot20251220_Wumiao_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "Yanshi_01", "YanshiDreamer_Foot20251220_Wumiao_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "Yanshi_01", "YanshiDreamer_Foot20251220_Wumiao_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Foot20251220_Wumiao", "foot", "Yanshi_01", "YanshiDreamer_Foot20251220_Wumiao_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Foot20251224_QingChen"] = {
+    hanime_id = "YanshiDreamer_Foot20251224_QingChen", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DemoMapChair_01",
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "DemoMapChair_01", "YanshiDreamer_Foot20251224_QingChen_DemoMapChair_01_Montage")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "DemoMapChair_01", "YanshiDreamer_Foot20251224_QingChen_DemoMapChair_01_Montage_MAX")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "DemoMapChair_01", "YanshiDreamer_Foot20251224_QingChen_DemoMapChair_01_Montage_MIN")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "Dreamer_A_01", "YanshiDreamer_Foot20251224_QingChen_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "Dreamer_A_01", "YanshiDreamer_Foot20251224_QingChen_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "Dreamer_A_01", "YanshiDreamer_Foot20251224_QingChen_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "Yanshi_01", "YanshiDreamer_Foot20251224_QingChen_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "Yanshi_01", "YanshiDreamer_Foot20251224_QingChen_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Foot20251224_QingChen", "foot", "Yanshi_01", "YanshiDreamer_Foot20251224_QingChen_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Mouth20251025_Jean"] = {
+    hanime_id = "YanshiDreamer_Mouth20251025_Jean", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Mouth20251025_Jean", "mouth", "Dreamer_A_01", "YanshiDreamer_Mouth20251025_Jean_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Mouth20251025_Jean", "mouth", "Dreamer_A_01", "YanshiDreamer_Mouth20251025_Jean_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Mouth20251025_Jean", "mouth", "Dreamer_A_01", "YanshiDreamer_Mouth20251025_Jean_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Mouth20251025_Jean", "mouth", "Yanshi_01", "YanshiDreamer_Mouth20251025_Jean_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Mouth20251025_Jean", "mouth", "Yanshi_01", "YanshiDreamer_Mouth20251025_Jean_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Mouth20251025_Jean", "mouth", "Yanshi_01", "YanshiDreamer_Mouth20251025_Jean_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_ThighJob01"] = {
+    hanime_id = "YanshiDreamer_ThighJob01", category = "thigh",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Handcuffs_A_01",
+        "Handcuffs_B_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Dreamer_A_01", "YanshiDreamer_ThighJob01_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Dreamer_A_01", "YanshiDreamer_ThighJob01_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Dreamer_A_01", "YanshiDreamer_ThighJob01_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Handcuffs_A_01", "YanshiDreamer_ThighJob01_Handcuffs_A_01_Montage")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Handcuffs_A_01", "YanshiDreamer_ThighJob01_Handcuffs_A_01_Montage_MAX")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Handcuffs_A_01", "YanshiDreamer_ThighJob01_Handcuffs_A_01_Montage_MIN")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Handcuffs_B_01", "YanshiDreamer_ThighJob01_Handcuffs_B_01_Montage")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Handcuffs_B_01", "YanshiDreamer_ThighJob01_Handcuffs_B_01_Montage_MAX")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Handcuffs_B_01", "YanshiDreamer_ThighJob01_Handcuffs_B_01_Montage_MIN")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Yanshi_01", "YanshiDreamer_ThighJob01_Yanshi_01_Montage")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Yanshi_01", "YanshiDreamer_ThighJob01_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_ThighJob01", "thigh", "Yanshi_01", "YanshiDreamer_ThighJob01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Vaginal01"] = {
+    hanime_id = "YanshiDreamer_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal01_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal01_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal01", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal01_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal01", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal01_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Vaginal01", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal01_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal01", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Vaginal20251223_Wumia"] = {
+    hanime_id = "YanshiDreamer_Vaginal20251223_Wumia", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Handcuffs_C_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20251223_Wumia_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20251223_Wumia_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20251223_Wumia_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Handcuffs_C_01", "YanshiDreamer_Vaginal20251223_Wumia_Handcuffs_C_01_Montage")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Handcuffs_C_01", "YanshiDreamer_Vaginal20251223_Wumia_Handcuffs_C_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Handcuffs_C_01", "YanshiDreamer_Vaginal20251223_Wumia_Handcuffs_C_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20251223_Wumia_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20251223_Wumia_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20251223_Wumia", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20251223_Wumia_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Vaginal20260120_Kiana"] = {
+    hanime_id = "YanshiDreamer_Vaginal20260120_Kiana", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Vaginal20260120_Kiana", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260120_Kiana_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260120_Kiana", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260120_Kiana_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260120_Kiana", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260120_Kiana_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal20260120_Kiana", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260120_Kiana_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260120_Kiana", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260120_Kiana_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260120_Kiana", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260120_Kiana_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Vaginal20260120_Prince"] = {
+    hanime_id = "YanshiDreamer_Vaginal20260120_Prince", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "DemoMapChair_01",
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "DemoMapChair_01", "YanshiDreamer_Vaginal20260120_Prince_DemoMapChair_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "DemoMapChair_01", "YanshiDreamer_Vaginal20260120_Prince_DemoMapChair_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "DemoMapChair_01", "YanshiDreamer_Vaginal20260120_Prince_DemoMapChair_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260120_Prince_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260120_Prince_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260120_Prince_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260120_Prince_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260120_Prince_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260120_Prince", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260120_Prince_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Vaginal20260201_Prince"] = {
+    hanime_id = "YanshiDreamer_Vaginal20260201_Prince", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Vaginal20260201_Prince", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260201_Prince_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260201_Prince", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260201_Prince_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260201_Prince", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260201_Prince_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal20260201_Prince", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260201_Prince_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260201_Prince", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260201_Prince_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260201_Prince", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260201_Prince_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamer_Vaginal20260325_Wumiao"] = {
+    hanime_id = "YanshiDreamer_Vaginal20260325_Wumiao", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamer_Vaginal20260325_Wumiao", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260325_Wumiao_Dreamer_A_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260325_Wumiao", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260325_Wumiao_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260325_Wumiao", "vaginal", "Dreamer_A_01", "YanshiDreamer_Vaginal20260325_Wumiao_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamer_Vaginal20260325_Wumiao", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260325_Wumiao_Yanshi_01_Montage")
+add_asset("YanshiDreamer_Vaginal20260325_Wumiao", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260325_Wumiao_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamer_Vaginal20260325_Wumiao", "vaginal", "Yanshi_01", "YanshiDreamer_Vaginal20260325_Wumiao_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreamerAB_MouthVaginal20251031_Kiana"] = {
+    hanime_id = "YanshiDreamerAB_MouthVaginal20251031_Kiana", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Dreamer_B_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Dreamer_A_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Dreamer_A_01_Montage")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Dreamer_A_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Dreamer_A_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Dreamer_B_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Dreamer_B_01_Montage")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Dreamer_B_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Dreamer_B_01_Montage_MAX")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Dreamer_B_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Dreamer_B_01_Montage_MIN")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Yanshi_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Yanshi_01_Montage")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Yanshi_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreamerAB_MouthVaginal20251031_Kiana", "other", "Yanshi_01", "YanshiDreamerAB_MouthVaginal20251031_Kiana_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiDreaner_Vaginal20251009_00"] = {
+    hanime_id = "YanshiDreaner_Vaginal20251009_00", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Dreamer_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiDreaner_Vaginal20251009_00", "vaginal", "Dreamer_A_01", "YanshiDreaner_Vaginal20251009_00_Dreamer_A_01_Montage")
+add_asset("YanshiDreaner_Vaginal20251009_00", "vaginal", "Dreamer_A_01", "YanshiDreaner_Vaginal20251009_00_Dreamer_A_01_Montage_MAX")
+add_asset("YanshiDreaner_Vaginal20251009_00", "vaginal", "Dreamer_A_01", "YanshiDreaner_Vaginal20251009_00_Dreamer_A_01_Montage_MIN")
+add_asset("YanshiDreaner_Vaginal20251009_00", "vaginal", "Yanshi_01", "YanshiDreaner_Vaginal20251009_00_Yanshi_01_Montage")
+add_asset("YanshiDreaner_Vaginal20251009_00", "vaginal", "Yanshi_01", "YanshiDreaner_Vaginal20251009_00_Yanshi_01_Montage_MAX")
+add_asset("YanshiDreaner_Vaginal20251009_00", "vaginal", "Yanshi_01", "YanshiDreaner_Vaginal20251009_00_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGala_Mount20260407_Slime"] = {
+    hanime_id = "YanshiGala_Mount20260407_Slime", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gala_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGala_Mount20260407_Slime", "other", "Gala_01", "YanshiGala_Mount20260407_Slime_Gala_01_Montage")
+add_asset("YanshiGala_Mount20260407_Slime", "other", "Gala_01", "YanshiGala_Mount20260407_Slime_Gala_01_Montage_MAX")
+add_asset("YanshiGala_Mount20260407_Slime", "other", "Gala_01", "YanshiGala_Mount20260407_Slime_Gala_01_Montage_MIN")
+add_asset("YanshiGala_Mount20260407_Slime", "other", "Yanshi_01", "YanshiGala_Mount20260407_Slime_Yanshi_01_Montage")
+add_asset("YanshiGala_Mount20260407_Slime", "other", "Yanshi_01", "YanshiGala_Mount20260407_Slime_Yanshi_01_Montage_MAX")
+add_asset("YanshiGala_Mount20260407_Slime", "other", "Yanshi_01", "YanshiGala_Mount20260407_Slime_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhast_Vaginal01"] = {
+    hanime_id = "YanshiGhast_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghast_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhast_Vaginal01", "vaginal", "Ghast_01", "YanshiGhast_Vaginal01_Ghast_01_Montage")
+add_asset("YanshiGhast_Vaginal01", "vaginal", "Ghast_01", "YanshiGhast_Vaginal01_Ghast_01_Montage_MAX")
+add_asset("YanshiGhast_Vaginal01", "vaginal", "Ghast_01", "YanshiGhast_Vaginal01_Ghast_01_Montage_MIN")
+add_asset("YanshiGhast_Vaginal01", "vaginal", "Yanshi_01", "YanshiGhast_Vaginal01_Yanshi_01_Montage")
+add_asset("YanshiGhast_Vaginal01", "vaginal", "Yanshi_01", "YanshiGhast_Vaginal01_Yanshi_01_Montage_MAX")
+add_asset("YanshiGhast_Vaginal01", "vaginal", "Yanshi_01", "YanshiGhast_Vaginal01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhast_Vaginal20260119_X"] = {
+    hanime_id = "YanshiGhast_Vaginal20260119_X", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghast_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhast_Vaginal20260119_X", "vaginal", "Ghast_01", "YanshiGhast_Vaginal20260119_X_Ghast_01_Montage")
+add_asset("YanshiGhast_Vaginal20260119_X", "vaginal", "Ghast_01", "YanshiGhast_Vaginal20260119_X_Ghast_01_Montage_MAX")
+add_asset("YanshiGhast_Vaginal20260119_X", "vaginal", "Ghast_01", "YanshiGhast_Vaginal20260119_X_Ghast_01_Montage_MIN")
+add_asset("YanshiGhast_Vaginal20260119_X", "vaginal", "Yanshi_01", "YanshiGhast_Vaginal20260119_X_Yanshi_01_Montage")
+add_asset("YanshiGhast_Vaginal20260119_X", "vaginal", "Yanshi_01", "YanshiGhast_Vaginal20260119_X_Yanshi_01_Montage_MAX")
+add_asset("YanshiGhast_Vaginal20260119_X", "vaginal", "Yanshi_01", "YanshiGhast_Vaginal20260119_X_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhoul_HandMouth01"] = {
+    hanime_id = "YanshiGhoul_HandMouth01", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhoul_HandMouth01", "other", "Ghoul_A_01", "YanshiGhoul_HandMouth01_Ghoul_A_01_Montage")
+add_asset("YanshiGhoul_HandMouth01", "other", "Ghoul_A_01", "YanshiGhoul_HandMouth01_Ghoul_A_01_Montage_MAX")
+add_asset("YanshiGhoul_HandMouth01", "other", "Ghoul_A_01", "YanshiGhoul_HandMouth01_Ghoul_A_01_Montage_MIN")
+add_asset("YanshiGhoul_HandMouth01", "other", "Yanshi_01", "YanshiGhoul_HandMouth01_Yanshi_01_Montage")
+add_asset("YanshiGhoul_HandMouth01", "other", "Yanshi_01", "YanshiGhoul_HandMouth01_Yanshi_01_Montage_MAX")
+add_asset("YanshiGhoul_HandMouth01", "other", "Yanshi_01", "YanshiGhoul_HandMouth01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhoul_Mount20251027_Slime"] = {
+    hanime_id = "YanshiGhoul_Mount20251027_Slime", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhoul_Mount20251027_Slime", "other", "Ghoul_A_01", "YanshiGhoul_Mount20251027_Slime_Ghoul_A_01_Montage")
+add_asset("YanshiGhoul_Mount20251027_Slime", "other", "Ghoul_A_01", "YanshiGhoul_Mount20251027_Slime_Ghoul_A_01_Montage_MAX")
+add_asset("YanshiGhoul_Mount20251027_Slime", "other", "Ghoul_A_01", "YanshiGhoul_Mount20251027_Slime_Ghoul_A_01_Montage_MIN")
+add_asset("YanshiGhoul_Mount20251027_Slime", "other", "Yanshi_01", "YanshiGhoul_Mount20251027_Slime_Yanshi_01_Montage")
+add_asset("YanshiGhoul_Mount20251027_Slime", "other", "Yanshi_01", "YanshiGhoul_Mount20251027_Slime_Yanshi_01_Montage_MAX")
+add_asset("YanshiGhoul_Mount20251027_Slime", "other", "Yanshi_01", "YanshiGhoul_Mount20251027_Slime_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhoul_Vaginal01"] = {
+    hanime_id = "YanshiGhoul_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhoul_Vaginal01", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal01_Ghoul_A_01_Montage")
+add_asset("YanshiGhoul_Vaginal01", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal01_Ghoul_A_01_Montage_MAX")
+add_asset("YanshiGhoul_Vaginal01", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal01_Ghoul_A_01_Montage_MIN")
+add_asset("YanshiGhoul_Vaginal01", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal01_Yanshi_01_Montage")
+add_asset("YanshiGhoul_Vaginal01", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal01_Yanshi_01_Montage_MAX")
+add_asset("YanshiGhoul_Vaginal01", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhoul_Vaginal02"] = {
+    hanime_id = "YanshiGhoul_Vaginal02", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhoul_Vaginal02", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal02_Ghoul_A_01_Montage")
+add_asset("YanshiGhoul_Vaginal02", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal02_Ghoul_A_01_Montage_MAX")
+add_asset("YanshiGhoul_Vaginal02", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal02_Ghoul_A_01_Montage_MIN")
+add_asset("YanshiGhoul_Vaginal02", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal02_Yanshi_01_Montage")
+add_asset("YanshiGhoul_Vaginal02", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal02_Yanshi_01_Montage_MAX")
+add_asset("YanshiGhoul_Vaginal02", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal02_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhoul_Vaginal03"] = {
+    hanime_id = "YanshiGhoul_Vaginal03", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhoul_Vaginal03", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal03_Ghoul_A_01_Montage")
+add_asset("YanshiGhoul_Vaginal03", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal03_Ghoul_A_01_Montage_MAX")
+add_asset("YanshiGhoul_Vaginal03", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal03_Ghoul_A_01_Montage_MIN")
+add_asset("YanshiGhoul_Vaginal03", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal03_Yanshi_01_Montage")
+add_asset("YanshiGhoul_Vaginal03", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal03_Yanshi_01_Montage_MAX")
+add_asset("YanshiGhoul_Vaginal03", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal03_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGhoul_Vaginal20251009_Tango"] = {
+    hanime_id = "YanshiGhoul_Vaginal20251009_Tango", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Ghoul_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGhoul_Vaginal20251009_Tango", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal20251009_Tango_Ghoul_A_01_Montage")
+add_asset("YanshiGhoul_Vaginal20251009_Tango", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal20251009_Tango_Ghoul_A_01_Montage_MAX")
+add_asset("YanshiGhoul_Vaginal20251009_Tango", "vaginal", "Ghoul_A_01", "YanshiGhoul_Vaginal20251009_Tango_Ghoul_A_01_Montage_MIN")
+add_asset("YanshiGhoul_Vaginal20251009_Tango", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal20251009_Tango_Yanshi_01_Montage")
+add_asset("YanshiGhoul_Vaginal20251009_Tango", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal20251009_Tango_Yanshi_01_Montage_Max")
+add_asset("YanshiGhoul_Vaginal20251009_Tango", "vaginal", "Yanshi_01", "YanshiGhoul_Vaginal20251009_Tango_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiGug_Vaginal20251014_Prince"] = {
+    hanime_id = "YanshiGug_Vaginal20251014_Prince", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Gug_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiGug_Vaginal20251014_Prince", "vaginal", "Gug_01", "YanshiGug_Vaginal20251014_Prince_Gug_01_Montage")
+add_asset("YanshiGug_Vaginal20251014_Prince", "vaginal", "Gug_01", "YanshiGug_Vaginal20251014_Prince_Gug_01_Montage_MAX")
+add_asset("YanshiGug_Vaginal20251014_Prince", "vaginal", "Gug_01", "YanshiGug_Vaginal20251014_Prince_Gug_01_Montage_MIN")
+add_asset("YanshiGug_Vaginal20251014_Prince", "vaginal", "Yanshi_01", "YanshiGug_Vaginal20251014_Prince_Yanshi_01_Montage")
+add_asset("YanshiGug_Vaginal20251014_Prince", "vaginal", "Yanshi_01", "YanshiGug_Vaginal20251014_Prince_Yanshi_01_Montage_MAX")
+add_asset("YanshiGug_Vaginal20251014_Prince", "vaginal", "Yanshi_01", "YanshiGug_Vaginal20251014_Prince_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiHippocamp_Vaginal20251102_Tango"] = {
+    hanime_id = "YanshiHippocamp_Vaginal20251102_Tango", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Feetcuffs_A_01",
+        "Hippocamp_01",
+        "WorkshopCrate2_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Feetcuffs_A_01", "YanshiHippocamp_Vaginal20251102_Tango_Feetcuffs_A_01_Montage")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Feetcuffs_A_01", "YanshiHippocamp_Vaginal20251102_Tango_Feetcuffs_A_01_Montage_MAX")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Feetcuffs_A_01", "YanshiHippocamp_Vaginal20251102_Tango_Feetcuffs_A_01_Montage_MIN")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Hippocamp_01", "YanshiHippocamp_Vaginal20251102_Tango_Hippocamp_01_Montage")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Hippocamp_01", "YanshiHippocamp_Vaginal20251102_Tango_Hippocamp_01_Montage_MAX")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Hippocamp_01", "YanshiHippocamp_Vaginal20251102_Tango_Hippocamp_01_Montage_MIN")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "WorkshopCrate2_01", "YanshiHippocamp_Vaginal20251102_Tango_WorkshopCrate2_01_Montage")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "WorkshopCrate2_01", "YanshiHippocamp_Vaginal20251102_Tango_WorkshopCrate2_01_Montage_MAX")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "WorkshopCrate2_01", "YanshiHippocamp_Vaginal20251102_Tango_WorkshopCrate2_01_Montage_MIN")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Yanshi_01", "YanshiHippocamp_Vaginal20251102_Tango_Yanshi_01_Montage")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Yanshi_01", "YanshiHippocamp_Vaginal20251102_Tango_Yanshi_01_Montage_MAX")
+add_asset("YanshiHippocamp_Vaginal20251102_Tango", "vaginal", "Yanshi_01", "YanshiHippocamp_Vaginal20251102_Tango_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiHound_Anal01"] = {
+    hanime_id = "YanshiHound_Anal01", category = "anal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Hound_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiHound_Anal01", "anal", "Hound_A_01", "YanshiHound_Anal01_Hound_A_01_Montage")
+add_asset("YanshiHound_Anal01", "anal", "Hound_A_01", "YanshiHound_Anal01_Hound_A_01_Montage_MAX")
+add_asset("YanshiHound_Anal01", "anal", "Hound_A_01", "YanshiHound_Anal01_Hound_A_01_Montage_MIN")
+add_asset("YanshiHound_Anal01", "anal", "Yanshi_01", "YanshiHound_Anal01_Yanshi_01_Montage")
+add_asset("YanshiHound_Anal01", "anal", "Yanshi_01", "YanshiHound_Anal01_Yanshi_01_Montage_MAX")
+add_asset("YanshiHound_Anal01", "anal", "Yanshi_01", "YanshiHound_Anal01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiHound_Vaginal20251006_Jean"] = {
+    hanime_id = "YanshiHound_Vaginal20251006_Jean", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Hound_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiHound_Vaginal20251006_Jean", "vaginal", "Hound_A_01", "YanshiHound_Vaginal20251006_Jean_Hound_A_01_Montage")
+add_asset("YanshiHound_Vaginal20251006_Jean", "vaginal", "Hound_A_01", "YanshiHound_Vaginal20251006_Jean_Hound_A_01_Montage_MAX")
+add_asset("YanshiHound_Vaginal20251006_Jean", "vaginal", "Hound_A_01", "YanshiHound_Vaginal20251006_Jean_Hound_A_01_Montage_MIN")
+add_asset("YanshiHound_Vaginal20251006_Jean", "vaginal", "Yanshi_01", "YanshiHound_Vaginal20251006_Jean_Yanshi_01_Montage")
+add_asset("YanshiHound_Vaginal20251006_Jean", "vaginal", "Yanshi_01", "YanshiHound_Vaginal20251006_Jean_Yanshi_01_Montage_MAX")
+add_asset("YanshiHound_Vaginal20251006_Jean", "vaginal", "Yanshi_01", "YanshiHound_Vaginal20251006_Jean_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiJuzi_Mouth20251031_Slime"] = {
+    hanime_id = "YanshiJuzi_Mouth20251031_Slime", category = "mouth",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Juzi_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiJuzi_Mouth20251031_Slime", "mouth", "Juzi_01", "YanshiJuzi_Mouth20251031_Slime_Juzi_01_Montage")
+add_asset("YanshiJuzi_Mouth20251031_Slime", "mouth", "Juzi_01", "YanshiJuzi_Mouth20251031_Slime_Juzi_01_Montage_MAX")
+add_asset("YanshiJuzi_Mouth20251031_Slime", "mouth", "Juzi_01", "YanshiJuzi_Mouth20251031_Slime_Juzi_01_Montage_MIN")
+add_asset("YanshiJuzi_Mouth20251031_Slime", "mouth", "Yanshi_01", "YanshiJuzi_Mouth20251031_Slime_Yanshi_01_Montage")
+add_asset("YanshiJuzi_Mouth20251031_Slime", "mouth", "Yanshi_01", "YanshiJuzi_Mouth20251031_Slime_Yanshi_01_Montage_MAX")
+add_asset("YanshiJuzi_Mouth20251031_Slime", "mouth", "Yanshi_01", "YanshiJuzi_Mouth20251031_Slime_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiNighaunt_Vaginal20251031_Slime"] = {
+    hanime_id = "YanshiNighaunt_Vaginal20251031_Slime", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Nightgaunt_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiNighaunt_Vaginal20251031_Slime", "vaginal", "Nightgaunt_01", "YanshiNighaunt_Vaginal20251031_Slime_Nightgaunt_01_Montage")
+add_asset("YanshiNighaunt_Vaginal20251031_Slime", "vaginal", "Nightgaunt_01", "YanshiNighaunt_Vaginal20251031_Slime_Nightgaunt_01_Montage_MAX")
+add_asset("YanshiNighaunt_Vaginal20251031_Slime", "vaginal", "Nightgaunt_01", "YanshiNighaunt_Vaginal20251031_Slime_Nightgaunt_01_Montage_MIN")
+add_asset("YanshiNighaunt_Vaginal20251031_Slime", "vaginal", "Yanshi_01", "YanshiNighaunt_Vaginal20251031_Slime_Yanshi_01_Montage")
+add_asset("YanshiNighaunt_Vaginal20251031_Slime", "vaginal", "Yanshi_01", "YanshiNighaunt_Vaginal20251031_Slime_Yanshi_01_Montage_MAX")
+add_asset("YanshiNighaunt_Vaginal20251031_Slime", "vaginal", "Yanshi_01", "YanshiNighaunt_Vaginal20251031_Slime_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiNightgaunt_Vaginal01"] = {
+    hanime_id = "YanshiNightgaunt_Vaginal01", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Nightgaunt_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiNightgaunt_Vaginal01", "vaginal", "Nightgaunt_01", "YanshiNightgaunt_Vaginal01_Nightgaunt_01_Montage")
+add_asset("YanshiNightgaunt_Vaginal01", "vaginal", "Nightgaunt_01", "YanshiNightgaunt_Vaginal01_Nightgaunt_01_Montage_MAX")
+add_asset("YanshiNightgaunt_Vaginal01", "vaginal", "Nightgaunt_01", "YanshiNightgaunt_Vaginal01_Nightgaunt_01_Montage_MIN")
+add_asset("YanshiNightgaunt_Vaginal01", "vaginal", "Yanshi_01", "YanshiNightgaunt_Vaginal01_Yanshi_01_Montage")
+add_asset("YanshiNightgaunt_Vaginal01", "vaginal", "Yanshi_01", "YanshiNightgaunt_Vaginal01_Yanshi_01_Montage_MAX")
+add_asset("YanshiNightgaunt_Vaginal01", "vaginal", "Yanshi_01", "YanshiNightgaunt_Vaginal01_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiNightgaunt_Vaginal20260214_00"] = {
+    hanime_id = "YanshiNightgaunt_Vaginal20260214_00", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Nightgaunt_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiNightgaunt_Vaginal20260214_00", "vaginal", "Nightgaunt_01", "YanshiNightgaunt_Vaginal20260214_00_Nightgaunt_01_Montage")
+add_asset("YanshiNightgaunt_Vaginal20260214_00", "vaginal", "Nightgaunt_01", "YanshiNightgaunt_Vaginal20260214_00_Nightgaunt_01_Montage_MAX")
+add_asset("YanshiNightgaunt_Vaginal20260214_00", "vaginal", "Nightgaunt_01", "YanshiNightgaunt_Vaginal20260214_00_Nightgaunt_01_Montage_MIN")
+add_asset("YanshiNightgaunt_Vaginal20260214_00", "vaginal", "Yanshi_01", "YanshiNightgaunt_Vaginal20260214_00_Yanshi_01_Montage")
+add_asset("YanshiNightgaunt_Vaginal20260214_00", "vaginal", "Yanshi_01", "YanshiNightgaunt_Vaginal20260214_00_Yanshi_01_Montage_MAX")
+add_asset("YanshiNightgaunt_Vaginal20260214_00", "vaginal", "Yanshi_01", "YanshiNightgaunt_Vaginal20260214_00_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiShaggai_navel20260126_Wumiao"] = {
+    hanime_id = "YanshiShaggai_navel20260126_Wumiao", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Shaggai_A_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiShaggai_navel20260126_Wumiao", "other", "Shaggai_A_01", "YanshiShaggai_navel20260126_Wumiao_Shaggai_A_01_Montage")
+add_asset("YanshiShaggai_navel20260126_Wumiao", "other", "Shaggai_A_01", "YanshiShaggai_navel20260126_Wumiao_Shaggai_A_01_Montage_MAX")
+add_asset("YanshiShaggai_navel20260126_Wumiao", "other", "Shaggai_A_01", "YanshiShaggai_navel20260126_Wumiao_Shaggai_A_01_Montage_MIN")
+add_asset("YanshiShaggai_navel20260126_Wumiao", "other", "Yanshi_01", "YanshiShaggai_navel20260126_Wumiao_Yanshi_01_Montage")
+add_asset("YanshiShaggai_navel20260126_Wumiao", "other", "Yanshi_01", "YanshiShaggai_navel20260126_Wumiao_Yanshi_01_Montage_MAX")
+add_asset("YanshiShaggai_navel20260126_Wumiao", "other", "Yanshi_01", "YanshiShaggai_navel20260126_Wumiao_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiShantak_Vaginal20260107_Jean"] = {
+    hanime_id = "YanshiShantak_Vaginal20260107_Jean", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Shantak_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiShantak_Vaginal20260107_Jean", "vaginal", "Shantak_01", "YanshiShantak_Vaginal20260107_Jean_Shantak_01_Montage")
+add_asset("YanshiShantak_Vaginal20260107_Jean", "vaginal", "Shantak_01", "YanshiShantak_Vaginal20260107_Jean_Shantak_01_Montage_MAX")
+add_asset("YanshiShantak_Vaginal20260107_Jean", "vaginal", "Shantak_01", "YanshiShantak_Vaginal20260107_Jean_Shantak_01_Montage_MIN")
+add_asset("YanshiShantak_Vaginal20260107_Jean", "vaginal", "Yanshi_01", "YanshiShantak_Vaginal20260107_Jean_Yanshi_01_Montage")
+add_asset("YanshiShantak_Vaginal20260107_Jean", "vaginal", "Yanshi_01", "YanshiShantak_Vaginal20260107_Jean_Yanshi_01_Montage_MAX")
+add_asset("YanshiShantak_Vaginal20260107_Jean", "vaginal", "Yanshi_01", "YanshiShantak_Vaginal20260107_Jean_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiSolo_Vaginal20251022_SundayMorning"] = {
+    hanime_id = "YanshiSolo_Vaginal20251022_SundayMorning", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiSolo_Vaginal20251022_SundayMorning", "vaginal", "Yanshi_01", "YanshiSolo_Vaginal20251022_SundayMorning_Yanshi_01_Montage")
+add_asset("YanshiSolo_Vaginal20251022_SundayMorning", "vaginal", "Yanshi_01", "YanshiSolo_Vaginal20251022_SundayMorning_Yanshi_01_Montage_MAX")
+add_asset("YanshiSolo_Vaginal20251022_SundayMorning", "vaginal", "Yanshi_01", "YanshiSolo_Vaginal20251022_SundayMorning_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiTchoTcho_Foot20251221_QingChen"] = {
+    hanime_id = "YanshiTchoTcho_Foot20251221_QingChen", category = "foot",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "TchoTcho_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiTchoTcho_Foot20251221_QingChen", "foot", "TchoTcho_01", "YanshiTchoTcho_Foot20251221_QingChen_TchoTcho_01_Montage")
+add_asset("YanshiTchoTcho_Foot20251221_QingChen", "foot", "TchoTcho_01", "YanshiTchoTcho_Foot20251221_QingChen_TchoTcho_01_Montage_MAX")
+add_asset("YanshiTchoTcho_Foot20251221_QingChen", "foot", "TchoTcho_01", "YanshiTchoTcho_Foot20251221_QingChen_TchoTcho_01_Montage_MIN")
+add_asset("YanshiTchoTcho_Foot20251221_QingChen", "foot", "Yanshi_01", "YanshiTchoTcho_Foot20251221_QingChen_Yanshi_01_Montage")
+add_asset("YanshiTchoTcho_Foot20251221_QingChen", "foot", "Yanshi_01", "YanshiTchoTcho_Foot20251221_QingChen_Yanshi_01_Montage_MAX")
+add_asset("YanshiTchoTcho_Foot20251221_QingChen", "foot", "Yanshi_01", "YanshiTchoTcho_Foot20251221_QingChen_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiTchotcho_Vaginal20251029_BetaRob"] = {
+    hanime_id = "YanshiTchotcho_Vaginal20251029_BetaRob", category = "vaginal",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "TchoTcho_01",
+        "Yanshi_01",
+    },
+}
+add_asset("YanshiTchotcho_Vaginal20251029_BetaRob", "vaginal", "TchoTcho_01", "YanshiTchotcho_Vaginal20251029_BetaRob_TchoTcho_01_Montage")
+add_asset("YanshiTchotcho_Vaginal20251029_BetaRob", "vaginal", "TchoTcho_01", "YanshiTchotcho_Vaginal20251029_BetaRob_TchoTcho_01_Montage_MAX")
+add_asset("YanshiTchotcho_Vaginal20251029_BetaRob", "vaginal", "TchoTcho_01", "YanshiTchotcho_Vaginal20251029_BetaRob_TchoTcho_01_Montage_MIN")
+add_asset("YanshiTchotcho_Vaginal20251029_BetaRob", "vaginal", "Yanshi_01", "YanshiTchotcho_Vaginal20251029_BetaRob_Yanshi_01_Montage")
+add_asset("YanshiTchotcho_Vaginal20251029_BetaRob", "vaginal", "Yanshi_01", "YanshiTchotcho_Vaginal20251029_BetaRob_Yanshi_01_Montage_MAX")
+add_asset("YanshiTchotcho_Vaginal20251029_BetaRob", "vaginal", "Yanshi_01", "YanshiTchotcho_Vaginal20251029_BetaRob_Yanshi_01_Montage_MIN")
+
+Catalog.by_family["YanshiTchotchoYith_VaginalAnal20260213_X"] = {
+    hanime_id = "YanshiTchotchoYith_VaginalAnal20260213_X", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "TchoTcho_01",
+        "WorkshopCrate_01",
+        "Yanshi_01",
+        "Yith_01",
+    },
+}
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "TchoTcho_01", "YanshiTchotchoYith_VaginalAnal20260213_X_TchoTcho_01_Montage")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "TchoTcho_01", "YanshiTchotchoYith_VaginalAnal20260213_X_TchoTcho_01_Montage_MAX")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "TchoTcho_01", "YanshiTchotchoYith_VaginalAnal20260213_X_TchoTcho_01_Montage_MIN")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "WorkshopCrate_01", "YanshiTchotchoYith_VaginalAnal20260213_X_WorkshopCrate_01_Montage")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "WorkshopCrate_01", "YanshiTchotchoYith_VaginalAnal20260213_X_WorkshopCrate_01_Montage_MAX")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "WorkshopCrate_01", "YanshiTchotchoYith_VaginalAnal20260213_X_WorkshopCrate_01_Montage_MIN")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "Yanshi_01", "YanshiTchotchoYith_VaginalAnal20260213_X_Yanshi_01_Montage")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "Yanshi_01", "YanshiTchotchoYith_VaginalAnal20260213_X_Yanshi_01_Montage_MAX")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "Yanshi_01", "YanshiTchotchoYith_VaginalAnal20260213_X_Yanshi_01_Montage_MIN")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "Yith_01", "YanshiTchotchoYith_VaginalAnal20260213_X_Yith_01_Montage")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "Yith_01", "YanshiTchotchoYith_VaginalAnal20260213_X_Yith_01_Montage_MAX")
+add_asset("YanshiTchotchoYith_VaginalAnal20260213_X", "other", "Yith_01", "YanshiTchotchoYith_VaginalAnal20260213_X_Yith_01_Montage_MIN")
+
+Catalog.by_family["YanshiYith_AnalMouth20260114_MSJ"] = {
+    hanime_id = "YanshiYith_AnalMouth20260114_MSJ", category = "other",
+    catalog_refs = { "Playtest/UE5.7/TableHAnim-NameMap" },
+    participant_tags = {
+        "Yanshi_01",
+        "Yith_01",
+    },
+}
+add_asset("YanshiYith_AnalMouth20260114_MSJ", "other", "Yanshi_01", "YanshiYith_AnalMouth20260114_MSJ_Yanshi_01_Montage")
+add_asset("YanshiYith_AnalMouth20260114_MSJ", "other", "Yanshi_01", "YanshiYith_AnalMouth20260114_MSJ_Yanshi_01_Montage_MAX")
+add_asset("YanshiYith_AnalMouth20260114_MSJ", "other", "Yanshi_01", "YanshiYith_AnalMouth20260114_MSJ_Yanshi_01_Montage_MIN")
+add_asset("YanshiYith_AnalMouth20260114_MSJ", "other", "Yith_01", "YanshiYith_AnalMouth20260114_MSJ_Yith_01_Montage")
+add_asset("YanshiYith_AnalMouth20260114_MSJ", "other", "Yith_01", "YanshiYith_AnalMouth20260114_MSJ_Yith_01_Montage_MAX")
+add_asset("YanshiYith_AnalMouth20260114_MSJ", "other", "Yith_01", "YanshiYith_AnalMouth20260114_MSJ_Yith_01_Montage_MIN")
 
 return Catalog

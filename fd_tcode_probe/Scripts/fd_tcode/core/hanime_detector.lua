@@ -690,6 +690,26 @@ local function select_visible_anim_blueprint_identity(items)
     }
 end
 
+local function inherit_active_identity(recognition_source)
+    if HAnimeDetector.active == nil then
+        return nil
+    end
+    local selected = {}
+    for key, value in pairs(HAnimeDetector.active) do
+        if key ~= "matched_components"
+            and key ~= "matched_participants"
+            and key ~= "participant_components"
+            and key ~= "participant_bindings"
+        then
+            selected[key] = value
+        end
+    end
+    selected.matched_components = {}
+    selected.matched_participants = {}
+    selected.recognition_source = recognition_source
+    return selected
+end
+
 local function observe(allow_recovery)
     -- HManager is discovered only at an HAnime entry/exact-match event. Once
     -- cached, this is a handful of property reads and performs no enumeration.
@@ -792,6 +812,15 @@ local function observe(allow_recovery)
                 selected.recognition_source = "ue57_hanim_state_machine_participant_pair"
             end
         end
+    elseif HAnimeDetector.active ~= nil
+        and IdentityResolver.assets_indicate_confirmed_touch_phase(unknown_assets)
+    then
+        -- A confirmed humanoid HAnime can replace all preview Actors when the
+        -- playable phase starts.  Keep its exact identity and rebuild only the
+        -- participant bindings from the BeginPlay-queued components.  Generic
+        -- Touch expressions can never reach this path without an active exact
+        -- TableHAnim session, so room/UI animations cannot open the gate.
+        selected = inherit_active_identity("table_hanim_exact_confirmed_touch_phase")
     elseif IdentityResolver.assets_indicate_active_hanime(unknown_assets) then
         current_scene_state = HSystemState.read(true)
         selected = IdentityResolver.hsystem_identity(current_scene_state)
@@ -801,19 +830,7 @@ local function observe(allow_recovery)
             -- interaction expression visible. Preserve the established
             -- identity but rebuild its UObject bindings from the event-queued
             -- primary components. Never use this path to open a new gate.
-            selected = {}
-            for key, value in pairs(HAnimeDetector.active) do
-                if key ~= "matched_components"
-                    and key ~= "matched_participants"
-                    and key ~= "participant_components"
-                    and key ~= "participant_bindings"
-                then
-                    selected[key] = value
-                end
-            end
-            selected.matched_components = {}
-            selected.matched_participants = {}
-            selected.recognition_source = "table_hanim_exact_active_expression_refresh"
+            selected = inherit_active_identity("table_hanim_exact_active_expression_refresh")
         end
     end
     if selected == nil then

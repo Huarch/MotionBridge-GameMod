@@ -293,4 +293,23 @@ function Resolver.assets_indicate_active_hanime(assets)
     return false
 end
 
+function Resolver.assets_indicate_confirmed_touch_phase(assets)
+    for _, asset in ipairs(assets or {}) do
+        local text = string.lower(tostring(asset or ""))
+        -- UE 5.7 replaces the preview participants when some humanoid scenes
+        -- enter their playable phase.  The exact TableHAnim Montage then
+        -- disappears and the playable character exposes only a generic Touch
+        -- expression Montage.  These names are not globally unique HAnime
+        -- identifiers, so they may only preserve an already confirmed session;
+        -- they must never open the gate by themselves.
+        if string.find(text, "exp_idle_touch_", 1, true)
+            or string.find(text, "exp_inout_touch_", 1, true)
+            or string.find(text, "exp_ing_touch_", 1, true)
+        then
+            return true
+        end
+    end
+    return false
+end
+
 return Resolver
