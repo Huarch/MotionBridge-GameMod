@@ -61,6 +61,31 @@ try {
         throw "Legacy 0.49 must not map to Demo/Playtest static sidecars. Output: $priorityResult"
     }
 
+    # Reproduce the player-facing README command in a fresh Windows PowerShell
+    # process.  The release installer must find its sibling Game directory when
+    # PayloadRoot is omitted; parameter-default evaluation previously left
+    # PSScriptRoot empty in this exact invocation.
+    $standalonePackage = Join-Path $testRoot "release-package"
+    $standaloneInstaller = Join-Path $standalonePackage "Install-Mod.ps1"
+    $standaloneGameRoot = Join-Path $testRoot "standalone-playtest"
+    New-Item -ItemType Directory -Force -Path $standalonePackage | Out-Null
+    Copy-Item -LiteralPath $installer -Destination $standaloneInstaller
+    New-EmptyFile -Path (Join-Path $standalonePackage "Game\dwmapi.dll")
+    New-EmptyFile -Path (Join-Path $standaloneGameRoot "Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe")
+
+    $windowsPowerShell = Join-Path $env:SystemRoot "System32\WindowsPowerShell\v1.0\powershell.exe"
+    if (-not (Test-Path -LiteralPath $windowsPowerShell -PathType Leaf)) {
+        throw "Windows PowerShell is required for the standalone installer regression test: $windowsPowerShell"
+    }
+    $standaloneResult = & $windowsPowerShell -NoProfile -ExecutionPolicy Bypass `
+        -File $standaloneInstaller -GameRoot $standaloneGameRoot -WhatIf 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0) {
+        throw "Standalone Windows PowerShell installer failed. Output: $standaloneResult"
+    }
+    if ($standaloneResult -notmatch [regex]::Escape("Validated Playtest target")) {
+        throw "Standalone installer did not resolve its sibling Game payload. Output: $standaloneResult"
+    }
+
     Write-Output "Installer edition tests passed."
 }
 finally {

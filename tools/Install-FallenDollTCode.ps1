@@ -6,10 +6,20 @@ param(
     [ValidateSet("Auto", "Playtest", "Legacy049", "DemoDesktop", "DemoVR")]
     [string]$Edition = "Auto",
 
-    [string]$PayloadRoot = (Join-Path $PSScriptRoot "Game")
+    [string]$PayloadRoot = ""
 )
 
 $ErrorActionPreference = "Stop"
+$scriptRoot = $PSScriptRoot
+if ([string]::IsNullOrWhiteSpace($scriptRoot) -and $MyInvocation.MyCommand.Path) {
+    $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+}
+if ([string]::IsNullOrWhiteSpace($PayloadRoot)) {
+    if ([string]::IsNullOrWhiteSpace($scriptRoot)) {
+        throw "Could not locate the installer folder. Run Install-Mod.ps1 as a script file instead of pasting its contents into PowerShell ISE."
+    }
+    $PayloadRoot = Join-Path $scriptRoot "Game"
+}
 $resolvedGameRoot = [System.IO.Path]::GetFullPath($GameRoot)
 $resolvedPayloadRoot = [System.IO.Path]::GetFullPath($PayloadRoot)
 

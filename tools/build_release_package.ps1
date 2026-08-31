@@ -8,6 +8,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $workspace = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
+& (Join-Path $PSScriptRoot "test_install_fallen_doll_tcode.ps1")
 & (Join-Path $PSScriptRoot "test_runtime_module_layout.ps1")
 & (Join-Path $PSScriptRoot "test_hanime_gate_contract.ps1")
 $outputRoot = [System.IO.Path]::GetFullPath((Join-Path $workspace "dist"))

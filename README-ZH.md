@@ -23,7 +23,7 @@
 ## 安装与使用
 
 1. 关闭游戏。
-2. 解压 Mod 包。运行 `Install-Mod.ps1` 并选择 Fallen Doll Playtest 游戏目录；也可以将包内 `Game` 目录的内容复制到游戏目录中的 `Paralogue/Binaries/Win64`。
+2. 完整解压 Mod 包。运行 `Install-Mod.ps1` 并提供 Fallen Doll Playtest 游戏目录；也可以按照下方详细步骤手动安装。
 3. 启动 MotionBridge；如需使用实体设备，再配置 USB 或 Wi-Fi。
 4. 启动 Fallen Doll Playtest 并进入 HAnime。
 5. 确认 MotionBridge 显示 Fallen Doll 数据流为 **Online**。开启真实设备输出前，先打开 3D 预览检查方向和行程。
@@ -34,6 +34,24 @@
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Playtest"
 ```
+
+请在解压后的 Mod 包目录中运行此命令，确保 `Install-Mod.ps1` 与 `Game` 文件夹位于同一级。`GameRoot` 应填写包含 `FallenDollLauncher.exe` 的文件夹，不要填写 EXE 文件本身。不要把 `Install-Mod.ps1` 的内容粘贴到 PowerShell ISE 中执行，否则脚本将失去安装包目录信息。
+
+### 手动安装
+
+1. 完全关闭 Fallen Doll。
+2. 完整解压下载的 Mod ZIP，然后打开其中的 `Game` 文件夹。
+3. 将 `Game` **里面的内容**——`dwmapi.dll` 和 `ue4ss` 文件夹——复制到游戏的 `Paralogue\Binaries\Win64` 文件夹。不要把外层 `Game` 文件夹本身复制进去。Windows 提示时，允许合并 `ue4ss` 文件夹并替换安装包提供的 Mod 文件。
+4. 确认游戏目录最终包含以下三个路径：
+
+```text
+Paralogue\Binaries\Win64\dwmapi.dll
+Paralogue\Binaries\Win64\ue4ss\UE4SS.dll
+Paralogue\Binaries\Win64\ue4ss\Mods\fd_tcode_probe\Scripts\main.lua
+```
+
+5. 先启动 MotionBridge，再启动 Fallen Doll 并进入 HAnime。此 Mod 不会显示游戏内菜单、浮层或调试控制台；收到新动作帧后，MotionBridge 从 **STREAM WAITING** 变为 **STREAM ONLINE**，才是可见的运行结果。
+6. 如果数据流一直处于等待状态，请打开 `Paralogue\Binaries\Win64\ue4ss\UE4SS.log`，并检查进入 HAnime 后 `%USERPROFILE%\.f8\studio\games\fallen-doll\runtime\fd-skeleton.ndjson` 是否存在且持续更新。
 
 Mod 包包含匹配的 UE4SS 文件；MotionBridge 与游戏 Mod 独立下载、独立更新。
 

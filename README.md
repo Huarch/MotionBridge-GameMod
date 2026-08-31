@@ -23,7 +23,7 @@ This is the supported game version. The separate `0.17.x` number identifies the 
 ## Install and use
 
 1. Close the game.
-2. Extract the Mod package. Run `Install-Mod.ps1` and select the Fallen Doll Playtest game folder, or copy the package's `Game` contents to `Paralogue/Binaries/Win64` inside that game folder.
+2. Extract the complete Mod package. Run `Install-Mod.ps1` and provide the Fallen Doll Playtest game folder, or follow the detailed manual installation below.
 3. Start MotionBridge. Configure USB or Wi-Fi only if you plan to use a physical device.
 4. Start the Fallen Doll Playtest and enter an HAnime.
 5. Confirm that MotionBridge reports the Fallen Doll data stream as **Online**. Open the 3D preview to check direction and range before enabling real output.
@@ -34,6 +34,24 @@ Example installer command:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Playtest"
 ```
+
+Run this command from the extracted Mod package directory, where `Install-Mod.ps1` and `Game` are beside each other. `GameRoot` is the folder that contains `FallenDollLauncher.exe`; do not provide the EXE itself. Do not paste the contents of `Install-Mod.ps1` into PowerShell ISE, because that removes the script's package-directory context.
+
+### Manual installation
+
+1. Close Fallen Doll completely.
+2. Extract the entire downloaded Mod ZIP. Open its `Game` folder.
+3. Copy the **contents inside** `Game`—`dwmapi.dll` and the `ue4ss` folder—into the game's `Paralogue\Binaries\Win64` folder. Do not copy the outer `Game` folder itself. Allow Windows to merge the `ue4ss` folder and replace the packaged Mod files when prompted.
+4. Confirm that the resulting game installation contains all three paths:
+
+```text
+Paralogue\Binaries\Win64\dwmapi.dll
+Paralogue\Binaries\Win64\ue4ss\UE4SS.dll
+Paralogue\Binaries\Win64\ue4ss\Mods\fd_tcode_probe\Scripts\main.lua
+```
+
+5. Start MotionBridge, then start Fallen Doll and enter an HAnime. The Mod intentionally has no in-game menu, overlay, or debug console. Its visible result is MotionBridge changing from **STREAM WAITING** to **STREAM ONLINE** after fresh motion frames arrive.
+6. If the stream stays waiting, open `Paralogue\Binaries\Win64\ue4ss\UE4SS.log` and check whether `%USERPROFILE%\.f8\studio\games\fallen-doll\runtime\fd-skeleton.ndjson` exists and continues updating during the HAnime.
 
 The Mod package includes its matching UE4SS files. MotionBridge and the game Mod are separate downloads and can be updated independently.
 
