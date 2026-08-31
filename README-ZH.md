@@ -45,9 +45,14 @@ powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\F
 4. 确认游戏目录最终包含以下三个路径：
 
 ```text
-Paralogue\Binaries\Win64\dwmapi.dll
-Paralogue\Binaries\Win64\ue4ss\UE4SS.dll
-Paralogue\Binaries\Win64\ue4ss\Mods\fd_tcode_probe\Scripts\main.lua
+Paralogue\Binaries\Win64
+├─ dwmapi.dll
+└─ ue4ss
+   ├─ UE4SS.dll
+   └─ Mods
+      └─ fd_tcode_probe
+         └─ Scripts
+            └─ main.lua
 ```
 
 5. 先启动 MotionBridge，再启动 Fallen Doll 并进入 HAnime。此 Mod 不会显示游戏内菜单、浮层或调试控制台；收到新动作帧后，MotionBridge 从 **STREAM WAITING** 变为 **STREAM ONLINE**，才是可见的运行结果。

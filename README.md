@@ -45,9 +45,14 @@ Run this command from the extracted Mod package directory, where `Install-Mod.ps
 4. Confirm that the resulting game installation contains all three paths:
 
 ```text
-Paralogue\Binaries\Win64\dwmapi.dll
-Paralogue\Binaries\Win64\ue4ss\UE4SS.dll
-Paralogue\Binaries\Win64\ue4ss\Mods\fd_tcode_probe\Scripts\main.lua
+Paralogue\Binaries\Win64
+├─ dwmapi.dll
+└─ ue4ss
+   ├─ UE4SS.dll
+   └─ Mods
+      └─ fd_tcode_probe
+         └─ Scripts
+            └─ main.lua
 ```
 
 5. Start MotionBridge, then start Fallen Doll and enter an HAnime. The Mod intentionally has no in-game menu, overlay, or debug console. Its visible result is MotionBridge changing from **STREAM WAITING** to **STREAM ONLINE** after fresh motion frames arrive.
