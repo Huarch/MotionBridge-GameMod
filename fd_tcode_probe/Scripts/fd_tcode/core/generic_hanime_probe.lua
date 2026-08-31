@@ -1,6 +1,8 @@
-local Log = require("fd_tcode.log")
-local Safe = require("fd_tcode.safe")
-local SkeletonCatalog = require("fd_tcode.skeleton_catalog")
+local Log = require("fd_tcode.core.log")
+local MotionContract = require("fd_tcode.core.hanime_motion_contract")
+local Config = require("fd_tcode.config")
+local Safe = require("fd_tcode.core.safe")
+local SkeletonCatalog = require("fd_tcode.core.skeleton_catalog")
 
 local GenericHAnimeProbe = {}
 
@@ -45,98 +47,6 @@ local function read_bone(component, bone_name)
     return values, nil
 end
 
--- Category defaults only rank contact candidates with no left/right ambiguity.
--- Hand and foot poses are intentionally absent: their active side and
--- primary/secondary limb must be annotated per HAnime instead of guessed.
-local target_functions_by_category = {
-    mouth = { "mouth_origin", "tongue_origin" },
-    anal = { "anal_origin" },
-    vaginal = { "vaginal_origin" },
-}
-
-local candidate_functions_by_category = {
-    hand = { "right_hand", "left_hand" },
-    foot = { "right_foot", "left_foot" },
-    breast = { "right_breast_contact", "left_breast_contact" },
-    mouth = { "mouth_origin", "tongue_origin" },
-    anal = { "anal_origin" },
-    vaginal = { "vaginal_origin" },
-    -- Some authoritative TableHAnim families use non-contact names such as
-    -- Sleep01.  Keep these exact-whitelisted poses usable without guessing a
-    -- single interaction: expose only the small functional-bone set and let
-    -- the F8Studio enabled-bone selection choose among it.
-    other = {
-        "vaginal_origin", "anal_origin",
-        "mouth_origin", "tongue_origin",
-        "right_hand", "left_hand",
-        "right_foot", "left_foot",
-    },
-}
-
-target_functions_by_category.other = candidate_functions_by_category.other
-
--- Runtime-confirmed HAnime annotations rank all useful candidates. F8Studio
--- may disable the preferred bone and will then fall back to the next enabled
--- candidate without reloading this Mod. The three unpacked Hand profiles use
--- R_Hand as their declared Target; the left hand remains an explicit fallback
--- that users can select by disabling R_Hand in F8Studio.
-local target_functions_by_hanime_id = {
-    AletMale_Hand01 = { "right_hand", "left_hand" },
-    AletMale_Hand02 = { "right_hand", "left_hand" },
-    AletMale_Hand03 = { "right_hand", "left_hand" },
-    JuziDreamer_Sleep01 = { "vaginal_origin" },
-}
-
-local function preferred_function_names(entry, identity)
-    if entry.motion_role == "male" then
-        return { "primary_origin" }
-    end
-    return target_functions_by_hanime_id[tostring(identity.hanime_id or "")]
-        or target_functions_by_category[tostring(identity.category or "")]
-        or {}
-end
-
-local function candidate_function_names(entry, identity)
-    if entry.motion_role == "male" then
-        -- Four compact points define the VaM-style reference cylinder and its
-        -- stable transverse plane. Penis02 supplies the live axis direction,
-        -- Penis09 supplies the full contact length, and M_Hips supplies the
-        -- unpacked-skeleton-calibrated reference plane.
-        return { "primary_origin", "primary_tip", "extended_tip", "support" }
-    end
-    return target_functions_by_hanime_id[tostring(identity.hanime_id or "")]
-        or candidate_functions_by_category[tostring(identity.category or "")]
-        or {}
-end
-
-local function motion_bone_names(entry, identity)
-    local functional = entry.functional or {}
-    local result = {}
-    local seen = {}
-    for _, function_name in ipairs(candidate_function_names(entry, identity)) do
-        local bone_name = functional[function_name]
-        if bone_name ~= nil and not seen[bone_name] then
-            seen[bone_name] = true
-            table.insert(result, bone_name)
-        end
-    end
-    return result
-end
-
-local function preferred_bone_names(entry, identity)
-    local functional = entry.functional or {}
-    local result = {}
-    local seen = {}
-    for _, function_name in ipairs(preferred_function_names(entry, identity)) do
-        local bone_name = functional[function_name]
-        if bone_name ~= nil and not seen[bone_name] then
-            seen[bone_name] = true
-            table.insert(result, bone_name)
-        end
-    end
-    return result
-end
-
 local function read_component(binding, identity)
     local component = binding.component
     local entry = binding.catalog_entry
@@ -148,7 +58,11 @@ local function read_component(binding, identity)
         return nil, "component is not in the unpacked skeleton catalog"
     end
 
-    local bone_names = motion_bone_names(entry, identity)
+    local contract, contract_error = MotionContract.resolve(entry, identity)
+    if contract == nil then
+        return nil, contract_error or "HAnime motion contract unavailable"
+    end
+    local bone_names = contract.bone_names or {}
     if #bone_names == 0 then
         return nil, string.format(
             "catalog %s has no minimal motion bone for category %s",
@@ -157,29 +71,55 @@ local function read_component(binding, identity)
         )
     end
     local bones = {}
+    local source_bones = contract.source_bones or {}
     for _, bone_name in ipairs(bone_names) do
-        local bone, read_error = read_bone(component, bone_name)
+        local source_bone_name = source_bones[bone_name] or bone_name
+        local bone, read_error = read_bone(component, source_bone_name)
         if bone == nil then
-            return nil, bone_name .. "=" .. tostring(read_error)
+            return nil, source_bone_name .. "=" .. tostring(read_error)
         end
         bones[bone_name] = bone
+    end
+    if Config.motion_debug_enabled == true then
+        local emitted = {}
+        for _, bone_name in ipairs(bone_names) do
+            emitted[bone_name] = true
+        end
+        for _, debug_bone_name in ipairs(contract.debug_bone_names or {}) do
+            if not emitted[debug_bone_name] then
+                local debug_bone = read_bone(component, debug_bone_name)
+                if debug_bone ~= nil then
+                    emitted[debug_bone_name] = true
+                    bones[debug_bone_name] = debug_bone
+                    table.insert(bone_names, debug_bone_name)
+                end
+            end
+        end
     end
     if next(bones) == nil then
         return nil, "catalog has no stream bones"
     end
-
     return {
         component = component,
         component_name = binding.component_name or Safe.object_name(component) or "<unknown>",
+        component_match_method = (binding.component_evidence or {}).method,
         catalog = entry.id,
         catalog_role = entry.role,
-        role = entry.motion_role or entry.role,
+        role = contract.role,
         bone_names = bone_names,
-        preferred_bone_names = preferred_bone_names(entry, identity),
+        preferred_bone_names = contract.preferred_bone_names or {},
+        -- The target contract is built from the edition-specific unpacked
+        -- skeleton catalog.  Export it explicitly so the bridge never has to
+        -- infer a genital/anal/mouth socket from a generic bone-name list.
+        contact_bone_names = contract.kind == "target" and (contract.preferred_bone_names or {}) or {},
+        target_frames = contract.target_frames or {},
         participant_tag = binding.participant_tag,
         participant_slot = binding.participant_slot,
         participant_priority = binding.participant_priority or 0,
         bones = bones,
+        motion_contract_kind = contract.kind,
+        motion_contract_source = contract.source,
+        direct_geometry = contract.direct_geometry,
     }, nil
 end
 
@@ -246,7 +186,11 @@ local function update_binding(participants, hanime_id)
         local labels = {}
         for _, participant in ipairs(participants) do
             table.insert(labels, string.format(
-                "%s[%d bones]", participant.stable_key, #participant.bone_names
+                "%s[%d bones,%s,%s]",
+                participant.stable_key,
+                #participant.bone_names,
+                tostring(participant.motion_contract_source or "unknown"),
+                tostring(participant.component_match_method or "unknown-match")
             ))
         end
         Log.info(string.format(
@@ -264,6 +208,10 @@ function GenericHAnimeProbe.sample(hanime)
         return nil, "HAnime gate is not active"
     end
     local identity = hanime.identity or {}
+    if type(identity.motion_reference_missing) == "table" and #identity.motion_reference_missing > 0 then
+        return nil, "motion contract reference missing after restricted rescan: "
+            .. table.concat(identity.motion_reference_missing, ",")
+    end
     local bindings = unique_live_bindings(identity)
     if #bindings == 0 then
         return nil, "exact HAnime has no live registered participant components"

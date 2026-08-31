@@ -3,7 +3,16 @@
 -- matches these known assets/components; it does not guess a skeleton by
 -- repeatedly probing arbitrary socket names.
 
-local Safe = require("fd_tcode.safe")
+local Safe = require("fd_tcode.core.safe")
+local Config = require("fd_tcode.config")
+local direct_profiles_ok, DirectProfiles = pcall(require, "fd_tcode.data.nonhuman_direct_output_profile_data")
+if not direct_profiles_ok or type(DirectProfiles) ~= "table" then
+    DirectProfiles = {}
+end
+local component_bindings_ok, NonhumanComponentBindings = pcall(require, "fd_tcode.data.nonhuman_component_binding_data")
+if not component_bindings_ok or type(NonhumanComponentBindings) ~= "table" then
+    NonhumanComponentBindings = {}
+end
 
 local Catalog = {}
 
@@ -257,6 +266,32 @@ Catalog.entries = {
     },
 }
 
+-- Nonhuman entries are generated solely from the unpacked REFSKELT mesh
+-- inventory plus exact TableHAnim companion-Montage tags.  They deliberately
+-- share the output motion role "male": this feeds the proven four-reference
+-- bone SR6 path, while catalog IDs remain species-specific for binding and
+-- diagnostics.  Unlike modular humanoids, these meshes are their actor's
+-- only animated body component, so a verified asset match is primary.
+for _, source in ipairs(DirectProfiles.catalogEntries or {}) do
+    if tostring(source.edition or "") == tostring(Config.game_edition or "") then
+        local role_key = tostring(source.roleKey or "")
+        if role_key ~= "" and Catalog.entries[role_key] == nil then
+            Catalog.entries[role_key] = {
+                id = tostring(source.id or role_key),
+                role = role_key,
+                motion_role = "male",
+                participant_tags = source.participantTags or {},
+                asset_names = source.assetNames or {},
+                primary_component_names = {},
+                allow_asset_primary = true,
+                nonhuman_direct = true,
+                monster_directory = tostring(source.monsterDirectory or ""),
+                functional = {},
+            }
+        end
+    end
+end
+
 Catalog.by_id = {}
 for _, entry in pairs(Catalog.entries) do
     Catalog.by_id[entry.id] = entry
@@ -317,7 +352,7 @@ local function read_skinned_asset_name(component)
 end
 
 local function asset_matches(entry, asset_name, asset_full_name)
-    for _, known_name in ipairs(entry.asset_names) do
+    for _, known_name in ipairs(entry.asset_names or {}) do
         if asset_name == known_name then
             return true
         end
@@ -329,7 +364,7 @@ local function asset_matches(entry, asset_name, asset_full_name)
 end
 
 local function component_name_matches(entry, component_name)
-    for _, markers in ipairs(entry.component_markers) do
+    for _, markers in ipairs(entry.component_markers or {}) do
         local matches = true
         for _, marker in ipairs(markers) do
             if not string.find(component_name, marker, 1, true) then
@@ -344,6 +379,54 @@ local function component_name_matches(entry, component_name)
     return false
 end
 
+local function exact_nonhuman_component_name_matches(entry, component_name)
+    if entry.nonhuman_direct ~= true then
+        return false
+    end
+    local component_leaf = short_object_name(component_name)
+    for _, known_asset_name in ipairs(entry.asset_names or {}) do
+        -- The names come from the unpacked primary mesh inventory. Exact
+        -- equality deliberately excludes opacity/helper components.
+        if component_leaf == known_asset_name then
+            return true
+        end
+    end
+    return false
+end
+
+local function match_unpacked_nonhuman_component(component_name)
+    local edition_bindings = NonhumanComponentBindings[tostring(Config.game_edition or "")] or {}
+    local component_leaf = short_object_name(component_name)
+    for directory, binding in pairs(edition_bindings) do
+        if type(binding) == "table"
+            and component_leaf == tostring(binding.componentName or "")
+        then
+            local owner_class = tostring(binding.ownerClass or "")
+            -- Safe.object_name normally includes the owning actor instance.
+            -- If this UE4SS build returns only the leaf, the exact primary
+            -- component identity remains unique within this static table.
+            if owner_class == ""
+                or string.find(component_name, owner_class .. "_", 1, true)
+                or component_name == component_leaf
+            then
+                for role, entry in pairs(Catalog.entries) do
+                    if entry.nonhuman_direct == true
+                        and tostring(entry.monster_directory or "") == tostring(directory)
+                    then
+                        return role, entry, {
+                            method = "unpacked-blueprint-component",
+                            component = component_name,
+                            asset = nil,
+                            property = nil,
+                        }
+                    end
+                end
+            end
+        end
+    end
+    return nil, nil, nil
+end
+
 function Catalog.match_component(component)
     local component_name = Safe.object_name(component) or ""
     local asset_name, asset_full_name, property_name = read_skinned_asset_name(component)
@@ -352,6 +435,32 @@ function Catalog.match_component(component)
         if asset_matches(entry, asset_name, asset_full_name) then
             return role, entry, {
                 method = "skinned-asset",
+                component = component_name,
+                asset = asset_full_name,
+                property = property_name,
+            }
+        end
+    end
+
+    -- Demo UE4.25 may hide SkeletalMesh/SkinAsset from Lua.  Bind the exact
+    -- primary component exported from its Blueprint before HAnime detection;
+    -- otherwise the companion Montage is never observed and the later
+    -- HAnime-specific recovery scan cannot run.
+    local unpacked_role, unpacked_entry, unpacked_evidence = match_unpacked_nonhuman_component(component_name)
+    if unpacked_entry ~= nil then
+        unpacked_evidence.asset = asset_full_name
+        unpacked_evidence.property = property_name
+        return unpacked_role, unpacked_entry, unpacked_evidence
+    end
+
+    -- Playtest normally exposes SkinnedAsset, but some spawned nonhuman
+    -- actors expose only the component leaf to UE4SS Lua. The exact unpacked
+    -- primary mesh identity is still sufficient and avoids a category/name
+    -- heuristic or a bone probe.
+    for role, entry in pairs(Catalog.entries) do
+        if exact_nonhuman_component_name_matches(entry, component_name) then
+            return role, entry, {
+                method = "unpacked-primary-component-name",
                 component = component_name,
                 asset = asset_full_name,
                 property = property_name,
@@ -375,6 +484,92 @@ function Catalog.match_component(component)
     return nil, nil, nil
 end
 
+-- Direct nonhuman profiles declare the authoritative monster directory.
+-- Resolve against that exact declaration rather than using the generic first
+-- asset match, because canonical and supplemental entries can share meshes.
+function Catalog.match_component_for_monster_directory(component, monster_directory)
+    local wanted = tostring(monster_directory or "")
+    if wanted == "" then
+        return nil, nil, nil
+    end
+    local component_name = Safe.object_name(component) or ""
+    local asset_name, asset_full_name, property_name = read_skinned_asset_name(component)
+    for role, entry in pairs(Catalog.entries) do
+        if entry.nonhuman_direct == true
+            and tostring(entry.monster_directory or "") == wanted
+            and asset_matches(entry, asset_name, asset_full_name)
+        then
+            return role, entry, {
+                method = "direct-profile-skinned-asset",
+                component = component_name,
+                asset = asset_full_name,
+                property = property_name,
+            }
+        end
+    end
+
+    -- UE 4.25 Demo does not consistently expose SkeletalMesh to UE4SS Lua.
+    -- Use the exact owner Blueprint and primary component template exported
+    -- from the package instead.  This cannot select similarly named opacity
+    -- or helper components.
+    local component_leaf = short_object_name(component_name)
+    local edition_bindings = NonhumanComponentBindings[tostring(Config.game_edition or "")] or {}
+    local exact_binding = edition_bindings[wanted]
+    if type(exact_binding) == "table"
+        and component_leaf == tostring(exact_binding.componentName or "")
+        and string.find(component_name, tostring(exact_binding.ownerClass or "") .. "_", 1, true)
+    then
+        for role, entry in pairs(Catalog.entries) do
+            if entry.nonhuman_direct == true
+                and tostring(entry.monster_directory or "") == wanted
+            then
+                return role, entry, {
+                    method = "direct-profile-unpacked-blueprint-component",
+                    component = component_name,
+                    asset = asset_full_name,
+                    property = property_name,
+                }
+            end
+        end
+    end
+
+    -- Some UE4SS object-name builds omit the owning actor from the printed
+    -- component name.  The exact exported primary component name is still
+    -- unambiguous within this restricted HAnime directory lookup.
+    if type(exact_binding) == "table"
+        and component_leaf == tostring(exact_binding.componentName or "")
+    then
+        for role, entry in pairs(Catalog.entries) do
+            if entry.nonhuman_direct == true
+                and tostring(entry.monster_directory or "") == wanted
+            then
+                return role, entry, {
+                    method = "direct-profile-unpacked-component",
+                    component = component_name,
+                    asset = asset_full_name,
+                    property = property_name,
+                }
+            end
+        end
+    end
+
+    -- Retain exact unsuffixed component identity for editions whose runtime
+    -- object printer removes Unreal's _GEN_VARIABLE suffix.
+    for role, entry in pairs(Catalog.entries) do
+        if tostring(entry.monster_directory or "") == wanted
+            and exact_nonhuman_component_name_matches(entry, component_name)
+        then
+            return role, entry, {
+                method = "direct-profile-blueprint-component",
+                component = component_name,
+                asset = asset_full_name,
+                property = property_name,
+            }
+        end
+    end
+    return nil, nil, nil
+end
+
 function Catalog.is_primary_component(component, entry)
     local selected_entry = entry
     if selected_entry == nil then
@@ -383,6 +578,9 @@ function Catalog.is_primary_component(component, entry)
     end
     if selected_entry == nil then
         return false
+    end
+    if selected_entry.allow_asset_primary == true then
+        return true
     end
     local full_name = Safe.object_name(component) or ""
     local leaf_name = string.match(full_name, "%.([^%.]+)$") or full_name

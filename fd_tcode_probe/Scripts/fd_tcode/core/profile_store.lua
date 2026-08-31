@@ -1,4 +1,4 @@
-local Log = require("fd_tcode.log")
+local Log = require("fd_tcode.core.log")
 local Config = require("fd_tcode.config")
 
 local ProfileStore = {
@@ -105,7 +105,9 @@ local function profile_path(file_name)
     if directory == nil then
         return nil, "cannot resolve profile_store.lua source directory"
     end
-    return directory .. tostring(file_name or "profile_data.lua")
+    -- Runtime logic lives in core/, while generated rule tables live in the
+    -- adjacent data/ layer. Keep loadfile sandboxing without flattening them.
+    return directory .. "../data/" .. tostring(file_name or "profile_data.lua")
 end
 
 local function load_data_file(path)
@@ -144,9 +146,15 @@ function ProfileStore.reload()
     end
 
     local game_edition = Config.game_edition
-    local sidecar_names = static_sidecars_by_edition[game_edition]
+    local sidecar_names = Config.static_formal_profiles_enabled == true
+        and static_sidecars_by_edition[game_edition]
+        or nil
     if sidecar_names == nil then
-        Log.warn("static formal sidecars skipped: installed edition_local.lua (or FD_TCODE_GAME_EDITION fallback) must be demo-ue4.25 or playtest-ue5; got " .. tostring(game_edition))
+        if Config.static_formal_profiles_enabled == true then
+            Log.warn("static formal sidecars skipped: installed edition_local.lua (or FD_TCODE_GAME_EDITION fallback) must be demo-ue4.25 or playtest-ue5; got " .. tostring(game_edition))
+        else
+            Log.info("static formal sidecars disabled; set FD_TCODE_ENABLE_STATIC_FORMAL_PROFILES=1 for diagnostic validation")
+        end
     else
         for _, sidecar_spec in ipairs(sidecar_names) do
             local sidecar_name = sidecar_spec.file

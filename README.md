@@ -1,21 +1,28 @@
-# MotionBridge Game Mod — Fallen Doll Demo
+# MotionBridge Game Mod — Fallen Doll Demo / Legacy 0.49
 
 [简体中文](README-ZH.md) | English
 
-This branch contains the UE4SS Mod for the **Operation Lovecraft: Fallen Doll Demo**. It recognizes the active HAnime and streams the required functional-bone data to [MotionBridge](https://github.com/Huarch/MotionBridge).
+This branch contains the UE4SS Mod for the **Operation Lovecraft: Fallen Doll Demo** and the legacy **0.49** game build. It recognizes the active HAnime and streams the required functional-bone data to [MotionBridge](https://github.com/Huarch/MotionBridge).
 
 MotionBridge is required: it provides the desktop interface, 3D preview, motion tuning, USB/Wi-Fi device connection, TCode output, and safe return to center. This Mod does not control a device by itself, does not create an in-game overlay, and does not modify game Pak files.
 
+## Supported game versions
+
+- Steam Demo: Desktop and VR editions
+- Legacy standalone build: `0.49`
+
+These are game compatibility versions. The separate `0.17.x` number identifies the Mod package itself and is not a Fallen Doll game version.
+
 ## Before you start
 
-- Install the Steam Demo of Operation Lovecraft: Fallen Doll.
+- Install either the Steam Demo of Operation Lovecraft: Fallen Doll or the legacy `0.49` build.
 - Download and run the current [MotionBridge release](https://github.com/Huarch/MotionBridge/releases).
 - Download the Mod package built from the `fallen-doll-demo` branch or its matching [release](https://github.com/Huarch/MotionBridge-GameMod/releases).
 
 ## Install and use
 
 1. Close the game.
-2. Extract the Mod package. Run `Install-Mod.ps1` and select the Fallen Doll Demo game folder, or copy the package's `Game` contents to `Paralogue/Binaries/Win64` inside that game folder.
+2. Extract the Mod package. Run `Install-Mod.ps1` and select the Demo or legacy `0.49` game folder. The installer detects Demo Desktop, Demo VR, and Legacy 0.49 layouts separately. Manual copying remains available through the package's `Game` directory.
 3. Start MotionBridge. Configure USB or Wi-Fi only if you plan to use a physical device.
 4. Start the Fallen Doll Demo and enter an HAnime.
 5. Confirm that MotionBridge reports the Fallen Doll data stream as **Online**. Open the 3D preview to check direction and range before enabling real output.
@@ -27,6 +34,12 @@ Example installer command:
 powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Demo"
 ```
 
+Legacy 0.49 example:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Operation Lovecraft (0.49)"
+```
+
 The Mod package includes its matching UE4SS files. MotionBridge and the game Mod are separate downloads and can be updated independently.
 
 ## Shortcuts
@@ -34,6 +47,13 @@ The Mod package includes its matching UE4SS files. MotionBridge and the game Mod
 - `F6`: toggle low-frequency diagnostics
 - `F8`: export the current pose list once
 - `F10`: safely reload the Lua Mod
+
+## Development layout
+
+- `fd_tcode_probe/` and `fd_tcode_reloader/` are the only deployable UE4SS Mod sources.
+- `fd_tcode_probe/Scripts/fd_tcode/core/` contains hand-written runtime logic.
+- `fd_tcode_probe/Scripts/fd_tcode/data/` contains generated and Demo-specific tables.
+- `tools/` contains validation, installer, and release scripts; release builds run the module-layout check first.
 
 ## Support
 

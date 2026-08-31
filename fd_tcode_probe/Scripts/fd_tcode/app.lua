@@ -1,21 +1,43 @@
 local Config = require("fd_tcode.config")
-local HAnimeDetector = require("fd_tcode.hanime_detector")
-local Log = require("fd_tcode.log")
-local PoseCatalogProbe = require("fd_tcode.pose_catalog_probe")
-local PrecisionCapture = require("fd_tcode.precision_capture")
-local ProfileStore = require("fd_tcode.profile_store")
-local Runtime = require("fd_tcode.runtime")
-local Safe = require("fd_tcode.safe")
-local SkeletonStream = require("fd_tcode.skeleton_stream")
+local HAnimeDetector = require("fd_tcode.core.hanime_detector")
+local HAnimeStreamGate = require("fd_tcode.core.hanime_stream_gate")
+local Log = require("fd_tcode.core.log")
+local PoseCatalogProbe = require("fd_tcode.core.pose_catalog_probe")
+local ProfileStore = require("fd_tcode.core.profile_store")
+local Runtime = require("fd_tcode.core.runtime")
+local Safe = require("fd_tcode.core.safe")
 
 local App = {}
+local precision_capture = nil
+local precision_capture_attempted = false
+
+local function optional_precision_capture()
+    if Config.precision_capture_enabled ~= true then
+        return nil
+    end
+    if precision_capture_attempted then
+        return precision_capture
+    end
+    precision_capture_attempted = true
+
+    local ok, module_or_error = pcall(require, "fd_tcode.core.precision_capture")
+    if not ok then
+        Log.error("precision capture module failed to load: " .. tostring(module_or_error))
+        return nil
+    end
+    precision_capture = module_or_error
+    return precision_capture
+end
 
 local function register_hanime_events()
     local created_ok, created_error = pcall(function()
         NotifyOnNewObject("/Script/Engine.SkeletalMeshComponent", function(component)
             HAnimeDetector.queue_component(component)
-            PrecisionCapture.queue_component(component)
-            SkeletonStream.notify_hanime_event()
+            local capture = optional_precision_capture()
+            if capture ~= nil then
+                capture.queue_component(component)
+            end
+            HAnimeStreamGate.notify_hanime_event()
         end)
     end)
     if not created_ok then
@@ -35,7 +57,7 @@ local function register_hanime_events()
                     HAnimeDetector.queue_component(component)
                 end
             end
-            SkeletonStream.notify_hanime_event()
+            HAnimeStreamGate.notify_hanime_event()
         end)
     end)
     if not montage_ok then
@@ -52,13 +74,17 @@ function App.start()
     ProfileStore.reload()
     register_keys()
     register_hanime_events()
-    SkeletonStream.start()
-    PrecisionCapture.start()
+    HAnimeStreamGate.start()
+    local capture = optional_precision_capture()
+    if capture ~= nil then
+        capture.start()
+    end
     Log.info(string.format("version=%s loaded", Config.version))
     Log.info("SIMULATION ONLY / DEVICE DISABLED")
     Log.info("F6 monitor on/off | F7 external F8Studio | F8 export current pose list | F10 full Lua reload via broker")
     Log.info(string.format(
-        "automatic HAnime stream armed at %.1f Hz; bone output is active only for exact HAnime and idle otherwise",
+        "idle HAnime gate armed at %.1f Hz; functional bones sample at %.1f Hz only during exact HAnime",
+        1000 / Config.hanime_poll_interval_ms,
         1000 / Config.skeleton_sample_interval_ms
     ))
 end

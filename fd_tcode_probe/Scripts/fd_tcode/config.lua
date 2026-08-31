@@ -39,6 +39,7 @@ local game_edition = local_edition ~= "" and local_edition or environment_editio
 -- motion rules.  An empty/invalid edition is a hard refusal rather than a
 -- cross-build fallback.
 local precision_capture_enabled = os.getenv("FD_TCODE_PRECISION_CAPTURE") == "1"
+local static_formal_profiles_enabled = os.getenv("FD_TCODE_ENABLE_STATIC_FORMAL_PROFILES") == "1"
 local precision_capture_edition = local_edition ~= "" and local_edition
     or tostring(os.getenv("FD_TCODE_PRECISION_EDITION") or environment_edition)
 -- Static formal profile sidecars are intentionally edition-gated.  Empty or
@@ -46,7 +47,7 @@ local precision_capture_edition = local_edition ~= "" and local_edition
 
 return {
     name = "FD-TCode",
-    version = "0.17.0",
+    version = "0.17.2",
     simulation_only = true,
     monitor_interval_ms = 500,
     bone_probe_names = {
@@ -82,6 +83,11 @@ return {
     skeleton_spool_path = runtime_dir .. "/fd-skeleton.ndjson",
     pose_catalog_path = runtime_dir .. "/fd-visible-poses.tsv",
     precision_capture_enabled = precision_capture_enabled,
+    static_formal_profiles_enabled = static_formal_profiles_enabled,
+    -- Demo nonhuman body planes are geometry inputs only. Rotation remains at
+    -- midpoint until each creature template has an edition-specific runtime
+    -- calibration.
+    nonhuman_rotation_axes_enabled = false,
     precision_capture_edition = precision_capture_edition,
     game_edition = game_edition,
     edition_local_source = tostring(edition_local.source or "<unknown>"),

@@ -1,7 +1,7 @@
-local HScene = require("fd_tcode.hscene")
-local BoneProbe = require("fd_tcode.bone_probe")
-local Log = require("fd_tcode.log")
-local Safe = require("fd_tcode.safe")
+local HScene = require("fd_tcode.core.hscene")
+local BoneProbe = require("fd_tcode.core.bone_probe")
+local Log = require("fd_tcode.core.log")
+local Safe = require("fd_tcode.core.safe")
 
 local Diagnostics = {}
 

@@ -13,7 +13,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data" / "playtest-female-female-provisional-contact-catalog-v1.json"
-OUTPUT = ROOT / "fd_tcode_probe" / "Scripts" / "fd_tcode" / "female_female_provisional_profile_data.lua"
+OUTPUT = ROOT / "fd_tcode_probe" / "Scripts" / "fd_tcode" / "data" / "female_female_provisional_profile_data.lua"
 
 
 def lua_value(value: Any, indent: int = 0) -> str:

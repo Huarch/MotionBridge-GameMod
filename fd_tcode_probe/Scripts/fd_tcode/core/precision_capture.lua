@@ -5,12 +5,12 @@
 
 local Config = require("fd_tcode.config")
 local IdentitySources = {
-    ["demo-ue4.25"] = require("fd_tcode.demo_hanime_identity_data"),
-    ["playtest-ue5"] = require("fd_tcode.hanime_identity_data"),
+    ["demo-ue4.25"] = require("fd_tcode.data.demo_hanime_identity_data"),
+    ["playtest-ue5"] = require("fd_tcode.data.hanime_identity_data"),
 }
-local Log = require("fd_tcode.log")
-local Safe = require("fd_tcode.safe")
-local CaptureData = require("fd_tcode.precision_capture_data")
+local Log = require("fd_tcode.core.log")
+local Safe = require("fd_tcode.core.safe")
+local CaptureData = require("fd_tcode.data.precision_capture_data")
 
 local PrecisionCapture = {
     running = false,
@@ -295,7 +295,7 @@ local function active_cases()
     for _, group in pairs(grouped) do
         if selected == nil or group.count > selected.count then
             selected = group
-        elseif selected ~= nil and group.count == selected.count
+        elseif selected ~= nil and group.count == selected.count then
             -- Two exact queued HAnime IDs at the same priority are ambiguous;
             -- never guess which scene supplies a capture record.
             return nil, "ambiguous_exact_hanime"

@@ -29,16 +29,17 @@ class PrecisionCaptureDataTests(unittest.TestCase):
                     self.assertIn(json.dumps(bone), rendered)
 
     def test_capture_is_explicitly_opt_in_and_separate_from_normal_spool(self) -> None:
-        config = (DEFAULT_OUTPUT.parent / "config.lua").read_text(encoding="utf-8")
-        app = (DEFAULT_OUTPUT.parent / "app.lua").read_text(encoding="utf-8")
-        capture = (DEFAULT_OUTPUT.parent / "precision_capture.lua").read_text(encoding="utf-8")
+        config = (DEFAULT_OUTPUT.parent.parent / "config.lua").read_text(encoding="utf-8")
+        app = (DEFAULT_OUTPUT.parent.parent / "app.lua").read_text(encoding="utf-8")
+        capture = (DEFAULT_OUTPUT.parent.parent / "core" / "precision_capture.lua").read_text(encoding="utf-8")
         self.assertIn('os.getenv("FD_TCODE_PRECISION_CAPTURE") == "1"', config)
         self.assertIn('precision_capture_spool_path = runtime_dir .. "/fd-precision-capture.ndjson"', config)
-        self.assertIn("PrecisionCapture.start()", app)
+        self.assertIn('pcall(require, "fd_tcode.core.precision_capture")', app)
+        self.assertIn("capture.start()", app)
         self.assertIn('GetSocketTransform(fname, space)', capture)
         self.assertIn('read_transform(component, bone_name, 0)', capture)
         self.assertIn('read_transform(component, bone_name, 2)', capture)
-        self.assertNotIn('require("fd_tcode.skeleton_stream")', capture)
+        self.assertNotIn('require("fd_tcode.core.skeleton_stream")', capture)
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 local Config = require("fd_tcode.config")
-local HScene = require("fd_tcode.hscene")
-local Log = require("fd_tcode.log")
-local PoseResolver = require("fd_tcode.pose_resolver")
-local Safe = require("fd_tcode.safe")
-local SkeletonCatalog = require("fd_tcode.skeleton_catalog")
+local HScene = require("fd_tcode.core.hscene")
+local Log = require("fd_tcode.core.log")
+local PoseResolver = require("fd_tcode.core.pose_resolver")
+local Safe = require("fd_tcode.core.safe")
+local SkeletonCatalog = require("fd_tcode.core.skeleton_catalog")
 
 local ProfileProbe = {}
 

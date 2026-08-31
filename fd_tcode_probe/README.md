@@ -128,32 +128,34 @@ the legacy localhost UDP relay is not required by the current v15 project.
 ## Layout
 
 - `Scripts/main.lua`: minimal protected entry point.
-- `fd_tcode/app.lua`: lifecycle and key registration.
-- `fd_tcode/runtime.lua`: change-only monitor.
-- `fd_tcode/hscene.lua`: HScene discovery and plain snapshot construction.
-- `fd_tcode/bone_probe.lua`: active-participant binding and compatibility Hand
+- `fd_tcode/app.lua`: minimal lifecycle entry point.
+- `fd_tcode/config.lua` and `fd_tcode/edition_local.lua`: runtime and edition configuration.
+- `fd_tcode/core/`: hand-written runtime logic.
+- `fd_tcode/data/`: generated identity, profile, calibration, and body-plane tables.
+- `fd_tcode/core/runtime.lua`: change-only monitor.
+- `fd_tcode/core/hscene.lua`: HScene discovery and plain snapshot construction.
+- `fd_tcode/core/bone_probe.lua`: active-participant binding and compatibility Hand
   sampler.
-- `fd_tcode/profile_probe.lua`: profile-selected primary/reference binding for
+- `fd_tcode/core/profile_probe.lua`: profile-selected primary/reference binding for
   all registered playable skeletons.
-- `fd_tcode/pose_resolver.lua`: HScene/Montage matching against the hot pose
+- `fd_tcode/core/pose_resolver.lua`: HScene/Montage matching against the hot pose
   catalog.
-- `fd_tcode/hanime_detector.lua`: exact active-Montage HAnime gate,
+- `fd_tcode/core/hanime_detector.lua`: exact active-Montage HAnime gate,
   acquisition/release state, and idle-to-HAnime component-cache recovery.
-- `fd_tcode/generic_hanime_probe.lua`: profile-free active-participant skeleton
+- `fd_tcode/core/generic_hanime_probe.lua`: profile-free active-participant skeleton
   sampler used only while the exact HAnime gate is open.
-- `fd_tcode/hanime_identity_data.lua`: generated `TableHAnim` Montage allowlist.
-- `fd_tcode/pose_catalog_probe.lua`: safe, one-shot active `HManager_C`
+- `fd_tcode/data/hanime_identity_data.lua`: generated `TableHAnim` Montage allowlist.
+- `fd_tcode/core/pose_catalog_probe.lua`: safe, one-shot active `HManager_C`
   `LocalHDatas` reflection and TSV export.
 - `data/hanim-table-index-v1.json`: direct primary-character asset references
   from `/Game/Data/TableHAnim`; not a visible pose count or count bound.
 - `data/character-pose-index-v1.json`: loose Pak normal-cycle asset coverage;
   not an in-game pose count.
-- `fd_tcode/diagnostics.lua`: manual detailed diagnostics.
-- `fd_tcode/safe.lua`: protected Unreal reads and value formatting.
-- `fd_tcode/config.lua`: diagnostic hotkeys, polling interval, and known property names.
-- `fd_tcode/profile_data.lua`: legacy/manual geometry rules; not consumed by
+- `fd_tcode/core/diagnostics.lua`: manual detailed diagnostics.
+- `fd_tcode/core/safe.lua`: protected Unreal reads and value formatting.
+- `fd_tcode/data/profile_data.lua`: legacy/manual geometry rules; not consumed by
   the automatic functional contact stream.
-- `fd_tcode/profile_store.lua`: validated refresh/fallback for those manual
+- `fd_tcode/core/profile_store.lua`: validated refresh/fallback for those manual
   diagnostics.
 
 ## Static-formal profile sidecars

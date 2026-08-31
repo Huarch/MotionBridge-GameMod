@@ -1,10 +1,13 @@
 param(
-    [string]$Version = "0.17.0",
+    # Mod package version. Supported Fallen Doll game versions are documented
+    # separately in README.md and README-ZH.md.
+    [string]$Version = "0.17.2",
     [string]$UE4SSArchive = ""
 )
 
 $ErrorActionPreference = "Stop"
 $workspace = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
+& (Join-Path $PSScriptRoot "test_runtime_module_layout.ps1")
 $outputRoot = [System.IO.Path]::GetFullPath((Join-Path $workspace "dist"))
 $packageName = "MotionBridge-FallenDoll-Demo-Mod-$Version"
 $packageDir = [System.IO.Path]::GetFullPath((Join-Path $outputRoot $packageName))

@@ -1,8 +1,8 @@
 local Config = require("fd_tcode.config")
-local Diagnostics = require("fd_tcode.diagnostics")
-local HScene = require("fd_tcode.hscene")
-local Log = require("fd_tcode.log")
-local PoseResolver = require("fd_tcode.pose_resolver")
+local Diagnostics = require("fd_tcode.core.diagnostics")
+local HScene = require("fd_tcode.core.hscene")
+local Log = require("fd_tcode.core.log")
+local PoseResolver = require("fd_tcode.core.pose_resolver")
 
 local Runtime = {
     monitoring = false,

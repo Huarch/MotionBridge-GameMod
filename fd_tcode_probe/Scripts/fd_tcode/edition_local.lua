@@ -1,8 +1,7 @@
--- Installed-edition marker.  This repository default is deliberately blank:
--- static version-specific sidecars must not load until the installer writes a
--- recognized target edition into the copied Mod.
+-- This branch is dedicated to the public Demo. Installed copies and local
+-- development links must never fall back to Playtest identity/profile data.
 return {
     schema_version = 1,
-    edition = "",
-    source = "repository-default-unconfigured",
+    edition = "demo-ue4.25",
+    source = "branch:fallen-doll-demo",
 }

@@ -2,8 +2,8 @@
 -- source artifact. Duplicate Montage keys are accepted only when both builds
 -- identify the same HAnime family.
 
-local Playtest = require("fd_tcode.hanime_identity_data")
-local Demo = require("fd_tcode.demo_hanime_identity_data")
+local Playtest = require("fd_tcode.data.hanime_identity_data")
+local Demo = require("fd_tcode.data.demo_hanime_identity_data")
 
 local Catalog = {
     by_montage = {},

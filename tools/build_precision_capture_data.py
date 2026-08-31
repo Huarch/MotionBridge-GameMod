@@ -19,7 +19,7 @@ DEFAULT_SOURCES = (
     ROOT / "data" / "demo-precision-review-queue-v1.json",
     ROOT / "data" / "playtest-precision-measurement-queue-v1.json",
 )
-DEFAULT_OUTPUT = ROOT / "fd_tcode_probe" / "Scripts" / "fd_tcode" / "precision_capture_data.lua"
+DEFAULT_OUTPUT = ROOT / "fd_tcode_probe" / "Scripts" / "fd_tcode" / "data" / "precision_capture_data.lua"
 
 
 def _lua_quote(value: str) -> str:

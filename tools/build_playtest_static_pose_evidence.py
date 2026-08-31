@@ -84,7 +84,7 @@ STATIC_AXES = {
     "Ghoul": [["JJ_joint", "JJ_join_Skin02", "JJ_join_Skin14", None, "continuous_chain"]],
     "Lloigor": [["j01_joint1", "j01_joint2", "j01_joint21", None, "continuous_chain"], ["j02_joint1", "j02_joint2", "j02_joint21", None, "continuous_chain"]],
     "Sylph": [["Drill3", "Drill3_0", "Drill3_0", None, "prop_axis"]],
-    "TchoTcho": [["JJ_skin1splineIkBnA", "JJ_skin1splineIkBnB", "JJ_skin1splineIkBn20", None, "continuous_chain"]],
+    "TchoTcho": [["JJ_skin1splineIkBnA", "JJ_skin1splineIkBn1", "JJ_skin1splineIkBn20", None, "continuous_chain"]],
     "guge": [["JJ_skin1", "JJ_skin2", "JJ_skin21", None, "continuous_chain"]],
     "Hippocamp_1": [["JJ_skin1", "JJ_skin2", "JJ_skin28", None, "continuous_chain"]],
     "RevenantOfSaaitii_1": [["penis_root", "penis_joint1", "penis_joint36", None, "branched_tip_chain"]],

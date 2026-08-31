@@ -15,7 +15,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data" / "demo-static-bone-profile-table-v1.json"
-OUTPUT = ROOT / "fd_tcode_probe" / "Scripts" / "fd_tcode" / "demo_static_formal_profile_data.lua"
+OUTPUT = ROOT / "fd_tcode_probe" / "Scripts" / "fd_tcode" / "data" / "demo_static_formal_profile_data.lua"
 
 
 def lua_value(value: Any, indent: int = 0) -> str:
