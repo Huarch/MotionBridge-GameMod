@@ -1,6 +1,7 @@
 local Config = require("fd_tcode.config")
 local HAnimeManagerEventProbe = require("fd_tcode.core.hanime_manager_event_probe")
 local HAnimeRuntime = require("fd_tcode.core.hanime_runtime")
+local LocalPlayerActionGate = require("fd_tcode.core.local_player_action_gate")
 local Log = require("fd_tcode.core.log")
 local ProfileStore = require("fd_tcode.core.profile_store")
 
@@ -31,6 +32,7 @@ local function register_hanime_events()
     local world_ok, world_error = pcall(function()
         NotifyOnNewObject("/Script/Engine.World", function()
             HAnimeManagerEventProbe.try_register()
+            LocalPlayerActionGate.world_changed()
             HAnimeRuntime.world_changed()
         end)
     end)
@@ -56,8 +58,8 @@ local function register_hanime_events()
 end
 
 local function register_keys()
-    -- F6 is documented as diagnostics. Keep it as a one-shot game-thread
-    -- capture; a continuous monitor is neither needed nor desirable here.
+    -- F6 remains reserved, but reflection diagnostics are not part of the
+    -- production UE 5.7 runtime.
     RegisterKeyBind(Config.keys.toggle_runtime, function()
         ExecuteInGameThread(function()
             Log.warn("F6 runtime reflection diagnostics are disabled on UE 5.7")
@@ -70,6 +72,7 @@ function App.start()
     register_keys()
     register_hanime_events()
     HAnimeManagerEventProbe.start()
+    LocalPlayerActionGate.start(HAnimeRuntime.local_action_changed)
     HAnimeRuntime.start()
     if PrecisionCapture ~= nil then
         PrecisionCapture.start()
@@ -78,7 +81,7 @@ function App.start()
     Log.info("SIMULATION ONLY / DEVICE DISABLED")
     Log.info("F6 diagnostics | F7 reserved | F10 probe hot reload")
     Log.info(string.format(
-        "HAnime state watcher active at %.1f Hz; native HAnime event hooks disabled",
+        "HAnime identity watcher active at %.1f Hz; local-player action gate enabled",
         1000 / Config.hanime_poll_interval_ms
     ))
 end

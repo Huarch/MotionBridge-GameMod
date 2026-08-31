@@ -6,6 +6,8 @@ This branch contains the UE4SS Mod for the **Operation Lovecraft: Fallen Doll Pl
 
 MotionBridge is required: it provides the desktop interface, 3D preview, motion tuning, USB/Wi-Fi device connection, TCode output, and safe return to center. This Mod does not control a device by itself, does not create an in-game overlay, and does not modify game Pak files.
 
+In multiplayer, the outer action gate follows only the local player's HAnime state, so a remote player's action cannot open or reopen the output stream. This gate does not read, store, log, or transmit a player ID.
+
 ## Supported game version
 
 - Fallen Doll Playtest `0.9.0` (desktop and VR)

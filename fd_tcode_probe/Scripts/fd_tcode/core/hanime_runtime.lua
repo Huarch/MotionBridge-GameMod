@@ -1,11 +1,10 @@
 -- Stable runtime shell for hot-reloadable HAnime state detection.
 --
--- The formal path deliberately does not depend on a single HAnime enter/exit
--- event. Inactive/acquiring state is checked at 4 Hz. Once verified, the gate
--- stays locked to live participant components and the 50 Hz skeleton stream
--- does not rescan AnimBP/Montage/HManager state. Lifecycle and F10 request a
--- bounded transition review; a future verified Montage adapter can use the
--- same one-shot detector API.
+-- A verified local-player action callback opens and closes the outer gate.
+-- While open, exact TableHAnim identity remains authoritative for the action
+-- and participant bindings. Once verified, the 50 Hz skeleton stream stays
+-- locked to those live components without rescanning AnimBP/Montage/HManager
+-- state. Lifecycle and F10 request only a bounded transition review.
 
 local Log = require("fd_tcode.core.log")
 local SkeletonStream = require("fd_tcode.core.skeleton_stream")
@@ -15,6 +14,7 @@ local DETECTOR_MODULE = "fd_tcode.core.hanime_detector"
 local Runtime = {
     detector = require(DETECTOR_MODULE),
     running = false,
+    local_action_active = false,
 }
 
 local CHARACTER_ACTOR_TOKENS = {
@@ -197,7 +197,17 @@ end
 function Runtime.world_changed()
     -- NotifyOnNewObject(World) is only a cache boundary. It is not interpreted
     -- as HAnime enter/exit, and no Unreal wrapper is retained from the event.
+    Runtime.local_action_active = false
+    Runtime.detector.set_local_action_active(false)
     Runtime.detector.clear_cache()
+    SkeletonStream.notify_hanime_event()
+end
+
+function Runtime.local_action_changed(active)
+    Runtime.local_action_active = active == true
+    Runtime.detector.set_local_action_active(Runtime.local_action_active)
+    -- The event already runs on the game thread. The regular 20 ms loop owns
+    -- all UObject reads and will consume this request on its next iteration.
     SkeletonStream.notify_hanime_event()
 end
 
@@ -222,6 +232,7 @@ function Runtime.reload_detector()
         or type(detector.queue_component) ~= "function"
         or type(detector.queue_actor_components) ~= "function"
         or type(detector.request_component_discovery) ~= "function"
+        or type(detector.set_local_action_active) ~= "function"
         or type(detector.clear_cache) ~= "function"
     then
         if package ~= nil and type(package.loaded) == "table" then
@@ -234,6 +245,7 @@ function Runtime.reload_detector()
     end
 
     Runtime.detector = detector
+    Runtime.detector.set_local_action_active(Runtime.local_action_active)
     Runtime.detector.request_component_discovery()
     SkeletonStream.set_detector(detector)
     SkeletonStream.start({ preserve_detector_cache = true })

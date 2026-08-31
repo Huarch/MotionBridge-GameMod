@@ -1,7 +1,7 @@
 param(
     # Mod package version. The supported Playtest game version is documented
     # separately in README.md and README-ZH.md.
-    [string]$Version = "0.17.4",
+    [string]$Version = "0.17.5",
     [string]$UE4SSArchive = "",
     [string]$PatchedUE4SSDll = ""
 )
@@ -147,6 +147,7 @@ $probeRuntimeFiles = @(
     "Scripts/fd_tcode/core/hanime_motion_contract.lua",
     "Scripts/fd_tcode/core/hanime_runtime.lua",
     "Scripts/fd_tcode/core/hscene.lua",
+    "Scripts/fd_tcode/core/local_player_action_gate.lua",
     "Scripts/fd_tcode/core/log.lua",
     "Scripts/fd_tcode/core/profile_store.lua",
     "Scripts/fd_tcode/core/safe.lua",

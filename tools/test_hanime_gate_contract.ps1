@@ -8,6 +8,7 @@ $resolverPath = Join-Path $moduleRoot "core\hanime_identity_resolver.lua"
 $catalogPath = Join-Path $moduleRoot "core\skeleton_catalog.lua"
 $registryPath = Join-Path $moduleRoot "core\hanime_component_registry.lua"
 $runtimePath = Join-Path $moduleRoot "core\hanime_runtime.lua"
+$localActionGatePath = Join-Path $moduleRoot "core\local_player_action_gate.lua"
 $streamPath = Join-Path $moduleRoot "core\skeleton_stream.lua"
 $targetFramePath = Join-Path $moduleRoot "data\target_frame_catalog.lua"
 
@@ -17,6 +18,7 @@ $resolver = Get-Content -Raw -LiteralPath $resolverPath
 $catalog = Get-Content -Raw -LiteralPath $catalogPath
 $registry = Get-Content -Raw -LiteralPath $registryPath
 $runtime = Get-Content -Raw -LiteralPath $runtimePath
+$localActionGate = Get-Content -Raw -LiteralPath $localActionGatePath
 $stream = Get-Content -Raw -LiteralPath $streamPath
 $targetFrames = Get-Content -Raw -LiteralPath $targetFramePath
 
@@ -38,6 +40,20 @@ Assert-NotMatches $config 'hanime_active_periodic_review_enabled' `
     "Periodic active gate review must not be configurable"
 Assert-NotMatches $detector 'active_cached_polls|hanime_active_full_poll_stride|hanime_active_periodic_review_enabled' `
     "Periodic active gate review state returned to hanime_detector.lua"
+Assert-Matches $localActionGate '/Script/Paralogue\.RoomManagerBase:OnLocalPlayerActionChanged' `
+    "Verified local-player action hook is missing"
+Assert-Matches $localActionGate 'handler\(select\(3, \.\.\.\)\)' `
+    "Local action hook must forward only the new-action enum"
+Assert-NotMatches $localActionGate 'select\((1|2|4), \.\.\.\)|GetLocalPlayerId|HPerformer|Roles|IsLocallyControlled|IsLocalController|Find(All|First)Of' `
+    "Local action gate must not inspect identity, ownership, role, or manager objects"
+Assert-Matches $localActionGate 'new_action == ACTION_IN_H or new_action == ACTION_IN_DUMMY_H[\s\S]*?set_active\(true' `
+    "Local InH/InDummyH transitions must open the action gate"
+Assert-Matches $localActionGate 'new_action == ACTION_NONE[\s\S]*?set_active\(false' `
+    "Local None transition must close the action gate"
+Assert-Matches $detector 'function HAnimeDetector\.sample\(\)[\s\S]*?local_action_active ~= true[\s\S]*?local_player_not_in_h[\s\S]*?ensure_hot_spool_batching' `
+    "Closed local-player gate must stop before any HAnime observation"
+Assert-Matches $detector 'function HAnimeDetector\.set_local_action_active\(active\)[\s\S]*?if active then[\s\S]*?transition_review_requested = true[\s\S]*?else[\s\S]*?HAnimeDetector\.clear_cache\(\)' `
+    "Local action entry must review queued BeginPlay components and exit must clear old bindings"
 Assert-Matches $config 'hanime_switch_confirm_frames\s*=\s*1' `
     "Exact action switches must not wait for repeated gate polls"
 Assert-Matches $detector 'local exact_observation = string\.find\(recognition_source, "exact"[\s\S]*?local required_confirm_frames = exact_observation' `
@@ -135,6 +151,10 @@ Assert-Matches $sample 'finish_component_discovery_if_bound\(observed\)' `
     "Every successful HAnime observation must retire stale discovery work"
 Assert-Matches $runtime 'Runtime\.detector\.clear_cache\(\)' `
     "World changes must invalidate active participant bindings"
+Assert-Matches $runtime 'function Runtime\.local_action_changed\(active\)[\s\S]*?set_local_action_active[\s\S]*?SkeletonStream\.notify_hanime_event\(\)' `
+    "Local action transitions must update the detector and wake the next stream tick"
+Assert-NotMatches $runtime 'local_player_action_probe|observe_character' `
+    "Runtime must not retain the removed ownership probe"
 Assert-Matches $detector '(?s)hot_swap_table_module\("fd_tcode\.data\.target_frame_catalog"\).*?hot_swap_table_module\("fd_tcode\.core\.hanime_motion_contract"\)' `
     "F10 must reload target contact frames before rebuilding the motion contract"
 Assert-Matches $targetFrames 'schema_version\s*=\s*2' `
@@ -149,4 +169,4 @@ $actionReset = [regex]::Match($stream, '(?s)local function reset_action_cache_if
 Assert-NotMatches $actionReset 'HAnimeDetector\.clear_cache|ComponentRegistry\.clear' `
     "A direct action switch must preserve verified participant component bindings"
 
-Write-Output "HAnime gate contract verified: no periodic active review; direct BeginPlay binding avoids redundant discovery"
+Write-Output "HAnime gate contract verified: local action only; no identity probe; BeginPlay queue preserved"

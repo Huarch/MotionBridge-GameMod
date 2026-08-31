@@ -1,6 +1,5 @@
 local Config = require("fd_tcode.config")
 local ComponentRegistry = require("fd_tcode.core.hanime_component_registry")
-local HAnimeManagerEventProbe = require("fd_tcode.core.hanime_manager_event_probe")
 local HSystemState = require("fd_tcode.core.hanime_hsystem_state")
 local IdentityResolver = require("fd_tcode.core.hanime_identity_resolver")
 local MotionContract = require("fd_tcode.core.hanime_motion_contract")
@@ -104,6 +103,10 @@ local HAnimeDetector = {
     candidate_id = nil,
     candidate_frames = 0,
     active = nil,
+    -- Multiplayer is fail-closed. Only the verified local-player action hook
+    -- may open this outer gate; exact TableHAnim still selects the action and
+    -- preserves every participant's independent stream.
+    local_action_active = false,
     empty_frames = 0,
     transition_review_requested = false,
     last_observation = nil,
@@ -984,6 +987,9 @@ local function status(state, active, observation, reason)
 end
 
 function HAnimeDetector.sample()
+    if HAnimeDetector.local_action_active ~= true then
+        return status("inactive", false, {}, "local_player_not_in_h")
+    end
     ensure_hot_spool_batching()
     if HAnimeDetector.active ~= nil
         and HAnimeDetector.last_observation ~= nil
@@ -1111,6 +1117,26 @@ function HAnimeDetector.clear_cache()
     HAnimeDetector.discovered_anim_instances = {}
     HAnimeDetector.actor_component_generation = 0
     HSystemState.clear()
+end
+
+function HAnimeDetector.set_local_action_active(active)
+    active = active == true
+    if HAnimeDetector.local_action_active == active then
+        return false
+    end
+    HAnimeDetector.local_action_active = active
+    if active then
+        -- Character BeginPlay can precede the local action callback. Keep its
+        -- queued primary components and consume them in the next review.
+        HAnimeDetector.transition_review_requested = true
+    else
+        -- Drop the previous action immediately so a remote participant cannot
+        -- inherit the binding after the local player exits. BeginPlay events
+        -- arriving after this clear may still queue candidates for the next
+        -- local action while the sample gate remains closed.
+        HAnimeDetector.clear_cache()
+    end
+    return true
 end
 
 function HAnimeDetector.request_component_discovery(class_names)
