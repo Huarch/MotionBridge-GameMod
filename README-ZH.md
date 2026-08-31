@@ -6,9 +6,15 @@
 
 必须配合 MotionBridge 使用：桌面界面、3D 预览、动作调节、USB/Wi-Fi 设备连接、TCode 输出和安全回中均由 MotionBridge 负责。此 Mod 本身不直接控制设备、不创建游戏内浮层，也不会修改游戏 Pak 文件。
 
+## 支持的游戏版本
+
+- Fallen Doll Playtest `0.9.0`（桌面模式与 VR 模式）
+
+这里指的是受支持的游戏版本。单独的 `0.17.x` 是 Mod 安装包自身版本，不是 Fallen Doll 的游戏版本。
+
 ## 使用前准备
 
-- 安装 Fallen Doll Playtest（桌面或 VR）。
+- 安装 Fallen Doll Playtest `0.9.0`（桌面或 VR）。
 - 下载并启动最新的 [MotionBridge](https://github.com/Huarch/MotionBridge/releases)。
 - 下载由 `fallen-doll-playtest` 分支构建的 Mod 包，或下载匹配的 [Release](https://github.com/Huarch/MotionBridge-GameMod/releases)。
 

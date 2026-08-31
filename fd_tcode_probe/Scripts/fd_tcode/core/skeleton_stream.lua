@@ -13,6 +13,7 @@ local SkeletonStream = {
     spool = nil,
     last_hanime_state_key = nil,
     was_hanime_active = false,
+    active_hanime_id = nil,
     cached_hanime = nil,
     samples_until_hanime_poll = 0,
     samples_until_spool_retry = 0,
@@ -61,8 +62,9 @@ local function target_frames_json(frames)
     local entries = {}
     for _, frame in ipairs(frames or {}) do
         table.insert(entries, string.format(
-            '{"mode":"%s","sourceBone":"%s","originBone":"%s","forwardBone":"%s","leftBone":"%s","rightBone":"%s"}',
-            json_escape(frame.mode), json_escape(frame.sourceBone), json_escape(frame.originBone),
+            '{"mode":"%s","translationMode":"%s","sourceBone":"%s","originBone":"%s","forwardBone":"%s","leftBone":"%s","rightBone":"%s"}',
+            json_escape(frame.mode), json_escape(frame.translationMode),
+            json_escape(frame.sourceBone), json_escape(frame.originBone),
             json_escape(frame.forwardBone), json_escape(frame.leftBone), json_escape(frame.rightBone)
         ))
     end
@@ -250,6 +252,7 @@ local function stop_internal(reason, preserve_detector_cache)
     SkeletonStream.loop_handle = nil
     close_spool()
     GenericHAnimeProbe.clear_cache()
+    SkeletonStream.active_hanime_id = nil
     if preserve_detector_cache ~= true then
         HAnimeDetector.clear_cache()
     end
@@ -259,6 +262,27 @@ local function stop_internal(reason, preserve_detector_cache)
         SkeletonStream.sample_count,
         SkeletonStream.sequence
     ))
+end
+
+local function reset_action_cache_if_changed(identity)
+    local next_hanime_id = tostring((identity or {}).hanime_id or "")
+    if next_hanime_id == "" then
+        return
+    end
+    local previous_hanime_id = SkeletonStream.active_hanime_id
+    if previous_hanime_id ~= nil and previous_hanime_id ~= next_hanime_id then
+        -- A direct wheel switch can keep the same live participant Actors. Drop
+        -- only action-scoped rules and diagnostic signatures; the verified
+        -- component registry remains intact, so this never triggers another
+        -- object discovery pass or refreshes clothing/physics.
+        GenericHAnimeProbe.clear_cache()
+        Log.info(string.format(
+            "HAnime action cache reset previous=%s next=%s",
+            tostring(previous_hanime_id),
+            tostring(next_hanime_id)
+        ))
+    end
+    SkeletonStream.active_hanime_id = next_hanime_id
 end
 
 local function sample_once()
@@ -336,12 +360,14 @@ local function sample_once()
             GenericHAnimeProbe.clear_cache()
         end
         SkeletonStream.was_hanime_active = false
+        SkeletonStream.active_hanime_id = nil
         if SkeletonStream.stop_when_inactive then
             stop_internal("hanime-inactive", true)
         end
         return
     end
     SkeletonStream.was_hanime_active = true
+    reset_action_cache_if_changed(identity)
 
     local sample, sample_error = GenericHAnimeProbe.sample(hanime)
     if sample == nil then
@@ -418,6 +444,7 @@ function SkeletonStream.start(options)
     SkeletonStream.timestamp_base_ms = os.time() * 1000
     SkeletonStream.last_hanime_state_key = nil
     SkeletonStream.was_hanime_active = false
+    SkeletonStream.active_hanime_id = nil
     SkeletonStream.cached_hanime = options.initial_hanime
     SkeletonStream.samples_until_hanime_poll = options.initial_hanime ~= nil
         and math.max(1, math.floor(Config.hanime_poll_interval_ms / Config.skeleton_sample_interval_ms))

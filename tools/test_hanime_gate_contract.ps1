@@ -8,6 +8,8 @@ $resolverPath = Join-Path $moduleRoot "core\hanime_identity_resolver.lua"
 $catalogPath = Join-Path $moduleRoot "core\skeleton_catalog.lua"
 $registryPath = Join-Path $moduleRoot "core\hanime_component_registry.lua"
 $runtimePath = Join-Path $moduleRoot "core\hanime_runtime.lua"
+$streamPath = Join-Path $moduleRoot "core\skeleton_stream.lua"
+$targetFramePath = Join-Path $moduleRoot "data\target_frame_catalog.lua"
 
 $config = Get-Content -Raw -LiteralPath $configPath
 $detector = Get-Content -Raw -LiteralPath $detectorPath
@@ -15,6 +17,8 @@ $resolver = Get-Content -Raw -LiteralPath $resolverPath
 $catalog = Get-Content -Raw -LiteralPath $catalogPath
 $registry = Get-Content -Raw -LiteralPath $registryPath
 $runtime = Get-Content -Raw -LiteralPath $runtimePath
+$stream = Get-Content -Raw -LiteralPath $streamPath
+$targetFrames = Get-Content -Raw -LiteralPath $targetFramePath
 
 function Assert-Matches([string]$Text, [string]$Pattern, [string]$Message) {
     if ($Text -notmatch $Pattern) {
@@ -133,5 +137,16 @@ Assert-Matches $runtime 'Runtime\.detector\.clear_cache\(\)' `
     "World changes must invalidate active participant bindings"
 Assert-Matches $detector '(?s)hot_swap_table_module\("fd_tcode\.data\.target_frame_catalog"\).*?hot_swap_table_module\("fd_tcode\.core\.hanime_motion_contract"\)' `
     "F10 must reload target contact frames before rebuilding the motion contract"
+Assert-Matches $targetFrames 'schema_version\s*=\s*2' `
+    "Target contact-frame protocol must identify the plane-intersection schema"
+Assert-Matches $targetFrames 'local function entrance[\s\S]*?plane\([^\r\n]*"plane_intersection"\)[\s\S]*?frame\.mode\s*=\s*"plane_intersection"' `
+    "Penetration entrances must explicitly opt into plane-intersection translations"
+Assert-Matches $stream '"translationMode":"%s"[\s\S]*?frame\.translationMode' `
+    "Skeleton packets must forward the adapter-declared target translation mode"
+Assert-Matches $stream '(?s)local function reset_action_cache_if_changed\(identity\).*?previous_hanime_id ~= next_hanime_id.*?GenericHAnimeProbe\.clear_cache\(\).*?SkeletonStream\.active_hanime_id = next_hanime_id' `
+    "A confirmed direct HAnime switch must reset action-scoped probe caches"
+$actionReset = [regex]::Match($stream, '(?s)local function reset_action_cache_if_changed\(identity\).*?(?=local function sample_once)').Value
+Assert-NotMatches $actionReset 'HAnimeDetector\.clear_cache|ComponentRegistry\.clear' `
+    "A direct action switch must preserve verified participant component bindings"
 
 Write-Output "HAnime gate contract verified: no periodic active review; direct BeginPlay binding avoids redundant discovery"

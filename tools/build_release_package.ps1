@@ -1,5 +1,7 @@
 param(
-    [string]$Version = "0.17.3",
+    # Mod package version. The supported Playtest game version is documented
+    # separately in README.md and README-ZH.md.
+    [string]$Version = "0.17.4",
     [string]$UE4SSArchive = "",
     [string]$PatchedUE4SSDll = ""
 )

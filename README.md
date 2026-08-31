@@ -6,9 +6,15 @@ This branch contains the UE4SS Mod for the **Operation Lovecraft: Fallen Doll Pl
 
 MotionBridge is required: it provides the desktop interface, 3D preview, motion tuning, USB/Wi-Fi device connection, TCode output, and safe return to center. This Mod does not control a device by itself, does not create an in-game overlay, and does not modify game Pak files.
 
+## Supported game version
+
+- Fallen Doll Playtest `0.9.0` (desktop and VR)
+
+This is the supported game version. The separate `0.17.x` number identifies the Mod package itself and is not a Fallen Doll game version.
+
 ## Before you start
 
-- Install the Fallen Doll Playtest (desktop or VR).
+- Install Fallen Doll Playtest `0.9.0` (desktop or VR).
 - Download and run the current [MotionBridge release](https://github.com/Huarch/MotionBridge/releases).
 - Download the Mod package built from the `fallen-doll-playtest` branch or its matching [release](https://github.com/Huarch/MotionBridge-GameMod/releases).
 
