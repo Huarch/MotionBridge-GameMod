@@ -1,7 +1,7 @@
 param(
     # Mod package version. The supported Playtest game version is documented
     # separately in README.md and README-ZH.md.
-    [string]$Version = "0.17.6",
+    [string]$Version = "0.17.7",
     [string]$UE4SSArchive = "",
     [string]$PatchedUE4SSDll = ""
 )
@@ -215,7 +215,20 @@ Copy-Item -LiteralPath (Join-Path $workspace "README.md") -Destination (Join-Pat
 Copy-Item -LiteralPath (Join-Path $workspace "README-ZH.md") -Destination (Join-Path $packageDir "README-ZH.md")
 Copy-Item -LiteralPath (Join-Path $workspace "THIRD_PARTY_NOTICES.md") -Destination (Join-Path $packageDir "THIRD_PARTY_NOTICES.md")
 Copy-Item -LiteralPath (Join-Path $workspace "tools/Install-FallenDollTCode.ps1") -Destination (Join-Path $packageDir "Install-Mod.ps1")
-Copy-Item -LiteralPath (Join-Path $workspace "packaging/Install Mod.cmd") -Destination (Join-Path $packageDir "Install Mod.cmd")
+$launcherSource = Join-Path $workspace "packaging/Install Mod.cmd"
+$launcherDestination = Join-Path $packageDir "Install Mod.cmd"
+$launcherText = [System.IO.File]::ReadAllText($launcherSource)
+$launcherText = $launcherText -replace "`r?`n", "`r`n"
+[System.IO.File]::WriteAllText($launcherDestination, $launcherText, [System.Text.Encoding]::ASCII)
+$launcherBytes = [System.IO.File]::ReadAllBytes($launcherDestination)
+if ($launcherBytes | Where-Object { $_ -gt 127 }) {
+    throw "Install Mod.cmd must contain ASCII bytes only."
+}
+for ($index = 0; $index -lt $launcherBytes.Length; ++$index) {
+    if ($launcherBytes[$index] -eq 10 -and ($index -eq 0 -or $launcherBytes[$index - 1] -ne 13)) {
+        throw "Install Mod.cmd contains a bare LF; CRLF is required for cmd.exe."
+    }
+}
 Copy-Item -LiteralPath (Join-Path $workspace "packaging/README.txt") -Destination (Join-Path $packageDir "README.txt")
 
 $allowedUE4SSEntries = @(
