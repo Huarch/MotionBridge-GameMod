@@ -23,21 +23,15 @@ This is the supported game version. The separate `0.17.x` number identifies the 
 ## Install and use
 
 1. Close the game.
-2. Extract the complete Mod package. Run `Install-Mod.ps1` and provide the Fallen Doll Playtest game folder, or follow the detailed manual installation below.
-3. Start MotionBridge. Configure USB or Wi-Fi only if you plan to use a physical device.
-4. Start the Fallen Doll Playtest and enter an HAnime.
-5. Confirm that MotionBridge reports the Fallen Doll data stream as **Online**. Open the 3D preview to check direction and range before enabling real output.
-6. When leaving an HAnime or when the data stream stops, MotionBridge safely returns the device to center.
+2. Extract the **entire** Mod ZIP. Do not run files from inside the ZIP preview.
+3. Double-click **`Install Mod.cmd`**. It searches the Steam libraries for the Playtest, shows the detected destination, checks runtime-folder write access, installs the Mod, and verifies the required files. If automatic detection fails, select the top-level Fallen Doll Playtest folder when prompted.
+4. Wait for **Installation verified successfully**. If installation fails, keep the window open and attach `Install-Mod.log` when requesting help.
+5. Start MotionBridge, then start the Fallen Doll Playtest and enter an HAnime.
+6. Confirm that MotionBridge reports the Fallen Doll data stream as **Online**. Open the 3D preview to check direction and range before enabling real output.
 
-Example installer command:
+Run the installer, the game, and MotionBridge as the same Windows user. Administrator mode is not normally required. The advanced `Install-Mod.ps1` interface remains available for scripted deployment, but ordinary users should use `Install Mod.cmd`.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Playtest"
-```
-
-Run this command from the extracted Mod package directory, where `Install-Mod.ps1` and `Game` are beside each other. `GameRoot` is the folder that contains `FallenDollLauncher.exe`; do not provide the EXE itself. Do not paste the contents of `Install-Mod.ps1` into PowerShell ISE, because that removes the script's package-directory context.
-
-### Manual installation
+### Manual installation (fallback only)
 
 1. Close Fallen Doll completely.
 2. Extract the entire downloaded Mod ZIP. Open its `Game` folder.

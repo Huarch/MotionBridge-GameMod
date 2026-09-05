@@ -23,21 +23,15 @@
 ## 安装与使用
 
 1. 关闭游戏。
-2. 完整解压 Mod 包。运行 `Install-Mod.ps1` 并提供 Fallen Doll Playtest 游戏目录；也可以按照下方详细步骤手动安装。
-3. 启动 MotionBridge；如需使用实体设备，再配置 USB 或 Wi-Fi。
-4. 启动 Fallen Doll Playtest 并进入 HAnime。
-5. 确认 MotionBridge 显示 Fallen Doll 数据流为 **Online**。开启真实设备输出前，先打开 3D 预览检查方向和行程。
-6. 离开 HAnime 或数据流中断后，MotionBridge 会安全回中。
+2. **完整解压** Mod ZIP，不要直接在 ZIP 预览窗口中运行文件。
+3. 双击 **`Install Mod.cmd`**。安装器会自动搜索 Steam 库中的 Playtest，显示检测到的目标位置，检查 runtime 目录写入权限，安装 Mod，并验证必需文件。自动检测失败时，按提示选择 Fallen Doll Playtest 最外层游戏目录。
+4. 等待出现 **Installation verified successfully**。如果失败，请保持窗口打开，并在反馈时附上 `Install-Mod.log`。
+5. 启动 MotionBridge，再启动 Fallen Doll Playtest 并进入 HAnime。
+6. 确认 MotionBridge 显示 Fallen Doll 数据流为 **Online**。开启真实设备输出前，先打开 3D 预览检查方向和行程。
 
-安装命令示例：
+安装器、游戏和 MotionBridge 应使用同一个 Windows 用户运行，通常不需要管理员权限。`Install-Mod.ps1` 仍保留给脚本化部署使用，普通用户只需运行 `Install Mod.cmd`。
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Playtest"
-```
-
-请在解压后的 Mod 包目录中运行此命令，确保 `Install-Mod.ps1` 与 `Game` 文件夹位于同一级。`GameRoot` 应填写包含 `FallenDollLauncher.exe` 的文件夹，不要填写 EXE 文件本身。不要把 `Install-Mod.ps1` 的内容粘贴到 PowerShell ISE 中执行，否则脚本将失去安装包目录信息。
-
-### 手动安装
+### 手动安装（仅作备用）
 
 1. 完全关闭 Fallen Doll。
 2. 完整解压下载的 Mod ZIP，然后打开其中的 `Game` 文件夹。

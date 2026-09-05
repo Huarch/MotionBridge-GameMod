@@ -32,6 +32,9 @@ function Assert-AutoEdition {
 
 try {
     New-EmptyFile -Path (Join-Path $payload "dwmapi.dll")
+    New-EmptyFile -Path (Join-Path $payload "ue4ss\UE4SS.dll")
+    New-EmptyFile -Path (Join-Path $payload "ue4ss\Mods\fd_tcode_probe\Scripts\main.lua")
+    New-EmptyFile -Path (Join-Path $payload "ue4ss\Mods\fd_tcode_probe\Scripts\fd_tcode\edition_local.lua")
 
     Assert-AutoEdition -Name "legacy049" `
         -Executable "Paralogue\Binaries\Win64\KiritoMod049.exe" `
@@ -84,6 +87,37 @@ try {
     }
     if ($standaloneResult -notmatch [regex]::Escape("Validated Playtest target")) {
         throw "Standalone installer did not resolve its sibling Game payload. Output: $standaloneResult"
+    }
+
+    # The one-click path omits GameRoot. A bounded search root stands in for a
+    # Steam library and must resolve the only compatible Playtest install.
+    $searchResult = & $windowsPowerShell -NoProfile -ExecutionPolicy Bypass `
+        -File $standaloneInstaller -Edition Playtest -SearchRoots $standaloneGameRoot -WhatIf 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0 -or $searchResult -notmatch [regex]::Escape("Detected Playtest")) {
+        throw "One-click Playtest detection failed. Output: $searchResult"
+    }
+
+    # A real temp installation verifies the runtime write test and the three
+    # player-facing post-install paths without touching an actual game.
+    $runtimeRoot = Join-Path $testRoot "runtime-write-test"
+    $previousRuntimeRoot = $env:FD_TCODE_RUNTIME_DIR
+    try {
+        $env:FD_TCODE_RUNTIME_DIR = $runtimeRoot
+        $installResult = & $installer -GameRoot $standaloneGameRoot -PayloadRoot $payload -Edition Playtest -Confirm:$false 6>&1 | Out-String
+    } finally {
+        $env:FD_TCODE_RUNTIME_DIR = $previousRuntimeRoot
+    }
+    if ($installResult -notmatch [regex]::Escape("Installation verified successfully")) {
+        throw "Real temp installation was not verified. Output: $installResult"
+    }
+    foreach ($requiredInstalledFile in @(
+        (Join-Path $standaloneGameRoot "Paralogue\Binaries\Win64\dwmapi.dll"),
+        (Join-Path $standaloneGameRoot "Paralogue\Binaries\Win64\ue4ss\UE4SS.dll"),
+        (Join-Path $standaloneGameRoot "Paralogue\Binaries\Win64\ue4ss\Mods\fd_tcode_probe\Scripts\main.lua")
+    )) {
+        if (-not (Test-Path -LiteralPath $requiredInstalledFile -PathType Leaf)) {
+            throw "Real temp installation is missing: $requiredInstalledFile"
+        }
     }
 
     Write-Output "Installer edition tests passed."

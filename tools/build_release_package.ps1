@@ -1,7 +1,7 @@
 param(
     # Mod package version. The supported Playtest game version is documented
     # separately in README.md and README-ZH.md.
-    [string]$Version = "0.17.5",
+    [string]$Version = "0.17.6",
     [string]$UE4SSArchive = "",
     [string]$PatchedUE4SSDll = ""
 )
@@ -38,6 +38,8 @@ if (-not $archivePath.StartsWith($outputRoot, [System.StringComparison]::Ordinal
 
 $required = @(
     "fd_tcode_probe",
+    "packaging/Install Mod.cmd",
+    "packaging/README.txt",
     "tools/Install-FallenDollTCode.ps1",
     "README.md",
     "README-ZH.md",
@@ -213,6 +215,8 @@ Copy-Item -LiteralPath (Join-Path $workspace "README.md") -Destination (Join-Pat
 Copy-Item -LiteralPath (Join-Path $workspace "README-ZH.md") -Destination (Join-Path $packageDir "README-ZH.md")
 Copy-Item -LiteralPath (Join-Path $workspace "THIRD_PARTY_NOTICES.md") -Destination (Join-Path $packageDir "THIRD_PARTY_NOTICES.md")
 Copy-Item -LiteralPath (Join-Path $workspace "tools/Install-FallenDollTCode.ps1") -Destination (Join-Path $packageDir "Install-Mod.ps1")
+Copy-Item -LiteralPath (Join-Path $workspace "packaging/Install Mod.cmd") -Destination (Join-Path $packageDir "Install Mod.cmd")
+Copy-Item -LiteralPath (Join-Path $workspace "packaging/README.txt") -Destination (Join-Path $packageDir "README.txt")
 
 $allowedUE4SSEntries = @(
     "LICENSE",
