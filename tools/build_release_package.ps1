@@ -1,7 +1,7 @@
 param(
     # Mod package version. Supported Fallen Doll game versions are documented
     # separately in README.md and README-ZH.md.
-    [string]$Version = "0.17.5",
+    [string]$Version = "0.17.3",
     [string]$UE4SSArchive = ""
 )
 
