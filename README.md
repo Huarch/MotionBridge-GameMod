@@ -22,23 +22,41 @@ These are game compatibility versions. The separate `0.17.x` number identifies t
 ## Install and use
 
 1. Close the game.
-2. Extract the Mod package. Run `Install-Mod.ps1` and select the Demo or legacy `0.49` game folder. The installer detects Demo Desktop, Demo VR, and Legacy 0.49 layouts separately. Manual copying remains available through the package's `Game` directory.
-3. Start MotionBridge. Configure USB or Wi-Fi only if you plan to use a physical device.
-4. Start the Fallen Doll Demo and enter an HAnime.
-5. Confirm that MotionBridge reports the Fallen Doll data stream as **Online**. Open the 3D preview to check direction and range before enabling real output.
-6. When leaving an HAnime or when the data stream stops, MotionBridge safely returns the device to center.
+2. Extract the **entire** Mod ZIP. Do not run files from inside the ZIP preview.
+3. Double-click **`Install Mod.cmd`**, then choose **Demo Desktop**, **Demo VR**, or **Legacy 0.49**. The installer searches the Steam libraries, shows the detected destination, checks runtime-folder write access, installs the Mod, and verifies the required files. If automatic detection fails, select the top-level game folder when prompted.
+4. Wait for **Installation verified successfully**. If installation fails, keep the window open and attach `Install-Mod.log` when requesting help.
+5. Start MotionBridge, then start the selected Fallen Doll edition and enter an HAnime.
+6. Confirm that MotionBridge reports the Fallen Doll data stream as **Online**. Open the 3D preview to check direction and range before enabling real output.
 
-Example installer command:
+Run the installer, the game, and MotionBridge as the same Windows user. Administrator mode is not normally required. The advanced `Install-Mod.ps1` interface remains available for scripted deployment, but ordinary users should use `Install Mod.cmd`.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Demo"
+### Manual installation (fallback only)
+
+1. Close Fallen Doll completely and extract the entire downloaded Mod ZIP.
+2. Choose the destination inside the top-level game folder:
+
+| Edition | Destination |
+|---|---|
+| Demo Desktop | `Desktop\WindowsNoEditor\Paralogue\Binaries\Win64` |
+| Demo VR | `VR\WindowsNoEditor\Paralogue\Binaries\Win64` |
+| Legacy 0.49 | `Paralogue\Binaries\Win64` |
+
+3. Open the package's `Game` folder. Copy the **contents inside it**—`dwmapi.dll` and the `ue4ss` folder—into the destination above. Do not copy the outer `Game` folder itself. Allow Windows to merge `ue4ss` and replace the packaged Mod files when prompted.
+4. Confirm that the selected destination contains:
+
+```text
+<destination>
+├─ dwmapi.dll
+└─ ue4ss
+   ├─ UE4SS.dll
+   └─ Mods
+      └─ fd_tcode_probe
+         └─ Scripts
+            └─ main.lua
 ```
 
-Legacy 0.49 example:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\Install-Mod.ps1 -GameRoot "D:\Games\Fallen Doll Operation Lovecraft (0.49)"
-```
+5. Start MotionBridge, then start the selected game edition and enter an HAnime. A working installation is shown by MotionBridge changing from **STREAM WAITING** to **STREAM ONLINE** after fresh motion frames arrive.
+6. If the stream stays waiting, open `<destination>\ue4ss\UE4SS.log` and check whether `%USERPROFILE%\.f8\studio\games\fallen-doll\runtime\fd-skeleton.ndjson` exists and continues updating during the HAnime.
 
 The Mod package includes its matching UE4SS files. MotionBridge and the game Mod are separate downloads and can be updated independently.
 

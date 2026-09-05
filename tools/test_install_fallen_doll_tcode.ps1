@@ -32,6 +32,9 @@ function Assert-AutoEdition {
 
 try {
     New-EmptyFile -Path (Join-Path $payload "dwmapi.dll")
+    New-EmptyFile -Path (Join-Path $payload "ue4ss\UE4SS.dll")
+    New-EmptyFile -Path (Join-Path $payload "ue4ss\Mods\fd_tcode_probe\Scripts\main.lua")
+    New-EmptyFile -Path (Join-Path $payload "ue4ss\Mods\fd_tcode_probe\Scripts\fd_tcode\edition_local.lua")
 
     Assert-AutoEdition -Name "legacy049" `
         -Executable "Paralogue\Binaries\Win64\KiritoMod049.exe" `
@@ -59,6 +62,61 @@ try {
     }
     if ($priorityResult -notmatch [regex]::Escape("Would configure local runtime edition: <sidecars-refused>")) {
         throw "Legacy 0.49 must not map to Demo/Playtest static sidecars. Output: $priorityResult"
+    }
+
+    # Reproduce the packaged installer in a fresh Windows PowerShell process.
+    # PayloadRoot is omitted so the sibling Game folder is resolved exactly as
+    # it is for players who launch Install Mod.cmd.
+    $standalonePackage = Join-Path $testRoot "release-package"
+    $standaloneInstaller = Join-Path $standalonePackage "Install-Mod.ps1"
+    $standaloneGameRoot = Join-Path $testRoot "standalone-demo-desktop"
+    New-Item -ItemType Directory -Force -Path $standalonePackage | Out-Null
+    Copy-Item -LiteralPath $installer -Destination $standaloneInstaller
+    New-EmptyFile -Path (Join-Path $standalonePackage "Game\dwmapi.dll")
+    New-EmptyFile -Path (Join-Path $standaloneGameRoot "Desktop\WindowsNoEditor\Paralogue\Binaries\Win64\Paralogue-Win64-Shipping.exe")
+
+    $windowsPowerShell = Join-Path $env:SystemRoot "System32\WindowsPowerShell\v1.0\powershell.exe"
+    if (-not (Test-Path -LiteralPath $windowsPowerShell -PathType Leaf)) {
+        throw "Windows PowerShell is required for the standalone installer regression test: $windowsPowerShell"
+    }
+    $standaloneResult = & $windowsPowerShell -NoProfile -ExecutionPolicy Bypass `
+        -File $standaloneInstaller -GameRoot $standaloneGameRoot -Edition DemoDesktop -WhatIf 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0) {
+        throw "Standalone Windows PowerShell installer failed. Output: $standaloneResult"
+    }
+    if ($standaloneResult -notmatch [regex]::Escape("Validated DemoDesktop target")) {
+        throw "Standalone installer did not resolve its sibling Game payload. Output: $standaloneResult"
+    }
+
+    # The one-click path omits GameRoot. A bounded search root stands in for a
+    # Steam library and must resolve the selected Demo edition.
+    $searchResult = & $windowsPowerShell -NoProfile -ExecutionPolicy Bypass `
+        -File $standaloneInstaller -Edition DemoDesktop -SearchRoots $standaloneGameRoot -WhatIf 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0 -or $searchResult -notmatch [regex]::Escape("Detected DemoDesktop")) {
+        throw "One-click Demo Desktop detection failed. Output: $searchResult"
+    }
+
+    # A real temp installation verifies runtime write access and the three
+    # player-facing post-install paths without touching an actual game.
+    $runtimeRoot = Join-Path $testRoot "runtime-write-test"
+    $previousRuntimeRoot = $env:FD_TCODE_RUNTIME_DIR
+    try {
+        $env:FD_TCODE_RUNTIME_DIR = $runtimeRoot
+        $installResult = & $installer -GameRoot $standaloneGameRoot -PayloadRoot $payload -Edition DemoDesktop -Confirm:$false 6>&1 | Out-String
+    } finally {
+        $env:FD_TCODE_RUNTIME_DIR = $previousRuntimeRoot
+    }
+    if ($installResult -notmatch [regex]::Escape("Installation verified successfully")) {
+        throw "Real temp installation was not verified. Output: $installResult"
+    }
+    foreach ($requiredInstalledFile in @(
+        (Join-Path $standaloneGameRoot "Desktop\WindowsNoEditor\Paralogue\Binaries\Win64\dwmapi.dll"),
+        (Join-Path $standaloneGameRoot "Desktop\WindowsNoEditor\Paralogue\Binaries\Win64\ue4ss\UE4SS.dll"),
+        (Join-Path $standaloneGameRoot "Desktop\WindowsNoEditor\Paralogue\Binaries\Win64\ue4ss\Mods\fd_tcode_probe\Scripts\main.lua")
+    )) {
+        if (-not (Test-Path -LiteralPath $requiredInstalledFile -PathType Leaf)) {
+            throw "Real temp installation is missing: $requiredInstalledFile"
+        }
     }
 
     Write-Output "Installer edition tests passed."
