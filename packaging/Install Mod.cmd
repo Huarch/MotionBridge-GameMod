@@ -4,11 +4,11 @@ title MotionBridge Fallen Doll Demo Mod Installer
 
 echo MotionBridge Fallen Doll Demo / Legacy 0.49 Mod Installer
 echo.
-echo [D] Demo Desktop
-echo [V] Demo VR
-echo [L] Legacy 0.49
+echo [1] Demo Desktop
+echo [2] Demo VR
+echo [3] Legacy 0.49
 echo.
-choice /C DVL /N /M "Choose the installed game edition: "
+choice /C 123 /N /M "Choose the installed game edition [1/2/3]: "
 if errorlevel 3 goto selectLegacy
 if errorlevel 2 goto selectVR
 set "modEdition=DemoDesktop"
