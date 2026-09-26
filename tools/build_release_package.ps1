@@ -1,7 +1,7 @@
 param(
     # Mod package version. The supported Playtest game version is documented
     # separately in README.md and README-ZH.md.
-    [string]$Version = "0.17.6",
+    [string]$Version = "0.18.0",
     [string]$UE4SSArchive = "",
     [string]$PatchedUE4SSDll = ""
 )
@@ -18,13 +18,13 @@ $archivePath = [System.IO.Path]::GetFullPath((Join-Path $outputRoot "$packageNam
 
 $ue4ssAssetName = "zDEV-UE4SS_v3.0.1-1093-gba2efd55.zip"
 $ue4ssExpectedSha256 = "F4E2CEF8A8D5885FF3ADCD017154C9062E3EE2C8AB4D3FFECFB11B8C1C4CB69C"
-# Source: https://github.com/Huarch/RE-UE4SS/commit/4ff3595375a7f6949179b19d4aa7ea7031a4aa21
-$patchedUE4SSExpectedSha256 = "18A406D9578CA11894F27908CC2A253087A711A83581A0C5A11DB65931FD798C"
+# Source: https://github.com/Huarch/RE-UE4SS/commit/063a61c
+$patchedUE4SSExpectedSha256 = "FE439E413ADEB048B38243A0E3EA878459B7F879237E20B56845EA121F5316E5"
 if ([string]::IsNullOrWhiteSpace($UE4SSArchive)) {
     $UE4SSArchive = Join-Path $workspace ".deps/ue4ss-ba2efd55/$ue4ssAssetName"
 }
 if ([string]::IsNullOrWhiteSpace($PatchedUE4SSDll)) {
-    $PatchedUE4SSDll = Join-Path $workspace ".artifacts/ue4ss-local-4ff35953/UE4SS.dll"
+    $PatchedUE4SSDll = Join-Path $workspace ".artifacts/ue4ss-local-063a61c/UE4SS.dll"
 }
 $ue4ssArchivePath = [System.IO.Path]::GetFullPath($UE4SSArchive)
 $patchedUE4SSDllPath = [System.IO.Path]::GetFullPath($PatchedUE4SSDll)
@@ -117,7 +117,7 @@ Copy-Item -LiteralPath (Join-Path $officialGameDir "dwmapi.dll") -Destination $g
 Copy-Item -LiteralPath (Join-Path $officialUE4SSDir "UE4SS-settings.ini") -Destination $ue4ssDir
 Copy-Item -LiteralPath (Join-Path $officialUE4SSDir "LICENSE") -Destination $ue4ssDir
 
-# Replace the experimental baseline with the locally built UE 5.7 safety fix.
+# Replace the experimental baseline with the locally built UE 5.7 compatibility fixes.
 # Debug symbols stay in the build artifacts and are intentionally not shipped.
 Copy-Item -LiteralPath $patchedUE4SSDllPath -Destination (Join-Path $ue4ssDir "UE4SS.dll")
 

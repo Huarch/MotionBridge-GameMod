@@ -12,7 +12,7 @@ In multiplayer, the outer action gate follows only the local player's HAnime sta
 
 - Fallen Doll Playtest `0.9.0` (desktop and VR)
 
-This is the supported game version. The separate `0.17.x` number identifies the Mod package itself and is not a Fallen Doll game version.
+This is the supported game version. The separate `0.18.0` number identifies the Mod package itself and is not a Fallen Doll game version.
 
 ## Before you start
 
