@@ -102,4 +102,13 @@ end
 cold_start_test_count=count
 
 assert(test_count == 17 and cold_start_test_count == 15)
-print("Community action gate: 32 behavior and cold-start checks passed.")
+for _, action in ipairs({2,4}) do
+    local c,d,r=setup(action,"World /Game/Core/Map/Room_SingleVRMain.Room_SingleVRMain")
+    c.refresh(d); assert(d.local_action_active, "VR local H state must open")
+    r.PlayerState.PlayerAction.Type=0; c.refresh(d)
+    assert(not d.local_action_active, "VR exit must close")
+end
+local c,d,r=setup(2,"World /Game/Core/Map/Room_SingleVRMain.Room_SingleVRMain")
+r.IsLocalPlayerController=function() return false end
+c.refresh(d); assert(not d.local_action_active, "VR remote controller must stay closed")
+print("Community action gate: 37 behavior, cold-start and VR checks passed.")

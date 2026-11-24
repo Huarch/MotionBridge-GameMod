@@ -1,12 +1,12 @@
 MotionBridge Mod 0.18.1 — Fallen Doll Community 0.9.0b compatibility
 
 Scope / 支持范围
-- Community 0.9.0b, tested build 7313, desktop single-player room.
-- 社区版 0.9.0b，已实测构建 7313、桌面单人房。
+- Community 0.9.0b, tested build 7313, desktop and VR single-player rooms.
+- 社区版 0.9.0b，已实测构建 7313、桌面及 VR 单人房。
 - Requires base Playtest Mod 0.18.1 and its supplied UE4SS DLL.
 - 先安装基础 Playtest Mod 0.18.1，保留包内配套的 UE4SS DLL。
-- Community VR, multiplayer, physical-device movement and other executable
-  layouts remain unverified. 社区版 VR、多人、其他构建及真实设备动作尚未验证。
+- Community multiplayer, physical-device movement and other executable
+  layouts remain unverified. 社区版多人、其他构建及真实设备动作尚未验证。
 
 Install / 安装
 1. Close the game. 关闭游戏。
@@ -23,7 +23,7 @@ this same add-on after base installation. 完整 Mod ZIP 也提供此补丁的�
 Changes / 修复内容
 - Three signatures: StaticConstructObject_Internal, FUObjectHashTables::Get,
   GNatives. 补充三个 UE4SS 扫描符号的签名。
-- Read native PlayerAction.Type only in Room_SinglePCMain after verifying the
+- Read native PlayerAction.Type only in the PC/VR single-room maps after verifying the
   local controller and LocalPlayer backlink. 仅在确认的本地单人房读取动作状态。
 - Character BeginPlay rearms one acquisition after title-world startup;
   steady sampling does not repeatedly scan all objects. 修复菜单冷启动后的房间获取。
@@ -35,7 +35,7 @@ Changes / 修复内容
   此补丁不包含或修改游戏 EXE、Pak 文件及启动器。
 
 Validation / 验证
-- 32 action-gate and cold-start assertions passed. 32 项门控及冷启动检查通过。
+- 37 action-gate, cold-start and VR assertions passed. 37 项门控、冷启动及 VR 检查通过。
 - Install/reinstall/restore, configuration preservation, and rejection of unknown
   builds/detectors checked. 安装、重装、回滚、保留配置和拒绝未知代码检查通过。
 - A fresh launch through the locally tested Dollhouse compatibility launcher,

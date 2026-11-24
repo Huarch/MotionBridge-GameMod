@@ -1,4 +1,4 @@
--- Community 0.9.0b compatibility, validated with build 7313 desktop single room.
+-- Community 0.9.0b compatibility, validated with build 7313; PC/VR single-room maps only.
 -- Read the native local PlayerAction.Type; never infer action from animation.
 local Safe = require("fd_tcode.core.safe")
 local Log = require("fd_tcode.core.log")
@@ -25,6 +25,7 @@ local function local_single_room(room)
     if not world_ok or not Safe.is_object(world) then return false end
     local name = Safe.object_name(world) or ""
     return string.find(name, "/Game/Core/Map/Room_SinglePCMain.Room_SinglePCMain", 1, true) ~= nil
+        or string.find(name, "/Game/Core/Map/Room_SingleVRMain.Room_SingleVRMain", 1, true) ~= nil
 end
 
 function M.observe_actor(actor)

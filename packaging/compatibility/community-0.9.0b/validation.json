@@ -1,6 +1,6 @@
 {
   "date": "2026-11-24",
-  "scope": "Community 0.9.0b, build 7313, Desktop, Room_SinglePCMain, author-provided UE4SS DLL",
+  "scope": "Community 0.9.0b build 7313, Desktop and VR single-player rooms",
   "exe_size": 191914496,
   "signature_rvas": {
     "StaticConstructObject_Internal": "0x15F7910",
@@ -27,12 +27,11 @@
     "lua_syntax": "passed",
     "installer_backup_restore_idempotency_preservation_and_refusals": "passed",
     "cold_start_lifecycle_assertions": 15,
-    "total_gate_and_lifecycle_assertions": 32,
+    "total_gate_and_lifecycle_assertions": 37,
     "mod_0_18_1": "Version and packaging update over the same validated base detector and compatibility behavior",
     "mod_0_18_1_package": "34 baseline Lua modules compared with the published package; custom UE4SS and proxy preserved; explicit community inclusion block exercised"
   },
   "not_verified": [
-    "VR",
     "multiplayer",
     "physical device movement",
     "other executable layouts"
@@ -52,5 +51,13 @@
   },
   "mod_version": "0.18.1",
   "game_version": "Community 0.9.0b",
-  "tested_build": "7313"
+  "tested_build": "7313",
+  "vr": {
+    "map": "Room_SingleVRMain",
+    "user_confirmed_online": true,
+    "fresh_stream_verified": true,
+    "participants": 2,
+    "samples_logged_at_least": 1000,
+    "packets_logged_at_least": 2000
+  }
 }

@@ -95,8 +95,13 @@ $original = Normalize-Newlines ([IO.File]::ReadAllText((Join-Path $PSScriptRoot 
 $patched = $original.Replace('local HAnimeDetector = {', "local Compat7313LocalAction = require(`"fd_tcode.core.compat7313_local_action`")`n`nlocal HAnimeDetector = {")
 $patched = $patched.Replace('function HAnimeDetector.sample()', "function HAnimeDetector.sample()`n    Compat7313LocalAction.refresh(HAnimeDetector)")
 $patched = $patched.Replace('function HAnimeDetector.queue_actor_components(actor)', "function HAnimeDetector.queue_actor_components(actor)`n    Compat7313LocalAction.observe_actor(actor)")
+$previousPatched = $patched
+$adapterRequire = 'local Compat7313LocalAction = require("fd_tcode.core.compat7313_local_action")'
+$adapterReload = '-- Refresh this scoped adapter when the detector is explicitly reloaded with F10.' + "`n" +
+    'package.loaded["fd_tcode.core.compat7313_local_action"] = nil' + "`n" + $adapterRequire
+$patched = $patched.Replace($adapterRequire, $adapterReload)
 $current = Normalize-Newlines ([IO.File]::ReadAllText($detectorPath))
-if ($current -cne $original -and $current -cne $patched) {
+if ($current -cne $original -and $current -cne $previousPatched -and $current -cne $patched) {
     throw "Installed detector differs from the tested 0.18.1 version. No files were changed."
 }
 if (-not (Test-Path -LiteralPath (Join-Path $PSScriptRoot "compat7313_local_action.lua") -PathType Leaf)) {
