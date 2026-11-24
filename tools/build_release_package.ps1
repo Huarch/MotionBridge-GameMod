@@ -12,7 +12,7 @@ $workspace = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
 & (Join-Path $PSScriptRoot "test_runtime_module_layout.ps1")
 & (Join-Path $PSScriptRoot "test_hanime_gate_contract.ps1")
 $outputRoot = [System.IO.Path]::GetFullPath((Join-Path $workspace "dist"))
-$packageName = "MotionBridge-FallenDoll-Playtest-Mod-$Version"
+$packageName = "MotionBridge-FallenDoll-Community-Mod-$Version"
 $packageDir = [System.IO.Path]::GetFullPath((Join-Path $outputRoot $packageName))
 $archivePath = [System.IO.Path]::GetFullPath((Join-Path $outputRoot "$packageName.zip"))
 
@@ -39,9 +39,9 @@ if (-not $archivePath.StartsWith($outputRoot, [System.StringComparison]::Ordinal
 $required = @(
     "fd_tcode_probe",
     "packaging/Install Mod.cmd",
-    "packaging/Install Community Compatibility.cmd",
     "packaging/README.txt",
     "tools/Install-FallenDollTCode.ps1",
+    "tools/Install-CommunityMod.ps1",
     "README.md",
     "README-ZH.md",
     "THIRD_PARTY_NOTICES.md",
@@ -215,7 +215,9 @@ $modsJson = @'
 Copy-Item -LiteralPath (Join-Path $workspace "README.md") -Destination (Join-Path $packageDir "README.md")
 Copy-Item -LiteralPath (Join-Path $workspace "README-ZH.md") -Destination (Join-Path $packageDir "README-ZH.md")
 Copy-Item -LiteralPath (Join-Path $workspace "THIRD_PARTY_NOTICES.md") -Destination (Join-Path $packageDir "THIRD_PARTY_NOTICES.md")
-Copy-Item -LiteralPath (Join-Path $workspace "tools/Install-FallenDollTCode.ps1") -Destination (Join-Path $packageDir "Install-Mod.ps1")
+New-Item -ItemType Directory -Path (Join-Path $packageDir "Internal") -Force | Out-Null
+Copy-Item -LiteralPath (Join-Path $workspace "tools/Install-FallenDollTCode.ps1") -Destination (Join-Path $packageDir "Internal/Install-Base.ps1")
+Copy-Item -LiteralPath (Join-Path $workspace "tools/Install-CommunityMod.ps1") -Destination (Join-Path $packageDir "Install-Mod.ps1")
 $launcherSource = Join-Path $workspace "packaging/Install Mod.cmd"
 $launcherDestination = Join-Path $packageDir "Install Mod.cmd"
 $launcherText = [System.IO.File]::ReadAllText($launcherSource)
@@ -232,8 +234,7 @@ for ($index = 0; $index -lt $launcherBytes.Length; ++$index) {
 }
 Copy-Item -LiteralPath (Join-Path $workspace "packaging/README.txt") -Destination (Join-Path $packageDir "README.txt")
 
-# Community compatibility is an explicit add-on. The standard Playtest payload
-# retains its existing signatures and detector until this installer is selected.
+# Community setup is invoked automatically by the single public installer.
 $communitySource = Join-Path $workspace "packaging/compatibility/community-0.9.0b"
 $communityDestination = Join-Path $packageDir "CommunityCompatibility"
 $communityFiles = @(
@@ -249,10 +250,6 @@ foreach ($relativePath in $communityFiles) {
     New-Item -ItemType Directory -Path (Split-Path -Parent $destination) -Force | Out-Null
     Copy-Item -LiteralPath $source -Destination $destination
 }
-$communityLauncherText = [IO.File]::ReadAllText((Join-Path $workspace "packaging/Install Community Compatibility.cmd"))
-$communityLauncherText = $communityLauncherText -replace "`r?`n", "`r`n"
-[IO.File]::WriteAllText((Join-Path $packageDir "Install Community Compatibility.cmd"), $communityLauncherText, [Text.Encoding]::ASCII)
-
 $allowedUE4SSEntries = @(
     "LICENSE",
     "Mods",

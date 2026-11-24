@@ -1,93 +1,18 @@
-# MotionBridge 游戏 Mod — Fallen Doll Playtest
+# MotionBridge — Fallen Doll 社区版 0.9.0b Mod v0.18.1
 
-[English](README.md) | 简体中文
+[English](README.md)
 
-本分支提供 **Operation Lovecraft: Fallen Doll Playtest** 的 UE4SS Mod。它识别当前 HAnime，并将所需功能骨数据实时发送给 [MotionBridge](https://github.com/Huarch/MotionBridge)。
+本包仅用于 **Fallen Doll 社区版 0.9.0b**（实测构建 7313），支持桌面及 VR 单人房，向 MotionBridge 提供动画骨骼数据。已包含配套 UE4SS 和社区版兼容修复。
 
-必须配合 MotionBridge 使用：桌面界面、3D 预览、动作调节、USB/Wi-Fi 设备连接、TCode 输出和安全回中均由 MotionBridge 负责。此 Mod 本身不直接控制设备、不创建游戏内浮层，也不会修改游戏 Pak 文件。
+## 安装
 
-多人模式下，外层动作门只跟随本机玩家的 HAnime 状态，因此远端玩家的动作不能打开或重新接管输出流。该动作门不会读取、保存、记录或传输玩家 ID。
+1. 关闭游戏，完整解压 ZIP。
+2. 只运行一次 **Install Mod.cmd**。
+3. 选择包含 Paralogue 的社区版游戏根目录。安装器自动核对可执行文件、备份已有安装文件、安装完整 Mod 并应用社区兼容修复。
+4. 启动 MotionBridge 和游戏，进入实验室动画，确认 STREAM ONLINE；正常启动无需按 F10。
 
-## 支持的游戏版本
+无需下载基础 Mod、另装兼容 ZIP 或选择 Playtest。安装会保留现有本地配置和 UE4SS 设置，仅更新 Mod 版本字段。
 
-| 游戏版本 | 支持范围 |
-| --- | --- |
-| Fallen Doll Playtest `0.9.0` | 原有桌面模式与 VR 模式支持 |
-| Fallen Doll **社区版 `0.9.0b`** | 已实测构建 `7313`、桌面及 VR 单人房；需安装社区兼容补丁 |
+桌面及 VR 已实测双参与者数据流、冷启动及退出重进。社区版多人、其他可执行文件布局和真实设备动作尚未验证。不包含游戏文件、启动器和内容回移补丁。
 
-`7313` 是实测游戏的构建编号。社区版的多人、其他可执行文件布局和真实设备动作尚未验证。
-
-这里指的是受支持的游戏版本。单独的 `0.18.1` 是 Mod 安装包自身版本，不是 Fallen Doll 的游戏版本。
-
-## 使用前准备
-
-- 安装 Fallen Doll Playtest `0.9.0`（桌面或 VR），或受支持的社区版 `0.9.0b` 桌面或 VR 构建。
-- 下载并启动最新的 [MotionBridge](https://github.com/Huarch/MotionBridge/releases)。
-- 下载由 `fallen-doll-playtest` 分支构建的 Mod 包，或下载匹配的 [Release](https://github.com/Huarch/MotionBridge-GameMod/releases)。
-
-## 安装与使用
-
-1. 关闭游戏。
-2. **完整解压** Mod ZIP，不要直接在 ZIP 预览窗口中运行文件。
-3. 双击 **`Install Mod.cmd`**。安装器会自动搜索 Steam 库中的 Playtest，显示检测到的目标位置，检查 runtime 目录写入权限，安装 Mod，并验证必需文件。自动检测失败时，按提示选择 Fallen Doll Playtest 最外层游戏目录。
-4. 等待出现 **Installation verified successfully**。如果失败，请保持窗口打开，并在反馈时附上 `Install-Mod.log`。
-5. 启动 MotionBridge，再启动 Fallen Doll Playtest 并进入 HAnime。
-6. 确认 MotionBridge 显示 Fallen Doll 数据流为 **Online**。开启真实设备输出前，先打开 3D 预览检查方向和行程。
-
-安装器、游戏和 MotionBridge 应使用同一个 Windows 用户运行，通常不需要管理员权限。`Install-Mod.ps1` 仍保留给脚本化部署使用，基础安装使用 `Install Mod.cmd`，社区版再按下节安装兼容补丁。
-
-### 社区版 0.9.0b
-
-先用 `Install Mod.cmd` 安装基础 Mod **0.18.1**。保持游戏关闭，再运行同一安装包中的 **`Install Community Compatibility.cmd`**，选择包含 `Paralogue` 的游戏根目录。如果下载的是独立兼容补丁 ZIP，则先安装基础 Mod，再运行补丁包内的 `Install Compatibility.cmd`。
-
-社区补丁先核对可执行文件布局，再添加三份 UE4SS 扫描签名和桌面及 VR 单人房动作适配器。安装器会备份所改动的五个文件，保留配套 UE4SS DLL、本地设置及原有 Playtest 运行逻辑。它修复本地动作通知缺失，以及冷启动后无法获取房间引用的问题；正常进入动画无需按 F10。
-
-社区构建 7313 已从重新启动游戏到实验室动画完成实测：MotionBridge 在线，两个参与者持续输出数据。其他社区版配置仍待验证。游戏文件、内容回移补丁和启动器独立提供，不包含在此 Mod 内。
-
-### 手动安装（仅作备用）
-
-1. 完全关闭 Fallen Doll。
-2. 完整解压下载的 Mod ZIP，然后打开其中的 `Game` 文件夹。
-3. 将 `Game` **里面的内容**——`dwmapi.dll` 和 `ue4ss` 文件夹——复制到游戏的 `Paralogue\Binaries\Win64` 文件夹。不要把外层 `Game` 文件夹本身复制进去。Windows 提示时，允许合并 `ue4ss` 文件夹并替换安装包提供的 Mod 文件。
-4. 确认游戏目录最终包含以下三个路径：
-
-```text
-Paralogue\Binaries\Win64
-├─ dwmapi.dll
-└─ ue4ss
-   ├─ UE4SS.dll
-   └─ Mods
-      └─ fd_tcode_probe
-         └─ Scripts
-            └─ main.lua
-```
-
-5. 先启动 MotionBridge，再启动 Fallen Doll 并进入 HAnime。此 Mod 不会显示游戏内菜单、浮层或调试控制台；收到新动作帧后，MotionBridge 从 **STREAM WAITING** 变为 **STREAM ONLINE**，才是可见的运行结果。
-6. 如果数据流一直处于等待状态，请打开 `Paralogue\Binaries\Win64\ue4ss\UE4SS.log`，并检查进入 HAnime 后 `%USERPROFILE%\.f8\studio\games\fallen-doll\runtime\fd-skeleton.ndjson` 是否存在且持续更新。
-
-Mod 包包含匹配的 UE4SS 文件；MotionBridge 与游戏 Mod 独立下载、独立更新。
-
-## 快捷键
-
-- `F6`：提示不安全的 UE 5.7 运行时诊断已禁用
-- `F10`：只热重载 HAnime 检测逻辑，已注册的 UE4SS 回调不会重建
-
-## 开发结构
-
-- `fd_tcode_probe/` 是当前启用的 UE4SS Mod；`fd_tcode_reloader/` 仅为旧版本保留，默认禁用。
-- `fd_tcode_probe/Scripts/fd_tcode/core/` 保存手写运行逻辑。
-- `fd_tcode_probe/Scripts/fd_tcode/data/` 保存生成数据与版本专属数据表。
-- `tools/` 保存 Playtest 的安装、验证与发布构建脚本；发布构建会先检查模块结构。
-- Release ZIP 使用运行文件白名单，不包含 UE4SS 调试符号、开发 Mod、附带文档和其他游戏模板。
-- 生成导出、研究数据、本地依赖、构建包和 `.artifacts/` 均保持忽略，不属于此分支源码。
-- 跨游戏工具与新游戏模板放在仓库 `master` 分支；Fallen Doll 专属的运行时名称、骨架映射和发布文件只保留在此分支。
-
-## 问题反馈
-
-游戏识别、遗漏姿势、参与者绑定、功能骨映射和 Mod 安装问题，请在本仓库反馈。MotionBridge 的桌面界面、预览、设备连接或输出调节问题，请到 [MotionBridge Issues](https://github.com/Huarch/MotionBridge/issues) 反馈。
-
-游戏页面：[Steam 上的 Fallen Doll Playtest](https://store.steampowered.com/app/1685960/)
-
-这是非官方社区项目，不包含游戏资源或设备驱动。
-
-社区版 VR 单人房也已完成双参与者数据流实测；适配器现同时接受桌面及 VR 单人房地图，仍保留本地控制器校验。
+0.18.1 是 Mod 版本；0.9.0b 是游戏版本；7313 是实测游戏的构建编号。Playtest 安装包独立维护。

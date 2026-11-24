@@ -2,6 +2,7 @@
 param(
     [string]$GameRoot = "",
     [string]$RestoreBackup = "",
+    [switch]$ValidateOnly,
     [switch]$Interactive
 )
 
@@ -56,14 +57,6 @@ if (-not [string]::IsNullOrWhiteSpace($RestoreBackup)) {
     exit 0
 }
 
-foreach ($required in @("UE4SS.dll", "$coreRelative\hanime_detector.lua", "Mods\fd_tcode_probe\Scripts\fd_tcode\config.lua")) {
-    if (-not (Test-Path -LiteralPath (Join-Path $ue4ss $required) -PathType Leaf)) {
-        throw "Install your original Playtest Mod 0.18.1 package first. Missing: $required"
-    }
-}
-$config = [IO.File]::ReadAllText((Join-Path $ue4ss "Mods\fd_tcode_probe\Scripts\fd_tcode\config.lua"))
-if ($config -notmatch 'version\s*=\s*"0\.18\.1"') { throw "This community add-on requires Mod 0.18.1." }
-
 # Check the tested executable's code at three independent locations. No digest
 # or executable modification is performed. Other layouts are refused.
 $checks = @(
@@ -88,6 +81,16 @@ try {
         }
     }
 } finally { $stream.Dispose() }
+
+if ($ValidateOnly) { Write-Output "Community 0.9.0b layout verified."; exit 0 }
+
+foreach ($required in @("UE4SS.dll", "$coreRelative\hanime_detector.lua", "Mods\fd_tcode_probe\Scripts\fd_tcode\config.lua")) {
+    if (-not (Test-Path -LiteralPath (Join-Path $ue4ss $required) -PathType Leaf)) {
+        throw "Install your original Playtest Mod 0.18.1 package first. Missing: $required"
+    }
+}
+$config = [IO.File]::ReadAllText((Join-Path $ue4ss "Mods\fd_tcode_probe\Scripts\fd_tcode\config.lua"))
+if ($config -notmatch 'version\s*=\s*"0\.18\.1"') { throw "This community add-on requires Mod 0.18.1." }
 
 function Normalize-Newlines([string]$Text) { return $Text.Replace("`r`n", "`n") }
 $detectorPath = Join-Path $ue4ss "$coreRelative\hanime_detector.lua"
