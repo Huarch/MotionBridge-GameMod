@@ -10,13 +10,18 @@ In multiplayer, the outer action gate follows only the local player's HAnime sta
 
 ## Supported game version
 
-- Fallen Doll Playtest `0.9.0` (desktop and VR)
+| Game version | Support |
+| --- | --- |
+| Fallen Doll Playtest `0.9.0` | Existing desktop and VR support |
+| Fallen Doll **Community `0.9.0b`** | Tested build `7313`, desktop single-player room; install the community compatibility add-on |
 
-This is the supported game version. The separate `0.18.0` number identifies the Mod package itself and is not a Fallen Doll game version.
+`7313` is the tested game's build number. Community VR, multiplayer, other executable layouts, and physical-device movement have not been validated.
+
+This is the supported game version. The separate `0.18.1` number identifies the Mod package itself and is not a Fallen Doll game version.
 
 ## Before you start
 
-- Install Fallen Doll Playtest `0.9.0` (desktop or VR).
+- Install Fallen Doll Playtest `0.9.0` (desktop or VR), or the supported Community `0.9.0b` desktop build.
 - Download and run the current [MotionBridge release](https://github.com/Huarch/MotionBridge/releases).
 - Download the Mod package built from the `fallen-doll-playtest` branch or its matching [release](https://github.com/Huarch/MotionBridge-GameMod/releases).
 
@@ -29,7 +34,15 @@ This is the supported game version. The separate `0.18.0` number identifies the 
 5. Start MotionBridge, then start the Fallen Doll Playtest and enter an HAnime.
 6. Confirm that MotionBridge reports the Fallen Doll data stream as **Online**. Open the 3D preview to check direction and range before enabling real output.
 
-Run the installer, the game, and MotionBridge as the same Windows user. Administrator mode is not normally required. The advanced `Install-Mod.ps1` interface remains available for scripted deployment, but ordinary users should use `Install Mod.cmd`.
+Run the installer, the game, and MotionBridge as the same Windows user. Administrator mode is not normally required. The advanced `Install-Mod.ps1` interface remains available for scripted deployment, but ordinary users should start with `Install Mod.cmd`; Community users then apply the add-on below.
+
+### Community 0.9.0b
+
+Install the base Mod **0.18.1** with `Install Mod.cmd` first. While the game is closed, run **`Install Community Compatibility.cmd`** from the same package and select the game root containing `Paralogue`. For the standalone compatibility ZIP, run its `Install Compatibility.cmd` after installing the base Mod.
+
+The add-on checks the executable layout before adding three UE4SS signatures and a desktop single-room action adapter. It backs up its five affected files and preserves the supplied UE4SS DLL, local settings, and the existing Playtest runtime. It fixes both missing local-action notifications and room acquisition after a cold start; F10 is not required for normal entry into an animation.
+
+Community build 7313 has been tested from a fresh game launch into a laboratory animation with MotionBridge Online and two participants streaming. Other Community configurations remain unverified. Game files, content backports, and launchers are separate and are not included in this Mod.
 
 ### Manual installation (fallback only)
 

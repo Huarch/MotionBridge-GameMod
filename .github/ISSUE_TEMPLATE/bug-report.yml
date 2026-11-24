@@ -16,6 +16,8 @@ body:
     attributes:
       label: Mod version / Mod 版本
       options:
+        - v0.18.1
+        - v0.18.0
         - v0.17.0
         - Newer development build / 更新的开发版本
         - Older version / 旧版本
@@ -28,7 +30,8 @@ body:
     attributes:
       label: Game build / 游戏版本
       options:
-        - Playtest / Closed Beta
+        - Playtest 0.9.0 / Closed Beta
+        - Community 0.9.0b / 社区版（实测构建 7313）
         - Legacy 0.49
         - Steam Demo
         - Other / 其他

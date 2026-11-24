@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-24",
+  "scope": "Community 0.9.0b, build 7313, Desktop, Room_SinglePCMain, author-provided UE4SS DLL",
+  "exe_size": 191914496,
+  "signature_rvas": {
+    "StaticConstructObject_Internal": "0x15F7910",
+    "FUObjectHashTables_Get": "0x15E8630",
+    "GNatives": "0xAB0C6D0"
+  },
+  "unique_signature_matches": true,
+  "custom_ue4ss_dll_preserved": true,
+  "runtime": {
+    "corrected_signatures_loaded": true,
+    "native_action_2_observed": true,
+    "sampling_resumed": true,
+    "participants": 2,
+    "samples_logged_at_least": 3000,
+    "participant_packets_logged_at_least": 6000,
+    "native_action_0_closes_gate": true,
+    "native_action_2_reentry_resumes": true,
+    "user_confirmed_motionbridge_online_and_exit_reentry": true,
+    "original_validation_activation_path": "F10 reload while animation was active",
+    "observed_base_mod_version": "0.18.0"
+  },
+  "checks": {
+    "gate_behavior_assertions": 17,
+    "lua_syntax": "passed",
+    "installer_backup_restore_idempotency_preservation_and_refusals": "passed",
+    "cold_start_lifecycle_assertions": 15,
+    "total_gate_and_lifecycle_assertions": 32,
+    "mod_0_18_1": "Version and packaging update over the same validated base detector and compatibility behavior",
+    "mod_0_18_1_package": "34 baseline Lua modules compared with the published package; custom UE4SS and proxy preserved; explicit community inclusion block exercised"
+  },
+  "not_verified": [
+    "VR",
+    "multiplayer",
+    "physical device movement",
+    "other executable layouts"
+  ],
+  "cold_start_fix": {
+    "root_cause": "Initial discovery in title world was never rearmed after ownerless Character BeginPlay",
+    "behavior": "A Character BeginPlay with no valid cached local room rearms one acquisition at the next sample; steady sampling does not scan",
+    "installed": true,
+    "live_dollhouse_cold_start_verified": true,
+    "user_confirmed_online_without_F10": true,
+    "live_session_started": "2026-11-24T21:42:34+08:00",
+    "active_action_observed": 2,
+    "participants": 2,
+    "samples_logged_at_least": 500,
+    "participant_packets_logged_at_least": 1000,
+    "stream_schema": "fallen-doll-ue-world-v1"
+  },
+  "mod_version": "0.18.1",
+  "game_version": "Community 0.9.0b",
+  "tested_build": "7313"
+}

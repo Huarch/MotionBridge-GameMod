@@ -1,7 +1,7 @@
 param(
     # Mod package version. The supported Playtest game version is documented
     # separately in README.md and README-ZH.md.
-    [string]$Version = "0.18.0",
+    [string]$Version = "0.18.1",
     [string]$UE4SSArchive = "",
     [string]$PatchedUE4SSDll = ""
 )
@@ -39,6 +39,7 @@ if (-not $archivePath.StartsWith($outputRoot, [System.StringComparison]::Ordinal
 $required = @(
     "fd_tcode_probe",
     "packaging/Install Mod.cmd",
+    "packaging/Install Community Compatibility.cmd",
     "packaging/README.txt",
     "tools/Install-FallenDollTCode.ps1",
     "README.md",
@@ -230,6 +231,27 @@ for ($index = 0; $index -lt $launcherBytes.Length; ++$index) {
     }
 }
 Copy-Item -LiteralPath (Join-Path $workspace "packaging/README.txt") -Destination (Join-Path $packageDir "README.txt")
+
+# Community compatibility is an explicit add-on. The standard Playtest payload
+# retains its existing signatures and detector until this installer is selected.
+$communitySource = Join-Path $workspace "packaging/compatibility/community-0.9.0b"
+$communityDestination = Join-Path $packageDir "CommunityCompatibility"
+$communityFiles = @(
+    "Install-Compatibility.ps1", "Install Compatibility.cmd", "README.txt",
+    "compat7313_local_action.lua", "validation.json",
+    "Signatures/StaticConstructObject.lua", "Signatures/GUObjectHashTables.lua", "Signatures/GNatives.lua",
+    "Reference/hanime_detector-base.lua"
+)
+foreach ($relativePath in $communityFiles) {
+    $source = Join-Path $communitySource $relativePath
+    if (-not (Test-Path -LiteralPath $source -PathType Leaf)) { throw "Missing community release file: $relativePath" }
+    $destination = Join-Path $communityDestination $relativePath
+    New-Item -ItemType Directory -Path (Split-Path -Parent $destination) -Force | Out-Null
+    Copy-Item -LiteralPath $source -Destination $destination
+}
+$communityLauncherText = [IO.File]::ReadAllText((Join-Path $workspace "packaging/Install Community Compatibility.cmd"))
+$communityLauncherText = $communityLauncherText -replace "`r?`n", "`r`n"
+[IO.File]::WriteAllText((Join-Path $packageDir "Install Community Compatibility.cmd"), $communityLauncherText, [Text.Encoding]::ASCII)
 
 $allowedUE4SSEntries = @(
     "LICENSE",

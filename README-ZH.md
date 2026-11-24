@@ -10,13 +10,18 @@
 
 ## 支持的游戏版本
 
-- Fallen Doll Playtest `0.9.0`（桌面模式与 VR 模式）
+| 游戏版本 | 支持范围 |
+| --- | --- |
+| Fallen Doll Playtest `0.9.0` | 原有桌面模式与 VR 模式支持 |
+| Fallen Doll **社区版 `0.9.0b`** | 已实测构建 `7313`、桌面单人房；需安装社区兼容补丁 |
 
-这里指的是受支持的游戏版本。单独的 `0.18.0` 是 Mod 安装包自身版本，不是 Fallen Doll 的游戏版本。
+`7313` 是实测游戏的构建编号。社区版的 VR、多人、其他可执行文件布局和真实设备动作尚未验证。
+
+这里指的是受支持的游戏版本。单独的 `0.18.1` 是 Mod 安装包自身版本，不是 Fallen Doll 的游戏版本。
 
 ## 使用前准备
 
-- 安装 Fallen Doll Playtest `0.9.0`（桌面或 VR）。
+- 安装 Fallen Doll Playtest `0.9.0`（桌面或 VR），或受支持的社区版 `0.9.0b` 桌面构建。
 - 下载并启动最新的 [MotionBridge](https://github.com/Huarch/MotionBridge/releases)。
 - 下载由 `fallen-doll-playtest` 分支构建的 Mod 包，或下载匹配的 [Release](https://github.com/Huarch/MotionBridge-GameMod/releases)。
 
@@ -29,7 +34,15 @@
 5. 启动 MotionBridge，再启动 Fallen Doll Playtest 并进入 HAnime。
 6. 确认 MotionBridge 显示 Fallen Doll 数据流为 **Online**。开启真实设备输出前，先打开 3D 预览检查方向和行程。
 
-安装器、游戏和 MotionBridge 应使用同一个 Windows 用户运行，通常不需要管理员权限。`Install-Mod.ps1` 仍保留给脚本化部署使用，普通用户只需运行 `Install Mod.cmd`。
+安装器、游戏和 MotionBridge 应使用同一个 Windows 用户运行，通常不需要管理员权限。`Install-Mod.ps1` 仍保留给脚本化部署使用，基础安装使用 `Install Mod.cmd`，社区版再按下节安装兼容补丁。
+
+### 社区版 0.9.0b
+
+先用 `Install Mod.cmd` 安装基础 Mod **0.18.1**。保持游戏关闭，再运行同一安装包中的 **`Install Community Compatibility.cmd`**，选择包含 `Paralogue` 的游戏根目录。如果下载的是独立兼容补丁 ZIP，则先安装基础 Mod，再运行补丁包内的 `Install Compatibility.cmd`。
+
+社区补丁先核对可执行文件布局，再添加三份 UE4SS 扫描签名和桌面单人房动作适配器。安装器会备份所改动的五个文件，保留配套 UE4SS DLL、本地设置及原有 Playtest 运行逻辑。它修复本地动作通知缺失，以及冷启动后无法获取房间引用的问题；正常进入动画无需按 F10。
+
+社区构建 7313 已从重新启动游戏到实验室动画完成实测：MotionBridge 在线，两个参与者持续输出数据。其他社区版配置仍待验证。游戏文件、内容回移补丁和启动器独立提供，不包含在此 Mod 内。
 
 ### 手动安装（仅作备用）
 
